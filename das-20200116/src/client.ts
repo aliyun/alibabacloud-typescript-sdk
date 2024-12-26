@@ -4100,6 +4100,294 @@ export class DescribeInstanceDasProResponse extends $tea.Model {
   }
 }
 
+export class DescribeSlowLogHistogramAsyncRequest extends $tea.Model {
+  /**
+   * @example
+   * 1662518540764
+   */
+  endTime?: number;
+  filters?: DescribeSlowLogHistogramAsyncRequestFilters[];
+  /**
+   * @example
+   * rm-2ze8g2am97624****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * r-****-db-0
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * 1596177993000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      filters: 'Filters',
+      instanceId: 'InstanceId',
+      nodeId: 'NodeId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      filters: { 'type': 'array', 'itemType': DescribeSlowLogHistogramAsyncRequestFilters },
+      instanceId: 'string',
+      nodeId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogHistogramAsyncResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * AsyncResult<Histogram>。
+   */
+  data?: DescribeSlowLogHistogramAsyncResponseBodyData;
+  /**
+   * @example
+   * Successful
+   */
+  message?: string;
+  /**
+   * @example
+   * B6D17591-B48B-4D31-9CD6-9B9796B2****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeSlowLogHistogramAsyncResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogHistogramAsyncResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSlowLogHistogramAsyncResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSlowLogHistogramAsyncResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogStatisticRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  asc?: boolean;
+  /**
+   * @example
+   * 1608888296000
+   */
+  endTime?: number;
+  filters?: DescribeSlowLogStatisticRequestFilters[];
+  /**
+   * @example
+   * rm-2ze1jdv45i7l6****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * r-x****-db-0
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * count
+   */
+  orderBy?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1568269711000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * 04ea3310df40c3fa8a6b4854db49f79a
+   */
+  templateId?: string;
+  /**
+   * @example
+   * SQL
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asc: 'Asc',
+      endTime: 'EndTime',
+      filters: 'Filters',
+      instanceId: 'InstanceId',
+      nodeId: 'NodeId',
+      orderBy: 'OrderBy',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      templateId: 'TemplateId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asc: 'boolean',
+      endTime: 'number',
+      filters: { 'type': 'array', 'itemType': DescribeSlowLogStatisticRequestFilters },
+      instanceId: 'string',
+      nodeId: 'string',
+      orderBy: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'number',
+      templateId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogStatisticResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * AsyncResult<DBLogRecords<SlowLogStat>>
+   */
+  data?: DescribeSlowLogStatisticResponseBodyData;
+  /**
+   * @example
+   * Successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 52D540CF-C517-1F57-BB42-9035F96******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeSlowLogStatisticResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogStatisticResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSlowLogStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSlowLogStatisticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSqlLogConfigRequest extends $tea.Model {
   /**
    * @remarks
@@ -20865,6 +21153,1206 @@ export class DescribeHotKeysResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeSlowLogHistogramAsyncRequestFilters extends $tea.Model {
+  /**
+   * @example
+   * None
+   */
+  key?: string;
+  /**
+   * @example
+   * None
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems extends $tea.Model {
+  count?: number[];
+  /**
+   * @example
+   * 2492
+   */
+  insId?: string;
+  /**
+   * @example
+   * userAdmin
+   */
+  insRole?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      insId: 'InsId',
+      insRole: 'InsRole',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: { 'type': 'array', 'itemType': 'number' },
+      insId: 'string',
+      insRole: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItem extends $tea.Model {
+  count?: number[];
+  insItems?: DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems[];
+  /**
+   * @example
+   * r-bp1hi0wg57s3n0i3n8-db-0
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      insItems: 'InsItems',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: { 'type': 'array', 'itemType': 'number' },
+      insItems: { 'type': 'array', 'itemType': DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems },
+      nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $tea.Model {
+  avgCPUTime?: number[];
+  avgDocExamined?: number[];
+  avgIOWrites?: number[];
+  avgKeysExamined?: number[];
+  avgLastRowsCountAffected?: number[];
+  avgLockTime?: number[];
+  avgLogicalIOReads?: number[];
+  avgPhysicalIOReads?: number[];
+  avgReturnNum?: number[];
+  avgRowsCountAffected?: number[];
+  avgRowsExamined?: number[];
+  avgRowsSent?: number[];
+  avgRt?: number[];
+  CPUTime?: number[];
+  count?: number[];
+  docExamined?: number[];
+  IOWrites?: number[];
+  item?: DescribeSlowLogHistogramAsyncResponseBodyDataDataItem[];
+  keysExamined?: number[];
+  lastRowsCountAffected?: number[];
+  lockTime?: number[];
+  logicalIOReads?: number[];
+  maxCPUTime?: number[];
+  maxDocExamined?: number[];
+  maxIOWrites?: number[];
+  maxKeysExamined?: number[];
+  maxLastRowsCountAffected?: number[];
+  maxLockTime?: number[];
+  maxLogicalIOReads?: number[];
+  maxPhysicalIOReads?: number[];
+  maxReturnNum?: number[];
+  maxRowsCountAffected?: number[];
+  maxRowsExamined?: number[];
+  maxRowsSent?: number[];
+  maxRt?: number[];
+  physicalIOReads?: number[];
+  returnNum?: number[];
+  rowsCountAffected?: number[];
+  rowsExamined?: number[];
+  rowsSent?: number[];
+  rt?: number[];
+  /**
+   * @example
+   * 1
+   */
+  total?: number;
+  ts?: number[];
+  tsEnd?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      avgCPUTime: 'AvgCPUTime',
+      avgDocExamined: 'AvgDocExamined',
+      avgIOWrites: 'AvgIOWrites',
+      avgKeysExamined: 'AvgKeysExamined',
+      avgLastRowsCountAffected: 'AvgLastRowsCountAffected',
+      avgLockTime: 'AvgLockTime',
+      avgLogicalIOReads: 'AvgLogicalIOReads',
+      avgPhysicalIOReads: 'AvgPhysicalIOReads',
+      avgReturnNum: 'AvgReturnNum',
+      avgRowsCountAffected: 'AvgRowsCountAffected',
+      avgRowsExamined: 'AvgRowsExamined',
+      avgRowsSent: 'AvgRowsSent',
+      avgRt: 'AvgRt',
+      CPUTime: 'CPUTime',
+      count: 'Count',
+      docExamined: 'DocExamined',
+      IOWrites: 'IOWrites',
+      item: 'Item',
+      keysExamined: 'KeysExamined',
+      lastRowsCountAffected: 'LastRowsCountAffected',
+      lockTime: 'LockTime',
+      logicalIOReads: 'LogicalIOReads',
+      maxCPUTime: 'MaxCPUTime',
+      maxDocExamined: 'MaxDocExamined',
+      maxIOWrites: 'MaxIOWrites',
+      maxKeysExamined: 'MaxKeysExamined',
+      maxLastRowsCountAffected: 'MaxLastRowsCountAffected',
+      maxLockTime: 'MaxLockTime',
+      maxLogicalIOReads: 'MaxLogicalIOReads',
+      maxPhysicalIOReads: 'MaxPhysicalIOReads',
+      maxReturnNum: 'MaxReturnNum',
+      maxRowsCountAffected: 'MaxRowsCountAffected',
+      maxRowsExamined: 'MaxRowsExamined',
+      maxRowsSent: 'MaxRowsSent',
+      maxRt: 'MaxRt',
+      physicalIOReads: 'PhysicalIOReads',
+      returnNum: 'ReturnNum',
+      rowsCountAffected: 'RowsCountAffected',
+      rowsExamined: 'RowsExamined',
+      rowsSent: 'RowsSent',
+      rt: 'Rt',
+      total: 'Total',
+      ts: 'Ts',
+      tsEnd: 'TsEnd',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avgCPUTime: { 'type': 'array', 'itemType': 'number' },
+      avgDocExamined: { 'type': 'array', 'itemType': 'number' },
+      avgIOWrites: { 'type': 'array', 'itemType': 'number' },
+      avgKeysExamined: { 'type': 'array', 'itemType': 'number' },
+      avgLastRowsCountAffected: { 'type': 'array', 'itemType': 'number' },
+      avgLockTime: { 'type': 'array', 'itemType': 'number' },
+      avgLogicalIOReads: { 'type': 'array', 'itemType': 'number' },
+      avgPhysicalIOReads: { 'type': 'array', 'itemType': 'number' },
+      avgReturnNum: { 'type': 'array', 'itemType': 'number' },
+      avgRowsCountAffected: { 'type': 'array', 'itemType': 'number' },
+      avgRowsExamined: { 'type': 'array', 'itemType': 'number' },
+      avgRowsSent: { 'type': 'array', 'itemType': 'number' },
+      avgRt: { 'type': 'array', 'itemType': 'number' },
+      CPUTime: { 'type': 'array', 'itemType': 'number' },
+      count: { 'type': 'array', 'itemType': 'number' },
+      docExamined: { 'type': 'array', 'itemType': 'number' },
+      IOWrites: { 'type': 'array', 'itemType': 'number' },
+      item: { 'type': 'array', 'itemType': DescribeSlowLogHistogramAsyncResponseBodyDataDataItem },
+      keysExamined: { 'type': 'array', 'itemType': 'number' },
+      lastRowsCountAffected: { 'type': 'array', 'itemType': 'number' },
+      lockTime: { 'type': 'array', 'itemType': 'number' },
+      logicalIOReads: { 'type': 'array', 'itemType': 'number' },
+      maxCPUTime: { 'type': 'array', 'itemType': 'number' },
+      maxDocExamined: { 'type': 'array', 'itemType': 'number' },
+      maxIOWrites: { 'type': 'array', 'itemType': 'number' },
+      maxKeysExamined: { 'type': 'array', 'itemType': 'number' },
+      maxLastRowsCountAffected: { 'type': 'array', 'itemType': 'number' },
+      maxLockTime: { 'type': 'array', 'itemType': 'number' },
+      maxLogicalIOReads: { 'type': 'array', 'itemType': 'number' },
+      maxPhysicalIOReads: { 'type': 'array', 'itemType': 'number' },
+      maxReturnNum: { 'type': 'array', 'itemType': 'number' },
+      maxRowsCountAffected: { 'type': 'array', 'itemType': 'number' },
+      maxRowsExamined: { 'type': 'array', 'itemType': 'number' },
+      maxRowsSent: { 'type': 'array', 'itemType': 'number' },
+      maxRt: { 'type': 'array', 'itemType': 'number' },
+      physicalIOReads: { 'type': 'array', 'itemType': 'number' },
+      returnNum: { 'type': 'array', 'itemType': 'number' },
+      rowsCountAffected: { 'type': 'array', 'itemType': 'number' },
+      rowsExamined: { 'type': 'array', 'itemType': 'number' },
+      rowsSent: { 'type': 'array', 'itemType': 'number' },
+      rt: { 'type': 'array', 'itemType': 'number' },
+      total: 'number',
+      ts: { 'type': 'array', 'itemType': 'number' },
+      tsEnd: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogHistogramAsyncResponseBodyData extends $tea.Model {
+  data?: DescribeSlowLogHistogramAsyncResponseBodyDataData;
+  /**
+   * @example
+   * 10910
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * true
+   */
+  isFinish?: boolean;
+  /**
+   * @example
+   * Successful
+   */
+  message?: string;
+  requestKey?: string;
+  /**
+   * @example
+   * async__20ee808e72257f16a4fe024057ca****
+   */
+  resultId?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
+  state?: string;
+  /**
+   * @example
+   * 1645668213000
+   */
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      isFinish: 'IsFinish',
+      message: 'Message',
+      requestKey: 'RequestKey',
+      resultId: 'ResultId',
+      state: 'State',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeSlowLogHistogramAsyncResponseBodyDataData,
+      errorCode: 'number',
+      isFinish: 'boolean',
+      message: 'string',
+      requestKey: 'string',
+      resultId: 'string',
+      state: 'string',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogStatisticRequestFilters extends $tea.Model {
+  /**
+   * @example
+   * KeyWords
+   */
+  key?: string;
+  /**
+   * @example
+   * select
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem extends $tea.Model {
+  count?: number[];
+  /**
+   * @example
+   * r-bp1s1m8hwzrm77kfvz-db-0
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: { 'type': 'array', 'itemType': 'number' },
+      nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram extends $tea.Model {
+  avgLockTime?: number[];
+  avgRowsExamined?: number[];
+  avgRowsSent?: number[];
+  avgRt?: number[];
+  count?: number[];
+  item?: DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem[];
+  lockTime?: number[];
+  maxLockTime?: number[];
+  maxRowsExamined?: number[];
+  maxRowsSent?: number[];
+  maxRt?: number[];
+  rowsExamined?: number[];
+  rowsSent?: number[];
+  rt?: number[];
+  /**
+   * @example
+   * 7
+   */
+  total?: number;
+  ts?: number[];
+  tsEnd?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      avgLockTime: 'AvgLockTime',
+      avgRowsExamined: 'AvgRowsExamined',
+      avgRowsSent: 'AvgRowsSent',
+      avgRt: 'AvgRt',
+      count: 'Count',
+      item: 'Item',
+      lockTime: 'LockTime',
+      maxLockTime: 'MaxLockTime',
+      maxRowsExamined: 'MaxRowsExamined',
+      maxRowsSent: 'MaxRowsSent',
+      maxRt: 'MaxRt',
+      rowsExamined: 'RowsExamined',
+      rowsSent: 'RowsSent',
+      rt: 'Rt',
+      total: 'Total',
+      ts: 'Ts',
+      tsEnd: 'TsEnd',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avgLockTime: { 'type': 'array', 'itemType': 'number' },
+      avgRowsExamined: { 'type': 'array', 'itemType': 'number' },
+      avgRowsSent: { 'type': 'array', 'itemType': 'number' },
+      avgRt: { 'type': 'array', 'itemType': 'number' },
+      count: { 'type': 'array', 'itemType': 'number' },
+      item: { 'type': 'array', 'itemType': DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem },
+      lockTime: { 'type': 'array', 'itemType': 'number' },
+      maxLockTime: { 'type': 'array', 'itemType': 'number' },
+      maxRowsExamined: { 'type': 'array', 'itemType': 'number' },
+      maxRowsSent: { 'type': 'array', 'itemType': 'number' },
+      maxRt: { 'type': 'array', 'itemType': 'number' },
+      rowsExamined: { 'type': 'array', 'itemType': 'number' },
+      rowsSent: { 'type': 'array', 'itemType': 'number' },
+      rt: { 'type': 'array', 'itemType': 'number' },
+      total: 'number',
+      ts: { 'type': 'array', 'itemType': 'number' },
+      tsEnd: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag extends $tea.Model {
+  comments?: string;
+  /**
+   * @remarks
+   * SQL ID。
+   * 
+   * @example
+   * a3931d8c3a9315dd5ed016d71cf*****
+   */
+  sqlId?: string;
+  /**
+   * @example
+   * DAS_IN_PLAN
+   */
+  tags?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comments: 'Comments',
+      sqlId: 'SqlId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comments: 'string',
+      sqlId: 'string',
+      tags: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogStatisticResponseBodyDataDataLogsTrend extends $tea.Model {
+  /**
+   * @example
+   * 1723775362
+   */
+  timestamp?: number;
+  /**
+   * @example
+   * tf-testacc-oos-parameter
+   */
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      timestamp: 'Timestamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timestamp: 'number',
+      value: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $tea.Model {
+  /**
+   * @example
+   * edu_admin
+   */
+  accountName?: string;
+  /**
+   * @example
+   * -
+   */
+  avgCPUTime?: number;
+  /**
+   * @example
+   * 10000
+   */
+  avgDocExamined?: number;
+  /**
+   * @example
+   * 1000
+   */
+  avgIOWrites?: number;
+  /**
+   * @example
+   * 20000
+   */
+  avgKeysExamined?: number;
+  /**
+   * @example
+   * 1000
+   */
+  avgLastRowsCountAffected?: number;
+  /**
+   * @example
+   * -
+   */
+  avgLockTime?: number;
+  /**
+   * @example
+   * 0.0
+   */
+  avgLockTimeSeconds?: number;
+  /**
+   * @example
+   * 1000
+   */
+  avgLogicalIOReads?: number;
+  /**
+   * @example
+   * 1000
+   */
+  avgPhysicalIOReads?: number;
+  /**
+   * @example
+   * -
+   */
+  avgQueryTime?: number;
+  /**
+   * @example
+   * 6.211
+   */
+  avgQueryTimeSeconds?: number;
+  /**
+   * @example
+   * 1
+   */
+  avgReturnNum?: number;
+  /**
+   * @example
+   * 1000
+   */
+  avgRowsCountAffected?: number;
+  /**
+   * @example
+   * 53421.0
+   */
+  avgRowsExamined?: number;
+  /**
+   * @example
+   * 2.0
+   */
+  avgRowsSent?: number;
+  /**
+   * @example
+   * -
+   */
+  CPUTime?: number;
+  /**
+   * @example
+   * SELECT b?.id,b?.t?,b?.id,b?.t? FROM testtb? b? JOIN testtb? b? ON b?.id=b?.id WHERE b?.t? LIKE ? ORDER BY b?.t? DESC
+   */
+  command?: string;
+  /**
+   * @example
+   * 12
+   */
+  count?: number;
+  /**
+   * @example
+   * 0.2034
+   */
+  countRate?: number;
+  /**
+   * @example
+   * member_score
+   */
+  DBName?: string;
+  /**
+   * @example
+   * work-wechat-api
+   */
+  database?: string;
+  /**
+   * @example
+   * 0
+   */
+  dbInstanceName?: string;
+  /**
+   * @example
+   * 2000000
+   */
+  docExamined?: number;
+  /**
+   * @example
+   * 1
+   */
+  docsExamined?: number;
+  histogram?: DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram;
+  /**
+   * @example
+   * 172.23.142.178
+   */
+  hostAddress?: string;
+  /**
+   * @example
+   * mongo-abc123456
+   */
+  hostInsId?: string;
+  /**
+   * @example
+   * 1000
+   */
+  IOWrites?: number;
+  /**
+   * @example
+   * rm-uf6zix1z2jh1y6fe5
+   */
+  insName?: string;
+  /**
+   * @example
+   * __system
+   */
+  insRole?: string;
+  /**
+   * @example
+   * 20000
+   */
+  keysExamined?: number;
+  /**
+   * @example
+   * 1000
+   */
+  lastRowsCountAffected?: number;
+  /**
+   * @example
+   * -
+   */
+  lockTime?: number;
+  /**
+   * @example
+   * 0.0
+   */
+  lockTimeSeconds?: number;
+  /**
+   * @example
+   * 1000
+   */
+  logicalIOReads?: number;
+  /**
+   * @example
+   * -
+   */
+  maxCPUTime?: number;
+  /**
+   * @example
+   * 1000000
+   */
+  maxDocExamined?: number;
+  /**
+   * @example
+   * 1000
+   */
+  maxIOWrites?: number;
+  /**
+   * @example
+   * 2000000
+   */
+  maxKeysExamined?: number;
+  /**
+   * @example
+   * 1000
+   */
+  maxLastRowsCountAffected?: number;
+  /**
+   * @example
+   * -
+   */
+  maxLockTime?: number;
+  /**
+   * @example
+   * 0.0
+   */
+  maxLockTimeSeconds?: number;
+  /**
+   * @example
+   * 1000
+   */
+  maxLogicalIOReads?: number;
+  /**
+   * @example
+   * 1000
+   */
+  maxPhysicalIOReads?: number;
+  /**
+   * @example
+   * -
+   */
+  maxQueryTime?: number;
+  /**
+   * @example
+   * 14.402
+   */
+  maxQueryTimeSeconds?: number;
+  /**
+   * @example
+   * 1
+   */
+  maxReturnNum?: number;
+  /**
+   * @example
+   * 1000
+   */
+  maxRowsCountAffected?: number;
+  /**
+   * @example
+   * 318613
+   */
+  maxRowsExamined?: number;
+  /**
+   * @example
+   * 256
+   */
+  maxRowsSent?: number;
+  /**
+   * @example
+   * database.collection
+   */
+  namespace?: string;
+  /**
+   * @example
+   * DLNode
+   */
+  nodeType?: string;
+  /**
+   * @example
+   * Insert
+   */
+  opType?: string;
+  /**
+   * @example
+   * order-1
+   */
+  originAlias?: string;
+  /**
+   * @example
+   * 1000
+   */
+  physicalIOReads?: number;
+  /**
+   * @example
+   * SELECT b?.id,b?.t?,b?.id,b?.t? FROM testtb? b? JOIN testtb? b? ON b?.id=b?.id WHERE b?.t? LIKE ? ORDER BY b?.id DESC
+   */
+  psql?: string;
+  /**
+   * @example
+   * sq-1pzcdMwRb
+   */
+  queryId?: string;
+  /**
+   * @example
+   * 2024-12-25T03:00:00Z
+   */
+  queryStartTime?: string;
+  /**
+   * @example
+   * 272.444
+   */
+  queryTime?: number;
+  /**
+   * @example
+   * 0.1018
+   */
+  queryTimeRate?: number;
+  /**
+   * @example
+   * 25.472
+   */
+  queryTimeSeconds?: number;
+  returnItemNumbers?: string;
+  /**
+   * @example
+   * 1
+   */
+  returnNum?: number;
+  /**
+   * @example
+   * 1000
+   */
+  rowsCountAffected?: number;
+  /**
+   * @example
+   * 2444081
+   */
+  rowsExamined?: number;
+  /**
+   * @example
+   * 772
+   */
+  rowsSent?: number;
+  /**
+   * @example
+   * SELECT \\"Hello, World!\\" FROM DUAL
+   */
+  SQLText?: string;
+  /**
+   * @example
+   * HTTP
+   */
+  scheme?: string;
+  /**
+   * @remarks
+   * SQL ID。
+   * 
+   * @example
+   * 2dca88762ec6b3812504ab8a4b******
+   */
+  sqlId?: string;
+  sqlTag?: DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag;
+  /**
+   * @example
+   * LOGIN
+   */
+  sqlType?: string;
+  /**
+   * @example
+   * r-8vba51c588ba3a94
+   */
+  subInstanceId?: string;
+  /**
+   * @example
+   * users\\nifconfig\\n
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 1
+   */
+  threadId?: string;
+  /**
+   * @example
+   * 1708568930
+   */
+  timestamp?: number;
+  trend?: DescribeSlowLogStatisticResponseBodyDataDataLogsTrend[];
+  /**
+   * @example
+   * user-1
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      avgCPUTime: 'AvgCPUTime',
+      avgDocExamined: 'AvgDocExamined',
+      avgIOWrites: 'AvgIOWrites',
+      avgKeysExamined: 'AvgKeysExamined',
+      avgLastRowsCountAffected: 'AvgLastRowsCountAffected',
+      avgLockTime: 'AvgLockTime',
+      avgLockTimeSeconds: 'AvgLockTimeSeconds',
+      avgLogicalIOReads: 'AvgLogicalIOReads',
+      avgPhysicalIOReads: 'AvgPhysicalIOReads',
+      avgQueryTime: 'AvgQueryTime',
+      avgQueryTimeSeconds: 'AvgQueryTimeSeconds',
+      avgReturnNum: 'AvgReturnNum',
+      avgRowsCountAffected: 'AvgRowsCountAffected',
+      avgRowsExamined: 'AvgRowsExamined',
+      avgRowsSent: 'AvgRowsSent',
+      CPUTime: 'CPUTime',
+      command: 'Command',
+      count: 'Count',
+      countRate: 'CountRate',
+      DBName: 'DBName',
+      database: 'Database',
+      dbInstanceName: 'DbInstanceName',
+      docExamined: 'DocExamined',
+      docsExamined: 'DocsExamined',
+      histogram: 'Histogram',
+      hostAddress: 'HostAddress',
+      hostInsId: 'HostInsId',
+      IOWrites: 'IOWrites',
+      insName: 'InsName',
+      insRole: 'InsRole',
+      keysExamined: 'KeysExamined',
+      lastRowsCountAffected: 'LastRowsCountAffected',
+      lockTime: 'LockTime',
+      lockTimeSeconds: 'LockTimeSeconds',
+      logicalIOReads: 'LogicalIOReads',
+      maxCPUTime: 'MaxCPUTime',
+      maxDocExamined: 'MaxDocExamined',
+      maxIOWrites: 'MaxIOWrites',
+      maxKeysExamined: 'MaxKeysExamined',
+      maxLastRowsCountAffected: 'MaxLastRowsCountAffected',
+      maxLockTime: 'MaxLockTime',
+      maxLockTimeSeconds: 'MaxLockTimeSeconds',
+      maxLogicalIOReads: 'MaxLogicalIOReads',
+      maxPhysicalIOReads: 'MaxPhysicalIOReads',
+      maxQueryTime: 'MaxQueryTime',
+      maxQueryTimeSeconds: 'MaxQueryTimeSeconds',
+      maxReturnNum: 'MaxReturnNum',
+      maxRowsCountAffected: 'MaxRowsCountAffected',
+      maxRowsExamined: 'MaxRowsExamined',
+      maxRowsSent: 'MaxRowsSent',
+      namespace: 'Namespace',
+      nodeType: 'NodeType',
+      opType: 'OpType',
+      originAlias: 'OriginAlias',
+      physicalIOReads: 'PhysicalIOReads',
+      psql: 'Psql',
+      queryId: 'QueryId',
+      queryStartTime: 'QueryStartTime',
+      queryTime: 'QueryTime',
+      queryTimeRate: 'QueryTimeRate',
+      queryTimeSeconds: 'QueryTimeSeconds',
+      returnItemNumbers: 'ReturnItemNumbers',
+      returnNum: 'ReturnNum',
+      rowsCountAffected: 'RowsCountAffected',
+      rowsExamined: 'RowsExamined',
+      rowsSent: 'RowsSent',
+      SQLText: 'SQLText',
+      scheme: 'Scheme',
+      sqlId: 'SqlId',
+      sqlTag: 'SqlTag',
+      sqlType: 'SqlType',
+      subInstanceId: 'SubInstanceId',
+      tableName: 'TableName',
+      threadId: 'ThreadId',
+      timestamp: 'Timestamp',
+      trend: 'Trend',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      avgCPUTime: 'number',
+      avgDocExamined: 'number',
+      avgIOWrites: 'number',
+      avgKeysExamined: 'number',
+      avgLastRowsCountAffected: 'number',
+      avgLockTime: 'number',
+      avgLockTimeSeconds: 'number',
+      avgLogicalIOReads: 'number',
+      avgPhysicalIOReads: 'number',
+      avgQueryTime: 'number',
+      avgQueryTimeSeconds: 'number',
+      avgReturnNum: 'number',
+      avgRowsCountAffected: 'number',
+      avgRowsExamined: 'number',
+      avgRowsSent: 'number',
+      CPUTime: 'number',
+      command: 'string',
+      count: 'number',
+      countRate: 'number',
+      DBName: 'string',
+      database: 'string',
+      dbInstanceName: 'string',
+      docExamined: 'number',
+      docsExamined: 'number',
+      histogram: DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram,
+      hostAddress: 'string',
+      hostInsId: 'string',
+      IOWrites: 'number',
+      insName: 'string',
+      insRole: 'string',
+      keysExamined: 'number',
+      lastRowsCountAffected: 'number',
+      lockTime: 'number',
+      lockTimeSeconds: 'number',
+      logicalIOReads: 'number',
+      maxCPUTime: 'number',
+      maxDocExamined: 'number',
+      maxIOWrites: 'number',
+      maxKeysExamined: 'number',
+      maxLastRowsCountAffected: 'number',
+      maxLockTime: 'number',
+      maxLockTimeSeconds: 'number',
+      maxLogicalIOReads: 'number',
+      maxPhysicalIOReads: 'number',
+      maxQueryTime: 'number',
+      maxQueryTimeSeconds: 'number',
+      maxReturnNum: 'number',
+      maxRowsCountAffected: 'number',
+      maxRowsExamined: 'number',
+      maxRowsSent: 'number',
+      namespace: 'string',
+      nodeType: 'string',
+      opType: 'string',
+      originAlias: 'string',
+      physicalIOReads: 'number',
+      psql: 'string',
+      queryId: 'string',
+      queryStartTime: 'string',
+      queryTime: 'number',
+      queryTimeRate: 'number',
+      queryTimeSeconds: 'number',
+      returnItemNumbers: 'string',
+      returnNum: 'number',
+      rowsCountAffected: 'number',
+      rowsExamined: 'number',
+      rowsSent: 'number',
+      SQLText: 'string',
+      scheme: 'string',
+      sqlId: 'string',
+      sqlTag: DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag,
+      sqlType: 'string',
+      subInstanceId: 'string',
+      tableName: 'string',
+      threadId: 'string',
+      timestamp: 'number',
+      trend: { 'type': 'array', 'itemType': DescribeSlowLogStatisticResponseBodyDataDataLogsTrend },
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogStatisticResponseBodyDataData extends $tea.Model {
+  /**
+   * @example
+   * rm-k2ja51w7cnusg5a1x
+   */
+  dbInstanceId?: number;
+  /**
+   * @example
+   * 0
+   */
+  dbInstanceName?: string;
+  /**
+   * @example
+   * 2024-08-08T02:15:00Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 10
+   */
+  itemsNumbers?: number;
+  logs?: DescribeSlowLogStatisticResponseBodyDataDataLogs[];
+  /**
+   * @example
+   * 10
+   */
+  maxRecordsPerPage?: number;
+  /**
+   * @example
+   * pi-wz99g5rn7w1x8h0sf
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumbers?: number;
+  /**
+   * @example
+   * 2024-10-08T02:01:00Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * 13
+   */
+  totalRecords?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbInstanceId: 'DbInstanceId',
+      dbInstanceName: 'DbInstanceName',
+      endTime: 'EndTime',
+      itemsNumbers: 'ItemsNumbers',
+      logs: 'Logs',
+      maxRecordsPerPage: 'MaxRecordsPerPage',
+      nodeId: 'NodeId',
+      pageNumbers: 'PageNumbers',
+      startTime: 'StartTime',
+      totalRecords: 'TotalRecords',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbInstanceId: 'number',
+      dbInstanceName: 'string',
+      endTime: 'string',
+      itemsNumbers: 'number',
+      logs: { 'type': 'array', 'itemType': DescribeSlowLogStatisticResponseBodyDataDataLogs },
+      maxRecordsPerPage: 'number',
+      nodeId: 'string',
+      pageNumbers: 'number',
+      startTime: 'string',
+      totalRecords: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogStatisticResponseBodyData extends $tea.Model {
+  data?: DescribeSlowLogStatisticResponseBodyDataData;
+  /**
+   * @example
+   * 10910
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * true
+   */
+  isFinish?: boolean;
+  /**
+   * @example
+   * Successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 123456789
+   */
+  requestKey?: string;
+  /**
+   * @example
+   * async__665ee69612f1627c7fd9f3c85075****
+   */
+  resultId?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
+  state?: string;
+  /**
+   * @example
+   * 1735104224250
+   */
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      isFinish: 'IsFinish',
+      message: 'Message',
+      requestKey: 'RequestKey',
+      resultId: 'ResultId',
+      state: 'State',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeSlowLogStatisticResponseBodyDataData,
+      errorCode: 'number',
+      isFinish: 'boolean',
+      message: 'string',
+      requestKey: 'string',
+      resultId: 'string',
+      state: 'string',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSqlLogConfigResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -36220,6 +37708,146 @@ export default class Client extends OpenApi {
   async describeInstanceDasPro(request: DescribeInstanceDasProRequest): Promise<DescribeInstanceDasProResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceDasProWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeSlowLogHistogramAsync
+   * 
+   * @param request - DescribeSlowLogHistogramAsyncRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlowLogHistogramAsyncResponse
+   */
+  async describeSlowLogHistogramAsyncWithOptions(request: DescribeSlowLogHistogramAsyncRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogHistogramAsyncResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.filters)) {
+      body["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSlowLogHistogramAsync",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSlowLogHistogramAsyncResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogHistogramAsyncResponse({}));
+  }
+
+  /**
+   * DescribeSlowLogHistogramAsync
+   * 
+   * @param request - DescribeSlowLogHistogramAsyncRequest
+   * @returns DescribeSlowLogHistogramAsyncResponse
+   */
+  async describeSlowLogHistogramAsync(request: DescribeSlowLogHistogramAsyncRequest): Promise<DescribeSlowLogHistogramAsyncResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSlowLogHistogramAsyncWithOptions(request, runtime);
+  }
+
+  /**
+   * 慢日志统计信息
+   * 
+   * @param request - DescribeSlowLogStatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlowLogStatisticResponse
+   */
+  async describeSlowLogStatisticWithOptions(request: DescribeSlowLogStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogStatisticResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.asc)) {
+      body["Asc"] = request.asc;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.filters)) {
+      body["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      body["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSlowLogStatistic",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSlowLogStatisticResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogStatisticResponse({}));
+  }
+
+  /**
+   * 慢日志统计信息
+   * 
+   * @param request - DescribeSlowLogStatisticRequest
+   * @returns DescribeSlowLogStatisticResponse
+   */
+  async describeSlowLogStatistic(request: DescribeSlowLogStatisticRequest): Promise<DescribeSlowLogStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSlowLogStatisticWithOptions(request, runtime);
   }
 
   /**
