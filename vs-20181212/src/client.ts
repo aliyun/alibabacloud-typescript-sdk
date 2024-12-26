@@ -4881,6 +4881,9 @@ export class DeleteTemplateRequest extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 323*****998-cn-qingdao
    */
   id?: string;
   ownerId?: number;
@@ -4904,6 +4907,10 @@ export class DeleteTemplateRequest extends $tea.Model {
 }
 
 export class DeleteTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BEA5625F-8FCF-48F4-851B-CA63946DA664
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12771,6 +12778,118 @@ export class ListPublicKeysResponse extends $tea.Model {
   }
 }
 
+export class ListRenderingDataPackagesRequest extends $tea.Model {
+  /**
+   * @example
+   * dp-449ea3d16c0841b8bf33ec5bbc86a152
+   */
+  dataPackageId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 20
+   */
+  size?: number;
+  /**
+   * @example
+   * available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataPackageId: 'DataPackageId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      size: 'Size',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataPackageId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      size: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRenderingDataPackagesResponseBody extends $tea.Model {
+  dataPackages?: ListRenderingDataPackagesResponseBodyDataPackages[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * BEA5625F-8FCF-48F4-851B-CA63946DA664
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataPackages: 'DataPackages',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataPackages: { 'type': 'array', 'itemType': ListRenderingDataPackagesResponseBodyDataPackages },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRenderingDataPackagesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRenderingDataPackagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRenderingDataPackagesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRenderingInstanceGatewayRequest extends $tea.Model {
   /**
    * @example
@@ -14573,6 +14692,93 @@ export class RebootRenderingInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RebootRenderingInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecoverRenderingDataPackageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dp-449ea3d16c0841b8bf33ec5bbc86a152
+   */
+  dataPackageId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * render-9f8c57355d224ad7beaf95e145f22111
+   */
+  renderingInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataPackageId: 'DataPackageId',
+      renderingInstanceId: 'RenderingInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataPackageId: 'string',
+      renderingInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecoverRenderingDataPackageResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * BEA5625F-8FCF-48F4-851B-CA63946DA664
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecoverRenderingDataPackageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RecoverRenderingDataPackageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecoverRenderingDataPackageResponseBody,
     };
   }
 
@@ -22547,6 +22753,71 @@ export class ListPublicKeysResponseBodyPublicKeys extends $tea.Model {
   }
 }
 
+export class ListRenderingDataPackagesResponseBodyDataPackages extends $tea.Model {
+  /**
+   * @example
+   * 2024-10-15T10:23:06+08:00
+   */
+  creationTime?: string;
+  /**
+   * @example
+   * dp-449ea3d16c0841b8bf33ec5bbc86a152
+   */
+  dataPackageId?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * render-342012a227dc4ddf91f024639e43051a
+   */
+  renderingInstanceId?: string;
+  /**
+   * @example
+   * 10
+   */
+  size?: number;
+  /**
+   * @example
+   * available
+   */
+  status?: string;
+  /**
+   * @example
+   * 2024-12-06T02:03:59Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      dataPackageId: 'DataPackageId',
+      description: 'Description',
+      renderingInstanceId: 'RenderingInstanceId',
+      size: 'Size',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      dataPackageId: 'string',
+      description: 'string',
+      renderingInstanceId: 'string',
+      size: 'number',
+      status: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRenderingInstanceGatewayResponseBodyGatewayConfigurationInfos extends $tea.Model {
   /**
    * @example
@@ -28527,6 +28798,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询所有云应用数据包信息，支持分页查询。
+   * 
+   * @param request - ListRenderingDataPackagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRenderingDataPackagesResponse
+   */
+  async listRenderingDataPackagesWithOptions(request: ListRenderingDataPackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListRenderingDataPackagesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataPackageId)) {
+      query["DataPackageId"] = request.dataPackageId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRenderingDataPackages",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRenderingDataPackagesResponse>(await this.callApi(params, req, runtime), new ListRenderingDataPackagesResponse({}));
+  }
+
+  /**
+   * 查询所有云应用数据包信息，支持分页查询。
+   * 
+   * @param request - ListRenderingDataPackagesRequest
+   * @returns ListRenderingDataPackagesResponse
+   */
+  async listRenderingDataPackages(request: ListRenderingDataPackagesRequest): Promise<ListRenderingDataPackagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRenderingDataPackagesWithOptions(request, runtime);
+  }
+
+  /**
    * 查询自定义网关
    * 
    * @param request - ListRenderingInstanceGatewayRequest
@@ -29499,6 +29828,52 @@ export default class Client extends OpenApi {
   async rebootRenderingInstance(request: RebootRenderingInstanceRequest): Promise<RebootRenderingInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebootRenderingInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 恢复数据到云渲染实例
+   * 
+   * @param request - RecoverRenderingDataPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecoverRenderingDataPackageResponse
+   */
+  async recoverRenderingDataPackageWithOptions(request: RecoverRenderingDataPackageRequest, runtime: $Util.RuntimeOptions): Promise<RecoverRenderingDataPackageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataPackageId)) {
+      query["DataPackageId"] = request.dataPackageId;
+    }
+
+    if (!Util.isUnset(request.renderingInstanceId)) {
+      query["RenderingInstanceId"] = request.renderingInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecoverRenderingDataPackage",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecoverRenderingDataPackageResponse>(await this.callApi(params, req, runtime), new RecoverRenderingDataPackageResponse({}));
+  }
+
+  /**
+   * 恢复数据到云渲染实例
+   * 
+   * @param request - RecoverRenderingDataPackageRequest
+   * @returns RecoverRenderingDataPackageResponse
+   */
+  async recoverRenderingDataPackage(request: RecoverRenderingDataPackageRequest): Promise<RecoverRenderingDataPackageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recoverRenderingDataPackageWithOptions(request, runtime);
   }
 
   /**
