@@ -13351,6 +13351,8 @@ export class StartHanaDatabaseAsyncRequest extends $tea.Model {
    * @remarks
    * The ID of the SAP HANA instance.
    * 
+   * This parameter is required.
+   * 
    * @example
    * cl-000a9ipe******sme
    */
@@ -13368,6 +13370,8 @@ export class StartHanaDatabaseAsyncRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the backup vault.
+   * 
+   * This parameter is required.
    * 
    * @example
    * v-0000hrh******vhr3i
@@ -13493,6 +13497,8 @@ export class StopHanaDatabaseAsyncRequest extends $tea.Model {
    * @remarks
    * The ID of the SAP HANA instance.
    * 
+   * This parameter is required.
+   * 
    * @example
    * cl-000dw******45ijer
    */
@@ -13510,6 +13516,8 @@ export class StopHanaDatabaseAsyncRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the backup vault.
+   * 
+   * This parameter is required.
    * 
    * @example
    * v-0006wkn******gzkn
@@ -15581,6 +15589,8 @@ export class UpdateHanaRetentionSettingRequest extends $tea.Model {
    * @remarks
    * The ID of the SAP HANA instance.
    * 
+   * This parameter is required.
+   * 
    * @example
    * cl-00024vyjj******srrq
    */
@@ -15634,6 +15644,8 @@ export class UpdateHanaRetentionSettingRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the backup vault.
+   * 
+   * This parameter is required.
    * 
    * @example
    * v-000fb0v2ly******k6
