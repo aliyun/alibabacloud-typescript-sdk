@@ -739,6 +739,1141 @@ export class AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse extends $
   }
 }
 
+export class ExecuteAITeacherExpansionDialogueRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * In a career counseling session, we are going to discuss our dream jobs and the responsibilities associated with them. Alex, who dreams of becoming a professional travel blogger, will share the tasks and skills required for this role, while Jamie, aspiring to be a wildlife photographer, will outline the responsibilities and challenges of capturing nature\\"s moments. Both will explore how their interests align with the practical aspects of their chosen careers, discussing the potential for travel, creativity, and the impact of their work on society and the environment.
+   */
+  background?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dialogueTasks?: ExecuteAITeacherExpansionDialogueRequestDialogueTasks[];
+  /**
+   * @example
+   * en-gb
+   */
+  languageCode?: string;
+  records?: ExecuteAITeacherExpansionDialogueRequestRecords[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  roleInfo?: ExecuteAITeacherExpansionDialogueRequestRoleInfo;
+  /**
+   * @example
+   * Hello Lily, could you please come to the kitchen for a moment?
+   */
+  startSentence?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Let\\"s talk about traffic rules.
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 886eba3702xxxxxxxxx4ba52a87a525
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      background: 'background',
+      dialogueTasks: 'dialogueTasks',
+      languageCode: 'languageCode',
+      records: 'records',
+      roleInfo: 'roleInfo',
+      startSentence: 'startSentence',
+      topic: 'topic',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      background: 'string',
+      dialogueTasks: { 'type': 'array', 'itemType': ExecuteAITeacherExpansionDialogueRequestDialogueTasks },
+      languageCode: 'string',
+      records: { 'type': 'array', 'itemType': ExecuteAITeacherExpansionDialogueRequestRecords },
+      roleInfo: ExecuteAITeacherExpansionDialogueRequestRoleInfo,
+      startSentence: 'string',
+      topic: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueResponseBody extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
+  data?: ExecuteAITeacherExpansionDialogueResponseBodyData;
+  /**
+   * @example
+   * UNKNOWN_ERROR
+   */
+  errCode?: string;
+  /**
+   * @example
+   * 未知错误
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx-xxxx-xxxx-xxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ExecuteAITeacherExpansionDialogueResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteAITeacherExpansionDialogueResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteAITeacherExpansionDialogueResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueRefineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * In a career counseling session, we are going to discuss our dream jobs and the responsibilities associated with them. Alex, who dreams of becoming a professional travel blogger, will share the tasks and skills required for this role, while Jamie, aspiring to be a wildlife photographer, will outline the responsibilities and challenges of capturing nature\\"s moments. Both will explore how their interests align with the practical aspects of their chosen careers, discussing the potential for travel, creativity, and the impact of their work on society and the environment.
+   */
+  background?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dialogueTasks?: ExecuteAITeacherExpansionDialogueRefineRequestDialogueTasks[];
+  /**
+   * @example
+   * en-gb
+   */
+  languageCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  records?: ExecuteAITeacherExpansionDialogueRefineRequestRecords[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  roleInfo?: ExecuteAITeacherExpansionDialogueRefineRequestRoleInfo;
+  /**
+   * @example
+   * Hello Lily, could you please come to the kitchen for a moment?
+   */
+  startSentence?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * talk about your dream job.
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 886eba3702xxxxxxxxx4ba52a87a525
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      background: 'background',
+      dialogueTasks: 'dialogueTasks',
+      languageCode: 'languageCode',
+      records: 'records',
+      roleInfo: 'roleInfo',
+      startSentence: 'startSentence',
+      topic: 'topic',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      background: 'string',
+      dialogueTasks: { 'type': 'array', 'itemType': ExecuteAITeacherExpansionDialogueRefineRequestDialogueTasks },
+      languageCode: 'string',
+      records: { 'type': 'array', 'itemType': ExecuteAITeacherExpansionDialogueRefineRequestRecords },
+      roleInfo: ExecuteAITeacherExpansionDialogueRefineRequestRoleInfo,
+      startSentence: 'string',
+      topic: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueRefineResponseBody extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
+  data?: ExecuteAITeacherExpansionDialogueRefineResponseBodyData;
+  /**
+   * @example
+   * UNKNOWN_ERROR
+   */
+  errCode?: string;
+  /**
+   * @example
+   * 未知错误
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx-xxxx-xxxx-xxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ExecuteAITeacherExpansionDialogueRefineResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueRefineResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteAITeacherExpansionDialogueRefineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteAITeacherExpansionDialogueRefineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueTranslateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * In this dialogue, you will be playing the role of Lily, a young girl. I will be Jane, Lily\\"s mother. We are in the kitchen, where I am preparing dinner. I am asking you about your food preferences, specifically if you like meat, fish, and milk. You like meat and milk, but you don\\"t like fish because of its smell. I explain to you the nutritional benefits of these foods and suggest alternatives for the ones you don\\"t like. Finally, I invite you to start eating.
+   */
+  background?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dialogueTasks?: ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks[];
+  records?: ExecuteAITeacherExpansionDialogueTranslateRequestRecords[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  roleInfo?: ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo;
+  /**
+   * @example
+   * Hello Lily, could you please come to the kitchen for a moment?
+   */
+  startSentence?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * talk about food.
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 886eba3702xxxxxxxxx4ba52a87a525
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      background: 'background',
+      dialogueTasks: 'dialogueTasks',
+      records: 'records',
+      roleInfo: 'roleInfo',
+      startSentence: 'startSentence',
+      topic: 'topic',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      background: 'string',
+      dialogueTasks: { 'type': 'array', 'itemType': ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks },
+      records: { 'type': 'array', 'itemType': ExecuteAITeacherExpansionDialogueTranslateRequestRecords },
+      roleInfo: ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo,
+      startSentence: 'string',
+      topic: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueTranslateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
+  data?: ExecuteAITeacherExpansionDialogueTranslateResponseBodyData;
+  /**
+   * @example
+   * UNKNOWN_ERROR
+   */
+  errCode?: string;
+  /**
+   * @example
+   * 未知错误
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx-xxxx-xxxx-xxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ExecuteAITeacherExpansionDialogueTranslateResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueTranslateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteAITeacherExpansionDialogueTranslateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteAITeacherExpansionDialogueTranslateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherGrammarCheckRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i is good
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 886eba3702xxxxxxxxx4ba52a87a525
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherGrammarCheckResponseBody extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
+  data?: ExecuteAITeacherGrammarCheckResponseBodyData;
+  /**
+   * @example
+   * UNKNOWN_ERROR
+   */
+  errCode?: string;
+  /**
+   * @example
+   * 未知错误
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx-xxxx-xxxx-xxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ExecuteAITeacherGrammarCheckResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherGrammarCheckResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteAITeacherGrammarCheckResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteAITeacherGrammarCheckResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherSyncDialogueRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dialogueTasks?: ExecuteAITeacherSyncDialogueRequestDialogueTasks[];
+  /**
+   * @example
+   * en-gb
+   */
+  languageCode?: string;
+  records?: ExecuteAITeacherSyncDialogueRequestRecords[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 886eba3702xxxxxxxxx4ba52a87a525
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dialogueTasks: 'dialogueTasks',
+      languageCode: 'languageCode',
+      records: 'records',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogueTasks: { 'type': 'array', 'itemType': ExecuteAITeacherSyncDialogueRequestDialogueTasks },
+      languageCode: 'string',
+      records: { 'type': 'array', 'itemType': ExecuteAITeacherSyncDialogueRequestRecords },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherSyncDialogueResponseBody extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
+  data?: ExecuteAITeacherSyncDialogueResponseBodyData;
+  /**
+   * @example
+   * UNKNOWN_ERROR
+   */
+  errCode?: string;
+  /**
+   * @example
+   * 未知错误
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx-xxxx-xxxx-xxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ExecuteAITeacherSyncDialogueResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherSyncDialogueResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteAITeacherSyncDialogueResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteAITeacherSyncDialogueResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherSyncDialogueTranslateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dialogueTasks?: ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks[];
+  records?: ExecuteAITeacherSyncDialogueTranslateRequestRecords[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 886eba3702xxxxxxxxx4ba52a87a525
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dialogueTasks: 'dialogueTasks',
+      records: 'records',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogueTasks: { 'type': 'array', 'itemType': ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks },
+      records: { 'type': 'array', 'itemType': ExecuteAITeacherSyncDialogueTranslateRequestRecords },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherSyncDialogueTranslateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
+  data?: ExecuteAITeacherSyncDialogueTranslateResponseBodyData;
+  /**
+   * @example
+   * UNKNOWN_ERROR
+   */
+  errCode?: string;
+  /**
+   * @example
+   * 未知错误
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx-xxxx-xxxx-xxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ExecuteAITeacherSyncDialogueTranslateResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherSyncDialogueTranslateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteAITeacherSyncDialogueTranslateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteAITeacherSyncDialogueTranslateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAITeacherExpansionDialogueSuggestionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * In a career counseling session, we are going to discuss our dream jobs and the responsibilities associated with them. Alex, who dreams of becoming a professional travel blogger, will share the tasks and skills required for this role, while Jamie, aspiring to be a wildlife photographer, will outline the responsibilities and challenges of capturing nature\\"s moments. Both will explore how their interests align with the practical aspects of their chosen careers, discussing the potential for travel, creativity, and the impact of their work on society and the environment.
+   */
+  background?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dialogueTasks?: GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks[];
+  /**
+   * @example
+   * en-gb
+   */
+  languageCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  records?: GetAITeacherExpansionDialogueSuggestionRequestRecords[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  roleInfo?: GetAITeacherExpansionDialogueSuggestionRequestRoleInfo;
+  /**
+   * @example
+   * Hello Lily, could you please come to the kitchen for a moment?
+   */
+  startSentence?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Let\\"s talk about traffic rules.
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 886eba3702xxxxxxxxx4ba52a87a525
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      background: 'background',
+      dialogueTasks: 'dialogueTasks',
+      languageCode: 'languageCode',
+      records: 'records',
+      roleInfo: 'roleInfo',
+      startSentence: 'startSentence',
+      topic: 'topic',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      background: 'string',
+      dialogueTasks: { 'type': 'array', 'itemType': GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks },
+      languageCode: 'string',
+      records: { 'type': 'array', 'itemType': GetAITeacherExpansionDialogueSuggestionRequestRecords },
+      roleInfo: GetAITeacherExpansionDialogueSuggestionRequestRoleInfo,
+      startSentence: 'string',
+      topic: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAITeacherExpansionDialogueSuggestionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
+  data?: GetAITeacherExpansionDialogueSuggestionResponseBodyData;
+  /**
+   * @example
+   * UNKNOWN_ERROR
+   */
+  errCode?: string;
+  /**
+   * @example
+   * 未知错误
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx-xxxx-xxxx-xxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetAITeacherExpansionDialogueSuggestionResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAITeacherExpansionDialogueSuggestionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAITeacherExpansionDialogueSuggestionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAITeacherExpansionDialogueSuggestionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAITeacherSyncDialogueSuggestionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dialogueTasks?: GetAITeacherSyncDialogueSuggestionRequestDialogueTasks[];
+  /**
+   * @example
+   * en-gb
+   */
+  languageCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  records?: GetAITeacherSyncDialogueSuggestionRequestRecords[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 886eba3702xxxxxxxxx4ba52a87a525
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dialogueTasks: 'dialogueTasks',
+      languageCode: 'languageCode',
+      records: 'records',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogueTasks: { 'type': 'array', 'itemType': GetAITeacherSyncDialogueSuggestionRequestDialogueTasks },
+      languageCode: 'string',
+      records: { 'type': 'array', 'itemType': GetAITeacherSyncDialogueSuggestionRequestRecords },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAITeacherSyncDialogueSuggestionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
+  data?: GetAITeacherSyncDialogueSuggestionResponseBodyData;
+  /**
+   * @example
+   * UNKNOWN_ERROR
+   */
+  errCode?: string;
+  /**
+   * @example
+   * 未知错误
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx-xxxx-xxxx-xxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetAITeacherSyncDialogueSuggestionResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAITeacherSyncDialogueSuggestionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAITeacherSyncDialogueSuggestionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAITeacherSyncDialogueSuggestionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PersonalizedTextToImageAddInferenceJobRequest extends $tea.Model {
   /**
    * @example
@@ -2100,6 +3235,1212 @@ export class AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBodyData e
   }
 }
 
+export class ExecuteAITeacherExpansionDialogueRequestDialogueTasks extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Why might some people think dog walking is a great job?
+   */
+  assistant?: string;
+  /**
+   * @example
+   * 为什么有些人认为遛狗是份好差事?
+   */
+  assistantTranslate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * They think it\\"s great because they won\\"t be stuck in an office.
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      assistantTranslate: 'assistantTranslate',
+      order: 'order',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      assistantTranslate: 'string',
+      order: 'number',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueRequestRecords extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Ask Mark if he has thought about what his dream job might be.
+   */
+  content?: string;
+  /**
+   * @example
+   * 跑题：true, 不跑题：false
+   */
+  isOffTopicControl?: boolean;
+  /**
+   * @example
+   * 扣题：true, 不扣题：false
+   */
+  isOnTopic?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 老师：assistant；学生：user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      isOffTopicControl: 'isOffTopicControl',
+      isOnTopic: 'isOnTopic',
+      order: 'order',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      isOffTopicControl: 'boolean',
+      isOnTopic: 'boolean',
+      order: 'number',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueRequestRoleInfo extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Alex
+   */
+  assistant?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Jamie
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  chineseResult?: string;
+  /**
+   * @example
+   * 1
+   */
+  englishResult?: string;
+  /**
+   * @example
+   * true
+   */
+  isFinish?: boolean;
+  /**
+   * @example
+   * true
+   */
+  isOffTopicControl?: boolean;
+  /**
+   * @example
+   * true
+   */
+  isOnTopic?: boolean;
+  /**
+   * @example
+   * 2
+   */
+  questionIndex?: number;
+  static names(): { [key: string]: string } {
+    return {
+      chineseResult: 'chineseResult',
+      englishResult: 'englishResult',
+      isFinish: 'isFinish',
+      isOffTopicControl: 'isOffTopicControl',
+      isOnTopic: 'isOnTopic',
+      questionIndex: 'questionIndex',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chineseResult: 'string',
+      englishResult: 'string',
+      isFinish: 'boolean',
+      isOffTopicControl: 'boolean',
+      isOnTopic: 'boolean',
+      questionIndex: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueRefineRequestDialogueTasks extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Why might some people think dog walking is a great job?
+   */
+  assistant?: string;
+  /**
+   * @example
+   * 为什么有些人认为遛狗是份好差事?
+   */
+  assistantTranslate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * They think it\\"s great because they won\\"t be stuck in an office.
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      assistantTranslate: 'assistantTranslate',
+      order: 'order',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      assistantTranslate: 'string',
+      order: 'number',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueRefineRequestRecords extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Ask Mark if he has thought about what his dream job might be.
+   */
+  content?: string;
+  /**
+   * @example
+   * 跑题：true, 不跑题：false
+   */
+  isOffTopicControl?: boolean;
+  /**
+   * @example
+   * 扣题：true, 不扣题：false
+   */
+  isOnTopic?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 老师：assistant；学生：user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      isOffTopicControl: 'isOffTopicControl',
+      isOnTopic: 'isOnTopic',
+      order: 'order',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      isOffTopicControl: 'boolean',
+      isOnTopic: 'boolean',
+      order: 'number',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueRefineRequestRoleInfo extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Jane, a caring mother
+   */
+  assistant?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Lily, a friendly student
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueRefineResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * Yes, I\\"ll be right there.
+   */
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Why might some people think dog walking is a great job?
+   */
+  assistant?: string;
+  /**
+   * @example
+   * 为什么有些人认为遛狗是份好差事?
+   */
+  assistantTranslate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * They think it\\"s great because they won\\"t be stuck in an office.
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      assistantTranslate: 'assistantTranslate',
+      order: 'order',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      assistantTranslate: 'string',
+      order: 'number',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueTranslateRequestRecords extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Ask Mark if he has thought about what his dream job might be.
+   */
+  content?: string;
+  /**
+   * @example
+   * 跑题：true, 不跑题：false
+   */
+  isOffTopicControl?: boolean;
+  /**
+   * @example
+   * 扣题：true, 不扣题：false
+   */
+  isOnTopic?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 老师：assistant；学生：user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      isOffTopicControl: 'isOffTopicControl',
+      isOnTopic: 'isOnTopic',
+      order: 'order',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      isOffTopicControl: 'boolean',
+      isOnTopic: 'boolean',
+      order: 'number',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Jane, a caring mother
+   */
+  assistant?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Lily, a friendly student
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherExpansionDialogueTranslateResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 太好了，谢谢你过来，莉莉。你喜欢吃肉吗？
+   */
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherGrammarCheckResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 主语 "I" 对应的动词应该是 "am" 而不是 "is"。
+   */
+  analysis?: string;
+  /**
+   * @example
+   * I am good.
+   */
+  correction?: string;
+  /**
+   * @example
+   * Has_Error
+   */
+  correctionStatus?: string;
+  errorReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      analysis: 'analysis',
+      correction: 'correction',
+      correctionStatus: 'correctionStatus',
+      errorReason: 'errorReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysis: 'string',
+      correction: 'string',
+      correctionStatus: 'string',
+      errorReason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherSyncDialogueRequestDialogueTasks extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Why might some people think dog walking is a great job?
+   */
+  assistant?: string;
+  /**
+   * @example
+   * 为什么有些人认为遛狗是份好差事?
+   */
+  assistantTranslate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * They think it\\"s great because they won\\"t be stuck in an office.
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      assistantTranslate: 'assistantTranslate',
+      order: 'order',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      assistantTranslate: 'string',
+      order: 'number',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherSyncDialogueRequestRecords extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Ask Mark if he has thought about what his dream job might be.
+   */
+  content?: string;
+  /**
+   * @example
+   * 跑题：true, 不跑题：false
+   */
+  isOffTopicControl?: boolean;
+  /**
+   * @example
+   * 扣题：true, 不扣题：false
+   */
+  isOnTopic?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 老师：assistant；学生：user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      isOffTopicControl: 'isOffTopicControl',
+      isOnTopic: 'isOnTopic',
+      order: 'order',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      isOffTopicControl: 'boolean',
+      isOnTopic: 'boolean',
+      order: 'number',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherSyncDialogueResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * Thanks, Lily. Do you like meat, Lily?
+   */
+  englishResult?: string;
+  /**
+   * @example
+   * true
+   */
+  isFinish?: boolean;
+  /**
+   * @example
+   * true
+   */
+  isOnTopic?: boolean;
+  /**
+   * @example
+   * 2
+   */
+  questionIndex?: number;
+  static names(): { [key: string]: string } {
+    return {
+      englishResult: 'englishResult',
+      isFinish: 'isFinish',
+      isOnTopic: 'isOnTopic',
+      questionIndex: 'questionIndex',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      englishResult: 'string',
+      isFinish: 'boolean',
+      isOnTopic: 'boolean',
+      questionIndex: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Why might some people think dog walking is a great job?
+   */
+  assistant?: string;
+  /**
+   * @example
+   * 为什么有些人认为遛狗是份好差事?
+   */
+  assistantTranslate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * They think it\\"s great because they won\\"t be stuck in an office.
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      assistantTranslate: 'assistantTranslate',
+      order: 'order',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      assistantTranslate: 'string',
+      order: 'number',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherSyncDialogueTranslateRequestRecords extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Ask Mark if he has thought about what his dream job might be.
+   */
+  content?: string;
+  /**
+   * @example
+   * 跑题：true, 不跑题：false
+   */
+  isOffTopicControl?: boolean;
+  /**
+   * @example
+   * 扣题：true, 不扣题：false
+   */
+  isOnTopic?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 老师：assistant；学生：user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      isOffTopicControl: 'isOffTopicControl',
+      isOnTopic: 'isOnTopic',
+      order: 'order',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      isOffTopicControl: 'boolean',
+      isOnTopic: 'boolean',
+      order: 'number',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAITeacherSyncDialogueTranslateResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 太好了，谢谢你过来，莉莉。你喜欢吃肉吗？
+   */
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Why might some people think dog walking is a great job?
+   */
+  assistant?: string;
+  /**
+   * @example
+   * 为什么有些人认为遛狗是份好差事?
+   */
+  assistantTranslate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * They think it\\"s great because they won\\"t be stuck in an office.
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      assistantTranslate: 'assistantTranslate',
+      order: 'order',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      assistantTranslate: 'string',
+      order: 'number',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAITeacherExpansionDialogueSuggestionRequestRecords extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Ask Mark if he has thought about what his dream job might be.
+   */
+  content?: string;
+  /**
+   * @example
+   * 跑题：true, 不跑题：false
+   */
+  isOffTopicControl?: boolean;
+  /**
+   * @example
+   * 扣题：true, 不扣题：false
+   */
+  isOnTopic?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 老师：assistant；学生：user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      isOffTopicControl: 'isOffTopicControl',
+      isOnTopic: 'isOnTopic',
+      order: 'order',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      isOffTopicControl: 'boolean',
+      isOnTopic: 'boolean',
+      order: 'number',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAITeacherExpansionDialogueSuggestionRequestRoleInfo extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Alex
+   */
+  assistant?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Jamie
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAITeacherExpansionDialogueSuggestionResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 谢谢莉莉.你喜欢吃肉吗，莉莉？
+   */
+  chineseResult?: string;
+  /**
+   * @example
+   * Thanks, Lily. Do you like meat, Lily?
+   */
+  englishResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chineseResult: 'chineseResult',
+      englishResult: 'englishResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chineseResult: 'string',
+      englishResult: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAITeacherSyncDialogueSuggestionRequestDialogueTasks extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Why might some people think dog walking is a great job?
+   */
+  assistant?: string;
+  /**
+   * @example
+   * 为什么有些人认为遛狗是份好差事?
+   */
+  assistantTranslate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * They think it\\"s great because they won\\"t be stuck in an office.
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      assistantTranslate: 'assistantTranslate',
+      order: 'order',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      assistantTranslate: 'string',
+      order: 'number',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAITeacherSyncDialogueSuggestionRequestRecords extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Ask Mark if he has thought about what his dream job might be.
+   */
+  content?: string;
+  /**
+   * @example
+   * 跑题：true, 不跑题：false
+   */
+  isOffTopicControl?: boolean;
+  /**
+   * @example
+   * 扣题：true, 不扣题：false
+   */
+  isOnTopic?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  order?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 老师：assistant；学生：user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      isOffTopicControl: 'isOffTopicControl',
+      isOnTopic: 'isOnTopic',
+      order: 'order',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      isOffTopicControl: 'boolean',
+      isOnTopic: 'boolean',
+      order: 'number',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAITeacherSyncDialogueSuggestionResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * Thanks, Lily. Do you like meat, Lily?
+   */
+  englishResult?: string;
+  /**
+   * @example
+   * 谢谢莉莉.你喜欢吃肉吗，莉莉？
+   */
+  englishResult1?: string;
+  static names(): { [key: string]: string } {
+    return {
+      englishResult: 'englishResult',
+      englishResult1: 'englishResult1',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      englishResult: 'string',
+      englishResult1: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PersonalizedTextToImageAddInferenceJobResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -2896,6 +5237,510 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.aliyunConsoleOpenApiQueryAliyunConsoleServiceListWithOptions(headers, runtime);
+  }
+
+  /**
+   * 进行拓展练对话
+   * 
+   * @param request - ExecuteAITeacherExpansionDialogueRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAITeacherExpansionDialogueResponse
+   */
+  async executeAITeacherExpansionDialogueWithOptions(request: ExecuteAITeacherExpansionDialogueRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExecuteAITeacherExpansionDialogueResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.background)) {
+      body["background"] = request.background;
+    }
+
+    if (!Util.isUnset(request.dialogueTasks)) {
+      body["dialogueTasks"] = request.dialogueTasks;
+    }
+
+    if (!Util.isUnset(request.languageCode)) {
+      body["languageCode"] = request.languageCode;
+    }
+
+    if (!Util.isUnset(request.records)) {
+      body["records"] = request.records;
+    }
+
+    if (!Util.isUnset(request.roleInfo)) {
+      body["roleInfo"] = request.roleInfo;
+    }
+
+    if (!Util.isUnset(request.startSentence)) {
+      body["startSentence"] = request.startSentence;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteAITeacherExpansionDialogue",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiteacher/expansionPractice/executeExpansionTraining`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteAITeacherExpansionDialogueResponse>(await this.callApi(params, req, runtime), new ExecuteAITeacherExpansionDialogueResponse({}));
+  }
+
+  /**
+   * 进行拓展练对话
+   * 
+   * @param request - ExecuteAITeacherExpansionDialogueRequest
+   * @returns ExecuteAITeacherExpansionDialogueResponse
+   */
+  async executeAITeacherExpansionDialogue(request: ExecuteAITeacherExpansionDialogueRequest): Promise<ExecuteAITeacherExpansionDialogueResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.executeAITeacherExpansionDialogueWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 拓展练根据上下文进行润色
+   * 
+   * @param request - ExecuteAITeacherExpansionDialogueRefineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAITeacherExpansionDialogueRefineResponse
+   */
+  async executeAITeacherExpansionDialogueRefineWithOptions(request: ExecuteAITeacherExpansionDialogueRefineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExecuteAITeacherExpansionDialogueRefineResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.background)) {
+      body["background"] = request.background;
+    }
+
+    if (!Util.isUnset(request.dialogueTasks)) {
+      body["dialogueTasks"] = request.dialogueTasks;
+    }
+
+    if (!Util.isUnset(request.languageCode)) {
+      body["languageCode"] = request.languageCode;
+    }
+
+    if (!Util.isUnset(request.records)) {
+      body["records"] = request.records;
+    }
+
+    if (!Util.isUnset(request.roleInfo)) {
+      body["roleInfo"] = request.roleInfo;
+    }
+
+    if (!Util.isUnset(request.startSentence)) {
+      body["startSentence"] = request.startSentence;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteAITeacherExpansionDialogueRefine",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiteacher/expansionPractice/refineByContext`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteAITeacherExpansionDialogueRefineResponse>(await this.callApi(params, req, runtime), new ExecuteAITeacherExpansionDialogueRefineResponse({}));
+  }
+
+  /**
+   * 拓展练根据上下文进行润色
+   * 
+   * @param request - ExecuteAITeacherExpansionDialogueRefineRequest
+   * @returns ExecuteAITeacherExpansionDialogueRefineResponse
+   */
+  async executeAITeacherExpansionDialogueRefine(request: ExecuteAITeacherExpansionDialogueRefineRequest): Promise<ExecuteAITeacherExpansionDialogueRefineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.executeAITeacherExpansionDialogueRefineWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 拓展练语境翻译
+   * 
+   * @param request - ExecuteAITeacherExpansionDialogueTranslateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAITeacherExpansionDialogueTranslateResponse
+   */
+  async executeAITeacherExpansionDialogueTranslateWithOptions(request: ExecuteAITeacherExpansionDialogueTranslateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExecuteAITeacherExpansionDialogueTranslateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.background)) {
+      body["background"] = request.background;
+    }
+
+    if (!Util.isUnset(request.dialogueTasks)) {
+      body["dialogueTasks"] = request.dialogueTasks;
+    }
+
+    if (!Util.isUnset(request.records)) {
+      body["records"] = request.records;
+    }
+
+    if (!Util.isUnset(request.roleInfo)) {
+      body["roleInfo"] = request.roleInfo;
+    }
+
+    if (!Util.isUnset(request.startSentence)) {
+      body["startSentence"] = request.startSentence;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteAITeacherExpansionDialogueTranslate",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiteacher/expansionPractice/translate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteAITeacherExpansionDialogueTranslateResponse>(await this.callApi(params, req, runtime), new ExecuteAITeacherExpansionDialogueTranslateResponse({}));
+  }
+
+  /**
+   * 拓展练语境翻译
+   * 
+   * @param request - ExecuteAITeacherExpansionDialogueTranslateRequest
+   * @returns ExecuteAITeacherExpansionDialogueTranslateResponse
+   */
+  async executeAITeacherExpansionDialogueTranslate(request: ExecuteAITeacherExpansionDialogueTranslateRequest): Promise<ExecuteAITeacherExpansionDialogueTranslateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.executeAITeacherExpansionDialogueTranslateWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 语法检测
+   * 
+   * @param request - ExecuteAITeacherGrammarCheckRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAITeacherGrammarCheckResponse
+   */
+  async executeAITeacherGrammarCheckWithOptions(request: ExecuteAITeacherGrammarCheckRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExecuteAITeacherGrammarCheckResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteAITeacherGrammarCheck",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiteacher/common/grammarChecking`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteAITeacherGrammarCheckResponse>(await this.callApi(params, req, runtime), new ExecuteAITeacherGrammarCheckResponse({}));
+  }
+
+  /**
+   * 语法检测
+   * 
+   * @param request - ExecuteAITeacherGrammarCheckRequest
+   * @returns ExecuteAITeacherGrammarCheckResponse
+   */
+  async executeAITeacherGrammarCheck(request: ExecuteAITeacherGrammarCheckRequest): Promise<ExecuteAITeacherGrammarCheckResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.executeAITeacherGrammarCheckWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 进行同步练对话
+   * 
+   * @param request - ExecuteAITeacherSyncDialogueRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAITeacherSyncDialogueResponse
+   */
+  async executeAITeacherSyncDialogueWithOptions(request: ExecuteAITeacherSyncDialogueRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExecuteAITeacherSyncDialogueResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dialogueTasks)) {
+      body["dialogueTasks"] = request.dialogueTasks;
+    }
+
+    if (!Util.isUnset(request.languageCode)) {
+      body["languageCode"] = request.languageCode;
+    }
+
+    if (!Util.isUnset(request.records)) {
+      body["records"] = request.records;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteAITeacherSyncDialogue",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiteacher/syncPractice/executeSyncTraining`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteAITeacherSyncDialogueResponse>(await this.callApi(params, req, runtime), new ExecuteAITeacherSyncDialogueResponse({}));
+  }
+
+  /**
+   * 进行同步练对话
+   * 
+   * @param request - ExecuteAITeacherSyncDialogueRequest
+   * @returns ExecuteAITeacherSyncDialogueResponse
+   */
+  async executeAITeacherSyncDialogue(request: ExecuteAITeacherSyncDialogueRequest): Promise<ExecuteAITeacherSyncDialogueResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.executeAITeacherSyncDialogueWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 同步练语境翻译
+   * 
+   * @param request - ExecuteAITeacherSyncDialogueTranslateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAITeacherSyncDialogueTranslateResponse
+   */
+  async executeAITeacherSyncDialogueTranslateWithOptions(request: ExecuteAITeacherSyncDialogueTranslateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExecuteAITeacherSyncDialogueTranslateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dialogueTasks)) {
+      body["dialogueTasks"] = request.dialogueTasks;
+    }
+
+    if (!Util.isUnset(request.records)) {
+      body["records"] = request.records;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteAITeacherSyncDialogueTranslate",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiteacher/syncPractice/translate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteAITeacherSyncDialogueTranslateResponse>(await this.callApi(params, req, runtime), new ExecuteAITeacherSyncDialogueTranslateResponse({}));
+  }
+
+  /**
+   * 同步练语境翻译
+   * 
+   * @param request - ExecuteAITeacherSyncDialogueTranslateRequest
+   * @returns ExecuteAITeacherSyncDialogueTranslateResponse
+   */
+  async executeAITeacherSyncDialogueTranslate(request: ExecuteAITeacherSyncDialogueTranslateRequest): Promise<ExecuteAITeacherSyncDialogueTranslateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.executeAITeacherSyncDialogueTranslateWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 拓展练小助手
+   * 
+   * @param request - GetAITeacherExpansionDialogueSuggestionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAITeacherExpansionDialogueSuggestionResponse
+   */
+  async getAITeacherExpansionDialogueSuggestionWithOptions(request: GetAITeacherExpansionDialogueSuggestionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAITeacherExpansionDialogueSuggestionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.background)) {
+      body["background"] = request.background;
+    }
+
+    if (!Util.isUnset(request.dialogueTasks)) {
+      body["dialogueTasks"] = request.dialogueTasks;
+    }
+
+    if (!Util.isUnset(request.languageCode)) {
+      body["languageCode"] = request.languageCode;
+    }
+
+    if (!Util.isUnset(request.records)) {
+      body["records"] = request.records;
+    }
+
+    if (!Util.isUnset(request.roleInfo)) {
+      body["roleInfo"] = request.roleInfo;
+    }
+
+    if (!Util.isUnset(request.startSentence)) {
+      body["startSentence"] = request.startSentence;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAITeacherExpansionDialogueSuggestion",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiteacher/expansionPractice/suggestion`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAITeacherExpansionDialogueSuggestionResponse>(await this.callApi(params, req, runtime), new GetAITeacherExpansionDialogueSuggestionResponse({}));
+  }
+
+  /**
+   * 拓展练小助手
+   * 
+   * @param request - GetAITeacherExpansionDialogueSuggestionRequest
+   * @returns GetAITeacherExpansionDialogueSuggestionResponse
+   */
+  async getAITeacherExpansionDialogueSuggestion(request: GetAITeacherExpansionDialogueSuggestionRequest): Promise<GetAITeacherExpansionDialogueSuggestionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAITeacherExpansionDialogueSuggestionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 同步练小助手
+   * 
+   * @param request - GetAITeacherSyncDialogueSuggestionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAITeacherSyncDialogueSuggestionResponse
+   */
+  async getAITeacherSyncDialogueSuggestionWithOptions(request: GetAITeacherSyncDialogueSuggestionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAITeacherSyncDialogueSuggestionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dialogueTasks)) {
+      body["dialogueTasks"] = request.dialogueTasks;
+    }
+
+    if (!Util.isUnset(request.languageCode)) {
+      body["languageCode"] = request.languageCode;
+    }
+
+    if (!Util.isUnset(request.records)) {
+      body["records"] = request.records;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAITeacherSyncDialogueSuggestion",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiteacher/syncPractice/suggestion`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAITeacherSyncDialogueSuggestionResponse>(await this.callApi(params, req, runtime), new GetAITeacherSyncDialogueSuggestionResponse({}));
+  }
+
+  /**
+   * 同步练小助手
+   * 
+   * @param request - GetAITeacherSyncDialogueSuggestionRequest
+   * @returns GetAITeacherSyncDialogueSuggestionResponse
+   */
+  async getAITeacherSyncDialogueSuggestion(request: GetAITeacherSyncDialogueSuggestionRequest): Promise<GetAITeacherSyncDialogueSuggestionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAITeacherSyncDialogueSuggestionWithOptions(request, headers, runtime);
   }
 
   /**
