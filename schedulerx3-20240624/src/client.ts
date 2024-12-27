@@ -389,6 +389,11 @@ export class CreateJobRequest extends $tea.Model {
    */
   description?: string;
   /**
+   * @example
+   * 1
+   */
+  executorBlockStrategy?: number;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -474,6 +479,7 @@ export class CreateJobRequest extends $tea.Model {
       calendar: 'Calendar',
       clusterId: 'ClusterId',
       description: 'Description',
+      executorBlockStrategy: 'ExecutorBlockStrategy',
       jobHandler: 'JobHandler',
       jobType: 'JobType',
       maxAttempt: 'MaxAttempt',
@@ -499,6 +505,7 @@ export class CreateJobRequest extends $tea.Model {
       calendar: 'string',
       clusterId: 'string',
       description: 'string',
+      executorBlockStrategy: 'number',
       jobHandler: 'string',
       jobType: 'string',
       maxAttempt: 'number',
@@ -554,6 +561,11 @@ export class CreateJobShrinkRequest extends $tea.Model {
    * test
    */
   description?: string;
+  /**
+   * @example
+   * 1
+   */
+  executorBlockStrategy?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -640,6 +652,7 @@ export class CreateJobShrinkRequest extends $tea.Model {
       calendar: 'Calendar',
       clusterId: 'ClusterId',
       description: 'Description',
+      executorBlockStrategy: 'ExecutorBlockStrategy',
       jobHandler: 'JobHandler',
       jobType: 'JobType',
       maxAttempt: 'MaxAttempt',
@@ -665,6 +678,7 @@ export class CreateJobShrinkRequest extends $tea.Model {
       calendar: 'string',
       clusterId: 'string',
       description: 'string',
+      executorBlockStrategy: 'number',
       jobHandler: 'string',
       jobType: 'string',
       maxAttempt: 'number',
@@ -3072,20 +3086,32 @@ export class ListJobsRequest extends $tea.Model {
 }
 
 export class ListJobsResponseBody extends $tea.Model {
+  code?: number;
   /**
    * @remarks
    * -
    */
   data?: ListJobsResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       data: ListJobsResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -4536,21 +4562,20 @@ export class OperateRetryJobExecutionRequest extends $tea.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 1310630367761285120
    */
   jobExecutionId?: string;
-  /**
-   * @example
-   * 74
-   */
-  jobId?: number;
+  taskList?: string[];
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       clusterId: 'ClusterId',
       jobExecutionId: 'JobExecutionId',
-      jobId: 'JobId',
+      taskList: 'TaskList',
     };
   }
 
@@ -4559,7 +4584,56 @@ export class OperateRetryJobExecutionRequest extends $tea.Model {
       appName: 'string',
       clusterId: 'string',
       jobExecutionId: 'string',
-      jobId: 'number',
+      taskList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateRetryJobExecutionShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-app
+   */
+  appName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxljob-b6ec1xxxx
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1310630367761285120
+   */
+  jobExecutionId?: string;
+  taskListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      clusterId: 'ClusterId',
+      jobExecutionId: 'JobExecutionId',
+      taskListShrink: 'TaskList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      clusterId: 'string',
+      jobExecutionId: 'string',
+      taskListShrink: 'string',
     };
   }
 
@@ -4655,21 +4729,20 @@ export class OperateStopJobExecutionRequest extends $tea.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 1310630367761285120
    */
   jobExecutionId?: string;
-  /**
-   * @example
-   * 74
-   */
-  jobId?: number;
+  taskList?: string[];
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       clusterId: 'ClusterId',
       jobExecutionId: 'JobExecutionId',
-      jobId: 'JobId',
+      taskList: 'TaskList',
     };
   }
 
@@ -4678,7 +4751,56 @@ export class OperateStopJobExecutionRequest extends $tea.Model {
       appName: 'string',
       clusterId: 'string',
       jobExecutionId: 'string',
-      jobId: 'number',
+      taskList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateStopJobExecutionShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-app
+   */
+  appName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxljob-b6ec1xxxx
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1310630367761285120
+   */
+  jobExecutionId?: string;
+  taskListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      clusterId: 'ClusterId',
+      jobExecutionId: 'JobExecutionId',
+      taskListShrink: 'TaskList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      clusterId: 'string',
+      jobExecutionId: 'string',
+      taskListShrink: 'string',
     };
   }
 
@@ -5028,6 +5150,11 @@ export class UpdateJobRequest extends $tea.Model {
   description?: string;
   /**
    * @example
+   * 1
+   */
+  executorBlockStrategy?: number;
+  /**
+   * @example
    * testJobVoidHandler
    */
   jobHandler?: string;
@@ -5098,6 +5225,7 @@ export class UpdateJobRequest extends $tea.Model {
       calendar: 'Calendar',
       clusterId: 'ClusterId',
       description: 'Description',
+      executorBlockStrategy: 'ExecutorBlockStrategy',
       jobHandler: 'JobHandler',
       jobId: 'JobId',
       maxAttempt: 'MaxAttempt',
@@ -5122,6 +5250,7 @@ export class UpdateJobRequest extends $tea.Model {
       calendar: 'string',
       clusterId: 'string',
       description: 'string',
+      executorBlockStrategy: 'number',
       jobHandler: 'string',
       jobId: 'number',
       maxAttempt: 'number',
@@ -5176,6 +5305,11 @@ export class UpdateJobShrinkRequest extends $tea.Model {
    * test
    */
   description?: string;
+  /**
+   * @example
+   * 1
+   */
+  executorBlockStrategy?: number;
   /**
    * @example
    * testJobVoidHandler
@@ -5248,6 +5382,7 @@ export class UpdateJobShrinkRequest extends $tea.Model {
       calendar: 'Calendar',
       clusterId: 'ClusterId',
       description: 'Description',
+      executorBlockStrategy: 'ExecutorBlockStrategy',
       jobHandler: 'JobHandler',
       jobId: 'JobId',
       maxAttempt: 'MaxAttempt',
@@ -5272,6 +5407,7 @@ export class UpdateJobShrinkRequest extends $tea.Model {
       calendar: 'string',
       clusterId: 'string',
       description: 'string',
+      executorBlockStrategy: 'number',
       jobHandler: 'string',
       jobId: 'number',
       maxAttempt: 'number',
@@ -6904,8 +7040,14 @@ export class ListJobsResponseBodyDataRecords extends $tea.Model {
    * @example
    * 3
    */
+  currentExecuteStatus?: number;
+  /**
+   * @example
+   * 3
+   */
   dataOffset?: number;
   description?: string;
+  executorBlockStrategy?: string;
   /**
    * @example
    * jobDemoHandler
@@ -6921,6 +7063,8 @@ export class ListJobsResponseBodyDataRecords extends $tea.Model {
    * xxljob
    */
   jobType?: string;
+  lastExecuteEndTime?: string;
+  lastExecuteStatus?: number;
   /**
    * @example
    * 5
@@ -6995,11 +7139,15 @@ export class ListJobsResponseBodyDataRecords extends $tea.Model {
       calendar: 'Calendar',
       cleanMode: 'CleanMode',
       creator: 'Creator',
+      currentExecuteStatus: 'CurrentExecuteStatus',
       dataOffset: 'DataOffset',
       description: 'Description',
+      executorBlockStrategy: 'ExecutorBlockStrategy',
       jobHandler: 'JobHandler',
       jobId: 'JobId',
       jobType: 'JobType',
+      lastExecuteEndTime: 'LastExecuteEndTime',
+      lastExecuteStatus: 'LastExecuteStatus',
       maxAttempt: 'MaxAttempt',
       maxConcurrency: 'MaxConcurrency',
       name: 'Name',
@@ -7025,11 +7173,15 @@ export class ListJobsResponseBodyDataRecords extends $tea.Model {
       calendar: 'string',
       cleanMode: 'string',
       creator: 'string',
+      currentExecuteStatus: 'number',
       dataOffset: 'number',
       description: 'string',
+      executorBlockStrategy: 'string',
       jobHandler: 'string',
       jobId: 'number',
       jobType: 'string',
+      lastExecuteEndTime: 'string',
+      lastExecuteStatus: 'number',
       maxAttempt: 'number',
       maxConcurrency: 'number',
       name: 'string',
@@ -7634,6 +7786,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.executorBlockStrategy)) {
+      body["ExecutorBlockStrategy"] = request.executorBlockStrategy;
     }
 
     if (!Util.isUnset(request.jobHandler)) {
@@ -8969,12 +9125,18 @@ export default class Client extends OpenApi {
   /**
    * 重跑失败的任务实例
    * 
-   * @param request - OperateRetryJobExecutionRequest
+   * @param tmpReq - OperateRetryJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OperateRetryJobExecutionResponse
    */
-  async operateRetryJobExecutionWithOptions(request: OperateRetryJobExecutionRequest, runtime: $Util.RuntimeOptions): Promise<OperateRetryJobExecutionResponse> {
-    Util.validateModel(request);
+  async operateRetryJobExecutionWithOptions(tmpReq: OperateRetryJobExecutionRequest, runtime: $Util.RuntimeOptions): Promise<OperateRetryJobExecutionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new OperateRetryJobExecutionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.taskList)) {
+      request.taskListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskList, "TaskList", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.appName)) {
       query["AppName"] = request.appName;
@@ -8988,8 +9150,8 @@ export default class Client extends OpenApi {
       query["JobExecutionId"] = request.jobExecutionId;
     }
 
-    if (!Util.isUnset(request.jobId)) {
-      query["JobId"] = request.jobId;
+    if (!Util.isUnset(request.taskListShrink)) {
+      query["TaskList"] = request.taskListShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -9023,12 +9185,18 @@ export default class Client extends OpenApi {
   /**
    * 停止正在运行的任务实例
    * 
-   * @param request - OperateStopJobExecutionRequest
+   * @param tmpReq - OperateStopJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OperateStopJobExecutionResponse
    */
-  async operateStopJobExecutionWithOptions(request: OperateStopJobExecutionRequest, runtime: $Util.RuntimeOptions): Promise<OperateStopJobExecutionResponse> {
-    Util.validateModel(request);
+  async operateStopJobExecutionWithOptions(tmpReq: OperateStopJobExecutionRequest, runtime: $Util.RuntimeOptions): Promise<OperateStopJobExecutionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new OperateStopJobExecutionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.taskList)) {
+      request.taskListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskList, "TaskList", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.appName)) {
       query["AppName"] = request.appName;
@@ -9042,8 +9210,8 @@ export default class Client extends OpenApi {
       query["JobExecutionId"] = request.jobExecutionId;
     }
 
-    if (!Util.isUnset(request.jobId)) {
-      query["JobId"] = request.jobId;
+    if (!Util.isUnset(request.taskListShrink)) {
+      query["TaskList"] = request.taskListShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -9220,6 +9388,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.executorBlockStrategy)) {
+      body["ExecutorBlockStrategy"] = request.executorBlockStrategy;
     }
 
     if (!Util.isUnset(request.jobHandler)) {
