@@ -1466,6 +1466,104 @@ export class AllocateClusterPublicConnectionResponse extends $tea.Model {
   }
 }
 
+export class ApplyAdviceByIdRequest extends $tea.Model {
+  /**
+   * @example
+   * 20221101
+   */
+  adviceDate?: number;
+  /**
+   * @example
+   * 0baf1f52-53df-487f-8292-99a03716****
+   */
+  adviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * am-uf6g8w25jacm7****
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adviceDate: 'AdviceDate',
+      adviceId: 'AdviceId',
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adviceDate: 'number',
+      adviceId: 'string',
+      DBClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyAdviceByIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5DC10091-348D-12B1-906D-AB49D658012E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyAdviceByIdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyAdviceByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyAdviceByIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachUserENIRequest extends $tea.Model {
   /**
    * @remarks
@@ -1539,6 +1637,104 @@ export class AttachUserENIResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AttachUserENIResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchApplyAdviceByIdListRequest extends $tea.Model {
+  /**
+   * @example
+   * 20221115
+   */
+  adviceDate?: number;
+  /**
+   * @example
+   * c2589ff3-e86c-4f19-80c8-2aeb7dd9****,53414470-ebf4-4a53-a312-8a1ad8fd****,6e8dce84-fec8-4b0b-9c04-b0cea12c****,b3b9703d-55ca-47e0-96dd-6a4a9dbf****
+   */
+  adviceIdList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * am-uf6g8w25jacm7****
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adviceDate: 'AdviceDate',
+      adviceIdList: 'AdviceIdList',
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adviceDate: 'number',
+      adviceIdList: 'string',
+      DBClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchApplyAdviceByIdListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 86F92D26-B774-5FA1-8E53-82CBEEEBB012
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchApplyAdviceByIdListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchApplyAdviceByIdListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchApplyAdviceByIdListResponseBody,
     };
   }
 
@@ -2029,6 +2225,204 @@ export class CheckSampleDataSetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CheckSampleDataSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAPSJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aps-xxxxx
+   */
+  apsJobName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"EntireInstance":true}
+   */
+  dbList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-xxxxx
+   */
+  destinationEndpointInstanceID?: string;
+  /**
+   * @example
+   * ******
+   */
+  destinationEndpointPassword?: string;
+  /**
+   * @example
+   * ******
+   */
+  destinationEndpointUserName?: string;
+  /**
+   * @example
+   * {}
+   */
+  partitionList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pc-xxxxx
+   */
+  sourceEndpointInstanceID?: string;
+  /**
+   * @example
+   * ******
+   */
+  sourceEndpointPassword?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceEndpointRegion?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  sourceEndpointUserName?: string;
+  /**
+   * @example
+   * 1
+   */
+  targetTableMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apsJobName: 'ApsJobName',
+      dbList: 'DbList',
+      destinationEndpointInstanceID: 'DestinationEndpointInstanceID',
+      destinationEndpointPassword: 'DestinationEndpointPassword',
+      destinationEndpointUserName: 'DestinationEndpointUserName',
+      partitionList: 'PartitionList',
+      regionId: 'RegionId',
+      sourceEndpointInstanceID: 'SourceEndpointInstanceID',
+      sourceEndpointPassword: 'SourceEndpointPassword',
+      sourceEndpointRegion: 'SourceEndpointRegion',
+      sourceEndpointUserName: 'SourceEndpointUserName',
+      targetTableMode: 'TargetTableMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsJobName: 'string',
+      dbList: 'string',
+      destinationEndpointInstanceID: 'string',
+      destinationEndpointPassword: 'string',
+      destinationEndpointUserName: 'string',
+      partitionList: 'string',
+      regionId: 'string',
+      sourceEndpointInstanceID: 'string',
+      sourceEndpointPassword: 'string',
+      sourceEndpointRegion: 'string',
+      sourceEndpointUserName: 'string',
+      targetTableMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAPSJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * aps-bj1xxxxxx
+   */
+  apsJobId?: string;
+  /**
+   * @example
+   * InvalidInput
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * D1B8ED33-5E9B-512D-B188-1579ED6xxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      apsJobId: 'ApsJobId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsJobId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAPSJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAPSJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAPSJobResponseBody,
     };
   }
 
@@ -5819,6 +6213,104 @@ export class DescribeAdbMySqlTablesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAdbMySqlTablesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAdviceServiceEnabledRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-2ze0vp0j6t3to****
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAdviceServiceEnabledResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * E031AABF-BD56-5966-A063-4283EF18DB45
+   */
+  requestId?: string;
+  /**
+   * @example
+   * False
+   */
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAdviceServiceEnabledResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAdviceServiceEnabledResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAdviceServiceEnabledResponseBody,
     };
   }
 
@@ -31570,6 +32062,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 应用单条优化建议
+   * 
+   * @param request - ApplyAdviceByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyAdviceByIdResponse
+   */
+  async applyAdviceByIdWithOptions(request: ApplyAdviceByIdRequest, runtime: $Util.RuntimeOptions): Promise<ApplyAdviceByIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.adviceDate)) {
+      query["AdviceDate"] = request.adviceDate;
+    }
+
+    if (!Util.isUnset(request.adviceId)) {
+      query["AdviceId"] = request.adviceId;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApplyAdviceById",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyAdviceByIdResponse>(await this.callApi(params, req, runtime), new ApplyAdviceByIdResponse({}));
+  }
+
+  /**
+   * 应用单条优化建议
+   * 
+   * @param request - ApplyAdviceByIdRequest
+   * @returns ApplyAdviceByIdResponse
+   */
+  async applyAdviceById(request: ApplyAdviceByIdRequest): Promise<ApplyAdviceByIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.applyAdviceByIdWithOptions(request, runtime);
+  }
+
+  /**
    * Attaches an elastic network interface (ENI) to an AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * @remarks
@@ -31615,6 +32161,60 @@ export default class Client extends OpenApi {
   async attachUserENI(request: AttachUserENIRequest): Promise<AttachUserENIResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachUserENIWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量应用优化建议
+   * 
+   * @param request - BatchApplyAdviceByIdListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchApplyAdviceByIdListResponse
+   */
+  async batchApplyAdviceByIdListWithOptions(request: BatchApplyAdviceByIdListRequest, runtime: $Util.RuntimeOptions): Promise<BatchApplyAdviceByIdListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.adviceDate)) {
+      query["AdviceDate"] = request.adviceDate;
+    }
+
+    if (!Util.isUnset(request.adviceIdList)) {
+      query["AdviceIdList"] = request.adviceIdList;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchApplyAdviceByIdList",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchApplyAdviceByIdListResponse>(await this.callApi(params, req, runtime), new BatchApplyAdviceByIdListResponse({}));
+  }
+
+  /**
+   * 批量应用优化建议
+   * 
+   * @param request - BatchApplyAdviceByIdListRequest
+   * @returns BatchApplyAdviceByIdListResponse
+   */
+  async batchApplyAdviceByIdList(request: BatchApplyAdviceByIdListRequest): Promise<BatchApplyAdviceByIdListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchApplyAdviceByIdListWithOptions(request, runtime);
   }
 
   /**
@@ -31873,6 +32473,92 @@ export default class Client extends OpenApi {
   async checkSampleDataSet(request: CheckSampleDataSetRequest): Promise<CheckSampleDataSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkSampleDataSetWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一站式链路
+   * 
+   * @param request - CreateAPSJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAPSJobResponse
+   */
+  async createAPSJobWithOptions(request: CreateAPSJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateAPSJobResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apsJobName)) {
+      body["ApsJobName"] = request.apsJobName;
+    }
+
+    if (!Util.isUnset(request.dbList)) {
+      body["DbList"] = request.dbList;
+    }
+
+    if (!Util.isUnset(request.destinationEndpointInstanceID)) {
+      body["DestinationEndpointInstanceID"] = request.destinationEndpointInstanceID;
+    }
+
+    if (!Util.isUnset(request.destinationEndpointPassword)) {
+      body["DestinationEndpointPassword"] = request.destinationEndpointPassword;
+    }
+
+    if (!Util.isUnset(request.destinationEndpointUserName)) {
+      body["DestinationEndpointUserName"] = request.destinationEndpointUserName;
+    }
+
+    if (!Util.isUnset(request.partitionList)) {
+      body["PartitionList"] = request.partitionList;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointInstanceID)) {
+      body["SourceEndpointInstanceID"] = request.sourceEndpointInstanceID;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointPassword)) {
+      body["SourceEndpointPassword"] = request.sourceEndpointPassword;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointRegion)) {
+      body["SourceEndpointRegion"] = request.sourceEndpointRegion;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointUserName)) {
+      body["SourceEndpointUserName"] = request.sourceEndpointUserName;
+    }
+
+    if (!Util.isUnset(request.targetTableMode)) {
+      body["TargetTableMode"] = request.targetTableMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAPSJob",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAPSJobResponse>(await this.callApi(params, req, runtime), new CreateAPSJobResponse({}));
+  }
+
+  /**
+   * 创建一站式链路
+   * 
+   * @param request - CreateAPSJobRequest
+   * @returns CreateAPSJobResponse
+   */
+  async createAPSJob(request: CreateAPSJobRequest): Promise<CreateAPSJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAPSJobWithOptions(request, runtime);
   }
 
   /**
@@ -33481,6 +34167,52 @@ export default class Client extends OpenApi {
   async describeAdbMySqlTables(request: DescribeAdbMySqlTablesRequest): Promise<DescribeAdbMySqlTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAdbMySqlTablesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询建议服务是否开启
+   * 
+   * @param request - DescribeAdviceServiceEnabledRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAdviceServiceEnabledResponse
+   */
+  async describeAdviceServiceEnabledWithOptions(request: DescribeAdviceServiceEnabledRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAdviceServiceEnabledResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAdviceServiceEnabled",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAdviceServiceEnabledResponse>(await this.callApi(params, req, runtime), new DescribeAdviceServiceEnabledResponse({}));
+  }
+
+  /**
+   * 查询建议服务是否开启
+   * 
+   * @param request - DescribeAdviceServiceEnabledRequest
+   * @returns DescribeAdviceServiceEnabledResponse
+   */
+  async describeAdviceServiceEnabled(request: DescribeAdviceServiceEnabledRequest): Promise<DescribeAdviceServiceEnabledResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAdviceServiceEnabledWithOptions(request, runtime);
   }
 
   /**
