@@ -193,6 +193,7 @@ export class Body extends $tea.Model {
 export class ChannelProperties extends $tea.Model {
   channelActivity?: string;
   channelFcm?: string;
+  harmonyChannelCategory?: string;
   huaweiChannelCategory?: string;
   huaweiChannelImportance?: string;
   /**
@@ -226,6 +227,7 @@ export class ChannelProperties extends $tea.Model {
     return {
       channelActivity: 'channelActivity',
       channelFcm: 'channelFcm',
+      harmonyChannelCategory: 'harmonyChannelCategory',
       huaweiChannelCategory: 'huaweiChannelCategory',
       huaweiChannelImportance: 'huaweiChannelImportance',
       huaweiMessageUrgency: 'huaweiMessageUrgency',
@@ -246,6 +248,7 @@ export class ChannelProperties extends $tea.Model {
     return {
       channelActivity: 'string',
       channelFcm: 'string',
+      harmonyChannelCategory: 'string',
       huaweiChannelCategory: 'string',
       huaweiChannelImportance: 'string',
       huaweiMessageUrgency: 'string',
@@ -259,6 +262,81 @@ export class ChannelProperties extends $tea.Model {
       vivoCategory: 'string',
       vivoPushMode: 'string',
       xiaomiChannelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HarmonyBody extends $tea.Model {
+  action?: string;
+  addBadge?: number;
+  afterOpen?: string;
+  bigBody?: string;
+  custom?: string;
+  img?: string;
+  largeIcon?: string;
+  text?: string;
+  title?: string;
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'action',
+      addBadge: 'addBadge',
+      afterOpen: 'afterOpen',
+      bigBody: 'bigBody',
+      custom: 'custom',
+      img: 'img',
+      largeIcon: 'largeIcon',
+      text: 'text',
+      title: 'title',
+      uri: 'uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      addBadge: 'number',
+      afterOpen: 'string',
+      bigBody: 'string',
+      custom: 'string',
+      img: 'string',
+      largeIcon: 'string',
+      text: 'string',
+      title: 'string',
+      uri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HarmonyPayload extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  displayType?: string;
+  extra?: { [key: string]: any };
+  harmonyBody?: HarmonyBody;
+  static names(): { [key: string]: string } {
+    return {
+      displayType: 'displayType',
+      extra: 'extra',
+      harmonyBody: 'harmonyBody',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayType: 'string',
+      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      harmonyBody: HarmonyBody,
     };
   }
 
@@ -333,6 +411,7 @@ export class Message2ThirdChannel extends $tea.Model {
 }
 
 export class Policy extends $tea.Model {
+  channelStrategy?: { [key: string]: string };
   /**
    * @example
    * yyyy-MM-dd HH:mm:ss
@@ -351,6 +430,7 @@ export class Policy extends $tea.Model {
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      channelStrategy: 'channelStrategy',
       expireTime: 'expireTime',
       outerBizNo: 'outerBizNo',
       speed: 'speed',
@@ -360,6 +440,7 @@ export class Policy extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      channelStrategy: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       expireTime: 'string',
       outerBizNo: 'string',
       speed: 'number',
@@ -590,6 +671,7 @@ export class SendByAliasRequest extends $tea.Model {
   androidShortPayload?: AndroidShortPayload;
   channelProperties?: ChannelProperties;
   description?: string;
+  harmonyPayload?: HarmonyPayload;
   iosPayload?: IosPayload;
   policy?: Policy;
   /**
@@ -613,6 +695,7 @@ export class SendByAliasRequest extends $tea.Model {
       androidShortPayload: 'AndroidShortPayload',
       channelProperties: 'ChannelProperties',
       description: 'Description',
+      harmonyPayload: 'HarmonyPayload',
       iosPayload: 'IosPayload',
       policy: 'Policy',
       productionMode: 'ProductionMode',
@@ -631,6 +714,7 @@ export class SendByAliasRequest extends $tea.Model {
       androidShortPayload: AndroidShortPayload,
       channelProperties: ChannelProperties,
       description: 'string',
+      harmonyPayload: HarmonyPayload,
       iosPayload: IosPayload,
       policy: Policy,
       productionMode: 'boolean',
@@ -660,6 +744,7 @@ export class SendByAliasShrinkRequest extends $tea.Model {
   androidShortPayloadShrink?: string;
   channelPropertiesShrink?: string;
   description?: string;
+  harmonyPayloadShrink?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
   /**
@@ -683,6 +768,7 @@ export class SendByAliasShrinkRequest extends $tea.Model {
       androidShortPayloadShrink: 'AndroidShortPayload',
       channelPropertiesShrink: 'ChannelProperties',
       description: 'Description',
+      harmonyPayloadShrink: 'HarmonyPayload',
       iosPayloadShrink: 'IosPayload',
       policyShrink: 'Policy',
       productionMode: 'ProductionMode',
@@ -701,6 +787,7 @@ export class SendByAliasShrinkRequest extends $tea.Model {
       androidShortPayloadShrink: 'string',
       channelPropertiesShrink: 'string',
       description: 'string',
+      harmonyPayloadShrink: 'string',
       iosPayloadShrink: 'string',
       policyShrink: 'string',
       productionMode: 'boolean',
@@ -809,6 +896,7 @@ export class SendByAliasFileIdRequest extends $tea.Model {
    * PF835431668603208261
    */
   fileId?: string;
+  harmonyPayload?: HarmonyPayload;
   iosPayload?: IosPayload;
   policy?: Policy;
   /**
@@ -832,6 +920,7 @@ export class SendByAliasFileIdRequest extends $tea.Model {
       channelProperties: 'ChannelProperties',
       description: 'Description',
       fileId: 'FileId',
+      harmonyPayload: 'HarmonyPayload',
       iosPayload: 'IosPayload',
       policy: 'Policy',
       productionMode: 'ProductionMode',
@@ -850,6 +939,7 @@ export class SendByAliasFileIdRequest extends $tea.Model {
       channelProperties: ChannelProperties,
       description: 'string',
       fileId: 'string',
+      harmonyPayload: HarmonyPayload,
       iosPayload: IosPayload,
       policy: Policy,
       productionMode: 'boolean',
@@ -879,6 +969,7 @@ export class SendByAliasFileIdShrinkRequest extends $tea.Model {
    * PF835431668603208261
    */
   fileId?: string;
+  harmonyPayloadShrink?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
   /**
@@ -902,6 +993,7 @@ export class SendByAliasFileIdShrinkRequest extends $tea.Model {
       channelPropertiesShrink: 'ChannelProperties',
       description: 'Description',
       fileId: 'FileId',
+      harmonyPayloadShrink: 'HarmonyPayload',
       iosPayloadShrink: 'IosPayload',
       policyShrink: 'Policy',
       productionMode: 'ProductionMode',
@@ -920,6 +1012,7 @@ export class SendByAliasFileIdShrinkRequest extends $tea.Model {
       channelPropertiesShrink: 'string',
       description: 'string',
       fileId: 'string',
+      harmonyPayloadShrink: 'string',
       iosPayloadShrink: 'string',
       policyShrink: 'string',
       productionMode: 'boolean',
@@ -1019,6 +1112,7 @@ export class SendByAppRequest extends $tea.Model {
   androidShortPayload?: AndroidShortPayload;
   channelProperties?: ChannelProperties;
   description?: string;
+  harmonyPayload?: HarmonyPayload;
   iosPayload?: IosPayload;
   policy?: Policy;
   /**
@@ -1040,6 +1134,7 @@ export class SendByAppRequest extends $tea.Model {
       androidShortPayload: 'AndroidShortPayload',
       channelProperties: 'ChannelProperties',
       description: 'Description',
+      harmonyPayload: 'HarmonyPayload',
       iosPayload: 'IosPayload',
       policy: 'Policy',
       productionMode: 'ProductionMode',
@@ -1056,6 +1151,7 @@ export class SendByAppRequest extends $tea.Model {
       androidShortPayload: AndroidShortPayload,
       channelProperties: ChannelProperties,
       description: 'string',
+      harmonyPayload: HarmonyPayload,
       iosPayload: IosPayload,
       policy: Policy,
       productionMode: 'boolean',
@@ -1076,6 +1172,7 @@ export class SendByAppShrinkRequest extends $tea.Model {
   androidShortPayloadShrink?: string;
   channelPropertiesShrink?: string;
   description?: string;
+  harmonyPayloadShrink?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
   /**
@@ -1097,6 +1194,7 @@ export class SendByAppShrinkRequest extends $tea.Model {
       androidShortPayloadShrink: 'AndroidShortPayload',
       channelPropertiesShrink: 'ChannelProperties',
       description: 'Description',
+      harmonyPayloadShrink: 'HarmonyPayload',
       iosPayloadShrink: 'IosPayload',
       policyShrink: 'Policy',
       productionMode: 'ProductionMode',
@@ -1113,6 +1211,7 @@ export class SendByAppShrinkRequest extends $tea.Model {
       androidShortPayloadShrink: 'string',
       channelPropertiesShrink: 'string',
       description: 'string',
+      harmonyPayloadShrink: 'string',
       iosPayloadShrink: 'string',
       policyShrink: 'string',
       productionMode: 'boolean',
@@ -1220,6 +1319,7 @@ export class SendByDeviceRequest extends $tea.Model {
    * ArdNyIzFCH2K3szXA8arpu0Y7ywOdA67mCSumtpnMnmf
    */
   deviceTokens?: string;
+  harmonyPayload?: HarmonyPayload;
   iosPayload?: IosPayload;
   policy?: Policy;
   /**
@@ -1242,6 +1342,7 @@ export class SendByDeviceRequest extends $tea.Model {
       channelProperties: 'ChannelProperties',
       description: 'Description',
       deviceTokens: 'DeviceTokens',
+      harmonyPayload: 'HarmonyPayload',
       iosPayload: 'IosPayload',
       policy: 'Policy',
       productionMode: 'ProductionMode',
@@ -1259,6 +1360,7 @@ export class SendByDeviceRequest extends $tea.Model {
       channelProperties: ChannelProperties,
       description: 'string',
       deviceTokens: 'string',
+      harmonyPayload: HarmonyPayload,
       iosPayload: IosPayload,
       policy: Policy,
       productionMode: 'boolean',
@@ -1287,6 +1389,7 @@ export class SendByDeviceShrinkRequest extends $tea.Model {
    * ArdNyIzFCH2K3szXA8arpu0Y7ywOdA67mCSumtpnMnmf
    */
   deviceTokens?: string;
+  harmonyPayloadShrink?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
   /**
@@ -1309,6 +1412,7 @@ export class SendByDeviceShrinkRequest extends $tea.Model {
       channelPropertiesShrink: 'ChannelProperties',
       description: 'Description',
       deviceTokens: 'DeviceTokens',
+      harmonyPayloadShrink: 'HarmonyPayload',
       iosPayloadShrink: 'IosPayload',
       policyShrink: 'Policy',
       productionMode: 'ProductionMode',
@@ -1326,6 +1430,7 @@ export class SendByDeviceShrinkRequest extends $tea.Model {
       channelPropertiesShrink: 'string',
       description: 'string',
       deviceTokens: 'string',
+      harmonyPayloadShrink: 'string',
       iosPayloadShrink: 'string',
       policyShrink: 'string',
       productionMode: 'boolean',
@@ -1433,6 +1538,7 @@ export class SendByDeviceFileIdRequest extends $tea.Model {
    * PF835431668603208261
    */
   fileId?: string;
+  harmonyPayload?: HarmonyPayload;
   iosPayload?: IosPayload;
   policy?: Policy;
   /**
@@ -1455,6 +1561,7 @@ export class SendByDeviceFileIdRequest extends $tea.Model {
       channelProperties: 'ChannelProperties',
       description: 'Description',
       fileId: 'FileId',
+      harmonyPayload: 'HarmonyPayload',
       iosPayload: 'IosPayload',
       policy: 'Policy',
       productionMode: 'ProductionMode',
@@ -1472,6 +1579,7 @@ export class SendByDeviceFileIdRequest extends $tea.Model {
       channelProperties: ChannelProperties,
       description: 'string',
       fileId: 'string',
+      harmonyPayload: HarmonyPayload,
       iosPayload: IosPayload,
       policy: Policy,
       productionMode: 'boolean',
@@ -1500,6 +1608,7 @@ export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
    * PF835431668603208261
    */
   fileId?: string;
+  harmonyPayloadShrink?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
   /**
@@ -1522,6 +1631,7 @@ export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
       channelPropertiesShrink: 'ChannelProperties',
       description: 'Description',
       fileId: 'FileId',
+      harmonyPayloadShrink: 'HarmonyPayload',
       iosPayloadShrink: 'IosPayload',
       policyShrink: 'Policy',
       productionMode: 'ProductionMode',
@@ -1539,6 +1649,7 @@ export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
       channelPropertiesShrink: 'string',
       description: 'string',
       fileId: 'string',
+      harmonyPayloadShrink: 'string',
       iosPayloadShrink: 'string',
       policyShrink: 'string',
       productionMode: 'boolean',
@@ -1643,6 +1754,7 @@ export class SendByFilterRequest extends $tea.Model {
    * "where":{"and":[{"or":[{"app_version":">=1.0"}]}]}
    */
   filter?: string;
+  harmonyPayload?: HarmonyPayload;
   iosPayload?: IosPayload;
   policy?: Policy;
   /**
@@ -1665,6 +1777,7 @@ export class SendByFilterRequest extends $tea.Model {
       channelProperties: 'ChannelProperties',
       description: 'Description',
       filter: 'Filter',
+      harmonyPayload: 'HarmonyPayload',
       iosPayload: 'IosPayload',
       policy: 'Policy',
       productionMode: 'ProductionMode',
@@ -1682,6 +1795,7 @@ export class SendByFilterRequest extends $tea.Model {
       channelProperties: ChannelProperties,
       description: 'string',
       filter: 'string',
+      harmonyPayload: HarmonyPayload,
       iosPayload: IosPayload,
       policy: Policy,
       productionMode: 'boolean',
@@ -1707,6 +1821,7 @@ export class SendByFilterShrinkRequest extends $tea.Model {
    * "where":{"and":[{"or":[{"app_version":">=1.0"}]}]}
    */
   filter?: string;
+  harmonyPayloadShrink?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
   /**
@@ -1729,6 +1844,7 @@ export class SendByFilterShrinkRequest extends $tea.Model {
       channelPropertiesShrink: 'ChannelProperties',
       description: 'Description',
       filter: 'Filter',
+      harmonyPayloadShrink: 'HarmonyPayload',
       iosPayloadShrink: 'IosPayload',
       policyShrink: 'Policy',
       productionMode: 'ProductionMode',
@@ -1746,6 +1862,7 @@ export class SendByFilterShrinkRequest extends $tea.Model {
       channelPropertiesShrink: 'string',
       description: 'string',
       filter: 'string',
+      harmonyPayloadShrink: 'string',
       iosPayloadShrink: 'string',
       policyShrink: 'string',
       productionMode: 'boolean',
@@ -2355,6 +2472,10 @@ export default class Client extends OpenApi {
       request.channelPropertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelProperties, "ChannelProperties", "json");
     }
 
+    if (!Util.isUnset(tmpReq.harmonyPayload)) {
+      request.harmonyPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.harmonyPayload, "HarmonyPayload", "json");
+    }
+
     if (!Util.isUnset(tmpReq.iosPayload)) {
       request.iosPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.iosPayload, "IosPayload", "json");
     }
@@ -2386,6 +2507,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.harmonyPayloadShrink)) {
+      body["HarmonyPayload"] = request.harmonyPayloadShrink;
     }
 
     if (!Util.isUnset(request.iosPayloadShrink)) {
@@ -2470,6 +2595,10 @@ export default class Client extends OpenApi {
       request.channelPropertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelProperties, "ChannelProperties", "json");
     }
 
+    if (!Util.isUnset(tmpReq.harmonyPayload)) {
+      request.harmonyPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.harmonyPayload, "HarmonyPayload", "json");
+    }
+
     if (!Util.isUnset(tmpReq.iosPayload)) {
       request.iosPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.iosPayload, "IosPayload", "json");
     }
@@ -2501,6 +2630,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileId)) {
       body["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.harmonyPayloadShrink)) {
+      body["HarmonyPayload"] = request.harmonyPayloadShrink;
     }
 
     if (!Util.isUnset(request.iosPayloadShrink)) {
@@ -2585,6 +2718,10 @@ export default class Client extends OpenApi {
       request.channelPropertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelProperties, "ChannelProperties", "json");
     }
 
+    if (!Util.isUnset(tmpReq.harmonyPayload)) {
+      request.harmonyPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.harmonyPayload, "HarmonyPayload", "json");
+    }
+
     if (!Util.isUnset(tmpReq.iosPayload)) {
       request.iosPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.iosPayload, "IosPayload", "json");
     }
@@ -2608,6 +2745,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.harmonyPayloadShrink)) {
+      body["HarmonyPayload"] = request.harmonyPayloadShrink;
     }
 
     if (!Util.isUnset(request.iosPayloadShrink)) {
@@ -2692,6 +2833,10 @@ export default class Client extends OpenApi {
       request.channelPropertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelProperties, "ChannelProperties", "json");
     }
 
+    if (!Util.isUnset(tmpReq.harmonyPayload)) {
+      request.harmonyPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.harmonyPayload, "HarmonyPayload", "json");
+    }
+
     if (!Util.isUnset(tmpReq.iosPayload)) {
       request.iosPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.iosPayload, "IosPayload", "json");
     }
@@ -2719,6 +2864,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deviceTokens)) {
       body["DeviceTokens"] = request.deviceTokens;
+    }
+
+    if (!Util.isUnset(request.harmonyPayloadShrink)) {
+      body["HarmonyPayload"] = request.harmonyPayloadShrink;
     }
 
     if (!Util.isUnset(request.iosPayloadShrink)) {
@@ -2803,6 +2952,10 @@ export default class Client extends OpenApi {
       request.channelPropertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelProperties, "ChannelProperties", "json");
     }
 
+    if (!Util.isUnset(tmpReq.harmonyPayload)) {
+      request.harmonyPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.harmonyPayload, "HarmonyPayload", "json");
+    }
+
     if (!Util.isUnset(tmpReq.iosPayload)) {
       request.iosPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.iosPayload, "IosPayload", "json");
     }
@@ -2830,6 +2983,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileId)) {
       body["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.harmonyPayloadShrink)) {
+      body["HarmonyPayload"] = request.harmonyPayloadShrink;
     }
 
     if (!Util.isUnset(request.iosPayloadShrink)) {
@@ -2910,6 +3067,10 @@ export default class Client extends OpenApi {
       request.channelPropertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelProperties, "ChannelProperties", "json");
     }
 
+    if (!Util.isUnset(tmpReq.harmonyPayload)) {
+      request.harmonyPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.harmonyPayload, "HarmonyPayload", "json");
+    }
+
     if (!Util.isUnset(tmpReq.iosPayload)) {
       request.iosPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.iosPayload, "IosPayload", "json");
     }
@@ -2937,6 +3098,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.filter)) {
       body["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.harmonyPayloadShrink)) {
+      body["HarmonyPayload"] = request.harmonyPayloadShrink;
     }
 
     if (!Util.isUnset(request.iosPayloadShrink)) {
