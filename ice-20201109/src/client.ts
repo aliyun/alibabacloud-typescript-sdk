@@ -18077,6 +18077,7 @@ export class QuerySearchLibResponseBody extends $tea.Model {
    * 200
    */
   code?: string;
+  indexInfo?: QuerySearchLibResponseBodyIndexInfo[];
   /**
    * @remarks
    * The ID of the request.
@@ -18121,6 +18122,7 @@ export class QuerySearchLibResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      indexInfo: 'IndexInfo',
       requestId: 'RequestId',
       searchLibName: 'SearchLibName',
       status: 'Status',
@@ -18131,6 +18133,7 @@ export class QuerySearchLibResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      indexInfo: { 'type': 'array', 'itemType': QuerySearchLibResponseBodyIndexInfo },
       requestId: 'string',
       searchLibName: 'string',
       status: 'string',
@@ -22746,7 +22749,7 @@ export class SubmitBatchMediaProducingJobRequest extends $tea.Model {
   outputConfig?: string;
   /**
    * @remarks
-   * The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html?spm=a2c4g.439285.0.i1#section-urj-v3f-0s1).
+   * The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html).
    */
   userData?: string;
   static names(): { [key: string]: string } {
@@ -26014,6 +26017,119 @@ export class SubmitPackageJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitPackageJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitScreenMediaHighlightsJobRequest extends $tea.Model {
+  /**
+   * @example
+   * {
+   * 	"MediaConfig": {
+   * 		"Volume": 1
+   * 	},
+   * 	"ProcessConfig": {
+   * 		"AllowTransition": true,
+   * 		"TransitionList": ["fadecolor"]
+   * 	}
+   * }
+   */
+  editingConfig?: string;
+  /**
+   * @example
+   * {
+   * 	"MediaArray": [
+   * 		"****9d46c886b45481030f6e****",
+   * 		"****6c886b4549d481030f6e****"
+   * 	]
+   * }
+   */
+  inputConfig?: string;
+  /**
+   * @example
+   * {
+   *   "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
+   *   "Count": 1,
+   *   "Width": 1080,
+   *   "Height": 1920
+   * }
+   */
+  outputConfig?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      editingConfig: 'EditingConfig',
+      inputConfig: 'InputConfig',
+      outputConfig: 'OutputConfig',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      editingConfig: 'string',
+      inputConfig: 'string',
+      outputConfig: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitScreenMediaHighlightsJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
+  jobId?: string;
+  /**
+   * @example
+   * ****36-3C1E-4417-BDB2-1E034F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitScreenMediaHighlightsJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitScreenMediaHighlightsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitScreenMediaHighlightsJobResponseBody,
     };
   }
 
@@ -40872,6 +40988,7 @@ export class GetSmartHandleJobResponseBodyJobResult extends $tea.Model {
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
+  mediaUrl?: string;
   /**
    * @remarks
    * The token usage. This parameter is returned only for keyword-based text generation jobs.
@@ -40884,6 +41001,7 @@ export class GetSmartHandleJobResponseBodyJobResult extends $tea.Model {
     return {
       aiResult: 'AiResult',
       mediaId: 'MediaId',
+      mediaUrl: 'MediaUrl',
       usage: 'Usage',
     };
   }
@@ -40892,6 +41010,7 @@ export class GetSmartHandleJobResponseBodyJobResult extends $tea.Model {
     return {
       aiResult: 'string',
       mediaId: 'string',
+      mediaUrl: 'string',
       usage: 'string',
     };
   }
@@ -51199,7 +51318,33 @@ export class ListPublicMediaBasicInfosResponseBodyMediaInfos extends $tea.Model 
   }
 }
 
+export class ListSearchLibResponseBodySearchLibInfoListIndexInfo extends $tea.Model {
+  indexReadiness?: string;
+  indexStatus?: string;
+  indexType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexReadiness: 'IndexReadiness',
+      indexStatus: 'IndexStatus',
+      indexType: 'IndexType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexReadiness: 'string',
+      indexStatus: 'string',
+      indexType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSearchLibResponseBodySearchLibInfoList extends $tea.Model {
+  indexInfo?: ListSearchLibResponseBodySearchLibInfoListIndexInfo[];
   /**
    * @remarks
    * The search library.
@@ -51222,6 +51367,7 @@ export class ListSearchLibResponseBodySearchLibInfoList extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      indexInfo: 'IndexInfo',
       searchLibName: 'SearchLibName',
       status: 'Status',
     };
@@ -51229,6 +51375,7 @@ export class ListSearchLibResponseBodySearchLibInfoList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      indexInfo: { 'type': 'array', 'itemType': ListSearchLibResponseBodySearchLibInfoListIndexInfo },
       searchLibName: 'string',
       status: 'string',
     };
@@ -56433,6 +56580,31 @@ export class QueryMediaIndexJobResponseBodyIndexJobInfoList extends $tea.Model {
       gmtSubmit: 'string',
       indexType: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySearchLibResponseBodyIndexInfo extends $tea.Model {
+  indexReadiness?: string;
+  indexStatus?: string;
+  indexType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexReadiness: 'IndexReadiness',
+      indexStatus: 'IndexStatus',
+      indexType: 'IndexType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexReadiness: 'string',
+      indexStatus: 'string',
+      indexType: 'string',
     };
   }
 
@@ -71361,8 +71533,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    * 
    * @param request - DeleteTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -71393,8 +71565,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    * 
    * @param request - DeleteTemplateRequest
    * @returns DeleteTemplateResponse
@@ -79908,6 +80080,62 @@ export default class Client extends OpenApi {
   async submitPackageJob(request: SubmitPackageJobRequest): Promise<SubmitPackageJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitPackageJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交高燃混剪任务
+   * 
+   * @param request - SubmitScreenMediaHighlightsJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitScreenMediaHighlightsJobResponse
+   */
+  async submitScreenMediaHighlightsJobWithOptions(request: SubmitScreenMediaHighlightsJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitScreenMediaHighlightsJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.editingConfig)) {
+      body["EditingConfig"] = request.editingConfig;
+    }
+
+    if (!Util.isUnset(request.inputConfig)) {
+      body["InputConfig"] = request.inputConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitScreenMediaHighlightsJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitScreenMediaHighlightsJobResponse>(await this.callApi(params, req, runtime), new SubmitScreenMediaHighlightsJobResponse({}));
+  }
+
+  /**
+   * 提交高燃混剪任务
+   * 
+   * @param request - SubmitScreenMediaHighlightsJobRequest
+   * @returns SubmitScreenMediaHighlightsJobResponse
+   */
+  async submitScreenMediaHighlightsJob(request: SubmitScreenMediaHighlightsJobRequest): Promise<SubmitScreenMediaHighlightsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitScreenMediaHighlightsJobWithOptions(request, runtime);
   }
 
   /**
