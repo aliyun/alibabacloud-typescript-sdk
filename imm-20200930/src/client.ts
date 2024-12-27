@@ -812,6 +812,43 @@ export class Dataset extends $tea.Model {
   }
 }
 
+export class DatasetTaskStatus extends $tea.Model {
+  /**
+   * @example
+   * 2024-06-29T14:50:13.011643661+08:00
+   */
+  lastSucceededTime?: string;
+  /**
+   * @example
+   * 2024-06-29T14:50:13.011643661+08:00
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Succeeded
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lastSucceededTime: 'LastSucceededTime',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lastSucceededTime: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Element extends $tea.Model {
   elementContents?: ElementContent[];
   elementRelations?: ElementRelation[];
@@ -2593,6 +2630,81 @@ export class SimpleQuery extends $tea.Model {
   }
 }
 
+export class SmartCluster extends $tea.Model {
+  createTime?: string;
+  datasetName?: string;
+  description?: string;
+  name?: string;
+  objectId?: string;
+  objectStatus?: string;
+  objectType?: string;
+  ownerId?: string;
+  projectName?: string;
+  rule?: SmartClusterRule;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      datasetName: 'DatasetName',
+      description: 'Description',
+      name: 'Name',
+      objectId: 'ObjectId',
+      objectStatus: 'ObjectStatus',
+      objectType: 'ObjectType',
+      ownerId: 'OwnerId',
+      projectName: 'ProjectName',
+      rule: 'Rule',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      datasetName: 'string',
+      description: 'string',
+      name: 'string',
+      objectId: 'string',
+      objectStatus: 'string',
+      objectType: 'string',
+      ownerId: 'string',
+      projectName: 'string',
+      rule: SmartClusterRule,
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmartClusterRule extends $tea.Model {
+  keywords?: string[];
+  /**
+   * @example
+   * 0.5
+   */
+  sensitivity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keywords: 'Keywords',
+      sensitivity: 'Sensitivity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keywords: { 'type': 'array', 'itemType': 'string' },
+      sensitivity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Spec extends $tea.Model {
   backbone?: CustomParams;
   /**
@@ -3290,34 +3402,69 @@ export class WebofficeWatermark extends $tea.Model {
 }
 
 export class AddImageMosaicRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
+   * @remarks
+   * The encoding of the output image. By default, the output image uses the same encoding as the input image. Valid values: jpg, png, and webp.
+   * 
    * @example
    * jpg
    */
   imageFormat?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The quality of the output image. This parameter applies only to JPG and WebP images. Valid values: 0 to 100. Default value: 80.
+   * 
    * @example
    * 80
    */
   quality?: number;
   /**
    * @remarks
+   * The OSS URI of the input image.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
+   * Supported formats of input images include JPG, PNG, TIFF, JP2, and BMP.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket/sampleobject.jpg
    */
   sourceURI?: string;
   /**
    * @remarks
+   * The OSS URI of the output image.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket/outputImage.jpg
    */
   targetURI?: string;
   /**
    * @remarks
+   * The bounding boxes and processing parameters.
+   * 
    * This parameter is required.
    */
   targets?: AddImageMosaicRequestTargets[];
@@ -3351,34 +3498,69 @@ export class AddImageMosaicRequest extends $tea.Model {
 }
 
 export class AddImageMosaicShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
+   * @remarks
+   * The encoding of the output image. By default, the output image uses the same encoding as the input image. Valid values: jpg, png, and webp.
+   * 
    * @example
    * jpg
    */
   imageFormat?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The quality of the output image. This parameter applies only to JPG and WebP images. Valid values: 0 to 100. Default value: 80.
+   * 
    * @example
    * 80
    */
   quality?: number;
   /**
    * @remarks
+   * The OSS URI of the input image.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
+   * Supported formats of input images include JPG, PNG, TIFF, JP2, and BMP.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket/sampleobject.jpg
    */
   sourceURI?: string;
   /**
    * @remarks
+   * The OSS URI of the output image.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket/outputImage.jpg
    */
   targetURI?: string;
   /**
    * @remarks
+   * The bounding boxes and processing parameters.
+   * 
    * This parameter is required.
    */
   targetsShrink?: string;
@@ -3413,6 +3595,9 @@ export class AddImageMosaicShrinkRequest extends $tea.Model {
 
 export class AddImageMosaicResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CA995EFD-083D-4F40-BE8A-BDF75FF*****
    */
@@ -3462,6 +3647,8 @@ export class AddImageMosaicResponse extends $tea.Model {
 export class AddStoryFilesRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3470,11 +3657,15 @@ export class AddStoryFilesRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The objects that you want to add.
+   * 
    * This parameter is required.
    */
   files?: AddStoryFilesRequestFiles[];
   /**
    * @remarks
+   * The ID of the story.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3483,6 +3674,8 @@ export class AddStoryFilesRequest extends $tea.Model {
   objectId?: string;
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3515,6 +3708,8 @@ export class AddStoryFilesRequest extends $tea.Model {
 export class AddStoryFilesShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3523,11 +3718,15 @@ export class AddStoryFilesShrinkRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The objects that you want to add.
+   * 
    * This parameter is required.
    */
   filesShrink?: string;
   /**
    * @remarks
+   * The ID of the story.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3536,6 +3735,8 @@ export class AddStoryFilesShrinkRequest extends $tea.Model {
   objectId?: string;
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3566,8 +3767,15 @@ export class AddStoryFilesShrinkRequest extends $tea.Model {
 }
 
 export class AddStoryFilesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The objects that were added.
+   */
   files?: AddStoryFilesResponseBodyFiles[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6E93D6C9-5AC0-49F9-914D-E02678D3****
    */
@@ -3617,9 +3825,18 @@ export class AddStoryFilesResponse extends $tea.Model {
 }
 
 export class AttachOSSBucketRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the binding. The description must be 1 to 128 characters in length. By default, no description is applied.
+   * 
+   * @example
+   * test-attachment
+   */
   description?: string;
   /**
    * @remarks
+   * The name of the OSS bucket in the same region as the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3628,6 +3845,8 @@ export class AttachOSSBucketRequest extends $tea.Model {
   OSSBucket?: string;
   /**
    * @remarks
+   * The name of the project. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3657,6 +3876,9 @@ export class AttachOSSBucketRequest extends $tea.Model {
 
 export class AttachOSSBucketResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5F74C5C9-5AC0-49F9-914D-E01589D3****
    */
@@ -3706,16 +3928,28 @@ export class AttachOSSBucketResponse extends $tea.Model {
 export class BatchDeleteFileMetaRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
    * @remarks
+   * The URIs of the OSS buckets in which the files whose metadata you want to delete are stored. You can specify up to 100 URIs.
+   * 
    * This parameter is required.
    */
   URIs?: string[];
@@ -3743,16 +3977,28 @@ export class BatchDeleteFileMetaRequest extends $tea.Model {
 export class BatchDeleteFileMetaShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
    * @remarks
+   * The URIs of the OSS buckets in which the files whose metadata you want to delete are stored. You can specify up to 100 URIs.
+   * 
    * This parameter is required.
    */
   URIsShrink?: string;
@@ -3779,6 +4025,9 @@ export class BatchDeleteFileMetaShrinkRequest extends $tea.Model {
 
 export class BatchDeleteFileMetaResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3A82F6C9-5AC0-38F9-914F-F02623B3****
    */
@@ -3828,6 +4077,8 @@ export class BatchDeleteFileMetaResponse extends $tea.Model {
 export class BatchGetFigureClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3836,11 +4087,15 @@ export class BatchGetFigureClusterRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The cluster IDs.
+   * 
    * This parameter is required.
    */
   objectIds?: string[];
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3871,6 +4126,8 @@ export class BatchGetFigureClusterRequest extends $tea.Model {
 export class BatchGetFigureClusterShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3879,11 +4136,15 @@ export class BatchGetFigureClusterShrinkRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The cluster IDs.
+   * 
    * This parameter is required.
    */
   objectIdsShrink?: string;
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3912,8 +4173,15 @@ export class BatchGetFigureClusterShrinkRequest extends $tea.Model {
 }
 
 export class BatchGetFigureClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The clusters.
+   */
   figureClusters?: FigureCluster[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CA995EFD-083D-4F40-BE8A-BDF75FFF****
    */
@@ -3965,19 +4233,37 @@ export class BatchGetFigureClusterResponse extends $tea.Model {
 export class BatchGetFileMetaRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
    * @remarks
+   * The array of object URIs. You can specify up to 100 object URIs in an array.
+   * 
    * This parameter is required.
    */
   URIs?: string[];
+  /**
+   * @remarks
+   * The fields to return. If you specify this parameter, only specified metadata fields are returned. You can use this parameter to control the size of the response.
+   * 
+   * If you do not specify this parameter or leave this parameter empty, the operation returns all metadata fields.
+   */
   withFields?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4005,19 +4291,37 @@ export class BatchGetFileMetaRequest extends $tea.Model {
 export class BatchGetFileMetaShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
    * @remarks
+   * The array of object URIs. You can specify up to 100 object URIs in an array.
+   * 
    * This parameter is required.
    */
   URIsShrink?: string;
+  /**
+   * @remarks
+   * The fields to return. If you specify this parameter, only specified metadata fields are returned. You can use this parameter to control the size of the response.
+   * 
+   * If you do not specify this parameter or leave this parameter empty, the operation returns all metadata fields.
+   */
   withFieldsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4043,8 +4347,15 @@ export class BatchGetFileMetaShrinkRequest extends $tea.Model {
 }
 
 export class BatchGetFileMetaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The metadata returned.
+   */
   files?: File[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7F84C6D9-5AC0-49F9-914D-F02678E3****
    */
@@ -4096,6 +4407,8 @@ export class BatchGetFileMetaResponse extends $tea.Model {
 export class BatchIndexFileMetaRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4104,12 +4417,20 @@ export class BatchIndexFileMetaRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The objects in Object Storage Service (OSS). Specify OSS objects by using a JSON array. You can specify up to 100 objects in an array.
+   * 
    * This parameter is required.
    */
   files?: InputFile[];
+  /**
+   * @remarks
+   * The notification settings. For more information, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
+   */
   notification?: Notification;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4145,6 +4466,8 @@ export class BatchIndexFileMetaRequest extends $tea.Model {
 export class BatchIndexFileMetaShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4153,12 +4476,20 @@ export class BatchIndexFileMetaShrinkRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The objects in Object Storage Service (OSS). Specify OSS objects by using a JSON array. You can specify up to 100 objects in an array.
+   * 
    * This parameter is required.
    */
   filesShrink?: string;
+  /**
+   * @remarks
+   * The notification settings. For more information, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
+   */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4193,11 +4524,17 @@ export class BatchIndexFileMetaShrinkRequest extends $tea.Model {
 
 export class BatchIndexFileMetaResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 387-1DAPFFZplUZhuCuhnB6I9H****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8F93E6D9-5AC0-49F9-914D-E02678A3****
    */
@@ -4249,6 +4586,8 @@ export class BatchIndexFileMetaResponse extends $tea.Model {
 export class BatchUpdateFileMetaRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4257,11 +4596,15 @@ export class BatchUpdateFileMetaRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The files whose metadata you want to update.
+   * 
    * This parameter is required.
    */
   files?: InputFile[];
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4292,6 +4635,8 @@ export class BatchUpdateFileMetaRequest extends $tea.Model {
 export class BatchUpdateFileMetaShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4300,11 +4645,15 @@ export class BatchUpdateFileMetaShrinkRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The files whose metadata you want to update.
+   * 
    * This parameter is required.
    */
   filesShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4333,8 +4682,15 @@ export class BatchUpdateFileMetaShrinkRequest extends $tea.Model {
 }
 
 export class BatchUpdateFileMetaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The files whose metadata was updated.
+   */
   files?: BatchUpdateFileMetaResponseBodyFiles[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F5BF215E-3237-0852-B9C6-F233D44A****
    */
@@ -4384,15 +4740,27 @@ export class BatchUpdateFileMetaResponse extends $tea.Model {
 }
 
 export class CompareImageFacesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
    * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The URLs of the two images for compression.
+   */
   source?: CompareImageFacesRequestSource;
   static names(): { [key: string]: string } {
     return {
@@ -4416,15 +4784,27 @@ export class CompareImageFacesRequest extends $tea.Model {
 }
 
 export class CompareImageFacesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
    * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The URLs of the two images for compression.
+   */
   sourceShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4449,11 +4829,17 @@ export class CompareImageFacesShrinkRequest extends $tea.Model {
 
 export class CompareImageFacesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F73AC982-2B9E-4ECD-AED5-F8331C5******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The face similarity. A larger value indicates a higher face similarity. Valid values: 0 to 1.
+   * 
    * @example
    * 0.8848152756690983
    */
@@ -4502,16 +4888,311 @@ export class CompareImageFacesResponse extends $tea.Model {
   }
 }
 
+export class ContextualAnswerRequest extends $tea.Model {
+  files?: ContextualFile[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  messages?: ContextualMessage[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      files: 'Files',
+      messages: 'Messages',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      files: { 'type': 'array', 'itemType': ContextualFile },
+      messages: { 'type': 'array', 'itemType': ContextualMessage },
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContextualAnswerShrinkRequest extends $tea.Model {
+  filesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  messagesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filesShrink: 'Files',
+      messagesShrink: 'Messages',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filesShrink: 'string',
+      messagesShrink: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContextualAnswerResponseBody extends $tea.Model {
+  answer?: Answer;
+  /**
+   * @example
+   * 22F081FB-90D7-525A-BFE4-D28DC906A28F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answer: 'Answer',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answer: Answer,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContextualAnswerResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ContextualAnswerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ContextualAnswerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContextualRetrievalRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
+  datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  messages?: ContextualMessage[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
+  projectName?: string;
+  /**
+   * @example
+   * false
+   */
+  recallOnly?: boolean;
+  smartClusterIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      messages: 'Messages',
+      projectName: 'ProjectName',
+      recallOnly: 'RecallOnly',
+      smartClusterIds: 'SmartClusterIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      messages: { 'type': 'array', 'itemType': ContextualMessage },
+      projectName: 'string',
+      recallOnly: 'boolean',
+      smartClusterIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContextualRetrievalShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
+  datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  messagesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
+  projectName?: string;
+  /**
+   * @example
+   * false
+   */
+  recallOnly?: boolean;
+  smartClusterIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      messagesShrink: 'Messages',
+      projectName: 'ProjectName',
+      recallOnly: 'RecallOnly',
+      smartClusterIdsShrink: 'SmartClusterIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      messagesShrink: 'string',
+      projectName: 'string',
+      recallOnly: 'boolean',
+      smartClusterIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContextualRetrievalResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6E93D6C9-5AC0-49F9-914D-E02678D3****
+   */
+  requestId?: string;
+  results?: File[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      results: { 'type': 'array', 'itemType': File },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContextualRetrievalResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ContextualRetrievalResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ContextualRetrievalResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notification?: Notification;
   /**
+   * @remarks
+   * The password that protects the package. If the package is password-protected, you must provide the password to view the contents of the package.
+   * 
    * @example
    * 123456
    */
   password?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4519,11 +5200,19 @@ export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The URI of the package.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * @example
    * oss://imm-apitest-fxf2/name.zip
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -4556,15 +5245,30 @@ export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
 }
 
 export class CreateArchiveFileInspectionTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notificationShrink?: string;
   /**
+   * @remarks
+   * The password that protects the package. If the package is password-protected, you must provide the password to view the contents of the package.
+   * 
    * @example
    * 123456
    */
   password?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4572,11 +5276,19 @@ export class CreateArchiveFileInspectionTaskShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The URI of the package.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * @example
    * oss://imm-apitest-fxf2/name.zip
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -4610,16 +5322,25 @@ export class CreateArchiveFileInspectionTaskShrinkRequest extends $tea.Model {
 
 export class CreateArchiveFileInspectionTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 0ED-1Bz8z71k5TtsUejT4UJ16Es*****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EC564A9A-BA5C-4499-A087-D9B9E76E*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ArchiveFileInspection-8475218e-d86e-4c66-b3cf-50e74d6c****
    */
@@ -4673,17 +5394,29 @@ export class CreateArchiveFileInspectionTaskResponse extends $tea.Model {
 export class CreateBatchRequest extends $tea.Model {
   /**
    * @remarks
+   * The processing templates.
+   * 
    * This parameter is required.
    */
   actions?: CreateBatchRequestActions[];
   /**
    * @remarks
+   * The data source configurations.
+   * 
    * This parameter is required.
    */
   input?: Input;
+  /**
+   * @remarks
+   * The notification settings. The operation supports multiple messaging middleware options. For more information about notification messages, see Asynchronous message examples. You can use one of the following methods to receive notification messages:
+   * 
+   * Activate and connect to EventBridge in the same region as the IMM project. For more information, see IMM events. Activate Simple Message Queue in the same region as the IMM project and configure a subscription.
+   */
   notification?: CreateBatchRequestNotification;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4692,6 +5425,10 @@ export class CreateBatchRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The service role. IMM assumes the service role so that it can access resources in other cloud services, such as OSS. Default value: AliyunIMMBatchTriggerRole.
+   * 
+   * You can also create a custom service role in the RAM console and grant the required permissions to the role based on your business requirements. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a role](https://help.aliyun.com/document_detail/116147.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4699,6 +5436,9 @@ export class CreateBatchRequest extends $tea.Model {
    */
   serviceRole?: string;
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"key": "val"}
    */
@@ -4733,17 +5473,29 @@ export class CreateBatchRequest extends $tea.Model {
 export class CreateBatchShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The processing templates.
+   * 
    * This parameter is required.
    */
   actionsShrink?: string;
   /**
    * @remarks
+   * The data source configurations.
+   * 
    * This parameter is required.
    */
   inputShrink?: string;
+  /**
+   * @remarks
+   * The notification settings. The operation supports multiple messaging middleware options. For more information about notification messages, see Asynchronous message examples. You can use one of the following methods to receive notification messages:
+   * 
+   * Activate and connect to EventBridge in the same region as the IMM project. For more information, see IMM events. Activate Simple Message Queue in the same region as the IMM project and configure a subscription.
+   */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4752,6 +5504,10 @@ export class CreateBatchShrinkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The service role. IMM assumes the service role so that it can access resources in other cloud services, such as OSS. Default value: AliyunIMMBatchTriggerRole.
+   * 
+   * You can also create a custom service role in the RAM console and grant the required permissions to the role based on your business requirements. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a role](https://help.aliyun.com/document_detail/116147.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4759,6 +5515,9 @@ export class CreateBatchShrinkRequest extends $tea.Model {
    */
   serviceRole?: string;
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"key": "val"}
    */
@@ -4792,11 +5551,17 @@ export class CreateBatchShrinkRequest extends $tea.Model {
 
 export class CreateBatchResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the batch processing task.
+   * 
    * @example
    * batch-4eb9223f-3e88-42d3-a578-3f2852******
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EC564A9A-BA5C-4499-A087-D9B9E76E*****
    */
@@ -4848,6 +5613,8 @@ export class CreateBatchResponse extends $tea.Model {
 export class CreateBindingRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4856,6 +5623,8 @@ export class CreateBindingRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4864,6 +5633,10 @@ export class CreateBindingRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The URI of the OSS bucket to which you bind the dataset.
+   * 
+   * Specify the value in the oss://${Bucket} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4892,8 +5665,15 @@ export class CreateBindingRequest extends $tea.Model {
 }
 
 export class CreateBindingResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The binding relationship.
+   */
   binding?: Binding;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5F74C5C9-5AC0-49F9-914D-E01589D3****
    */
@@ -4945,28 +5725,61 @@ export class CreateBindingResponse extends $tea.Model {
 export class CreateCompressPointCloudTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The compression algorithm. Valid values:
+   * 
+   * *   octree
+   * *   kdtree
+   * 
    * This parameter is required.
    * 
    * @example
    * octree
    */
   compressMethod?: string;
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The k-d tree compression options.
+   */
   kdtreeOption?: KdtreeOption;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notification?: Notification;
+  /**
+   * @remarks
+   * The octree compression options.
+   */
   octreeOption?: OctreeOption;
   /**
    * @remarks
+   * The PCD property fields and the compression order in which the data is decompressed after the compression is complete.
+   * 
+   * *   If octree of Point Cloud Library (PCL) is used for compression, ["xyz"] is supported.
+   * *   If Draco k-dimensional (k-d) tree is used for compression, ["xyz"] and ["xyz", "intensity"] are supported.
+   * 
    * This parameter is required.
    */
   pointCloudFields?: string[];
   /**
+   * @remarks
+   * The file format. Set the value to the default value: pcd.
+   * 
    * @example
    * pcd
    */
   pointCloudFileFormat?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4975,6 +5788,10 @@ export class CreateCompressPointCloudTaskRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The OSS URL of the PCD file.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4982,12 +5799,19 @@ export class CreateCompressPointCloudTaskRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The custom tags, which can be used to search for and filter asynchronous tasks.
+   * 
    * @example
    * {"LabelKey": "Value"}
    */
   tags?: { [key: string]: any };
   /**
    * @remarks
+   * The OSS URL of the output file after compression.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4995,6 +5819,9 @@ export class CreateCompressPointCloudTaskRequest extends $tea.Model {
    */
   targetURI?: string;
   /**
+   * @remarks
+   * The custom data, which is returned in an asynchronous notification and facilitates notification management. The maximum length is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -5041,28 +5868,61 @@ export class CreateCompressPointCloudTaskRequest extends $tea.Model {
 export class CreateCompressPointCloudTaskShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The compression algorithm. Valid values:
+   * 
+   * *   octree
+   * *   kdtree
+   * 
    * This parameter is required.
    * 
    * @example
    * octree
    */
   compressMethod?: string;
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * The k-d tree compression options.
+   */
   kdtreeOptionShrink?: string;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notificationShrink?: string;
+  /**
+   * @remarks
+   * The octree compression options.
+   */
   octreeOptionShrink?: string;
   /**
    * @remarks
+   * The PCD property fields and the compression order in which the data is decompressed after the compression is complete.
+   * 
+   * *   If octree of Point Cloud Library (PCL) is used for compression, ["xyz"] is supported.
+   * *   If Draco k-dimensional (k-d) tree is used for compression, ["xyz"] and ["xyz", "intensity"] are supported.
+   * 
    * This parameter is required.
    */
   pointCloudFieldsShrink?: string;
   /**
+   * @remarks
+   * The file format. Set the value to the default value: pcd.
+   * 
    * @example
    * pcd
    */
   pointCloudFileFormat?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5071,6 +5931,10 @@ export class CreateCompressPointCloudTaskShrinkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The OSS URL of the PCD file.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5078,12 +5942,19 @@ export class CreateCompressPointCloudTaskShrinkRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The custom tags, which can be used to search for and filter asynchronous tasks.
+   * 
    * @example
    * {"LabelKey": "Value"}
    */
   tagsShrink?: string;
   /**
    * @remarks
+   * The OSS URL of the output file after compression.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5091,6 +5962,9 @@ export class CreateCompressPointCloudTaskShrinkRequest extends $tea.Model {
    */
   targetURI?: string;
   /**
+   * @remarks
+   * The custom data, which is returned in an asynchronous notification and facilitates notification management. The maximum length is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -5136,16 +6010,25 @@ export class CreateCompressPointCloudTaskShrinkRequest extends $tea.Model {
 
 export class CreateCompressPointCloudTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 0B7-1LR4Wcue1aBhk2xT85MfL*****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CA995EFD-083D-4F40-BE8A-BDF75FFF****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * PointCloudCompress-badda57d-a3ab-4e6d-938f-49b77ce****
    */
@@ -5199,16 +6082,23 @@ export class CreateCompressPointCloudTaskResponse extends $tea.Model {
 export class CreateCustomizedStoryRequest extends $tea.Model {
   /**
    * @remarks
+   * The cover image of the story. You can specify an image as the cover image of the custom story.
+   * 
    * This parameter is required.
    */
   cover?: CreateCustomizedStoryRequestCover;
   /**
+   * @remarks
+   * The custom labels. You can specify labels to help you identify and retrieve the story.
+   * 
    * @example
    * {"Bucket": "examplebucket"}
    */
   customLabels?: { [key: string]: any };
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5217,11 +6107,15 @@ export class CreateCustomizedStoryRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The files of the story. You can specify up to 100 files in a custom story.
+   * 
    * This parameter is required.
    */
   files?: CreateCustomizedStoryRequestFiles[];
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5230,6 +6124,8 @@ export class CreateCustomizedStoryRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The name of the story.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5238,6 +6134,8 @@ export class CreateCustomizedStoryRequest extends $tea.Model {
   storyName?: string;
   /**
    * @remarks
+   * The subtype of the story. For information about valid subtypes, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5246,6 +6144,8 @@ export class CreateCustomizedStoryRequest extends $tea.Model {
   storySubType?: string;
   /**
    * @remarks
+   * The type of the story. For information about valid types, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5286,16 +6186,23 @@ export class CreateCustomizedStoryRequest extends $tea.Model {
 export class CreateCustomizedStoryShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The cover image of the story. You can specify an image as the cover image of the custom story.
+   * 
    * This parameter is required.
    */
   coverShrink?: string;
   /**
+   * @remarks
+   * The custom labels. You can specify labels to help you identify and retrieve the story.
+   * 
    * @example
    * {"Bucket": "examplebucket"}
    */
   customLabelsShrink?: string;
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5304,11 +6211,15 @@ export class CreateCustomizedStoryShrinkRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The files of the story. You can specify up to 100 files in a custom story.
+   * 
    * This parameter is required.
    */
   filesShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5317,6 +6228,8 @@ export class CreateCustomizedStoryShrinkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The name of the story.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5325,6 +6238,8 @@ export class CreateCustomizedStoryShrinkRequest extends $tea.Model {
   storyName?: string;
   /**
    * @remarks
+   * The subtype of the story. For information about valid subtypes, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5333,6 +6248,8 @@ export class CreateCustomizedStoryShrinkRequest extends $tea.Model {
   storySubType?: string;
   /**
    * @remarks
+   * The type of the story. For information about valid types, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5372,11 +6289,17 @@ export class CreateCustomizedStoryShrinkRequest extends $tea.Model {
 
 export class CreateCustomizedStoryResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the story.
+   * 
    * @example
    * 563062c0b085733f34ab****
    */
   objectId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BC91D091-D49F-0ACD-95D5-F0621045****
    */
@@ -5427,32 +6350,53 @@ export class CreateCustomizedStoryResponse extends $tea.Model {
 
 export class CreateDatasetRequest extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of bindings for the dataset. Valid values: 1 to 10. Default value: 10.
+   * 
    * @example
    * 10
    */
   datasetMaxBindCount?: number;
   /**
+   * @remarks
+   * The maximum number of metadata entities in the dataset. Default value: 10000000000.
+   * 
    * @example
    * 10000000000
    */
   datasetMaxEntityCount?: number;
   /**
+   * @remarks
+   * The maximum number of files in the dataset. Valid values: 1 to 100000000. Default value: 100000000.
+   * 
    * @example
    * 100000000
    */
   datasetMaxFileCount?: number;
   /**
+   * @remarks
+   * The maximum number of metadata relationships in the dataset. Default value: 100000000000.
+   * 
    * @example
    * 100000000000
    */
   datasetMaxRelationCount?: number;
   /**
+   * @remarks
+   * The maximum total file size for the dataset. If the total file size of the dataset exceeds this limit, indexes can no longer be added. Default value: 90000000000000000. Unit: bytes.
+   * 
    * @example
    * 90000000000000000
    */
   datasetMaxTotalFileSize?: number;
   /**
    * @remarks
+   * The name of the dataset. The dataset name must be unique in the same project. The name must meet the following requirements:
+   * 
+   * *   The name must be 1 to 128 characters in length.
+   * *   The name can contain only letters, digits, hyphens (-), and underscores (_).
+   * *   The name must start with a letter or underscore (_).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5460,16 +6404,27 @@ export class CreateDatasetRequest extends $tea.Model {
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The description of the dataset. The description must be 1 to 256 characters in length. You can leave this parameter empty.
+   * 
    * @example
    * immtest
    */
   description?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The ID of the workflow template. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * 
    * @example
    * Official:AllFunction
    */
@@ -5508,8 +6463,15 @@ export class CreateDatasetRequest extends $tea.Model {
 }
 
 export class CreateDatasetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the dataset.
+   */
   dataset?: Dataset;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6D74B3A9-5AC0-49F9-914D-E01589D3****
    */
@@ -5560,23 +6522,45 @@ export class CreateDatasetResponse extends $tea.Model {
 
 export class CreateDecodeBlindWatermarkTaskRequest extends $tea.Model {
   /**
+   * @remarks
+   * The quality of the output image.
+   * The higher the quality, the larger the image size and the higher the watermark resolution quality.
+   * 
    * @example
    * 90
    */
   imageQuality?: number;
   /**
+   * @remarks
+   * The watermark algorithm model.Valid values: FFT, FFT_FULL, DWT, and DWT_IBG. Default value: FFT.
+   * 
+   * If this parameter is left empty, the DecodeBlindWatermark operation is called. Otherwise, the CreateDecodeBlindWatermarkTask operation is called.
+   * 
    * @example
    * FFT
    */
   model?: string;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notification?: Notification;
   /**
+   * @remarks
+   * The OSS URI of the image before the blind watermark is added. 
+   * 
+   * Do not specify this parameter when you set the Model parameter to DWT or DWT_IBG.
+   * 
+   * Specify the OSS URI in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
+   * 
    * @example
    * oss://imm-test/testcases/watermarktestbefore.jpg
    */
   originalImageURI?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5585,6 +6569,10 @@ export class CreateDecodeBlindWatermarkTaskRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The OSS URI of the image.
+   * 
+   * Specify the OSS URI in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5592,16 +6580,28 @@ export class CreateDecodeBlindWatermarkTaskRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The watermark strength level. The higher the strength level, the more resistant the watermarked image is to attacks, but the more the image is distorted. Valid values: low, medium, and high. Default value: low.
+   * 
    * @example
    * low
    */
   strengthLevel?: string;
   /**
+   * @remarks
+   * The OSS URI of the output image.
+   * Specify the OSS URI in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
+   * 
    * @example
    * oss://target/targetobject.jpg
    */
   targetURI?: string;
   /**
+   * @remarks
+   * The type of the watermark. Valid value: text.
+   * 
+   * No image watermarks are supported.
+   * 
    * @example
    * text
    */
@@ -5641,23 +6641,45 @@ export class CreateDecodeBlindWatermarkTaskRequest extends $tea.Model {
 
 export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The quality of the output image.
+   * The higher the quality, the larger the image size and the higher the watermark resolution quality.
+   * 
    * @example
    * 90
    */
   imageQuality?: number;
   /**
+   * @remarks
+   * The watermark algorithm model.Valid values: FFT, FFT_FULL, DWT, and DWT_IBG. Default value: FFT.
+   * 
+   * If this parameter is left empty, the DecodeBlindWatermark operation is called. Otherwise, the CreateDecodeBlindWatermarkTask operation is called.
+   * 
    * @example
    * FFT
    */
   model?: string;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notificationShrink?: string;
   /**
+   * @remarks
+   * The OSS URI of the image before the blind watermark is added. 
+   * 
+   * Do not specify this parameter when you set the Model parameter to DWT or DWT_IBG.
+   * 
+   * Specify the OSS URI in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
+   * 
    * @example
    * oss://imm-test/testcases/watermarktestbefore.jpg
    */
   originalImageURI?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5666,6 +6688,10 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The OSS URI of the image.
+   * 
+   * Specify the OSS URI in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5673,16 +6699,28 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The watermark strength level. The higher the strength level, the more resistant the watermarked image is to attacks, but the more the image is distorted. Valid values: low, medium, and high. Default value: low.
+   * 
    * @example
    * low
    */
   strengthLevel?: string;
   /**
+   * @remarks
+   * The OSS URI of the output image.
+   * Specify the OSS URI in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
+   * 
    * @example
    * oss://target/targetobject.jpg
    */
   targetURI?: string;
   /**
+   * @remarks
+   * The type of the watermark. Valid value: text.
+   * 
+   * No image watermarks are supported.
+   * 
    * @example
    * text
    */
@@ -5722,16 +6760,25 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $tea.Model {
 
 export class CreateDecodeBlindWatermarkTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 27C-1jyAP5qQI7RoI8lFFwvMrWtl0ft
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4A7A2D0E-D8B8-4DA0-8127-EB32C6600ADE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * DecodeBlindWatermark-78ac8f3b-59e0-45a6-9b67-32168c3f22b9
    */
@@ -5785,6 +6832,8 @@ export class CreateDecodeBlindWatermarkTaskResponse extends $tea.Model {
 export class CreateFacesSearchingTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5792,21 +6841,37 @@ export class CreateFacesSearchingTaskRequest extends $tea.Model {
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The number of the most similar faces that you want to return. Valid values: 1 to 100. Default value: 5.
+   * 
    * @example
    * 100
    */
   maxResult?: number;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notification?: Notification;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The images.
+   */
   sources?: CreateFacesSearchingTaskRequestSources[];
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
    */
@@ -5841,6 +6906,8 @@ export class CreateFacesSearchingTaskRequest extends $tea.Model {
 export class CreateFacesSearchingTaskShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5848,21 +6915,37 @@ export class CreateFacesSearchingTaskShrinkRequest extends $tea.Model {
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The number of the most similar faces that you want to return. Valid values: 1 to 100. Default value: 5.
+   * 
    * @example
    * 100
    */
   maxResult?: number;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The images.
+   */
   sourcesShrink?: string;
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
    */
@@ -5896,16 +6979,25 @@ export class CreateFacesSearchingTaskShrinkRequest extends $tea.Model {
 
 export class CreateFacesSearchingTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 0ED-1Bz8z71k5TtsUejT4UJ16****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B1E79399-05F7-06D8-95FE-EBE17BA*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * CreateFacesSearchingTask-00bec802-073a-4b61-ba*****
    */
@@ -5959,15 +7051,23 @@ export class CreateFacesSearchingTaskResponse extends $tea.Model {
 export class CreateFigureClusteringTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * dataset001
    */
   datasetName?: string;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notification?: Notification;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5975,11 +7075,17 @@ export class CreateFigureClusteringTaskRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"test": "val1"}
    */
   tags?: { [key: string]: any };
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -6012,15 +7118,23 @@ export class CreateFigureClusteringTaskRequest extends $tea.Model {
 export class CreateFigureClusteringTaskShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * dataset001
    */
   datasetName?: string;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6028,11 +7142,17 @@ export class CreateFigureClusteringTaskShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"test": "val1"}
    */
   tagsShrink?: string;
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -6064,16 +7184,25 @@ export class CreateFigureClusteringTaskShrinkRequest extends $tea.Model {
 
 export class CreateFigureClusteringTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 0ED-1Bz8z71k5TtsUejT4UJ16****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * formatconvert-00bec802-073a-4b61-ba3b-39bc****
    */
@@ -6127,6 +7256,8 @@ export class CreateFigureClusteringTaskResponse extends $tea.Model {
 export class CreateFigureClustersMergingTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6134,14 +7265,27 @@ export class CreateFigureClustersMergingTaskRequest extends $tea.Model {
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The ID of the source group. You must specify either From or Froms, but not both.
+   * 
    * @example
    * Cluster-2ab85905-23ba-4632-b2d8-1c21cfe****
    */
   from?: string;
+  /**
+   * @remarks
+   * The IDs of source clustering groups. You must specify either From or Froms, but not both. You can specify up to 100 task IDs.
+   */
   froms?: string[];
+  /**
+   * @remarks
+   * The notification message configurations. For more information, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
+   */
   notification?: Notification;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6149,12 +7293,17 @@ export class CreateFigureClustersMergingTaskRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The custom tags, which can be used to search for and filter asynchronous tasks.
+   * 
    * @example
    * {"key":"val"}
    */
   tags?: { [key: string]: any };
   /**
    * @remarks
+   * The ID of the destination clustering group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6162,6 +7311,9 @@ export class CreateFigureClustersMergingTaskRequest extends $tea.Model {
    */
   to?: string;
   /**
+   * @remarks
+   * The custom data, which is returned in an asynchronous notification and facilitates notification management. The maximum length is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -6200,6 +7352,8 @@ export class CreateFigureClustersMergingTaskRequest extends $tea.Model {
 export class CreateFigureClustersMergingTaskShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6207,14 +7361,27 @@ export class CreateFigureClustersMergingTaskShrinkRequest extends $tea.Model {
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The ID of the source group. You must specify either From or Froms, but not both.
+   * 
    * @example
    * Cluster-2ab85905-23ba-4632-b2d8-1c21cfe****
    */
   from?: string;
+  /**
+   * @remarks
+   * The IDs of source clustering groups. You must specify either From or Froms, but not both. You can specify up to 100 task IDs.
+   */
   fromsShrink?: string;
+  /**
+   * @remarks
+   * The notification message configurations. For more information, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
+   */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6222,12 +7389,17 @@ export class CreateFigureClustersMergingTaskShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The custom tags, which can be used to search for and filter asynchronous tasks.
+   * 
    * @example
    * {"key":"val"}
    */
   tagsShrink?: string;
   /**
    * @remarks
+   * The ID of the destination clustering group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6235,6 +7407,9 @@ export class CreateFigureClustersMergingTaskShrinkRequest extends $tea.Model {
    */
   to?: string;
   /**
+   * @remarks
+   * The custom data, which is returned in an asynchronous notification and facilitates notification management. The maximum length is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -6272,16 +7447,25 @@ export class CreateFigureClustersMergingTaskShrinkRequest extends $tea.Model {
 
 export class CreateFigureClustersMergingTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 0ED-1Bz8z71k5TtsUejT4UJ16E****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CA995EFD-083D-4F40-BE8A-BDF75FF****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 92376fbb-171f-4259-913f-705f7ee0****
    */
@@ -6334,14 +7518,31 @@ export class CreateFigureClustersMergingTaskResponse extends $tea.Model {
 
 export class CreateFileCompressionTaskRequest extends $tea.Model {
   /**
+   * @remarks
+   * The format of the package. Default value: zip.
+   * 
+   * >  Only the ZIP format is supported.
+   * 
    * @example
    * zip
    */
   compressedFormat?: string;
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notification?: Notification;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6349,13 +7550,30 @@ export class CreateFileCompressionTaskRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The OSS URI of the inventory object that contains the objects to compress. The inventory object stores the objects to compress by using the same data structure of the Sources parameter in the JSON format. This parameter is suitable for specifying a large number of objects to compress.
+   * 
+   * >  You must specify this parameter or the `Sources` parameter. The `URI` parameter is required and the `Alias` parameter is optional. You can specify up to 80,000 compression rule by using SourceManifestURI in one single call to the operation. The following line provides an example of the content within an inventory object.
+   * 
+   *     [{"URI":"oss://<bucket>/<object>", "Alias":"/new-dir/new-name"}]
+   * 
    * @example
    * oss://test-bucket/test-object.json
    */
   sourceManifestURI?: string;
+  /**
+   * @remarks
+   * The objects to be packed and packing rules.
+   * 
+   * >  You must specify this parameter or the SourceManifestURI parameter. The Sources parameter can hold up to 100 packing rules. If you want to include more than 100 packing rules, use the SourceManifestURI parameter.
+   */
   sources?: CreateFileCompressionTaskRequestSources[];
   /**
    * @remarks
+   * The OSS URI of the package. The object name part in the URI is used as the name of the package. Example: `name.zip`.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6363,6 +7581,9 @@ export class CreateFileCompressionTaskRequest extends $tea.Model {
    */
   targetURI?: string;
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
    */
@@ -6400,14 +7621,31 @@ export class CreateFileCompressionTaskRequest extends $tea.Model {
 
 export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The format of the package. Default value: zip.
+   * 
+   * >  Only the ZIP format is supported.
+   * 
    * @example
    * zip
    */
   compressedFormat?: string;
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6415,13 +7653,30 @@ export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The OSS URI of the inventory object that contains the objects to compress. The inventory object stores the objects to compress by using the same data structure of the Sources parameter in the JSON format. This parameter is suitable for specifying a large number of objects to compress.
+   * 
+   * >  You must specify this parameter or the `Sources` parameter. The `URI` parameter is required and the `Alias` parameter is optional. You can specify up to 80,000 compression rule by using SourceManifestURI in one single call to the operation. The following line provides an example of the content within an inventory object.
+   * 
+   *     [{"URI":"oss://<bucket>/<object>", "Alias":"/new-dir/new-name"}]
+   * 
    * @example
    * oss://test-bucket/test-object.json
    */
   sourceManifestURI?: string;
+  /**
+   * @remarks
+   * The objects to be packed and packing rules.
+   * 
+   * >  You must specify this parameter or the SourceManifestURI parameter. The Sources parameter can hold up to 100 packing rules. If you want to include more than 100 packing rules, use the SourceManifestURI parameter.
+   */
   sourcesShrink?: string;
   /**
    * @remarks
+   * The OSS URI of the package. The object name part in the URI is used as the name of the package. Example: `name.zip`.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6429,6 +7684,9 @@ export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
    */
   targetURI?: string;
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
    */
@@ -6466,16 +7724,25 @@ export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
 
 export class CreateFileCompressionTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 0ED-1Bz8z71k5TtsUejT4UJ16Es*****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EC564A9A-BA5C-4499-A087-D9B9E76E*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * FileCompression-3579a380-6f7a-4a9d-b9d2-65996*****
    */
@@ -6527,32 +7794,67 @@ export class CreateFileCompressionTaskResponse extends $tea.Model {
 }
 
 export class CreateFileUncompressionTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notification?: Notification;
   /**
+   * @remarks
+   * The password that protects the package.
+   * 
    * @example
    * 123456
    */
   password?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * immtest
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The files to extract. If you do not specify this parameter, the entire package is decompressed.
+   */
   selectedFiles?: string[];
   /**
    * @remarks
+   * The OSS URI of the package.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
    * oss://imm-apitest-fxf2/name.zip
    */
   sourceURI?: string;
+  /**
+   * @remarks
+   * The OSS URI to which you want to extract files from the package or decompress the entire package.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
+   * @example
+   * oss://test-bucket/test-dir/
+   */
   targetURI?: string;
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -6589,32 +7891,67 @@ export class CreateFileUncompressionTaskRequest extends $tea.Model {
 }
 
 export class CreateFileUncompressionTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notificationShrink?: string;
   /**
+   * @remarks
+   * The password that protects the package.
+   * 
    * @example
    * 123456
    */
   password?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * immtest
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The files to extract. If you do not specify this parameter, the entire package is decompressed.
+   */
   selectedFilesShrink?: string;
   /**
    * @remarks
+   * The OSS URI of the package.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
    * oss://imm-apitest-fxf2/name.zip
    */
   sourceURI?: string;
+  /**
+   * @remarks
+   * The OSS URI to which you want to extract files from the package or decompress the entire package.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
+   * @example
+   * oss://test-bucket/test-dir/
+   */
   targetURI?: string;
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -6652,16 +7989,25 @@ export class CreateFileUncompressionTaskShrinkRequest extends $tea.Model {
 
 export class CreateFileUncompressionTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 0ED-1Bz8z71k5TtsUejT4UJ16Es*****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EC564A9A-BA5C-4499-A087-D9B9E76E*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * FileUncompression-16ab5dd6-af02-480e-9ed7-a8d51b1*****
    */
@@ -6713,33 +8059,53 @@ export class CreateFileUncompressionTaskResponse extends $tea.Model {
 }
 
 export class CreateImageModerationTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The authorization chain. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
+   * @remarks
+   * The time interval between two consecutive frames in a GIF or long image. Default value: 1.
+   * 
    * @example
    * 2
    */
   interval?: number;
   /**
+   * @remarks
+   * The maximum number of frames that can be captured in a GIF or long image. Default value: 1.
+   * 
    * @example
    * 10
    */
   maxFrames?: number;
   /**
    * @remarks
-   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   * The notification settings. For more information, click Notification. For information about the asynchronous notification format, see [Asynchronous notification format](https://help.aliyun.com/document_detail/2743997.html).
    */
   notification?: Notification;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * immtest
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The scenarios in which you want to apply the image moderation task.
+   */
   scenes?: string[];
   /**
    * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which you store the image.
+   * 
+   * Specify the value in the `oss://<Bucket>/<Object>` format. `<Bucket>` specifies the name of the OSS bucket that resides in the same region as the current project. `<Object>` specifies the complete path to the image file that has an extension.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6747,11 +8113,17 @@ export class CreateImageModerationTaskRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"test": "val1"}
    */
   tags?: { [key: string]: any };
   /**
+   * @remarks
+   * The user data, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the user data is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -6790,33 +8162,53 @@ export class CreateImageModerationTaskRequest extends $tea.Model {
 }
 
 export class CreateImageModerationTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The authorization chain. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
+   * @remarks
+   * The time interval between two consecutive frames in a GIF or long image. Default value: 1.
+   * 
    * @example
    * 2
    */
   interval?: number;
   /**
+   * @remarks
+   * The maximum number of frames that can be captured in a GIF or long image. Default value: 1.
+   * 
    * @example
    * 10
    */
   maxFrames?: number;
   /**
    * @remarks
-   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   * The notification settings. For more information, click Notification. For information about the asynchronous notification format, see [Asynchronous notification format](https://help.aliyun.com/document_detail/2743997.html).
    */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * immtest
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The scenarios in which you want to apply the image moderation task.
+   */
   scenesShrink?: string;
   /**
    * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which you store the image.
+   * 
+   * Specify the value in the `oss://<Bucket>/<Object>` format. `<Bucket>` specifies the name of the OSS bucket that resides in the same region as the current project. `<Object>` specifies the complete path to the image file that has an extension.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6824,11 +8216,17 @@ export class CreateImageModerationTaskShrinkRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"test": "val1"}
    */
   tagsShrink?: string;
   /**
+   * @remarks
+   * The user data, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the user data is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -6868,16 +8266,25 @@ export class CreateImageModerationTaskShrinkRequest extends $tea.Model {
 
 export class CreateImageModerationTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 2E6-1I0FGn0zFnl5AflRfhzClma*****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ImageModeration-179ef4f8-d583-4f0c-a293-7c0889c*****
    */
@@ -6930,39 +8337,79 @@ export class CreateImageModerationTaskResponse extends $tea.Model {
 
 export class CreateImageSplicingTaskRequest extends $tea.Model {
   /**
+   * @remarks
+   * The width or height with which the input images must align. Valid values: 1 to 4096. Unit: px.
+   * 
+   * *   If you set **Direction** to `vertical`, this parameter specifies the width with which the input images must align.
+   * *   If you set **Direction** to `horizontal`, this parameter specifies the height with which the input images must align.
+   * 
+   * >  If you do not specify this parameter, the width or height of the first input image is used.
+   * 
    * @example
    * 192
    */
   align?: number;
   /**
+   * @remarks
+   * The padding color of the spaces specified by `Padding` and `Margin`. Colors encoded in the `#FFFFFF` format and colors that are related to preset keywords such as `red` and `alpha` are supported.
+   * 
    * @example
    * red
    */
   backgroundColor?: string;
+  /**
+   * @remarks
+   * The authorization chain. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
+   * @remarks
+   * The splicing method. Valid values:
+   * 
+   * *   vertical (default): All input images are vertically aligned and have the same width.
+   * *   horizontal: All input images are horizontally aligned and have the same height.
+   * 
    * @example
    * vertical
    */
   direction?: string;
   /**
+   * @remarks
+   * The compression format of the output image. Valid values:
+   * 
+   * *   jpg (default)
+   * *   png
+   * *   webp
+   * 
    * @example
    * jpg
    */
   imageFormat?: string;
   /**
+   * @remarks
+   * The empty space or border around the edges of the output image. Default value: 0. Unit: px.
+   * 
    * @example
    * 2
    */
   margin?: number;
+  /**
+   * @remarks
+   * The notification settings. For more information, click Notification. For information about the asynchronous notification format, see [Asynchronous notification format](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notification?: Notification;
   /**
+   * @remarks
+   * The space between component images in the output image. Default value: 0. Unit: px.
+   * 
    * @example
    * 2
    */
   padding?: number;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6970,26 +8417,62 @@ export class CreateImageSplicingTaskRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The compression quality of the output image. This parameter takes effect only for JPG and WebP images. Valid values: 0 to 100. Default value: 80.
+   * 
    * @example
    * 80
    */
   quality?: number;
   /**
+   * @remarks
+   * The scaling mode of the input images that are vertically or horizontally aligned. Valid values:
+   * 
+   * *   fit (default): Input images are scaled proportionally, and black edges are not retained.
+   * *   stretch: Input images are stretched to fill the space.
+   * *   horizon: Input images are horizontally stretched.
+   * *   vertical: Input images are vertically stretched.
+   * 
    * @example
    * stretch
    */
   scaleType?: string;
   /**
    * @remarks
+   * The input images. The images are sliced in the order of the input image URIs.
+   * 
    * This parameter is required.
    */
   sources?: CreateImageSplicingTaskRequestSources[];
+  /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
+   * @example
+   * {
+   *       "User": "Jane"
+   * }
+   */
   tags?: { [key: string]: any };
   /**
    * @remarks
+   * The OSS bucket in which you want to store the output image.
+   * 
+   * Specify the value in the oss://${bucketname}/${objectname} format. ${bucketname} specifies the name of the OSS bucket that resides in the same region as the current project. ${objectname} specifies the path to the output image.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket/outputImage.jpg
    */
   targetURI?: string;
+  /**
+   * @remarks
+   * The user data, which is returned as asynchronous notifications to help manage notifications within your system. The maximum length of the user data is 2,048 bytes.
+   * 
+   * @example
+   * test-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7038,39 +8521,79 @@ export class CreateImageSplicingTaskRequest extends $tea.Model {
 
 export class CreateImageSplicingTaskShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The width or height with which the input images must align. Valid values: 1 to 4096. Unit: px.
+   * 
+   * *   If you set **Direction** to `vertical`, this parameter specifies the width with which the input images must align.
+   * *   If you set **Direction** to `horizontal`, this parameter specifies the height with which the input images must align.
+   * 
+   * >  If you do not specify this parameter, the width or height of the first input image is used.
+   * 
    * @example
    * 192
    */
   align?: number;
   /**
+   * @remarks
+   * The padding color of the spaces specified by `Padding` and `Margin`. Colors encoded in the `#FFFFFF` format and colors that are related to preset keywords such as `red` and `alpha` are supported.
+   * 
    * @example
    * red
    */
   backgroundColor?: string;
+  /**
+   * @remarks
+   * The authorization chain. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
+   * @remarks
+   * The splicing method. Valid values:
+   * 
+   * *   vertical (default): All input images are vertically aligned and have the same width.
+   * *   horizontal: All input images are horizontally aligned and have the same height.
+   * 
    * @example
    * vertical
    */
   direction?: string;
   /**
+   * @remarks
+   * The compression format of the output image. Valid values:
+   * 
+   * *   jpg (default)
+   * *   png
+   * *   webp
+   * 
    * @example
    * jpg
    */
   imageFormat?: string;
   /**
+   * @remarks
+   * The empty space or border around the edges of the output image. Default value: 0. Unit: px.
+   * 
    * @example
    * 2
    */
   margin?: number;
+  /**
+   * @remarks
+   * The notification settings. For more information, click Notification. For information about the asynchronous notification format, see [Asynchronous notification format](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notificationShrink?: string;
   /**
+   * @remarks
+   * The space between component images in the output image. Default value: 0. Unit: px.
+   * 
    * @example
    * 2
    */
   padding?: number;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7078,26 +8601,62 @@ export class CreateImageSplicingTaskShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The compression quality of the output image. This parameter takes effect only for JPG and WebP images. Valid values: 0 to 100. Default value: 80.
+   * 
    * @example
    * 80
    */
   quality?: number;
   /**
+   * @remarks
+   * The scaling mode of the input images that are vertically or horizontally aligned. Valid values:
+   * 
+   * *   fit (default): Input images are scaled proportionally, and black edges are not retained.
+   * *   stretch: Input images are stretched to fill the space.
+   * *   horizon: Input images are horizontally stretched.
+   * *   vertical: Input images are vertically stretched.
+   * 
    * @example
    * stretch
    */
   scaleType?: string;
   /**
    * @remarks
+   * The input images. The images are sliced in the order of the input image URIs.
+   * 
    * This parameter is required.
    */
   sourcesShrink?: string;
+  /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
+   * @example
+   * {
+   *       "User": "Jane"
+   * }
+   */
   tagsShrink?: string;
   /**
    * @remarks
+   * The OSS bucket in which you want to store the output image.
+   * 
+   * Specify the value in the oss://${bucketname}/${objectname} format. ${bucketname} specifies the name of the OSS bucket that resides in the same region as the current project. ${objectname} specifies the path to the output image.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket/outputImage.jpg
    */
   targetURI?: string;
+  /**
+   * @remarks
+   * The user data, which is returned as asynchronous notifications to help manage notifications within your system. The maximum length of the user data is 2,048 bytes.
+   * 
+   * @example
+   * test-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7146,16 +8705,25 @@ export class CreateImageSplicingTaskShrinkRequest extends $tea.Model {
 
 export class CreateImageSplicingTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 10C-1R6p7Km0H5Ieg38LKXTIvw*****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 94D6F994-E298-037E-8E8B-0090F27*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ImageSplicing-537cc157-7645-444a-a631-c8db4d02*****
    */
@@ -7207,10 +8775,22 @@ export class CreateImageSplicingTaskResponse extends $tea.Model {
 }
 
 export class CreateImageToPDFTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notification?: Notification;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7219,15 +8799,40 @@ export class CreateImageToPDFTaskRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The list of images. The sequence of image URIs in the list determines the order in which they are converted.
+   * 
    * This parameter is required.
    */
   sources?: CreateImageToPDFTaskRequestSources[];
+  /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
+   * @example
+   * {
+   *       "User": "Jane"
+   * }
+   */
   tags?: { [key: string]: any };
   /**
    * @remarks
+   * The OSS URI of the output file.
+   * 
+   * Specify the OSS URI in the oss://${bucketname}/${objectname} format, where ${bucketname} is the name of the bucket in the same region as the current project and ${objectname} is the path of the object with the extension included.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket/outputDocument.pdf
    */
   targetURI?: string;
+  /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
+   * @example
+   * test-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7259,10 +8864,22 @@ export class CreateImageToPDFTaskRequest extends $tea.Model {
 }
 
 export class CreateImageToPDFTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7271,15 +8888,40 @@ export class CreateImageToPDFTaskShrinkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The list of images. The sequence of image URIs in the list determines the order in which they are converted.
+   * 
    * This parameter is required.
    */
   sourcesShrink?: string;
+  /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
+   * @example
+   * {
+   *       "User": "Jane"
+   * }
+   */
   tagsShrink?: string;
   /**
    * @remarks
+   * The OSS URI of the output file.
+   * 
+   * Specify the OSS URI in the oss://${bucketname}/${objectname} format, where ${bucketname} is the name of the bucket in the same region as the current project and ${objectname} is the path of the object with the extension included.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket/outputDocument.pdf
    */
   targetURI?: string;
+  /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
+   * @example
+   * test-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7312,16 +8954,25 @@ export class CreateImageToPDFTaskShrinkRequest extends $tea.Model {
 
 export class CreateImageToPDFTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 0ED-1Bz8z71k5TtsUejT4UJ16Es*****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EC564A9A-BA5C-4499-A087-D9B9E76E*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ImageToPDF-cbe6ae3e-f8dc-4566-9da7-535d5d*****
    */
@@ -7375,26 +9026,64 @@ export class CreateImageToPDFTaskResponse extends $tea.Model {
 export class CreateLocationDateClusteringTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The date configurations for clustering.
+   * 
+   * >  Adjusting these configurations affects existing spatiotemporal clusters for the dataset.
+   * 
    * This parameter is required.
    */
   dateOptions?: CreateLocationDateClusteringTaskRequestDateOptions;
   /**
    * @remarks
+   * The geolocation configurations for clustering.
+   * 
+   * >  Adjusting these configurations affects existing spatiotemporal clusters for the dataset.
+   * 
    * This parameter is required.
    */
   locationOptions?: CreateLocationDateClusteringTaskRequestLocationOptions;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notification?: Notification;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
+   * @example
+   * {
+   *       "User": "Jane"
+   * }
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
+   * @example
+   * test-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7428,26 +9117,64 @@ export class CreateLocationDateClusteringTaskRequest extends $tea.Model {
 export class CreateLocationDateClusteringTaskShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The date configurations for clustering.
+   * 
+   * >  Adjusting these configurations affects existing spatiotemporal clusters for the dataset.
+   * 
    * This parameter is required.
    */
   dateOptionsShrink?: string;
   /**
    * @remarks
+   * The geolocation configurations for clustering.
+   * 
+   * >  Adjusting these configurations affects existing spatiotemporal clusters for the dataset.
+   * 
    * This parameter is required.
    */
   locationOptionsShrink?: string;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
+   * @example
+   * {
+   *       "User": "Jane"
+   * }
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
+   * @example
+   * test-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7479,12 +9206,29 @@ export class CreateLocationDateClusteringTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateLocationDateClusteringTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The event ID.
+   * 
+   * @example
+   * 25B-1W2ChgujA3Q8MbBY6mSp2mh****
+   */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B121940C-9794-4EE3-8D6E-F8EC525F****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * LocationDateClustering-c10dce07-1de7-4da7-abee-1a3aba7****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7533,15 +9277,27 @@ export class CreateLocationDateClusteringTaskResponse extends $tea.Model {
 }
 
 export class CreateMediaConvertTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The sequence number of the main media file in the concatenation list of media files. The main media file provides the default transcoding settings, such as the resolution and the frame rate, for videos and audios. Default value: `0`. A value of `0` specifies that the main media file is aligned with the first media file in the concatenation list.
+   */
   alignmentIndex?: number;
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
-   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   * The notification settings. For more information, see "Notification". For information about the asynchronous notification format, see [Asynchronous notification format](https://help.aliyun.com/document_detail/2743997.html).
    */
   notification?: Notification;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7550,20 +9306,30 @@ export class CreateMediaConvertTaskRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The source media files. If multiple files exist at the same time, the Concat feature is enabled. The video files are concatenated in the order of their URI inputs.
+   * 
    * This parameter is required.
    */
   sources?: CreateMediaConvertTaskRequestSources[];
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"test":"val1"}
    */
   tags?: { [key: string]: any };
   /**
    * @remarks
+   * The media processing tasks. You can specify multiple values for this parameter.
+   * 
    * This parameter is required.
    */
   targets?: CreateMediaConvertTaskRequestTargets[];
   /**
+   * @remarks
+   * The custom information, which is returned as asynchronous notifications to facilitate notification management in your system. The maximum information length is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -7600,15 +9366,27 @@ export class CreateMediaConvertTaskRequest extends $tea.Model {
 }
 
 export class CreateMediaConvertTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The sequence number of the main media file in the concatenation list of media files. The main media file provides the default transcoding settings, such as the resolution and the frame rate, for videos and audios. Default value: `0`. A value of `0` specifies that the main media file is aligned with the first media file in the concatenation list.
+   */
   alignmentIndex?: number;
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
-   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   * The notification settings. For more information, see "Notification". For information about the asynchronous notification format, see [Asynchronous notification format](https://help.aliyun.com/document_detail/2743997.html).
    */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7617,20 +9395,30 @@ export class CreateMediaConvertTaskShrinkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The source media files. If multiple files exist at the same time, the Concat feature is enabled. The video files are concatenated in the order of their URI inputs.
+   * 
    * This parameter is required.
    */
   sourcesShrink?: string;
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"test":"val1"}
    */
   tagsShrink?: string;
   /**
    * @remarks
+   * The media processing tasks. You can specify multiple values for this parameter.
+   * 
    * This parameter is required.
    */
   targetsShrink?: string;
   /**
+   * @remarks
+   * The custom information, which is returned as asynchronous notifications to facilitate notification management in your system. The maximum information length is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -7668,16 +9456,25 @@ export class CreateMediaConvertTaskShrinkRequest extends $tea.Model {
 
 export class CreateMediaConvertTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 0ED-1Bz8z71k5TtsUejT4UJ16Es****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CA995EFD-083D-4F40-BE8A-BDF75FFFE0B6
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * MediaConvert-adb1ee28-c4c9-42a7-9f54-3b8eadcb****
    */
@@ -7729,80 +9526,180 @@ export class CreateMediaConvertTaskResponse extends $tea.Model {
 }
 
 export class CreateOfficeConversionTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
+   * @remarks
+   * The ending page for document conversion. The default value is -1, which converts the file until the last page of the file.
+   * 
+   * > 
+   * 
+   * *   If the source is a spreadsheet file, specify the index number of the corresponding sheet instead.
+   * 
+   * *   If you convert a large number of pages within the document, we recommend that you split the pages into several document conversion tasks to prevent conversion timeouts.
+   * 
+   * *   This parameter takes effect only when you convert the file into an image. It does not take effect when you convert the file into a PDF or TXT file.
+   * 
    * @example
    * -1
    */
   endPage?: number;
   /**
+   * @remarks
+   * Specifies whether to return only the first resulting image when you convert a spreadsheet document to images. The number of rows and the number of columns in the first image are determined by the automatic splitting process. Valid values:
+   * 
+   * *   false (default): does not return only the first resulting image. All the resulting images are returned.
+   * *   true: returns only the first resulting image. A thumbnail is generated.
+   * 
+   * >  This parameter takes effect only when the **LongPicture** parameter is set to `true`.
+   * 
    * @example
    * false
    */
   firstPage?: boolean;
   /**
+   * @remarks
+   * Specifies whether to convert all rows of a spreadsheet document to one single image or a single-page PDF document when you convert the table document to an image or a PDF document. Valid values:
+   * 
+   * *   false (default): converts all rows of the document to multiple images or a multi-page PDF document. This is the default value.
+   * *   true: converts all rows of the document to one single image or a single-page PDF document.
+   * 
    * @example
    * false
    */
   fitToHeight?: boolean;
   /**
+   * @remarks
+   * Specifies whether to convert all columns of a spreadsheet document to one single image or a single-page PDF document when you convert the spreadsheet file to an image or a PDF document. Valid values:
+   * 
+   * *   false (default): converts all columns of the document to multiple images or a multi-page PDF document.
+   * *   true: converts all columns of the document to one single image or a single-page PDF document.
+   * 
    * @example
    * false
    */
   fitToWidth?: boolean;
   /**
+   * @remarks
+   * Specifies whether to retain line feeds in the output file when a document is converted to a text file. Valid values:
+   * 
+   * *   false (default): does not retain the line feeds.
+   * *   true: retains the line feeds.
+   * 
    * @example
    * false
    */
   holdLineFeed?: boolean;
   /**
+   * @remarks
+   * The dots per inch (DPI) of output images. Valid values: 96 to 600. Default value: 96.
+   * 
    * @example
    * 96
    */
   imageDPI?: number;
   /**
+   * @remarks
+   * Specifies whether to convert the document to a long image. Valid values:
+   * 
+   * *   false (default): does not convert the document to a long image.
+   * *   true: converts the document to a long image.
+   * 
+   * >  You can convert up to 20 pages of a document into a long image. If you convert more than 20 pages to a long image, an error may occur.
+   * 
    * @example
    * false
    */
   longPicture?: boolean;
   /**
+   * @remarks
+   * Specifies whether to convert the document to a long text file. Valid values:
+   * 
+   * *   false (default): does not convert the document to a long text file. Each page of the document is converted to a text file.
+   * *   true: converts the entire document to a long text file.
+   * 
    * @example
    * false
    */
   longText?: boolean;
   /**
+   * @remarks
+   * The maximum number of spreadsheet columns to be converted to an image. By default, all columns within the spreadsheet file are converted.
+   * 
+   * >  This parameter takes effect only when the **LongPicture** parameter is set to `true`.
+   * 
    * @example
    * 10
    */
   maxSheetColumn?: number;
   /**
+   * @remarks
+   * The maximum number of spreadsheet rows to be converted to an image. By default, all rows within the spreadsheet file are converted.
+   * 
+   * >  This parameter takes effect only when the **LongPicture** parameter is set to `true`.
+   * 
    * @example
    * 10
    */
   maxSheetRow?: number;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notification?: Notification;
   /**
+   * @remarks
+   * The numbers of pages to be converted. This parameter takes precedence over the StartPage and EndPage parameters. The value of this parameter can be in different formats:
+   * 
+   * *   If you specify pages separately by page number, separate page numbers with commas (,). Example: 1,2
+   * *   If you specify consecutive pages by using a page range, connect the starting and ending page numbers with a hyphen (-). Example: 1,2-4,7
+   * 
    * @example
    * 1,2-4,7
    */
   pages?: string;
   /**
+   * @remarks
+   * Specifies whether to place sheets of paper horizontally for converting a spreadsheet document to images. Conversion to images is similar to printing the content on a sheet of paper. Valid values:
+   * 
+   * *   false (default): does not place sheets of paper horizontally. Paper sheets are placed vertically.
+   * *   true: places sheets of paper horizontally.
+   * 
    * @example
    * false
    */
   paperHorizontal?: boolean;
   /**
+   * @remarks
+   * The paper size for converting a spreadsheet document to images. Conversion to images is similar to printing the content on a sheet of paper. Valid values:
+   * 
+   * *   A0
+   * *   A2
+   * *   A4 (default)
+   * 
+   * >  This parameter takes effect only when the **FitToHeight** and **FitToWidth** parameters are specified.
+   * 
    * @example
    * A4
    */
   paperSize?: string;
   /**
+   * @remarks
+   * The password that protects the source document. To convert a password-protected document, specify this parameter.
+   * 
    * @example
    * ********
    */
   password?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7810,55 +9707,105 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The quality of the output file. Valid values: 0 to 100. A smaller value indicates lower quality and better conversion performance. By default, the system specifies an appropriate value that provides an optimal balance between the quality and conversion performance based on the document content.
+   * 
    * @example
    * 60
    */
   quality?: number;
   /**
+   * @remarks
+   * The percentage scale relative to the source document. Valid values: 20 to 200. The default value is 100, which indicates that the document is not scaled.
+   * 
+   * >  A value that is less than 100 indicates a size reduction. A value that is greater than 100 indicates an enlargement.
+   * 
    * @example
    * 100
    */
   scalePercentage?: number;
   /**
+   * @remarks
+   * The number of sheets to be converted to an image. By default, all sheets within the spreadsheet file are converted.
+   * 
    * @example
    * 1
    */
   sheetCount?: number;
   /**
+   * @remarks
+   * The index number of the sheet to be converted to an image. The value ranges from 1 to the index number of the last sheet. By default, the conversion starts from the first sheet.
+   * 
    * @example
    * 1
    */
   sheetIndex?: number;
   /**
+   * @remarks
+   * Specifies whether to display comments in resulting images when a text document is converted to images. Valid values:
+   * 
+   * *   false (default): does not display comments in resulting images.
+   * *   true: displays comments in resulting images.
+   * 
    * @example
    * false
    */
   showComments?: boolean;
   /**
+   * @remarks
+   * The name extension of the source file. By default, the type of the source file is determined based on the name extension of the source object in OSS. If the object in OSS does not have a name extension, you can specify this parameter. Valid values:
+   * 
+   * *   Text documents: doc, docx, wps, wpss, docm, dotm, dot, dotx, and html
+   * *   Presentation documents: pptx, ppt, pot, potx, pps, ppsx, dps, dpt, pptm, potm, ppsm, and dpss
+   * *   Spreadsheet documents: xls, xlt, et, ett, xlsx, xltx, csv, xlsb, xlsm, xltm, and ets
+   * *   PDF documents: pdf
+   * 
    * @example
    * doc
    */
   sourceType?: string;
   /**
    * @remarks
-   * This parameter is required.
+   * The URI of the source file.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
    * 
    * @example
    * oss://test-bucket/test-object
    */
   sourceURI?: string;
+  sources?: CreateOfficeConversionTaskRequestSources[];
   /**
+   * @remarks
+   * The starting page for document conversion. Default value: 1.
+   * 
+   * > 
+   * 
+   * *   If the document is a spreadsheet file, specify the index number of the corresponding sheet instead.
+   * 
+   * *   This parameter takes effect only when you convert the file to an image format. It does not take effect when you convert the file into a PDF or TXT file.
+   * 
    * @example
    * 1
    */
   startPage?: number;
   /**
+   * @remarks
+   * The custom tags in dictionary format. You can use the custom tags to search for the task.
+   * 
    * @example
    * {"test":"val1"}
    */
   tags?: { [key: string]: any };
   /**
    * @remarks
+   * The format of the output file. Valid values:
+   * 
+   * *   png: a PNG image.
+   * *   jpg: a JPG image.
+   * *   pdf: a PDF file.
+   * *   txt: a TXT file. You can specify this value to extract the text content of the source document. Only presentation, text, or spreadsheet documents can be converted to a TXT file. If the source document is a spreadsheet, only one TXT is created and sheet-related parameters do not take effect.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7866,17 +9813,38 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
    */
   targetType?: string;
   /**
+   * @remarks
+   * The address template of the output file.
+   * 
+   * Specify the value in the `oss://{bucket}/{tags.custom}/{dirname}/{barename}.{autoext}` format. For more information, see [TargetURI template](https://help.aliyun.com/document_detail/465762.html).
+   * 
+   * >  Specify at least one of the TargetURI and TargetURIPrefix parameters.
+   * 
    * @example
    * oss://{bucket}/{tags.custom}/{dirname}/{barename}.{autoext}
    */
   targetURI?: string;
   /**
+   * @remarks
+   * The prefix of the storage address of the output file.
+   * 
+   * Specify the prefix in the `oss://${Bucket}/${Prefix}/` format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Prefix}` is the prefix of the output file.
+   * 
+   * >  Specify at least one of the TargetURI and TargetURIPrefix parameters.
+   * 
    * @example
    * oss://bucket1/
    */
   targetURIPrefix?: string;
+  /**
+   * @remarks
+   * The trim policy for converting a spreadsheet file. Empty rows and columns may generate blank spaces in the output file if no appropriate trim policy is specified.
+   */
   trimPolicy?: TrimPolicy;
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum information length is 2,048 bytes.
+   * 
    * @example
    * {"file_id": "abc"}
    */
@@ -7907,6 +9875,7 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
       showComments: 'ShowComments',
       sourceType: 'SourceType',
       sourceURI: 'SourceURI',
+      sources: 'Sources',
       startPage: 'StartPage',
       tags: 'Tags',
       targetType: 'TargetType',
@@ -7943,6 +9912,7 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
       showComments: 'boolean',
       sourceType: 'string',
       sourceURI: 'string',
+      sources: { 'type': 'array', 'itemType': CreateOfficeConversionTaskRequestSources },
       startPage: 'number',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       targetType: 'string',
@@ -7959,80 +9929,180 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
 }
 
 export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
+   * @remarks
+   * The ending page for document conversion. The default value is -1, which converts the file until the last page of the file.
+   * 
+   * > 
+   * 
+   * *   If the source is a spreadsheet file, specify the index number of the corresponding sheet instead.
+   * 
+   * *   If you convert a large number of pages within the document, we recommend that you split the pages into several document conversion tasks to prevent conversion timeouts.
+   * 
+   * *   This parameter takes effect only when you convert the file into an image. It does not take effect when you convert the file into a PDF or TXT file.
+   * 
    * @example
    * -1
    */
   endPage?: number;
   /**
+   * @remarks
+   * Specifies whether to return only the first resulting image when you convert a spreadsheet document to images. The number of rows and the number of columns in the first image are determined by the automatic splitting process. Valid values:
+   * 
+   * *   false (default): does not return only the first resulting image. All the resulting images are returned.
+   * *   true: returns only the first resulting image. A thumbnail is generated.
+   * 
+   * >  This parameter takes effect only when the **LongPicture** parameter is set to `true`.
+   * 
    * @example
    * false
    */
   firstPage?: boolean;
   /**
+   * @remarks
+   * Specifies whether to convert all rows of a spreadsheet document to one single image or a single-page PDF document when you convert the table document to an image or a PDF document. Valid values:
+   * 
+   * *   false (default): converts all rows of the document to multiple images or a multi-page PDF document. This is the default value.
+   * *   true: converts all rows of the document to one single image or a single-page PDF document.
+   * 
    * @example
    * false
    */
   fitToHeight?: boolean;
   /**
+   * @remarks
+   * Specifies whether to convert all columns of a spreadsheet document to one single image or a single-page PDF document when you convert the spreadsheet file to an image or a PDF document. Valid values:
+   * 
+   * *   false (default): converts all columns of the document to multiple images or a multi-page PDF document.
+   * *   true: converts all columns of the document to one single image or a single-page PDF document.
+   * 
    * @example
    * false
    */
   fitToWidth?: boolean;
   /**
+   * @remarks
+   * Specifies whether to retain line feeds in the output file when a document is converted to a text file. Valid values:
+   * 
+   * *   false (default): does not retain the line feeds.
+   * *   true: retains the line feeds.
+   * 
    * @example
    * false
    */
   holdLineFeed?: boolean;
   /**
+   * @remarks
+   * The dots per inch (DPI) of output images. Valid values: 96 to 600. Default value: 96.
+   * 
    * @example
    * 96
    */
   imageDPI?: number;
   /**
+   * @remarks
+   * Specifies whether to convert the document to a long image. Valid values:
+   * 
+   * *   false (default): does not convert the document to a long image.
+   * *   true: converts the document to a long image.
+   * 
+   * >  You can convert up to 20 pages of a document into a long image. If you convert more than 20 pages to a long image, an error may occur.
+   * 
    * @example
    * false
    */
   longPicture?: boolean;
   /**
+   * @remarks
+   * Specifies whether to convert the document to a long text file. Valid values:
+   * 
+   * *   false (default): does not convert the document to a long text file. Each page of the document is converted to a text file.
+   * *   true: converts the entire document to a long text file.
+   * 
    * @example
    * false
    */
   longText?: boolean;
   /**
+   * @remarks
+   * The maximum number of spreadsheet columns to be converted to an image. By default, all columns within the spreadsheet file are converted.
+   * 
+   * >  This parameter takes effect only when the **LongPicture** parameter is set to `true`.
+   * 
    * @example
    * 10
    */
   maxSheetColumn?: number;
   /**
+   * @remarks
+   * The maximum number of spreadsheet rows to be converted to an image. By default, all rows within the spreadsheet file are converted.
+   * 
+   * >  This parameter takes effect only when the **LongPicture** parameter is set to `true`.
+   * 
    * @example
    * 10
    */
   maxSheetRow?: number;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notificationShrink?: string;
   /**
+   * @remarks
+   * The numbers of pages to be converted. This parameter takes precedence over the StartPage and EndPage parameters. The value of this parameter can be in different formats:
+   * 
+   * *   If you specify pages separately by page number, separate page numbers with commas (,). Example: 1,2
+   * *   If you specify consecutive pages by using a page range, connect the starting and ending page numbers with a hyphen (-). Example: 1,2-4,7
+   * 
    * @example
    * 1,2-4,7
    */
   pages?: string;
   /**
+   * @remarks
+   * Specifies whether to place sheets of paper horizontally for converting a spreadsheet document to images. Conversion to images is similar to printing the content on a sheet of paper. Valid values:
+   * 
+   * *   false (default): does not place sheets of paper horizontally. Paper sheets are placed vertically.
+   * *   true: places sheets of paper horizontally.
+   * 
    * @example
    * false
    */
   paperHorizontal?: boolean;
   /**
+   * @remarks
+   * The paper size for converting a spreadsheet document to images. Conversion to images is similar to printing the content on a sheet of paper. Valid values:
+   * 
+   * *   A0
+   * *   A2
+   * *   A4 (default)
+   * 
+   * >  This parameter takes effect only when the **FitToHeight** and **FitToWidth** parameters are specified.
+   * 
    * @example
    * A4
    */
   paperSize?: string;
   /**
+   * @remarks
+   * The password that protects the source document. To convert a password-protected document, specify this parameter.
+   * 
    * @example
    * ********
    */
   password?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8040,55 +10110,105 @@ export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The quality of the output file. Valid values: 0 to 100. A smaller value indicates lower quality and better conversion performance. By default, the system specifies an appropriate value that provides an optimal balance between the quality and conversion performance based on the document content.
+   * 
    * @example
    * 60
    */
   quality?: number;
   /**
+   * @remarks
+   * The percentage scale relative to the source document. Valid values: 20 to 200. The default value is 100, which indicates that the document is not scaled.
+   * 
+   * >  A value that is less than 100 indicates a size reduction. A value that is greater than 100 indicates an enlargement.
+   * 
    * @example
    * 100
    */
   scalePercentage?: number;
   /**
+   * @remarks
+   * The number of sheets to be converted to an image. By default, all sheets within the spreadsheet file are converted.
+   * 
    * @example
    * 1
    */
   sheetCount?: number;
   /**
+   * @remarks
+   * The index number of the sheet to be converted to an image. The value ranges from 1 to the index number of the last sheet. By default, the conversion starts from the first sheet.
+   * 
    * @example
    * 1
    */
   sheetIndex?: number;
   /**
+   * @remarks
+   * Specifies whether to display comments in resulting images when a text document is converted to images. Valid values:
+   * 
+   * *   false (default): does not display comments in resulting images.
+   * *   true: displays comments in resulting images.
+   * 
    * @example
    * false
    */
   showComments?: boolean;
   /**
+   * @remarks
+   * The name extension of the source file. By default, the type of the source file is determined based on the name extension of the source object in OSS. If the object in OSS does not have a name extension, you can specify this parameter. Valid values:
+   * 
+   * *   Text documents: doc, docx, wps, wpss, docm, dotm, dot, dotx, and html
+   * *   Presentation documents: pptx, ppt, pot, potx, pps, ppsx, dps, dpt, pptm, potm, ppsm, and dpss
+   * *   Spreadsheet documents: xls, xlt, et, ett, xlsx, xltx, csv, xlsb, xlsm, xltm, and ets
+   * *   PDF documents: pdf
+   * 
    * @example
    * doc
    */
   sourceType?: string;
   /**
    * @remarks
-   * This parameter is required.
+   * The URI of the source file.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
    * 
    * @example
    * oss://test-bucket/test-object
    */
   sourceURI?: string;
+  sourcesShrink?: string;
   /**
+   * @remarks
+   * The starting page for document conversion. Default value: 1.
+   * 
+   * > 
+   * 
+   * *   If the document is a spreadsheet file, specify the index number of the corresponding sheet instead.
+   * 
+   * *   This parameter takes effect only when you convert the file to an image format. It does not take effect when you convert the file into a PDF or TXT file.
+   * 
    * @example
    * 1
    */
   startPage?: number;
   /**
+   * @remarks
+   * The custom tags in dictionary format. You can use the custom tags to search for the task.
+   * 
    * @example
    * {"test":"val1"}
    */
   tagsShrink?: string;
   /**
    * @remarks
+   * The format of the output file. Valid values:
+   * 
+   * *   png: a PNG image.
+   * *   jpg: a JPG image.
+   * *   pdf: a PDF file.
+   * *   txt: a TXT file. You can specify this value to extract the text content of the source document. Only presentation, text, or spreadsheet documents can be converted to a TXT file. If the source document is a spreadsheet, only one TXT is created and sheet-related parameters do not take effect.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8096,17 +10216,38 @@ export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
    */
   targetType?: string;
   /**
+   * @remarks
+   * The address template of the output file.
+   * 
+   * Specify the value in the `oss://{bucket}/{tags.custom}/{dirname}/{barename}.{autoext}` format. For more information, see [TargetURI template](https://help.aliyun.com/document_detail/465762.html).
+   * 
+   * >  Specify at least one of the TargetURI and TargetURIPrefix parameters.
+   * 
    * @example
    * oss://{bucket}/{tags.custom}/{dirname}/{barename}.{autoext}
    */
   targetURI?: string;
   /**
+   * @remarks
+   * The prefix of the storage address of the output file.
+   * 
+   * Specify the prefix in the `oss://${Bucket}/${Prefix}/` format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Prefix}` is the prefix of the output file.
+   * 
+   * >  Specify at least one of the TargetURI and TargetURIPrefix parameters.
+   * 
    * @example
    * oss://bucket1/
    */
   targetURIPrefix?: string;
+  /**
+   * @remarks
+   * The trim policy for converting a spreadsheet file. Empty rows and columns may generate blank spaces in the output file if no appropriate trim policy is specified.
+   */
   trimPolicyShrink?: string;
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum information length is 2,048 bytes.
+   * 
    * @example
    * {"file_id": "abc"}
    */
@@ -8137,6 +10278,7 @@ export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
       showComments: 'ShowComments',
       sourceType: 'SourceType',
       sourceURI: 'SourceURI',
+      sourcesShrink: 'Sources',
       startPage: 'StartPage',
       tagsShrink: 'Tags',
       targetType: 'TargetType',
@@ -8173,6 +10315,7 @@ export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
       showComments: 'boolean',
       sourceType: 'string',
       sourceURI: 'string',
+      sourcesShrink: 'string',
       startPage: 'number',
       tagsShrink: 'string',
       targetType: 'string',
@@ -8190,16 +10333,25 @@ export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
 
 export class CreateOfficeConversionTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 2C2-1I0EG57VR37J4rQ8oKG6C9*****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FF3B7D81-66AE-47E0-BF69-157DCF18*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * formatconvert-00bec802-073a-4b61-ba3b-39bc2fdd*****
    */
@@ -8252,52 +10404,98 @@ export class CreateOfficeConversionTaskResponse extends $tea.Model {
 
 export class CreateProjectRequest extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of bindings for each dataset. Valid values: 1 to 10. Default value: 10.
+   * 
    * @example
    * 10
    */
   datasetMaxBindCount?: number;
   /**
+   * @remarks
+   * The maximum number of metadata entities in each dataset. Default value: 10000000000.
+   * 
+   * >  This is a precautionary setting that does not impose practical limitations.
+   * 
    * @example
    * 10000000000
    */
   datasetMaxEntityCount?: number;
   /**
+   * @remarks
+   * The maximum number of files in each dataset. Valid values: 1 to 100000000. Default value: 10000000000.
+   * 
    * @example
    * 100000000
    */
   datasetMaxFileCount?: number;
   /**
+   * @remarks
+   * The maximum number of metadata relationships in each dataset. Default value: 100000000000.
+   * 
+   * >  This is a precautionary setting that does not impose practical limitations.
+   * 
    * @example
    * 100000000000
    */
   datasetMaxRelationCount?: number;
   /**
+   * @remarks
+   * The maximum size of files in each dataset. If the maximum size is exceeded, no indexes can be added. Unit: bytes. Default value: 90000000000000000.
+   * 
    * @example
    * 90000000000000000
    */
   datasetMaxTotalFileSize?: number;
   /**
+   * @remarks
+   * The description of the project. The description must be 1 to 256 characters in length. You can leave this parameter empty.
+   * 
    * @example
    * immtest
    */
   description?: string;
   /**
+   * @remarks
+   * The maximum number of datasets in the project. Valid values: 1 to 1000000000. Default value: 1000000000.
+   * 
    * @example
    * 1000000000
    */
   projectMaxDatasetCount?: number;
   /**
    * @remarks
+   * The name of the project. The name must meet the following requirements:
+   * 
+   * *   The name must be 1 to 128 characters in length
+   * *   and can contain only letters, digits, hyphens (-), and underscores (_).
+   * *   The name must start with a letter or an underscores (_).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The name of the Resource Access Management (RAM) role. You must attach the RAM role to IMM to allow IMM to access other cloud resources, such as Object Storage Service (OSS). Default value: `AliyunIMMDefaultRole`.
+   * 
+   * You can also create a custom role in the RAM console and grant the required permissions to the role based on your business requirements. For more information, see [Grant permissions to a RAM user](https://help.aliyun.com/document_detail/477257.html).
+   * 
    * @example
    * AliyunIMMDefaultRole
    */
   serviceRole?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateProjectRequestTag[];
   /**
+   * @remarks
+   * The ID of the workflow template. You can leave this parameter empty. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * 
    * @example
    * Official:AllFunction
    */
@@ -8341,52 +10539,98 @@ export class CreateProjectRequest extends $tea.Model {
 
 export class CreateProjectShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of bindings for each dataset. Valid values: 1 to 10. Default value: 10.
+   * 
    * @example
    * 10
    */
   datasetMaxBindCount?: number;
   /**
+   * @remarks
+   * The maximum number of metadata entities in each dataset. Default value: 10000000000.
+   * 
+   * >  This is a precautionary setting that does not impose practical limitations.
+   * 
    * @example
    * 10000000000
    */
   datasetMaxEntityCount?: number;
   /**
+   * @remarks
+   * The maximum number of files in each dataset. Valid values: 1 to 100000000. Default value: 10000000000.
+   * 
    * @example
    * 100000000
    */
   datasetMaxFileCount?: number;
   /**
+   * @remarks
+   * The maximum number of metadata relationships in each dataset. Default value: 100000000000.
+   * 
+   * >  This is a precautionary setting that does not impose practical limitations.
+   * 
    * @example
    * 100000000000
    */
   datasetMaxRelationCount?: number;
   /**
+   * @remarks
+   * The maximum size of files in each dataset. If the maximum size is exceeded, no indexes can be added. Unit: bytes. Default value: 90000000000000000.
+   * 
    * @example
    * 90000000000000000
    */
   datasetMaxTotalFileSize?: number;
   /**
+   * @remarks
+   * The description of the project. The description must be 1 to 256 characters in length. You can leave this parameter empty.
+   * 
    * @example
    * immtest
    */
   description?: string;
   /**
+   * @remarks
+   * The maximum number of datasets in the project. Valid values: 1 to 1000000000. Default value: 1000000000.
+   * 
    * @example
    * 1000000000
    */
   projectMaxDatasetCount?: number;
   /**
    * @remarks
+   * The name of the project. The name must meet the following requirements:
+   * 
+   * *   The name must be 1 to 128 characters in length
+   * *   and can contain only letters, digits, hyphens (-), and underscores (_).
+   * *   The name must start with a letter or an underscores (_).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The name of the Resource Access Management (RAM) role. You must attach the RAM role to IMM to allow IMM to access other cloud resources, such as Object Storage Service (OSS). Default value: `AliyunIMMDefaultRole`.
+   * 
+   * You can also create a custom role in the RAM console and grant the required permissions to the role based on your business requirements. For more information, see [Grant permissions to a RAM user](https://help.aliyun.com/document_detail/477257.html).
+   * 
    * @example
    * AliyunIMMDefaultRole
    */
   serviceRole?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tagShrink?: string;
   /**
+   * @remarks
+   * The ID of the workflow template. You can leave this parameter empty. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * 
    * @example
    * Official:AllFunction
    */
@@ -8429,8 +10673,15 @@ export class CreateProjectShrinkRequest extends $tea.Model {
 }
 
 export class CreateProjectResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The project. For more information, click Project.
+   */
   project?: Project;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7F7D235C-76FF-4B65-800C-8238AE3F****
    */
@@ -8482,16 +10733,46 @@ export class CreateProjectResponse extends $tea.Model {
 export class CreateSimilarImageClusteringTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notification?: Notification;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
+   * @example
+   * {
+   *       "User": "Jane"
+   * }
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
+   * @example
+   * test-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8521,16 +10802,46 @@ export class CreateSimilarImageClusteringTaskRequest extends $tea.Model {
 export class CreateSimilarImageClusteringTaskShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
+  /**
+   * @remarks
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
+   * @example
+   * {
+   *       "User": "Jane"
+   * }
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
+   * @example
+   * test-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8559,16 +10870,25 @@ export class CreateSimilarImageClusteringTaskShrinkRequest extends $tea.Model {
 
 export class CreateSimilarImageClusteringTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 3BF-1UhtFyrua71eOkFlqYq23Co****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * SimilarImageClustering-48d0a0f3-8459-47f4-b8af-ff49c64****
    */
@@ -8620,19 +10940,33 @@ export class CreateSimilarImageClusteringTaskResponse extends $tea.Model {
 }
 
 export class CreateStoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address of the story. IMM filters candidate photos to generate a story based on the value of this parameter. This parameter takes effect only if you set StoryType to TravelMemory.
+   * 
+   * >  If you are located in Hong Kong (China), Macao (China), Taiwan (China), or overseas, you cannot specify an address in the Chinese mainland by using this parameter.
+   */
   address?: AddressForStory;
   /**
+   * @remarks
+   * The custom ID. A custom ID of a generated story may differ from the value of ObjectID and can be utilized for subsequent retrieval and sorting of stories.
+   * 
    * @example
    * test
    */
   customId?: string;
   /**
+   * @remarks
+   * The custom labels. Labels specify the custom information of the story. This enables retrieval based on your business requirements.
+   * 
    * @example
    * {"Bucket": "examplebucket"}
    */
   customLabels?: { [key: string]: any };
   /**
    * @remarks
+   * The name of the dataset. For information about how to obtain the name of a dataset, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8640,32 +10974,46 @@ export class CreateStoryRequest extends $tea.Model {
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The maximum number of photo files in the story. The actual number of photo files ranges from the value of MinFileCount to the value of MaxFileCount. The value of this parameter must be an integer greater than the value of MinFileCount. To provide the desired effect, the algorithm limits the maximum number of photo files to 1,500. If you set MaxFileCount to a value greater than 1,500, this parameter does not take effect.
+   * 
    * @example
    * 3
    */
   maxFileCount?: number;
   /**
+   * @remarks
+   * The minimum number of photo files in the story. The actual number of photo files ranges from the value of MinFileCount to the value of MaxFileCount. The value of this parameter must be an integer greater than 1. If the actual number of candidate photos is less than the value of this parameter, a null story is returned.
+   * 
    * @example
    * 1
    */
   minFileCount?: number;
   /**
    * @remarks
-   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
    */
   notification?: Notification;
   /**
+   * @remarks
+   * The topic name of the asynchronous reverse notification.
+   * 
    * @example
    * test-topic
    */
   notifyTopicName?: string;
   /**
+   * @remarks
+   * The ID of the story. This parameter is optional. If you leave this parameter empty, IMM assigns a unique identifier to the story. You can query and update a story based on its ID. You can also manually create an ID for a story. After you create an ID for a story, you must specify this parameter to pass the ID into the system. This way, IMM can record the ID as the unique identifier of the story. If you pass an existing ID into the system, IMM updates the story that corresponds to the ID.
+   * 
    * @example
    * id1
    */
   objectId?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8673,27 +11021,41 @@ export class CreateStoryRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The end time of the photo collection for which you want to create the story. StoryStartTime and StoryEndTime form a time interval based on which IMM filters candidate photos to generate a story. The value must be a string in the RFC3339 format.
+   * 
    * @example
    * 2021-12-30T16:00:00Z
    */
   storyEndTime?: string;
   /**
+   * @remarks
+   * The name of the story.
+   * 
    * @example
    * name1
    */
   storyName?: string;
   /**
+   * @remarks
+   * The start time of the photo collection for which you want to create the story. StoryStartTime and StoryEndTime form a time interval based on which IMM filters candidate photos to generate a story. The value must be a string in the RFC3339 format.
+   * 
    * @example
    * 2016-12-30T16:00:00Z
    */
   storyStartTime?: string;
   /**
+   * @remarks
+   * The subtype of the story. For information about valid subtypes, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * 
    * @example
    * Solo
    */
   storySubType?: string;
   /**
    * @remarks
+   * The type of the story. For information about valid types, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8701,11 +11063,21 @@ export class CreateStoryRequest extends $tea.Model {
    */
   storyType?: string;
   /**
+   * @remarks
+   * The tags. You can specify this parameter in one of the following scenarios:
+   * 
+   * *   Specify tags as custom data, which is returned in messages provided by Simple Message Queue.
+   * *   Search for tasks by tag.
+   * *   Specify tags as variables in destination URIs.
+   * 
    * @example
    * {"key":"val"}
    */
   tags?: { [key: string]: any };
   /**
+   * @remarks
+   * The custom information, which is returned as asynchronous notifications to facilitate notification management in your system. The maximum information length is 2,048 bytes.
+   * 
    * @example
    * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
    */
@@ -8760,19 +11132,33 @@ export class CreateStoryRequest extends $tea.Model {
 }
 
 export class CreateStoryShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address of the story. IMM filters candidate photos to generate a story based on the value of this parameter. This parameter takes effect only if you set StoryType to TravelMemory.
+   * 
+   * >  If you are located in Hong Kong (China), Macao (China), Taiwan (China), or overseas, you cannot specify an address in the Chinese mainland by using this parameter.
+   */
   addressShrink?: string;
   /**
+   * @remarks
+   * The custom ID. A custom ID of a generated story may differ from the value of ObjectID and can be utilized for subsequent retrieval and sorting of stories.
+   * 
    * @example
    * test
    */
   customId?: string;
   /**
+   * @remarks
+   * The custom labels. Labels specify the custom information of the story. This enables retrieval based on your business requirements.
+   * 
    * @example
    * {"Bucket": "examplebucket"}
    */
   customLabelsShrink?: string;
   /**
    * @remarks
+   * The name of the dataset. For information about how to obtain the name of a dataset, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8780,32 +11166,46 @@ export class CreateStoryShrinkRequest extends $tea.Model {
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The maximum number of photo files in the story. The actual number of photo files ranges from the value of MinFileCount to the value of MaxFileCount. The value of this parameter must be an integer greater than the value of MinFileCount. To provide the desired effect, the algorithm limits the maximum number of photo files to 1,500. If you set MaxFileCount to a value greater than 1,500, this parameter does not take effect.
+   * 
    * @example
    * 3
    */
   maxFileCount?: number;
   /**
+   * @remarks
+   * The minimum number of photo files in the story. The actual number of photo files ranges from the value of MinFileCount to the value of MaxFileCount. The value of this parameter must be an integer greater than 1. If the actual number of candidate photos is less than the value of this parameter, a null story is returned.
+   * 
    * @example
    * 1
    */
   minFileCount?: number;
   /**
    * @remarks
-   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
    */
   notificationShrink?: string;
   /**
+   * @remarks
+   * The topic name of the asynchronous reverse notification.
+   * 
    * @example
    * test-topic
    */
   notifyTopicName?: string;
   /**
+   * @remarks
+   * The ID of the story. This parameter is optional. If you leave this parameter empty, IMM assigns a unique identifier to the story. You can query and update a story based on its ID. You can also manually create an ID for a story. After you create an ID for a story, you must specify this parameter to pass the ID into the system. This way, IMM can record the ID as the unique identifier of the story. If you pass an existing ID into the system, IMM updates the story that corresponds to the ID.
+   * 
    * @example
    * id1
    */
   objectId?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8813,27 +11213,41 @@ export class CreateStoryShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The end time of the photo collection for which you want to create the story. StoryStartTime and StoryEndTime form a time interval based on which IMM filters candidate photos to generate a story. The value must be a string in the RFC3339 format.
+   * 
    * @example
    * 2021-12-30T16:00:00Z
    */
   storyEndTime?: string;
   /**
+   * @remarks
+   * The name of the story.
+   * 
    * @example
    * name1
    */
   storyName?: string;
   /**
+   * @remarks
+   * The start time of the photo collection for which you want to create the story. StoryStartTime and StoryEndTime form a time interval based on which IMM filters candidate photos to generate a story. The value must be a string in the RFC3339 format.
+   * 
    * @example
    * 2016-12-30T16:00:00Z
    */
   storyStartTime?: string;
   /**
+   * @remarks
+   * The subtype of the story. For information about valid subtypes, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * 
    * @example
    * Solo
    */
   storySubType?: string;
   /**
    * @remarks
+   * The type of the story. For information about valid types, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8841,11 +11255,21 @@ export class CreateStoryShrinkRequest extends $tea.Model {
    */
   storyType?: string;
   /**
+   * @remarks
+   * The tags. You can specify this parameter in one of the following scenarios:
+   * 
+   * *   Specify tags as custom data, which is returned in messages provided by Simple Message Queue.
+   * *   Search for tasks by tag.
+   * *   Specify tags as variables in destination URIs.
+   * 
    * @example
    * {"key":"val"}
    */
   tagsShrink?: string;
   /**
+   * @remarks
+   * The custom information, which is returned as asynchronous notifications to facilitate notification management in your system. The maximum information length is 2,048 bytes.
+   * 
    * @example
    * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
    */
@@ -8901,16 +11325,25 @@ export class CreateStoryShrinkRequest extends $tea.Model {
 
 export class CreateStoryResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 392-1CqzvESGTEeNZ2OWFbRKIM****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * CreateStory-4ef6ff43-edf3-4612-9cc4-0c7f9e19****
    */
@@ -8964,17 +11397,29 @@ export class CreateStoryResponse extends $tea.Model {
 export class CreateTriggerRequest extends $tea.Model {
   /**
    * @remarks
+   * The processing templates.
+   * 
    * This parameter is required.
    */
   actions?: CreateTriggerRequestActions[];
   /**
    * @remarks
+   * The data source configurations.
+   * 
    * This parameter is required.
    */
   input?: Input;
+  /**
+   * @remarks
+   * The notification settings. The operation supports multiple messaging middleware options. For more information about notification messages, see Asynchronous message examples. You can use one of the following methods to receive notification messages:
+   * 
+   * Activate and connect to EventBridge in the same region as the IMM project. For more information, see IMM events. Activate Simple Message Queue in the same region as the IMM project and configure a subscription.
+   */
   notification?: CreateTriggerRequestNotification;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8983,6 +11428,10 @@ export class CreateTriggerRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The service role. IMM assumes the service role so that it can access resources in other cloud services, such as OSS. Default value: AliyunIMMBatchTriggerRole.
+   * 
+   * You can also create a custom service role in the RAM console and grant the required permissions to the role based on your business requirements. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a role](https://help.aliyun.com/document_detail/116147.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8990,6 +11439,9 @@ export class CreateTriggerRequest extends $tea.Model {
    */
   serviceRole?: string;
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"key":"val"}
    */
@@ -9024,17 +11476,29 @@ export class CreateTriggerRequest extends $tea.Model {
 export class CreateTriggerShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The processing templates.
+   * 
    * This parameter is required.
    */
   actionsShrink?: string;
   /**
    * @remarks
+   * The data source configurations.
+   * 
    * This parameter is required.
    */
   inputShrink?: string;
+  /**
+   * @remarks
+   * The notification settings. The operation supports multiple messaging middleware options. For more information about notification messages, see Asynchronous message examples. You can use one of the following methods to receive notification messages:
+   * 
+   * Activate and connect to EventBridge in the same region as the IMM project. For more information, see IMM events. Activate Simple Message Queue in the same region as the IMM project and configure a subscription.
+   */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9043,6 +11507,10 @@ export class CreateTriggerShrinkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The service role. IMM assumes the service role so that it can access resources in other cloud services, such as OSS. Default value: AliyunIMMBatchTriggerRole.
+   * 
+   * You can also create a custom service role in the RAM console and grant the required permissions to the role based on your business requirements. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a role](https://help.aliyun.com/document_detail/116147.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9050,6 +11518,9 @@ export class CreateTriggerShrinkRequest extends $tea.Model {
    */
   serviceRole?: string;
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"key":"val"}
    */
@@ -9082,8 +11553,18 @@ export class CreateTriggerShrinkRequest extends $tea.Model {
 }
 
 export class CreateTriggerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the trigger.
+   * 
+   * @example
+   * trigger-9f72636a-0f0c-4baf-ae78-38b27b******
+   */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EC564A9A-BA5C-4499-A087-D9B9E76E*****
    */
@@ -9133,14 +11614,22 @@ export class CreateTriggerResponse extends $tea.Model {
 }
 
 export class CreateVideoLabelClassificationTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
-   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
    */
   notification?: Notification;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9149,6 +11638,10 @@ export class CreateVideoLabelClassificationTaskRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The OSS URI of the video file.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9156,11 +11649,17 @@ export class CreateVideoLabelClassificationTaskRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The custom tags, which can be used to search for and filter asynchronous tasks.
+   * 
    * @example
    * {"test":"val1"}
    */
   tags?: { [key: string]: any };
   /**
+   * @remarks
+   * The custom data, which is returned in an asynchronous notification and facilitates notification management. The maximum length is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -9193,14 +11692,22 @@ export class CreateVideoLabelClassificationTaskRequest extends $tea.Model {
 }
 
 export class CreateVideoLabelClassificationTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
-   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
    */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9209,6 +11716,10 @@ export class CreateVideoLabelClassificationTaskShrinkRequest extends $tea.Model 
   projectName?: string;
   /**
    * @remarks
+   * The OSS URI of the video file.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9216,11 +11727,17 @@ export class CreateVideoLabelClassificationTaskShrinkRequest extends $tea.Model 
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The custom tags, which can be used to search for and filter asynchronous tasks.
+   * 
    * @example
    * {"test":"val1"}
    */
   tagsShrink?: string;
   /**
+   * @remarks
+   * The custom data, which is returned in an asynchronous notification and facilitates notification management. The maximum length is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -9254,16 +11771,25 @@ export class CreateVideoLabelClassificationTaskShrinkRequest extends $tea.Model 
 
 export class CreateVideoLabelClassificationTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID of the current task. You can use [EventBridge](https://www.alibabacloud.com/en/product/eventbridge) to query the ID and obtain the task information notification.
+   * 
    * @example
    * 03F-1Qt1Yn5RZZ0Zh3ZdYlDblv7****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CA995EFD-083D-4F40-BE8A-BDF75FFFE0B6
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the current task. You can call the [GetTask](~~GetTask~~) operation to view the task information or the [GetVideoLabelClassificationResult](https://help.aliyun.com/document_detail/478224.html) operation to obtain the result of the video label detection task.
+   * 
    * @example
    * VideoLabelClassification-2f157087-91df-4fda-8c3e-232407ec*****
    */
@@ -9315,33 +11841,53 @@ export class CreateVideoLabelClassificationTaskResponse extends $tea.Model {
 }
 
 export class CreateVideoModerationTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
+   * @remarks
+   * The interval of capturing video frames. Unit: seconds. Valid values: 1 to 600. Default value: 1.
+   * 
    * @example
    * 1
    */
   interval?: number;
   /**
+   * @remarks
+   * The maximum number of frames that can be captured from the video. Valid values: 5 to 3600. Default value: 200.
+   * 
    * @example
    * 200
    */
   maxFrames?: number;
   /**
    * @remarks
-   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   * The notification settings. For information about the asynchronous notification format, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
    */
   notification?: Notification;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * immtest
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The scenarios of video moderation.
+   */
   scenes?: string[];
   /**
    * @remarks
+   * The OSS URI of the video.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9349,11 +11895,17 @@ export class CreateVideoModerationTaskRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The custom tags. The custom tags help you retrieve the task.
+   * 
    * @example
    * {"test": "val1"}
    */
   tags?: { [key: string]: any };
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -9392,33 +11944,53 @@ export class CreateVideoModerationTaskRequest extends $tea.Model {
 }
 
 export class CreateVideoModerationTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
+   * @remarks
+   * The interval of capturing video frames. Unit: seconds. Valid values: 1 to 600. Default value: 1.
+   * 
    * @example
    * 1
    */
   interval?: number;
   /**
+   * @remarks
+   * The maximum number of frames that can be captured from the video. Valid values: 5 to 3600. Default value: 200.
+   * 
    * @example
    * 200
    */
   maxFrames?: number;
   /**
    * @remarks
-   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   * The notification settings. For information about the asynchronous notification format, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
    */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * immtest
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The scenarios of video moderation.
+   */
   scenesShrink?: string;
   /**
    * @remarks
+   * The OSS URI of the video.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9426,11 +11998,17 @@ export class CreateVideoModerationTaskShrinkRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The custom tags. The custom tags help you retrieve the task.
+   * 
    * @example
    * {"test": "val1"}
    */
   tagsShrink?: string;
   /**
+   * @remarks
+   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -9470,16 +12048,25 @@ export class CreateVideoModerationTaskShrinkRequest extends $tea.Model {
 
 export class CreateVideoModerationTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 2E6-1I0FGn0zFnl5AflRfhzClma*****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * VideoModeration-9442a216-4691-4a48-846d-76daccaf*****
    */
@@ -9533,6 +12120,8 @@ export class CreateVideoModerationTaskResponse extends $tea.Model {
 export class DeleteBatchRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the batch processing task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9541,6 +12130,8 @@ export class DeleteBatchRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9568,6 +12159,9 @@ export class DeleteBatchRequest extends $tea.Model {
 
 export class DeleteBatchResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 91AC8C98-0F36-49D2-8290-742E24******
    */
@@ -9617,6 +12211,8 @@ export class DeleteBatchResponse extends $tea.Model {
 export class DeleteBindingRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9625,6 +12221,8 @@ export class DeleteBindingRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9633,6 +12231,10 @@ export class DeleteBindingRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The URI of the OSS bucket to which the dataset is bound.
+   * 
+   * Specify the value in the oss://${Bucket} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9662,6 +12264,9 @@ export class DeleteBindingRequest extends $tea.Model {
 
 export class DeleteBindingResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ACDFE467-C817-4B36-951A-6EB5A592****
    */
@@ -9711,6 +12316,8 @@ export class DeleteBindingResponse extends $tea.Model {
 export class DeleteDatasetRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](https://help.aliyun.com/zh/imm/user-guide/create-datasets?spm=a2c4g.11186623.0.0.453e3cbf9vcZrq)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9719,6 +12326,8 @@ export class DeleteDatasetRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project.[](https://help.aliyun.com/zh/imm/getting-started/create-a-project-1?spm=a2c4g.11186623.0.i30)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9746,6 +12355,9 @@ export class DeleteDatasetRequest extends $tea.Model {
 
 export class DeleteDatasetResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EC564B8B-BA5C-4499-B196-D9B9E76E****
    */
@@ -9795,16 +12407,32 @@ export class DeleteDatasetResponse extends $tea.Model {
 export class DeleteFileMetaRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-datset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
    * @remarks
+   * The URI of the file in OSS.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the path of the object with the extension included.
+   * 
+   * The URI of the file in Photo and Drive Service must be in the pds://domains/${domain}/drives/${drive}/files/${file}/revisions/${revision} format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9834,6 +12462,9 @@ export class DeleteFileMetaRequest extends $tea.Model {
 
 export class DeleteFileMetaResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7F82D6C9-5AC0-49F9-914D-F02678F3****
    */
@@ -9883,17 +12514,32 @@ export class DeleteFileMetaResponse extends $tea.Model {
 export class DeleteLocationDateClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. For information about how to create a dataset, see [CreateDataset](https://help.aliyun.com/document_detail/478160.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The ID of the group to be deleted.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * location-date-cluster-71dd4f32-9597-4085-a2ab-3a7b0fd0aff9
    */
   objectId?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   static names(): { [key: string]: string } {
@@ -9919,6 +12565,9 @@ export class DeleteLocationDateClusterRequest extends $tea.Model {
 
 export class DeleteLocationDateClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B121940C-9794-4EE3-8D6E-F8EC525F****
    */
@@ -9968,6 +12617,8 @@ export class DeleteLocationDateClusterResponse extends $tea.Model {
 export class DeleteProjectRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the project. For more information, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9993,6 +12644,9 @@ export class DeleteProjectRequest extends $tea.Model {
 
 export class DeleteProjectResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FEDC9B1F-30F2-4C1F-8ED2-B7860187****
    */
@@ -10042,6 +12696,8 @@ export class DeleteProjectResponse extends $tea.Model {
 export class DeleteStoryRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10050,6 +12706,8 @@ export class DeleteStoryRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The ID of the story to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10058,6 +12716,8 @@ export class DeleteStoryRequest extends $tea.Model {
   objectId?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10087,6 +12747,9 @@ export class DeleteStoryRequest extends $tea.Model {
 
 export class DeleteStoryResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
    */
@@ -10136,6 +12799,8 @@ export class DeleteStoryResponse extends $tea.Model {
 export class DeleteTriggerRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the trigger. You can obtain the ID of the trigger from the response of the [CreateTrigger](https://help.aliyun.com/document_detail/479912.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10144,6 +12809,8 @@ export class DeleteTriggerRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10171,6 +12838,9 @@ export class DeleteTriggerRequest extends $tea.Model {
 
 export class DeleteTriggerResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FEDC9B1F-30F2-4C1F-8ED2-B7860187****
    */
@@ -10220,6 +12890,8 @@ export class DeleteTriggerResponse extends $tea.Model {
 export class DetachOSSBucketRequest extends $tea.Model {
   /**
    * @remarks
+   * The OSS bucket that you want to unbind.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10245,6 +12917,9 @@ export class DetachOSSBucketRequest extends $tea.Model {
 
 export class DetachOSSBucketResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5F74C5C9-5AC0-49F9-914D-E01589D3****
    */
@@ -10292,9 +12967,17 @@ export class DetachOSSBucketResponse extends $tea.Model {
 }
 
 export class DetectImageBodiesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10302,6 +12985,9 @@ export class DetectImageBodiesRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The accuracy level of detecting and recognizing specific content in the image. Valid values: 0 to 1. Default value: 0.6. A higher sensitivity specifies that more image details can be detected.
+   * 
    * @example
    * 0.6
    * 
@@ -10310,6 +12996,11 @@ export class DetectImageBodiesRequest extends $tea.Model {
    */
   sensitivity?: number;
   /**
+   * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which the image file is stored.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the file that has an extension.
+   * 
    * @example
    * oss://test-bucket/test-object
    */
@@ -10338,9 +13029,17 @@ export class DetectImageBodiesRequest extends $tea.Model {
 }
 
 export class DetectImageBodiesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10348,6 +13047,9 @@ export class DetectImageBodiesShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The accuracy level of detecting and recognizing specific content in the image. Valid values: 0 to 1. Default value: 0.6. A higher sensitivity specifies that more image details can be detected.
+   * 
    * @example
    * 0.6
    * 
@@ -10356,6 +13058,11 @@ export class DetectImageBodiesShrinkRequest extends $tea.Model {
    */
   sensitivity?: number;
   /**
+   * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which the image file is stored.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the file that has an extension.
+   * 
    * @example
    * oss://test-bucket/test-object
    */
@@ -10384,8 +13091,15 @@ export class DetectImageBodiesShrinkRequest extends $tea.Model {
 }
 
 export class DetectImageBodiesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The human bodies.
+   */
   bodies?: Body[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 501339F9-4B70-0CE2-AB8C-866C********
    */
@@ -10435,9 +13149,17 @@ export class DetectImageBodiesResponse extends $tea.Model {
 }
 
 export class DetectImageCarsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10446,6 +13168,10 @@ export class DetectImageCarsRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which you store the image file.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the file that has an extension.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10474,9 +13200,17 @@ export class DetectImageCarsRequest extends $tea.Model {
 }
 
 export class DetectImageCarsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10485,6 +13219,10 @@ export class DetectImageCarsShrinkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which you store the image file.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the file that has an extension.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10515,10 +13253,15 @@ export class DetectImageCarsShrinkRequest extends $tea.Model {
 export class DetectImageCarsResponseBody extends $tea.Model {
   /**
    * @remarks
+   * The vehicles.
+   * 
    * This parameter is required.
    */
   cars?: Car[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A8745209-DD0E-027E-8ABA-085E0C******
    */
@@ -10568,9 +13311,17 @@ export class DetectImageCarsResponse extends $tea.Model {
 }
 
 export class DetectImageCodesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10579,6 +13330,10 @@ export class DetectImageCodesRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which the image file is stored.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the file that has an extension.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10607,9 +13362,17 @@ export class DetectImageCodesRequest extends $tea.Model {
 }
 
 export class DetectImageCodesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10618,6 +13381,10 @@ export class DetectImageCodesShrinkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which the image file is stored.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the file that has an extension.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10648,10 +13415,15 @@ export class DetectImageCodesShrinkRequest extends $tea.Model {
 export class DetectImageCodesResponseBody extends $tea.Model {
   /**
    * @remarks
+   * The barcodes or QR codes.
+   * 
    * This parameter is required.
    */
   codes?: Codes[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6E93D6C9-5AC0-49F9-914D-E02678D3****
    */
@@ -10702,13 +13474,34 @@ export class DetectImageCodesResponse extends $tea.Model {
 
 export class DetectImageCroppingRequest extends $tea.Model {
   /**
+   * @remarks
+   * The cropping ratios. You can specify up to five cropping ratios. Take note of the following requirements:
+   * 
+   * *   The ratio must be an integer between 0 and 20.
+   * *   The ratio must range from 0.5 to 2.
+   * *   If you leave this parameter empty, the default processing logic is `["auto"]`.
+   * 
+   * >  Errors are reported in one of the following cases:\\
+   * You specify more than five cropping ratios.\\
+   * You pass an empty list to the system.\\
+   * You specify a ratio that is not an integer, such as `4.1:3`.\\
+   * The ratio is beyond the range of 0.5 to 2.
+   * 
    * @example
    * ["1:1"]
    */
   aspectRatios?: string;
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10716,6 +13509,11 @@ export class DetectImageCroppingRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which you store the image.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the image file that has an extension.
+   * 
    * @example
    * oss://imm-test/testcases/facetest.jpg
    */
@@ -10745,13 +13543,34 @@ export class DetectImageCroppingRequest extends $tea.Model {
 
 export class DetectImageCroppingShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The cropping ratios. You can specify up to five cropping ratios. Take note of the following requirements:
+   * 
+   * *   The ratio must be an integer between 0 and 20.
+   * *   The ratio must range from 0.5 to 2.
+   * *   If you leave this parameter empty, the default processing logic is `["auto"]`.
+   * 
+   * >  Errors are reported in one of the following cases:\\
+   * You specify more than five cropping ratios.\\
+   * You pass an empty list to the system.\\
+   * You specify a ratio that is not an integer, such as `4.1:3`.\\
+   * The ratio is beyond the range of 0.5 to 2.
+   * 
    * @example
    * ["1:1"]
    */
   aspectRatios?: string;
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10759,6 +13578,11 @@ export class DetectImageCroppingShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which you store the image.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the image file that has an extension.
+   * 
    * @example
    * oss://imm-test/testcases/facetest.jpg
    */
@@ -10787,8 +13611,15 @@ export class DetectImageCroppingShrinkRequest extends $tea.Model {
 }
 
 export class DetectImageCroppingResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The image croppings.
+   */
   croppings?: CroppingSuggestion[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 91AC8C98-0F36-49D2-8290-742E24D*****
    */
@@ -10838,15 +13669,32 @@ export class DetectImageCroppingResponse extends $tea.Model {
 }
 
 export class DetectImageFacesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * immtest
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The OSS URI of the image object.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
+   * @example
+   * oss://test-bucket/test-object.jpg
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10870,15 +13718,32 @@ export class DetectImageFacesRequest extends $tea.Model {
 }
 
 export class DetectImageFacesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * immtest
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The OSS URI of the image object.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
+   * @example
+   * oss://test-bucket/test-object.jpg
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10902,8 +13767,15 @@ export class DetectImageFacesShrinkRequest extends $tea.Model {
 }
 
 export class DetectImageFacesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The faces.
+   */
   faces?: Figure[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6E93D6C9-5AC0-49F9-914D-E02678D3****
    */
@@ -10953,9 +13825,17 @@ export class DetectImageFacesResponse extends $tea.Model {
 }
 
 export class DetectImageLabelsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10964,6 +13844,10 @@ export class DetectImageLabelsRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which you store the image.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the image file that has an extension.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10971,6 +13855,9 @@ export class DetectImageLabelsRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The threshold of the label confidence. Labels whose confidence is lower than the specified threshold are not returned in the response. Valid values: 0 to 1. If you leave this parameter empty, the algorithm provides a default threshold.
+   * 
    * @example
    * 1
    */
@@ -10999,9 +13886,17 @@ export class DetectImageLabelsRequest extends $tea.Model {
 }
 
 export class DetectImageLabelsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11010,6 +13905,10 @@ export class DetectImageLabelsShrinkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which you store the image.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the image file that has an extension.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11017,6 +13916,9 @@ export class DetectImageLabelsShrinkRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The threshold of the label confidence. Labels whose confidence is lower than the specified threshold are not returned in the response. Valid values: 0 to 1. If you leave this parameter empty, the algorithm provides a default threshold.
+   * 
    * @example
    * 1
    */
@@ -11045,8 +13947,15 @@ export class DetectImageLabelsShrinkRequest extends $tea.Model {
 }
 
 export class DetectImageLabelsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The labels that are detected.
+   */
   labels?: Label[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 91AC8C98-0F36-49D2-8290-742E24DF1F69
    */
@@ -11096,9 +14005,17 @@ export class DetectImageLabelsResponse extends $tea.Model {
 }
 
 export class DetectImageScoreRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
+   * The name of the project.[](~~477051~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11106,6 +14023,11 @@ export class DetectImageScoreRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The OSS URI of the input image.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * @example
    * oss://bucketname/objectname
    */
@@ -11132,9 +14054,17 @@ export class DetectImageScoreRequest extends $tea.Model {
 }
 
 export class DetectImageScoreShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~477051~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11142,6 +14072,11 @@ export class DetectImageScoreShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The OSS URI of the input image.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * @example
    * oss://bucketname/objectname
    */
@@ -11168,8 +14103,15 @@ export class DetectImageScoreShrinkRequest extends $tea.Model {
 }
 
 export class DetectImageScoreResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The quality score of the image.
+   */
   imageScore?: DetectImageScoreResponseBodyImageScore;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6E93D6C9-5AC0-49F9-914D-E02678D3****
    */
@@ -11219,9 +14161,17 @@ export class DetectImageScoreResponse extends $tea.Model {
 }
 
 export class DetectImageTextsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this field empty.**
+   * 
+   * The configurations of authorization chains. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11230,6 +14180,10 @@ export class DetectImageTextsRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The Object Storage Service (OSS) URI of the file.
+   * 
+   * Specify the URI in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of an OSS bucket that is in the same region as the current project. ${Object} specifies the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11258,9 +14212,17 @@ export class DetectImageTextsRequest extends $tea.Model {
 }
 
 export class DetectImageTextsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this field empty.**
+   * 
+   * The configurations of authorization chains. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11269,6 +14231,10 @@ export class DetectImageTextsShrinkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The Object Storage Service (OSS) URI of the file.
+   * 
+   * Specify the URI in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of an OSS bucket that is in the same region as the current project. ${Object} specifies the path of the object with the extension included.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11297,9 +14263,20 @@ export class DetectImageTextsShrinkRequest extends $tea.Model {
 }
 
 export class DetectImageTextsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * OCR text blocks.
+   */
   OCRContents?: OCRContents[];
+  /**
+   * @remarks
+   * The full Optical Character Recognition (OCR) text, which is spliced by using the content of OCRContents.
+   */
   OCRTexts?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
    */
@@ -11351,8 +14328,30 @@ export class DetectImageTextsResponse extends $tea.Model {
 }
 
 export class DetectMediaMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * The URI of the media object in Object Storage Service (OSS).
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
+   * @example
+   * oss://examplebucket/sampleobject.mp4
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11376,8 +14375,30 @@ export class DetectMediaMetaRequest extends $tea.Model {
 }
 
 export class DetectMediaMetaShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * The URI of the media object in Object Storage Service (OSS).
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
+   * @example
+   * oss://examplebucket/sampleobject.mp4
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11401,106 +14422,184 @@ export class DetectMediaMetaShrinkRequest extends $tea.Model {
 }
 
 export class DetectMediaMetaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The addresses.
+   * 
+   * This parameter is returned only when address information is detected.
+   */
   addresses?: Address[];
   /**
+   * @remarks
+   * The album.
+   * 
    * @example
    * unable
    */
   album?: string;
   /**
+   * @remarks
+   * The album artist.
+   * 
    * @example
    * unable
    */
   albumArtist?: string;
   /**
+   * @remarks
+   * The artist.
+   * 
    * @example
    * unable
    */
   artist?: string;
+  /**
+   * @remarks
+   * The audio streams.
+   */
   audioStreams?: AudioStream[];
   /**
+   * @remarks
+   * The bitrate. Unit: bit/s.
+   * 
    * @example
    * 13164131
    */
   bitrate?: number;
   /**
+   * @remarks
+   * The composer.
+   * 
    * @example
    * unable
    */
   composer?: string;
   /**
+   * @remarks
+   * The total duration of the video. Unit: seconds.
+   * 
    * @example
    * 15.263000
    */
   duration?: number;
   /**
+   * @remarks
+   * The full format name.
+   * 
    * @example
    * QuickTime / MOV
    */
   formatLongName?: string;
   /**
+   * @remarks
+   * The abbreviated format name.
+   * 
    * @example
    * mov,mp4,m4a,3gp,3g2,mj2
    */
   formatName?: string;
   /**
+   * @remarks
+   * The language of the content. For more information, see the ISO 639-2 Alpha-3 codes for the representation of names of languages.
+   * 
    * @example
    * eng
    */
   language?: string;
   /**
+   * @remarks
+   * The coordinate pair of the central point. The coordinate pair consists of latitude and longitude values. This parameter value must be in the "latitude,longitude" format. Valid values of the latitude: [-90,+90]. Valid values of the longitude: [-180,+180].
+   * 
    * @example
    * +120.029003,+30.283095
    */
   latLong?: string;
   /**
+   * @remarks
+   * The performer.
+   * 
    * @example
    * unable
    */
   performer?: string;
   /**
+   * @remarks
+   * The time of recording. For more information about the time formats, see the RFC3339 Nano standard.
+   * 
    * @example
    * 2022-04-24T02:39:57Z
    */
   produceTime?: string;
   /**
+   * @remarks
+   * The number of programs.
+   * 
    * @example
    * 2
    */
   programCount?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2213B1A9-EB3D-4666-84E0-24980BC*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The size of the media object. Unit: bytes.
+   * 
    * @example
    * 25115517
    */
   size?: number;
   /**
+   * @remarks
+   * The initial playback time.
+   * 
    * @example
    * 0.000000
    */
   startTime?: number;
   /**
+   * @remarks
+   * The number of media streams.
+   * 
    * @example
    * 2
    */
   streamCount?: number;
+  /**
+   * @remarks
+   * The subtitle streams.
+   */
   subtitles?: SubtitleStream[];
   /**
+   * @remarks
+   * The title of the media object.
+   * 
    * @example
    * test
    */
   title?: string;
   /**
+   * @remarks
+   * The video height in pixels.
+   * 
    * @example
    * 1920
    */
   videoHeight?: number;
+  /**
+   * @remarks
+   * The video streams.
+   */
   videoStreams?: VideoStream[];
   /**
+   * @remarks
+   * The video width in pixels.
+   * 
    * @example
    * 1080
    */
@@ -11596,6 +14695,8 @@ export class DetectMediaMetaResponse extends $tea.Model {
 export class DetectTextAnomalyRequest extends $tea.Model {
   /**
    * @remarks
+   * The text to be detected. It can contain up to 10,000 characters (including punctuation marks). Only Chinese text can be detected.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11604,6 +14705,8 @@ export class DetectTextAnomalyRequest extends $tea.Model {
   content?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11631,11 +14734,20 @@ export class DetectTextAnomalyRequest extends $tea.Model {
 
 export class DetectTextAnomalyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 91AC8C98-0F36-49D2-8290-742E24DF*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the text contains anomalies. Valid values:
+   * 
+   * *   pass: the text does not contain anomalies.
+   * *   block: the text contains anomalies.
+   * 
    * @example
    * pass
    */
@@ -11685,14 +14797,25 @@ export class DetectTextAnomalyResponse extends $tea.Model {
 }
 
 export class EncodeBlindWatermarkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The text content of watermarks. It can be up to 256 characters in length.
+   */
   content?: string;
   /**
+   * @remarks
+   * This parameter takes effect only if the input image format is JPG.
+   * 
+   * The storage quality of the output image that carries the watermarks. Default value: 90. Valid values: 70 to 100. The higher the quality, the larger the image size and the higher the watermark resolution quality.
+   * 
    * @example
    * 90
    */
   imageQuality?: number;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11701,6 +14824,14 @@ export class EncodeBlindWatermarkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The Object Storage Service (OSS) URI of the image.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region with the current project. `${Object}` specifies the path of the object with the extension included.
+   * 
+   * Supported image formats: JPG, PNG, BMP, TIFF, and WebP.
+   * 
+   * Image size limit: 10,000 px maximum and 80 px x 80 px minimum.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11708,12 +14839,23 @@ export class EncodeBlindWatermarkRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The watermark strength level. The higher the strength, the more resistant the watermarked image is to attacks, but the more the image is distorted. Default value: low. Valid values: [low, medium, high].
+   * 
    * @example
    * low
    */
   strengthLevel?: string;
   /**
    * @remarks
+   * The URI of the output image in OSS.
+   * 
+   * Specify the URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
+   * > 
+   * 
+   * *   The format of the output image is the same as that of the input image.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11749,6 +14891,9 @@ export class EncodeBlindWatermarkRequest extends $tea.Model {
 
 export class EncodeBlindWatermarkResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8E0DD64B-28C6-4653-8FF7-93E4C234BCF0
    */
@@ -11796,18 +14941,42 @@ export class EncodeBlindWatermarkResponse extends $tea.Model {
 }
 
 export class ExtractDocumentTextRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/477051.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * immtest
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The type of the filename extension of the source data. By default, the filename extension of the source data is the same as the filename extension of the input document. If the input document has no extension, you can specify this parameter. Valid values:
+   * 
+   * *   Text documents: doc, docx, wps, wpss, docm, dotm, dot, dotx, and html
+   * *   Presentation documents: pptx, ppt, pot, potx, pps, ppsx, dps, dpt, pptm, potm, ppsm, and dpss
+   * *   Table documents: xls, xlt, et, ett, xlsx, xltx, csv, xlsb, xlsm, xltm, and ets
+   * *   PDF documents: pdf.
+   * 
+   * @example
+   * docx
+   */
   sourceType?: string;
   /**
    * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which the document is stored.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the file that has an extension.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11838,18 +15007,42 @@ export class ExtractDocumentTextRequest extends $tea.Model {
 }
 
 export class ExtractDocumentTextShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/477051.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * immtest
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The type of the filename extension of the source data. By default, the filename extension of the source data is the same as the filename extension of the input document. If the input document has no extension, you can specify this parameter. Valid values:
+   * 
+   * *   Text documents: doc, docx, wps, wpss, docm, dotm, dot, dotx, and html
+   * *   Presentation documents: pptx, ppt, pot, potx, pps, ppsx, dps, dpt, pptm, potm, ppsm, and dpss
+   * *   Table documents: xls, xlt, et, ett, xlsx, xltx, csv, xlsb, xlsm, xltm, and ets
+   * *   PDF documents: pdf.
+   * 
+   * @example
+   * docx
+   */
   sourceType?: string;
   /**
    * @remarks
+   * The URI of the Object Storage Service (OSS) bucket in which the document is stored.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the file that has an extension.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11933,6 +15126,8 @@ export class ExtractDocumentTextResponse extends $tea.Model {
 export class FuzzyQueryRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11940,22 +15135,50 @@ export class FuzzyQueryRequest extends $tea.Model {
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: 0 to 200.
+   * 
+   * Default value: 100.
+   * 
    * @example
    * 1
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. If the total number of files is greater than the value of MaxResults, you must specify NextToken.
+   * 
+   * The file information is returned in alphabetical order starting from the value of NextToken.
+   * 
+   * You do not need to specify this parameter for the first request.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sorting method. Valid values:
+   * 
+   * *   asc: ascending order.
+   * *   desc (default): descending order.
+   * 
+   * > 
+   * 
+   * *   Separate multiple sorting methods with commas (,). Example: asc,desc.
+   * 
+   * *   The number of values for Order must be less than or equal to the number of values for Sort. For example, if you set Sort to Size,Filename, you can set Order only to desc or asc.
+   * 
+   * *   If the number of values for Order is less than the number of values for Sort, the unsorted fields are default to the value of asc. For example, if you set Sort to Size,Filename and Order to asc, the Filename field is default to the value of asc.
+   * 
    * @example
    * asc,desc
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11964,14 +15187,29 @@ export class FuzzyQueryRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The query content. The value can be up to 1 MB in size.
+   * 
    * This parameter is required.
    */
   query?: string;
   /**
+   * @remarks
+   * The sort field. For more information, see [Supported fields and operators](https://help.aliyun.com/document_detail/2743991.html).
+   * 
+   * *   Separate multiple sort fields with commas (,). Example: `Size,Filename`.
+   * *   You can specify up to five sort fields.
+   * *   The priority order of sorting is determined based on the order of the sort fields.
+   * 
    * @example
    * Size,Filename
    */
   sort?: string;
+  /**
+   * @remarks
+   * The fields that you want to include in the response. To help reduce the size of the response, include only necessary metadata fields.
+   * 
+   * If you do not specify this parameter or set the value to null, all existing metadata fields are returned.
+   */
   withFields?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12007,6 +15245,8 @@ export class FuzzyQueryRequest extends $tea.Model {
 export class FuzzyQueryShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12014,22 +15254,50 @@ export class FuzzyQueryShrinkRequest extends $tea.Model {
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: 0 to 200.
+   * 
+   * Default value: 100.
+   * 
    * @example
    * 1
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. If the total number of files is greater than the value of MaxResults, you must specify NextToken.
+   * 
+   * The file information is returned in alphabetical order starting from the value of NextToken.
+   * 
+   * You do not need to specify this parameter for the first request.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sorting method. Valid values:
+   * 
+   * *   asc: ascending order.
+   * *   desc (default): descending order.
+   * 
+   * > 
+   * 
+   * *   Separate multiple sorting methods with commas (,). Example: asc,desc.
+   * 
+   * *   The number of values for Order must be less than or equal to the number of values for Sort. For example, if you set Sort to Size,Filename, you can set Order only to desc or asc.
+   * 
+   * *   If the number of values for Order is less than the number of values for Sort, the unsorted fields are default to the value of asc. For example, if you set Sort to Size,Filename and Order to asc, the Filename field is default to the value of asc.
+   * 
    * @example
    * asc,desc
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12038,14 +15306,29 @@ export class FuzzyQueryShrinkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The query content. The value can be up to 1 MB in size.
+   * 
    * This parameter is required.
    */
   query?: string;
   /**
+   * @remarks
+   * The sort field. For more information, see [Supported fields and operators](https://help.aliyun.com/document_detail/2743991.html).
+   * 
+   * *   Separate multiple sort fields with commas (,). Example: `Size,Filename`.
+   * *   You can specify up to five sort fields.
+   * *   The priority order of sorting is determined based on the order of the sort fields.
+   * 
    * @example
    * Size,Filename
    */
   sort?: string;
+  /**
+   * @remarks
+   * The fields that you want to include in the response. To help reduce the size of the response, include only necessary metadata fields.
+   * 
+   * If you do not specify this parameter or set the value to null, all existing metadata fields are returned.
+   */
   withFieldsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12079,9 +15362,19 @@ export class FuzzyQueryShrinkRequest extends $tea.Model {
 }
 
 export class FuzzyQueryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The files.
+   */
   files?: File[];
   /**
    * @remarks
+   * A pagination token.
+   * 
+   * It can be used in the next request to retrieve a new page of results.
+   * 
+   * If NextToken is empty, no next page exists.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12089,10 +15382,17 @@ export class FuzzyQueryResponseBody extends $tea.Model {
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of hits.
+   */
   totalHits?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12143,16 +15443,45 @@ export class FuzzyQueryResponse extends $tea.Model {
 }
 
 export class GenerateVideoPlaylistRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
+   * @remarks
+   * The OSS path of the master playlist.
+   * 
+   * The OSS path must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that is suffixed with .m3u8.
+   * 
+   * >  If a playlist contains subtitles or multiple outputs, the MasterURI parameter is required and the URI of subtitle files or outputs must be in the directory specified by the MasterURI parameter or its subdirectory.
+   * 
    * @example
    * oss://bucket/object/master.m3u8
    */
   masterURI?: string;
+  /**
+   * @remarks
+   * The notification settings. To view details, click Notification. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notification?: Notification;
+  /**
+   * @remarks
+   * The overwrite policy when the media playlist exists. Valid values:
+   * 
+   * *   overwrite (default): overwrites an existing media playlist.
+   * *   skip-existing: skips generation and retains the existing media playlist.
+   * 
+   * @example
+   * overwrite
+   */
   overwritePolicy?: string;
   /**
    * @remarks
+   * The project name.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12160,18 +15489,44 @@ export class GenerateVideoPlaylistRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The period of time during which the playlist is generated. Unit: seconds.
+   * 
+   * *   If you set this parameter to 0 (default) or leave this parameter empty, a playlist is generated until the end time of the source video.
+   * *   If you set this parameter to a value greater than 0, a playlist is generated for the specified period of time from the start time that you specify.
+   * 
+   * >  If you set this parameter to a value that exceeds the end time of a source video, use the default value.
+   * 
    * @example
    * 0
    */
   sourceDuration?: number;
   /**
+   * @remarks
+   * The time when the playlist starts to generate. Unit: seconds.
+   * 
+   * *   If you set this parameter to 0 (default) or leave this parameter empty, the start time of the source video is used as the time when a playlist starts to generate.
+   * *   If you set this parameter to a value greater than 0, the time when a playlist starts to generate is the specified point in time.
+   * 
+   * >  If you use this parameter together with the **SourceDuration** parameter, a playlist can be generated based on the partial content of a source video.
+   * 
    * @example
    * 0
    */
   sourceStartTime?: number;
+  /**
+   * @remarks
+   * The subtitle files. By default, this parameter is left empty. Up to two subtitle files are supported.
+   */
   sourceSubtitles?: GenerateVideoPlaylistRequestSourceSubtitles[];
   /**
    * @remarks
+   * The OSS path of the video file.
+   * 
+   * The OSS path must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that contains the file name extension.
+   * 
+   * >  Only OSS buckets of the Standard storage class are supported. OSS buckets for which hotlink protection whitelists are configured are not supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12179,15 +15534,29 @@ export class GenerateVideoPlaylistRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The [tags](https://help.aliyun.com/document_detail/106678.html) that you want to add to a TS file in OSS. You can use tags to manage the lifecycles of TS files in OSS.
+   * 
    * @example
    * {"key1": "value1", "key2": "value2"}
    */
   tags?: { [key: string]: string };
   /**
    * @remarks
+   * The live transcoding playlists. Up to 6 playlists are supported. Each output corresponds to at most one video media playlist and one or more subtitle media playlists.
+   * 
+   * >  If more than one output is configured, the **MasterURI** parameter is required.
+   * 
    * This parameter is required.
    */
   targets?: GenerateVideoPlaylistRequestTargets[];
+  /**
+   * @remarks
+   * The custom user information, which is returned in asynchronous notifications to help you handle the notifications in the system. The maximum length of a notification is 2048 bytes.
+   * 
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12229,16 +15598,45 @@ export class GenerateVideoPlaylistRequest extends $tea.Model {
 }
 
 export class GenerateVideoPlaylistShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you do not have special requirements, leave this parameter empty.**
+   * 
+   * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
+   * @remarks
+   * The OSS path of the master playlist.
+   * 
+   * The OSS path must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that is suffixed with .m3u8.
+   * 
+   * >  If a playlist contains subtitles or multiple outputs, the MasterURI parameter is required and the URI of subtitle files or outputs must be in the directory specified by the MasterURI parameter or its subdirectory.
+   * 
    * @example
    * oss://bucket/object/master.m3u8
    */
   masterURI?: string;
+  /**
+   * @remarks
+   * The notification settings. To view details, click Notification. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   */
   notificationShrink?: string;
+  /**
+   * @remarks
+   * The overwrite policy when the media playlist exists. Valid values:
+   * 
+   * *   overwrite (default): overwrites an existing media playlist.
+   * *   skip-existing: skips generation and retains the existing media playlist.
+   * 
+   * @example
+   * overwrite
+   */
   overwritePolicy?: string;
   /**
    * @remarks
+   * The project name.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12246,18 +15644,44 @@ export class GenerateVideoPlaylistShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The period of time during which the playlist is generated. Unit: seconds.
+   * 
+   * *   If you set this parameter to 0 (default) or leave this parameter empty, a playlist is generated until the end time of the source video.
+   * *   If you set this parameter to a value greater than 0, a playlist is generated for the specified period of time from the start time that you specify.
+   * 
+   * >  If you set this parameter to a value that exceeds the end time of a source video, use the default value.
+   * 
    * @example
    * 0
    */
   sourceDuration?: number;
   /**
+   * @remarks
+   * The time when the playlist starts to generate. Unit: seconds.
+   * 
+   * *   If you set this parameter to 0 (default) or leave this parameter empty, the start time of the source video is used as the time when a playlist starts to generate.
+   * *   If you set this parameter to a value greater than 0, the time when a playlist starts to generate is the specified point in time.
+   * 
+   * >  If you use this parameter together with the **SourceDuration** parameter, a playlist can be generated based on the partial content of a source video.
+   * 
    * @example
    * 0
    */
   sourceStartTime?: number;
+  /**
+   * @remarks
+   * The subtitle files. By default, this parameter is left empty. Up to two subtitle files are supported.
+   */
   sourceSubtitlesShrink?: string;
   /**
    * @remarks
+   * The OSS path of the video file.
+   * 
+   * The OSS path must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that contains the file name extension.
+   * 
+   * >  Only OSS buckets of the Standard storage class are supported. OSS buckets for which hotlink protection whitelists are configured are not supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12265,15 +15689,29 @@ export class GenerateVideoPlaylistShrinkRequest extends $tea.Model {
    */
   sourceURI?: string;
   /**
+   * @remarks
+   * The [tags](https://help.aliyun.com/document_detail/106678.html) that you want to add to a TS file in OSS. You can use tags to manage the lifecycles of TS files in OSS.
+   * 
    * @example
    * {"key1": "value1", "key2": "value2"}
    */
   tagsShrink?: string;
   /**
    * @remarks
+   * The live transcoding playlists. Up to 6 playlists are supported. Each output corresponds to at most one video media playlist and one or more subtitle media playlists.
+   * 
+   * >  If more than one output is configured, the **MasterURI** parameter is required.
+   * 
    * This parameter is required.
    */
   targetsShrink?: string;
+  /**
+   * @remarks
+   * The custom user information, which is returned in asynchronous notifications to help you handle the notifications in the system. The maximum length of a notification is 2048 bytes.
+   * 
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12317,29 +15755,49 @@ export class GenerateVideoPlaylistShrinkRequest extends $tea.Model {
 export class GenerateVideoPlaylistResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 转码文件列表。
+   * The audio media playlist files.
    */
   audioPlaylist?: GenerateVideoPlaylistResponseBodyAudioPlaylist[];
+  /**
+   * @remarks
+   * The total duration of the generated video.
+   * 
+   * @example
+   * 1082
+   */
   duration?: number;
+  /**
+   * @remarks
+   * The OSS path of the master playlist.
+   * 
+   * @example
+   * oss://test-bucket/test-object/master.m3u8
+   */
   masterURI?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CA995EFD-083D-4F40-BE8A-BDF75FFF*****
    */
   requestId?: string;
   /**
    * @remarks
-   * 转码文件列表。
+   * The subtitle media playlist files.
    */
   subtitlePlaylist?: GenerateVideoPlaylistResponseBodySubtitlePlaylist[];
   /**
+   * @remarks
+   * The token of the master playlist.
+   * 
    * @example
    * 92376fbb-171f-4259-913f-705f7ee0****
    */
   token?: string;
   /**
    * @remarks
-   * 转码文件列表。
+   * The video media playlist files.
    */
   videoPlaylist?: GenerateVideoPlaylistResponseBodyVideoPlaylist[];
   static names(): { [key: string]: string } {
@@ -12398,17 +15856,51 @@ export class GenerateVideoPlaylistResponse extends $tea.Model {
 
 export class GenerateWebofficeTokenRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to enable cache preview.
+   * 
+   * *   true: enables cache preview. The document can be previewed only and cannot be collaboratively edited.
+   * *   false: does not enable cache preview. The document can be collaboratively edited when it is being previewed.
+   * 
+   * >  The pricing for document previews varies based on whether cache preview is enabled or disabled.
+   * 
+   * >  If you specify this parameter, the Pemission.copy parameter does not take effect. >
+   * 
+   * >  Printing is not supported during cache preview.
+   * 
    * @example
    * false
    */
   cachePreview?: boolean;
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
+   * @remarks
+   * Specifies whether to allow an upload of a document to the Object Storage Service (OSS) bucket. Valid values:
+   * 
+   * *   true: Documents can be directly uploaded to OSS. The uploaded document overwrites the existing document and a new version is generated for the document. Before you upload a new document, close the existing document if it is being edited. After the document is uploaded, wait for approximately 5 minutes before you open the document again so that the new version can successfully load. Upload a new document only when the existing is closed. Otherwise, the uploaded document is overwritten when the existing document is saved.
+   * *   false: Documents cannot be directly uploaded to OSS. If you try to upload a document, an error is returned. This is the default value.
+   * 
    * @example
    * false
    */
   externalUploaded?: boolean;
   /**
+   * @remarks
+   * The name of the file. The extension must be included in the file name. By default, this parameter is set to the last depth level of the **SourceURI** parameter value.
+   * 
+   * Supported extensions (only preview supported for .pdf):
+   * 
+   * *   Word documents: .doc, .docx, .txt, .dot, .wps, .wpt, .dotx, .docm, .dotm, and .rtf
+   * *   Presentation documents: .ppt, .pptx, .pptm, .ppsx, .ppsm, .pps, .potx, .potm, .dpt, and .dps
+   * *   Table documents: .et, .xls, .xlt, .xlsx, .xlsm, .xltx, .xltm, and .csv
+   * *   PDF documents: .pdf
+   * 
    * @example
    * test.pptx
    */
@@ -12420,7 +15912,9 @@ export class GenerateWebofficeTokenRequest extends $tea.Model {
   hidecmb?: boolean;
   /**
    * @remarks
-   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   * The notification settings. Only Simple Message Queue messages are supported. For more information, see [WebOffice message example](https://help.aliyun.com/document_detail/2743999.html).
+   * 
+   * >  A notification is sent after the document is saved or renamed.
    */
   notification?: Notification;
   /**
@@ -12433,6 +15927,27 @@ export class GenerateWebofficeTokenRequest extends $tea.Model {
    * 123456
    */
   password?: string;
+  /**
+   * @remarks
+   * The user permission settings in the JSON format.
+   * 
+   * The parameter supports the following permission fields:
+   * 
+   * Each field is of type Boolean and can have a value of true and false (the default value):
+   * 
+   * *   Readonly: grants the permission to preview the document. This field is optional.
+   * *   Rename: grants the permission to rename the document. Notification messages of a rename event can be sent only by using SMQ. This field is optional.
+   * *   History: grants the permission to view historical versions. This field is optional.
+   * *   Copy: grants the permission to copy the document. This field is optional.
+   * *   Export: grants the permission to export the document as a PDF file. This field is optional.
+   * *   Print: grants the permission to print the document. This field is optional.
+   * 
+   * >  Only online preview is supported for PDF documents. When you call the operation on a PDF document, you can set Readonly only to true.
+   * 
+   * >  To manage multiple versions of the document, you must enable versioning for the bucket that stores the document and set the History parameter to true.
+   * 
+   * >  Printing is not supported during cache preview.
+   */
   permission?: WebofficePermission;
   /**
    * @example
@@ -12460,8 +15975,15 @@ export class GenerateWebofficeTokenRequest extends $tea.Model {
    * oss://imm-test/test.pptx
    */
   sourceURI?: string;
+  /**
+   * @remarks
+   * The user information. The user information that you want to display on the WebOffice page. If you do not specify this parameter, the user name displayed is Unknown.
+   */
   user?: WebofficeUser;
   /**
+   * @remarks
+   * The user-defined data that you want to return in asynchronous messages. This parameter takes effect only when you specify the MNS settings in the Notification parameter. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"file_id": "abc"}
    */
@@ -12516,17 +16038,51 @@ export class GenerateWebofficeTokenRequest extends $tea.Model {
 
 export class GenerateWebofficeTokenShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to enable cache preview.
+   * 
+   * *   true: enables cache preview. The document can be previewed only and cannot be collaboratively edited.
+   * *   false: does not enable cache preview. The document can be collaboratively edited when it is being previewed.
+   * 
+   * >  The pricing for document previews varies based on whether cache preview is enabled or disabled.
+   * 
+   * >  If you specify this parameter, the Pemission.copy parameter does not take effect. >
+   * 
+   * >  Printing is not supported during cache preview.
+   * 
    * @example
    * false
    */
   cachePreview?: boolean;
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
+   * @remarks
+   * Specifies whether to allow an upload of a document to the Object Storage Service (OSS) bucket. Valid values:
+   * 
+   * *   true: Documents can be directly uploaded to OSS. The uploaded document overwrites the existing document and a new version is generated for the document. Before you upload a new document, close the existing document if it is being edited. After the document is uploaded, wait for approximately 5 minutes before you open the document again so that the new version can successfully load. Upload a new document only when the existing is closed. Otherwise, the uploaded document is overwritten when the existing document is saved.
+   * *   false: Documents cannot be directly uploaded to OSS. If you try to upload a document, an error is returned. This is the default value.
+   * 
    * @example
    * false
    */
   externalUploaded?: boolean;
   /**
+   * @remarks
+   * The name of the file. The extension must be included in the file name. By default, this parameter is set to the last depth level of the **SourceURI** parameter value.
+   * 
+   * Supported extensions (only preview supported for .pdf):
+   * 
+   * *   Word documents: .doc, .docx, .txt, .dot, .wps, .wpt, .dotx, .docm, .dotm, and .rtf
+   * *   Presentation documents: .ppt, .pptx, .pptm, .ppsx, .ppsm, .pps, .potx, .potm, .dpt, and .dps
+   * *   Table documents: .et, .xls, .xlt, .xlsx, .xlsm, .xltx, .xltm, and .csv
+   * *   PDF documents: .pdf
+   * 
    * @example
    * test.pptx
    */
@@ -12538,7 +16094,9 @@ export class GenerateWebofficeTokenShrinkRequest extends $tea.Model {
   hidecmb?: boolean;
   /**
    * @remarks
-   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   * The notification settings. Only Simple Message Queue messages are supported. For more information, see [WebOffice message example](https://help.aliyun.com/document_detail/2743999.html).
+   * 
+   * >  A notification is sent after the document is saved or renamed.
    */
   notificationShrink?: string;
   /**
@@ -12551,6 +16109,27 @@ export class GenerateWebofficeTokenShrinkRequest extends $tea.Model {
    * 123456
    */
   password?: string;
+  /**
+   * @remarks
+   * The user permission settings in the JSON format.
+   * 
+   * The parameter supports the following permission fields:
+   * 
+   * Each field is of type Boolean and can have a value of true and false (the default value):
+   * 
+   * *   Readonly: grants the permission to preview the document. This field is optional.
+   * *   Rename: grants the permission to rename the document. Notification messages of a rename event can be sent only by using SMQ. This field is optional.
+   * *   History: grants the permission to view historical versions. This field is optional.
+   * *   Copy: grants the permission to copy the document. This field is optional.
+   * *   Export: grants the permission to export the document as a PDF file. This field is optional.
+   * *   Print: grants the permission to print the document. This field is optional.
+   * 
+   * >  Only online preview is supported for PDF documents. When you call the operation on a PDF document, you can set Readonly only to true.
+   * 
+   * >  To manage multiple versions of the document, you must enable versioning for the bucket that stores the document and set the History parameter to true.
+   * 
+   * >  Printing is not supported during cache preview.
+   */
   permissionShrink?: string;
   /**
    * @example
@@ -12578,8 +16157,15 @@ export class GenerateWebofficeTokenShrinkRequest extends $tea.Model {
    * oss://imm-test/test.pptx
    */
   sourceURI?: string;
+  /**
+   * @remarks
+   * The user information. The user information that you want to display on the WebOffice page. If you do not specify this parameter, the user name displayed is Unknown.
+   */
   userShrink?: string;
   /**
+   * @remarks
+   * The user-defined data that you want to return in asynchronous messages. This parameter takes effect only when you specify the MNS settings in the Notification parameter. The maximum length of the value is 2,048 bytes.
+   * 
    * @example
    * {"file_id": "abc"}
    */
@@ -12718,6 +16304,8 @@ export class GenerateWebofficeTokenResponse extends $tea.Model {
 export class GetBatchRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the batch processing task. For more information about how to obtain the ID, see [CreateBatch](https://help.aliyun.com/document_detail/606694.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12726,6 +16314,8 @@ export class GetBatchRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12752,8 +16342,15 @@ export class GetBatchRequest extends $tea.Model {
 }
 
 export class GetBatchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the batch processing task.
+   */
   batch?: DataIngestion;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6E93D6C9-5AC0-49F9-914D-E02678D3****
    */
@@ -12805,6 +16402,8 @@ export class GetBatchResponse extends $tea.Model {
 export class GetBindingRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12813,6 +16412,8 @@ export class GetBindingRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12821,6 +16422,10 @@ export class GetBindingRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The URI of the OSS bucket to which you bind the dataset.
+   * 
+   * Specify the value in the oss://${Bucket} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12849,8 +16454,15 @@ export class GetBindingRequest extends $tea.Model {
 }
 
 export class GetBindingResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The binding relationship.
+   */
   binding?: Binding;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AEFCD467-C928-4A36-951A-6EB5A592****
    */
@@ -13022,6 +16634,8 @@ export class GetDRMLicenseResponse extends $tea.Model {
 export class GetDatasetRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13030,6 +16644,8 @@ export class GetDatasetRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13037,6 +16653,12 @@ export class GetDatasetRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * Specifies whether to enable real-time retrieval of file statistics. Default value: false.
+   * 
+   * *   If you set the value to true, FileCount and TotalFileSize in the response return true and valid values.
+   * *   If you set the value to false, FileCount and TotalFileSize in the response return invalid values or 0.
+   * 
    * @example
    * true
    */
@@ -13063,8 +16685,15 @@ export class GetDatasetRequest extends $tea.Model {
 }
 
 export class GetDatasetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The dataset.
+   */
   dataset?: Dataset;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6D74B3A9-5AC0-49F9-914D-E01589D3****
    */
@@ -13116,6 +16745,8 @@ export class GetDatasetResponse extends $tea.Model {
 export class GetDecodeBlindWatermarkResultRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13124,6 +16755,8 @@ export class GetDecodeBlindWatermarkResultRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The ID of the task. You can obtain the ID of the task from the response of the CreateDecodeBlindWatermarkTask operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13132,6 +16765,10 @@ export class GetDecodeBlindWatermarkResultRequest extends $tea.Model {
   taskId?: string;
   /**
    * @remarks
+   * The type of the task.
+   * 
+   * *   Set the value to DecodeBlindWatermark.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13161,57 +16798,94 @@ export class GetDecodeBlindWatermarkResultRequest extends $tea.Model {
 
 export class GetDecodeBlindWatermarkResultResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code of the task.
+   * 
    * @example
    * ResourceNotFound
    */
   code?: string;
+  /**
+   * @remarks
+   * The watermark content.
+   */
   content?: string;
   /**
+   * @remarks
+   * The end time of the task.
+   * 
    * @example
    * 2024-03-03T09:45:56.87Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 2C2-1I0EG57VR37J4rQ8oKG6C9*****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The error message of the task.
+   * 
    * @example
    * The specified resource project is not found.
    */
   message?: string;
   /**
+   * @remarks
+   * The project name.
+   * 
    * @example
    * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 93126E40-0296-4129-95E3-AFAC709372E5
    */
   requestId?: string;
   /**
+   * @remarks
+   * The start time of the task.
+   * 
    * @example
    * 2024-03-03T09:44:31.029Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * Succeeded
    */
   status?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * DecodeBlindWatermark-c09b0943-ed79-4983-8dbe-7a882574****
    */
   taskId?: string;
   /**
+   * @remarks
+   * The task type.
+   * 
    * @example
    * DecodeBlindWatermark
    */
   taskType?: string;
   /**
+   * @remarks
+   * The user data of the task.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -13283,6 +16957,8 @@ export class GetDecodeBlindWatermarkResultResponse extends $tea.Model {
 export class GetFigureClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * The dataset name.[](~~CreateDataset~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13291,6 +16967,8 @@ export class GetFigureClusterRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The ID of the face clustering task. You can obtain the ID from the face clustering information returned after you call the [QueryFigureClusters](~~QueryFigureClusters~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13299,6 +16977,8 @@ export class GetFigureClusterRequest extends $tea.Model {
   objectId?: string;
   /**
    * @remarks
+   * The project name.[](~~CreateProject~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13327,8 +17007,15 @@ export class GetFigureClusterRequest extends $tea.Model {
 }
 
 export class GetFigureClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the face clustering task.
+   */
   figureCluster?: FigureCluster;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5F74C5C9-5AC0-49F9-914D-E01589D3****
    */
@@ -13380,17 +17067,36 @@ export class GetFigureClusterResponse extends $tea.Model {
 export class GetFileMetaRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
    * @remarks
+   * The URI of the file. Make sure that the file is indexed****.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
+   * Specify the URI of the file in Photo and Drive Service in the pds://domains/${domain}/drives/${drive}/files/${file}/revisions/${revision} format.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object
    */
   URI?: string;
   withFields?: string[];
@@ -13420,17 +17126,36 @@ export class GetFileMetaRequest extends $tea.Model {
 export class GetFileMetaShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
    * @remarks
+   * The URI of the file. Make sure that the file is indexed****.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
+   * Specify the URI of the file in Photo and Drive Service in the pds://domains/${domain}/drives/${drive}/files/${file}/revisions/${revision} format.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object
    */
   URI?: string;
   withFieldsShrink?: string;
@@ -13458,8 +17183,15 @@ export class GetFileMetaShrinkRequest extends $tea.Model {
 }
 
 export class GetFileMetaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The metadata returned.
+   */
   files?: File[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7F84C6D9-5AC0-49F9-914D-F02678E3****
    */
@@ -13511,6 +17243,8 @@ export class GetFileMetaResponse extends $tea.Model {
 export class GetImageModerationResultRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13519,6 +17253,8 @@ export class GetImageModerationResultRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13527,6 +17263,8 @@ export class GetImageModerationResultRequest extends $tea.Model {
   taskId?: string;
   /**
    * @remarks
+   * The type of the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13556,57 +17294,98 @@ export class GetImageModerationResultRequest extends $tea.Model {
 
 export class GetImageModerationResultResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code of the task.
+   * 
    * @example
    * ResourceNotFound
    */
   code?: string;
   /**
+   * @remarks
+   * The end time of the task.
+   * 
    * @example
    * 2023-04-03T09:44:32Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 1B6-1XBMX3BixLMILvXVGtlkr******
    */
   eventId?: string;
   /**
+   * @remarks
+   * The error message of the task.
+   * 
    * @example
    * The specified resource TaskId is not found.
    */
   message?: string;
+  /**
+   * @remarks
+   * The result of the image compliance detection task.
+   */
   moderationResult?: GetImageModerationResultResponseBodyModerationResult;
   /**
+   * @remarks
+   * The name of the project.
+   * 
    * @example
    * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E6A120B1-BEB3-0F63-A7C2-0783B6******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The start time of the task.
+   * 
    * @example
    * 2023-04-03T09:44:31.029Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * *   Running
+   * *   Succeeded
+   * *   Failed
+   * 
    * @example
    * Succeeded
    */
   status?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ImageModeration-ff207203-3f93-4645-a041-7b8f0f******
    */
   taskId?: string;
   /**
+   * @remarks
+   * The type of the task.
+   * 
    * @example
    * ImageModeration
    */
   taskType?: string;
   /**
+   * @remarks
+   * The custom information.
+   * 
    * @example
    * {
    *       "fileId": "123"
@@ -13680,6 +17459,8 @@ export class GetImageModerationResultResponse extends $tea.Model {
 export class GetOSSBucketAttachmentRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the OSS bucket.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13704,18 +17485,45 @@ export class GetOSSBucketAttachmentRequest extends $tea.Model {
 }
 
 export class GetOSSBucketAttachmentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the dataset was created.
+   * 
+   * @example
+   * ""2023-12-19T17:29:34.790931971+08:00"
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the dataset.
+   * 
+   * @example
+   * "Dataset"
+   */
   description?: string;
   /**
+   * @remarks
+   * The name of the project.
+   * 
    * @example
    * immtest
    */
   projectName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5F74C5C9-5AC0-49F9-914D-E01589D3****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The time when the dataset was last updated.
+   * 
+   * @example
+   * "2023-12-19T17:29:34.790931971+08:00"
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13770,6 +17578,8 @@ export class GetOSSBucketAttachmentResponse extends $tea.Model {
 export class GetProjectRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the project. You can obtain the name from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13777,6 +17587,12 @@ export class GetProjectRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * Specifies whether to enable real-time retrieval of file statistics. Default value: false.
+   * 
+   * *   If you set the value to true, the returned values of FileCount and TotalFileSize in the response are valid.
+   * *   If you set the value to false, the returned values of FileCount and TotalFileSize in the response are invalid or equal to 0.
+   * 
    * @example
    * true
    */
@@ -13801,8 +17617,15 @@ export class GetProjectRequest extends $tea.Model {
 }
 
 export class GetProjectResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The project.
+   */
   project?: Project;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A022F78-B9A8-4ACC-BB6B-B3597553
    */
@@ -13854,6 +17677,8 @@ export class GetProjectResponse extends $tea.Model {
 export class GetStoryRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13862,6 +17687,8 @@ export class GetStoryRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The ID of the story.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13870,6 +17697,8 @@ export class GetStoryRequest extends $tea.Model {
   objectId?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13899,10 +17728,17 @@ export class GetStoryRequest extends $tea.Model {
 
 export class GetStoryResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the story.
+   */
   story?: Story;
   static names(): { [key: string]: string } {
     return {
@@ -13951,15 +17787,26 @@ export class GetStoryResponse extends $tea.Model {
 export class GetTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * immtest
    */
   projectName?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the initial request parameters that are used to create the task. Default value: False.
+   * 
+   * @example
+   * True
+   */
   requestDefinition?: boolean;
   /**
    * @remarks
+   * The ID of the task. You can obtain the ID of a task after you create the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13968,6 +17815,8 @@ export class GetTaskRequest extends $tea.Model {
   taskId?: string;
   /**
    * @remarks
+   * The type of the task. For information about valid values, see [Task types](https://help.aliyun.com/document_detail/2743993.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13999,63 +17848,124 @@ export class GetTaskRequest extends $tea.Model {
 
 export class GetTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code of the task.
+   * 
    * @example
    * ResourceNotFound
    */
   code?: string;
   /**
+   * @remarks
+   * The end time of the task.
+   * 
    * @example
    * 2021-12-24T03:01:49.480109219Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 2F6-1Bz99Xi93EnRpNEyLudILJm****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The error message of the task.
+   * 
    * @example
    * The specified resource project is not found.
    */
   message?: string;
+  /**
+   * @remarks
+   * The task progress. Valid values: 0 to 100. Unit: %.
+   * 
+   * >  This parameter is valid only if the task is in the `Running` state.``
+   * 
+   * @example
+   * 100
+   */
   progress?: number;
   /**
+   * @remarks
+   * The project name.
+   * 
    * @example
    * immtest
    */
   projectName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The start time of the task.
+   * 
    * @example
    * 2021-12-24T03:01:41.662060377Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * *   RUNNING: The task is running.
+   * *   Succeeded: The task is successful.
+   * *   Failed: The task failed.
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The tags. This parameter is returned only if you specified Tags when you created the task.
+   * 
    * @example
    * {"test": "val1"}
    */
   tags?: { [key: string]: any };
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * c2b277b9-0d30-4882-ad6d-ad661382****
    */
   taskId?: string;
+  /**
+   * @remarks
+   * The initial request parameters used to create the task.
+   * 
+   * @example
+   * {
+   * 	"ProjectName":"test-project",
+   * 	"CompressedFormat":"zip",
+   * 	"TargetURI":"oss://test-bucket/output/test.zip",
+   * 	"Sources":[{"URI":"oss://test-bucket/input/test.jpg"}]
+   * }
+   */
   taskRequestDefinition?: string;
   /**
+   * @remarks
+   * The type of the task. For more information, see [Task types](https://help.aliyun.com/document_detail/2743993.html).
+   * 
    * @example
    * VideoLabelClassification
    */
   taskType?: string;
   /**
+   * @remarks
+   * The user data of the task.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -14131,6 +18041,8 @@ export class GetTaskResponse extends $tea.Model {
 export class GetTriggerRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the trigger. You can obtain the ID from the response parameters of the [CreateTrigger](https://help.aliyun.com/document_detail/479912.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14139,6 +18051,8 @@ export class GetTriggerRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14166,10 +18080,17 @@ export class GetTriggerRequest extends $tea.Model {
 
 export class GetTriggerResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4A7A2D0E-D8B8-4DA0-8127-EB32C6******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The trigger information.
+   */
   trigger?: DataIngestion;
   static names(): { [key: string]: string } {
     return {
@@ -14218,6 +18139,8 @@ export class GetTriggerResponse extends $tea.Model {
 export class GetVideoLabelClassificationResultRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14226,6 +18149,8 @@ export class GetVideoLabelClassificationResultRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The task ID, which is obtained from response parameters of [CreateVideoLabelClassificationTask](https://help.aliyun.com/document_detail/478223.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14234,6 +18159,8 @@ export class GetVideoLabelClassificationResultRequest extends $tea.Model {
   taskId?: string;
   /**
    * @remarks
+   * The type of the task. Valid values:
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14263,57 +18190,94 @@ export class GetVideoLabelClassificationResultRequest extends $tea.Model {
 
 export class GetVideoLabelClassificationResultResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code of the task.
+   * 
    * @example
    * ResourceNotFound
    */
   code?: string;
   /**
+   * @remarks
+   * The end time of the task.
+   * 
    * @example
    * 2021-12-24T03:00:42.134971294Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 2F6-1Bz99Xi93EnRpNEyLudILJm****
    */
   eventId?: string;
+  /**
+   * @remarks
+   * The labels.
+   */
   labels?: Label[];
   /**
+   * @remarks
+   * The error message of the task.
+   * 
    * @example
    * The specified resource project is not found.
    */
   message?: string;
   /**
+   * @remarks
+   * The project name.
+   * 
    * @example
    * immtest
    */
   projectName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7F84C6D9-5AC0-49F9-914D-F02678E3****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The start time of the task.
+   * 
    * @example
    * 2021-12-24T03:00:38.892462383Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * Succeeded
    */
   status?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * VideoLabelClassification-2f157087-91df-4fda-8c3e-232407ec****
    */
   taskId?: string;
   /**
+   * @remarks
+   * The type of the task.
+   * 
    * @example
    * VideoLabelClassification
    */
   taskType?: string;
   /**
+   * @remarks
+   * The custom information.
+   * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
    */
@@ -14548,6 +18512,8 @@ export class GetVideoModerationResultResponse extends $tea.Model {
 export class IndexFileMetaRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14556,12 +18522,20 @@ export class IndexFileMetaRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The file for which you want to create an index. The value must be in the JSON format.
+   * 
    * This parameter is required.
    */
   file?: InputFile;
+  /**
+   * @remarks
+   * The notification settings. For more information, click Notification. For information about the formats of asynchronous notifications, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
+   */
   notification?: Notification;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14597,6 +18571,8 @@ export class IndexFileMetaRequest extends $tea.Model {
 export class IndexFileMetaShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14605,12 +18581,20 @@ export class IndexFileMetaShrinkRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The file for which you want to create an index. The value must be in the JSON format.
+   * 
    * This parameter is required.
    */
   fileShrink?: string;
+  /**
+   * @remarks
+   * The notification settings. For more information, click Notification. For information about the formats of asynchronous notifications, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
+   */
   notificationShrink?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14645,11 +18629,17 @@ export class IndexFileMetaShrinkRequest extends $tea.Model {
 
 export class IndexFileMetaResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 30F-1D8FxFzDXKJH9YQdve4CjR****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6E93D6C9-5AC0-49F9-914D-E02678D3****
    */
@@ -14700,22 +18690,42 @@ export class IndexFileMetaResponse extends $tea.Model {
 
 export class ListBatchesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 0 to 100.
+   * 
+   * If you do not specify this parameter or set the parameter to 0, the default value of 100 is used.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
+   * The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter. The next call to the operation returns results lexicographically after the NextToken parameter value.
+   * 
+   * You do not need to specify this parameter in your initial request.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * *   ASC: sorts the results in ascending order. This is the default sort order.
+   * *   DES: sorts the results in descending order.
+   * 
    * @example
    * ASC
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14723,16 +18733,34 @@ export class ListBatchesRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The sort field. Valid values:
+   * 
+   * *   CreateTime
+   * *   UpdateTime
+   * 
    * @example
    * 2020-11-11T06:51:17.5Z
    */
   sort?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
+   * *   Ready: The task is newly created and ready.
+   * *   Running: The task is running.
+   * *   Failed: The task failed and cannot be automatically recovered.
+   * *   Suspended: The task is suspended.
+   * *   Succeeded: The task is successful.
+   * 
    * @example
    * Succeed
    */
   state?: string;
   /**
+   * @remarks
+   * The custom tag. You can use this parameter to query tasks that have the specified tag.
+   * 
    * @example
    * test=val1
    */
@@ -14767,13 +18795,25 @@ export class ListBatchesRequest extends $tea.Model {
 }
 
 export class ListBatchesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The batch processing tasks.
+   */
   batches?: DataIngestion[];
   /**
+   * @remarks
+   * The pagination token.
+   * 
+   * The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter. The next call to the operation returns results lexicographically after the NextToken parameter value.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpw****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FEDC9B1F-30F2-4C1F-8ED2-B7860187****
    */
@@ -14827,6 +18867,8 @@ export class ListBatchesResponse extends $tea.Model {
 export class ListBindingsRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14834,17 +18876,28 @@ export class ListBindingsRequest extends $tea.Model {
    */
   datasetName?: string;
   /**
+   * @remarks
+   * *   The maximum number of bindings to return. Valid values: 0 to 200.
+   * *   If you do not specify this parameter or set the parameter to 0, the default value of 100 is used.
+   * 
    * @example
    * 1
    */
   maxResults?: number;
   /**
+   * @remarks
+   * *   The pagination token that is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter.
+   * *   The next call to the operation returns results lexicographically after the NextToken parameter value.
+   * *   You do not need to specify this parameter in your initial request.
+   * 
    * @example
    * immtest:dataset001:examplebucket01
    */
   nextToken?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14875,13 +18928,25 @@ export class ListBindingsRequest extends $tea.Model {
 }
 
 export class ListBindingsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The bindings between the dataset and OSS buckets.
+   */
   bindings?: Binding[];
   /**
+   * @remarks
+   * *   The pagination token that is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter.
+   * *   The next request returns remaining results starting from the position marked by the NextToken parameter value.
+   * *   This parameter has a non-empty value only when not all bindings are returned.
+   * 
    * @example
    * immtest:dataset001:examplebucket01
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EFDFD356-C928-4A36-951A-6EB5A592****
    */
@@ -14934,22 +18999,39 @@ export class ListBindingsResponse extends $tea.Model {
 
 export class ListDatasetsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of datasets to return. Valid values: 0 to 200.
+   * 
+   * If this parameter is left empty or set to 0, 100 datasets are returned.
+   * 
    * @example
    * 1
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
+   * If the total number of datasets is greater than the value of MaxResults, you must specify this parameter. The list is returned in lexicographic order starting from the value of NextToken.
+   * 
+   * >  The first time you call this operation in a query, set this parameter to null.
+   * 
    * @example
    * 12345678:immtest:dataset002
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The dataset prefix.
+   * 
    * @example
    * dataset
    */
   prefix?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14980,13 +19062,25 @@ export class ListDatasetsRequest extends $tea.Model {
 }
 
 export class ListDatasetsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of datasets.
+   */
   datasets?: Dataset[];
   /**
+   * @remarks
+   * The pagination token. If the total number of datasets is greater than the value of MaxResults, you must specify this parameter. This parameter has a value only if not all the datasets that meet the conditions are returned.
+   * 
+   * Pass this value as the value of NextToken in the next call to query subsequent datasets.
+   * 
    * @example
    * 12345678:immtest:dataset002
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FEEDE356-C928-4A36-951A-6EB5A592****
    */
@@ -15038,13 +19132,34 @@ export class ListDatasetsResponse extends $tea.Model {
 }
 
 export class ListProjectsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: 0 to 200. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. The operation returns the projects in lexicographical order starting from the location specified by NextToken.
+   * 
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDAx
+   */
   nextToken?: string;
   /**
+   * @remarks
+   * The prefix used by the projects that you want to query. The prefix must be up to 128 characters in length.
+   * 
    * @example
    * immtest
    */
   prefix?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: ListProjectsRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -15070,13 +19185,34 @@ export class ListProjectsRequest extends $tea.Model {
 }
 
 export class ListProjectsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: 0 to 200. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. The operation returns the projects in lexicographical order starting from the location specified by NextToken.
+   * 
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDAx
+   */
   nextToken?: string;
   /**
+   * @remarks
+   * The prefix used by the projects that you want to query. The prefix must be up to 128 characters in length.
+   * 
    * @example
    * immtest
    */
   prefix?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15102,9 +19238,23 @@ export class ListProjectsShrinkRequest extends $tea.Model {
 }
 
 export class ListProjectsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDAx
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The projects.
+   */
   projects?: Project[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4A7A2D0E-D8B8-4DA0-8127-EB32C660
    */
@@ -15158,6 +19308,12 @@ export class ListProjectsResponse extends $tea.Model {
 export class ListRegionsRequest extends $tea.Model {
   /**
    * @remarks
+   * The language. Valid values:
+   * 
+   * *   zh-CN: Chinese.
+   * *   en-US: English.
+   * *   ja: Japanese.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15182,8 +19338,15 @@ export class ListRegionsRequest extends $tea.Model {
 }
 
 export class ListRegionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The regions.
+   */
   regions?: RegionType[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7F7D235C-76FF-4B65-800C-8238AE3F****
    */
@@ -15233,48 +19396,101 @@ export class ListRegionsResponse extends $tea.Model {
 }
 
 export class ListTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The range of task end time. You can specify this parameter to filter tasks that end within the specified range.
+   */
   endTimeRange?: TimeRange;
   /**
+   * @remarks
+   * The maximum number of results to return. Valid value range: (0, 100]. Default value: 100.
+   * 
    * @example
    * 1
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
+   * The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter. The next call to the operation returns results lexicographically after the NextToken parameter value.
+   * 
+   * >  Leave this parameter empty in your first call to the operation.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * *   ASC: sorts the results in ascending order. This is the default sort order.
+   * *   DES: sorts the results in descending order.
+   * 
    * @example
    * ASC
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * Specifies whether to return request parameters in the initial request to create the task. Default value: False.
+   * 
    * @example
    * True
    */
   requestDefinition?: boolean;
   /**
+   * @remarks
+   * The field used to sort the results by. Valid values:
+   * 
+   * *   TaskId: sorts the results by task ID. This is the default sort field.
+   * *   StartTime: sorts the results by task start time.
+   * *   StartTime: sorts the results by task end time.
+   * 
    * @example
    * TaskId
    */
   sort?: string;
+  /**
+   * @remarks
+   * The range of task start time. You can specify this parameter to filter tasks that start within the specified range.
+   */
   startTimeRange?: TimeRange;
   /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * *   Running: The task is running.
+   * *   Succeeded: The task is successful.
+   * *   Failed: The task failed.
+   * 
    * @example
    * Succeeded
    */
   status?: string;
   /**
+   * @remarks
+   * The custom tags of tasks.
+   * 
    * @example
    * test=val1
    */
   tagSelector?: string;
+  /**
+   * @remarks
+   * The task types.
+   */
   taskTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15314,48 +19530,101 @@ export class ListTasksRequest extends $tea.Model {
 }
 
 export class ListTasksShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The range of task end time. You can specify this parameter to filter tasks that end within the specified range.
+   */
   endTimeRangeShrink?: string;
   /**
+   * @remarks
+   * The maximum number of results to return. Valid value range: (0, 100]. Default value: 100.
+   * 
    * @example
    * 1
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
+   * The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter. The next call to the operation returns results lexicographically after the NextToken parameter value.
+   * 
+   * >  Leave this parameter empty in your first call to the operation.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * *   ASC: sorts the results in ascending order. This is the default sort order.
+   * *   DES: sorts the results in descending order.
+   * 
    * @example
    * ASC
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * Specifies whether to return request parameters in the initial request to create the task. Default value: False.
+   * 
    * @example
    * True
    */
   requestDefinition?: boolean;
   /**
+   * @remarks
+   * The field used to sort the results by. Valid values:
+   * 
+   * *   TaskId: sorts the results by task ID. This is the default sort field.
+   * *   StartTime: sorts the results by task start time.
+   * *   StartTime: sorts the results by task end time.
+   * 
    * @example
    * TaskId
    */
   sort?: string;
+  /**
+   * @remarks
+   * The range of task start time. You can specify this parameter to filter tasks that start within the specified range.
+   */
   startTimeRangeShrink?: string;
   /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * *   Running: The task is running.
+   * *   Succeeded: The task is successful.
+   * *   Failed: The task failed.
+   * 
    * @example
    * Succeeded
    */
   status?: string;
   /**
+   * @remarks
+   * The custom tags of tasks.
+   * 
    * @example
    * test=val1
    */
   tagSelector?: string;
+  /**
+   * @remarks
+   * The task types.
+   */
   taskTypesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15396,25 +19665,43 @@ export class ListTasksShrinkRequest extends $tea.Model {
 
 export class ListTasksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The length of the returned result list.
+   * 
    * @example
    * 1
    */
   maxResults?: string;
   /**
+   * @remarks
+   * The pagination token. The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter. This parameter has a value only when not all results are returned.
+   * 
+   * You can specify the value of the NextToken parameter in the next request to list remaining results.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The name of the project.
+   * 
    * @example
    * immtest
    */
   projectName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9847E7D0-A9A3-0053-84C6-BA16FFFA726E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The tasks.
+   */
   tasks?: TaskInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -15468,22 +19755,42 @@ export class ListTasksResponse extends $tea.Model {
 
 export class ListTriggersRequest extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: 0 to 100.
+   * 
+   * Default value: 100.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * If the total number of triggers is greater than the value of MaxResults, you must specify NextToken.
+   * 
+   * You do not need to specify this parameter for the first request.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sort order. Default value: DESC.
+   * 
+   * *   ASC (default): ascending order.
+   * *   DESC: descending order.
+   * 
    * @example
    * ASC
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15491,16 +19798,34 @@ export class ListTriggersRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The sort field. Valid values:
+   * 
+   * *   CreateTime: the point in time when the trigger is created.
+   * *   UpdateTime: the most recent point in time when the trigger is updated.
+   * 
    * @example
    * 2020-11-11T06:51:17.5Z
    */
   sort?: string;
   /**
+   * @remarks
+   * The status of the trigger. Valid values:
+   * 
+   * *   Ready: The trigger is ready.
+   * *   Running: The trigger is running.
+   * *   Failed: The trigger failed and cannot be automatically recovered.
+   * *   Suspended: The trigger is suspended.
+   * *   Succeeded: The trigger is complete.
+   * 
    * @example
    * Succeeded
    */
   state?: string;
   /**
+   * @remarks
+   * The custom tag. You can specify this parameter only if you specified Tags when you called the CreateTrigger operation.
+   * 
    * @example
    * test=val1
    */
@@ -15536,15 +19861,27 @@ export class ListTriggersRequest extends $tea.Model {
 
 export class ListTriggersResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * If NextToken is empty, no next page exists.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F480BFAF-E778-5079-93AD-1E4631******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The triggers.
+   */
   triggers?: DataIngestion[];
   static names(): { [key: string]: string } {
     return {
@@ -15593,29 +19930,62 @@ export class ListTriggersResponse extends $tea.Model {
 }
 
 export class QueryFigureClustersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The time period during which the faces are grouped together.
+   */
   createTimeRange?: TimeRange;
+  /**
+   * @remarks
+   * The custom labels, which can be used as query conditions.
+   * 
+   * @example
+   * key=value
+   */
   customLabels?: string;
   /**
    * @remarks
+   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * test-dataset
    */
   datasetName?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: 0 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * 10
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sort order. Default value: asc.
+   * 
+   * Valid values:
+   * 
+   * *   asc: ascending order.
+   * *   desc: descending order.
+   * 
    * @example
    * asc
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15623,12 +19993,34 @@ export class QueryFigureClustersRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The sort field. If you leave this parameter empty, the group ID is used as the sort field.
+   * 
+   * Valid values:
+   * 
+   * *   ImageCount: the number of images.
+   * *   VideoCount: the number of videos.
+   * *   ProjectName: the name of the project.
+   * *   DatasetName: the name of the dataset.
+   * *   CreateTime: the point in time when the group is created.
+   * *   UpdateTime: the most recent point in time when the group is updated.
+   * *   Gender: the gender.
+   * *   FaceCount: the number of faces.
+   * *   GroupName: the name of the group.
+   * 
    * @example
    * ImageCount
    */
   sort?: string;
+  /**
+   * @remarks
+   * The time period during which the faces in the group are updated.
+   */
   updateTimeRange?: TimeRange;
   /**
+   * @remarks
+   * Specifies whether to return the total number of face groups that match the current query conditions. Default value: false.
+   * 
    * @example
    * false
    */
@@ -15669,29 +20061,62 @@ export class QueryFigureClustersRequest extends $tea.Model {
 }
 
 export class QueryFigureClustersShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The time period during which the faces are grouped together.
+   */
   createTimeRangeShrink?: string;
+  /**
+   * @remarks
+   * The custom labels, which can be used as query conditions.
+   * 
+   * @example
+   * key=value
+   */
   customLabels?: string;
   /**
    * @remarks
+   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * test-dataset
    */
   datasetName?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: 0 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * 10
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sort order. Default value: asc.
+   * 
+   * Valid values:
+   * 
+   * *   asc: ascending order.
+   * *   desc: descending order.
+   * 
    * @example
    * asc
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15699,12 +20124,34 @@ export class QueryFigureClustersShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The sort field. If you leave this parameter empty, the group ID is used as the sort field.
+   * 
+   * Valid values:
+   * 
+   * *   ImageCount: the number of images.
+   * *   VideoCount: the number of videos.
+   * *   ProjectName: the name of the project.
+   * *   DatasetName: the name of the dataset.
+   * *   CreateTime: the point in time when the group is created.
+   * *   UpdateTime: the most recent point in time when the group is updated.
+   * *   Gender: the gender.
+   * *   FaceCount: the number of faces.
+   * *   GroupName: the name of the group.
+   * 
    * @example
    * ImageCount
    */
   sort?: string;
+  /**
+   * @remarks
+   * The time period during which the faces in the group are updated.
+   */
   updateTimeRangeShrink?: string;
   /**
+   * @remarks
+   * Specifies whether to return the total number of face groups that match the current query conditions. Default value: false.
+   * 
    * @example
    * false
    */
@@ -15745,18 +20192,31 @@ export class QueryFigureClustersShrinkRequest extends $tea.Model {
 }
 
 export class QueryFigureClustersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The face groups.
+   */
   figureClusters?: FigureCluster[];
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
    * @example
    * 10
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CA995EFD-083D-4F40-BE8A-BDF75FFF****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of face groups that matches the current query conditions.
+   * 
    * @example
    * 100
    */
@@ -15810,44 +20270,120 @@ export class QueryFigureClustersResponse extends $tea.Model {
 }
 
 export class QueryLocationDateClustersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address information.
+   */
   address?: Address;
+  /**
+   * @remarks
+   * The time range during which the spatiotemporal clustering groups are generated.
+   */
   createTimeRange?: TimeRange;
   /**
+   * @remarks
+   * The custom labels, which can be used as query conditions.
+   * 
    * @example
    * key=value
    */
   customLabels?: string;
   /**
    * @remarks
+   * The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
+  /**
+   * @remarks
+   * The time range when the clustering groups are ended.
+   */
   locationDateClusterEndTimeRange?: TimeRange;
+  /**
+   * @remarks
+   * The administrative level of the spatiotemporal clustering groups to be queried.
+   */
   locationDateClusterLevels?: string[];
+  /**
+   * @remarks
+   * The time range when the clustering groups are started.
+   */
   locationDateClusterStartTimeRange?: TimeRange;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: [1,100]. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * MzQNjmY2MzYxNhNjk2ZNjEu****
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the group that you want to query. Specify this parameter if you want to obtain the information about a specific spatiotemporal clustering group. Otherwise, leave this parameter empty and use other parameters to query the groups that meet the matching conditions.
+   * 
+   * @example
+   * location-date-cluster-71dd4f32-9597-4085-a2ab-3a7b0fd0aff9
+   */
   objectId?: string;
   /**
+   * @remarks
+   * The sorting order.
+   * 
+   * Default value: asc. Valid values:
+   * 
+   * *   asc: ascending order.
+   * *   desc: descending order.
+   * 
    * @example
    * asc
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The condition by which the results are sorted.
+   * 
+   * Valid values:
+   * 
+   * *   LocationDateClusterEndTime: by the end time of the spatiotemporal clustering groups.
+   * *   CreateTime: by the creation time of the spatiotemporal clustering groups.
+   * *   UpdateTime: by the update time of the spatiotemporal clustering groups.
+   * *   LocationDateClusterStartTime: by the start time of the spatiotemporal clustering groups. This is the default value.
+   * 
    * @example
    * LocationDateClusterStartTime
    */
   sort?: string;
+  /**
+   * @remarks
+   * The title of spatiotemporal clustering. Fuzzy matching is performed.
+   */
   title?: string;
+  /**
+   * @remarks
+   * The time range during which the spatiotemporal clustering groups are updated.
+   */
   updateTimeRange?: TimeRange;
   static names(): { [key: string]: string } {
     return {
@@ -15895,44 +20431,120 @@ export class QueryLocationDateClustersRequest extends $tea.Model {
 }
 
 export class QueryLocationDateClustersShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address information.
+   */
   addressShrink?: string;
+  /**
+   * @remarks
+   * The time range during which the spatiotemporal clustering groups are generated.
+   */
   createTimeRangeShrink?: string;
   /**
+   * @remarks
+   * The custom labels, which can be used as query conditions.
+   * 
    * @example
    * key=value
    */
   customLabels?: string;
   /**
    * @remarks
+   * The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
+  /**
+   * @remarks
+   * The time range when the clustering groups are ended.
+   */
   locationDateClusterEndTimeRangeShrink?: string;
+  /**
+   * @remarks
+   * The administrative level of the spatiotemporal clustering groups to be queried.
+   */
   locationDateClusterLevelsShrink?: string;
+  /**
+   * @remarks
+   * The time range when the clustering groups are started.
+   */
   locationDateClusterStartTimeRangeShrink?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: [1,100]. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * MzQNjmY2MzYxNhNjk2ZNjEu****
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the group that you want to query. Specify this parameter if you want to obtain the information about a specific spatiotemporal clustering group. Otherwise, leave this parameter empty and use other parameters to query the groups that meet the matching conditions.
+   * 
+   * @example
+   * location-date-cluster-71dd4f32-9597-4085-a2ab-3a7b0fd0aff9
+   */
   objectId?: string;
   /**
+   * @remarks
+   * The sorting order.
+   * 
+   * Default value: asc. Valid values:
+   * 
+   * *   asc: ascending order.
+   * *   desc: descending order.
+   * 
    * @example
    * asc
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The condition by which the results are sorted.
+   * 
+   * Valid values:
+   * 
+   * *   LocationDateClusterEndTime: by the end time of the spatiotemporal clustering groups.
+   * *   CreateTime: by the creation time of the spatiotemporal clustering groups.
+   * *   UpdateTime: by the update time of the spatiotemporal clustering groups.
+   * *   LocationDateClusterStartTime: by the start time of the spatiotemporal clustering groups. This is the default value.
+   * 
    * @example
    * LocationDateClusterStartTime
    */
   sort?: string;
+  /**
+   * @remarks
+   * The title of spatiotemporal clustering. Fuzzy matching is performed.
+   */
   title?: string;
+  /**
+   * @remarks
+   * The time range during which the spatiotemporal clustering groups are updated.
+   */
   updateTimeRangeShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15980,13 +20592,23 @@ export class QueryLocationDateClustersShrinkRequest extends $tea.Model {
 }
 
 export class QueryLocationDateClustersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of spatiotemporal groups.
+   */
   locationDateClusters?: LocationDateCluster[];
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * MzQNjmY2MzYxNhNjk2ZNjEu****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7055FCF7-4D7B-098E-BD4D-DD2932B0****
    */
@@ -16039,36 +20661,71 @@ export class QueryLocationDateClustersResponse extends $tea.Model {
 
 export class QuerySimilarImageClustersRequest extends $tea.Model {
   /**
+   * @remarks
+   * The custom tags, which are used to filter tasks.
+   * 
    * @example
    * {"key": "val"}
    */
   customLabels?: string;
   /**
    * @remarks
+   * The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The number of entries per page. Value range: 0 to 100. Default value: 100.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
+   * If the total number of clusters is greater than the value of MaxResults, you must specify this parameter. The next call to the operation returns results lexicographically after the NextToken parameter value.
+   * 
+   * >  The first time you call this operation in a query, set this parameter to null.
+   * 
    * @example
    * CAESEgoQCg4KClVwZGF0ZVRpbWUQARgBIs8ECgkAAJLUwUCAQ****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sorting order. Valid values:
+   * 
+   * *   asc: ascending order.
+   * *   desc: descending order. This is the default value.
+   * 
    * @example
    * asc
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The sorting field.
+   * 
+   * *   CreateTime: the time when the clusters were created.
+   * *   UpdateTime: the time when the clusters were updated. This is the default value.
+   * 
    * @example
    * UpdateTime
    */
@@ -16104,15 +20761,27 @@ export class QuerySimilarImageClustersRequest extends $tea.Model {
 
 export class QuerySimilarImageClustersResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The pagination token. If the total number of clusters is greater than the value of MaxResults, this token can be used to retrieve the next page. This parameter has a value only if not all the clusters that meet the condition are returned.
+   * 
+   * Pass this value as the value of NextToken in the next query to return the subsequent clusters.
+   * 
    * @example
    * CAESEgoQCg4KClVwZGF0ZVRpbWUQARgBIs8ECgkAAJLUwUCAQ****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CA995EFD-083D-4F40-BE8A-BDF75FFF****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of similar image clusters.
+   */
   similarImageClusters?: SimilarImageCluster[];
   static names(): { [key: string]: string } {
     return {
@@ -16161,39 +20830,73 @@ export class QuerySimilarImageClustersResponse extends $tea.Model {
 }
 
 export class QueryStoriesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The time range in which stories were created.
+   */
   createTimeRange?: TimeRange;
+  /**
+   * @remarks
+   * The custom labels in key-value pairs.
+   * 
+   * @example
+   * key=value
+   */
   customLabels?: string;
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * test-dataset
    */
   datasetName?: string;
+  /**
+   * @remarks
+   * The IDs of the face clusters.
+   */
   figureClusterIds?: string[];
   /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: 1 to 100. Default value: 100.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. If you do not specify this token in the next request, results are returned from the beginning.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpw****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The ID of the story.
+   * 
    * @example
    * id1
    */
   objectId?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * *   asc: in ascending order.
+   * *   desc: in descending order.
+   * 
    * @example
    * asc
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16201,28 +20904,59 @@ export class QueryStoriesRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The sort field. Valid values:
+   * 
+   * *   CreateTime: sorts by story creation time.
+   * *   StoryName: sorts by story name.
+   * *   StoryStartTime: sorts by story start time.
+   * *   StoryEndTime: sorts by story end time.
+   * 
    * @example
    * CreateTime
    */
   sort?: string;
+  /**
+   * @remarks
+   * The time range for the creation time of the last photo or video in the story.
+   */
   storyEndTimeRange?: TimeRange;
   /**
+   * @remarks
+   * The name of the story.
+   * 
    * @example
    * name1
    */
   storyName?: string;
+  /**
+   * @remarks
+   * The time range for the creation time of the first photo or video in the story.
+   */
   storyStartTimeRange?: TimeRange;
   /**
+   * @remarks
+   * The subtype of the story. For a list of valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * 
    * @example
    * SeasonHighlights
    */
   storySubType?: string;
   /**
+   * @remarks
+   * The type of the story. For a list of valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * 
    * @example
    * TimeMemory
    */
   storyType?: string;
   /**
+   * @remarks
+   * Specifies whether to return empty stories. Valid values:
+   * 
+   * *   true (The default value)
+   * *   false
+   * 
    * @example
    * true
    */
@@ -16275,39 +21009,73 @@ export class QueryStoriesRequest extends $tea.Model {
 }
 
 export class QueryStoriesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The time range in which stories were created.
+   */
   createTimeRangeShrink?: string;
+  /**
+   * @remarks
+   * The custom labels in key-value pairs.
+   * 
+   * @example
+   * key=value
+   */
   customLabels?: string;
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * test-dataset
    */
   datasetName?: string;
+  /**
+   * @remarks
+   * The IDs of the face clusters.
+   */
   figureClusterIdsShrink?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: 1 to 100. Default value: 100.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. If you do not specify this token in the next request, results are returned from the beginning.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpw****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The ID of the story.
+   * 
    * @example
    * id1
    */
   objectId?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * *   asc: in ascending order.
+   * *   desc: in descending order.
+   * 
    * @example
    * asc
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16315,28 +21083,59 @@ export class QueryStoriesShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The sort field. Valid values:
+   * 
+   * *   CreateTime: sorts by story creation time.
+   * *   StoryName: sorts by story name.
+   * *   StoryStartTime: sorts by story start time.
+   * *   StoryEndTime: sorts by story end time.
+   * 
    * @example
    * CreateTime
    */
   sort?: string;
+  /**
+   * @remarks
+   * The time range for the creation time of the last photo or video in the story.
+   */
   storyEndTimeRangeShrink?: string;
   /**
+   * @remarks
+   * The name of the story.
+   * 
    * @example
    * name1
    */
   storyName?: string;
+  /**
+   * @remarks
+   * The time range for the creation time of the first photo or video in the story.
+   */
   storyStartTimeRangeShrink?: string;
   /**
+   * @remarks
+   * The subtype of the story. For a list of valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * 
    * @example
    * SeasonHighlights
    */
   storySubType?: string;
   /**
+   * @remarks
+   * The type of the story. For a list of valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+   * 
    * @example
    * TimeMemory
    */
   storyType?: string;
   /**
+   * @remarks
+   * Specifies whether to return empty stories. Valid values:
+   * 
+   * *   true (The default value)
+   * *   false
+   * 
    * @example
    * true
    */
@@ -16390,15 +21189,25 @@ export class QueryStoriesShrinkRequest extends $tea.Model {
 
 export class QueryStoriesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3Qx****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The stories.
+   */
   stories?: Story[];
   static names(): { [key: string]: string } {
     return {
@@ -16455,6 +21264,12 @@ export class RefreshWebofficeTokenRequest extends $tea.Model {
    * 99d1b8b478b641c1b3372f5bd6********
    */
   accessToken?: string;
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
@@ -16504,6 +21319,12 @@ export class RefreshWebofficeTokenShrinkRequest extends $tea.Model {
    * 99d1b8b478b641c1b3372f5bd6********
    */
   accessToken?: string;
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
@@ -16623,6 +21444,8 @@ export class RefreshWebofficeTokenResponse extends $tea.Model {
 export class RemoveStoryFilesRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16631,11 +21454,15 @@ export class RemoveStoryFilesRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The files that you want to delete.
+   * 
    * This parameter is required.
    */
   files?: RemoveStoryFilesRequestFiles[];
   /**
    * @remarks
+   * The ID of the story.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16644,6 +21471,8 @@ export class RemoveStoryFilesRequest extends $tea.Model {
   objectId?: string;
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16676,6 +21505,8 @@ export class RemoveStoryFilesRequest extends $tea.Model {
 export class RemoveStoryFilesShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16684,11 +21515,15 @@ export class RemoveStoryFilesShrinkRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The files that you want to delete.
+   * 
    * This parameter is required.
    */
   filesShrink?: string;
   /**
    * @remarks
+   * The ID of the story.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16697,6 +21532,8 @@ export class RemoveStoryFilesShrinkRequest extends $tea.Model {
   objectId?: string;
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16728,6 +21565,9 @@ export class RemoveStoryFilesShrinkRequest extends $tea.Model {
 
 export class RemoveStoryFilesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6E93D6C9-5AC0-49F9-914D-E02678D3****
    */
@@ -16777,6 +21617,8 @@ export class RemoveStoryFilesResponse extends $tea.Model {
 export class ResumeBatchRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the batch processing task. You can obtain the ID of the batch processing task from the response of the [CreateBatch](https://help.aliyun.com/document_detail/606694.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16785,6 +21627,8 @@ export class ResumeBatchRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16812,6 +21656,9 @@ export class ResumeBatchRequest extends $tea.Model {
 
 export class ResumeBatchResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D2C628B8-35DF-473C-8A41-757F30******
    */
@@ -16861,6 +21708,8 @@ export class ResumeBatchResponse extends $tea.Model {
 export class ResumeTriggerRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the trigger. You can obtain the ID from the response of the [CreateTrigger](https://help.aliyun.com/document_detail/479912.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16869,6 +21718,8 @@ export class ResumeTriggerRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16896,6 +21747,9 @@ export class ResumeTriggerRequest extends $tea.Model {
 
 export class ResumeTriggerResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FEDC9B1F-30F2-4C1F-8ED2-B7860187****
    */
@@ -16943,9 +21797,17 @@ export class ResumeTriggerResponse extends $tea.Model {
 }
 
 export class SearchImageFigureClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16954,6 +21816,8 @@ export class SearchImageFigureClusterRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16961,6 +21825,11 @@ export class SearchImageFigureClusterRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The OSS URI of the image.
+   * 
+   * Specify the OSS URI in the `oss://${Bucket}/${Object}` format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * @example
    * oss://test-bucket/test-object
    */
@@ -16989,9 +21858,17 @@ export class SearchImageFigureClusterRequest extends $tea.Model {
 }
 
 export class SearchImageFigureClusterShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * **If you have no special requirements, leave this parameter empty.**
+   * 
+   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   */
   credentialConfigShrink?: string;
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17000,6 +21877,8 @@ export class SearchImageFigureClusterShrinkRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17007,6 +21886,11 @@ export class SearchImageFigureClusterShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The OSS URI of the image.
+   * 
+   * Specify the OSS URI in the `oss://${Bucket}/${Object}` format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * @example
    * oss://test-bucket/test-object
    */
@@ -17035,8 +21919,15 @@ export class SearchImageFigureClusterShrinkRequest extends $tea.Model {
 }
 
 export class SearchImageFigureClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The face clusters.
+   */
   clusters?: SearchImageFigureClusterResponseBodyClusters[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C2734912-E6D5-052C-AC67-6A9FD02*****
    */
@@ -17088,6 +21979,8 @@ export class SearchImageFigureClusterResponse extends $tea.Model {
 export class SemanticQueryRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17095,18 +21988,32 @@ export class SemanticQueryRequest extends $tea.Model {
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: 1 to 1000.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The types of the media that you want to query. Default value:
+   * 
+   * ["image"]
+   */
   mediaTypes?: string[];
   /**
+   * @remarks
+   * This parameter is no longer available.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
    */
   nextToken?: string;
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17115,10 +22022,17 @@ export class SemanticQueryRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The content of the query that you input.
+   * 
    * This parameter is required.
    */
   query?: string;
-  smartClusterIds?: string[];
+  /**
+   * @remarks
+   * The fields that you want to include in the response. Including only necessary metadata fields can help reduce the size of the response.
+   * 
+   * If you do not specify this parameter or set the value to null, all existing metadata fields are returned.
+   */
   withFields?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -17128,7 +22042,6 @@ export class SemanticQueryRequest extends $tea.Model {
       nextToken: 'NextToken',
       projectName: 'ProjectName',
       query: 'Query',
-      smartClusterIds: 'SmartClusterIds',
       withFields: 'WithFields',
     };
   }
@@ -17141,7 +22054,6 @@ export class SemanticQueryRequest extends $tea.Model {
       nextToken: 'string',
       projectName: 'string',
       query: 'string',
-      smartClusterIds: { 'type': 'array', 'itemType': 'string' },
       withFields: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -17154,6 +22066,8 @@ export class SemanticQueryRequest extends $tea.Model {
 export class SemanticQueryShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17161,18 +22075,32 @@ export class SemanticQueryShrinkRequest extends $tea.Model {
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: 1 to 1000.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The types of the media that you want to query. Default value:
+   * 
+   * ["image"]
+   */
   mediaTypesShrink?: string;
   /**
+   * @remarks
+   * This parameter is no longer available.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
    */
   nextToken?: string;
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17181,10 +22109,17 @@ export class SemanticQueryShrinkRequest extends $tea.Model {
   projectName?: string;
   /**
    * @remarks
+   * The content of the query that you input.
+   * 
    * This parameter is required.
    */
   query?: string;
-  smartClusterIdsShrink?: string;
+  /**
+   * @remarks
+   * The fields that you want to include in the response. Including only necessary metadata fields can help reduce the size of the response.
+   * 
+   * If you do not specify this parameter or set the value to null, all existing metadata fields are returned.
+   */
   withFieldsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17194,7 +22129,6 @@ export class SemanticQueryShrinkRequest extends $tea.Model {
       nextToken: 'NextToken',
       projectName: 'ProjectName',
       query: 'Query',
-      smartClusterIdsShrink: 'SmartClusterIds',
       withFieldsShrink: 'WithFields',
     };
   }
@@ -17207,7 +22141,6 @@ export class SemanticQueryShrinkRequest extends $tea.Model {
       nextToken: 'string',
       projectName: 'string',
       query: 'string',
-      smartClusterIdsShrink: 'string',
       withFieldsShrink: 'string',
     };
   }
@@ -17218,8 +22151,15 @@ export class SemanticQueryShrinkRequest extends $tea.Model {
 }
 
 export class SemanticQueryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The files.
+   */
   files?: File[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
    */
@@ -17269,42 +22209,107 @@ export class SemanticQueryResponse extends $tea.Model {
 }
 
 export class SimpleQueryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The aggregations.
+   * 
+   * >  If you perform an aggregate query, the aggregation returned in the response contains only statistical results, not the actual metadata.
+   */
   aggregations?: SimpleQueryRequestAggregations[];
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * test-dataset
    */
   datasetName?: string;
+  /**
+   * @remarks
+   * *   If the Aggregations parameter is not specified, this parameter specifies the maximum number of files that can be returned. Valid values: 1 to 100.
+   * *   If the Aggregations parameter is specified, this parameter specifies the maximum number of aggregation groups that can be returned. Valid values: 0 to 2000.
+   * *   If you do not specify this parameter or set the parameter to 0, the default value of 100 is used.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter.
+   * 
+   * The next call to the operation returns results lexicographically after the NextToken parameter value.
+   * 
+   * You do not need to specify this parameter in your initial request.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * *   asc: sorts the results in ascending order.
+   * *   desc: sorts the results in descending order. This is the default value.
+   * 
+   * *   You can specify multiple sort orders that are separated by commas. Example: asc,desc.
+   * 
+   * *   The number of elements in the Order parameter must be less than or equal to the number of elements in the Sort parameter. For example, if the value of the Sort parameter is Size,Filename, you can set the Order parameter to desc,asc.
+   * 
+   * *   If the number of sort orders is less than the number of sort fields, the sort fields for which no sorting orders are explicitly specified use the asc order by default. For example, if you set Sort to Size,Filename and Order to asc, the Filename field defaults to the value of asc.
+   * 
    * @example
    * asc,desc
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The query conditions.
+   */
   query?: SimpleQuery;
   /**
+   * @remarks
+   * The sort fields. For more information, see [Supported fields and operators](https://help.aliyun.com/document_detail/2743991.html).
+   * 
+   * > 
+   * 
+   * *   If you specify multiple sort fields, separate them with commas (,), as in Size,Filename.
+   * 
+   * *   You can specify up to five sort fields.
+   * 
+   * *   The order of the sort fields determines their precedence in the sorting process.
+   * 
    * @example
    * Size,Filename
    */
   sort?: string;
+  /**
+   * @remarks
+   * The fields that you want to include in the response. You can use this parameter to reduce the size of the response.
+   * 
+   * If you do not specify this parameter or leave this parameter empty, the operation returns all metadata fields.
+   */
   withFields?: string[];
   /**
+   * @remarks
+   * Specifies whether to return the total number of hits. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * **if can be null:**
    * true
    */
@@ -17345,42 +22350,107 @@ export class SimpleQueryRequest extends $tea.Model {
 }
 
 export class SimpleQueryShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The aggregations.
+   * 
+   * >  If you perform an aggregate query, the aggregation returned in the response contains only statistical results, not the actual metadata.
+   */
   aggregationsShrink?: string;
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * test-dataset
    */
   datasetName?: string;
+  /**
+   * @remarks
+   * *   If the Aggregations parameter is not specified, this parameter specifies the maximum number of files that can be returned. Valid values: 1 to 100.
+   * *   If the Aggregations parameter is specified, this parameter specifies the maximum number of aggregation groups that can be returned. Valid values: 0 to 2000.
+   * *   If you do not specify this parameter or set the parameter to 0, the default value of 100 is used.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter.
+   * 
+   * The next call to the operation returns results lexicographically after the NextToken parameter value.
+   * 
+   * You do not need to specify this parameter in your initial request.
+   * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * *   asc: sorts the results in ascending order.
+   * *   desc: sorts the results in descending order. This is the default value.
+   * 
+   * *   You can specify multiple sort orders that are separated by commas. Example: asc,desc.
+   * 
+   * *   The number of elements in the Order parameter must be less than or equal to the number of elements in the Sort parameter. For example, if the value of the Sort parameter is Size,Filename, you can set the Order parameter to desc,asc.
+   * 
+   * *   If the number of sort orders is less than the number of sort fields, the sort fields for which no sorting orders are explicitly specified use the asc order by default. For example, if you set Sort to Size,Filename and Order to asc, the Filename field defaults to the value of asc.
+   * 
    * @example
    * asc,desc
    */
   order?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
    * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The query conditions.
+   */
   queryShrink?: string;
   /**
+   * @remarks
+   * The sort fields. For more information, see [Supported fields and operators](https://help.aliyun.com/document_detail/2743991.html).
+   * 
+   * > 
+   * 
+   * *   If you specify multiple sort fields, separate them with commas (,), as in Size,Filename.
+   * 
+   * *   You can specify up to five sort fields.
+   * 
+   * *   The order of the sort fields determines their precedence in the sorting process.
+   * 
    * @example
    * Size,Filename
    */
   sort?: string;
+  /**
+   * @remarks
+   * The fields that you want to include in the response. You can use this parameter to reduce the size of the response.
+   * 
+   * If you do not specify this parameter or leave this parameter empty, the operation returns all metadata fields.
+   */
   withFieldsShrink?: string;
   /**
+   * @remarks
+   * Specifies whether to return the total number of hits. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * **if can be null:**
    * true
    */
@@ -17421,10 +22491,24 @@ export class SimpleQueryShrinkRequest extends $tea.Model {
 }
 
 export class SimpleQueryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The aggregations. This parameter is returned only when the value of the Aggregations request parameter is not empty.
+   */
   aggregations?: SimpleQueryResponseBodyAggregations[];
+  /**
+   * @remarks
+   * The files. This parameter is returned only when the value of the Aggregations request parameter is empty.
+   */
   files?: File[];
   /**
    * @remarks
+   * The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter.
+   * 
+   * It can be used in the next request to retrieve a new page of results.
+   * 
+   * If NextToken is empty, no next page exists.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17432,10 +22516,20 @@ export class SimpleQueryResponseBody extends $tea.Model {
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of total hits.
+   * 
+   * @example
+   * 10
+   */
   totalHits?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17490,6 +22584,8 @@ export class SimpleQueryResponse extends $tea.Model {
 export class SuspendBatchRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the batch processing task. You can obtain the ID of the batch processing task from the response of the [CreateBatch](https://help.aliyun.com/document_detail/606694.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17498,6 +22594,8 @@ export class SuspendBatchRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17525,6 +22623,9 @@ export class SuspendBatchRequest extends $tea.Model {
 
 export class SuspendBatchResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EC564A9A-BA5C-4499-A087-D9B9E76E*****
    */
@@ -17574,6 +22675,8 @@ export class SuspendBatchResponse extends $tea.Model {
 export class SuspendTriggerRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the trigger.[](~~479912~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17582,6 +22685,8 @@ export class SuspendTriggerRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17609,6 +22714,9 @@ export class SuspendTriggerRequest extends $tea.Model {
 
 export class SuspendTriggerResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0BC1F0C9-8E99-46C6-B502-10DED******
    */
@@ -17656,18 +22764,30 @@ export class SuspendTriggerResponse extends $tea.Model {
 }
 
 export class UpdateBatchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The processing templates.
+   */
   actions?: UpdateBatchRequestActions[];
   /**
    * @remarks
+   * The ID of the batch processing task. You can obtain the ID of the batch processing task from the response of the [CreateBatch](https://help.aliyun.com/document_detail/606694.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * batch-4eb9223f-3e88-42d3-a578-3f2852******
    */
   id?: string;
+  /**
+   * @remarks
+   * The input data source.
+   */
   input?: Input;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17675,6 +22795,9 @@ export class UpdateBatchRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"key":"val"}
    */
@@ -17705,18 +22828,30 @@ export class UpdateBatchRequest extends $tea.Model {
 }
 
 export class UpdateBatchShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The processing templates.
+   */
   actionsShrink?: string;
   /**
    * @remarks
+   * The ID of the batch processing task. You can obtain the ID of the batch processing task from the response of the [CreateBatch](https://help.aliyun.com/document_detail/606694.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * batch-4eb9223f-3e88-42d3-a578-3f2852******
    */
   id?: string;
+  /**
+   * @remarks
+   * The input data source.
+   */
   inputShrink?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17724,6 +22859,9 @@ export class UpdateBatchShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"key":"val"}
    */
@@ -17755,6 +22893,9 @@ export class UpdateBatchShrinkRequest extends $tea.Model {
 
 export class UpdateBatchResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB4D73A3-BAF4-4A9D-A631-15F219AF****
    */
@@ -17934,17 +23075,29 @@ export class UpdateDatasetResponse extends $tea.Model {
 export class UpdateFigureClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The information about the cluster.
+   * 
    * This parameter is required.
    */
   figureCluster?: FigureClusterForReq;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   static names(): { [key: string]: string } {
@@ -17971,17 +23124,29 @@ export class UpdateFigureClusterRequest extends $tea.Model {
 export class UpdateFigureClusterShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The information about the cluster.
+   * 
    * This parameter is required.
    */
   figureClusterShrink?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   static names(): { [key: string]: string } {
@@ -18007,6 +23172,9 @@ export class UpdateFigureClusterShrinkRequest extends $tea.Model {
 
 export class UpdateFigureClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5F74C5C9-5AC0-49F9-914D-E01589D3****
    */
@@ -18056,17 +23224,29 @@ export class UpdateFigureClusterResponse extends $tea.Model {
 export class UpdateFileMetaRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The file whose metadata you want to update. The value must be in the JSON format.
+   * 
    * This parameter is required.
    */
   file?: InputFile;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   static names(): { [key: string]: string } {
@@ -18093,17 +23273,29 @@ export class UpdateFileMetaRequest extends $tea.Model {
 export class UpdateFileMetaShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The file whose metadata you want to update. The value must be in the JSON format.
+   * 
    * This parameter is required.
    */
   fileShrink?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   static names(): { [key: string]: string } {
@@ -18129,6 +23321,9 @@ export class UpdateFileMetaShrinkRequest extends $tea.Model {
 
 export class UpdateFileMetaResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6D53E6C9-5AC0-48F9-825F-D02678E3****
    */
@@ -18176,23 +23371,58 @@ export class UpdateFileMetaResponse extends $tea.Model {
 }
 
 export class UpdateLocationDateClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The custom ID of the cluster. When the cluster is indexed into the dataset, the custom ID is stored as the data attribute. You can map the custom ID to other data in your business system. For example, you can pass the custom ID to map a URI to an ID. We recommend that you specify a globally unique value. The value can be up to 1,024 bytes in size.
+   * 
+   * @example
+   * member-id-0001
+   */
   customId?: string;
+  /**
+   * @remarks
+   * The custom labels. The parameter stores custom key-value labels, which can be used to filter data. You can specify up to 100 custom labels for a cluster.
+   * 
+   * @example
+   * {
+   *       "UserScore": "5"
+   * }
+   */
   customLabels?: { [key: string]: any };
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The ID of the cluster that you want to update.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * location-date-cluster-71dd4f32-9597-4085-a2ab-3a7b0fd0aff9
    */
   objectId?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The name of the cluster. The name can be used to search for the cluster. The value can be up to 1,024 bytes in size.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18222,23 +23452,58 @@ export class UpdateLocationDateClusterRequest extends $tea.Model {
 }
 
 export class UpdateLocationDateClusterShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The custom ID of the cluster. When the cluster is indexed into the dataset, the custom ID is stored as the data attribute. You can map the custom ID to other data in your business system. For example, you can pass the custom ID to map a URI to an ID. We recommend that you specify a globally unique value. The value can be up to 1,024 bytes in size.
+   * 
+   * @example
+   * member-id-0001
+   */
   customId?: string;
+  /**
+   * @remarks
+   * The custom labels. The parameter stores custom key-value labels, which can be used to filter data. You can specify up to 100 custom labels for a cluster.
+   * 
+   * @example
+   * {
+   *       "UserScore": "5"
+   * }
+   */
   customLabelsShrink?: string;
   /**
    * @remarks
+   * The name of the dataset.[](~~478160~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-dataset
    */
   datasetName?: string;
   /**
    * @remarks
+   * The ID of the cluster that you want to update.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * location-date-cluster-71dd4f32-9597-4085-a2ab-3a7b0fd0aff9
    */
   objectId?: string;
   /**
    * @remarks
+   * The name of the project.[](~~478153~~)
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The name of the cluster. The name can be used to search for the cluster. The value can be up to 1,024 bytes in size.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18269,6 +23534,9 @@ export class UpdateLocationDateClusterShrinkRequest extends $tea.Model {
 
 export class UpdateLocationDateClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 52B017A8-FEF5-0A61-BAEE-234A8AD8****
    */
@@ -18317,52 +23585,94 @@ export class UpdateLocationDateClusterResponse extends $tea.Model {
 
 export class UpdateProjectRequest extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of bindings for each dataset. Valid values: 1 to 10.
+   * 
    * @example
    * 10
    */
   datasetMaxBindCount?: number;
   /**
+   * @remarks
+   * The maximum number of metadata entities in each dataset.
+   * 
+   * >  This is a precautionary setting that does not impose practical limitations.
+   * 
    * @example
    * 10000000000
    */
   datasetMaxEntityCount?: number;
   /**
+   * @remarks
+   * The maximum number of files in each dataset. Valid values: 1 to 100000000.
+   * 
    * @example
    * 100000000
    */
   datasetMaxFileCount?: number;
   /**
+   * @remarks
+   * The maximum number of metadata relationships in a dataset.
+   * 
+   * >  This is a precautionary setting that does not impose practical limitations.
+   * 
    * @example
    * 100000000000
    */
   datasetMaxRelationCount?: number;
   /**
+   * @remarks
+   * The maximum size of files in each dataset. If the maximum size is exceeded, indexes can no longer be added. Unit: bytes.
+   * 
    * @example
    * 90000000000000000
    */
   datasetMaxTotalFileSize?: number;
   /**
+   * @remarks
+   * The description of the project. The description must be 1 to 256 characters in length.
+   * 
    * @example
    * immtest
    */
   description?: string;
   /**
+   * @remarks
+   * The maximum number of datasets in the project. Valid values: 1 to 1000000000.
+   * 
    * @example
    * 1000000000
    */
   projectMaxDatasetCount?: number;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The name of the Resource Access Management (RAM) role. You must grant the RAM role to Intelligent Media Management (IMM) before IMM can access other cloud resources such as Object Storage Service (OSS).
+   * 
+   * You can also create a custom service role in the RAM console and grant the required permissions to the role based on your business requirements. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a role](https://help.aliyun.com/document_detail/116147.html).
+   * 
    * @example
    * AliyunIMMDefaultRole
    */
   serviceRole?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: UpdateProjectRequestTag[];
   /**
+   * @remarks
+   * The ID of the workflow template. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * 
    * @example
    * AliyunIMMDefaultRole
    */
@@ -18406,52 +23716,94 @@ export class UpdateProjectRequest extends $tea.Model {
 
 export class UpdateProjectShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of bindings for each dataset. Valid values: 1 to 10.
+   * 
    * @example
    * 10
    */
   datasetMaxBindCount?: number;
   /**
+   * @remarks
+   * The maximum number of metadata entities in each dataset.
+   * 
+   * >  This is a precautionary setting that does not impose practical limitations.
+   * 
    * @example
    * 10000000000
    */
   datasetMaxEntityCount?: number;
   /**
+   * @remarks
+   * The maximum number of files in each dataset. Valid values: 1 to 100000000.
+   * 
    * @example
    * 100000000
    */
   datasetMaxFileCount?: number;
   /**
+   * @remarks
+   * The maximum number of metadata relationships in a dataset.
+   * 
+   * >  This is a precautionary setting that does not impose practical limitations.
+   * 
    * @example
    * 100000000000
    */
   datasetMaxRelationCount?: number;
   /**
+   * @remarks
+   * The maximum size of files in each dataset. If the maximum size is exceeded, indexes can no longer be added. Unit: bytes.
+   * 
    * @example
    * 90000000000000000
    */
   datasetMaxTotalFileSize?: number;
   /**
+   * @remarks
+   * The description of the project. The description must be 1 to 256 characters in length.
+   * 
    * @example
    * immtest
    */
   description?: string;
   /**
+   * @remarks
+   * The maximum number of datasets in the project. Valid values: 1 to 1000000000.
+   * 
    * @example
    * 1000000000
    */
   projectMaxDatasetCount?: number;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The name of the Resource Access Management (RAM) role. You must grant the RAM role to Intelligent Media Management (IMM) before IMM can access other cloud resources such as Object Storage Service (OSS).
+   * 
+   * You can also create a custom service role in the RAM console and grant the required permissions to the role based on your business requirements. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a role](https://help.aliyun.com/document_detail/116147.html).
+   * 
    * @example
    * AliyunIMMDefaultRole
    */
   serviceRole?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tagShrink?: string;
   /**
+   * @remarks
+   * The ID of the workflow template. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * 
    * @example
    * AliyunIMMDefaultRole
    */
@@ -18494,8 +23846,15 @@ export class UpdateProjectShrinkRequest extends $tea.Model {
 }
 
 export class UpdateProjectResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The project. For more information, see "Project".
+   */
   project?: Project;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D33C3574-4093-448E-86E7-15BE2BD3****
    */
@@ -18545,19 +23904,31 @@ export class UpdateProjectResponse extends $tea.Model {
 }
 
 export class UpdateStoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cover image of the story.
+   */
   cover?: UpdateStoryRequestCover;
   /**
+   * @remarks
+   * The custom ID.
+   * 
    * @example
    * test
    */
   customId?: string;
   /**
+   * @remarks
+   * The custom tags. You can specify up to 100 custom tags.
+   * 
    * @example
    * {"key": "value"}
    */
   customLabels?: { [key: string]: any };
   /**
    * @remarks
+   * The name of the dataset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18566,6 +23937,8 @@ export class UpdateStoryRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The ID of the story.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18574,6 +23947,8 @@ export class UpdateStoryRequest extends $tea.Model {
   objectId?: string;
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18581,6 +23956,9 @@ export class UpdateStoryRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The name of the story.
+   * 
    * @example
    * newstory
    */
@@ -18615,19 +23993,31 @@ export class UpdateStoryRequest extends $tea.Model {
 }
 
 export class UpdateStoryShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cover image of the story.
+   */
   coverShrink?: string;
   /**
+   * @remarks
+   * The custom ID.
+   * 
    * @example
    * test
    */
   customId?: string;
   /**
+   * @remarks
+   * The custom tags. You can specify up to 100 custom tags.
+   * 
    * @example
    * {"key": "value"}
    */
   customLabelsShrink?: string;
   /**
    * @remarks
+   * The name of the dataset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18636,6 +24026,8 @@ export class UpdateStoryShrinkRequest extends $tea.Model {
   datasetName?: string;
   /**
    * @remarks
+   * The ID of the story.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18644,6 +24036,8 @@ export class UpdateStoryShrinkRequest extends $tea.Model {
   objectId?: string;
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18651,6 +24045,9 @@ export class UpdateStoryShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The name of the story.
+   * 
    * @example
    * newstory
    */
@@ -18686,6 +24083,9 @@ export class UpdateStoryShrinkRequest extends $tea.Model {
 
 export class UpdateStoryResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6E93D6C9-5AC0-49F9-914D-E02678D3****
    */
@@ -18733,18 +24133,30 @@ export class UpdateStoryResponse extends $tea.Model {
 }
 
 export class UpdateTriggerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The processing templates.
+   */
   actions?: UpdateTriggerRequestActions[];
   /**
    * @remarks
+   * The ID of the trigger. You can obtain the ID of the trigger from the response of the [CreateTrigger](https://help.aliyun.com/document_detail/479912.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * trigger-9f72636a-0f0c-4baf-ae78-38b27b******
    */
   id?: string;
+  /**
+   * @remarks
+   * The input data source.
+   */
   input?: Input;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18752,6 +24164,9 @@ export class UpdateTriggerRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"test": "val1"}
    */
@@ -18782,18 +24197,30 @@ export class UpdateTriggerRequest extends $tea.Model {
 }
 
 export class UpdateTriggerShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The processing templates.
+   */
   actionsShrink?: string;
   /**
    * @remarks
+   * The ID of the trigger. You can obtain the ID of the trigger from the response of the [CreateTrigger](https://help.aliyun.com/document_detail/479912.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * trigger-9f72636a-0f0c-4baf-ae78-38b27b******
    */
   id?: string;
+  /**
+   * @remarks
+   * The input data source.
+   */
   inputShrink?: string;
   /**
    * @remarks
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18801,6 +24228,9 @@ export class UpdateTriggerShrinkRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * 
    * @example
    * {"test": "val1"}
    */
@@ -18832,6 +24262,9 @@ export class UpdateTriggerShrinkRequest extends $tea.Model {
 
 export class UpdateTriggerResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A022F78-B9A8-4ACC-BB6B-B35975******
    */
@@ -19537,6 +24970,11 @@ export class TargetVideoTranscodeVideo extends $tea.Model {
 export class AddImageMosaicRequestTargetsBoundary extends $tea.Model {
   /**
    * @remarks
+   * The height of the bounding box. The value can be an integer greater than or equal to 0 or a decimal within the range of [0,1):
+   * 
+   * *   An integer value greater than or equal to 0 indicates the height of the bounding box in pixels.
+   * *   A decimal value within the range of [0,1) indicates the height of the bounding box as a ratio of its height to the image height.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19544,12 +24982,25 @@ export class AddImageMosaicRequestTargetsBoundary extends $tea.Model {
    */
   height?: number;
   /**
+   * @remarks
+   * The reference position of the bounding box on the image. Valid values:
+   * 
+   * *   topright: the upper-right corner.
+   * *   topleft: the upper-left corner. This is the default value.
+   * *   bottomright: the lower-right corner.
+   * *   bottomleft: the lower-left corner.
+   * 
    * @example
    * topleft
    */
   referPos?: string;
   /**
    * @remarks
+   * The width of the bounding box. The value can be an integer greater than or equal to 0 or a decimal within the range of [0,1):
+   * 
+   * *   An integer value greater than or equal to 0 indicates the width of the bounding box in pixels.
+   * *   A decimal value within the range of [0,1) indicates the width of the bounding box as a ratio of its width to the image width.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19558,6 +25009,11 @@ export class AddImageMosaicRequestTargetsBoundary extends $tea.Model {
   width?: number;
   /**
    * @remarks
+   * The horizontal offset relative to the reference position. The value can be an integer greater than or equal to 0 or a decimal within the range of [0,1):
+   * 
+   * *   An integer value greater than or equal to 0 indicates the horizontal offset in pixels.
+   * *   A decimal value within the range of [0,1) indicates the horizontal offset as a ratio of the offset to the image width.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19566,6 +25022,11 @@ export class AddImageMosaicRequestTargetsBoundary extends $tea.Model {
   x?: number;
   /**
    * @remarks
+   * The vertical offset relative to the reference position. The value can be an integer greater than or equal to 0 or a decimal within the range of [0,1):
+   * 
+   * *   An integer value greater than or equal to 0 indicates the vertical offset in pixels.
+   * *   A decimal value within the range of [0,1) indicates the vertical offset as a ratio of the offset to the image height.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19599,32 +25060,62 @@ export class AddImageMosaicRequestTargetsBoundary extends $tea.Model {
 
 export class AddImageMosaicRequestTargets extends $tea.Model {
   /**
+   * @remarks
+   * The radius of the Gaussian blur. Valid values: 1 to 50. Default value: 3. Unit: pixels.
+   * 
+   * >  This parameter takes effect only for a Gaussian blur.
+   * 
    * @example
    * 3
    */
   blurRadius?: number;
   /**
    * @remarks
+   * The position of the bounding box.
+   * 
    * This parameter is required.
    */
   boundary?: AddImageMosaicRequestTargetsBoundary;
   /**
+   * @remarks
+   * The color of the color shape. You can specify a color by using a color code such as`#RRGGBB` or preset color names such as `red` and `white`. The default value is #FFFFFF, which is white.
+   * 
+   * >  This parameter takes effect only for solid color shapes.
+   * 
    * @example
    * #FFFFFF
    */
   color?: string;
   /**
+   * @remarks
+   * The radius of the mosaic. Default value: 5. Unit: pixels.
+   * 
+   * >  This parameter does not take effect for Gaussian blurs and solid color shapes.
+   * 
    * @example
    * 5
    */
   mosaicRadius?: number;
   /**
+   * @remarks
+   * The standard deviation of the Gaussian blur. The value must be greater than 0. Default value: 5.
+   * 
+   * >  This parameter takes effect only for a Gaussian blur.
+   * 
    * @example
    * 5
    */
   sigma?: number;
   /**
    * @remarks
+   * The type of the mosaic effect. Valid values:
+   * 
+   * *   square: squares.
+   * *   diamond: diamonds.
+   * *   hexagon: hexagons.
+   * *   blur: Gaussian blurs.
+   * *   pure: solid color shapes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19660,6 +25151,11 @@ export class AddImageMosaicRequestTargets extends $tea.Model {
 
 export class AddStoryFilesRequestFiles extends $tea.Model {
   /**
+   * @remarks
+   * The URI of the object.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * @example
    * oss://test-bucket/test-object
    */
@@ -19683,16 +25179,27 @@ export class AddStoryFilesRequestFiles extends $tea.Model {
 
 export class AddStoryFilesResponseBodyFiles extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * ResourceNotFound
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned.
+   * 
    * @example
    * The specified resource %s is not found.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The URI of the object.
+   * 
+   * The OSS URI follows the `oss://{bucketname}/{objectname}` format, where `bucketname` is the name of the bucket in the same region as the current project and `objectname` is the path of the object with the extension included.
+   * 
    * @example
    * oss://test-bucket/test-object
    */
@@ -19720,11 +25227,33 @@ export class AddStoryFilesResponseBodyFiles extends $tea.Model {
 
 export class BatchUpdateFileMetaResponseBodyFiles extends $tea.Model {
   /**
+   * @remarks
+   * The error message returned when the value of the Success parameter is false.
+   * 
    * @example
    * *error.OpError : InvalidArgument | Index KV count exceeded, should be no more than 100.
    */
   message?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * Enumerated values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The URI of the file.
+   * 
+   * @example
+   * oss://examplebucket/example.jpg
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19749,11 +25278,21 @@ export class BatchUpdateFileMetaResponseBodyFiles extends $tea.Model {
 
 export class CompareImageFacesRequestSource extends $tea.Model {
   /**
+   * @remarks
+   * The OSS URL of the image file.
+   * 
+   * Specify the URL in the `oss://<bucket>/<object>` format. `<bucket>` specifies the name of the OSS bucket that is in the same region as the current project. `<object>` specifies path of the object with the extension included.
+   * 
    * @example
    * oss://test-bucket/test-object1
    */
   URI1?: string;
   /**
+   * @remarks
+   * The OSS URL of the image file.
+   * 
+   * Specify the URL in the `oss://<bucket>/<object>` format. `<bucket>` specifies the name of the OSS bucket that is in the same region as the current project, and `<object>` specifies the path of the object with the extension included.
+   * 
    * @example
    * oss://test-bucket/test-object2
    */
@@ -19778,15 +25317,25 @@ export class CompareImageFacesRequestSource extends $tea.Model {
 }
 
 export class CreateBatchRequestActions extends $tea.Model {
+  /**
+   * @remarks
+   * The policy configurations for handling failures.
+   */
   fastFailPolicy?: FastFailPolicy;
   /**
    * @remarks
+   * The name of the template.
+   * 
    * This parameter is required.
    * 
    * @example
    * doc/convert
    */
   name?: string;
+  /**
+   * @remarks
+   * The template parameters.
+   */
   parameters?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -19810,6 +25359,10 @@ export class CreateBatchRequestActions extends $tea.Model {
 }
 
 export class CreateBatchRequestNotification extends $tea.Model {
+  /**
+   * @remarks
+   * The Simple Message Queue notification message configurations.
+   */
   MNS?: MNS;
   static names(): { [key: string]: string } {
     return {
@@ -19831,6 +25384,8 @@ export class CreateBatchRequestNotification extends $tea.Model {
 export class CreateCustomizedStoryRequestCover extends $tea.Model {
   /**
    * @remarks
+   * The URI of the cover image.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19857,6 +25412,8 @@ export class CreateCustomizedStoryRequestCover extends $tea.Model {
 export class CreateCustomizedStoryRequestFiles extends $tea.Model {
   /**
    * @remarks
+   * The URIs of the files.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19882,6 +25439,11 @@ export class CreateCustomizedStoryRequestFiles extends $tea.Model {
 
 export class CreateFacesSearchingTaskRequestSources extends $tea.Model {
   /**
+   * @remarks
+   * The OSS URI of the image.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * @example
    * oss://test-bucket/test-object
    */
@@ -19905,12 +25467,41 @@ export class CreateFacesSearchingTaskRequestSources extends $tea.Model {
 
 export class CreateFileCompressionTaskRequestSources extends $tea.Model {
   /**
+   * @remarks
+   * Specifies the path of the object in the package, or renames the object in the package.
+   * 
+   * *   Leave this parameter empty to retain the original directory structure of the object in the package. For example, if the object is stored at `oss://test-bucket/test-dir/test-object.doc` and you do not specify this parameter, the path of the object in the package is `/test-dir/test-object.doc`.
+   * *   Rename the object. For example, if the object is stored at `oss://test-bucket/test-object.jpg` and you set the **Alias** parameter to `test-rename-object.jpg`, the name of the object in the package is `test-rename-object.jpg`.
+   * *   Specify a different path for the object in the package. For example, if the directory to be packed is `oss://test-bucket/test-dir/` and you set the **Alias** parameter to `/new-dir/`, all objects in the directory are placed in the `/new-dir/` path in the package.
+   * *   Set the parameter to `/` to remove the original directory structure.
+   * 
+   * >  Duplicate object names may cause a failure in extracting the objects from the package, depending on the packing tool that you use. We recommend that you avoid using duplicate object names when you rename objects in the packing task.
+   * 
    * @example
    * /new-dir/
    */
   alias?: string;
+  /**
+   * @remarks
+   * The object matching rule. Valid values: `fullname` and `prefix`. Default value: `prefix`
+   * 
+   * *   `prefix`: matches objects by object name prefix.
+   * *   `fullname`: exactly matches one single object by its full object name.
+   * 
+   * @example
+   * fullname
+   */
   mode?: string;
   /**
+   * @remarks
+   * The OSS URI of the object or directory.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is a directory or object:
+   * 
+   * When you pack a directory, `${Object}` is the path of the directory.
+   * 
+   * *   When you pack an object, `${Object}` is the path of the object with the extension included.
+   * 
    * @example
    * oss://test-bucket/test-object
    */
@@ -19938,13 +25529,30 @@ export class CreateFileCompressionTaskRequestSources extends $tea.Model {
 
 export class CreateImageSplicingTaskRequestSources extends $tea.Model {
   /**
+   * @remarks
+   * The rotation angle. Valid values:
+   * 
+   * *   0 (default)
+   * *   90
+   * *   180
+   * *   270
+   * 
    * @example
    * 90
    */
   rotate?: number;
   /**
    * @remarks
+   * The Object Storage Service (OSS) bucket in which you store the input images.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the input images that have an extension.
+   * 
+   * The following image formats are supported: jpg and png.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket/sampleobject.jpg
    */
   URI?: string;
   static names(): { [key: string]: string } {
@@ -19968,13 +25576,30 @@ export class CreateImageSplicingTaskRequestSources extends $tea.Model {
 
 export class CreateImageToPDFTaskRequestSources extends $tea.Model {
   /**
+   * @remarks
+   * The rotation angle. Valid values:
+   * 
+   * *   0 (default)
+   * *   90
+   * *   180
+   * *   270
+   * 
    * @example
    * 90
    */
   rotate?: number;
   /**
    * @remarks
+   * The OSS URI of the input image.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
+   * The operation supports the following image formats: JPG, JP2, PNG, TIFF, WebP, BMP, and SVG.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket/sampleobject.jpg
    */
   URI?: string;
   static names(): { [key: string]: string } {
@@ -19999,6 +25624,12 @@ export class CreateImageToPDFTaskRequestSources extends $tea.Model {
 export class CreateLocationDateClusteringTaskRequestDateOptions extends $tea.Model {
   /**
    * @remarks
+   * The maximum number of days allowed in a gap for a single spatiotemporal cluster. Valid values: 0 to 99999.
+   * 
+   * For example, if travel photos were produced on March 4, 5, and 7, 2024, but not on Marh 6, 2024, and you set the parameter to 1, IMM considers the travel spanning the date range from March 4, 2024 to March 7, 2024 and includes photos within the data range in the same cluster.````
+   * 
+   * We recommend that you set the parameter to a value within the range from 0 to 3.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20007,11 +25638,22 @@ export class CreateLocationDateClusteringTaskRequestDateOptions extends $tea.Mod
   gapDays?: number;
   /**
    * @remarks
+   * The maximum number of days that a single spatiotemporal cluster can span. Valid values: 1 to 99999. IMM does not create a cluster that spans more than the maximum number of days.
+   * 
+   * For example, if you want to create travel photo clusters, you may want to exclude photos that were taken within 15 consecutive days in the same city, because it is likely that these photos were not taken during a travel. In this case, you can set the parameter to 15 to exclude this time range and location from the clustering task.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 15
    */
   maxDays?: number;
   /**
    * @remarks
+   * The minimum number of days that a single spatiotemporal cluster can span. Valid values: 1 to 99999. IMM does not create a cluster that spans less than the minimum number of days.
+   * 
+   * For example, if you do not want a one-day tour cluster, you can set the parameter to 2.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20042,6 +25684,14 @@ export class CreateLocationDateClusteringTaskRequestDateOptions extends $tea.Mod
 export class CreateLocationDateClusteringTaskRequestLocationOptions extends $tea.Model {
   /**
    * @remarks
+   * The administrative division levels. You can specify multiple administrative division levels.
+   * 
+   * For example, you uploaded photos that were taken from March 3, 2024 to March 5, 2024 in Hangzhou and photos that were taken from March 6, 2024 to March 8, 2024 in Jiaxing. When you call the operation and set the parameter to `["city", "province"]`, the following spatiotemporal clusters are created from these photos:
+   * 
+   * *   March 3, 2024 to March 5, 2024, Hangzhou
+   * *   March 6, 2024 to March 8, 2024, Jiaxing
+   * *   March 3, 2024 to March 8, 2024, Zhejiang
+   * 
    * This parameter is required.
    */
   locationDateClusterLevels?: string[];
@@ -20064,16 +25714,25 @@ export class CreateLocationDateClusteringTaskRequestLocationOptions extends $tea
 
 export class CreateMediaConvertTaskRequestSourcesSubtitles extends $tea.Model {
   /**
+   * @remarks
+   * The subtitle language. If you specify this parameter, comply with the ISO 639-2 standard. This parameter is left empty by default.
+   * 
    * @example
    * eng
    */
   language?: string;
   /**
+   * @remarks
+   * The time offset of the subtitle. Unit: seconds. Default value: 0.
+   * 
    * @example
    * 10.5
    */
   timeOffset?: number;
   /**
+   * @remarks
+   * The URI of the Object Storage Service (OSS) bucket. Specify the value in the `oss://${Bucket}/${Object}` format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region with the current project. `${Object}` specifies the complete path to the file whose name contains an extension. The following subtitle formats are supported: srt, vtt, mov_text, ass, dvd_sub, and pgs.
+   * 
    * @example
    * oss://test-bucket/subtitles
    */
@@ -20101,17 +25760,33 @@ export class CreateMediaConvertTaskRequestSourcesSubtitles extends $tea.Model {
 
 export class CreateMediaConvertTaskRequestSources extends $tea.Model {
   /**
+   * @remarks
+   * The transcoding duration of the media. Unit: seconds. Default value: 0. A value of 0 specifies that the transcoding duration lasts until the end of the video.
+   * 
    * @example
    * 0
    */
   duration?: number;
   /**
+   * @remarks
+   * The start time of the media transcoding task. Unit: seconds. Valid values:
+   * 
+   * *   0 (default): starts transcoding when the media starts playing.
+   * *   n: starts transcoding n seconds after the media starts playing. n must be greater than 0.
+   * 
    * @example
    * 0
    */
   startTime?: number;
+  /**
+   * @remarks
+   * The subtitles. By default, this parameter is left empty.
+   */
   subtitles?: CreateMediaConvertTaskRequestSourcesSubtitles[];
   /**
+   * @remarks
+   * The URI of the Object Storage Service (OSS) bucket. Specify the value in the `oss://${Bucket}/${Object}` format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region with the current project. `${Object}` specifies the complete path to the file whose name contains an extension.
+   * 
    * @example
    * oss://test-bucket/test-object
    */
@@ -20141,16 +25816,28 @@ export class CreateMediaConvertTaskRequestSources extends $tea.Model {
 
 export class CreateMediaConvertTaskRequestTargetsSegment extends $tea.Model {
   /**
+   * @remarks
+   * The duration of the segment. Unit: seconds.
+   * 
    * @example
    * 30
    */
   duration?: number;
   /**
+   * @remarks
+   * The media segmentation mode. Valid values:
+   * 
+   * *   hls
+   * *   dash
+   * 
    * @example
    * hls
    */
   format?: string;
   /**
+   * @remarks
+   * The start sequence number. You can specify this parameter only if you set Format to hls. Default value: 0.
+   * 
    * @example
    * 5
    */
@@ -20177,26 +25864,84 @@ export class CreateMediaConvertTaskRequestTargetsSegment extends $tea.Model {
 }
 
 export class CreateMediaConvertTaskRequestTargets extends $tea.Model {
+  /**
+   * @remarks
+   * The audio processing settings.
+   * 
+   * >  If you leave Audio empty and the first audio stream exists, the first audio stream is directly copied to the output file.
+   */
   audio?: TargetAudio;
   /**
+   * @remarks
+   * The type of the media container.
+   * 
+   * *   Valid values for audio and video containers: mp4, mkv, mov, asf, avi, mxf, ts, and flv.
+   * 
+   * *   Valid values only for audio containers: mp3, aac, flac, oga, ac3, and opus.
+   * 
+   *     **
+   * 
+   *     **Note** Specify Container and URI at the same time. If you want to extract subtitles, capture frames, capture image sprites, or rotate media images, set Container and URI to null. In this case, Segment, Video, Audio, and Speed do not take effect.
+   * 
    * @example
    * mp4
    */
   container?: string;
+  /**
+   * @remarks
+   * The frame capturing, sprite capturing, and media rotation settings.
+   */
   image?: TargetImage;
+  /**
+   * @remarks
+   * The media segmentation settings. By default, no segmentation is performed.
+   */
   segment?: CreateMediaConvertTaskRequestTargetsSegment;
   /**
+   * @remarks
+   * The playback speed of the media. Valid values: 0.5 to 2. Default value: 1.0.
+   * 
+   * >  This parameter specifies the ratio of the non-regular playback speed of the transcoded media file to the default playback speed of the source media file.
+   * 
    * @example
    * 1.0
    */
   speed?: number;
+  /**
+   * @remarks
+   * Specifies whether to remove the metadata, such as `title` and `album`, from the media file. Default value: false.
+   */
   stripMetadata?: boolean;
+  /**
+   * @remarks
+   * The subtitle processing settings.
+   * 
+   * >  If you leave Subtitle empty and the first subtitle stream exists, the first subtitle stream is directly copied to the output file.
+   */
   subtitle?: TargetSubtitle;
   /**
+   * @remarks
+   * The URI of the OSS bucket in which you want to store the media transcoding output file.
+   * 
+   * Specify the value in the `oss://${Bucket}/${Object}` format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region with the current project. `${Object}` specifies the complete path to the file whose name contains an extension.
+   * 
+   * *   If the value of **URI** contains an extension, the endpoint of the OSS bucket matches the URI. If multiple media transcoding output files exist, the endpoints of the correspodning OSS buckets may be overwritten.****
+   * 
+   * *   If the value of **URI** does not contain an extension, the endpoint of the OSS bucket consists of the following parameters: **URI**, **Container**, and **Segment**. In the following examples, the value of **URI** is `oss://examplebucket/outputVideo`.
+   * 
+   *     *   If the value of **Container** is `mp4` and the value of **Segment** is null, the endpoint of the OSS bucket is `oss://examplebucket/outputVideo.mp4`.
+   *     *   If the value of **Container** is `ts` and the value of **Format** in **Segment** is `hls`, the endpoint of the OSS bucket is `oss://examplebucket/outputVideo.m3u8`. In addition, multiple ts files prefixed with `oss://examplebucket/outputVideo` are generated.
+   * 
    * @example
    * oss://test-bucket/targets
    */
   URI?: string;
+  /**
+   * @remarks
+   * The video processing settings.
+   * 
+   * >  If you leave Video empty and the first video stream exists, the first video stream is directly copied to the output file.
+   */
   video?: TargetVideo;
   static names(): { [key: string]: string } {
     return {
@@ -20231,8 +25976,44 @@ export class CreateMediaConvertTaskRequestTargets extends $tea.Model {
   }
 }
 
+export class CreateOfficeConversionTaskRequestSources extends $tea.Model {
+  rotate?: number;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rotate: 'Rotate',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rotate: 'number',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProjectRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * TestKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20254,15 +26035,25 @@ export class CreateProjectRequestTag extends $tea.Model {
 }
 
 export class CreateTriggerRequestActions extends $tea.Model {
+  /**
+   * @remarks
+   * The policy configurations for handling failures.
+   */
   fastFailPolicy?: FastFailPolicy;
   /**
    * @remarks
+   * The name of the template.
+   * 
    * This parameter is required.
    * 
    * @example
    * doc/convert
    */
   name?: string;
+  /**
+   * @remarks
+   * The template parameters.
+   */
   parameters?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -20286,6 +26077,10 @@ export class CreateTriggerRequestActions extends $tea.Model {
 }
 
 export class CreateTriggerRequestNotification extends $tea.Model {
+  /**
+   * @remarks
+   * The Simple Message Queue notification message configurations.
+   */
   MNS?: MNS;
   static names(): { [key: string]: string } {
     return {
@@ -20306,6 +26101,9 @@ export class CreateTriggerRequestNotification extends $tea.Model {
 
 export class DetectImageScoreResponseBodyImageScore extends $tea.Model {
   /**
+   * @remarks
+   * The overall quality score.
+   * 
    * @example
    * 0.6
    */
@@ -20329,13 +26127,25 @@ export class DetectImageScoreResponseBodyImageScore extends $tea.Model {
 
 export class GenerateVideoPlaylistRequestSourceSubtitles extends $tea.Model {
   /**
+   * @remarks
+   * The subtitle language. If you configure this parameter, the value must comply with the ISO 639-2 standard. By default, this parameter is left empty.
+   * 
    * @example
    * eng
    */
   language?: string;
   /**
    * @remarks
+   * The OSS path of the subtitle file.
+   * 
+   * The OSS path must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file.
+   * 
+   * >  The **MasterURI** parameter cannot be left empty, and the OSS path `oss://${Bucket}/${Object}` of a subtitle file must be in the directory specified by the **MasterURI** parameter or its subdirectory.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object/subtitle/eng.vtt
    */
   URI?: string;
   static names(): { [key: string]: string } {
@@ -20358,30 +26168,84 @@ export class GenerateVideoPlaylistRequestSourceSubtitles extends $tea.Model {
 }
 
 export class GenerateVideoPlaylistRequestTargets extends $tea.Model {
+  /**
+   * @remarks
+   * The audio processing configuration. If you set this parameter to null (default), audio processing is disabled. The generated TS files do not contain audio streams.
+   * 
+   * >  The Audio and Subtitle parameters in the same output are mutually exclusive. If the Audio parameter is configured, the Subtitle parameter is ignored. The Audio and Video parameters can be configured at the same time. You can also configure only the Audio parameter to generate only audio information.
+   */
   audio?: TargetAudio;
   /**
+   * @remarks
+   * The playback duration of a single TS file. Unit: seconds. Default value: 10. Valid values: 5 to 15.
+   * 
    * @example
    * 5
    */
   duration?: number;
+  /**
+   * @remarks
+   * The array of the durations of the pre-transcoded TS files. The array can contain the durations of up to six pre-transcoded TS files. By default, this parameter is left empty. This parameter is independent of the **Duration** parameter.
+   */
   initialSegments?: number[];
   /**
+   * @remarks
+   * The pre-transcoding duration. Unit: seconds. Default value: 30.
+   * 
+   * *   If you set this parameter to 0, pre-transcoding is disabled.
+   * *   If you set this parameter to a value that is less than 0 or greater than the duration of a source video, the entire video is pre-transcoded.
+   * *   If you set this parameter to a value that is within the middle of the playback duration of a TS file, the transcoding continues until the end of the playback duration.
+   * 
+   * >  This parameter is used to reduce the time spent in waiting for the initial playback of a video and improve the playback experience. If you want to replace the traditional video on demand (VOD) business scenario, you can try to pre-transcode the entire video.
+   * 
    * @example
    * 30.0
    */
   initialTranscode?: number;
+  /**
+   * @remarks
+   * The subtitle processing configuration.
+   * 
+   * >  The Subtitle and Video or Audio parameters in the same output are mutually exclusive. You must configure the Subtitle parameter independently to generate subtitles.
+   */
   subtitle?: TargetSubtitle;
+  /**
+   * @remarks
+   * The [tags](https://help.aliyun.com/document_detail/106678.html) that you want to add to a TS file in OSS. You can use tags to manage the lifecycles of TS files in OSS.
+   * 
+   * >  The combination of the value of the Tags parameter and the value of the Tags parameter in the upper level is used as the tag value of the current output. If the value of the Tags parameter in the current level is the same as the value of the Tags parameter in the upper level, use the value of the Tags parameter in the current level.
+   */
   tags?: { [key: string]: string };
   /**
+   * @remarks
+   * The number of TS files that are pre-transcoded when the live transcoding is triggered. By default, a 2-minute video is pre-transcoded.
+   * 
+   * *   Example: If you set the **Duration** parameter to 10, the value of the **TranscodeAhead** parameter is 12 by default. You can configure this parameter to manage the number of pre-transcoded files in an asynchronous manner. Valid values: 10 to 30.
+   * 
    * @example
    * 3
    */
   transcodeAhead?: number;
   /**
+   * @remarks
+   * The prefix of the OSS path that is used to store the live transcoding files. The live transcoding files include a M3U8 file and multiple TS files.
+   * 
+   * The OSS path must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the prefix of the full path of the file that does not contain the file name extension.
+   * 
+   * *   Example: If the URI is oss://test-bucket/test-object/output-video, the output-video.m3u8 file and multiple output-video-${token}-${index}.ts files are generated in the oss://test-bucket/test-object/ directory. ${token} is a unique string generated based on the transcoding parameters. The ${token} parameter is included in the response of the operation. ${index} is the serial number of the generated TS files that are numbered starting from 0.
+   * 
+   * >  If the **MasterURI** parameter is not left empty, the URI specified by this parameter must be in the directory specified by the **MasterURI** parameter or its subdirectory.
+   * 
    * @example
    * oss://imm-test/testcases/video
    */
   URI?: string;
+  /**
+   * @remarks
+   * The video processing configuration. If you set this parameter to null (default), video processing is disabled. The generated TS files do not contain video streams.
+   * 
+   * >  The Video and Subtitle parameters in the same output are mutually exclusive. If the Video parameter is configured, the Subtitle parameter is ignored.
+   */
   video?: TargetVideo;
   static names(): { [key: string]: string } {
     return {
@@ -20417,10 +26281,17 @@ export class GenerateVideoPlaylistRequestTargets extends $tea.Model {
 }
 
 export class GenerateVideoPlaylistResponseBodyAudioPlaylist extends $tea.Model {
+  /**
+   * @remarks
+   * The number of audio channels.
+   * 
+   * @example
+   * 1
+   */
   channels?: number;
   /**
    * @remarks
-   * 转码生成的Token。用于LiveTranscoding访问的参数。
+   * The token of the audio media playlist. You can use this parameter to generate the path of a TS file.
    * 
    * @example
    * affe0c6042f09722fec95a21b8b******
@@ -20428,7 +26299,7 @@ export class GenerateVideoPlaylistResponseBodyAudioPlaylist extends $tea.Model {
   token?: string;
   /**
    * @remarks
-   * 输出m3u8的OSS地址。地址规则为 Target.URI + ".m3u8“， 其中Target.URI为输入参数中视频转码输出地址前缀。
+   * The OSS path of the audio media playlist.
    * 
    * @example
    * oss://imm-test/testcases/video.m3u8
@@ -20458,7 +26329,7 @@ export class GenerateVideoPlaylistResponseBodyAudioPlaylist extends $tea.Model {
 export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $tea.Model {
   /**
    * @remarks
-   * 字幕流编号，从0开始。
+   * The serial number of the subtitle stream. The value starts from 0.
    * 
    * @example
    * 1
@@ -20466,7 +26337,9 @@ export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $tea.Mode
   index?: number;
   /**
    * @remarks
-   * 视频源中字幕流的语言。
+   * The language of the subtitle stream.
+   * 
+   * >  The language is derived from the subtitle stream information in the OSS path specified by the SourceURI parameter for a source video. If no language information exists in the source video, null is returned.
    * 
    * @example
    * en
@@ -20474,7 +26347,9 @@ export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $tea.Mode
   language?: string;
   /**
    * @remarks
-   * 转码生成的Token。用于LiveTranscoding访问的参数。
+   * The token of the subtitle media playlist. You can use this parameter to generate the path of a subtitle file.
+   * 
+   * >  You can generate the path of a transcoded subtitle file based on the returned token value. The path must be in the oss://${Bucket}/${Object}-${Token}_${Index}.ts format. oss://${Bucket}/${Object} specifies the URI specified by input parameters for output files. ${Token} specifies the returned token value, and ${Index} specifies the serial number of a subtitle file.
    * 
    * @example
    * affe0c6042f09722fec95a21b8b******
@@ -20482,7 +26357,7 @@ export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $tea.Mode
   token?: string;
   /**
    * @remarks
-   * 输出m3u8的OSS地址。地址规则为 Target.URI + “_” + Index + ".m3u8“， 其中Target.URI为输入参数中视频转码输出地址前缀。
+   * The OSS path of the subtitle media playlist.
    * 
    * @example
    * oss://imm-test/testcases/vide_0.m3u8
@@ -20512,11 +26387,27 @@ export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $tea.Mode
 }
 
 export class GenerateVideoPlaylistResponseBodyVideoPlaylist extends $tea.Model {
+  /**
+   * @remarks
+   * The video frame rate.
+   * 
+   * @example
+   * 25/1
+   */
   frameRate?: string;
+  /**
+   * @remarks
+   * The video resolution.
+   * 
+   * @example
+   * 640x480
+   */
   resolution?: string;
   /**
    * @remarks
-   * 转码生成的Token。用于LiveTranscoding访问的参数。
+   * The token of the video media playlist. You can use this parameter to generate the path of a TS file.
+   * 
+   * >  You can generate the path of a transcoded TS file based on the value of this parameter. The path must be in the oss://${Bucket}/${Object}-${Token}-${Index}.ts format. oss://${Bucket}/${Object} specifies the URI specified by input parameters for output files. ${Token} specifies the returned token, and ${Index} specifies the serial number of a TS file.
    * 
    * @example
    * affe0c6042f09722fec95a21b8b******
@@ -20524,7 +26415,7 @@ export class GenerateVideoPlaylistResponseBodyVideoPlaylist extends $tea.Model {
   token?: string;
   /**
    * @remarks
-   * 输出m3u8的OSS地址。地址规则为 Target.URI + ".m3u8“， 其中Target.URI为输入参数中视频转码输出地址前缀。
+   * The OSS path of the video media playlist.
    * 
    * @example
    * oss://imm-test/testcases/video.m3u8
@@ -20555,6 +26446,9 @@ export class GenerateVideoPlaylistResponseBodyVideoPlaylist extends $tea.Model {
 
 export class GetImageModerationResultResponseBodyModerationResultFramesBlockFrames extends $tea.Model {
   /**
+   * @remarks
+   * The label of the violation.
+   * 
    * @example
    * {
    *       "test": "val"
@@ -20562,11 +26456,17 @@ export class GetImageModerationResultResponseBodyModerationResultFramesBlockFram
    */
   label?: string;
   /**
+   * @remarks
+   * The offset of the frame.
+   * 
    * @example
    * 2
    */
   offset?: number;
   /**
+   * @remarks
+   * The confidence level of the violation.
+   * 
    * @example
    * 30
    */
@@ -20593,8 +26493,15 @@ export class GetImageModerationResultResponseBodyModerationResultFramesBlockFram
 }
 
 export class GetImageModerationResultResponseBodyModerationResultFrames extends $tea.Model {
+  /**
+   * @remarks
+   * The violated frames.
+   */
   blockFrames?: GetImageModerationResultResponseBodyModerationResultFramesBlockFrames[];
   /**
+   * @remarks
+   * The total number of detected frames.
+   * 
    * @example
    * 30
    */
@@ -20619,14 +26526,32 @@ export class GetImageModerationResultResponseBodyModerationResultFrames extends 
 }
 
 export class GetImageModerationResultResponseBodyModerationResult extends $tea.Model {
+  /**
+   * @remarks
+   * List of categories.
+   */
   categories?: string[];
+  /**
+   * @remarks
+   * The information about video and motion detection frames.
+   */
   frames?: GetImageModerationResultResponseBodyModerationResultFrames;
   /**
+   * @remarks
+   * The recommended operation. Valid values:
+   * 
+   * *   pass: The image has passed the check. No action is required.
+   * *   review: The image contains suspected violations and requires human review.
+   * *   block: The image contains violations. Further actions, such as deleting or blocking the image, are recommended.
+   * 
    * @example
    * block
    */
   suggestion?: string;
   /**
+   * @remarks
+   * The OSS URI of the file. The URI follows the oss://${bucketname}/${objectname} format. bucketname indicates the name of an OSS bucket that is in the same region as the current project, and objectname is the file path.
+   * 
    * @example
    * oss://test-bucket/test-object
    */
@@ -20754,7 +26679,21 @@ export class GetVideoModerationResultResponseBodyModerationResult extends $tea.M
 }
 
 export class ListProjectsRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * TestKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20777,6 +26716,11 @@ export class ListProjectsRequestTag extends $tea.Model {
 
 export class RemoveStoryFilesRequestFiles extends $tea.Model {
   /**
+   * @remarks
+   * The URI of the Object Storage Service (OSS) bucket where you store the files that you want to delete.
+   * 
+   * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the files that have an extension.
+   * 
    * @example
    * oss://bucket1/object
    */
@@ -20799,13 +26743,23 @@ export class RemoveStoryFilesRequestFiles extends $tea.Model {
 }
 
 export class SearchImageFigureClusterResponseBodyClusters extends $tea.Model {
+  /**
+   * @remarks
+   * The bounding box of the face.
+   */
   boundary?: Boundary;
   /**
+   * @remarks
+   * The ID of the face cluster that contains faces similar to the face within the bounding box.
+   * 
    * @example
    * Cluster-ca730577-06b1-42c7-a25b-8f2c7******
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The similarity between the face within the bounding box and the face cluster. Valid value: 0 to 1.
+   * 
    * @example
    * 0.87413794
    */
@@ -20833,11 +26787,27 @@ export class SearchImageFigureClusterResponseBodyClusters extends $tea.Model {
 
 export class SimpleQueryRequestAggregations extends $tea.Model {
   /**
+   * @remarks
+   * The name of the field. For more information about supported fields, see [Supported fields and operators](https://help.aliyun.com/document_detail/2743991.html).
+   * 
    * @example
    * Size
    */
   field?: string;
   /**
+   * @remarks
+   * The operator.
+   * 
+   * Enumerated values:
+   * 
+   * *   average: calculates the average number.
+   * *   min: finds the minimum value.
+   * *   max: finds the maximum value.
+   * *   count: counts the number of results.
+   * *   distinct: counts the number of distinct results.
+   * *   sum: calculates the sum of all matching results..
+   * *   group: counts the number of results by group. The results are sorted by the count number in descending order.
+   * 
    * @example
    * sum
    */
@@ -20863,11 +26833,17 @@ export class SimpleQueryRequestAggregations extends $tea.Model {
 
 export class SimpleQueryResponseBodyAggregationsGroups extends $tea.Model {
   /**
+   * @remarks
+   * The number of results in the grouped aggregation.
+   * 
    * @example
    * 5
    */
   count?: number;
   /**
+   * @remarks
+   * The value for the grouped aggregation.
+   * 
    * @example
    * 100
    */
@@ -20893,17 +26869,30 @@ export class SimpleQueryResponseBodyAggregationsGroups extends $tea.Model {
 
 export class SimpleQueryResponseBodyAggregations extends $tea.Model {
   /**
+   * @remarks
+   * The name of the field.
+   * 
    * @example
    * Size
    */
   field?: string;
+  /**
+   * @remarks
+   * The grouped aggregations. This parameter is returned only when the group operator is specified in the Aggregations request parameter.
+   */
   groups?: SimpleQueryResponseBodyAggregationsGroups[];
   /**
+   * @remarks
+   * The operator.
+   * 
    * @example
    * sum
    */
   operation?: string;
   /**
+   * @remarks
+   * The statistical result.
+   * 
    * @example
    * 200
    */
@@ -20933,10 +26922,17 @@ export class SimpleQueryResponseBodyAggregations extends $tea.Model {
 
 export class UpdateBatchRequestActions extends $tea.Model {
   /**
+   * @remarks
+   * The name of the template.
+   * 
    * @example
    * doc/convert
    */
   name?: string;
+  /**
+   * @remarks
+   * The template parameters.
+   */
   parameters?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -20958,7 +26954,21 @@ export class UpdateBatchRequestActions extends $tea.Model {
 }
 
 export class UpdateProjectRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * TestKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20981,6 +26991,11 @@ export class UpdateProjectRequestTag extends $tea.Model {
 
 export class UpdateStoryRequestCover extends $tea.Model {
   /**
+   * @remarks
+   * The URI of the cover image.
+   * 
+   * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * 
    * @example
    * oss://bucket1/object
    */
@@ -21004,10 +27019,17 @@ export class UpdateStoryRequestCover extends $tea.Model {
 
 export class UpdateTriggerRequestActions extends $tea.Model {
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * doc/convert
    */
   name?: string;
+  /**
+   * @remarks
+   * The template parameters.
+   */
   parameters?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -21055,7 +27077,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片打马赛克算子
+   * Adds mosaics, Gaussian blurs, or solid color shapes to blur one or more areas of an image for privacy protection and saves the output image to the specified path in Object Storage Service (OSS).
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
+   * *   The operation accepts JPG and PNG images with a maximum side length of 30,000 pixels and a total of up to 250 million pixels.
    * 
    * @param tmpReq - AddImageMosaicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21120,7 +27147,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片打马赛克算子
+   * Adds mosaics, Gaussian blurs, or solid color shapes to blur one or more areas of an image for privacy protection and saves the output image to the specified path in Object Storage Service (OSS).
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
+   * *   The operation accepts JPG and PNG images with a maximum side length of 30,000 pixels and a total of up to 250 million pixels.
    * 
    * @param request - AddImageMosaicRequest
    * @returns AddImageMosaicResponse
@@ -21131,7 +27163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为故事新增文件
+   * Adds objects to a story.
    * 
    * @param tmpReq - AddStoryFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21180,7 +27212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为故事新增文件
+   * Adds objects to a story.
    * 
    * @param request - AddStoryFilesRequest
    * @returns AddStoryFilesResponse
@@ -21191,7 +27223,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定ossbucket
+   * Binds an Object Storage Service (OSS) bucket to the specified project. The binding enables you to use IMM features by using the x-oss-process parameter.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   To use data processing capabilities of IMM based on the x-oss-process parameter, you must bind an OSS bucket to an IMM project. For more information, see [x-oss-process](https://help.aliyun.com/document_detail/2391270.html).
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
    * 
    * @param request - AttachOSSBucketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21230,7 +27267,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定ossbucket
+   * Binds an Object Storage Service (OSS) bucket to the specified project. The binding enables you to use IMM features by using the x-oss-process parameter.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   To use data processing capabilities of IMM based on the x-oss-process parameter, you must bind an OSS bucket to an IMM project. For more information, see [x-oss-process](https://help.aliyun.com/document_detail/2391270.html).
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
    * 
    * @param request - AttachOSSBucketRequest
    * @returns AttachOSSBucketResponse
@@ -21241,7 +27283,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除文件元信息
+   * Deletes the metadata of multiple files from a dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   A successful deletion message is returned regardless of whether the metadata of the file exists in the dataset.
+   * > 
+   * *   If you delete the metadata of a file from a dataset, the file stored in Object Storage Service (OSS) or Photo and Drive Service is **not** deleted. If you want to delete the file, use the operations provided by OSS or Photo and Drive Service.
+   * *   Metadata deletion affects existing face groups and stories but does not affect existing spatiotemporal groups.
    * 
    * @param tmpReq - BatchDeleteFileMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21286,7 +27335,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除文件元信息
+   * Deletes the metadata of multiple files from a dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   A successful deletion message is returned regardless of whether the metadata of the file exists in the dataset.
+   * > 
+   * *   If you delete the metadata of a file from a dataset, the file stored in Object Storage Service (OSS) or Photo and Drive Service is **not** deleted. If you want to delete the file, use the operations provided by OSS or Photo and Drive Service.
+   * *   Metadata deletion affects existing face groups and stories but does not affect existing spatiotemporal groups.
    * 
    * @param request - BatchDeleteFileMetaRequest
    * @returns BatchDeleteFileMetaResponse
@@ -21297,7 +27353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量获取分组信息
+   * Queries face clusters.
    * 
    * @param tmpReq - BatchGetFigureClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21342,7 +27398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量获取分组信息
+   * Queries face clusters.
    * 
    * @param request - BatchGetFigureClusterRequest
    * @returns BatchGetFigureClusterResponse
@@ -21353,7 +27409,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量获取文件元信息
+   * Queries metadata of multiple objects or files in the specified dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, feel free to join the DingTalk chat group (ID: 31690030817) and share your questions with us.
    * 
    * @param tmpReq - BatchGetFileMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21406,7 +27467,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量获取文件元信息
+   * Queries metadata of multiple objects or files in the specified dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, feel free to join the DingTalk chat group (ID: 31690030817) and share your questions with us.
    * 
    * @param request - BatchGetFileMetaRequest
    * @returns BatchGetFileMetaResponse
@@ -21417,7 +27483,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量索引文件元信息
+   * Indexes metadata of multiple objects into the specified dataset. The process involves data processing operations such as label detection, face detection, and location detection. Metadata indexing helps meet diverse data retrieval requirements.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Data processing operations supported for metadata processing vary with workflow templates. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * *   Metadata indexing poses limits on the total number and size of objects. For more information about these limits, see [Limits](https://help.aliyun.com/document_detail/475569.html). For more information about how to create
+   * *   Metadata indexing is available in specific regions. For information about regions that support metadata indexing, see the "Data management and indexing" section of the [Limits](https://help.aliyun.com/document_detail/475569.html) topic.
    * 
    * @param tmpReq - BatchIndexFileMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21474,7 +27546,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量索引文件元信息
+   * Indexes metadata of multiple objects into the specified dataset. The process involves data processing operations such as label detection, face detection, and location detection. Metadata indexing helps meet diverse data retrieval requirements.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Data processing operations supported for metadata processing vary with workflow templates. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * *   Metadata indexing poses limits on the total number and size of objects. For more information about these limits, see [Limits](https://help.aliyun.com/document_detail/475569.html). For more information about how to create
+   * *   Metadata indexing is available in specific regions. For information about regions that support metadata indexing, see the "Data management and indexing" section of the [Limits](https://help.aliyun.com/document_detail/475569.html) topic.
    * 
    * @param request - BatchIndexFileMetaRequest
    * @returns BatchIndexFileMetaResponse
@@ -21485,7 +27563,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量更新文件元信息
+   * Updates some metadata items of files indexed into a dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   You cannot call this operation to update all metadata. You can update only metadata fields such as CustomLabels, CustomId, and Figures. For more information, see the "Request parameters" section of this topic.
    * 
    * @param tmpReq - BatchUpdateFileMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21530,7 +27612,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量更新文件元信息
+   * Updates some metadata items of files indexed into a dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   You cannot call this operation to update all metadata. You can update only metadata fields such as CustomLabels, CustomId, and Figures. For more information, see the "Request parameters" section of this topic.
    * 
    * @param request - BatchUpdateFileMetaRequest
    * @returns BatchUpdateFileMetaResponse
@@ -21541,7 +27627,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以脸搜分组
+   * Compares the similarity of the largest faces in two images. The largest face refers to the largest face frame in an image after face detection.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   For the input image, only the face with the largest face frame in the image is used for face comparison. The face frame detection result is consistent with the responses of the [DetectImageFaces](https://help.aliyun.com/document_detail/478213.html) operation.
    * 
    * @param tmpReq - CompareImageFacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21590,7 +27680,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以脸搜分组
+   * Compares the similarity of the largest faces in two images. The largest face refers to the largest face frame in an image after face detection.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   For the input image, only the face with the largest face frame in the image is used for face comparison. The face frame detection result is consistent with the responses of the [DetectImageFaces](https://help.aliyun.com/document_detail/478213.html) operation.
    * 
    * @param request - CompareImageFacesRequest
    * @returns CompareImageFacesResponse
@@ -21601,7 +27695,148 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建查看压缩包内文件列表任务
+   * AI 助手二期，问答API
+   * 
+   * @param tmpReq - ContextualAnswerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ContextualAnswerResponse
+   */
+  async contextualAnswerWithOptions(tmpReq: ContextualAnswerRequest, runtime: $Util.RuntimeOptions): Promise<ContextualAnswerResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ContextualAnswerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.files)) {
+      request.filesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.files, "Files", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.messages)) {
+      request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "Messages", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.filesShrink)) {
+      body["Files"] = request.filesShrink;
+    }
+
+    if (!Util.isUnset(request.messagesShrink)) {
+      body["Messages"] = request.messagesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ContextualAnswer",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ContextualAnswerResponse>(await this.callApi(params, req, runtime), new ContextualAnswerResponse({}));
+  }
+
+  /**
+   * AI 助手二期，问答API
+   * 
+   * @param request - ContextualAnswerRequest
+   * @returns ContextualAnswerResponse
+   */
+  async contextualAnswer(request: ContextualAnswerRequest): Promise<ContextualAnswerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.contextualAnswerWithOptions(request, runtime);
+  }
+
+  /**
+   * AI助手二期，检索API
+   * 
+   * @param tmpReq - ContextualRetrievalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ContextualRetrievalResponse
+   */
+  async contextualRetrievalWithOptions(tmpReq: ContextualRetrievalRequest, runtime: $Util.RuntimeOptions): Promise<ContextualRetrievalResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ContextualRetrievalShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.messages)) {
+      request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "Messages", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.smartClusterIds)) {
+      request.smartClusterIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.smartClusterIds, "SmartClusterIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.recallOnly)) {
+      query["RecallOnly"] = request.recallOnly;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.messagesShrink)) {
+      body["Messages"] = request.messagesShrink;
+    }
+
+    if (!Util.isUnset(request.smartClusterIdsShrink)) {
+      body["SmartClusterIds"] = request.smartClusterIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ContextualRetrieval",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ContextualRetrievalResponse>(await this.callApi(params, req, runtime), new ContextualRetrievalResponse({}));
+  }
+
+  /**
+   * AI助手二期，检索API
+   * 
+   * @param request - ContextualRetrievalRequest
+   * @returns ContextualRetrievalResponse
+   */
+  async contextualRetrieval(request: ContextualRetrievalRequest): Promise<ContextualRetrievalResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.contextualRetrievalWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an archive file inspection task to preview the files in a package without decompressing the package.
+   * 
+   * @remarks
+   * >  The operation is in public preview. For any inquires, join our DingTalk chat group (ID: 31690030817) and share your questions with us.
+   * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   The operation supports a package that contains up to 80,000 files.
+   * *   The operation supports ZIP or RAR packages up to 200 GB in size, or 7z packages up to 50 GB in size.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateArchiveFileInspectionTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21662,7 +27897,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建查看压缩包内文件列表任务
+   * Creates an archive file inspection task to preview the files in a package without decompressing the package.
+   * 
+   * @remarks
+   * >  The operation is in public preview. For any inquires, join our DingTalk chat group (ID: 31690030817) and share your questions with us.
+   * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   The operation supports a package that contains up to 80,000 files.
+   * *   The operation supports ZIP or RAR packages up to 200 GB in size, or 7z packages up to 50 GB in size.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateArchiveFileInspectionTaskRequest
    * @returns CreateArchiveFileInspectionTaskResponse
@@ -21673,7 +27917,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据接入
+   * Creates a batch processing task to perform a data processing operation, such as transcoding or format conversion, on multiple existing files at a time.
+   * 
+   * @remarks
+   * If you want to create a batch processing task to process data in [OSS](https://help.aliyun.com/document_detail/99372.html), make sure that you have bound the dataset to the OSS bucket where the data is stored. For more information about how to bind a dataset to a bucket, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
    * 
    * @param tmpReq - CreateBatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21742,7 +27989,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据接入
+   * Creates a batch processing task to perform a data processing operation, such as transcoding or format conversion, on multiple existing files at a time.
+   * 
+   * @remarks
+   * If you want to create a batch processing task to process data in [OSS](https://help.aliyun.com/document_detail/99372.html), make sure that you have bound the dataset to the OSS bucket where the data is stored. For more information about how to bind a dataset to a bucket, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
    * 
    * @param request - CreateBatchRequest
    * @returns CreateBatchResponse
@@ -21753,7 +28003,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个绑定任务，将 IMM 的数据集和 OSS Bucket 进行绑定，自动对其文件进行索引。
+   * Creates a binding relationship between a dataset and an Object Storage Service (OSS) bucket. This allows for the automatic synchronization of incremental and full data and indexing.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * Before you create a binding relationship, make sure that the project and the dataset that you want to use exist.
+   * *   For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   For information about how to create a dataset, see [CreateDataset](https://help.aliyun.com/document_detail/478160.html).
+   * >  The CreateBinding operation works by using the [workflow template](https://help.aliyun.com/document_detail/466304.html) that is specified when you created the project or dataset.
+   * After you create a binding relationship between a dataset and an OSS bucket, IMM scans the existing objects in the bucket and extracts metadata based on the scanning result. Then, IMM creates an index from the extracted metadata. If new objects are added to the OSS bucket, IMM constantly tracks and scans the objects and updates the index. For objects whose index is created in this way, you can call the [SimpleQuery](https://help.aliyun.com/document_detail/478175.html) operation to query, manage, and collect statistics from the objects.
    * 
    * @param request - CreateBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21792,7 +28050,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个绑定任务，将 IMM 的数据集和 OSS Bucket 进行绑定，自动对其文件进行索引。
+   * Creates a binding relationship between a dataset and an Object Storage Service (OSS) bucket. This allows for the automatic synchronization of incremental and full data and indexing.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * Before you create a binding relationship, make sure that the project and the dataset that you want to use exist.
+   * *   For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   For information about how to create a dataset, see [CreateDataset](https://help.aliyun.com/document_detail/478160.html).
+   * >  The CreateBinding operation works by using the [workflow template](https://help.aliyun.com/document_detail/466304.html) that is specified when you created the project or dataset.
+   * After you create a binding relationship between a dataset and an OSS bucket, IMM scans the existing objects in the bucket and extracts metadata based on the scanning result. Then, IMM creates an index from the extracted metadata. If new objects are added to the OSS bucket, IMM constantly tracks and scans the objects and updates the index. For objects whose index is created in this way, you can call the [SimpleQuery](https://help.aliyun.com/document_detail/478175.html) operation to query, manage, and collect statistics from the objects.
    * 
    * @param request - CreateBindingRequest
    * @returns CreateBindingResponse
@@ -21803,7 +28069,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建点云压缩任务
+   * Compresses point cloud data (PCD) in Object Storage Service (OSS) to reduce the amount of data transferred over networks.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   This operation supports only Point Cloud Data (PCD) files.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications. >
    * 
    * @param tmpReq - CreateCompressPointCloudTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21904,7 +28177,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建点云压缩任务
+   * Compresses point cloud data (PCD) in Object Storage Service (OSS) to reduce the amount of data transferred over networks.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   This operation supports only Point Cloud Data (PCD) files.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications. >
    * 
    * @param request - CreateCompressPointCloudTaskRequest
    * @returns CreateCompressPointCloudTaskResponse
@@ -21915,7 +28195,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义故事
+   * Creates a story based on the specified images and videos.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
    * 
    * @param tmpReq - CreateCustomizedStoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21988,7 +28272,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义故事
+   * Creates a story based on the specified images and videos.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
    * 
    * @param request - CreateCustomizedStoryRequest
    * @returns CreateCustomizedStoryResponse
@@ -21999,7 +28287,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据集
+   * Creates a dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+   * *   A dataset name must be unique within the same project.
+   * *   A project has an upper limit on the number of datasets that can be created in the project. You can call the [GetProjcet](https://help.aliyun.com/document_detail/478155.html) operation to query the dataset limit of the project.
+   * *   After creating a dataset, you can call the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) operation to index metadata. Metadata indexing enhances [data retrieval efficiency and statistics collection](https://help.aliyun.com/document_detail/478175.html), and enables intelligent data management.
    * 
    * @param request - CreateDatasetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22062,7 +28356,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据集
+   * Creates a dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+   * *   A dataset name must be unique within the same project.
+   * *   A project has an upper limit on the number of datasets that can be created in the project. You can call the [GetProjcet](https://help.aliyun.com/document_detail/478155.html) operation to query the dataset limit of the project.
+   * *   After creating a dataset, you can call the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) operation to index metadata. Metadata indexing enhances [data retrieval efficiency and statistics collection](https://help.aliyun.com/document_detail/478175.html), and enables intelligent data management.
    * 
    * @param request - CreateDatasetRequest
    * @returns CreateDatasetResponse
@@ -22073,7 +28373,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提取盲水印
+   * Decodes the blind watermark in an image.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
+   * *   Make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   A blind watermark can still be extracted even if attacks, such as compression, scaling, cropping, rotation, and color transformation, are performed on the image.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateDecodeBlindWatermarkTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22142,7 +28448,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提取盲水印
+   * Decodes the blind watermark in an image.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
+   * *   Make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   A blind watermark can still be extracted even if attacks, such as compression, scaling, cropping, rotation, and color transformation, are performed on the image.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateDecodeBlindWatermarkTaskRequest
    * @returns CreateDecodeBlindWatermarkTaskResponse
@@ -22153,7 +28465,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以脸搜图
+   * Searches the dataset for the specified number of images most similar to the specified image or face and returns face IDs and boundaries in descending order of similarity.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   The operation searches for faces within the face boundary in each input image.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateFacesSearchingTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22214,7 +28531,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以脸搜图
+   * Searches the dataset for the specified number of images most similar to the specified image or face and returns face IDs and boundaries in descending order of similarity.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   The operation searches for faces within the face boundary in each input image.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateFacesSearchingTaskRequest
    * @returns CreateFacesSearchingTaskResponse
@@ -22225,7 +28547,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 聚类
+   * Creates a face clustering task to cluster faces of different persons in images by person based on the intelligent algorithms.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the CreateBinding operation or manually by calling the IndexFileMeta or BatchIndexFileMeta operation.
+   * *   Each call to the operation incrementally processes metadata in the dataset. You can regularly call this operation to process incremental files.
+   *     After the clustering task is completed, you can call the GetFigureCluster or BatchGetFigureCluster  operation to query information about a specific cluster. You can also call the QueryFigureClusters operation to query all face clusters of the specified dataset.
+   * *   Removing image information from the dataset causes changes to face clusters. When images that contain all faces in a cluster are removed, the cluster is deleted.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateFigureClusteringTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22282,7 +28614,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 聚类
+   * Creates a face clustering task to cluster faces of different persons in images by person based on the intelligent algorithms.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the CreateBinding operation or manually by calling the IndexFileMeta or BatchIndexFileMeta operation.
+   * *   Each call to the operation incrementally processes metadata in the dataset. You can regularly call this operation to process incremental files.
+   *     After the clustering task is completed, you can call the GetFigureCluster or BatchGetFigureCluster  operation to query information about a specific cluster. You can also call the QueryFigureClusters operation to query all face clusters of the specified dataset.
+   * *   Removing image information from the dataset causes changes to face clusters. When images that contain all faces in a cluster are removed, the cluster is deleted.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateFigureClusteringTaskRequest
    * @returns CreateFigureClusteringTaskResponse
@@ -22293,7 +28635,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合并聚类
+   * Merges two or more face clustering groups into one face clustering group.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have called the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
+   * *   If you merge unrelated groups, the feature values of the target groups are affected. As a result, the incremental data may be inaccurately grouped when you create a face clustering task.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateFigureClustersMergingTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22366,7 +28714,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合并聚类
+   * Merges two or more face clustering groups into one face clustering group.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have called the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
+   * *   If you merge unrelated groups, the feature values of the target groups are affected. As a result, the incremental data may be inaccurately grouped when you create a face clustering task.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateFigureClustersMergingTaskRequest
    * @returns CreateFigureClustersMergingTaskResponse
@@ -22377,7 +28731,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 压缩/打包下载API
+   * Creates a file packing task.
+   * 
+   * @remarks
+   * >  The operation is in public preview. For any inquires, join our DingTalk group (ID: 88490020073) and share your questions with us.
+   * >  The operation supports file packing only. Compression support will be added later.
+   * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   A call to the operation can pack up to 80,000 objects into a package.
+   * *   The total size of all objects to be packed into a package cannot exceed 200 GB.
+   * *   The operation can pack only Standard objects in Object Storage Service (OSS). To pack an object in another storage class, you must first [convert the storage class of the object](https://help.aliyun.com/document_detail/90090.html).
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateFileCompressionTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22450,7 +28815,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 压缩/打包下载API
+   * Creates a file packing task.
+   * 
+   * @remarks
+   * >  The operation is in public preview. For any inquires, join our DingTalk group (ID: 88490020073) and share your questions with us.
+   * >  The operation supports file packing only. Compression support will be added later.
+   * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   A call to the operation can pack up to 80,000 objects into a package.
+   * *   The total size of all objects to be packed into a package cannot exceed 200 GB.
+   * *   The operation can pack only Standard objects in Object Storage Service (OSS). To pack an object in another storage class, you must first [convert the storage class of the object](https://help.aliyun.com/document_detail/90090.html).
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateFileCompressionTaskRequest
    * @returns CreateFileCompressionTaskResponse
@@ -22461,7 +28837,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在线解压API
+   * Extracts the specified files from a ZIP, RAR, or 7z package to the specified directory or decompresses the entire package.
+   * 
+   * @remarks
+   * >  The operation is in public preview. For any inquires, join our DingTalk group (ID: 88490020073) and share your questions with us.
+   * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   The operation supports a package that contains up to 80,000 files.
+   * *   The operation supports ZIP or RAR packages up to 200 GB in size, or 7z packages up to 50 GB in size.
+   * *   The operation extracts files in streams to the specified directory. If the file extraction task is interrupted by a corrupt file, files that have been extracted are not deleted.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateFileUncompressionTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22534,7 +28920,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在线解压API
+   * Extracts the specified files from a ZIP, RAR, or 7z package to the specified directory or decompresses the entire package.
+   * 
+   * @remarks
+   * >  The operation is in public preview. For any inquires, join our DingTalk group (ID: 88490020073) and share your questions with us.
+   * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   The operation supports a package that contains up to 80,000 files.
+   * *   The operation supports ZIP or RAR packages up to 200 GB in size, or 7z packages up to 50 GB in size.
+   * *   The operation extracts files in streams to the specified directory. If the file extraction task is interrupted by a corrupt file, files that have been extracted are not deleted.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateFileUncompressionTaskRequest
    * @returns CreateFileUncompressionTaskResponse
@@ -22545,7 +28941,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建图片检测
+   * Creates an image moderation task to ensure image content compliance. You can call this operation to identify inappropriate content, such as pornography, violence, terrorism, politically sensitive content, undesirable scenes, unauthorized logos, and non-compliant ads.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   The image for which you want to create a content moderation task must meet the following requirements:
+   *     *   The image URL supports the HTTP and HTTPS protocols.
+   *     *   The image is in one of the following formats: PNG, JPG, JPEG, BMP, GIF, and WebP
+   *     *   The image size is limited to 20 MB for synchronous and asynchronous calls, with a maximum height or width of 30,000 pixels. The total number of pixels cannot exceed 250 million. GIF images are limited to 4,194,304 pixels, with a maximum height or width of 30,000 pixels.
+   *     *   The image download time is limited to 3 seconds. If the download takes longer, a timeout error occurs.
+   *     *   To ensure effective moderation, we recommend that you submit an image with dimensions of at least 256 × 256 pixels.
+   *     *   The response time of the CreateImageModerationTask operation varies based on the duration of the image download. Make sure that the image is stored in a stable and reliable service. We recommend that you store images on Alibaba Cloud Object Storage Service (OSS) or cache them on Alibaba Cloud CDN.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478241.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can also obtain information about the task based on notifications.
+   * >  The detection result is sent as an asynchronous notification. The Suggestion field of the notification can have one of the following values:
+   * *   pass: No non-compliant content is found.
+   * *   block: Non-compliant content is detected. The Categories field value indicates the non-compliance categories. For more information, see Content moderation results.
+   * *   review: A manual review is needed. After the manual review is finished, another asynchronous notification is sent to inform you about the review result. >
    * 
    * @param tmpReq - CreateImageModerationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22626,7 +29039,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建图片检测
+   * Creates an image moderation task to ensure image content compliance. You can call this operation to identify inappropriate content, such as pornography, violence, terrorism, politically sensitive content, undesirable scenes, unauthorized logos, and non-compliant ads.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   The image for which you want to create a content moderation task must meet the following requirements:
+   *     *   The image URL supports the HTTP and HTTPS protocols.
+   *     *   The image is in one of the following formats: PNG, JPG, JPEG, BMP, GIF, and WebP
+   *     *   The image size is limited to 20 MB for synchronous and asynchronous calls, with a maximum height or width of 30,000 pixels. The total number of pixels cannot exceed 250 million. GIF images are limited to 4,194,304 pixels, with a maximum height or width of 30,000 pixels.
+   *     *   The image download time is limited to 3 seconds. If the download takes longer, a timeout error occurs.
+   *     *   To ensure effective moderation, we recommend that you submit an image with dimensions of at least 256 × 256 pixels.
+   *     *   The response time of the CreateImageModerationTask operation varies based on the duration of the image download. Make sure that the image is stored in a stable and reliable service. We recommend that you store images on Alibaba Cloud Object Storage Service (OSS) or cache them on Alibaba Cloud CDN.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478241.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can also obtain information about the task based on notifications.
+   * >  The detection result is sent as an asynchronous notification. The Suggestion field of the notification can have one of the following values:
+   * *   pass: No non-compliant content is found.
+   * *   block: Non-compliant content is detected. The Categories field value indicates the non-compliance categories. For more information, see Content moderation results.
+   * *   review: A manual review is needed. After the manual review is finished, another asynchronous notification is sent to inform you about the review result. >
    * 
    * @param request - CreateImageModerationTaskRequest
    * @returns CreateImageModerationTaskResponse
@@ -22637,7 +29067,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片拼接
+   * Creates an image splicing task. You can call this operation to splice multiple images into one based on a given rule and save the final image into an Object Storage Service (OSS) bucket.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that the project that you want to use exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
+   * *   You can call this operation to splice up to eight images. Each side of an image cannot exceed 32,876 pixels, and the total number of pixels of the image cannot exceed 1 billion.
+   * *   The CreateImageSplicingTask operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period elapses, the task information is no longer retrievable. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can also obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateImageSplicingTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22742,7 +29178,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片拼接
+   * Creates an image splicing task. You can call this operation to splice multiple images into one based on a given rule and save the final image into an Object Storage Service (OSS) bucket.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that the project that you want to use exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
+   * *   You can call this operation to splice up to eight images. Each side of an image cannot exceed 32,876 pixels, and the total number of pixels of the image cannot exceed 1 billion.
+   * *   The CreateImageSplicingTask operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period elapses, the task information is no longer retrievable. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can also obtain information about the task based on notifications.
    * 
    * @param request - CreateImageSplicingTaskRequest
    * @returns CreateImageSplicingTaskResponse
@@ -22753,7 +29195,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片转PDF
+   * Converts multiple images into one single PDF file and stores the PDF file to the specified path in Object Storage Service (OSS).
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
+   * *   You can specify up to 100 images in a call to the operation.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateImageToPDFTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22826,7 +29274,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片转PDF
+   * Converts multiple images into one single PDF file and stores the PDF file to the specified path in Object Storage Service (OSS).
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
+   * *   You can specify up to 100 images in a call to the operation.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateImageToPDFTaskRequest
    * @returns CreateImageToPDFTaskResponse
@@ -22837,7 +29291,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建时空聚类任务
+   * Creates a spatiotemporal clustering task to cluster photos and videos based on geolocation and time information. Spatiotemporal clustering allows you to group photos and videos taken during a travel or at different places by their spatial and temporal similarity. Based on spatiotemporal clustering, you can develop media capabilities such as media file categorization, photo collections, and image and video-based stories.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   Each call to the operation incrementally processes metadata in the dataset.****`` You can regularly call this operation to process incremental files.
+   * *   After a spatiotemporal clustering task is complete, you can call the [QueryLocationDateClusters](https://help.aliyun.com/document_detail/478189.html) operation to query the spatiotemporal clustering result.
+   * *   Removing metadata from a dataset does not affect existing spatiotemporal clusters for the dataset. To delete a spatiotemporal cluster, call the [DeleteLocationDateCluster](https://help.aliyun.com/document_detail/478191.html) operation.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateLocationDateClusteringTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22910,7 +29374,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建时空聚类任务
+   * Creates a spatiotemporal clustering task to cluster photos and videos based on geolocation and time information. Spatiotemporal clustering allows you to group photos and videos taken during a travel or at different places by their spatial and temporal similarity. Based on spatiotemporal clustering, you can develop media capabilities such as media file categorization, photo collections, and image and video-based stories.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   Each call to the operation incrementally processes metadata in the dataset.****`` You can regularly call this operation to process incremental files.
+   * *   After a spatiotemporal clustering task is complete, you can call the [QueryLocationDateClusters](https://help.aliyun.com/document_detail/478189.html) operation to query the spatiotemporal clustering result.
+   * *   Removing metadata from a dataset does not affect existing spatiotemporal clusters for the dataset. To delete a spatiotemporal cluster, call the [DeleteLocationDateCluster](https://help.aliyun.com/document_detail/478191.html) operation.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateLocationDateClusteringTaskRequest
    * @returns CreateLocationDateClusteringTaskResponse
@@ -22921,7 +29395,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建转码服务
+   * Creates an asynchronous media transcoding task to provide audio and video file processing abilities, such as media transcoding, media splicing, video frame capturing, and video to GIF conversion.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   By default, only one type of video, audio, and subtitle streams is processed when you call this operation to process media transcoding. However, you can specify the number of video, audio, or subtitle streams that you want to process.
+   * *   When you use this operation to execute a media merging task, up to 11 media files are supported. In this case, the parameters that involve media transcoding and frame capturing apply to the merged media data.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
+   *     **
+   *     ****
    * 
    * @param tmpReq - CreateMediaConvertTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23002,7 +29487,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建转码服务
+   * Creates an asynchronous media transcoding task to provide audio and video file processing abilities, such as media transcoding, media splicing, video frame capturing, and video to GIF conversion.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   By default, only one type of video, audio, and subtitle streams is processed when you call this operation to process media transcoding. However, you can specify the number of video, audio, or subtitle streams that you want to process.
+   * *   When you use this operation to execute a media merging task, up to 11 media files are supported. In this case, the parameters that involve media transcoding and frame capturing apply to the merged media data.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
+   *     **
+   *     ****
    * 
    * @param request - CreateMediaConvertTaskRequest
    * @returns CreateMediaConvertTaskResponse
@@ -23013,7 +29509,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建文档转换任务
+   * Creates a document format conversion task to convert the format of a document stored in an Object Storage Service (OSS) bucket.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   The operation supports the following input formats:
+   *     *   Text documents: doc, docx, wps, wpss, docm, dotm, dot, dotx, and html
+   *     *   Presentation documents: pptx, ppt, pot, potx, pps, ppsx, dps, dpt, pptm, potm, ppsm, and dpss
+   *     *   Spreadsheet documents: xls, xlt, et, ett, xlsx, xltx, csv, xlsb, xlsm, xltm, and ets
+   *     *   PDF documents: pdf
+   * *   The operation supports the following output formats:
+   *     *   Image files: png and jpg
+   *     *   Text files: txt
+   *     *   PDF files: pdf
+   * *   Each input document can be up to 200 MB in size.
+   * *   The maximum conversion time is 120 seconds. If the document is large in size or contains complex content, the conversion may time out.
+   * *   The operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can use one of the following methods to query task information:
+   *     *   Call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.``
+   *     *   In the region in which the IMM project is located, configure a Simple Message Queue (SMQ) subscription to receive task information notifications. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html). For information about SMQ SDKs, see [Use queues](https://help.aliyun.com/document_detail/32449.html).
+   *     *   In the region in which the IMM project is located, create an ApsaraMQ for RocketMQ 4.0 instance, a topic, and a group to receive task notifications. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html). For more information about how to use ApsaraMQ for RocketMQ, see [Call HTTP SDKs to send and subscribe to messages](https://help.aliyun.com/document_detail/169009.html).
+   *     *   In the region in which the IMM project is located, use [EventBridge](https://www.aliyun.com/product/aliware/eventbridge) to receive task information notifications. For more information, see [IMM events](https://help.aliyun.com/document_detail/205730.html).
    * 
    * @param tmpReq - CreateOfficeConversionTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23029,6 +29546,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(tmpReq.notification)) {
       request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sources)) {
+      request.sourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sources, "Sources", "json");
     }
 
     if (!Util.isUnset(tmpReq.tags)) {
@@ -23164,8 +29685,14 @@ export default class Client extends OpenApi {
       query["UserData"] = request.userData;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sourcesShrink)) {
+      body["Sources"] = request.sourcesShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateOfficeConversionTask",
@@ -23182,7 +29709,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建文档转换任务
+   * Creates a document format conversion task to convert the format of a document stored in an Object Storage Service (OSS) bucket.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   The operation supports the following input formats:
+   *     *   Text documents: doc, docx, wps, wpss, docm, dotm, dot, dotx, and html
+   *     *   Presentation documents: pptx, ppt, pot, potx, pps, ppsx, dps, dpt, pptm, potm, ppsm, and dpss
+   *     *   Spreadsheet documents: xls, xlt, et, ett, xlsx, xltx, csv, xlsb, xlsm, xltm, and ets
+   *     *   PDF documents: pdf
+   * *   The operation supports the following output formats:
+   *     *   Image files: png and jpg
+   *     *   Text files: txt
+   *     *   PDF files: pdf
+   * *   Each input document can be up to 200 MB in size.
+   * *   The maximum conversion time is 120 seconds. If the document is large in size or contains complex content, the conversion may time out.
+   * *   The operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can use one of the following methods to query task information:
+   *     *   Call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.``
+   *     *   In the region in which the IMM project is located, configure a Simple Message Queue (SMQ) subscription to receive task information notifications. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html). For information about SMQ SDKs, see [Use queues](https://help.aliyun.com/document_detail/32449.html).
+   *     *   In the region in which the IMM project is located, create an ApsaraMQ for RocketMQ 4.0 instance, a topic, and a group to receive task notifications. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html). For more information about how to use ApsaraMQ for RocketMQ, see [Call HTTP SDKs to send and subscribe to messages](https://help.aliyun.com/document_detail/169009.html).
+   *     *   In the region in which the IMM project is located, use [EventBridge](https://www.aliyun.com/product/aliware/eventbridge) to receive task information notifications. For more information, see [IMM events](https://help.aliyun.com/document_detail/205730.html).
    * 
    * @param request - CreateOfficeConversionTaskRequest
    * @returns CreateOfficeConversionTaskResponse
@@ -23193,7 +29741,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建项目
+   * Creates a project.
+   * 
+   * @remarks
+   *   The name of a project must be unique in a region.
+   * *   By default, you can create up to 100 projects in a region. If you want to request a quota increase to create more projects, submit a ticket or join the DingTalk chat group (ID: 88490020073).
+   * *   After you create a project, you can create other Intelligent Media Management (IMM) resources in the project. For more information, see the following links:
+   *     *   [CreateDataset](https://help.aliyun.com/document_detail/478160.html)
+   *     *   [CreateTrigger](https://help.aliyun.com/document_detail/479912.html)
+   *     *   [CreateBatch](https://help.aliyun.com/document_detail/606694.html)
+   *     *   [CreateBinding](https://help.aliyun.com/document_detail/478202.html)
    * 
    * @param tmpReq - CreateProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23270,7 +29827,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建项目
+   * Creates a project.
+   * 
+   * @remarks
+   *   The name of a project must be unique in a region.
+   * *   By default, you can create up to 100 projects in a region. If you want to request a quota increase to create more projects, submit a ticket or join the DingTalk chat group (ID: 88490020073).
+   * *   After you create a project, you can create other Intelligent Media Management (IMM) resources in the project. For more information, see the following links:
+   *     *   [CreateDataset](https://help.aliyun.com/document_detail/478160.html)
+   *     *   [CreateTrigger](https://help.aliyun.com/document_detail/479912.html)
+   *     *   [CreateBatch](https://help.aliyun.com/document_detail/606694.html)
+   *     *   [CreateBinding](https://help.aliyun.com/document_detail/478202.html)
    * 
    * @param request - CreateProjectRequest
    * @returns CreateProjectResponse
@@ -23281,7 +29847,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建相似图片聚类任务
+   * Clusters images indexed into a dataset by similarity. Image clustering is suitable for image deduplication and selection. For example, you can use image clustering to filter photos in your album that are taken in continuous shooting mode.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note that** Asynchronous processing does not guarantee timely task completion.
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   Each call to the operation incrementally processes metadata in the dataset.****`` You can regularly call this operation to process incremental files.
+   * *   After clustering is completed, you can call the [QuerySimilarImageClusters](https://help.aliyun.com/document_detail/611304.html) operation to query image clustering results.
+   * *   An image cluster contains at lest two images. Removing similar images from the dataset affects existing image clusters. If image deletion reduces the number of images in a cluster to less than 2, the cluster is automatically deleted.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateSimilarImageClusteringTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23338,7 +29914,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建相似图片聚类任务
+   * Clusters images indexed into a dataset by similarity. Image clustering is suitable for image deduplication and selection. For example, you can use image clustering to filter photos in your album that are taken in continuous shooting mode.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   *     **
+   *     **Note that** Asynchronous processing does not guarantee timely task completion.
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   Each call to the operation incrementally processes metadata in the dataset.****`` You can regularly call this operation to process incremental files.
+   * *   After clustering is completed, you can call the [QuerySimilarImageClusters](https://help.aliyun.com/document_detail/611304.html) operation to query image clustering results.
+   * *   An image cluster contains at lest two images. Removing similar images from the dataset affects existing image clusters. If image deletion reduces the number of images in a cluster to less than 2, the cluster is automatically deleted.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateSimilarImageClusteringTaskRequest
    * @returns CreateSimilarImageClusteringTaskResponse
@@ -23349,7 +29935,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个 Story
+   * Creates a story.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   The operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateStoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23464,7 +30055,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个 Story
+   * Creates a story.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   The operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateStoryRequest
    * @returns CreateStoryResponse
@@ -23475,7 +30071,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据接入
+   * Creates a trigger. A trigger can trigger Intelligent Media Management (IMM) based on events such as events in Object Storage Service (OSS) to process files, such as images, videos, and documents based on data processing templates.
+   * 
+   * @remarks
+   * If you want to create a trigger to process data in [OSS](https://help.aliyun.com/document_detail/99372.html), make sure that you have bound the dataset to the OSS bucket where the data is stored. For more information about how to bind a dataset to a bucket, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
    * 
    * @param tmpReq - CreateTriggerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23544,7 +30143,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据接入
+   * Creates a trigger. A trigger can trigger Intelligent Media Management (IMM) based on events such as events in Object Storage Service (OSS) to process files, such as images, videos, and documents based on data processing templates.
+   * 
+   * @remarks
+   * If you want to create a trigger to process data in [OSS](https://help.aliyun.com/document_detail/99372.html), make sure that you have bound the dataset to the OSS bucket where the data is stored. For more information about how to bind a dataset to a bucket, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
    * 
    * @param request - CreateTriggerRequest
    * @returns CreateTriggerResponse
@@ -23555,7 +30157,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测视频中的内容
+   * Detects the scene, object, and event tag information of video content. Scene information includes categories such as natural landscapes, life scenes, and disaster scenes. Event information includes categories such as talent shows, office events, performances, and production events. Object information includes categories such as tableware, electronic products, furniture, and transportation. Video tag detection supports more than 30 tag categories and thousands of tags.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/2747104.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   For more information about video label detection, see [Video label detection](https://help.aliyun.com/document_detail/477189.html).
+   * *   This operation supports multiple video formats, such as MP4, MPEG-TS, MKV, MOV, AVI, FLV, and M3U8.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateVideoLabelClassificationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23620,7 +30231,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测视频中的内容
+   * Detects the scene, object, and event tag information of video content. Scene information includes categories such as natural landscapes, life scenes, and disaster scenes. Event information includes categories such as talent shows, office events, performances, and production events. Object information includes categories such as tableware, electronic products, furniture, and transportation. Video tag detection supports more than 30 tag categories and thousands of tags.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/2747104.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
+   * *   For more information about video label detection, see [Video label detection](https://help.aliyun.com/document_detail/477189.html).
+   * *   This operation supports multiple video formats, such as MP4, MPEG-TS, MKV, MOV, AVI, FLV, and M3U8.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateVideoLabelClassificationTaskRequest
    * @returns CreateVideoLabelClassificationTaskResponse
@@ -23631,7 +30251,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建视频检测
+   * Detects risky or non-compliant content from videos. You can use this operation in scenarios such as intelligent pornography detection, terrorist content and political bias detection, ad violation detection, and logo detection.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   The detection result is sent as an asynchronous notification. The Suggestion parameter in asynchronous notifications supports the following values:
+   *     *   pass: No non-compliant content is found.
+   *     *   block: Non-compliant content is detected. The Categories field value indicates the non-compliance category. For more information, see [Content moderation results](https://help.aliyun.com/document_detail/2743995.html).
+   *     *   review: A manual review is needed before an asynchronous notification is sent to inform you about the result.
+   * *   The following video frame requirements apply:
+   *     *   The URLs for video frames must use HTTP or HTTPS.
+   *     *   Video frames must be in PNG, JPG, JPEG, BMP, GIF, or WebP format.
+   *     *   The size of a video frame cannot exceed 10 MB.
+   *     *   The recommended resolution for video frames is not lower than 256 × 256 pixels. A frame resolution lower than the recommended resolution may affect detection accuracy.
+   *     *   The response time of the operation varies based on the amount of time required to download frames. Make sure that video frames to detect are stored in a reliable and stable service. We recommend that you store video frames in OSS or cache video frames on Alibaba Cloud CDN.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateVideoModerationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23712,7 +30346,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建视频检测
+   * Detects risky or non-compliant content from videos. You can use this operation in scenarios such as intelligent pornography detection, terrorist content and political bias detection, ad violation detection, and logo detection.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   The detection result is sent as an asynchronous notification. The Suggestion parameter in asynchronous notifications supports the following values:
+   *     *   pass: No non-compliant content is found.
+   *     *   block: Non-compliant content is detected. The Categories field value indicates the non-compliance category. For more information, see [Content moderation results](https://help.aliyun.com/document_detail/2743995.html).
+   *     *   review: A manual review is needed before an asynchronous notification is sent to inform you about the result.
+   * *   The following video frame requirements apply:
+   *     *   The URLs for video frames must use HTTP or HTTPS.
+   *     *   Video frames must be in PNG, JPG, JPEG, BMP, GIF, or WebP format.
+   *     *   The size of a video frame cannot exceed 10 MB.
+   *     *   The recommended resolution for video frames is not lower than 256 × 256 pixels. A frame resolution lower than the recommended resolution may affect detection accuracy.
+   *     *   The response time of the operation varies based on the amount of time required to download frames. Make sure that video frames to detect are stored in a reliable and stable service. We recommend that you store video frames in OSS or cache video frames on Alibaba Cloud CDN.
+   * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateVideoModerationTaskRequest
    * @returns CreateVideoModerationTaskResponse
@@ -23723,7 +30371,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据接入实例
+   * Deletes a batch processing task.
+   * 
+   * @remarks
+   *   You can delete only a batch processing task that is in one of the following states: Ready, Failed, Suspended, and Succeeded.
+   * *   Before you delete a batch processing task, you can call the [GetBatch](https://help.aliyun.com/document_detail/479922.html) operation to query the task status. This ensures a successful deletion.
    * 
    * @param request - DeleteBatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23758,7 +30410,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据接入实例
+   * Deletes a batch processing task.
+   * 
+   * @remarks
+   *   You can delete only a batch processing task that is in one of the following states: Ready, Failed, Suspended, and Succeeded.
+   * *   Before you delete a batch processing task, you can call the [GetBatch](https://help.aliyun.com/document_detail/479922.html) operation to query the task status. This ensures a successful deletion.
    * 
    * @param request - DeleteBatchRequest
    * @returns DeleteBatchResponse
@@ -23769,7 +30425,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除绑定
+   * Deletes the binding between a dataset and an Object Storage Service (OSS) bucket.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   If you delete a binding, new changes in the OSS bucket are not synchronized to the dataset. Exercise caution when you perform this operation.
    * 
    * @param request - DeleteBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23808,7 +30468,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除绑定
+   * Deletes the binding between a dataset and an Object Storage Service (OSS) bucket.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   If you delete a binding, new changes in the OSS bucket are not synchronized to the dataset. Exercise caution when you perform this operation.
    * 
    * @param request - DeleteBindingRequest
    * @returns DeleteBindingResponse
@@ -23819,7 +30483,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒体集
+   * Deletes a dataset.
+   * 
+   * @remarks
+   *   Before you delete a dataset, make sure that you have deleted all indexes in the dataset. For more information about how to delete indexes, see [DeleteFileMeta](https://help.aliyun.com/document_detail/478172.html) and [BatchDeleteFileMeta](https://help.aliyun.com/document_detail/478173.html).
+   * *   Before you [delete a dataset](https://help.aliyun.com/document_detail/478160.html), make sure that you have deleted all bindings between the dataset and Object Storage Service (OSS) buckets. For more information about how to delete a binding, see [DeleteBinding](https://help.aliyun.com/document_detail/478205.html). The [DeleteBinding](https://help.aliyun.com/document_detail/478205.html) operation does not delete an index that is manually created, even if you set the `Cleanup` parameter to `true`. To delete indexes that are manually created, you must call the [DeleteFileMeta](https://help.aliyun.com/document_detail/478172.html) or [BatchDeleteFileMeta](https://help.aliyun.com/document_detail/478173.html) operation. For more information about the differences between automatically and manually created indexes, see [Create a metadata index](https://help.aliyun.com/document_detail/478166.html).
    * 
    * @param request - DeleteDatasetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23854,7 +30522,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒体集
+   * Deletes a dataset.
+   * 
+   * @remarks
+   *   Before you delete a dataset, make sure that you have deleted all indexes in the dataset. For more information about how to delete indexes, see [DeleteFileMeta](https://help.aliyun.com/document_detail/478172.html) and [BatchDeleteFileMeta](https://help.aliyun.com/document_detail/478173.html).
+   * *   Before you [delete a dataset](https://help.aliyun.com/document_detail/478160.html), make sure that you have deleted all bindings between the dataset and Object Storage Service (OSS) buckets. For more information about how to delete a binding, see [DeleteBinding](https://help.aliyun.com/document_detail/478205.html). The [DeleteBinding](https://help.aliyun.com/document_detail/478205.html) operation does not delete an index that is manually created, even if you set the `Cleanup` parameter to `true`. To delete indexes that are manually created, you must call the [DeleteFileMeta](https://help.aliyun.com/document_detail/478172.html) or [BatchDeleteFileMeta](https://help.aliyun.com/document_detail/478173.html) operation. For more information about the differences between automatically and manually created indexes, see [Create a metadata index](https://help.aliyun.com/document_detail/478166.html).
    * 
    * @param request - DeleteDatasetRequest
    * @returns DeleteDatasetResponse
@@ -23865,7 +30537,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除文件元信息
+   * Removes the metadata of a file from a dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   A successful deletion message is returned regardless of whether the metadata of the file exists in the dataset.
+   * > 
+   * *   The objects stored in Object Storage Service (OSS) or Photo and Drive Service are **not** deleted if you delete metadata from a dataset. If you want to delete the file, call the corresponding operations of OSS and Photo and Drive Service.
+   * *   When you delete file metadata, the corresponding face clustering group information and story (if any) are changed, but the spatiotemporal clustering is not changed.
    * 
    * @param request - DeleteFileMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23904,7 +30583,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除文件元信息
+   * Removes the metadata of a file from a dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   A successful deletion message is returned regardless of whether the metadata of the file exists in the dataset.
+   * > 
+   * *   The objects stored in Object Storage Service (OSS) or Photo and Drive Service are **not** deleted if you delete metadata from a dataset. If you want to delete the file, call the corresponding operations of OSS and Photo and Drive Service.
+   * *   When you delete file metadata, the corresponding face clustering group information and story (if any) are changed, but the spatiotemporal clustering is not changed.
    * 
    * @param request - DeleteFileMetaRequest
    * @returns DeleteFileMetaResponse
@@ -23915,7 +30601,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除时空聚类
+   * Deletes a spatiotemporal cluster.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+   * *   Before you call this operation, you must call the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to perform spatiotemporal clustering.
+   * *   A successful deletion is returned regardless of whether a spatiotemporal clustering group ID exists.
    * 
    * @param request - DeleteLocationDateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23956,7 +30647,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除时空聚类
+   * Deletes a spatiotemporal cluster.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+   * *   Before you call this operation, you must call the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to perform spatiotemporal clustering.
+   * *   A successful deletion is returned regardless of whether a spatiotemporal clustering group ID exists.
    * 
    * @param request - DeleteLocationDateClusterRequest
    * @returns DeleteLocationDateClusterResponse
@@ -23967,7 +30663,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除项目
+   * Deletes a project.
+   * 
+   * @remarks
+   *   Before you delete a project, make sure that all resources in the project, such as datasets, bindings, batch processing tasks, and triggers, are deleted. For more information, see [DeleteDataset](https://help.aliyun.com/document_detail/478164.html), [DeleteBatch](https://help.aliyun.com/document_detail/479918.html), and [DeleteTrigger](https://help.aliyun.com/document_detail/479915.html).
+   * *   After a project is deleted, all resources used by the project are recycled, and all related data is lost and cannot be recovered.
    * 
    * @param request - DeleteProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23998,7 +30698,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除项目
+   * Deletes a project.
+   * 
+   * @remarks
+   *   Before you delete a project, make sure that all resources in the project, such as datasets, bindings, batch processing tasks, and triggers, are deleted. For more information, see [DeleteDataset](https://help.aliyun.com/document_detail/478164.html), [DeleteBatch](https://help.aliyun.com/document_detail/479918.html), and [DeleteTrigger](https://help.aliyun.com/document_detail/479915.html).
+   * *   After a project is deleted, all resources used by the project are recycled, and all related data is lost and cannot be recovered.
    * 
    * @param request - DeleteProjectRequest
    * @returns DeleteProjectResponse
@@ -24009,7 +30713,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个 Story
+   * Deletes a story.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   Before you call this operation, make sure that you have called the [CreateStory](https://help.aliyun.com/document_detail/478193.html) or [CreateCustomizedStory](https://help.aliyun.com/document_detail/478196.html) operation to create a story.
    * 
    * @param request - DeleteStoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24048,7 +30757,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个 Story
+   * Deletes a story.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   Before you call this operation, make sure that you have called the [CreateStory](https://help.aliyun.com/document_detail/478193.html) or [CreateCustomizedStory](https://help.aliyun.com/document_detail/478196.html) operation to create a story.
    * 
    * @param request - DeleteStoryRequest
    * @returns DeleteStoryResponse
@@ -24059,7 +30773,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据接入实例
+   * Deletes a trigger.
+   * 
+   * @remarks
+   * You can delete a trigger only if the trigger is in one of the following states: Ready, Failed, Suspended, and Succeeded. You cannot delete a trigger that is in the Running state.
    * 
    * @param request - DeleteTriggerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24094,7 +30811,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据接入实例
+   * Deletes a trigger.
+   * 
+   * @remarks
+   * You can delete a trigger only if the trigger is in one of the following states: Ready, Failed, Suspended, and Succeeded. You cannot delete a trigger that is in the Running state.
    * 
    * @param request - DeleteTriggerRequest
    * @returns DeleteTriggerResponse
@@ -24105,7 +30825,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑ossbucket
+   * Unbinds an Object Storage Service (OSS) bucket from the corresponding project.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that the project is bound to a bucket. For more information, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
    * 
    * @param request - DetachOSSBucketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24136,7 +30860,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑ossbucket
+   * Unbinds an Object Storage Service (OSS) bucket from the corresponding project.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that the project is bound to a bucket. For more information, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
    * 
    * @param request - DetachOSSBucketRequest
    * @returns DetachOSSBucketResponse
@@ -24147,7 +30875,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人体检测算子
+   * Detects human body information, such as the confidence level and body bounding box, in an image.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that an Intelligent Media Management (IMM) project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
    * 
    * @param tmpReq - DetectImageBodiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24196,7 +30928,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人体检测算子
+   * Detects human body information, such as the confidence level and body bounding box, in an image.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that an Intelligent Media Management (IMM) project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
    * 
    * @param request - DetectImageBodiesRequest
    * @returns DetectImageBodiesResponse
@@ -24207,7 +30943,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测图片中车辆信息
+   * Detects the outline data, attributes, and license plate information of vehicles in an image. The vehicle attributes include the vehicle color (CarColor) and vehicle type (CarType). The license plate information includes the recognition content (Content) and plate frame (Boundary).
+   * 
+   * @remarks
+   *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
    * 
    * @param tmpReq - DetectImageCarsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24252,7 +30991,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测图片中车辆信息
+   * Detects the outline data, attributes, and license plate information of vehicles in an image. The vehicle attributes include the vehicle color (CarColor) and vehicle type (CarType). The license plate information includes the recognition content (Content) and plate frame (Boundary).
+   * 
+   * @remarks
+   *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
    * 
    * @param request - DetectImageCarsRequest
    * @returns DetectImageCarsResponse
@@ -24263,7 +31005,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片二维码检测
+   * Detects barcodes and QR codes in an image.
+   * 
+   * @remarks
+   *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
    * 
    * @param tmpReq - DetectImageCodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24308,7 +31053,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片二维码检测
+   * Detects barcodes and QR codes in an image.
+   * 
+   * @remarks
+   *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
    * 
    * @param request - DetectImageCodesRequest
    * @returns DetectImageCodesResponse
@@ -24319,7 +31067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片裁剪信息
+   * Detects the cropping area that produces the optimal visual effect based on a given image ratio by using AI model capabilities.
    * 
    * @param tmpReq - DetectImageCroppingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24368,7 +31116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片裁剪信息
+   * Detects the cropping area that produces the optimal visual effect based on a given image ratio by using AI model capabilities.
    * 
    * @param request - DetectImageCroppingRequest
    * @returns DetectImageCroppingResponse
@@ -24379,7 +31127,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片人脸信息
+   * Detects faces from an image, including face boundary information, attributes, and quality. The boundary information includes the distance from the y-coordinate of the vertex to the top edge (Top), distance from the x-coordinate of the vertex to the left edge (Left), height (Height), and width (Width). Face attributes include the age (Age), age standard deviation (AgeSD), gender (Gender), emotion (Emotion), mouth opening (Mouth), beard (Beard), hat wearing (Hat), mask wearing (Mask), glasses wearing (Glasses), head orientation (HeadPose), attractiveness (Attractive), and confidence levels for preceding attributes. Quality information includes the face quality score (FaceQuality) and face resolution (Sharpness).
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   For information about the image encoding formats supported by this operation, see [Limits](https://help.aliyun.com/document_detail/475569.html).
    * 
    * @param tmpReq - DetectImageFacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24424,7 +31176,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片人脸信息
+   * Detects faces from an image, including face boundary information, attributes, and quality. The boundary information includes the distance from the y-coordinate of the vertex to the top edge (Top), distance from the x-coordinate of the vertex to the left edge (Left), height (Height), and width (Width). Face attributes include the age (Age), age standard deviation (AgeSD), gender (Gender), emotion (Emotion), mouth opening (Mouth), beard (Beard), hat wearing (Hat), mask wearing (Mask), glasses wearing (Glasses), head orientation (HeadPose), attractiveness (Attractive), and confidence levels for preceding attributes. Quality information includes the face quality score (FaceQuality) and face resolution (Sharpness).
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   For information about the image encoding formats supported by this operation, see [Limits](https://help.aliyun.com/document_detail/475569.html).
    * 
    * @param request - DetectImageFacesRequest
    * @returns DetectImageFacesResponse
@@ -24435,7 +31191,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测图像中的内容
+   * Detects scene, object, and event information in an image. Scene information includes natural landscapes, daily life, and disasters. Event information includes talent shows, office events, performances, and production events. Object information includes tableware, electronics, furniture, and transportation. The DetectImageLabels operation supports more than 30 different categories and thousands of labels.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that an IMM [project](https://help.aliyun.com/document_detail/478273.html) is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   For more information about the features of this operation, see [Image label detection](https://help.aliyun.com/document_detail/477179.html).
+   * *   For more information about the input images supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
    * 
    * @param tmpReq - DetectImageLabelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24484,7 +31246,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测图像中的内容
+   * Detects scene, object, and event information in an image. Scene information includes natural landscapes, daily life, and disasters. Event information includes talent shows, office events, performances, and production events. Object information includes tableware, electronics, furniture, and transportation. The DetectImageLabels operation supports more than 30 different categories and thousands of labels.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that an IMM [project](https://help.aliyun.com/document_detail/478273.html) is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   For more information about the features of this operation, see [Image label detection](https://help.aliyun.com/document_detail/477179.html).
+   * *   For more information about the input images supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
    * 
    * @param request - DetectImageLabelsRequest
    * @returns DetectImageLabelsResponse
@@ -24495,7 +31263,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片打分
+   * Calculates the aesthetics quality score of an image based on metrics such as the composition, brightness, contrast, color, and resolution. The operation returns a score within the range from 0 to 1. A higher score indicates better image quality.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478273.html).[](~~478152~~)
+   * *   For information about the image encoding formats supported by this operation, see [Limits](https://help.aliyun.com/document_detail/475569.html).
    * 
    * @param tmpReq - DetectImageScoreRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24540,7 +31313,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片打分
+   * Calculates the aesthetics quality score of an image based on metrics such as the composition, brightness, contrast, color, and resolution. The operation returns a score within the range from 0 to 1. A higher score indicates better image quality.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478273.html).[](~~478152~~)
+   * *   For information about the image encoding formats supported by this operation, see [Limits](https://help.aliyun.com/document_detail/475569.html).
    * 
    * @param request - DetectImageScoreRequest
    * @returns DetectImageScoreResponse
@@ -24551,7 +31329,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 进行图片光学字符检测
+   * Recognizes and extracts text content from an image.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   The size of the image cannot exceed 20 MB.
+   * *   The shortest side of the image is not less than 20 px, and the longest side is not more than 30,000 px.
+   * *   The aspect ratio of the image is less than 1:2.
+   * *   We recommend that you do not use an image that is smaller than 15 px × 15 px in size. Otherwise, the recognition rate is low.
    * 
    * @param tmpReq - DetectImageTextsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24596,7 +31381,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 进行图片光学字符检测
+   * Recognizes and extracts text content from an image.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   The size of the image cannot exceed 20 MB.
+   * *   The shortest side of the image is not less than 20 px, and the longest side is not more than 30,000 px.
+   * *   The aspect ratio of the image is less than 1:2.
+   * *   We recommend that you do not use an image that is smaller than 15 px × 15 px in size. Otherwise, the recognition rate is low.
    * 
    * @param request - DetectImageTextsRequest
    * @returns DetectImageTextsResponse
@@ -24607,7 +31399,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒体文件信息
+   * Queries media metadata, including the media format and stream information.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
    * 
    * @param tmpReq - DetectMediaMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24652,7 +31448,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒体文件信息
+   * Queries media metadata, including the media format and stream information.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
    * 
    * @param request - DetectMediaMetaRequest
    * @returns DetectMediaMetaResponse
@@ -24663,7 +31463,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测文本
+   * Detects whether specified text contains anomalies, such as pornography, advertisements, excessive junk content, politically sensitive content, and abuse.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * >  The text compliance detection feature only supports Chinese characters.
    * 
    * @param request - DetectTextAnomalyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24698,7 +31502,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测文本
+   * Detects whether specified text contains anomalies, such as pornography, advertisements, excessive junk content, politically sensitive content, and abuse.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * >  The text compliance detection feature only supports Chinese characters.
    * 
    * @param request - DetectTextAnomalyRequest
    * @returns DetectTextAnomalyResponse
@@ -24709,7 +31517,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 嵌入图片盲水印算子
+   * Embeds specific textual information into an image as watermarks. These watermarks are visually imperceptible and do not affect the aesthetics of the image or the integrity of the original data. The watermarks can be extracted by using the CreateDecodeBlindWatermarkTask operation.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
+   * *   Make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   You can embed only text as blind watermarks to an image.
+   * *   The format of the output image is the same as that of the input image.
+   * *   The watermarks can still be extracted even if attacks, such as compression, scaling, cropping, rotation, and color transformation, are performed on the image.
+   * *   Pure black and white images and images with low resolution (roughly less than 200 px × 200 px,) are not supported.
    * 
    * @param request - EncodeBlindWatermarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24760,7 +31576,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 嵌入图片盲水印算子
+   * Embeds specific textual information into an image as watermarks. These watermarks are visually imperceptible and do not affect the aesthetics of the image or the integrity of the original data. The watermarks can be extracted by using the CreateDecodeBlindWatermarkTask operation.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
+   * *   Make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   You can embed only text as blind watermarks to an image.
+   * *   The format of the output image is the same as that of the input image.
+   * *   The watermarks can still be extracted even if attacks, such as compression, scaling, cropping, rotation, and color transformation, are performed on the image.
+   * *   Pure black and white images and images with low resolution (roughly less than 200 px × 200 px,) are not supported.
    * 
    * @param request - EncodeBlindWatermarkRequest
    * @returns EncodeBlindWatermarkResponse
@@ -24771,7 +31595,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提取文档中的文本
+   * Extracts the text from the document body.
+   * 
+   * @remarks
+   *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).**
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478273.html).[](~~478152~~)
+   * *   The following document formats are supported: Word, Excel, PPT, PDF, and TXT.
+   * *   The document cannot exceed 200 MB in size. The size of the extracted text cannot exceed 2 MB in size (approximately 1.2 million letters).
+   * >  If the format of the document is complex or the document body is too large, a timeout error may occur. In this case, we recommend that you call the CreateOfficeConversionTask operation to convert the document to the TXT format before you call the ExtractDocumentText operation.
    * 
    * @param tmpReq - ExtractDocumentTextRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24820,7 +31651,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提取文档中的文本
+   * Extracts the text from the document body.
+   * 
+   * @remarks
+   *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).**
+   * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478273.html).[](~~478152~~)
+   * *   The following document formats are supported: Word, Excel, PPT, PDF, and TXT.
+   * *   The document cannot exceed 200 MB in size. The size of the extracted text cannot exceed 2 MB in size (approximately 1.2 million letters).
+   * >  If the format of the document is complex or the document body is too large, a timeout error may occur. In this case, we recommend that you call the CreateOfficeConversionTask operation to convert the document to the TXT format before you call the ExtractDocumentText operation.
    * 
    * @param request - ExtractDocumentTextRequest
    * @returns ExtractDocumentTextResponse
@@ -24831,7 +31669,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对 Dataset 内的元数据进行模糊搜索。
+   * Queries the extracted file metadata, including the file name, labels, path, custom tags, text, and other fields. If the value of a metadata field of a file matches the specified string, the metadata of the file is returned.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, join the DingTalk chat group (ID: 88490020073) and share your questions with us.
+   * *   For information about the fields that you can use as query conditions, see [Supported fields and operators](https://help.aliyun.com/document_detail/2743991.html).
    * 
    * @param tmpReq - FuzzyQueryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24896,7 +31740,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对 Dataset 内的元数据进行模糊搜索。
+   * Queries the extracted file metadata, including the file name, labels, path, custom tags, text, and other fields. If the value of a metadata field of a file matches the specified string, the metadata of the file is returned.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, join the DingTalk chat group (ID: 88490020073) and share your questions with us.
+   * *   For information about the fields that you can use as query conditions, see [Supported fields and operators](https://help.aliyun.com/document_detail/2743991.html).
    * 
    * @param request - FuzzyQueryRequest
    * @returns FuzzyQueryResponse
@@ -24907,7 +31757,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实时转码任务
+   * Generates a live transcoding playlist and converts video files into M3U8 files. After a playlist is generated, the videos in the playlist are immediately played and the video files are transcoded based on the playback progress. Compared with offline transcoding, online transcoding significantly reduces the time spent in waiting for the videos to be transcoded and reduces transcoding and storage costs.
+   * 
+   * @remarks
+   *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).**
+   * *   Make sure that the project that you want to use is available in the current region. For more information, see [Project Management](https://help.aliyun.com/document_detail/478152.html).
+   * *   By default, you can call this operation to process only one video, audio, or subtitle track. You can specify the number of the video, audio, or subtitle tracks that you want to process.
+   * *   You can call this operation to generate a media playlist and a master playlist. For more information, see the parameter description.
+   * *   This operation is a synchronous operation. Synchronous or asynchronous transcoding is triggered only during playback or pre-transcoding. You can configure the [Notification](https://help.aliyun.com/document_detail/2743997.html) parameter to obtain the transcoding task result.
+   * *   For information about the feature description of this operation, see [Live transcoding](https://help.aliyun.com/document_detail/477192.html).
+   * *   The data processing capability of Object Storage Service (OSS) also provides the playlist generation feature. However, this feature can generate only a media playlist, and related parameters are simplified.
    * 
    * @param tmpReq - GenerateVideoPlaylistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25004,7 +31863,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实时转码任务
+   * Generates a live transcoding playlist and converts video files into M3U8 files. After a playlist is generated, the videos in the playlist are immediately played and the video files are transcoded based on the playback progress. Compared with offline transcoding, online transcoding significantly reduces the time spent in waiting for the videos to be transcoded and reduces transcoding and storage costs.
+   * 
+   * @remarks
+   *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).**
+   * *   Make sure that the project that you want to use is available in the current region. For more information, see [Project Management](https://help.aliyun.com/document_detail/478152.html).
+   * *   By default, you can call this operation to process only one video, audio, or subtitle track. You can specify the number of the video, audio, or subtitle tracks that you want to process.
+   * *   You can call this operation to generate a media playlist and a master playlist. For more information, see the parameter description.
+   * *   This operation is a synchronous operation. Synchronous or asynchronous transcoding is triggered only during playback or pre-transcoding. You can configure the [Notification](https://help.aliyun.com/document_detail/2743997.html) parameter to obtain the transcoding task result.
+   * *   For information about the feature description of this operation, see [Live transcoding](https://help.aliyun.com/document_detail/477192.html).
+   * *   The data processing capability of Object Storage Service (OSS) also provides the playlist generation feature. However, this feature can generate only a media playlist, and related parameters are simplified.
    * 
    * @param request - GenerateVideoPlaylistRequest
    * @returns GenerateVideoPlaylistResponse
@@ -25015,7 +31883,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文档预览编辑凭证
+   * Generates an access token for document preview or editing.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   The operation generates an access token that is valid for 30 minutes and a refresh token that is valid for 1 day.
+   * *   The returned expiration time is in UTC.
+   * *   The operation supports the following input formats:
+   *     *   Word files: .doc, .docx, .txt, .dot, .wps, .wpt, .dotx, .docm, .dotm, and .rtf
+   *     *   Presentation files: .ppt, .pptx, .pptm, .ppsx, .ppsm, .pps, .potx, .potm, .dpt, and .dps
+   *     *   Spreadsheet documents: .et, .xls, .xlt, .xlsx, .xlsm, .xltx, .xltm, and .csv
+   *     *   PDF files: .pdf
+   * *   The operation supports an input document that is up to 200 MB in size.
+   * *   The operation supports an input document that contains up to 5,000 pages.
+   * *   For a project created before December 1, 2023, you are charged for previewing or editing a document in the project based on the number of times the document is opened. For a project created on or after December 1, 2023, you are charged based on the number of API operation calls made for previewing or editing a document. If you want to switch to API call-based billing for document previewing and editing, use a project created on or after December 1, 2023. In API call-based billing, one API call allows only one user to use the feature. If multiple users use the information returned by the API call, only the last user has access to the document and the access permissions of other users are revoked.
+   * *   You can use the NotifyTopicName parameter to specify a Simple Message Queue (SMQ) topic in the same region as the IMM project for getting notified of file save operations. For more information, see [Use queues](https://help.aliyun.com/document_detail/32449.html). For more information about the JSON example of the Message field, see [WebOffice message example](https://help.aliyun.com/document_detail/2743999.html).
+   * >  To manage multiple versions of the document, you must enable versioning for the bucket that stores the document and set the History parameter to true.
    * 
    * @param tmpReq - GenerateWebofficeTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25128,7 +32011,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文档预览编辑凭证
+   * Generates an access token for document preview or editing.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   The operation generates an access token that is valid for 30 minutes and a refresh token that is valid for 1 day.
+   * *   The returned expiration time is in UTC.
+   * *   The operation supports the following input formats:
+   *     *   Word files: .doc, .docx, .txt, .dot, .wps, .wpt, .dotx, .docm, .dotm, and .rtf
+   *     *   Presentation files: .ppt, .pptx, .pptm, .ppsx, .ppsm, .pps, .potx, .potm, .dpt, and .dps
+   *     *   Spreadsheet documents: .et, .xls, .xlt, .xlsx, .xlsm, .xltx, .xltm, and .csv
+   *     *   PDF files: .pdf
+   * *   The operation supports an input document that is up to 200 MB in size.
+   * *   The operation supports an input document that contains up to 5,000 pages.
+   * *   For a project created before December 1, 2023, you are charged for previewing or editing a document in the project based on the number of times the document is opened. For a project created on or after December 1, 2023, you are charged based on the number of API operation calls made for previewing or editing a document. If you want to switch to API call-based billing for document previewing and editing, use a project created on or after December 1, 2023. In API call-based billing, one API call allows only one user to use the feature. If multiple users use the information returned by the API call, only the last user has access to the document and the access permissions of other users are revoked.
+   * *   You can use the NotifyTopicName parameter to specify a Simple Message Queue (SMQ) topic in the same region as the IMM project for getting notified of file save operations. For more information, see [Use queues](https://help.aliyun.com/document_detail/32449.html). For more information about the JSON example of the Message field, see [WebOffice message example](https://help.aliyun.com/document_detail/2743999.html).
+   * >  To manage multiple versions of the document, you must enable versioning for the bucket that stores the document and set the History parameter to true.
    * 
    * @param request - GenerateWebofficeTokenRequest
    * @returns GenerateWebofficeTokenResponse
@@ -25139,7 +32037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据接入实例
+   * Queries the information about a batch processing task.
    * 
    * @param request - GetBatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25174,7 +32072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据接入实例
+   * Queries the information about a batch processing task.
    * 
    * @param request - GetBatchRequest
    * @returns GetBatchResponse
@@ -25185,7 +32083,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个绑定任务的运行详情。
+   * Queries the binding relationship between a specific dataset and an Object Storage Service (OSS) bucket.
+   * 
+   * @remarks
+   *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+   * *   Make sure that the binding relationship that you want to query exists. For information about how to create a binding relationship, see [CreateBinding](https://help.aliyun.com/document_detail/478202.html).
    * 
    * @param request - GetBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25224,7 +32126,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个绑定任务的运行详情。
+   * Queries the binding relationship between a specific dataset and an Object Storage Service (OSS) bucket.
+   * 
+   * @remarks
+   *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+   * *   Make sure that the binding relationship that you want to query exists. For information about how to create a binding relationship, see [CreateBinding](https://help.aliyun.com/document_detail/478202.html).
    * 
    * @param request - GetBindingRequest
    * @returns GetBindingResponse
@@ -25299,7 +32205,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒体集信息
+   * Queries a dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   The GetDataset operation supports real-time retrieval of file statistics. You can specify WithStatistics to enable real-time retrieval of file statistics.
    * 
    * @param request - GetDatasetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25338,7 +32248,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒体集信息
+   * Queries a dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   The GetDataset operation supports real-time retrieval of file statistics. You can specify WithStatistics to enable real-time retrieval of file statistics.
    * 
    * @param request - GetDatasetRequest
    * @returns GetDatasetResponse
@@ -25349,7 +32263,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取提取水印的结果
+   * Queries the result of an invisible watermark parsing task.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that an Intelligent Media Management (IMM) project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   Before you call this operation, make sure that an invisible watermark task is created and the task ID is obtained.``
    * 
    * @param request - GetDecodeBlindWatermarkResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25388,7 +32306,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取提取水印的结果
+   * Queries the result of an invisible watermark parsing task.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that an Intelligent Media Management (IMM) project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   Before you call this operation, make sure that an invisible watermark task is created and the task ID is obtained.``
    * 
    * @param request - GetDecodeBlindWatermarkResultRequest
    * @returns GetDecodeBlindWatermarkResultResponse
@@ -25399,7 +32321,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取聚类
+   * Obtains basic information about face clustering, including the creation time, number of images, and cover.
+   * 
+   * @remarks
+   *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+   * *   Before you call this operation, make sure that a face clustering task is created to group all faces in a dataset. For information about how to create a face clustering task, see [CreateFigureClusteringTask](~~CreateFigureClusteringTask~~). For information about how to create a dataset, see [CreateDataset](~~CreateDataset~~).
    * 
    * @param request - GetFigureClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25438,7 +32364,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取聚类
+   * Obtains basic information about face clustering, including the creation time, number of images, and cover.
+   * 
+   * @remarks
+   *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+   * *   Before you call this operation, make sure that a face clustering task is created to group all faces in a dataset. For information about how to create a face clustering task, see [CreateFigureClusteringTask](~~CreateFigureClusteringTask~~). For information about how to create a dataset, see [CreateDataset](~~CreateDataset~~).
    * 
    * @param request - GetFigureClusterRequest
    * @returns GetFigureClusterResponse
@@ -25449,7 +32379,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文件元信息
+   * Queries metadata of a file whose metadata is indexed into the dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, join the DingTalk chat group (ID: 31690030817) and share your questions with us.
    * 
    * @param tmpReq - GetFileMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25498,7 +32433,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文件元信息
+   * Queries metadata of a file whose metadata is indexed into the dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, join the DingTalk chat group (ID: 31690030817) and share your questions with us.
    * 
    * @param request - GetFileMetaRequest
    * @returns GetFileMetaResponse
@@ -25509,7 +32449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片审核任务结果
+   * Queries an image compliance detection task.
    * 
    * @param request - GetImageModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25548,7 +32488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片审核任务结果
+   * Queries an image compliance detection task.
    * 
    * @param request - GetImageModerationResultRequest
    * @returns GetImageModerationResultResponse
@@ -25559,7 +32499,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取绑定的ossbucket
+   * Queries the name of the project bound to an Object Storage Service (OSS) bucket.
+   * 
+   * @remarks
+   *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+   * *   Before you call this operation, make sure that [the project whose name you want to query is bound to the specified OSS bucket](https://help.aliyun.com/document_detail/478206.html).
    * 
    * @param request - GetOSSBucketAttachmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25590,7 +32534,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取绑定的ossbucket
+   * Queries the name of the project bound to an Object Storage Service (OSS) bucket.
+   * 
+   * @remarks
+   *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+   * *   Before you call this operation, make sure that [the project whose name you want to query is bound to the specified OSS bucket](https://help.aliyun.com/document_detail/478206.html).
    * 
    * @param request - GetOSSBucketAttachmentRequest
    * @returns GetOSSBucketAttachmentResponse
@@ -25601,7 +32549,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取项目信息
+   * Queries the basic information, datasets, and file statistics of a project.
+   * 
+   * @remarks
+   * When you call this operation, you can enable the real-time retrieval of file statistics based on your business requirements. For more information, see the "Request parameters" section of this topic.
    * 
    * @param request - GetProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25636,7 +32587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取项目信息
+   * Queries the basic information, datasets, and file statistics of a project.
+   * 
+   * @remarks
+   * When you call this operation, you can enable the real-time retrieval of file statistics based on your business requirements. For more information, see the "Request parameters" section of this topic.
    * 
    * @param request - GetProjectRequest
    * @returns GetProjectResponse
@@ -25647,7 +32601,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 返回一个 Story 的详细信息
+   * Queries a story.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   Before you call this operation, make sure that you have called the [CreateStory](https://help.aliyun.com/document_detail/478193.html) or [CreateCustomizedStory](https://help.aliyun.com/document_detail/478196.html) operation to create a story.
    * 
    * @param request - GetStoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25686,7 +32645,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 返回一个 Story 的详细信息
+   * Queries a story.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   Before you call this operation, make sure that you have called the [CreateStory](https://help.aliyun.com/document_detail/478193.html) or [CreateCustomizedStory](https://help.aliyun.com/document_detail/478196.html) operation to create a story.
    * 
    * @param request - GetStoryRequest
    * @returns GetStoryResponse
@@ -25697,7 +32661,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务信息
+   * Queries information about an asynchronous task. Intelligent Media Management (IMM) has multiple asynchronous data processing capabilities, each of which has its own operation for creating tasks. For example, you can call the CreateFigureClusteringTask operation to create a face clustering task and the CreateFileCompressionTask operation to create a file compression task. The GetTask operation is a general operation. You can call this operation to query information about asynchronous tasks by task ID or type.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.
    * 
    * @param request - GetTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25740,7 +32707,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务信息
+   * Queries information about an asynchronous task. Intelligent Media Management (IMM) has multiple asynchronous data processing capabilities, each of which has its own operation for creating tasks. For example, you can call the CreateFigureClusteringTask operation to create a face clustering task and the CreateFileCompressionTask operation to create a file compression task. The GetTask operation is a general operation. You can call this operation to query information about asynchronous tasks by task ID or type.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.
    * 
    * @param request - GetTaskRequest
    * @returns GetTaskResponse
@@ -25751,7 +32721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据接入实例
+   * Queries the information about a trigger.
    * 
    * @param request - GetTriggerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25786,7 +32756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据接入实例
+   * Queries the information about a trigger.
    * 
    * @param request - GetTriggerRequest
    * @returns GetTriggerResponse
@@ -25797,7 +32767,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取视频标签检测任务结果
+   * Queries the results of a video label detection task.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that a [project](https://help.aliyun.com/document_detail/478273.html) is created on Intelligent Media Management (IMM). For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   Before you call this operation, make sure that a video label detection task is created and the `TaskId` of the task is obtained. For more information, see [CreateVideoLabelClassificationTask](https://help.aliyun.com/document_detail/478223.html).
    * 
    * @param request - GetVideoLabelClassificationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25836,7 +32810,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取视频标签检测任务结果
+   * Queries the results of a video label detection task.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that a [project](https://help.aliyun.com/document_detail/478273.html) is created on Intelligent Media Management (IMM). For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   Before you call this operation, make sure that a video label detection task is created and the `TaskId` of the task is obtained. For more information, see [CreateVideoLabelClassificationTask](https://help.aliyun.com/document_detail/478223.html).
    * 
    * @param request - GetVideoLabelClassificationResultRequest
    * @returns GetVideoLabelClassificationResultResponse
@@ -25897,7 +32875,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加文件元信息
+   * Creates an index from metadata extracted by using techniques such as label recognition, face detection, and location detection from input files. You can retrieve data from the same dataset by using multiple methods.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   For information about how to create indexes from metadata, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * *   For information about the limits on the maximum number and size of index files that you can create, see the "Limits on datasets" section of the [Limits](https://help.aliyun.com/document_detail/475569.html) topic. For information about how to create a dataset, see the "CreateDataset" topic.
+   * *   For information about the regions in which you can create index files from metadata, see the "Datasets and indexes" section of the [Limits](https://help.aliyun.com/document_detail/475569.html) topic.
+   * *   After you create an index from metadata, you can try [simple query](https://help.aliyun.com/document_detail/478175.html) to retrieve data. For information about other query capabilities, see [Query and statistics](https://help.aliyun.com/document_detail/2402363.html). You can also [create a face clustering task](https://help.aliyun.com/document_detail/478180.html) to group faces. For information about other clustering capabilities, see [Intelligent management](https://help.aliyun.com/document_detail/2402365.html).
+   * **
+   * **Usage notes**
+   * *   The IndexFileMeta operation is asynchronous, indicating that it takes some time to process the data after a request is submitted. After the processing is complete, the metadata is stored in your dataset. The amount of time it takes for this process varies based on [the workflow template, the operator](https://help.aliyun.com/document_detail/466304.html), and the content of the file, ranging from several seconds to several minutes or even longer. You can subscribe to [Simple Message Service](https://help.aliyun.com/document_detail/2743997.html) for task completion notifications.
    * 
    * @param tmpReq - IndexFileMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25954,7 +32942,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加文件元信息
+   * Creates an index from metadata extracted by using techniques such as label recognition, face detection, and location detection from input files. You can retrieve data from the same dataset by using multiple methods.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   For information about how to create indexes from metadata, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * *   For information about the limits on the maximum number and size of index files that you can create, see the "Limits on datasets" section of the [Limits](https://help.aliyun.com/document_detail/475569.html) topic. For information about how to create a dataset, see the "CreateDataset" topic.
+   * *   For information about the regions in which you can create index files from metadata, see the "Datasets and indexes" section of the [Limits](https://help.aliyun.com/document_detail/475569.html) topic.
+   * *   After you create an index from metadata, you can try [simple query](https://help.aliyun.com/document_detail/478175.html) to retrieve data. For information about other query capabilities, see [Query and statistics](https://help.aliyun.com/document_detail/2402363.html). You can also [create a face clustering task](https://help.aliyun.com/document_detail/478180.html) to group faces. For information about other clustering capabilities, see [Intelligent management](https://help.aliyun.com/document_detail/2402365.html).
+   * **
+   * **Usage notes**
+   * *   The IndexFileMeta operation is asynchronous, indicating that it takes some time to process the data after a request is submitted. After the processing is complete, the metadata is stored in your dataset. The amount of time it takes for this process varies based on [the workflow template, the operator](https://help.aliyun.com/document_detail/466304.html), and the content of the file, ranging from several seconds to several minutes or even longer. You can subscribe to [Simple Message Service](https://help.aliyun.com/document_detail/2743997.html) for task completion notifications.
    * 
    * @param request - IndexFileMetaRequest
    * @returns IndexFileMetaResponse
@@ -25965,7 +32963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出数据接入实例
+   * Queries batch processing tasks. You can query batch processing tasks based on conditions such task tags and status. The results can be sorted.
    * 
    * @param request - ListBatchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26020,7 +33018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出数据接入实例
+   * Queries batch processing tasks. You can query batch processing tasks based on conditions such task tags and status. The results can be sorted.
    * 
    * @param request - ListBatchesRequest
    * @returns ListBatchesResponse
@@ -26031,7 +33029,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出绑定
+   * Queries bindings between a dataset and Object Storage Service (OSS) buckets.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
    * 
    * @param request - ListBindingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26074,7 +33075,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出绑定
+   * Queries bindings between a dataset and Object Storage Service (OSS) buckets.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
    * 
    * @param request - ListBindingsRequest
    * @returns ListBindingsResponse
@@ -26085,7 +33089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出媒体集列表
+   * Queries a list of datasets. You can query the list by dataset prefix.
    * 
    * @param request - ListDatasetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26128,7 +33132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出媒体集列表
+   * Queries a list of datasets. You can query the list by dataset prefix.
    * 
    * @param request - ListDatasetsRequest
    * @returns ListDatasetsResponse
@@ -26139,7 +33143,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取项目列表
+   * Queries projects. You can call this operation to query the basic information, datasets, and file statistics of multiple projects at the same time.
+   * 
+   * @remarks
+   * The ListProjects operation supports pagination. When you call this operation, you must specify the token that is obtained from the previous query as the value of NextToken. You must also specify MaxResults to limit the number of entries to return.
    * 
    * @param tmpReq - ListProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26188,7 +33195,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取项目列表
+   * Queries projects. You can call this operation to query the basic information, datasets, and file statistics of multiple projects at the same time.
+   * 
+   * @remarks
+   * The ListProjects operation supports pagination. When you call this operation, you must specify the token that is obtained from the previous query as the value of NextToken. You must also specify MaxResults to limit the number of entries to return.
    * 
    * @param request - ListProjectsRequest
    * @returns ListProjectsResponse
@@ -26199,7 +33209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取地区列表
+   * Queries the regions where Intelligent Media Management (IMM) is available and the supported languages.
    * 
    * @param request - ListRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26230,7 +33240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取地区列表
+   * Queries the regions where Intelligent Media Management (IMM) is available and the supported languages.
    * 
    * @param request - ListRegionsRequest
    * @returns ListRegionsResponse
@@ -26241,7 +33251,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务信息列表
+   * Lists tasks based on specific conditions, such as by time range and by tag.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
    * 
    * @param tmpReq - ListTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26326,7 +33339,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务信息列表
+   * Lists tasks based on specific conditions, such as by time range and by tag.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
    * 
    * @param request - ListTasksRequest
    * @returns ListTasksResponse
@@ -26337,7 +33353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出数据接入实例
+   * Queries triggers by tag or status.
    * 
    * @param request - ListTriggersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26392,7 +33408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出数据接入实例
+   * Queries triggers by tag or status.
    * 
    * @param request - ListTriggersRequest
    * @returns ListTriggersResponse
@@ -26403,7 +33419,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询聚类分组
+   * Queries face groups based on given conditions.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that a face clustering task is created to group all faces in a dataset. For information about how to create a face clustering task, see [CreateFigureClusteringTask](~~CreateFigureClusteringTask~~). For information about how to create a dataset, see [CreateDataset](~~CreateDataset~~).
    * 
    * @param tmpReq - QueryFigureClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26480,7 +33500,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询聚类分组
+   * Queries face groups based on given conditions.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that a face clustering task is created to group all faces in a dataset. For information about how to create a face clustering task, see [CreateFigureClusteringTask](~~CreateFigureClusteringTask~~). For information about how to create a dataset, see [CreateDataset](~~CreateDataset~~).
    * 
    * @param request - QueryFigureClustersRequest
    * @returns QueryFigureClustersResponse
@@ -26491,7 +33515,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查找时空分组
+   * Queries a list of spatiotemporal clustering groups. Multiple conditions are supported. For more information, see the request parameters.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, you must call the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to perform spatiotemporal clustering.
    * 
    * @param tmpReq - QueryLocationDateClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26604,7 +33632,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查找时空分组
+   * Queries a list of spatiotemporal clustering groups. Multiple conditions are supported. For more information, see the request parameters.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, you must call the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to perform spatiotemporal clustering.
    * 
    * @param request - QueryLocationDateClustersRequest
    * @returns QueryLocationDateClustersResponse
@@ -26615,7 +33647,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查找相似图片分组
+   * You can call this operation to query the list of similar image clusters.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, you must call the [CreateSimilarImageClusteringTask](https://help.aliyun.com/document_detail/611302.html) operation to cluster similar images in the dataset.
    * 
    * @param request - QuerySimilarImageClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26670,7 +33706,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查找相似图片分组
+   * You can call this operation to query the list of similar image clusters.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, you must call the [CreateSimilarImageClusteringTask](https://help.aliyun.com/document_detail/611302.html) operation to cluster similar images in the dataset.
    * 
    * @param request - QuerySimilarImageClustersRequest
    * @returns QuerySimilarImageClustersResponse
@@ -26681,7 +33721,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查找 Story
+   * Queries stories based on the specified conditions.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   Before you call this operation, make sure that you have called the [CreateStory](https://help.aliyun.com/document_detail/478193.html) or [CreateCustomizedStory](https://help.aliyun.com/document_detail/478196.html) operation to create a story.
    * 
    * @param tmpReq - QueryStoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26790,7 +33835,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查找 Story
+   * Queries stories based on the specified conditions.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   Before you call this operation, make sure that you have called the [CreateStory](https://help.aliyun.com/document_detail/478193.html) or [CreateCustomizedStory](https://help.aliyun.com/document_detail/478196.html) operation to create a story.
    * 
    * @param request - QueryStoriesRequest
    * @returns QueryStoriesResponse
@@ -26801,7 +33851,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 刷新文档预览编辑凭证
+   * Refreshes the access credential of WebOffice. The access credential of WebOffice is valid for 30 minutes. After the credential expires, you cannot access Weboffice. To access Weboffice again, call this operation to obtain a new credential. The new credential is also valid for 30 minutes.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+   * *   For more information, see [WebOffice billing](https://help.aliyun.com/document_detail/2639703.html).
+   * *   The access token returned by this operation is valid for 30 minutes. After the access token expires, you cannot use it to access the document.
+   * *   The refresh token returned by this operation is valid for one day. You need to use the refresh token for the next call to the operation before the refresh token expires. After the validity period elapses, the refresh token is invalid.
+   * *   The returned expiration time is displayed in UTC.
+   * >  An access token is used to actually access a document, whereas a refresh token is used to avoid repeated access configurations.
    * 
    * @param tmpReq - RefreshWebofficeTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26850,7 +33908,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 刷新文档预览编辑凭证
+   * Refreshes the access credential of WebOffice. The access credential of WebOffice is valid for 30 minutes. After the credential expires, you cannot access Weboffice. To access Weboffice again, call this operation to obtain a new credential. The new credential is also valid for 30 minutes.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+   * *   For more information, see [WebOffice billing](https://help.aliyun.com/document_detail/2639703.html).
+   * *   The access token returned by this operation is valid for 30 minutes. After the access token expires, you cannot use it to access the document.
+   * *   The refresh token returned by this operation is valid for one day. You need to use the refresh token for the next call to the operation before the refresh token expires. After the validity period elapses, the refresh token is invalid.
+   * *   The returned expiration time is displayed in UTC.
+   * >  An access token is used to actually access a document, whereas a refresh token is used to avoid repeated access configurations.
    * 
    * @param request - RefreshWebofficeTokenRequest
    * @returns RefreshWebofficeTokenResponse
@@ -26861,7 +33927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为故事移除文件
+   * Deletes files from a story.
    * 
    * @param tmpReq - RemoveStoryFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26910,7 +33976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为故事移除文件
+   * Deletes files from a story.
    * 
    * @param request - RemoveStoryFilesRequest
    * @returns RemoveStoryFilesResponse
@@ -26921,7 +33987,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复一个挂起的数据接入任务
+   * Resumes a batch processing task that is in the Suspended or Failed state.
+   * 
+   * @remarks
+   * You can resume a batch processing task only when the task is in the Suspended or Failed state. A batch processing task continues to provide services after you resume the task.
    * 
    * @param request - ResumeBatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26956,7 +34025,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复一个挂起的数据接入任务
+   * Resumes a batch processing task that is in the Suspended or Failed state.
+   * 
+   * @remarks
+   * You can resume a batch processing task only when the task is in the Suspended or Failed state. A batch processing task continues to provide services after you resume the task.
    * 
    * @param request - ResumeBatchRequest
    * @returns ResumeBatchResponse
@@ -26967,7 +34039,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复一个挂起的数据接入任务
+   * Resumes a trigger that is in the Suspended or Failed state.
+   * 
+   * @remarks
+   * You can resume only a trigger that is in the Suspended or Failed state. After you resume a trigger, the trigger continues to provide services as expected.
    * 
    * @param request - ResumeTriggerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27002,7 +34077,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复一个挂起的数据接入任务
+   * Resumes a trigger that is in the Suspended or Failed state.
+   * 
+   * @remarks
+   * You can resume only a trigger that is in the Suspended or Failed state. After you resume a trigger, the trigger continues to provide services as expected.
    * 
    * @param request - ResumeTriggerRequest
    * @returns ResumeTriggerResponse
@@ -27013,7 +34091,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以脸搜分组
+   * Queries face clusters that contain a specific face in an image. Each face cluster contains information such as bounding boxes and similarity.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have created a face clustering task by calling the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
    * 
    * @param tmpReq - SearchImageFigureClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27062,7 +34144,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以脸搜分组
+   * Queries face clusters that contain a specific face in an image. Each face cluster contains information such as bounding boxes and similarity.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have created a face clustering task by calling the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
    * 
    * @param request - SearchImageFigureClusterRequest
    * @returns SearchImageFigureClusterResponse
@@ -27073,7 +34159,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过输入自然语言文字，对 Dataset 内的元数据进行查询与统计分析
+   * Queries metadata in a dataset by inputting natural language.
+   * 
+   * @remarks
+   * ### [](#)Precautions
+   * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**** Each time you call this operation, you are charged for semantic understanding and query fees.
+   * *   Before you call this operation, make sure that the file that you want to use is indexed into the dataset that you use. To index a file into a dataset, you can call one of the following operations: [CreateBinding](https://help.aliyun.com/document_detail/478202.html), [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html), and [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html).
+   * *   The response provided in this example is for reference only. The categories and content of metadata vary based on configurations of [workflow templates](https://help.aliyun.com/document_detail/466304.html). If you have questions, search for and join the DingTalk group numbered 21714099.
+   * ### [](#)Usage limits
+   * *   Each time you call this operation, up to 1,000 metadata files are returned.
+   * *   Pagination is not supported.
+   * *   The natural language processing capability may not always produce completely accurate results.
+   * ### [](#)Usage methods
+   * You can query files within a dataset by using natural language keywords. Key information supported for understanding includes labels (Labels.LabelName), time (ProduceTime), and location (Address.AddressLine). For example, if you use `2023 Hangzhou scenery` as the query criterion, the operation intelligently breaks the query criterion down into the following sub-criteria, and returns the files that meet all the sub-criteria:
+   * *   ProduceTime: 00:00 on January 1, 2023 to 00:00 on December 31, 2023.
+   * *   Address.AddressLine: `Hangzhou`
+   * *   Labels.LabelName: `scenery`.
+   * When you call this operation, you can configure a [workflow template](https://help.aliyun.com/document_detail/466304.html) that includes the `ImageEmbeddingExtraction` operator. This allows the operation to return image content when the query you input matches the image content, thereby achieving intelligent image retrieval.``
    * 
    * @param tmpReq - SemanticQueryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27085,10 +34187,6 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(tmpReq, request);
     if (!Util.isUnset(tmpReq.mediaTypes)) {
       request.mediaTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.mediaTypes, "MediaTypes", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.smartClusterIds)) {
-      request.smartClusterIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.smartClusterIds, "SmartClusterIds", "json");
     }
 
     if (!Util.isUnset(tmpReq.withFields)) {
@@ -27120,10 +34218,6 @@ export default class Client extends OpenApi {
       query["Query"] = request.query;
     }
 
-    if (!Util.isUnset(request.smartClusterIdsShrink)) {
-      query["SmartClusterIds"] = request.smartClusterIdsShrink;
-    }
-
     if (!Util.isUnset(request.withFieldsShrink)) {
       query["WithFields"] = request.withFieldsShrink;
     }
@@ -27146,7 +34240,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过输入自然语言文字，对 Dataset 内的元数据进行查询与统计分析
+   * Queries metadata in a dataset by inputting natural language.
+   * 
+   * @remarks
+   * ### [](#)Precautions
+   * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**** Each time you call this operation, you are charged for semantic understanding and query fees.
+   * *   Before you call this operation, make sure that the file that you want to use is indexed into the dataset that you use. To index a file into a dataset, you can call one of the following operations: [CreateBinding](https://help.aliyun.com/document_detail/478202.html), [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html), and [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html).
+   * *   The response provided in this example is for reference only. The categories and content of metadata vary based on configurations of [workflow templates](https://help.aliyun.com/document_detail/466304.html). If you have questions, search for and join the DingTalk group numbered 21714099.
+   * ### [](#)Usage limits
+   * *   Each time you call this operation, up to 1,000 metadata files are returned.
+   * *   Pagination is not supported.
+   * *   The natural language processing capability may not always produce completely accurate results.
+   * ### [](#)Usage methods
+   * You can query files within a dataset by using natural language keywords. Key information supported for understanding includes labels (Labels.LabelName), time (ProduceTime), and location (Address.AddressLine). For example, if you use `2023 Hangzhou scenery` as the query criterion, the operation intelligently breaks the query criterion down into the following sub-criteria, and returns the files that meet all the sub-criteria:
+   * *   ProduceTime: 00:00 on January 1, 2023 to 00:00 on December 31, 2023.
+   * *   Address.AddressLine: `Hangzhou`
+   * *   Labels.LabelName: `scenery`.
+   * When you call this operation, you can configure a [workflow template](https://help.aliyun.com/document_detail/466304.html) that includes the `ImageEmbeddingExtraction` operator. This allows the operation to return image content when the query you input matches the image content, thereby achieving intelligent image retrieval.``
    * 
    * @param request - SemanticQueryRequest
    * @returns SemanticQueryResponse
@@ -27157,7 +34267,111 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过 JSON 结构的查询语言，对 Dataset 内的元数据进行查询与统计分析。
+   * Queries files in a dataset by performing a simple query operation. The operation supports logical expressions.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, join the DingTalk chat group (ID: 31690030817) and share your questions with us.
+   * **Limits**
+   * *   Each query returns information about up to 100 files.
+   * *   Each query returns up to 2,000 aggregations.
+   * *   A subquery supports up to 100 conditions.
+   * *   A subquery can have a maximum nesting depth of 5 levels.
+   * **Example query conditions**
+   * *   Retrieve JPEG images larger than 1,000 pixels:
+   * <!---->
+   *     {
+   *       "SubQueries":[
+   *         {
+   *           "Field":"ContentType",
+   *           "Value": "image/jpeg",
+   *           "Operation":"eq"
+   *         },         
+   *         {
+   *           "Field":"ImageWidth",
+   *           "Value":"1000",
+   *           "Operation":"gt"
+   *         }
+   *       ],
+   *       "Operation":"and"
+   *     }
+   * *   Search `oss://examplebucket/path/` for objects that have the `TV` or `Stereo` label and are larger than 10 MB in size:
+   * >  This query requires matching files to have the `TV` or `Stereo` label. The two labels are specified as separate objects in the `Labels` fields.
+   * ```
+   * {
+   *   "SubQueries": [
+   *     {
+   *       "Field": "URI",
+   *       "Value": "oss://examplebucket/path/",
+   *       "Operation": "prefix"
+   *     },
+   *     {
+   *       "Field": "Size",
+   *       "Value": "1048576",
+   *       "Operation": "gt"
+   *     },
+   *     {
+   *       "SubQueries": [
+   *         {
+   *           "Field": "Labels.LabelName",
+   *           "Value": "TV",
+   *           "Operation": "eq"
+   *         },
+   *         {
+   *           "Field": "Labels.LabelName",
+   *           "Value": "Stereo",
+   *           "Operation": "eq"
+   *         }
+   *       ],
+   *       "Operation": "or"
+   *     }
+   *   ],
+   *   "Operation": "and"
+   * }
+   *         
+   * ```
+   * *   Exclude images that contain a face of a male over the age of 36:
+   * >  In this example query, an image will be excluded from the query results if it contains a face of a male over the age of 36. This query is different from excluding an image that contains a male face or a face of a person over the age of 36. In this query, you need to use the `nested` operator to specify that the conditions are met on the same element.
+   *     {
+   *     	"Operation": "not",
+   *     	"SubQueries": [{
+   *     		"Operation": "nested",
+   *     		"SubQueries": [{
+   *     			"Operation": "and",
+   *     			"SubQueries": [{
+   *     				"Field": "Figures.Age",
+   *     				"Operation": "gt",
+   *     				"Value": "36"
+   *     			}, {
+   *     				"Field": "Figures.Gender",
+   *     				"Operation": "eq",
+   *     				"Value": "male"
+   *     			}]
+   *     		}]
+   *     	}]
+   *     }
+   * *   Query JPEG images that have both custom labels and system labels:
+   * <!---->
+   *     {
+   *       "SubQueries":[
+   *         {
+   *           "Field":"ContentType",
+   *           "Value": "image/jpeg",
+   *           "Operation":"eq"
+   *         },         
+   *         {
+   *           "Field":"CustomLabels.test",
+   *           "Operation":"exist"
+   *         },         
+   *         {
+   *           "Field":"Labels.LabelName",
+   *           "Operation":"exist"
+   *         }
+   *       ],
+   *       "Operation":"and"
+   *     }
+   * You can also perform aggregate operations to collect and analyze different data based on the specified conditions. For example, you can calculate the sum, count, average value, or maximum value of all files that meet the query conditions. You can also calculate the size distribution of images that meet the query conditions.
    * 
    * @param tmpReq - SimpleQueryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27238,7 +34452,111 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过 JSON 结构的查询语言，对 Dataset 内的元数据进行查询与统计分析。
+   * Queries files in a dataset by performing a simple query operation. The operation supports logical expressions.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+   * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, join the DingTalk chat group (ID: 31690030817) and share your questions with us.
+   * **Limits**
+   * *   Each query returns information about up to 100 files.
+   * *   Each query returns up to 2,000 aggregations.
+   * *   A subquery supports up to 100 conditions.
+   * *   A subquery can have a maximum nesting depth of 5 levels.
+   * **Example query conditions**
+   * *   Retrieve JPEG images larger than 1,000 pixels:
+   * <!---->
+   *     {
+   *       "SubQueries":[
+   *         {
+   *           "Field":"ContentType",
+   *           "Value": "image/jpeg",
+   *           "Operation":"eq"
+   *         },         
+   *         {
+   *           "Field":"ImageWidth",
+   *           "Value":"1000",
+   *           "Operation":"gt"
+   *         }
+   *       ],
+   *       "Operation":"and"
+   *     }
+   * *   Search `oss://examplebucket/path/` for objects that have the `TV` or `Stereo` label and are larger than 10 MB in size:
+   * >  This query requires matching files to have the `TV` or `Stereo` label. The two labels are specified as separate objects in the `Labels` fields.
+   * ```
+   * {
+   *   "SubQueries": [
+   *     {
+   *       "Field": "URI",
+   *       "Value": "oss://examplebucket/path/",
+   *       "Operation": "prefix"
+   *     },
+   *     {
+   *       "Field": "Size",
+   *       "Value": "1048576",
+   *       "Operation": "gt"
+   *     },
+   *     {
+   *       "SubQueries": [
+   *         {
+   *           "Field": "Labels.LabelName",
+   *           "Value": "TV",
+   *           "Operation": "eq"
+   *         },
+   *         {
+   *           "Field": "Labels.LabelName",
+   *           "Value": "Stereo",
+   *           "Operation": "eq"
+   *         }
+   *       ],
+   *       "Operation": "or"
+   *     }
+   *   ],
+   *   "Operation": "and"
+   * }
+   *         
+   * ```
+   * *   Exclude images that contain a face of a male over the age of 36:
+   * >  In this example query, an image will be excluded from the query results if it contains a face of a male over the age of 36. This query is different from excluding an image that contains a male face or a face of a person over the age of 36. In this query, you need to use the `nested` operator to specify that the conditions are met on the same element.
+   *     {
+   *     	"Operation": "not",
+   *     	"SubQueries": [{
+   *     		"Operation": "nested",
+   *     		"SubQueries": [{
+   *     			"Operation": "and",
+   *     			"SubQueries": [{
+   *     				"Field": "Figures.Age",
+   *     				"Operation": "gt",
+   *     				"Value": "36"
+   *     			}, {
+   *     				"Field": "Figures.Gender",
+   *     				"Operation": "eq",
+   *     				"Value": "male"
+   *     			}]
+   *     		}]
+   *     	}]
+   *     }
+   * *   Query JPEG images that have both custom labels and system labels:
+   * <!---->
+   *     {
+   *       "SubQueries":[
+   *         {
+   *           "Field":"ContentType",
+   *           "Value": "image/jpeg",
+   *           "Operation":"eq"
+   *         },         
+   *         {
+   *           "Field":"CustomLabels.test",
+   *           "Operation":"exist"
+   *         },         
+   *         {
+   *           "Field":"Labels.LabelName",
+   *           "Operation":"exist"
+   *         }
+   *       ],
+   *       "Operation":"and"
+   *     }
+   * You can also perform aggregate operations to collect and analyze different data based on the specified conditions. For example, you can calculate the sum, count, average value, or maximum value of all files that meet the query conditions. You can also calculate the size distribution of images that meet the query conditions.
    * 
    * @param request - SimpleQueryRequest
    * @returns SimpleQueryResponse
@@ -27249,7 +34567,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 挂起一个数据接入任务
+   * Suspends a batch processing task.
+   * 
+   * @remarks
+   * You can suspend a batch processing task that is in the Running state. You can call the [ResumeBatch](https://help.aliyun.com/document_detail/479914.html) operation to resume a batch processing task that is suspended.
    * 
    * @param request - SuspendBatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27284,7 +34605,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 挂起一个数据接入任务
+   * Suspends a batch processing task.
+   * 
+   * @remarks
+   * You can suspend a batch processing task that is in the Running state. You can call the [ResumeBatch](https://help.aliyun.com/document_detail/479914.html) operation to resume a batch processing task that is suspended.
    * 
    * @param request - SuspendBatchRequest
    * @returns SuspendBatchResponse
@@ -27295,7 +34619,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 挂起一个数据接入任务
+   * Suspends a running trigger.
+   * 
+   * @remarks
+   * The operation can be used to suspend a trigger only in the Running state. If you want to resume a suspended trigger, call the [ResumeTrigger](https://help.aliyun.com/document_detail/479919.html) operation.
    * 
    * @param request - SuspendTriggerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27330,7 +34657,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 挂起一个数据接入任务
+   * Suspends a running trigger.
+   * 
+   * @remarks
+   * The operation can be used to suspend a trigger only in the Running state. If you want to resume a suspended trigger, call the [ResumeTrigger](https://help.aliyun.com/document_detail/479919.html) operation.
    * 
    * @param request - SuspendTriggerRequest
    * @returns SuspendTriggerResponse
@@ -27341,7 +34671,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据接入实例
+   * Updates information about a batch processing task, including the input data source, data processing settings, and tags.
+   * 
+   * @remarks
+   *   You can update only a batch processing task that is in the Ready or Failed state. The update operation does not change the status of the batch processing task.
+   * *   If you update a batch processing task that is in progress, the task is not automatically resumed after the update is complete. You must call the [ResumeBatch](https://help.aliyun.com/document_detail/479914.html) operation to resume the task.
    * 
    * @param tmpReq - UpdateBatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27402,7 +34736,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据接入实例
+   * Updates information about a batch processing task, including the input data source, data processing settings, and tags.
+   * 
+   * @remarks
+   *   You can update only a batch processing task that is in the Ready or Failed state. The update operation does not change the status of the batch processing task.
+   * *   If you update a batch processing task that is in progress, the task is not automatically resumed after the update is complete. You must call the [ResumeBatch](https://help.aliyun.com/document_detail/479914.html) operation to resume the task.
    * 
    * @param request - UpdateBatchRequest
    * @returns UpdateBatchResponse
@@ -27487,7 +34825,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新聚类
+   * Updates information about a face cluster, such as the cluster name and labels.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have called the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
+   * *   The operation updates only the cover image, cluster name, and tags.
+   * *   After the operation is successful, you can call the [GetFigureCluster](https://help.aliyun.com/document_detail/478182.html) or [BatchGetFigureCluster](https://help.aliyun.com/document_detail/2248450.html) operation to query the updated cluster.
    * 
    * @param tmpReq - UpdateFigureClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27532,7 +34876,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新聚类
+   * Updates information about a face cluster, such as the cluster name and labels.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have called the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
+   * *   The operation updates only the cover image, cluster name, and tags.
+   * *   After the operation is successful, you can call the [GetFigureCluster](https://help.aliyun.com/document_detail/478182.html) or [BatchGetFigureCluster](https://help.aliyun.com/document_detail/2248450.html) operation to query the updated cluster.
    * 
    * @param request - UpdateFigureClusterRequest
    * @returns UpdateFigureClusterResponse
@@ -27543,7 +34893,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新文件元信息
+   * Updates the partial metadata of the indexed files in a dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   You cannot call this operation to update all metadata. You can update only metadata specified by CustomLabels, CustomId, and Figures. For more information, see the "Request parameters" section of this topic.
    * 
    * @param tmpReq - UpdateFileMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27588,7 +34942,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新文件元信息
+   * Updates the partial metadata of the indexed files in a dataset.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   You cannot call this operation to update all metadata. You can update only metadata specified by CustomLabels, CustomId, and Figures. For more information, see the "Request parameters" section of this topic.
    * 
    * @param request - UpdateFileMetaRequest
    * @returns UpdateFileMetaResponse
@@ -27599,7 +34957,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新时空聚类
+   * Updates a spatiotemporal cluster.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have called the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to create spatiotemporal clusters in the project.
    * 
    * @param tmpReq - UpdateLocationDateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27656,7 +35018,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新时空聚类
+   * Updates a spatiotemporal cluster.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+   * *   Before you call this operation, make sure that you have called the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to create spatiotemporal clusters in the project.
    * 
    * @param request - UpdateLocationDateClusterRequest
    * @returns UpdateLocationDateClusterResponse
@@ -27667,7 +35033,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新项目
+   * Updates information about a project.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that the project exists. For information about how to create a project, see "CreateProject".
+   * *   When you call this operation, you need to specify only the parameters that you want to update. The parameters that you do not specify remain unchanged after you call this operation.
+   * *   Wait for up to 5 minutes for the update to take effect.
    * 
    * @param tmpReq - UpdateProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27744,7 +35115,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新项目
+   * Updates information about a project.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that the project exists. For information about how to create a project, see "CreateProject".
+   * *   When you call this operation, you need to specify only the parameters that you want to update. The parameters that you do not specify remain unchanged after you call this operation.
+   * *   Wait for up to 5 minutes for the update to take effect.
    * 
    * @param request - UpdateProjectRequest
    * @returns UpdateProjectResponse
@@ -27755,7 +35131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新故事
+   * Updates the information about a story, such as the story name and cover image.
    * 
    * @param tmpReq - UpdateStoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27820,7 +35196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新故事
+   * Updates the information about a story, such as the story name and cover image.
    * 
    * @param request - UpdateStoryRequest
    * @returns UpdateStoryResponse
@@ -27831,7 +35207,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据接入实例
+   * Updates information about a trigger, such as the input data source, data processing settings, and tags.
+   * 
+   * @remarks
+   *   You can update only a trigger that is in the Ready or Failed state. The update operation does not change the trigger status.
+   * *   After you update a trigger, the uncompleted tasks under the original trigger are no longer executed. You can call the [ResumeTrigger](https://help.aliyun.com/document_detail/479916.html) operation to resume the execution of the trigger.
    * 
    * @param tmpReq - UpdateTriggerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27892,7 +35272,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据接入实例
+   * Updates information about a trigger, such as the input data source, data processing settings, and tags.
+   * 
+   * @remarks
+   *   You can update only a trigger that is in the Ready or Failed state. The update operation does not change the trigger status.
+   * *   After you update a trigger, the uncompleted tasks under the original trigger are no longer executed. You can call the [ResumeTrigger](https://help.aliyun.com/document_detail/479916.html) operation to resume the execution of the trigger.
    * 
    * @param request - UpdateTriggerRequest
    * @returns UpdateTriggerResponse
