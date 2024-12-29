@@ -2584,6 +2584,207 @@ export class CreateAccountResponse extends $tea.Model {
   }
 }
 
+export class CreateApsHiveJobRequest extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
+  advancedConfig?: string;
+  conflictStrategy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-****
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * 40
+   */
+  datasourceId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 16
+   */
+  fullComputeUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  ossLocation?: string;
+  /**
+   * @example
+   * 8
+   */
+  parallelism?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user_default
+   */
+  resourceGroup?: string;
+  /**
+   * @example
+   * *
+   */
+  syncAllowExpression?: string;
+  /**
+   * @example
+   * abc
+   */
+  syncDenyExpression?: string;
+  /**
+   * @example
+   * OSS
+   */
+  targetType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx-20240224100253
+   */
+  workloadName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advancedConfig: 'AdvancedConfig',
+      conflictStrategy: 'ConflictStrategy',
+      DBClusterId: 'DBClusterId',
+      datasourceId: 'DatasourceId',
+      fullComputeUnit: 'FullComputeUnit',
+      ossLocation: 'OssLocation',
+      parallelism: 'Parallelism',
+      regionId: 'RegionId',
+      resourceGroup: 'ResourceGroup',
+      syncAllowExpression: 'SyncAllowExpression',
+      syncDenyExpression: 'SyncDenyExpression',
+      targetType: 'TargetType',
+      workloadName: 'WorkloadName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedConfig: 'string',
+      conflictStrategy: 'string',
+      DBClusterId: 'string',
+      datasourceId: 'number',
+      fullComputeUnit: 'string',
+      ossLocation: 'string',
+      parallelism: 'number',
+      regionId: 'string',
+      resourceGroup: 'string',
+      syncAllowExpression: 'string',
+      syncDenyExpression: 'string',
+      targetType: 'string',
+      workloadName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApsHiveJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidInput
+   */
+  code?: string;
+  /**
+   * @example
+   * -
+   */
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: string;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 2895BB82-B2C1-408E-AA73-DB8D59******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApsHiveJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateApsHiveJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateApsHiveJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDBClusterRequest extends $tea.Model {
   /**
    * @remarks
@@ -3564,6 +3765,224 @@ export class CreateElasticPlanResponse extends $tea.Model {
   }
 }
 
+export class CreateLakeStorageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * ******
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * 用于指定和挂载到特定ADB主实例的湖存储
+   * 
+   * @example
+   * amv-******
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * 对湖存储的描述信息
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 设置湖存储的读/写权限和账户级别权限的数组
+   * 
+   * @example
+   * -
+   */
+  permissions?: CreateLakeStorageRequestPermissions[];
+  /**
+   * @remarks
+   * RegionId
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBClusterId: 'DBClusterId',
+      description: 'Description',
+      permissions: 'Permissions',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBClusterId: 'string',
+      description: 'string',
+      permissions: { 'type': 'array', 'itemType': CreateLakeStorageRequestPermissions },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLakeStorageShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * ******
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * 用于指定和挂载到特定ADB主实例的湖存储
+   * 
+   * @example
+   * amv-******
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * 对湖存储的描述信息
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 设置湖存储的读/写权限和账户级别权限的数组
+   * 
+   * @example
+   * -
+   */
+  permissionsShrink?: string;
+  /**
+   * @remarks
+   * RegionId
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBClusterId: 'DBClusterId',
+      description: 'Description',
+      permissionsShrink: 'Permissions',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBClusterId: 'string',
+      description: 'string',
+      permissionsShrink: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLakeStorageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidInput
+   */
+  code?: string;
+  /**
+   * @example
+   * true
+   */
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLakeStorageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLakeStorageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateLakeStorageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOssSubDirectoryRequest extends $tea.Model {
   /**
    * @remarks
@@ -4225,6 +4644,268 @@ export class DeleteAccountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApsDatasoureRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-******
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  datasourceId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      datasourceId: 'DatasourceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      datasourceId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApsDatasoureResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * 7
+   */
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: string;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * FAE98A4F-****-****-BF6D-67EEAC9C39DE
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApsDatasoureResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteApsDatasoureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteApsDatasoureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApsJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aps-*****
+   */
+  apsJobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apsJobId: 'ApsJobId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsJobId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApsJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * aps-*****
+   */
+  apsJobId?: string;
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * Success
+   */
+  errCode?: string;
+  /**
+   * @example
+   * OK
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * ****-****-5D14-AC9F-*********
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      apsJobId: 'ApsJobId',
+      code: 'Code',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsJobId: 'string',
+      code: 'string',
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApsJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteApsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteApsJobResponseBody,
     };
   }
 
@@ -5126,6 +5807,156 @@ export class DeleteSparkTemplateFileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSparkTemplateFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAPSADBInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAPSADBInstancesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * -
+   */
+  items?: DescribeAPSADBInstancesResponseBodyItems[];
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * ******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      items: 'Items',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      items: { 'type': 'array', 'itemType': DescribeAPSADBInstancesResponseBodyItems },
+      message: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAPSADBInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAPSADBInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAPSADBInstancesResponseBody,
     };
   }
 
@@ -6729,6 +7560,884 @@ export class DescribeApsActionLogsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeApsActionLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * am-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  datasourceId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      datasourceId: 'DatasourceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      datasourceId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * -
+   */
+  apsDatasource?: DescribeApsDatasourceResponseBodyApsDatasource;
+  /**
+   * @example
+   * ******-**D8-5***-A***-****587
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apsDatasource: 'ApsDatasource',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsDatasource: DescribeApsDatasourceResponseBodyApsDatasource,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApsDatasourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApsDatasourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * amv-******
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * test
+   */
+  datasourceName?: string;
+  /**
+   * @example
+   * SLS
+   */
+  datasourceType?: string;
+  /**
+   * @example
+   * 2024-01-30
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 2024-01-01
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      datasourceName: 'DatasourceName',
+      datasourceType: 'DatasourceType',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      datasourceName: 'string',
+      datasourceType: 'string',
+      endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  apsDatasources?: DescribeApsDatasourcesResponseBodyApsDatasources[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * ******-5213-******-B608-******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apsDatasources: 'ApsDatasources',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsDatasources: { 'type': 'array', 'itemType': DescribeApsDatasourcesResponseBodyApsDatasources },
+      pageNumber: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApsDatasourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApsDatasourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsHiveWorkloadRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aps-******
+   */
+  workloadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+      workloadId: 'WorkloadId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+      workloadId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsHiveWorkloadResponseBody extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
+  apsWorkload?: DescribeApsHiveWorkloadResponseBodyApsWorkload;
+  /**
+   * @example
+   * 86F92D26-B774-5FA1-8E53-******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apsWorkload: 'ApsWorkload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsWorkload: DescribeApsHiveWorkloadResponseBodyApsWorkload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsHiveWorkloadResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApsHiveWorkloadResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApsHiveWorkloadResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsJobDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aps-******
+   */
+  apsJobId?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apsJobId: 'ApsJobId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsJobId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsJobDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
+  APSJobDetail?: DescribeApsJobDetailResponseBodyAPSJobDetail;
+  /**
+   * @example
+   * ******-E606-4A42-BF6D-******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      APSJobDetail: 'APSJobDetail',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      APSJobDetail: DescribeApsJobDetailResponseBodyAPSJobDetail,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsJobDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApsJobDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApsJobDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * aps-xxxxx
+   */
+  apsJobName?: string;
+  /**
+   * @example
+   * 2022-04-23T01:10Z
+   */
+  createTimeEnd?: string;
+  /**
+   * @example
+   * 2022-03-23T01:10Z
+   */
+  createTimeStart?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apsJobName: 'ApsJobName',
+      createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsJobName: 'string',
+      createTimeEnd: 'string',
+      createTimeStart: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsJobsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
+  APSJobs?: DescribeApsJobsResponseBodyAPSJobs[];
+  /**
+   * @example
+   * ok
+   */
+  code?: string;
+  /**
+   * @example
+   * ok
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * ******-7F9D-5DBD-993E-******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      APSJobs: 'APSJobs',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      APSJobs: { 'type': 'array', 'itemType': DescribeApsJobsResponseBodyAPSJobs },
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsJobsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApsJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApsJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsMigrationWorkloadsRequest extends $tea.Model {
+  /**
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * 2021-07-20T16:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * oss://******
+   */
+  ossLocation?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 2021-06-20T16:00:00Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * test
+   */
+  workloadName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      endTime: 'EndTime',
+      ossLocation: 'OssLocation',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      workloadName: 'WorkloadName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      endTime: 'string',
+      ossLocation: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'string',
+      workloadName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsMigrationWorkloadsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * -
+   */
+  migrationWorkloads?: DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * ******-3EEC-57F0-9F06-******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      migrationWorkloads: 'MigrationWorkloads',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      migrationWorkloads: { 'type': 'array', 'itemType': DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsMigrationWorkloadsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApsMigrationWorkloadsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApsMigrationWorkloadsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsProgressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-******
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aps-******
+   */
+  workloadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+      workloadId: 'WorkloadId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+      workloadId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsProgressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
+  apsHiveProgress?: DescribeApsProgressResponseBodyApsHiveProgress[];
+  /**
+   * @example
+   * ******-3EEC-******-9F06-******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 100
+   */
+  successPercentage?: number;
+  /**
+   * @example
+   * 10
+   */
+  successTableCount?: number;
+  /**
+   * @example
+   * 10
+   */
+  totalTableCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apsHiveProgress: 'ApsHiveProgress',
+      requestId: 'RequestId',
+      successPercentage: 'SuccessPercentage',
+      successTableCount: 'SuccessTableCount',
+      totalTableCount: 'TotalTableCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsHiveProgress: { 'type': 'array', 'itemType': DescribeApsProgressResponseBodyApsHiveProgress },
+      requestId: 'string',
+      successPercentage: 'number',
+      successTableCount: 'number',
+      totalTableCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsProgressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApsProgressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApsProgressResponseBody,
     };
   }
 
@@ -11233,6 +12942,112 @@ export class DescribeExcessivePrimaryKeysResponse extends $tea.Model {
   }
 }
 
+export class DescribeInclinedNodesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-wz9jd******d1765
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * zh
+   */
+  lang?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      lang: 'Lang',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      lang: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInclinedNodesResponseBody extends $tea.Model {
+  items?: DescribeInclinedNodesResponseBodyItems[];
+  /**
+   * @example
+   * C0BF6685-0519-543E-90F8-DB8949E4D5F2
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeInclinedNodesResponseBodyItems },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInclinedNodesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInclinedNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInclinedNodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeJobResourceUsageRequest extends $tea.Model {
   /**
    * @remarks
@@ -14867,6 +16682,118 @@ export class ExistRunningSQLEngineResponse extends $tea.Model {
   }
 }
 
+export class GetApsManagedDatabasesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-******
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApsManagedDatabasesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * ******-3EEC-******-9F06-******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApsManagedDatabasesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetApsManagedDatabasesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetApsManagedDatabasesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCreateTableSQLRequest extends $tea.Model {
   /**
    * @remarks
@@ -15189,6 +17116,126 @@ export class GetDatabaseObjectsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDatabaseObjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLakeStorageRequest extends $tea.Model {
+  /**
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * -
+   */
+  lakeStorageId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      lakeStorageId: 'LakeStorageId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      lakeStorageId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLakeStorageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * -
+   */
+  data?: GetLakeStorageResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @example
+   * ******-3EEC-******-9F06-******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetLakeStorageResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLakeStorageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLakeStorageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLakeStorageResponseBody,
     };
   }
 
@@ -18077,6 +20124,879 @@ export class KillSparkSQLEngineResponse extends $tea.Model {
   }
 }
 
+export class ListApsLifecycleStrategyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * 2024-01-02T11:22Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 2024-01-01T11:22Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      endTime: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApsLifecycleStrategyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  items?: ListApsLifecycleStrategyResponseBodyItems[];
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * ******-3EEC-******-9F06-******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      items: 'Items',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      items: { 'type': 'array', 'itemType': ListApsLifecycleStrategyResponseBodyItems },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApsLifecycleStrategyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApsLifecycleStrategyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApsLifecycleStrategyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApsOptimizationStrategyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApsOptimizationStrategyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidInput
+   */
+  code?: string;
+  /**
+   * @example
+   * -
+   */
+  data?: ListApsOptimizationStrategyResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * ******-3EEC-******-9F06-******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListApsOptimizationStrategyResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApsOptimizationStrategyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApsOptimizationStrategyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApsOptimizationStrategyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApsOptimizationTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * 2022-09-30T00:15Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 2022-01-23T02:18Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * StrategyValue
+   */
+  strategyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+      strategyType: 'StrategyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      startTime: 'string',
+      strategyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApsOptimizationTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidInput
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * -
+   */
+  items?: ListApsOptimizationTasksResponseBodyItems[];
+  /**
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * ******-3EEC-******-9F06-******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 15
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      items: 'Items',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      items: { 'type': 'array', 'itemType': ListApsOptimizationTasksResponseBodyItems },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApsOptimizationTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApsOptimizationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApsOptimizationTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResultExportJobHistoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * 
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * amv-7xv5ty5m9o4v****
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * The name of the database account.
+   * 
+   * @example
+   * test1
+   */
+  databaseUser?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * >  The end time must be later than the start time.
+   * 
+   * @example
+   * 2023-05-25T06:54:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The order in which to sort the SQL statements by field, which contains the `Field` and `Type` fields. Specify the order in the JSON format. Example: `[{"Field":"CreateTimee", "Type": "desc" }]`.
+   * 
+   * *   `Field` specifies the field that is used to sort the SQL statements. Valid values:
+   * 
+   *     *   `CreateTime`: the time when the result set export job was created.
+   *     *   `Status`: the execution status.
+   *     *   `DatabaseUser`: the name of the database account.
+   *     *   `TimeCost`: the execution duration.
+   *     *   `ResourceGroup`: the name of the resource group.
+   *     *   `ExportRows`: the number of exported rows.
+   *     *   `Progress`: the export progress.
+   * 
+   * *   `Type` specifies the sorting order. Valid values (case-insensitive):
+   * 
+   *     *   `Desc`: descending order.
+   *     *   `Asc`: ascending order.
+   */
+  order?: ListResultExportJobHistoryRequestOrder;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values:
+   * 
+   * *   **30** (default)
+   * *   **50**
+   * *   **100**
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the cluster.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The name of the resource group that runs the result set export jobs. You can use this parameter to query the execution records of export jobs that are run in a specific resource group.
+   * 
+   * @example
+   * user_default
+   */
+  resourceGroup?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
+   * 
+   * @example
+   * 2022-01-01T12:01:00Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * The execution status of result set export jobs. You can use this parameter to query the execution records of export jobs that are in a specific state.
+   */
+  statusList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      databaseUser: 'DatabaseUser',
+      endTime: 'EndTime',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroup: 'ResourceGroup',
+      startTime: 'StartTime',
+      statusList: 'StatusList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      databaseUser: 'string',
+      endTime: 'string',
+      order: ListResultExportJobHistoryRequestOrder,
+      pageNumber: 'string',
+      pageSize: 'string',
+      regionId: 'string',
+      resourceGroup: 'string',
+      startTime: 'string',
+      statusList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResultExportJobHistoryShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * 
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * amv-7xv5ty5m9o4v****
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * The name of the database account.
+   * 
+   * @example
+   * test1
+   */
+  databaseUser?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * >  The end time must be later than the start time.
+   * 
+   * @example
+   * 2023-05-25T06:54:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The order in which to sort the SQL statements by field, which contains the `Field` and `Type` fields. Specify the order in the JSON format. Example: `[{"Field":"CreateTimee", "Type": "desc" }]`.
+   * 
+   * *   `Field` specifies the field that is used to sort the SQL statements. Valid values:
+   * 
+   *     *   `CreateTime`: the time when the result set export job was created.
+   *     *   `Status`: the execution status.
+   *     *   `DatabaseUser`: the name of the database account.
+   *     *   `TimeCost`: the execution duration.
+   *     *   `ResourceGroup`: the name of the resource group.
+   *     *   `ExportRows`: the number of exported rows.
+   *     *   `Progress`: the export progress.
+   * 
+   * *   `Type` specifies the sorting order. Valid values (case-insensitive):
+   * 
+   *     *   `Desc`: descending order.
+   *     *   `Asc`: ascending order.
+   */
+  orderShrink?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values:
+   * 
+   * *   **30** (default)
+   * *   **50**
+   * *   **100**
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the cluster.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The name of the resource group that runs the result set export jobs. You can use this parameter to query the execution records of export jobs that are run in a specific resource group.
+   * 
+   * @example
+   * user_default
+   */
+  resourceGroup?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
+   * 
+   * @example
+   * 2022-01-01T12:01:00Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * The execution status of result set export jobs. You can use this parameter to query the execution records of export jobs that are in a specific state.
+   */
+  statusListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      databaseUser: 'DatabaseUser',
+      endTime: 'EndTime',
+      orderShrink: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroup: 'ResourceGroup',
+      startTime: 'StartTime',
+      statusListShrink: 'StatusList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      databaseUser: 'string',
+      endTime: 'string',
+      orderShrink: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      regionId: 'string',
+      resourceGroup: 'string',
+      startTime: 'string',
+      statusListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResultExportJobHistoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * InvalidInput
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The queried execution records.
+   */
+  items?: ListResultExportJobHistoryResponseBodyItems[];
+  /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, an **OK** message is returned.
+   * *   If the request failed, an error message is returned.
+   * 
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 174
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      items: 'Items',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      items: { 'type': 'array', 'itemType': ListResultExportJobHistoryResponseBodyItems },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResultExportJobHistoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResultExportJobHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListResultExportJobHistoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSparkAppAttemptsRequest extends $tea.Model {
   /**
    * @remarks
@@ -19041,6 +21961,547 @@ export class ModifyAccountPrivilegesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyAccountPrivilegesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsDatasoureRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * test
+   */
+  datasourceDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  datasourceId?: number;
+  /**
+   * @example
+   * sls-******
+   */
+  datasourceName?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  kafkaInfo?: ModifyApsDatasoureRequestKafkaInfo;
+  /**
+   * @remarks
+   * Lakehouse ID。
+   * 
+   * @example
+   * 123
+   */
+  lakehouseId?: ModifyApsDatasoureRequestLakehouseId;
+  /**
+   * @example
+   * -
+   */
+  polarDBMysqlInfo?: ModifyApsDatasoureRequestPolarDBMysqlInfo;
+  /**
+   * @example
+   * -
+   */
+  rdsMysqlInfo?: ModifyApsDatasoureRequestRdsMysqlInfo;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @example
+   * -
+   */
+  slsInfo?: ModifyApsDatasoureRequestSlsInfo;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      datasourceDescription: 'DatasourceDescription',
+      datasourceId: 'DatasourceId',
+      datasourceName: 'DatasourceName',
+      kafkaInfo: 'KafkaInfo',
+      lakehouseId: 'LakehouseId',
+      polarDBMysqlInfo: 'PolarDBMysqlInfo',
+      rdsMysqlInfo: 'RdsMysqlInfo',
+      regionId: 'RegionId',
+      slsInfo: 'SlsInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      datasourceDescription: 'string',
+      datasourceId: 'number',
+      datasourceName: 'string',
+      kafkaInfo: ModifyApsDatasoureRequestKafkaInfo,
+      lakehouseId: ModifyApsDatasoureRequestLakehouseId,
+      polarDBMysqlInfo: ModifyApsDatasoureRequestPolarDBMysqlInfo,
+      rdsMysqlInfo: ModifyApsDatasoureRequestRdsMysqlInfo,
+      regionId: 'string',
+      slsInfo: ModifyApsDatasoureRequestSlsInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsDatasoureShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * test
+   */
+  datasourceDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  datasourceId?: number;
+  /**
+   * @example
+   * sls-******
+   */
+  datasourceName?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  kafkaInfoShrink?: string;
+  /**
+   * @remarks
+   * Lakehouse ID。
+   * 
+   * @example
+   * 123
+   */
+  lakehouseIdShrink?: string;
+  /**
+   * @example
+   * -
+   */
+  polarDBMysqlInfoShrink?: string;
+  /**
+   * @example
+   * -
+   */
+  rdsMysqlInfoShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @example
+   * -
+   */
+  slsInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      datasourceDescription: 'DatasourceDescription',
+      datasourceId: 'DatasourceId',
+      datasourceName: 'DatasourceName',
+      kafkaInfoShrink: 'KafkaInfo',
+      lakehouseIdShrink: 'LakehouseId',
+      polarDBMysqlInfoShrink: 'PolarDBMysqlInfo',
+      rdsMysqlInfoShrink: 'RdsMysqlInfo',
+      regionId: 'RegionId',
+      slsInfoShrink: 'SlsInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      datasourceDescription: 'string',
+      datasourceId: 'number',
+      datasourceName: 'string',
+      kafkaInfoShrink: 'string',
+      lakehouseIdShrink: 'string',
+      polarDBMysqlInfoShrink: 'string',
+      rdsMysqlInfoShrink: 'string',
+      regionId: 'string',
+      slsInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsDatasoureResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidInput
+   */
+  code?: string;
+  /**
+   * @example
+   * 150
+   */
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: string;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A3EB3BCD-D974-52D4-B75C-BB06505916CB
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsDatasoureResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyApsDatasoureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApsDatasoureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aps-bj1xxxxxx
+   */
+  apsJobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"EntireInstance":true}
+   */
+  dbList?: string;
+  /**
+   * @example
+   * {}
+   */
+  partitionList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apsJobId: 'ApsJobId',
+      dbList: 'DbList',
+      partitionList: 'PartitionList',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsJobId: 'string',
+      dbList: 'string',
+      partitionList: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * aps-bj1xxxxxx
+   */
+  apsJobId?: string;
+  /**
+   * @example
+   * InvalidInput
+   */
+  code?: string;
+  /**
+   * @example
+   * Success
+   */
+  errCode?: string;
+  /**
+   * @example
+   * OK
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @example
+   * ******-3EEC-******-9F06-******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      apsJobId: 'ApsJobId',
+      code: 'Code',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsJobId: 'string',
+      code: 'string',
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyApsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApsJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsWorkloadNameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  workloadId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  workloadName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+      workloadId: 'WorkloadId',
+      workloadName: 'WorkloadName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+      workloadId: 'string',
+      workloadName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsWorkloadNameResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsWorkloadNameResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyApsWorkloadNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApsWorkloadNameResponseBody,
     };
   }
 
@@ -21925,6 +25386,139 @@ export class SetSparkAppLogRootPathResponse extends $tea.Model {
   }
 }
 
+export class StartApsJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aps-******
+   */
+  apsJobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apsJobId: 'ApsJobId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsJobId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartApsJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * aps-******
+   */
+  apsJobId?: string;
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * OK
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * ******-3EEC-******-9F06-******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      apsJobId: 'ApsJobId',
+      code: 'Code',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsJobId: 'string',
+      code: 'string',
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartApsJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartApsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartApsJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartSparkReplSessionRequest extends $tea.Model {
   /**
    * @remarks
@@ -22162,6 +25756,204 @@ export class StartSparkSQLEngineResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartSparkSQLEngineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitResultExportJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * 
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * amv-bp10a0ng21t5****
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * The engine that is used to execute the result set export job. Set the value to XIHE.
+   * 
+   * @example
+   * XIHE
+   */
+  engine?: string;
+  exportType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The name of the resource group that runs the result set export job.
+   * 
+   * @example
+   * user_default
+   */
+  resourceGroup?: string;
+  /**
+   * @remarks
+   * The SQL statement that is used in the result set export job. You can specify only SELECT statements. If you specify other SQL statements, the request fails.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SELECT * FROM `fotor_com_datastore_resource`.`fotor_ai_create_task` where `date` = \\"2023-05-13\\" LIMIT 10;
+   */
+  SQL?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tpch_oss
+   */
+  schema?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      engine: 'Engine',
+      exportType: 'ExportType',
+      regionId: 'RegionId',
+      resourceGroup: 'ResourceGroup',
+      SQL: 'SQL',
+      schema: 'Schema',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      engine: 'string',
+      exportType: 'string',
+      regionId: 'string',
+      resourceGroup: 'string',
+      SQL: 'string',
+      schema: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitResultExportJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * InvalidInput
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The ID of the result set export job.
+   * 
+   * @example
+   * export_202405131927121980210080040****
+   */
+  data?: string;
+  /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, an **OK** message is returned.
+   * *   If the request failed, an error message is returned.
+   * 
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitResultExportJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitResultExportJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitResultExportJobResponseBody,
     };
   }
 
@@ -22620,6 +26412,215 @@ export class UnbindDBResourceGroupWithUserResponse extends $tea.Model {
   }
 }
 
+export class UpdateLakeStorageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 用于指定和挂载到特定ADB主实例的湖存储
+   * 
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * 对湖存储的描述信息
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 用于识别特定湖存储的唯一标识符
+   * 
+   * @example
+   * -
+   */
+  lakeStorageId?: string;
+  /**
+   * @remarks
+   * 设置湖存储的读/写权限和账户级别权限的数组
+   * 
+   * @example
+   * -
+   */
+  permissions?: UpdateLakeStorageRequestPermissions[];
+  /**
+   * @example
+   * cn-shenzhen
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      description: 'Description',
+      lakeStorageId: 'LakeStorageId',
+      permissions: 'Permissions',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      description: 'string',
+      lakeStorageId: 'string',
+      permissions: { 'type': 'array', 'itemType': UpdateLakeStorageRequestPermissions },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLakeStorageShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 用于指定和挂载到特定ADB主实例的湖存储
+   * 
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * 对湖存储的描述信息
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 用于识别特定湖存储的唯一标识符
+   * 
+   * @example
+   * -
+   */
+  lakeStorageId?: string;
+  /**
+   * @remarks
+   * 设置湖存储的读/写权限和账户级别权限的数组
+   * 
+   * @example
+   * -
+   */
+  permissionsShrink?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      description: 'Description',
+      lakeStorageId: 'LakeStorageId',
+      permissionsShrink: 'Permissions',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      description: 'string',
+      lakeStorageId: 'string',
+      permissionsShrink: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLakeStorageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * -
+   */
+  data?: UpdateLakeStorageResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * ******-3EEC-******-9F06-******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdateLakeStorageResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLakeStorageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLakeStorageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateLakeStorageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateSparkTemplateFileRequest extends $tea.Model {
   /**
    * @remarks
@@ -23018,6 +27019,62 @@ export class CreateDBResourceGroupRequestRules extends $tea.Model {
   }
 }
 
+export class CreateLakeStorageRequestPermissions extends $tea.Model {
+  /**
+   * @remarks
+   * 具有该权限的账户或RAM用户ID
+   * 
+   * @example
+   * -
+   */
+  account?: string;
+  /**
+   * @remarks
+   * 表示是否允许读取湖存储的权限
+   * 
+   * @example
+   * -
+   */
+  read?: boolean;
+  /**
+   * @remarks
+   * 指定权限的账户类型
+   * 
+   * @example
+   * -
+   */
+  type?: string;
+  /**
+   * @remarks
+   * 表示是否允许向湖存储写入数据的权限
+   * 
+   * @example
+   * -
+   */
+  write?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+      read: 'Read',
+      type: 'Type',
+      write: 'Write',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      read: 'boolean',
+      type: 'string',
+      write: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOssSubDirectoryResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -23276,6 +27333,71 @@ export class DeleteSparkTemplateFileResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       succeeded: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAPSADBInstancesResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * 16ACU
+   */
+  computeResource?: string;
+  /**
+   * @example
+   * adb_test
+   */
+  DBClusterDescription?: string;
+  /**
+   * @example
+   * am-bp1********
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * Running
+   */
+  DBClusterStatus?: string;
+  /**
+   * @example
+   * 24ACU
+   */
+  reservedACU?: string;
+  /**
+   * @example
+   * 24ACU
+   */
+  storageResource?: number;
+  /**
+   * @example
+   * cn-hangzhou-h
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      computeResource: 'ComputeResource',
+      DBClusterDescription: 'DBClusterDescription',
+      DBClusterId: 'DBClusterId',
+      DBClusterStatus: 'DBClusterStatus',
+      reservedACU: 'ReservedACU',
+      storageResource: 'StorageResource',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      computeResource: 'string',
+      DBClusterDescription: 'string',
+      DBClusterId: 'string',
+      DBClusterStatus: 'string',
+      reservedACU: 'string',
+      storageResource: 'number',
+      zoneId: 'string',
     };
   }
 
@@ -24013,6 +28135,944 @@ export class DescribeApsActionLogsResponseBodyActionLogs extends $tea.Model {
       stage: 'string',
       state: 'string',
       time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourceResponseBodyApsDatasourceDatabricksInfo extends $tea.Model {
+  /**
+   * @example
+   * ******
+   */
+  accessToken?: string;
+  /**
+   * @example
+   * -
+   */
+  workspaceURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      workspaceURL: 'workspaceURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      workspaceURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourceResponseBodyApsDatasourceHiveInfo extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
+  emrClusterId?: string;
+  /**
+   * @remarks
+   * hive meta store url。
+   * 
+   * @example
+   * -
+   */
+  metaStoreUri?: string;
+  /**
+   * @example
+   * sg-******
+   */
+  securityGroup?: string;
+  /**
+   * @example
+   * vsw-******
+   */
+  vswitch?: string;
+  static names(): { [key: string]: string } {
+    return {
+      emrClusterId: 'EmrClusterId',
+      metaStoreUri: 'MetaStoreUri',
+      securityGroup: 'SecurityGroup',
+      vswitch: 'Vswitch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      emrClusterId: 'string',
+      metaStoreUri: 'string',
+      securityGroup: 'string',
+      vswitch: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourceResponseBodyApsDatasourceKafkaInfo extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
+  kafkaClusterId?: string;
+  /**
+   * @remarks
+   * kafka topic
+   * 
+   * @example
+   * [{\\"value\\": \\"hongxian_test\\"}]
+   */
+  kafkaTopic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      kafkaClusterId: 'KafkaClusterId',
+      kafkaTopic: 'KafkaTopic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kafkaClusterId: 'string',
+      kafkaTopic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo extends $tea.Model {
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  across?: boolean;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  acrossRole?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  acrossUid?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  connectUrl?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  securityGroup?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      across: 'Across',
+      acrossRole: 'AcrossRole',
+      acrossUid: 'AcrossUid',
+      connectUrl: 'ConnectUrl',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      securityGroup: 'SecurityGroup',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      across: 'boolean',
+      acrossRole: 'string',
+      acrossUid: 'string',
+      connectUrl: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      securityGroup: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo extends $tea.Model {
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  connectUrl?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  securityGroup?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectUrl: 'ConnectUrl',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      securityGroup: 'SecurityGroup',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectUrl: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      securityGroup: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourceResponseBodyApsDatasourceSlsInfo extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  across?: boolean;
+  /**
+   * @example
+   * test
+   */
+  acrossRole?: string;
+  /**
+   * @example
+   * 123456
+   */
+  acrossUid?: string;
+  /**
+   * @example
+   * ***
+   */
+  project?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  sourceRegionId?: string;
+  /**
+   * @example
+   * ***
+   */
+  store?: string;
+  static names(): { [key: string]: string } {
+    return {
+      across: 'Across',
+      acrossRole: 'AcrossRole',
+      acrossUid: 'AcrossUid',
+      project: 'Project',
+      sourceRegionId: 'SourceRegionId',
+      store: 'Store',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      across: 'boolean',
+      acrossRole: 'string',
+      acrossUid: 'string',
+      project: 'string',
+      sourceRegionId: 'string',
+      store: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourceResponseBodyApsDatasource extends $tea.Model {
+  /**
+   * @example
+   * 2024-04-12T15:03:38Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * amv-******
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * -
+   */
+  databricksInfo?: DescribeApsDatasourceResponseBodyApsDatasourceDatabricksInfo;
+  /**
+   * @example
+   * test
+   */
+  datasourceDescription?: string;
+  /**
+   * @example
+   * kafka-2024***
+   */
+  datasourceName?: string;
+  /**
+   * @example
+   * KAFKA
+   */
+  datasourceType?: string;
+  /**
+   * @example
+   * -
+   */
+  hiveInfo?: DescribeApsDatasourceResponseBodyApsDatasourceHiveInfo;
+  /**
+   * @example
+   * -
+   */
+  kafkaInfo?: DescribeApsDatasourceResponseBodyApsDatasourceKafkaInfo;
+  /**
+   * @example
+   * -
+   */
+  polarDBMysqlInfo?: DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo;
+  /**
+   * @example
+   * -
+   */
+  rdsMysqlInfo?: DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo;
+  /**
+   * @example
+   * -
+   */
+  slsInfo?: DescribeApsDatasourceResponseBodyApsDatasourceSlsInfo;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      DBClusterId: 'DBClusterId',
+      databricksInfo: 'DatabricksInfo',
+      datasourceDescription: 'DatasourceDescription',
+      datasourceName: 'DatasourceName',
+      datasourceType: 'DatasourceType',
+      hiveInfo: 'HiveInfo',
+      kafkaInfo: 'KafkaInfo',
+      polarDBMysqlInfo: 'PolarDBMysqlInfo',
+      rdsMysqlInfo: 'RdsMysqlInfo',
+      slsInfo: 'SlsInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      DBClusterId: 'string',
+      databricksInfo: DescribeApsDatasourceResponseBodyApsDatasourceDatabricksInfo,
+      datasourceDescription: 'string',
+      datasourceName: 'string',
+      datasourceType: 'string',
+      hiveInfo: DescribeApsDatasourceResponseBodyApsDatasourceHiveInfo,
+      kafkaInfo: DescribeApsDatasourceResponseBodyApsDatasourceKafkaInfo,
+      polarDBMysqlInfo: DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo,
+      rdsMysqlInfo: DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo,
+      slsInfo: DescribeApsDatasourceResponseBodyApsDatasourceSlsInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsDatasourcesResponseBodyApsDatasources extends $tea.Model {
+  /**
+   * @example
+   * 2024-01-10 14:44:33
+   */
+  createTime?: string;
+  /**
+   * @example
+   * test
+   */
+  datasourceDescription?: string;
+  /**
+   * @example
+   * 1
+   */
+  datasourceId?: number;
+  /**
+   * @example
+   * test
+   */
+  datasourceName?: string;
+  /**
+   * @example
+   * SLS
+   */
+  datasourceType?: string;
+  /**
+   * @example
+   * false
+   */
+  hasJob?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      datasourceDescription: 'DatasourceDescription',
+      datasourceId: 'DatasourceId',
+      datasourceName: 'DatasourceName',
+      datasourceType: 'DatasourceType',
+      hasJob: 'HasJob',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      datasourceDescription: 'string',
+      datasourceId: 'number',
+      datasourceName: 'string',
+      datasourceType: 'string',
+      hasJob: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $tea.Model {
+  /**
+   * @example
+   * test.adv.config=value
+   */
+  advancedConfig?: string;
+  /**
+   * @example
+   * Intercept
+   */
+  conflictStrategy?: string;
+  /**
+   * @example
+   * -
+   */
+  createTime?: string;
+  /**
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * 8
+   */
+  datasourceId?: number;
+  /**
+   * @example
+   * sls-******
+   */
+  datasourceName?: string;
+  /**
+   * @example
+   * -
+   */
+  emrClusterId?: string;
+  /**
+   * @example
+   * 16
+   */
+  fullComputeUnit?: string;
+  /**
+   * @remarks
+   * hive meta store url。
+   * 
+   * @example
+   * -
+   */
+  metaStoreUri?: string;
+  /**
+   * @example
+   * oss://******
+   */
+  ossLocation?: string;
+  /**
+   * @example
+   * 2
+   */
+  parallelism?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * test
+   */
+  resourceGroup?: string;
+  /**
+   * @example
+   * COMPLETED
+   */
+  state?: string;
+  /**
+   * @example
+   * abc
+   */
+  syncAllowExpression?: string;
+  /**
+   * @example
+   * def
+   */
+  syncDenyExpression?: string;
+  /**
+   * @example
+   * OSS
+   */
+  targetType?: string;
+  /**
+   * @example
+   * vsw-******
+   */
+  vswitch?: string;
+  /**
+   * @example
+   * aps-******
+   */
+  workloadId?: string;
+  /**
+   * @example
+   * test
+   */
+  workloadName?: string;
+  /**
+   * @example
+   * test
+   */
+  workloadTypeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advancedConfig: 'AdvancedConfig',
+      conflictStrategy: 'ConflictStrategy',
+      createTime: 'CreateTime',
+      DBClusterId: 'DBClusterId',
+      datasourceId: 'DatasourceId',
+      datasourceName: 'DatasourceName',
+      emrClusterId: 'EmrClusterId',
+      fullComputeUnit: 'FullComputeUnit',
+      metaStoreUri: 'MetaStoreUri',
+      ossLocation: 'OssLocation',
+      parallelism: 'Parallelism',
+      regionId: 'RegionId',
+      resourceGroup: 'ResourceGroup',
+      state: 'State',
+      syncAllowExpression: 'SyncAllowExpression',
+      syncDenyExpression: 'SyncDenyExpression',
+      targetType: 'TargetType',
+      vswitch: 'Vswitch',
+      workloadId: 'WorkloadId',
+      workloadName: 'WorkloadName',
+      workloadTypeName: 'WorkloadTypeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedConfig: 'string',
+      conflictStrategy: 'string',
+      createTime: 'string',
+      DBClusterId: 'string',
+      datasourceId: 'number',
+      datasourceName: 'string',
+      emrClusterId: 'string',
+      fullComputeUnit: 'string',
+      metaStoreUri: 'string',
+      ossLocation: 'string',
+      parallelism: 'number',
+      regionId: 'string',
+      resourceGroup: 'string',
+      state: 'string',
+      syncAllowExpression: 'string',
+      syncDenyExpression: 'string',
+      targetType: 'string',
+      vswitch: 'string',
+      workloadId: 'string',
+      workloadName: 'string',
+      workloadTypeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
+  dbList?: string;
+  /**
+   * @example
+   * amv-******
+   */
+  destinationEndpointInstanceID?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  destinationEndpointRegion?: string;
+  /**
+   * @example
+   * {}
+   */
+  partitionList?: string;
+  /**
+   * @example
+   * pc-*******
+   */
+  sourceEndpointInstanceID?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceEndpointRegion?: string;
+  /**
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @example
+   * 0
+   */
+  targetTableMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbList: 'DbList',
+      destinationEndpointInstanceID: 'DestinationEndpointInstanceID',
+      destinationEndpointRegion: 'DestinationEndpointRegion',
+      partitionList: 'PartitionList',
+      sourceEndpointInstanceID: 'SourceEndpointInstanceID',
+      sourceEndpointRegion: 'SourceEndpointRegion',
+      status: 'Status',
+      targetTableMode: 'TargetTableMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbList: 'string',
+      destinationEndpointInstanceID: 'string',
+      destinationEndpointRegion: 'string',
+      partitionList: 'string',
+      sourceEndpointInstanceID: 'string',
+      sourceEndpointRegion: 'string',
+      status: 'string',
+      targetTableMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsJobsResponseBodyAPSJobs extends $tea.Model {
+  /**
+   * @example
+   * aps-******
+   */
+  apsJobId?: string;
+  /**
+   * @example
+   * data-sync-******
+   */
+  apsJobName?: string;
+  /**
+   * @example
+   * 2022-06-28 15:00:04
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 0
+   */
+  delay?: number;
+  /**
+   * @example
+   * amv-*******
+   */
+  destinationInstanceID?: string;
+  /**
+   * @example
+   * OK
+   */
+  errMessage?: string;
+  projress?: string;
+  /**
+   * @example
+   * pc-******
+   */
+  sourceInstanceID?: string;
+  /**
+   * @example
+   * -
+   */
+  status?: string;
+  /**
+   * @example
+   * -
+   */
+  subStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apsJobId: 'ApsJobId',
+      apsJobName: 'ApsJobName',
+      createTime: 'CreateTime',
+      delay: 'Delay',
+      destinationInstanceID: 'DestinationInstanceID',
+      errMessage: 'ErrMessage',
+      projress: 'Projress',
+      sourceInstanceID: 'SourceInstanceID',
+      status: 'Status',
+      subStatus: 'SubStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsJobId: 'string',
+      apsJobName: 'string',
+      createTime: 'string',
+      delay: 'number',
+      destinationInstanceID: 'string',
+      errMessage: 'string',
+      projress: 'string',
+      sourceInstanceID: 'string',
+      status: 'string',
+      subStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
+  acuCount?: number;
+  /**
+   * @example
+   * 2021-06-21T02:15:16Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * -
+   */
+  failedMsg?: string;
+  /**
+   * @example
+   * 123
+   */
+  id?: string;
+  /**
+   * @example
+   * 1000
+   */
+  maxRT?: string;
+  /**
+   * @example
+   * 2021-06-21T02:15:16Z
+   */
+  modifyTime?: string;
+  /**
+   * @example
+   * TEST-001
+   */
+  name?: string;
+  /**
+   * @example
+   * oss://******
+   */
+  ossLocation?: string;
+  /**
+   * @example
+   * COMPLETED
+   */
+  state?: string;
+  /**
+   * @example
+   * OSS
+   */
+  targetType?: string;
+  /**
+   * @example
+   * test
+   */
+  workloadSubType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acuCount: 'AcuCount',
+      createTime: 'CreateTime',
+      failedMsg: 'FailedMsg',
+      id: 'Id',
+      maxRT: 'MaxRT',
+      modifyTime: 'ModifyTime',
+      name: 'Name',
+      ossLocation: 'OssLocation',
+      state: 'State',
+      targetType: 'TargetType',
+      workloadSubType: 'WorkloadSubType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acuCount: 'number',
+      createTime: 'string',
+      failedMsg: 'string',
+      id: 'string',
+      maxRT: 'string',
+      modifyTime: 'string',
+      name: 'string',
+      ossLocation: 'string',
+      state: 'string',
+      targetType: 'string',
+      workloadSubType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApsProgressResponseBodyApsHiveProgress extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  dbName?: string;
+  /**
+   * @example
+   * 95
+   */
+  progress?: string;
+  /**
+   * @example
+   * 2
+   */
+  speed?: string;
+  /**
+   * @example
+   * test
+   */
+  tbName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbName: 'DbName',
+      progress: 'Progress',
+      speed: 'Speed',
+      tbName: 'TbName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbName: 'string',
+      progress: 'string',
+      speed: 'string',
+      tbName: 'string',
     };
   }
 
@@ -28430,6 +33490,36 @@ export class DescribeExcessivePrimaryKeysResponseBodyTables extends $tea.Model {
   }
 }
 
+export class DescribeInclinedNodesResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * 90.5
+   */
+  diskUsageRatio?: string;
+  /**
+   * @example
+   * Node1
+   */
+  node?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskUsageRatio: 'DiskUsageRatio',
+      node: 'Node',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskUsageRatio: 'string',
+      node: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail extends $tea.Model {
   /**
    * @remarks
@@ -29959,6 +35049,215 @@ export class GetDatabaseObjectsResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetLakeStorageResponseBodyDataPermissions extends $tea.Model {
+  /**
+   * @remarks
+   * 具有该权限的账户或RAM用户ID
+   * 
+   * @example
+   * test
+   */
+  account?: string;
+  /**
+   * @remarks
+   * 表示是否允许读取湖存储的权限
+   * 
+   * @example
+   * true
+   */
+  read?: boolean;
+  /**
+   * @remarks
+   * 指定权限的账户类型
+   * 
+   * @example
+   * -
+   */
+  type?: string;
+  /**
+   * @remarks
+   * 表示是否允许向湖存储写入数据的权限
+   * 
+   * @example
+   * true
+   */
+  write?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+      read: 'Read',
+      type: 'Type',
+      write: 'Write',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      read: 'boolean',
+      type: 'string',
+      write: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLakeStorageResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * 湖存储被创建的时间
+   * 
+   * @example
+   * 2023-05-15T07:24:58Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * 创建湖存储的用户账号的唯一标识符
+   * 
+   * @example
+   * 123456
+   */
+  creatorUid?: string;
+  /**
+   * @remarks
+   * 用于指定和挂载到特定ADB主实例的湖存储
+   * 
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * 对湖存储的描述信息
+   * 
+   * @example
+   * a test db
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 湖存储中数据的总存储量
+   * 
+   * @example
+   * 1
+   */
+  fileSize?: string;
+  /**
+   * @remarks
+   * 用于识别特定湖存储的唯一标识符
+   * 
+   * @example
+   * -
+   */
+  lakeStorageId?: string;
+  /**
+   * @remarks
+   * 最后操作湖存储的用户账号的唯一标识符
+   * 
+   * @example
+   * 123456
+   */
+  operatorUid?: string;
+  /**
+   * @remarks
+   * 拥有湖存储资源的用户账号的唯一标识符
+   * 
+   * @example
+   * 123456
+   */
+  ownerUid?: string;
+  /**
+   * @example
+   * -
+   */
+  partitionCount?: string;
+  /**
+   * @remarks
+   * 设置湖存储的读/写权限和账户级别权限的数组
+   * 
+   * @example
+   * -
+   */
+  permissions?: GetLakeStorageResponseBodyDataPermissions[];
+  /**
+   * @remarks
+   * 指定要操作的湖存储所在区域的ID
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * 湖存储中所有库表的总数据行数
+   * 
+   * @example
+   * -
+   */
+  rowCount?: number;
+  /**
+   * @remarks
+   * 湖存储中库表的总数量
+   * 
+   * @example
+   * -
+   */
+  tableCount?: number;
+  /**
+   * @remarks
+   * 湖存储最后一次更新的时间
+   * 
+   * @example
+   * 2024-10-14T02:28:41Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      creatorUid: 'CreatorUid',
+      DBClusterId: 'DBClusterId',
+      description: 'Description',
+      fileSize: 'FileSize',
+      lakeStorageId: 'LakeStorageId',
+      operatorUid: 'OperatorUid',
+      ownerUid: 'OwnerUid',
+      partitionCount: 'PartitionCount',
+      permissions: 'Permissions',
+      regionId: 'RegionId',
+      rowCount: 'RowCount',
+      tableCount: 'TableCount',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      creatorUid: 'string',
+      DBClusterId: 'string',
+      description: 'string',
+      fileSize: 'string',
+      lakeStorageId: 'string',
+      operatorUid: 'string',
+      ownerUid: 'string',
+      partitionCount: 'string',
+      permissions: { 'type': 'array', 'itemType': GetLakeStorageResponseBodyDataPermissions },
+      regionId: 'string',
+      rowCount: 'number',
+      tableCount: 'number',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSparkAppAttemptLogResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -30967,6 +36266,533 @@ export class KillSparkAppResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListApsLifecycleStrategyResponseBodyItemsOperationTables extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  databaseName?: string;
+  /**
+   * @example
+   * true
+   */
+  processAll?: string;
+  tableNames?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      databaseName: 'DatabaseName',
+      processAll: 'ProcessAll',
+      tableNames: 'TableNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseName: 'string',
+      processAll: 'string',
+      tableNames: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApsLifecycleStrategyResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * aps-******
+   */
+  apsJobId?: string;
+  /**
+   * @example
+   * 2021-06-30T02:44:27Z
+   */
+  createdTime?: string;
+  /**
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * 2021-07-03T06:33:00Z
+   */
+  modifiedTime?: string;
+  /**
+   * @remarks
+   * -
+   */
+  operationTables?: ListApsLifecycleStrategyResponseBodyItemsOperationTables[];
+  /**
+   * @example
+   * on
+   */
+  status?: string;
+  /**
+   * @example
+   * 5
+   */
+  strategyDatabases?: number;
+  /**
+   * @example
+   * test
+   */
+  strategyDesc?: string;
+  /**
+   * @example
+   * test
+   */
+  strategyName?: string;
+  /**
+   * @example
+   * 5
+   */
+  strategyTables?: number;
+  /**
+   * @example
+   * KEEP_BY_TIME
+   */
+  strategyType?: string;
+  /**
+   * @example
+   * 10
+   */
+  strategyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apsJobId: 'ApsJobId',
+      createdTime: 'CreatedTime',
+      DBClusterId: 'DBClusterId',
+      modifiedTime: 'ModifiedTime',
+      operationTables: 'OperationTables',
+      status: 'Status',
+      strategyDatabases: 'StrategyDatabases',
+      strategyDesc: 'StrategyDesc',
+      strategyName: 'StrategyName',
+      strategyTables: 'StrategyTables',
+      strategyType: 'StrategyType',
+      strategyValue: 'StrategyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apsJobId: 'string',
+      createdTime: 'string',
+      DBClusterId: 'string',
+      modifiedTime: 'string',
+      operationTables: { 'type': 'array', 'itemType': ListApsLifecycleStrategyResponseBodyItemsOperationTables },
+      status: 'string',
+      strategyDatabases: 'number',
+      strategyDesc: 'string',
+      strategyName: 'string',
+      strategyTables: 'number',
+      strategyType: 'string',
+      strategyValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApsOptimizationStrategyResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * amv-23xxxx
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * off
+   */
+  status?: string;
+  /**
+   * @example
+   * test
+   */
+  strategyDesc?: string;
+  /**
+   * @example
+   * test
+   */
+  strategyName?: string;
+  /**
+   * @example
+   * StrategyValue
+   */
+  strategyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      status: 'Status',
+      strategyDesc: 'StrategyDesc',
+      strategyName: 'StrategyName',
+      strategyType: 'StrategyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      status: 'string',
+      strategyDesc: 'string',
+      strategyName: 'string',
+      strategyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApsOptimizationTasksResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
+  computeUnit?: string;
+  /**
+   * @example
+   * 2022-01-23T02:18Z
+   */
+  createdTime?: string;
+  /**
+   * @example
+   * amv-*******
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * 2022-09-30T00:15Z
+   */
+  modifiedTime?: string;
+  /**
+   * @example
+   * StrategyValue
+   */
+  strategyType?: string;
+  /**
+   * @example
+   * test
+   */
+  taskDesc?: string;
+  /**
+   * @example
+   * 1000
+   */
+  taskDuration?: number;
+  /**
+   * @example
+   * sj-hz******
+   */
+  taskId?: string;
+  /**
+   * @example
+   * -
+   */
+  taskMessage?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  taskStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      computeUnit: 'ComputeUnit',
+      createdTime: 'CreatedTime',
+      DBClusterId: 'DBClusterId',
+      modifiedTime: 'ModifiedTime',
+      strategyType: 'StrategyType',
+      taskDesc: 'TaskDesc',
+      taskDuration: 'TaskDuration',
+      taskId: 'TaskId',
+      taskMessage: 'TaskMessage',
+      taskStatus: 'TaskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      computeUnit: 'string',
+      createdTime: 'string',
+      DBClusterId: 'string',
+      modifiedTime: 'string',
+      strategyType: 'string',
+      taskDesc: 'string',
+      taskDuration: 'number',
+      taskId: 'string',
+      taskMessage: 'string',
+      taskStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResultExportJobHistoryRequestOrder extends $tea.Model {
+  /**
+   * @remarks
+   * The field that is used to sort the SQL statements. Valid values:
+   * 
+   * *   CreateTime
+   * *   DatabaseUser
+   * *   TimeCost
+   * *   ResourceGroup
+   * *   Status
+   * *   Progress
+   * *   ExportRows
+   * 
+   * @example
+   * DatabaseUser
+   */
+  field?: string;
+  /**
+   * @remarks
+   * The sorting order. Valid values (case-insensitive):
+   * 
+   * *   **Desc**: descending order.
+   * *   **Asc**: ascending order.
+   * 
+   * @example
+   * Desc
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      field: 'Field',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResultExportJobHistoryResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The RAM user ID.
+   * 
+   * @example
+   * 120010511678****
+   */
+  aliUid?: string;
+  /**
+   * @remarks
+   * The time when the result set export job was created. The time follows the ISO 8601 standard in the *yyyy-mm-ddThh:mm:ssZ* format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-04-01T09:50:18Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * 
+   * @example
+   * amv-7xv5ty5m9o4v****
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * The name of the database account that is associated with the RAM user.
+   * 
+   * @example
+   * ram_user
+   */
+  databaseUser?: string;
+  /**
+   * @remarks
+   * The end time of the result set export job. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
+   * 
+   * >  The end time must be later than the start time.
+   * 
+   * @example
+   * 2023-06-15T02:13:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The engine that is used to execute the result set export job. Only XIHE is returned.
+   * 
+   * @example
+   * XIHE
+   */
+  engine?: string;
+  /**
+   * @remarks
+   * The unique identifier of the result set export job.
+   * 
+   * @example
+   * export_2024051319271219802100800401300****
+   */
+  exportJobId?: string;
+  /**
+   * @remarks
+   * The complete URL of the path to store the exported result set.
+   */
+  exportPath?: string;
+  /**
+   * @remarks
+   * The number of exported rows. This parameter is returned only when the request was successful.
+   * 
+   * @example
+   * 10000
+   */
+  exportRows?: string;
+  exportType?: string;
+  isExpired?: boolean;
+  /**
+   * @remarks
+   * The returned message. This parameter is returned only when the request failed.
+   * 
+   * @example
+   * Failed to execute SQL
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The query ID that can be used for diagnostics.
+   * 
+   * >  You can call the [DescribeDiagnosisSQLInfo](https://help.aliyun.com/document_detail/612495.html) operation to query the execution information about a query.
+   * 
+   * @example
+   * 202306121421111720161451770345339****
+   */
+  processId?: string;
+  /**
+   * @remarks
+   * The progress of the result set export job. Unit: %. Valid values: 0 to 100.
+   * 
+   * @example
+   * 30
+   */
+  progress?: string;
+  /**
+   * @remarks
+   * The name of the resource group that runs the result set export job.
+   * 
+   * @example
+   * test
+   */
+  resourceGroup?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * lake_db
+   */
+  schema?: string;
+  /**
+   * @remarks
+   * The SQL statement that is used in the result set export job.
+   * 
+   * @example
+   * SELECT * FROM `ADB_SampleData_TPCH`.`supplier` LIMIT 20
+   */
+  sql?: string;
+  /**
+   * @remarks
+   * The start time of the result set export job. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2021-07-03T04:00:00Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * The execution status of the result set export job. Valid values:
+   * 
+   * 1.  **SUBMITTED**
+   * 2.  **RUNNING**
+   * 3.  **SUCCEEDED**
+   * 4.  **FAILED**
+   * 
+   * @example
+   * RUNNING
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The amount of time consumed to export execution records. Unit: milliseconds.
+   * 
+   * >  The value is the duration between the time when the result set export job starts and the time when the result set export job ends.
+   * 
+   * @example
+   * 560
+   */
+  timeCost?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      createTime: 'CreateTime',
+      DBClusterId: 'DBClusterId',
+      databaseUser: 'DatabaseUser',
+      endTime: 'EndTime',
+      engine: 'Engine',
+      exportJobId: 'ExportJobId',
+      exportPath: 'ExportPath',
+      exportRows: 'ExportRows',
+      exportType: 'ExportType',
+      isExpired: 'IsExpired',
+      message: 'Message',
+      processId: 'ProcessId',
+      progress: 'Progress',
+      resourceGroup: 'ResourceGroup',
+      schema: 'Schema',
+      sql: 'Sql',
+      startTime: 'StartTime',
+      status: 'Status',
+      timeCost: 'TimeCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'string',
+      createTime: 'string',
+      DBClusterId: 'string',
+      databaseUser: 'string',
+      endTime: 'string',
+      engine: 'string',
+      exportJobId: 'string',
+      exportPath: 'string',
+      exportRows: 'string',
+      exportType: 'string',
+      isExpired: 'boolean',
+      message: 'string',
+      processId: 'string',
+      progress: 'string',
+      resourceGroup: 'string',
+      schema: 'string',
+      sql: 'string',
+      startTime: 'string',
+      status: 'string',
+      timeCost: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSparkAppAttemptsResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -31352,6 +37178,232 @@ export class ModifyAccountPrivilegesRequestAccountPrivileges extends $tea.Model 
       privilegeObject: ModifyAccountPrivilegesRequestAccountPrivilegesPrivilegeObject,
       privilegeType: 'string',
       privileges: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsDatasoureRequestKafkaInfo extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
+  kafkaClusterId?: string;
+  /**
+   * @example
+   * test-topic
+   */
+  kafkaTopic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      kafkaClusterId: 'KafkaClusterId',
+      kafkaTopic: 'KafkaTopic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kafkaClusterId: 'string',
+      kafkaTopic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsDatasoureRequestLakehouseId extends $tea.Model {
+  /**
+   * @example
+   * sg-******
+   */
+  securityGroup?: string;
+  /**
+   * @remarks
+   * vpc id。
+   * 
+   * @example
+   * vpc-******
+   */
+  vpcId?: string;
+  /**
+   * @example
+   * vsw-******
+   */
+  vswitch?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroup: 'SecurityGroup',
+      vpcId: 'VpcId',
+      vswitch: 'Vswitch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroup: 'string',
+      vpcId: 'string',
+      vswitch: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsDatasoureRequestPolarDBMysqlInfo extends $tea.Model {
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  connectUrl?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  password?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectUrl: 'ConnectUrl',
+      password: 'Password',
+      regionId: 'RegionId',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectUrl: 'string',
+      password: 'string',
+      regionId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsDatasoureRequestRdsMysqlInfo extends $tea.Model {
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  connectUrl?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  password?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectUrl: 'ConnectUrl',
+      password: 'Password',
+      regionId: 'RegionId',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectUrl: 'string',
+      password: 'string',
+      regionId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsDatasoureRequestSlsInfo extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  across?: boolean;
+  /**
+   * @example
+   * test-role
+   */
+  acrossRole?: string;
+  /**
+   * @example
+   * 123456
+   */
+  acrossUid?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      across: 'Across',
+      acrossRole: 'AcrossRole',
+      acrossUid: 'AcrossUid',
+      sourceRegionId: 'SourceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      across: 'boolean',
+      acrossRole: 'string',
+      acrossUid: 'string',
+      sourceRegionId: 'string',
     };
   }
 
@@ -31899,6 +37951,279 @@ export class SubmitSparkAppResponseBodyData extends $tea.Model {
       appName: 'string',
       message: 'string',
       state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLakeStorageRequestPermissions extends $tea.Model {
+  /**
+   * @remarks
+   * 具有该权限的账户或RAM用户ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  account?: string;
+  /**
+   * @remarks
+   * 表示是否允许读取湖存储的权限
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  read?: boolean;
+  /**
+   * @remarks
+   * 指定权限的账户类型
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SUB
+   */
+  type?: string;
+  /**
+   * @remarks
+   * 表示是否允许向湖存储写入数据的权限
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
+  write?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+      read: 'Read',
+      type: 'Type',
+      write: 'Write',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      read: 'boolean',
+      type: 'string',
+      write: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLakeStorageResponseBodyDataPermissions extends $tea.Model {
+  /**
+   * @remarks
+   * 具有该权限的账户或RAM用户ID
+   * 
+   * @example
+   * test
+   */
+  account?: string;
+  /**
+   * @remarks
+   * 表示是否允许读取湖存储的权限
+   * 
+   * @example
+   * true
+   */
+  read?: boolean;
+  /**
+   * @remarks
+   * 指定权限的账户类型
+   * 
+   * @example
+   * SUB
+   */
+  type?: string;
+  /**
+   * @remarks
+   * 表示是否允许向湖存储写入数据的权限
+   * 
+   * @example
+   * false
+   */
+  write?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+      read: 'Read',
+      type: 'Type',
+      write: 'Write',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      read: 'boolean',
+      type: 'string',
+      write: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLakeStorageResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * 湖存储被创建的时间
+   * 
+   * @example
+   * 2023-05-15T07:24:58Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * 创建湖存储的用户账号的唯一标识符
+   * 
+   * @example
+   * 123456
+   */
+  creatorUid?: string;
+  /**
+   * @remarks
+   * 用于指定和挂载到特定ADB主实例的湖存储
+   * 
+   * @example
+   * amv-23xxxx
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * 对湖存储的描述信息
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 湖存储中数据的总存储量
+   * 
+   * @example
+   * 142
+   */
+  fileSize?: string;
+  /**
+   * @remarks
+   * 用于识别特定湖存储的唯一标识符
+   * 
+   * @example
+   * -
+   */
+  lakeStorageId?: string;
+  /**
+   * @remarks
+   * 最后操作湖存储的用户账号的唯一标识符
+   * 
+   * @example
+   * 123456
+   */
+  operatorUid?: string;
+  /**
+   * @remarks
+   * 拥有湖存储资源的用户账号的唯一标识符
+   * 
+   * @example
+   * 123456
+   */
+  ownerUid?: string;
+  /**
+   * @example
+   * 0
+   */
+  partitionCount?: string;
+  /**
+   * @remarks
+   * 设置湖存储的读/写权限和账户级别权限的数组
+   * 
+   * @example
+   * -
+   */
+  permissions?: UpdateLakeStorageResponseBodyDataPermissions[];
+  /**
+   * @remarks
+   * 指定要操作的湖存储所在区域的ID
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * 湖存储中所有库表的总数据行数
+   * 
+   * @example
+   * >=
+   */
+  rowCount?: number;
+  /**
+   * @remarks
+   * 湖存储中库表的总数量
+   * 
+   * @example
+   * 1234
+   */
+  tableCount?: number;
+  /**
+   * @remarks
+   * 湖存储最后一次更新的时间
+   * 
+   * @example
+   * 2024-07-01T09:22:17Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      creatorUid: 'CreatorUid',
+      DBClusterId: 'DBClusterId',
+      description: 'Description',
+      fileSize: 'FileSize',
+      lakeStorageId: 'LakeStorageId',
+      operatorUid: 'OperatorUid',
+      ownerUid: 'OwnerUid',
+      partitionCount: 'PartitionCount',
+      permissions: 'Permissions',
+      regionId: 'RegionId',
+      rowCount: 'RowCount',
+      tableCount: 'TableCount',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      creatorUid: 'string',
+      DBClusterId: 'string',
+      description: 'string',
+      fileSize: 'string',
+      lakeStorageId: 'string',
+      operatorUid: 'string',
+      ownerUid: 'string',
+      partitionCount: 'string',
+      permissions: { 'type': 'array', 'itemType': UpdateLakeStorageResponseBodyDataPermissions },
+      regionId: 'string',
+      rowCount: 'number',
+      tableCount: 'number',
+      updateTime: 'string',
     };
   }
 
@@ -32630,6 +38955,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Hive数据迁移链路。
+   * 
+   * @param request - CreateApsHiveJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApsHiveJobResponse
+   */
+  async createApsHiveJobWithOptions(request: CreateApsHiveJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateApsHiveJobResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.advancedConfig)) {
+      body["AdvancedConfig"] = request.advancedConfig;
+    }
+
+    if (!Util.isUnset(request.conflictStrategy)) {
+      body["ConflictStrategy"] = request.conflictStrategy;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.datasourceId)) {
+      body["DatasourceId"] = request.datasourceId;
+    }
+
+    if (!Util.isUnset(request.fullComputeUnit)) {
+      body["FullComputeUnit"] = request.fullComputeUnit;
+    }
+
+    if (!Util.isUnset(request.ossLocation)) {
+      body["OssLocation"] = request.ossLocation;
+    }
+
+    if (!Util.isUnset(request.parallelism)) {
+      body["Parallelism"] = request.parallelism;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroup)) {
+      body["ResourceGroup"] = request.resourceGroup;
+    }
+
+    if (!Util.isUnset(request.syncAllowExpression)) {
+      body["SyncAllowExpression"] = request.syncAllowExpression;
+    }
+
+    if (!Util.isUnset(request.syncDenyExpression)) {
+      body["SyncDenyExpression"] = request.syncDenyExpression;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      body["TargetType"] = request.targetType;
+    }
+
+    if (!Util.isUnset(request.workloadName)) {
+      body["WorkloadName"] = request.workloadName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateApsHiveJob",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateApsHiveJobResponse>(await this.callApi(params, req, runtime), new CreateApsHiveJobResponse({}));
+  }
+
+  /**
+   * 创建Hive数据迁移链路。
+   * 
+   * @param request - CreateApsHiveJobRequest
+   * @returns CreateApsHiveJobResponse
+   */
+  async createApsHiveJob(request: CreateApsHiveJobRequest): Promise<CreateApsHiveJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createApsHiveJobWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * @remarks
@@ -32988,6 +39403,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建湖存储
+   * 
+   * @param tmpReq - CreateLakeStorageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLakeStorageResponse
+   */
+  async createLakeStorageWithOptions(tmpReq: CreateLakeStorageRequest, runtime: $Util.RuntimeOptions): Promise<CreateLakeStorageResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateLakeStorageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.permissions)) {
+      request.permissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permissions, "Permissions", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.permissionsShrink)) {
+      body["Permissions"] = request.permissionsShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateLakeStorage",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLakeStorageResponse>(await this.callApi(params, req, runtime), new CreateLakeStorageResponse({}));
+  }
+
+  /**
+   * 创建湖存储
+   * 
+   * @param request - CreateLakeStorageRequest
+   * @returns CreateLakeStorageResponse
+   */
+  async createLakeStorage(request: CreateLakeStorageRequest): Promise<CreateLakeStorageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLakeStorageWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an Object Storage Service (OSS) subdirectory.
    * 
    * @remarks
@@ -33249,6 +39730,102 @@ export default class Client extends OpenApi {
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除APS数据源
+   * 
+   * @param request - DeleteApsDatasoureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApsDatasoureResponse
+   */
+  async deleteApsDatasoureWithOptions(request: DeleteApsDatasoureRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApsDatasoureResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.datasourceId)) {
+      body["DatasourceId"] = request.datasourceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteApsDatasoure",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteApsDatasoureResponse>(await this.callApi(params, req, runtime), new DeleteApsDatasoureResponse({}));
+  }
+
+  /**
+   * 删除APS数据源
+   * 
+   * @param request - DeleteApsDatasoureRequest
+   * @returns DeleteApsDatasoureResponse
+   */
+  async deleteApsDatasoure(request: DeleteApsDatasoureRequest): Promise<DeleteApsDatasoureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteApsDatasoureWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除aps任务
+   * 
+   * @param request - DeleteApsJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApsJobResponse
+   */
+  async deleteApsJobWithOptions(request: DeleteApsJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApsJobResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apsJobId)) {
+      body["ApsJobId"] = request.apsJobId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteApsJob",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteApsJobResponse>(await this.callApi(params, req, runtime), new DeleteApsJobResponse({}));
+  }
+
+  /**
+   * 删除aps任务
+   * 
+   * @param request - DeleteApsJobRequest
+   * @returns DeleteApsJobResponse
+   */
+  async deleteApsJob(request: DeleteApsJobRequest): Promise<DeleteApsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteApsJobWithOptions(request, runtime);
   }
 
   /**
@@ -33719,6 +40296,44 @@ export default class Client extends OpenApi {
   async deleteSparkTemplateFile(request: DeleteSparkTemplateFileRequest): Promise<DeleteSparkTemplateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSparkTemplateFileWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取APS联邦分析ADB实例列表
+   * 
+   * @param request - DescribeAPSADBInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAPSADBInstancesResponse
+   */
+  async describeAPSADBInstancesWithOptions(request: DescribeAPSADBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAPSADBInstancesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAPSADBInstances",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAPSADBInstancesResponse>(await this.callApi(params, req, runtime), new DescribeAPSADBInstancesResponse({}));
+  }
+
+  /**
+   * 获取APS联邦分析ADB实例列表
+   * 
+   * @param request - DescribeAPSADBInstancesRequest
+   * @returns DescribeAPSADBInstancesResponse
+   */
+  async describeAPSADBInstances(request: DescribeAPSADBInstancesRequest): Promise<DescribeAPSADBInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAPSADBInstancesWithOptions(request, runtime);
   }
 
   /**
@@ -34379,6 +40994,400 @@ export default class Client extends OpenApi {
   async describeApsActionLogs(request: DescribeApsActionLogsRequest): Promise<DescribeApsActionLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApsActionLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询APS数据源详情
+   * 
+   * @param request - DescribeApsDatasourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApsDatasourceResponse
+   */
+  async describeApsDatasourceWithOptions(request: DescribeApsDatasourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApsDatasourceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.datasourceId)) {
+      body["DatasourceId"] = request.datasourceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApsDatasource",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApsDatasourceResponse>(await this.callApi(params, req, runtime), new DescribeApsDatasourceResponse({}));
+  }
+
+  /**
+   * 查询APS数据源详情
+   * 
+   * @param request - DescribeApsDatasourceRequest
+   * @returns DescribeApsDatasourceResponse
+   */
+  async describeApsDatasource(request: DescribeApsDatasourceRequest): Promise<DescribeApsDatasourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApsDatasourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询APS数据源列表
+   * 
+   * @param request - DescribeApsDatasourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApsDatasourcesResponse
+   */
+  async describeApsDatasourcesWithOptions(request: DescribeApsDatasourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApsDatasourcesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.datasourceName)) {
+      body["DatasourceName"] = request.datasourceName;
+    }
+
+    if (!Util.isUnset(request.datasourceType)) {
+      body["DatasourceType"] = request.datasourceType;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApsDatasources",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApsDatasourcesResponse>(await this.callApi(params, req, runtime), new DescribeApsDatasourcesResponse({}));
+  }
+
+  /**
+   * 查询APS数据源列表
+   * 
+   * @param request - DescribeApsDatasourcesRequest
+   * @returns DescribeApsDatasourcesResponse
+   */
+  async describeApsDatasources(request: DescribeApsDatasourcesRequest): Promise<DescribeApsDatasourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApsDatasourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询APS Hive工作负载
+   * 
+   * @param request - DescribeApsHiveWorkloadRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApsHiveWorkloadResponse
+   */
+  async describeApsHiveWorkloadWithOptions(request: DescribeApsHiveWorkloadRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApsHiveWorkloadResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.workloadId)) {
+      body["WorkloadId"] = request.workloadId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApsHiveWorkload",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApsHiveWorkloadResponse>(await this.callApi(params, req, runtime), new DescribeApsHiveWorkloadResponse({}));
+  }
+
+  /**
+   * 查询APS Hive工作负载
+   * 
+   * @param request - DescribeApsHiveWorkloadRequest
+   * @returns DescribeApsHiveWorkloadResponse
+   */
+  async describeApsHiveWorkload(request: DescribeApsHiveWorkloadRequest): Promise<DescribeApsHiveWorkloadResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApsHiveWorkloadWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeApsJobDetail。
+   * 
+   * @param request - DescribeApsJobDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApsJobDetailResponse
+   */
+  async describeApsJobDetailWithOptions(request: DescribeApsJobDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApsJobDetailResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apsJobId)) {
+      body["ApsJobId"] = request.apsJobId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApsJobDetail",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApsJobDetailResponse>(await this.callApi(params, req, runtime), new DescribeApsJobDetailResponse({}));
+  }
+
+  /**
+   * DescribeApsJobDetail。
+   * 
+   * @param request - DescribeApsJobDetailRequest
+   * @returns DescribeApsJobDetailResponse
+   */
+  async describeApsJobDetail(request: DescribeApsJobDetailRequest): Promise<DescribeApsJobDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApsJobDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询一站式链路列表
+   * 
+   * @param request - DescribeApsJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApsJobsResponse
+   */
+  async describeApsJobsWithOptions(request: DescribeApsJobsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApsJobsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apsJobName)) {
+      body["ApsJobName"] = request.apsJobName;
+    }
+
+    if (!Util.isUnset(request.createTimeEnd)) {
+      body["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!Util.isUnset(request.createTimeStart)) {
+      body["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApsJobs",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApsJobsResponse>(await this.callApi(params, req, runtime), new DescribeApsJobsResponse({}));
+  }
+
+  /**
+   * 查询一站式链路列表
+   * 
+   * @param request - DescribeApsJobsRequest
+   * @returns DescribeApsJobsResponse
+   */
+  async describeApsJobs(request: DescribeApsJobsRequest): Promise<DescribeApsJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApsJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询APS迁移任务列表。
+   * 
+   * @param request - DescribeApsMigrationWorkloadsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApsMigrationWorkloadsResponse
+   */
+  async describeApsMigrationWorkloadsWithOptions(request: DescribeApsMigrationWorkloadsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApsMigrationWorkloadsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ossLocation)) {
+      body["OssLocation"] = request.ossLocation;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.workloadName)) {
+      body["WorkloadName"] = request.workloadName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApsMigrationWorkloads",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApsMigrationWorkloadsResponse>(await this.callApi(params, req, runtime), new DescribeApsMigrationWorkloadsResponse({}));
+  }
+
+  /**
+   * 查询APS迁移任务列表。
+   * 
+   * @param request - DescribeApsMigrationWorkloadsRequest
+   * @returns DescribeApsMigrationWorkloadsResponse
+   */
+  async describeApsMigrationWorkloads(request: DescribeApsMigrationWorkloadsRequest): Promise<DescribeApsMigrationWorkloadsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApsMigrationWorkloadsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询aps任务进展。
+   * 
+   * @param request - DescribeApsProgressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApsProgressResponse
+   */
+  async describeApsProgressWithOptions(request: DescribeApsProgressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApsProgressResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.workloadId)) {
+      body["WorkloadId"] = request.workloadId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApsProgress",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApsProgressResponse>(await this.callApi(params, req, runtime), new DescribeApsProgressResponse({}));
+  }
+
+  /**
+   * 查询aps任务进展。
+   * 
+   * @param request - DescribeApsProgressRequest
+   * @returns DescribeApsProgressResponse
+   */
+  async describeApsProgress(request: DescribeApsProgressRequest): Promise<DescribeApsProgressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApsProgressWithOptions(request, runtime);
   }
 
   /**
@@ -36202,6 +43211,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询存储节点磁盘水位
+   * 
+   * @param request - DescribeInclinedNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInclinedNodesResponse
+   */
+  async describeInclinedNodesWithOptions(request: DescribeInclinedNodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInclinedNodesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInclinedNodes",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInclinedNodesResponse>(await this.callApi(params, req, runtime), new DescribeInclinedNodesResponse({}));
+  }
+
+  /**
+   * 查询存储节点磁盘水位
+   * 
+   * @param request - DescribeInclinedNodesRequest
+   * @returns DescribeInclinedNodesResponse
+   */
+  async describeInclinedNodes(request: DescribeInclinedNodesRequest): Promise<DescribeInclinedNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInclinedNodesWithOptions(request, runtime);
+  }
+
+  /**
    * 获取作业资源使用统计
    * 
    * @remarks
@@ -37760,6 +44835,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取当前ADB实例管理的所有Aps任务生成的湖存储数据库列表，主要用于在创建生命周期管理策略时，获取库列表信息。
+   * 
+   * @param request - GetApsManagedDatabasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApsManagedDatabasesResponse
+   */
+  async getApsManagedDatabasesWithOptions(request: GetApsManagedDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<GetApsManagedDatabasesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetApsManagedDatabases",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetApsManagedDatabasesResponse>(await this.callApi(params, req, runtime), new GetApsManagedDatabasesResponse({}));
+  }
+
+  /**
+   * 获取当前ADB实例管理的所有Aps任务生成的湖存储数据库列表，主要用于在创建生命周期管理策略时，获取库列表信息。
+   * 
+   * @param request - GetApsManagedDatabasesRequest
+   * @returns GetApsManagedDatabasesResponse
+   */
+  async getApsManagedDatabases(request: GetApsManagedDatabasesRequest): Promise<GetApsManagedDatabasesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getApsManagedDatabasesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the table creation statement for tables.
    * 
    * @param request - GetCreateTableSQLRequest
@@ -37901,6 +45022,58 @@ export default class Client extends OpenApi {
   async getDatabaseObjects(request: GetDatabaseObjectsRequest): Promise<GetDatabaseObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDatabaseObjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取湖存储
+   * 
+   * @param request - GetLakeStorageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLakeStorageResponse
+   */
+  async getLakeStorageWithOptions(request: GetLakeStorageRequest, runtime: $Util.RuntimeOptions): Promise<GetLakeStorageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.lakeStorageId)) {
+      query["LakeStorageId"] = request.lakeStorageId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLakeStorage",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLakeStorageResponse>(await this.callApi(params, req, runtime), new GetLakeStorageResponse({}));
+  }
+
+  /**
+   * 获取湖存储
+   * 
+   * @param request - GetLakeStorageRequest
+   * @returns GetLakeStorageResponse
+   */
+  async getLakeStorage(request: GetLakeStorageRequest): Promise<GetLakeStorageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLakeStorageWithOptions(request, runtime);
   }
 
   /**
@@ -39328,6 +46501,268 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取当前ADB实例生命周期管理策略列表
+   * 
+   * @param request - ListApsLifecycleStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApsLifecycleStrategyResponse
+   */
+  async listApsLifecycleStrategyWithOptions(request: ListApsLifecycleStrategyRequest, runtime: $Util.RuntimeOptions): Promise<ListApsLifecycleStrategyResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListApsLifecycleStrategy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApsLifecycleStrategyResponse>(await this.callApi(params, req, runtime), new ListApsLifecycleStrategyResponse({}));
+  }
+
+  /**
+   * 获取当前ADB实例生命周期管理策略列表
+   * 
+   * @param request - ListApsLifecycleStrategyRequest
+   * @returns ListApsLifecycleStrategyResponse
+   */
+  async listApsLifecycleStrategy(request: ListApsLifecycleStrategyRequest): Promise<ListApsLifecycleStrategyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listApsLifecycleStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取当前ADB实例湖存储优化策略列表。
+   * 
+   * @param request - ListApsOptimizationStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApsOptimizationStrategyResponse
+   */
+  async listApsOptimizationStrategyWithOptions(request: ListApsOptimizationStrategyRequest, runtime: $Util.RuntimeOptions): Promise<ListApsOptimizationStrategyResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListApsOptimizationStrategy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApsOptimizationStrategyResponse>(await this.callApi(params, req, runtime), new ListApsOptimizationStrategyResponse({}));
+  }
+
+  /**
+   * 获取当前ADB实例湖存储优化策略列表。
+   * 
+   * @param request - ListApsOptimizationStrategyRequest
+   * @returns ListApsOptimizationStrategyResponse
+   */
+  async listApsOptimizationStrategy(request: ListApsOptimizationStrategyRequest): Promise<ListApsOptimizationStrategyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listApsOptimizationStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取指定类型湖存储优化策略执行过的任务列表。湖存储优化策略会周期性调度执行优化任务。
+   * 
+   * @param request - ListApsOptimizationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApsOptimizationTasksResponse
+   */
+  async listApsOptimizationTasksWithOptions(request: ListApsOptimizationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListApsOptimizationTasksResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.strategyType)) {
+      body["StrategyType"] = request.strategyType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListApsOptimizationTasks",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApsOptimizationTasksResponse>(await this.callApi(params, req, runtime), new ListApsOptimizationTasksResponse({}));
+  }
+
+  /**
+   * 获取指定类型湖存储优化策略执行过的任务列表。湖存储优化策略会周期性调度执行优化任务。
+   * 
+   * @param request - ListApsOptimizationTasksRequest
+   * @returns ListApsOptimizationTasksResponse
+   */
+  async listApsOptimizationTasks(request: ListApsOptimizationTasksRequest): Promise<ListApsOptimizationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listApsOptimizationTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the execution records of result set export jobs of a Resource Access Management (RAM) user.
+   * 
+   * @param tmpReq - ListResultExportJobHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResultExportJobHistoryResponse
+   */
+  async listResultExportJobHistoryWithOptions(tmpReq: ListResultExportJobHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListResultExportJobHistoryResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListResultExportJobHistoryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.order)) {
+      request.orderShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.order, "Order", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.statusList)) {
+      request.statusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statusList, "StatusList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.databaseUser)) {
+      body["DatabaseUser"] = request.databaseUser;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.orderShrink)) {
+      body["Order"] = request.orderShrink;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroup)) {
+      body["ResourceGroup"] = request.resourceGroup;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.statusListShrink)) {
+      body["StatusList"] = request.statusListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListResultExportJobHistory",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListResultExportJobHistoryResponse>(await this.callApi(params, req, runtime), new ListResultExportJobHistoryResponse({}));
+  }
+
+  /**
+   * Queries the execution records of result set export jobs of a Resource Access Management (RAM) user.
+   * 
+   * @param request - ListResultExportJobHistoryRequest
+   * @returns ListResultExportJobHistoryResponse
+   */
+  async listResultExportJobHistory(request: ListResultExportJobHistoryRequest): Promise<ListResultExportJobHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listResultExportJobHistoryWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about retry attempts of a Spark application.
    * 
    * @remarks
@@ -39799,6 +47234,214 @@ export default class Client extends OpenApi {
   async modifyAccountPrivileges(request: ModifyAccountPrivilegesRequest): Promise<ModifyAccountPrivilegesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountPrivilegesWithOptions(request, runtime);
+  }
+
+  /**
+   * 编辑APS数据源
+   * 
+   * @param tmpReq - ModifyApsDatasoureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApsDatasoureResponse
+   */
+  async modifyApsDatasoureWithOptions(tmpReq: ModifyApsDatasoureRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApsDatasoureResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyApsDatasoureShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.kafkaInfo)) {
+      request.kafkaInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.kafkaInfo, "KafkaInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.lakehouseId)) {
+      request.lakehouseIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lakehouseId, "LakehouseId", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.polarDBMysqlInfo)) {
+      request.polarDBMysqlInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.polarDBMysqlInfo, "PolarDBMysqlInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.rdsMysqlInfo)) {
+      request.rdsMysqlInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rdsMysqlInfo, "RdsMysqlInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.slsInfo)) {
+      request.slsInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.slsInfo, "SlsInfo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.datasourceDescription)) {
+      body["DatasourceDescription"] = request.datasourceDescription;
+    }
+
+    if (!Util.isUnset(request.datasourceId)) {
+      body["DatasourceId"] = request.datasourceId;
+    }
+
+    if (!Util.isUnset(request.datasourceName)) {
+      body["DatasourceName"] = request.datasourceName;
+    }
+
+    if (!Util.isUnset(request.kafkaInfoShrink)) {
+      body["KafkaInfo"] = request.kafkaInfoShrink;
+    }
+
+    if (!Util.isUnset(request.lakehouseIdShrink)) {
+      body["LakehouseId"] = request.lakehouseIdShrink;
+    }
+
+    if (!Util.isUnset(request.polarDBMysqlInfoShrink)) {
+      body["PolarDBMysqlInfo"] = request.polarDBMysqlInfoShrink;
+    }
+
+    if (!Util.isUnset(request.rdsMysqlInfoShrink)) {
+      body["RdsMysqlInfo"] = request.rdsMysqlInfoShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.slsInfoShrink)) {
+      body["SlsInfo"] = request.slsInfoShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApsDatasoure",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApsDatasoureResponse>(await this.callApi(params, req, runtime), new ModifyApsDatasoureResponse({}));
+  }
+
+  /**
+   * 编辑APS数据源
+   * 
+   * @param request - ModifyApsDatasoureRequest
+   * @returns ModifyApsDatasoureResponse
+   */
+  async modifyApsDatasoure(request: ModifyApsDatasoureRequest): Promise<ModifyApsDatasoureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApsDatasoureWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改aps任务
+   * 
+   * @param request - ModifyApsJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApsJobResponse
+   */
+  async modifyApsJobWithOptions(request: ModifyApsJobRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApsJobResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apsJobId)) {
+      body["ApsJobId"] = request.apsJobId;
+    }
+
+    if (!Util.isUnset(request.dbList)) {
+      body["DbList"] = request.dbList;
+    }
+
+    if (!Util.isUnset(request.partitionList)) {
+      body["PartitionList"] = request.partitionList;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApsJob",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApsJobResponse>(await this.callApi(params, req, runtime), new ModifyApsJobResponse({}));
+  }
+
+  /**
+   * 修改aps任务
+   * 
+   * @param request - ModifyApsJobRequest
+   * @returns ModifyApsJobResponse
+   */
+  async modifyApsJob(request: ModifyApsJobRequest): Promise<ModifyApsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApsJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the AnalyticDB Pipeline Service (APS) workload name.
+   * 
+   * @param request - ModifyApsWorkloadNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApsWorkloadNameResponse
+   */
+  async modifyApsWorkloadNameWithOptions(request: ModifyApsWorkloadNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApsWorkloadNameResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.workloadId)) {
+      body["WorkloadId"] = request.workloadId;
+    }
+
+    if (!Util.isUnset(request.workloadName)) {
+      body["WorkloadName"] = request.workloadName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApsWorkloadName",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApsWorkloadNameResponse>(await this.callApi(params, req, runtime), new ModifyApsWorkloadNameResponse({}));
+  }
+
+  /**
+   * Modifies the AnalyticDB Pipeline Service (APS) workload name.
+   * 
+   * @param request - ModifyApsWorkloadNameRequest
+   * @returns ModifyApsWorkloadNameResponse
+   */
+  async modifyApsWorkloadName(request: ModifyApsWorkloadNameRequest): Promise<ModifyApsWorkloadNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApsWorkloadNameWithOptions(request, runtime);
   }
 
   /**
@@ -41182,6 +48825,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动aps任务
+   * 
+   * @param request - StartApsJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartApsJobResponse
+   */
+  async startApsJobWithOptions(request: StartApsJobRequest, runtime: $Util.RuntimeOptions): Promise<StartApsJobResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apsJobId)) {
+      body["ApsJobId"] = request.apsJobId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartApsJob",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartApsJobResponse>(await this.callApi(params, req, runtime), new StartApsJobResponse({}));
+  }
+
+  /**
+   * 启动aps任务
+   * 
+   * @param request - StartApsJobRequest
+   * @returns StartApsJobResponse
+   */
+  async startApsJob(request: StartApsJobRequest): Promise<StartApsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startApsJobWithOptions(request, runtime);
+  }
+
+  /**
    * 启动一个可交互Session
    * 
    * @param request - StartSparkReplSessionRequest
@@ -41305,6 +48994,72 @@ export default class Client extends OpenApi {
   async startSparkSQLEngine(request: StartSparkSQLEngineRequest): Promise<StartSparkSQLEngineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startSparkSQLEngineWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits an SQL query and exports a result set.
+   * 
+   * @param request - SubmitResultExportJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitResultExportJobResponse
+   */
+  async submitResultExportJobWithOptions(request: SubmitResultExportJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitResultExportJobResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.engine)) {
+      body["Engine"] = request.engine;
+    }
+
+    if (!Util.isUnset(request.exportType)) {
+      body["ExportType"] = request.exportType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroup)) {
+      body["ResourceGroup"] = request.resourceGroup;
+    }
+
+    if (!Util.isUnset(request.SQL)) {
+      body["SQL"] = request.SQL;
+    }
+
+    if (!Util.isUnset(request.schema)) {
+      body["Schema"] = request.schema;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitResultExportJob",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitResultExportJobResponse>(await this.callApi(params, req, runtime), new SubmitResultExportJobResponse({}));
+  }
+
+  /**
+   * Submits an SQL query and exports a result set.
+   * 
+   * @param request - SubmitResultExportJobRequest
+   * @returns SubmitResultExportJobResponse
+   */
+  async submitResultExportJob(request: SubmitResultExportJobRequest): Promise<SubmitResultExportJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitResultExportJobWithOptions(request, runtime);
   }
 
   /**
@@ -41545,6 +49300,70 @@ export default class Client extends OpenApi {
   async unbindDBResourceGroupWithUser(request: UnbindDBResourceGroupWithUserRequest): Promise<UnbindDBResourceGroupWithUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindDBResourceGroupWithUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新湖存储
+   * 
+   * @param tmpReq - UpdateLakeStorageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLakeStorageResponse
+   */
+  async updateLakeStorageWithOptions(tmpReq: UpdateLakeStorageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLakeStorageResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateLakeStorageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.permissions)) {
+      request.permissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permissions, "Permissions", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.lakeStorageId)) {
+      body["LakeStorageId"] = request.lakeStorageId;
+    }
+
+    if (!Util.isUnset(request.permissionsShrink)) {
+      body["Permissions"] = request.permissionsShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateLakeStorage",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateLakeStorageResponse>(await this.callApi(params, req, runtime), new UpdateLakeStorageResponse({}));
+  }
+
+  /**
+   * 更新湖存储
+   * 
+   * @param request - UpdateLakeStorageRequest
+   * @returns UpdateLakeStorageResponse
+   */
+  async updateLakeStorage(request: UpdateLakeStorageRequest): Promise<UpdateLakeStorageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateLakeStorageWithOptions(request, runtime);
   }
 
   /**
