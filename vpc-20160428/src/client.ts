@@ -33460,6 +33460,7 @@ export class DescribeNatGatewayAssociateNetworkInterfacesRequest extends $tea.Mo
 
 export class DescribeNatGatewayAssociateNetworkInterfacesResponseBody extends $tea.Model {
   associateNetworkInterfaces?: DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces;
+  count?: number;
   /**
    * @example
    * 20
@@ -33488,6 +33489,7 @@ export class DescribeNatGatewayAssociateNetworkInterfacesResponseBody extends $t
   static names(): { [key: string]: string } {
     return {
       associateNetworkInterfaces: 'AssociateNetworkInterfaces',
+      count: 'Count',
       maxResults: 'MaxResults',
       natGatewayId: 'NatGatewayId',
       nextToken: 'NextToken',
@@ -33499,6 +33501,7 @@ export class DescribeNatGatewayAssociateNetworkInterfacesResponseBody extends $t
   static types(): { [key: string]: any } {
     return {
       associateNetworkInterfaces: DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces,
+      count: 'number',
       maxResults: 'number',
       natGatewayId: 'string',
       nextToken: 'string',
