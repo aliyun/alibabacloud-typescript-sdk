@@ -7,52 +7,6 @@ import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class AIAssistantSession extends $tea.Model {
-  clientId?: string;
-  createdAt?: number;
-  customLabels?: string[];
-  domainId?: string;
-  expiredAt?: number;
-  name?: string;
-  sessionId?: string;
-  status?: string;
-  updatedAt?: number;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'client_id',
-      createdAt: 'created_at',
-      customLabels: 'custom_labels',
-      domainId: 'domain_id',
-      expiredAt: 'expired_at',
-      name: 'name',
-      sessionId: 'session_id',
-      status: 'status',
-      updatedAt: 'updated_at',
-      userId: 'user_id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      createdAt: 'number',
-      customLabels: { 'type': 'array', 'itemType': 'string' },
-      domainId: 'string',
-      expiredAt: 'number',
-      name: 'string',
-      sessionId: 'string',
-      status: 'string',
-      updatedAt: 'number',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AccountAccessTokenResponse extends $tea.Model {
   accessToken?: string;
   avatar?: string;
@@ -148,6 +102,8 @@ export class AccountLinkInfo extends $tea.Model {
   domainId?: string;
   extra?: string;
   identity?: string;
+  lastLoginTime?: number;
+  status?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -157,6 +113,8 @@ export class AccountLinkInfo extends $tea.Model {
       domainId: 'domain_id',
       extra: 'extra',
       identity: 'identity',
+      lastLoginTime: 'last_login_time',
+      status: 'status',
       userId: 'user_id',
     };
   }
@@ -169,6 +127,8 @@ export class AccountLinkInfo extends $tea.Model {
       domainId: 'string',
       extra: 'string',
       identity: 'string',
+      lastLoginTime: 'number',
+      status: 'string',
       userId: 'string',
     };
   }
@@ -213,6 +173,42 @@ export class Activity extends $tea.Model {
       resourceList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       totalResourceCount: 'number',
       userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddStoryFile extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  /**
+   * @example
+   * 63e5e4340f76cb3ead5f40f68163f0f967c1a7bf
+   */
+  fileId?: string;
+  /**
+   * @example
+   * 642a88dd06e49d9c0a14411ebae606f70edd9a59
+   */
+  revisionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'error_code',
+      errorMessage: 'error_message',
+      fileId: 'file_id',
+      revisionId: 'revision_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      fileId: 'string',
+      revisionId: 'string',
     };
   }
 
@@ -968,6 +964,81 @@ export class BaseDriveResponse extends $tea.Model {
       totalSize: 'number',
       updatedAt: 'string',
       usedSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BaseFileListInheritPermissionResponse extends $tea.Model {
+  fileId?: string;
+  member?: FilePermissionMember;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'file_id',
+      member: 'member',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'string',
+      member: FilePermissionMember,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BaseFileUserPermissionResponse extends $tea.Model {
+  canAccess?: boolean;
+  createdAt?: number;
+  creator?: string;
+  disinheritSubGroup?: boolean;
+  /**
+   * @example
+   * bj23
+   */
+  domainId?: string;
+  driveId?: string;
+  expireTime?: number;
+  fileFullPath?: string;
+  fileId?: string;
+  identity?: Identity;
+  roleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canAccess: 'can_access',
+      createdAt: 'created_at',
+      creator: 'creator',
+      disinheritSubGroup: 'disinherit_sub_group',
+      domainId: 'domain_id',
+      driveId: 'drive_id',
+      expireTime: 'expire_time',
+      fileFullPath: 'file_full_path',
+      fileId: 'file_id',
+      identity: 'identity',
+      roleId: 'role_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canAccess: 'boolean',
+      createdAt: 'number',
+      creator: 'string',
+      disinheritSubGroup: 'boolean',
+      domainId: 'string',
+      driveId: 'string',
+      expireTime: 'number',
+      fileFullPath: 'string',
+      fileId: 'string',
+      identity: Identity,
+      roleId: 'string',
     };
   }
 
@@ -2324,6 +2395,7 @@ export class FaceThumbnail extends $tea.Model {
 }
 
 export class File extends $tea.Model {
+  actionList?: string[];
   category?: string;
   contentHash?: string;
   contentHashName?: string;
@@ -2337,11 +2409,13 @@ export class File extends $tea.Model {
   fileExtension?: string;
   fileId?: string;
   hidden?: boolean;
+  idPath?: string;
   imageMediaMetadata?: ImageMediaMetadata;
   labels?: string[];
   localCreatedAt?: string;
   localModifiedAt?: string;
   name?: string;
+  namePath?: string;
   parentFileId?: string;
   revisionId?: string;
   size?: number;
@@ -2357,6 +2431,7 @@ export class File extends $tea.Model {
   videoMediaMetadata?: VideoMediaMetadata;
   static names(): { [key: string]: string } {
     return {
+      actionList: 'action_list',
       category: 'category',
       contentHash: 'content_hash',
       contentHashName: 'content_hash_name',
@@ -2370,11 +2445,13 @@ export class File extends $tea.Model {
       fileExtension: 'file_extension',
       fileId: 'file_id',
       hidden: 'hidden',
+      idPath: 'id_path',
       imageMediaMetadata: 'image_media_metadata',
       labels: 'labels',
       localCreatedAt: 'local_created_at',
       localModifiedAt: 'local_modified_at',
       name: 'name',
+      namePath: 'name_path',
       parentFileId: 'parent_file_id',
       revisionId: 'revision_id',
       size: 'size',
@@ -2393,6 +2470,7 @@ export class File extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      actionList: { 'type': 'array', 'itemType': 'string' },
       category: 'string',
       contentHash: 'string',
       contentHashName: 'string',
@@ -2406,11 +2484,13 @@ export class File extends $tea.Model {
       fileExtension: 'string',
       fileId: 'string',
       hidden: 'boolean',
+      idPath: 'string',
       imageMediaMetadata: ImageMediaMetadata,
       labels: { 'type': 'array', 'itemType': 'string' },
       localCreatedAt: 'string',
       localModifiedAt: 'string',
       name: 'string',
+      namePath: 'string',
       parentFileId: 'string',
       revisionId: 'string',
       size: 'number',
@@ -2720,6 +2800,149 @@ export class Group extends $tea.Model {
       groupId: 'string',
       groupName: 'string',
       updatedAt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotDriveFile extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
+  actionCount?: number;
+  actionList?: string[];
+  /**
+   * @example
+   * doc
+   */
+  category?: string;
+  /**
+   * @example
+   * 1727059860000
+   */
+  countAt?: number;
+  /**
+   * @example
+   * 1
+   */
+  driveId?: string;
+  /**
+   * @example
+   * 666ff36c22278f023ec
+   */
+  fileId?: string;
+  /**
+   * @example
+   * a.jpg
+   */
+  name?: string;
+  /**
+   * @example
+   * 666ff36c22278f023ec
+   */
+  revisionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionCount: 'action_count',
+      actionList: 'action_list',
+      category: 'category',
+      countAt: 'count_at',
+      driveId: 'drive_id',
+      fileId: 'file_id',
+      name: 'name',
+      revisionId: 'revision_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionCount: 'number',
+      actionList: { 'type': 'array', 'itemType': 'string' },
+      category: 'string',
+      countAt: 'number',
+      driveId: 'string',
+      fileId: 'string',
+      name: 'string',
+      revisionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotKnowledgeBaseFile extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  actionCount?: number;
+  actionList?: string[];
+  /**
+   * @example
+   * image
+   */
+  category?: string;
+  /**
+   * @example
+   * 1727578860000
+   */
+  countAt?: number;
+  /**
+   * @example
+   * 1
+   */
+  driveId?: string;
+  /**
+   * @example
+   * 666ff36c22278f023ec
+   */
+  fileId?: string;
+  /**
+   * @example
+   * 4jTsp3AgW
+   */
+  knowledgeBaseId?: string;
+  /**
+   * @example
+   * a.jpg
+   */
+  name?: string;
+  /**
+   * @example
+   * 666ff36c22278f023ec
+   */
+  revisionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionCount: 'action_count',
+      actionList: 'action_list',
+      category: 'category',
+      countAt: 'count_at',
+      driveId: 'drive_id',
+      fileId: 'file_id',
+      knowledgeBaseId: 'knowledge_base_id',
+      name: 'name',
+      revisionId: 'revision_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionCount: 'number',
+      actionList: { 'type': 'array', 'itemType': 'string' },
+      category: 'string',
+      countAt: 'number',
+      driveId: 'string',
+      fileId: 'string',
+      knowledgeBaseId: 'string',
+      name: 'string',
+      revisionId: 'string',
     };
   }
 
@@ -3140,6 +3363,107 @@ export class JWTPayload extends $tea.Model {
   }
 }
 
+export class KnowledgeBase extends $tea.Model {
+  coverUri?: string;
+  createdAt?: number;
+  description?: string;
+  fileFilter?: string;
+  knowledgeBaseId?: string;
+  linkRuleList?: LinkRule[];
+  name?: string;
+  ownerId?: string;
+  ownerName?: string;
+  ownerType?: string;
+  updatedAt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      coverUri: 'cover_uri',
+      createdAt: 'created_at',
+      description: 'description',
+      fileFilter: 'file_filter',
+      knowledgeBaseId: 'knowledge_base_id',
+      linkRuleList: 'link_rule_list',
+      name: 'name',
+      ownerId: 'owner_id',
+      ownerName: 'owner_name',
+      ownerType: 'owner_type',
+      updatedAt: 'updated_at',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverUri: 'string',
+      createdAt: 'number',
+      description: 'string',
+      fileFilter: 'string',
+      knowledgeBaseId: 'string',
+      linkRuleList: { 'type': 'array', 'itemType': LinkRule },
+      name: 'string',
+      ownerId: 'string',
+      ownerName: 'string',
+      ownerType: 'string',
+      updatedAt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KnowledgeCategory extends $tea.Model {
+  createdAt?: number;
+  description?: string;
+  keywords?: string[];
+  knowledgeBaseId?: string;
+  knowledgeBaseName?: string;
+  knowledgeCategoryId?: string;
+  name?: string;
+  owner?: string;
+  ownerType?: string;
+  parentKnowledgeCategoryId?: string;
+  status?: string;
+  updatedAt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'created_at',
+      description: 'description',
+      keywords: 'keywords',
+      knowledgeBaseId: 'knowledge_base_id',
+      knowledgeBaseName: 'knowledge_base_name',
+      knowledgeCategoryId: 'knowledge_category_id',
+      name: 'name',
+      owner: 'owner',
+      ownerType: 'owner_type',
+      parentKnowledgeCategoryId: 'parent_knowledge_category_id',
+      status: 'status',
+      updatedAt: 'updated_at',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'number',
+      description: 'string',
+      keywords: { 'type': 'array', 'itemType': 'string' },
+      knowledgeBaseId: 'string',
+      knowledgeBaseName: 'string',
+      knowledgeCategoryId: 'string',
+      name: 'string',
+      owner: 'string',
+      ownerType: 'string',
+      parentKnowledgeCategoryId: 'string',
+      status: 'string',
+      updatedAt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class KnowledgeFile extends $tea.Model {
   creatorId?: string;
   driveId?: string;
@@ -3257,6 +3581,40 @@ export class LinkInfo extends $tea.Model {
       extra: 'string',
       identity: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LinkRule extends $tea.Model {
+  linkType?: string;
+  srcDriveId?: string;
+  srcDriveName?: string;
+  srcFileId?: string;
+  srcFileName?: string;
+  srcValid?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      linkType: 'link_type',
+      srcDriveId: 'src_drive_id',
+      srcDriveName: 'src_drive_name',
+      srcFileId: 'src_file_id',
+      srcFileName: 'src_file_name',
+      srcValid: 'src_valid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      linkType: 'string',
+      srcDriveId: 'string',
+      srcDriveName: 'string',
+      srcFileId: 'string',
+      srcFileName: 'string',
+      srcValid: 'boolean',
     };
   }
 
@@ -3788,6 +4146,7 @@ export class ShareLink extends $tea.Model {
   expiration?: string;
   expired?: boolean;
   fileIdList?: string[];
+  officeEditable?: boolean;
   previewCount?: number;
   previewLimit?: number;
   reportCount?: number;
@@ -3816,6 +4175,7 @@ export class ShareLink extends $tea.Model {
       expiration: 'expiration',
       expired: 'expired',
       fileIdList: 'file_id_list',
+      officeEditable: 'office_editable',
       previewCount: 'preview_count',
       previewLimit: 'preview_limit',
       reportCount: 'report_count',
@@ -3847,6 +4207,7 @@ export class ShareLink extends $tea.Model {
       expiration: 'string',
       expired: 'boolean',
       fileIdList: { 'type': 'array', 'itemType': 'string' },
+      officeEditable: 'boolean',
       previewCount: 'number',
       previewLimit: 'number',
       reportCount: 'number',
@@ -4103,17 +4464,24 @@ export class Token extends $tea.Model {
   accessToken?: string;
   avatar?: string;
   defaultDriveId?: string;
+  defaultSboxDriveId?: string;
   deviceId?: string;
   deviceName?: string;
   domainId?: string;
+  existLink?: LinkInfo[];
   expireTime?: string;
   expiresIn?: number;
   isFirstLogin?: boolean;
+  needLink?: boolean;
+  needRpVerify?: boolean;
   nickName?: string;
+  pinSetup?: boolean;
   refreshToken?: string;
   role?: string;
+  state?: string;
   status?: string;
   tokenType?: string;
+  userData?: { [key: string]: string };
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -4121,17 +4489,24 @@ export class Token extends $tea.Model {
       accessToken: 'access_token',
       avatar: 'avatar',
       defaultDriveId: 'default_drive_id',
+      defaultSboxDriveId: 'default_sbox_drive_id',
       deviceId: 'device_id',
       deviceName: 'device_name',
       domainId: 'domain_id',
+      existLink: 'exist_link',
       expireTime: 'expire_time',
       expiresIn: 'expires_in',
       isFirstLogin: 'is_first_login',
+      needLink: 'need_link',
+      needRpVerify: 'need_rp_verify',
       nickName: 'nick_name',
+      pinSetup: 'pin_setup',
       refreshToken: 'refresh_token',
       role: 'role',
+      state: 'state',
       status: 'status',
       tokenType: 'token_type',
+      userData: 'user_data',
       userId: 'user_id',
       userName: 'user_name',
     };
@@ -4142,17 +4517,24 @@ export class Token extends $tea.Model {
       accessToken: 'string',
       avatar: 'string',
       defaultDriveId: 'string',
+      defaultSboxDriveId: 'string',
       deviceId: 'string',
       deviceName: 'string',
       domainId: 'string',
+      existLink: { 'type': 'array', 'itemType': LinkInfo },
       expireTime: 'string',
       expiresIn: 'number',
       isFirstLogin: 'boolean',
+      needLink: 'boolean',
+      needRpVerify: 'boolean',
       nickName: 'string',
+      pinSetup: 'boolean',
       refreshToken: 'string',
       role: 'string',
+      state: 'string',
       status: 'string',
       tokenType: 'string',
+      userData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       userId: 'string',
       userName: 'string',
     };
@@ -5122,6 +5504,8 @@ export class AddStoryFilesResponseBody extends $tea.Model {
    * 1
    */
   driveId?: string;
+  files?: AddStoryFile[];
+  requestId?: string;
   /**
    * @example
    * 9132e0d8-fe92-4e56-86c3-f5f112308003
@@ -5130,6 +5514,8 @@ export class AddStoryFilesResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       driveId: 'drive_id',
+      files: 'files',
+      requestId: 'request_id',
       storyId: 'story_id',
     };
   }
@@ -5137,6 +5523,8 @@ export class AddStoryFilesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       driveId: 'string',
+      files: { 'type': 'array', 'itemType': AddStoryFile },
+      requestId: 'string',
       storyId: 'string',
     };
   }
@@ -5705,6 +6093,8 @@ export class ClearRecyclebinRequest extends $tea.Model {
    * @remarks
    * The drive ID.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 1
    */
@@ -6173,25 +6563,25 @@ export class CreateCustomizedStoryResponse extends $tea.Model {
 export class CreateDomainRequest extends $tea.Model {
   /**
    * @remarks
-   * The description of the domain.
+   * domain 描述
    * 
    * @example
-   * domain for test
+   * 你好企业网盘开发环境
    */
   description?: string;
   /**
    * @remarks
-   * The name of the domain.
+   * If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
    * 
    * This parameter is required.
    * 
    * @example
-   * test_domain
+   * 你好企业网盘
    */
   domainName?: string;
   /**
    * @remarks
-   * Specifies whether to enable the default drive feature. A value of true specifies that all users are assigned a drive by default on the first logon. Default value: false.
+   * https
    * 
    * @example
    * true
@@ -6199,7 +6589,7 @@ export class CreateDomainRequest extends $tea.Model {
   initDriveEnable?: boolean;
   /**
    * @remarks
-   * The size of the default drive. Unit: bytes. You must specify init_drive_size if you set init_drive_enable to true. Default value: 0. A value of 0 specifies that the size of the default drive is 0 bytes and you cannot upload files to the drive. To initialize the default drive, set init_drive_size to 0. A value of -1 specifies that the size is unlimited.
+   * http
    * 
    * @example
    * 1073741824
@@ -6207,7 +6597,7 @@ export class CreateDomainRequest extends $tea.Model {
   initDriveSize?: number;
   /**
    * @remarks
-   * The ID of the parent domain. If you want to create a child domain, specify parent_domain_id. In most cases, you do not need to create a child domain. If you want to perform secondary operations based on Drive and Photo Service, contact the customer service.
+   * Create domain.
    * 
    * @example
    * bj1
@@ -6215,7 +6605,7 @@ export class CreateDomainRequest extends $tea.Model {
   parentDomainId?: string;
   /**
    * @remarks
-   * The total storage quota for all drives in the domain. A value of 0 specifies that the quota is unlimited.
+   * The ID of the parent domain. If you want to create a child domain, specify parent_domain_id. In most cases, you do not need to create a child domain. If you want to perform secondary operations based on Drive and Photo Service, contact the customer service.
    * 
    * @example
    * 1099511627776
@@ -6223,7 +6613,7 @@ export class CreateDomainRequest extends $tea.Model {
   sizeQuota?: number;
   /**
    * @remarks
-   * The largest number of users that can be created in the domain. A value of 0 specifies that the number is unlimited.
+   * The information about the domain.
    * 
    * @example
    * 50
@@ -7278,6 +7668,7 @@ export class CreateShareLinkRequest extends $tea.Model {
    * ["520b217f13adf4fc24f2191991b1664ce045b393"]
    */
   fileIdList?: string[];
+  officeEditable?: boolean;
   /**
    * @remarks
    * The limit on the number of times that the shared files can be previewed. The value of this parameter must be equal to or greater than 0. A value of 0 indicates no limit.
@@ -7286,6 +7677,7 @@ export class CreateShareLinkRequest extends $tea.Model {
    * 100
    */
   previewLimit?: number;
+  requireLogin?: boolean;
   /**
    * @remarks
    * The limit on the number of times that the shared files can be dumped. The value of this parameter must be equal to or greater than 0. A value of 0 indicates no limit.
@@ -7335,7 +7727,9 @@ export class CreateShareLinkRequest extends $tea.Model {
       driveId: 'drive_id',
       expiration: 'expiration',
       fileIdList: 'file_id_list',
+      officeEditable: 'office_editable',
       previewLimit: 'preview_limit',
+      requireLogin: 'require_login',
       saveLimit: 'save_limit',
       shareAllFiles: 'share_all_files',
       shareName: 'share_name',
@@ -7356,7 +7750,9 @@ export class CreateShareLinkRequest extends $tea.Model {
       driveId: 'string',
       expiration: 'string',
       fileIdList: { 'type': 'array', 'itemType': 'string' },
+      officeEditable: 'boolean',
       previewLimit: 'number',
+      requireLogin: 'boolean',
       saveLimit: 'number',
       shareAllFiles: 'boolean',
       shareName: 'string',
@@ -8895,6 +9291,8 @@ export class FileListPermissionRequest extends $tea.Model {
    * @remarks
    * The drive ID.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 1
    */
@@ -8902,6 +9300,8 @@ export class FileListPermissionRequest extends $tea.Model {
   /**
    * @remarks
    * The file ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 4221bf6e6ab43a255edc4463bffa6f5f5d317401
@@ -10087,6 +10487,8 @@ export class GetLinkInfoByUserIdRequest extends $tea.Model {
   /**
    * @remarks
    * The user ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * xxx
@@ -11964,6 +12366,8 @@ export class ListAssignmentRequest extends $tea.Model {
    * @remarks
    * The ID of the managed resource, such as a group ID.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 105***b82
    */
@@ -11971,6 +12375,8 @@ export class ListAssignmentRequest extends $tea.Model {
   /**
    * @remarks
    * The type of the managed resource. Set the value to RT_Group, which specifies that the administrators of a group are queried.
+   * 
+   * This parameter is required.
    * 
    * @example
    * RT_Group
@@ -13281,6 +13687,7 @@ export class ListMyDrivesResponse extends $tea.Model {
 }
 
 export class ListMyGroupDriveRequest extends $tea.Model {
+  driveName?: string;
   /**
    * @remarks
    * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
@@ -13299,6 +13706,7 @@ export class ListMyGroupDriveRequest extends $tea.Model {
   marker?: string;
   static names(): { [key: string]: string } {
     return {
+      driveName: 'drive_name',
       limit: 'limit',
       marker: 'marker',
     };
@@ -13306,6 +13714,7 @@ export class ListMyGroupDriveRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      driveName: 'string',
       limit: 'number',
       marker: 'string',
     };
@@ -16556,12 +16965,17 @@ export class TrashFileResponse extends $tea.Model {
 
 export class UnLinkAccountRequest extends $tea.Model {
   /**
+   * @remarks
+   * Additional information for the unique account identifier. For example, when the account is a phone number, this field should be filled with the area code of the phone, such as 86 for Mainland China. If not provided, it defaults to 86.
+   * 
    * @example
    * 1
    */
   extra?: string;
   /**
    * @remarks
+   * Unique identifier of the account, such as a phone number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16570,6 +16984,22 @@ export class UnLinkAccountRequest extends $tea.Model {
   identity?: string;
   /**
    * @remarks
+   * Account type
+   * 
+   * mobile: Phone number
+   * 
+   * email: Email address
+   * 
+   * ding: DingTalk
+   * 
+   * ram: Alibaba Cloud RAM User
+   * 
+   * wechat: WeCom
+   * 
+   * ldap: LDAP account
+   * 
+   * custom: Custom account
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16578,6 +17008,8 @@ export class UnLinkAccountRequest extends $tea.Model {
   type?: string;
   /**
    * @remarks
+   * User identifier
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17435,6 +17867,7 @@ export class UpdateShareLinkRequest extends $tea.Model {
    * 2020-06-28T11:33:00.000+08:00
    */
   expiration?: string;
+  officeEditable?: boolean;
   /**
    * @remarks
    * The number of times that the shared files are previewed. The value must be greater than or equal to 0.
@@ -17526,6 +17959,7 @@ export class UpdateShareLinkRequest extends $tea.Model {
       downloadCount: 'download_count',
       downloadLimit: 'download_limit',
       expiration: 'expiration',
+      officeEditable: 'office_editable',
       previewCount: 'preview_count',
       previewLimit: 'preview_limit',
       reportCount: 'report_count',
@@ -17548,6 +17982,7 @@ export class UpdateShareLinkRequest extends $tea.Model {
       downloadCount: 'number',
       downloadLimit: 'number',
       expiration: 'string',
+      officeEditable: 'boolean',
       previewCount: 'number',
       previewLimit: 'number',
       reportCount: 'number',
@@ -19223,7 +19658,6 @@ export default class Client extends OpenApi {
     super(config);
     let gatewayClient = new GatewayClient();
     this._spi = gatewayClient;
-    this._signatureAlgorithm = "v2";
     this._disableHttp2 = true;
     this._endpointRule = "";
   }
@@ -19869,10 +20303,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create domain.
+   * test_domain
    * 
    * @remarks
-   * If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
+   * The description of the domain.
    * 
    * @param request - CreateDomainRequest
    * @param headers - map
@@ -19929,10 +20363,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create domain.
+   * test_domain
    * 
    * @remarks
-   * If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
+   * The description of the domain.
    * 
    * @param request - CreateDomainRequest
    * @returns CreateDomainResponse
@@ -20400,8 +20834,16 @@ export default class Client extends OpenApi {
       body["file_id_list"] = request.fileIdList;
     }
 
+    if (!Util.isUnset(request.officeEditable)) {
+      body["office_editable"] = request.officeEditable;
+    }
+
     if (!Util.isUnset(request.previewLimit)) {
       body["preview_limit"] = request.previewLimit;
+    }
+
+    if (!Util.isUnset(request.requireLogin)) {
+      body["require_login"] = request.requireLogin;
     }
 
     if (!Util.isUnset(request.saveLimit)) {
@@ -23519,6 +23961,10 @@ export default class Client extends OpenApi {
   async listMyGroupDriveWithOptions(request: ListMyGroupDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMyGroupDriveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.driveName)) {
+      body["drive_name"] = request.driveName;
+    }
+
     if (!Util.isUnset(request.limit)) {
       body["limit"] = request.limit;
     }
@@ -25119,7 +25565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消账号绑定
+   * Unlink Account Binding
    * 
    * @param request - UnLinkAccountRequest
    * @param headers - map
@@ -25164,7 +25610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消账号绑定
+   * Unlink Account Binding
    * 
    * @param request - UnLinkAccountRequest
    * @returns UnLinkAccountResponse
@@ -25663,6 +26109,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.expiration)) {
       body["expiration"] = request.expiration;
+    }
+
+    if (!Util.isUnset(request.officeEditable)) {
+      body["office_editable"] = request.officeEditable;
     }
 
     if (!Util.isUnset(request.previewCount)) {
