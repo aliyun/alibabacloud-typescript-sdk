@@ -403,9 +403,6 @@ export class AddShareReportResponse extends $tea.Model {
 }
 
 export class AddUserRequest extends $tea.Model {
-  /**
-   * @deprecated
-   */
   accountId?: string;
   /**
    * @remarks
@@ -3589,6 +3586,90 @@ export class DeleteUserTagMetaResponse extends $tea.Model {
   }
 }
 
+export class GetDataSourceConnectionInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7AAB95D-*****-****-*4FC0C976
+   */
+  dsId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dsId: 'DsId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dsId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataSourceConnectionInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7AAB95D-*****-****-*4FC0C976
+   */
+  requestId?: string;
+  result?: GetDataSourceConnectionInfoResponseBodyResult;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetDataSourceConnectionInfoResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataSourceConnectionInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataSourceConnectionInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataSourceConnectionInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMailTaskStatusRequest extends $tea.Model {
   /**
    * @remarks
@@ -4367,6 +4448,97 @@ export class ListDataLevelPermissionWhiteListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDataLevelPermissionWhiteListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourceRequest extends $tea.Model {
+  /**
+   * @example
+   * mysql
+   */
+  dsType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 95296e95-******c7d-8af9-dedf0ad0****
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dsType: 'DsType',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dsType: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7FC9A6A6-****-5CED-B*****E891E4075
+   */
+  requestId?: string;
+  result?: ListDataSourceResponseBodyResult[];
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListDataSourceResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataSourceResponseBody,
     };
   }
 
@@ -7105,6 +7277,94 @@ export class QueryDatasetListResponse extends $tea.Model {
   }
 }
 
+export class QueryDatasetSmartqStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7c7223ae-****-3c744528014b
+   */
+  cubeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cubeId: 'CubeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cubeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDatasetSmartqStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7c7223ae-****-3c744528014b
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  result?: boolean;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDatasetSmartqStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDatasetSmartqStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDatasetSmartqStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDatasetSwitchInfoRequest extends $tea.Model {
   /**
    * @remarks
@@ -7350,6 +7610,90 @@ export class QueryEmbeddedStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryEmbeddedStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLlmCubeWithThemeListByUserIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * adsdasd-***********-123wdasd
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLlmCubeWithThemeListByUserIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2EE822B***************F-F5B42DDADC12
+   */
+  requestId?: string;
+  result?: QueryLlmCubeWithThemeListByUserIdResponseBodyResult;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: QueryLlmCubeWithThemeListByUserIdResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLlmCubeWithThemeListByUserIdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryLlmCubeWithThemeListByUserIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryLlmCubeWithThemeListByUserIdResponseBody,
     };
   }
 
@@ -7953,6 +8297,100 @@ export class QuerySharesToUserListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QuerySharesToUserListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmartqPermissionByCubeIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7c7223ae-****-3c744528014b
+   */
+  cubeId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 95c4d**************3852e202
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cubeId: 'CubeId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cubeId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmartqPermissionByCubeIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 617277******************ABA47E31
+   */
+  requestId?: string;
+  result?: QuerySmartqPermissionByCubeIdResponseBodyResult;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: QuerySmartqPermissionByCubeIdResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmartqPermissionByCubeIdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySmartqPermissionByCubeIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySmartqPermissionByCubeIdResponseBody,
     };
   }
 
@@ -9965,6 +10403,219 @@ export class SetDataLevelPermissionWhiteListResponse extends $tea.Model {
   }
 }
 
+export class SmartqAuthTransferRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ASDHASD*************12EASDA
+   */
+  originUserId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12313********dasfa,ASDASF*****SDAFEEG
+   */
+  targetUserIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      originUserId: 'OriginUserId',
+      targetUserIds: 'TargetUserIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originUserId: 'string',
+      targetUserIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmartqAuthTransferResponseBody extends $tea.Model {
+  /**
+   * @example
+   * D787E1*****************5DF8D885
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  result?: boolean;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmartqAuthTransferResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SmartqAuthTransferResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SmartqAuthTransferResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmartqAuthorizeRequest extends $tea.Model {
+  /**
+   * @example
+   * 2099-12-31
+   */
+  expireDay?: string;
+  /**
+   * @example
+   * wasdasd*******1235235sd,ASDAS*********ASDAW123
+   */
+  llmCubeThemes?: string;
+  /**
+   * @example
+   * wasdasd*******1235235sd,ASDAS*********ASDAW123
+   */
+  llmCubes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  operationType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * wasdasd*******1235235sd,ASDAS*********ASDAW123
+   */
+  userIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expireDay: 'ExpireDay',
+      llmCubeThemes: 'LlmCubeThemes',
+      llmCubes: 'LlmCubes',
+      operationType: 'OperationType',
+      userIds: 'UserIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireDay: 'string',
+      llmCubeThemes: 'string',
+      llmCubes: 'string',
+      operationType: 'number',
+      userIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmartqAuthorizeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 617277C****************ABA47E31
+   */
+  requestId?: string;
+  result?: SmartqAuthorizeResponseBodyResult[];
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': SmartqAuthorizeResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmartqAuthorizeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SmartqAuthorizeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SmartqAuthorizeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SmartqQueryAbilityRequest extends $tea.Model {
   /**
    * @remarks
@@ -10875,13 +11526,11 @@ export class UpdateUserTagValueResponse extends $tea.Model {
 
 export class UpdateWorkspaceUserRoleRequest extends $tea.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 25
    */
   roleId?: number;
+  roleIds?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -10901,6 +11550,7 @@ export class UpdateWorkspaceUserRoleRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       roleId: 'RoleId',
+      roleIds: 'RoleIds',
       userId: 'UserId',
       workspaceId: 'WorkspaceId',
     };
@@ -10909,6 +11559,7 @@ export class UpdateWorkspaceUserRoleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       roleId: 'number',
+      roleIds: 'string',
       userId: 'string',
       workspaceId: 'string',
     };
@@ -11398,6 +12049,134 @@ export class DataSetBloodResponseBodyResult extends $tea.Model {
     return {
       worksId: 'string',
       worksType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataSourceConnectionInfoResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 172.**.**.48
+   */
+  address?: string;
+  /**
+   * @example
+   * 0
+   */
+  authLevel?: string;
+  /**
+   * @example
+   * U240****0880C6095
+   */
+  creatorId?: string;
+  /**
+   * @example
+   * a201c85c-******
+   */
+  dsId?: string;
+  /**
+   * @example
+   * mysql
+   */
+  dsType?: string;
+  /**
+   * @example
+   * 5.7
+   */
+  dsVersion?: string;
+  /**
+   * @example
+   * rm*********t44ju1
+   */
+  instance?: string;
+  /**
+   * @example
+   * rm*********t44ju1
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * U240****0880C6095
+   */
+  modifyUser?: string;
+  /**
+   * @example
+   * true
+   */
+  noSasl?: boolean;
+  /**
+   * @example
+   * dataphin
+   */
+  parentDsType?: string;
+  /**
+   * @example
+   * 3306
+   */
+  port?: string;
+  /**
+   * @example
+   * prod-ossdoc
+   */
+  project?: string;
+  /**
+   * @example
+   * Analysis
+   */
+  schema?: string;
+  /**
+   * @example
+   * 0327
+   */
+  showName?: string;
+  /**
+   * @example
+   * 0de6**2-d**-4720-8836-0cc****1394c
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      authLevel: 'AuthLevel',
+      creatorId: 'CreatorId',
+      dsId: 'DsId',
+      dsType: 'DsType',
+      dsVersion: 'DsVersion',
+      instance: 'Instance',
+      instanceId: 'InstanceId',
+      modifyUser: 'ModifyUser',
+      noSasl: 'NoSasl',
+      parentDsType: 'ParentDsType',
+      port: 'Port',
+      project: 'Project',
+      schema: 'Schema',
+      showName: 'ShowName',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      authLevel: 'string',
+      creatorId: 'string',
+      dsId: 'string',
+      dsType: 'string',
+      dsVersion: 'string',
+      instance: 'string',
+      instanceId: 'string',
+      modifyUser: 'string',
+      noSasl: 'boolean',
+      parentDsType: 'string',
+      port: 'string',
+      project: 'string',
+      schema: 'string',
+      showName: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -11969,6 +12748,78 @@ export class ListDataLevelPermissionWhiteListResponseBodyResult extends $tea.Mod
       cubeId: 'string',
       ruleType: 'string',
       usersModel: ListDataLevelPermissionWhiteListResponseBodyResultUsersModel,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourceResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 281*****-485******-8
+   */
+  creatorId?: string;
+  /**
+   * @example
+   * system
+   */
+  creatorName?: string;
+  /**
+   * @example
+   * 7FC9A6A6-****-5CED-B*****E891E4075
+   */
+  datasourceId?: string;
+  /**
+   * @example
+   * odps
+   */
+  dsType?: string;
+  /**
+   * @example
+   * 2024-04-16 13:17:39
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-08-15 10:06:31
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * dataphin
+   */
+  parentDsType?: string;
+  /**
+   * @example
+   * 0327
+   */
+  showName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creatorId: 'CreatorId',
+      creatorName: 'CreatorName',
+      datasourceId: 'DatasourceId',
+      dsType: 'DsType',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      parentDsType: 'ParentDsType',
+      showName: 'ShowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creatorId: 'string',
+      creatorName: 'string',
+      datasourceId: 'string',
+      dsType: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      parentDsType: 'string',
+      showName: 'string',
     };
   }
 
@@ -13039,6 +13890,7 @@ export class QueryAuditLogResponseBodyResult extends $tea.Model {
    * CREATE
    */
   operatorType?: string;
+  targetId?: string;
   targetName?: string;
   /**
    * @example
@@ -13056,6 +13908,7 @@ export class QueryAuditLogResponseBodyResult extends $tea.Model {
       operatorAccountName: 'OperatorAccountName',
       operatorName: 'OperatorName',
       operatorType: 'OperatorType',
+      targetId: 'TargetId',
       targetName: 'TargetName',
       targetType: 'TargetType',
       workspaceId: 'WorkspaceId',
@@ -13068,6 +13921,7 @@ export class QueryAuditLogResponseBodyResult extends $tea.Model {
       operatorAccountName: 'string',
       operatorName: 'string',
       operatorType: 'string',
+      targetId: 'string',
       targetName: 'string',
       targetType: 'string',
       workspaceId: 'string',
@@ -15313,6 +16167,28 @@ export class QueryEmbeddedInfoResponseBodyResult extends $tea.Model {
   }
 }
 
+export class QueryLlmCubeWithThemeListByUserIdResponseBodyResult extends $tea.Model {
+  cubeIds?: { [key: string]: string };
+  themeIds?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      cubeIds: 'CubeIds',
+      themeIds: 'ThemeIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cubeIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      themeIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryOrganizationRoleConfigResponseBodyResultAuthConfigList extends $tea.Model {
   /**
    * @example
@@ -16225,6 +17101,39 @@ export class QuerySharesToUserListResponseBodyResult extends $tea.Model {
   }
 }
 
+export class QuerySmartqPermissionByCubeIdResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 7c7223ae-****-3c744528014b
+   */
+  cubeId?: string;
+  /**
+   * @example
+   * test
+   */
+  cubeName?: string;
+  hasPerssion?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      cubeId: 'CubeId',
+      cubeName: 'CubeName',
+      hasPerssion: 'HasPerssion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cubeId: 'string',
+      cubeName: 'string',
+      hasPerssion: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryTicketInfoResponseBodyResult extends $tea.Model {
   /**
    * @example
@@ -17072,6 +17981,7 @@ export class QueryWorksBloodRelationshipResponseBodyResultQueryParams extends $t
    * number
    */
   dataType?: string;
+  expression?: string;
   /**
    * @remarks
    * The type of the field. Valid values:
@@ -17113,6 +18023,7 @@ export class QueryWorksBloodRelationshipResponseBodyResultQueryParams extends $t
       areaName: 'AreaName',
       caption: 'Caption',
       dataType: 'DataType',
+      expression: 'Expression',
       isMeasure: 'IsMeasure',
       pathId: 'PathId',
       uid: 'Uid',
@@ -17125,6 +18036,7 @@ export class QueryWorksBloodRelationshipResponseBodyResultQueryParams extends $t
       areaName: 'string',
       caption: 'string',
       dataType: 'string',
+      expression: 'string',
       isMeasure: 'boolean',
       pathId: 'string',
       uid: 'string',
@@ -17161,6 +18073,7 @@ export class QueryWorksBloodRelationshipResponseBodyResult extends $tea.Model {
    * 3
    */
   componentType?: number;
+  componentTypeCnName?: string;
   /**
    * @remarks
    * The type of the image component.
@@ -17187,6 +18100,7 @@ export class QueryWorksBloodRelationshipResponseBodyResult extends $tea.Model {
       componentId: 'ComponentId',
       componentName: 'ComponentName',
       componentType: 'ComponentType',
+      componentTypeCnName: 'ComponentTypeCnName',
       componentTypeName: 'ComponentTypeName',
       datasetId: 'DatasetId',
       queryParams: 'QueryParams',
@@ -17198,6 +18112,7 @@ export class QueryWorksBloodRelationshipResponseBodyResult extends $tea.Model {
       componentId: 'string',
       componentName: 'string',
       componentType: 'number',
+      componentTypeCnName: 'string',
       componentTypeName: 'string',
       datasetId: 'string',
       queryParams: { 'type': 'array', 'itemType': QueryWorksBloodRelationshipResponseBodyResultQueryParams },
@@ -17976,6 +18891,50 @@ export class QueryWorkspaceUserListResponseBodyResult extends $tea.Model {
       pageSize: 'number',
       totalNum: 'number',
       totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmartqAuthorizeResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * INVALID_FILE_FORMAT
+   */
+  detailMessage?: string;
+  /**
+   * @example
+   * 617277C****************ABA47E31
+   */
+  llmCube?: string;
+  /**
+   * @example
+   * 617277C****************ABA47E31
+   */
+  llmCubeTheme?: string;
+  /**
+   * @example
+   * 617277C****************ABA47E31
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailMessage: 'DetailMessage',
+      llmCube: 'LlmCube',
+      llmCubeTheme: 'LlmCubeTheme',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailMessage: 'string',
+      llmCube: 'string',
+      llmCubeTheme: 'string',
+      userId: 'string',
     };
   }
 
@@ -19744,6 +20703,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取数据源信息
+   * 
+   * @param request - GetDataSourceConnectionInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataSourceConnectionInfoResponse
+   */
+  async getDataSourceConnectionInfoWithOptions(request: GetDataSourceConnectionInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetDataSourceConnectionInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dsId)) {
+      query["DsId"] = request.dsId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataSourceConnectionInfo",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataSourceConnectionInfoResponse>(await this.callApi(params, req, runtime), new GetDataSourceConnectionInfoResponse({}));
+  }
+
+  /**
+   * 获取数据源信息
+   * 
+   * @param request - GetDataSourceConnectionInfoRequest
+   * @returns GetDataSourceConnectionInfoResponse
+   */
+  async getDataSourceConnectionInfo(request: GetDataSourceConnectionInfoRequest): Promise<GetDataSourceConnectionInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataSourceConnectionInfoWithOptions(request, runtime);
+  }
+
+  /**
    * 组织内查看邮件任务运行状态
    * 
    * @param request - GetMailTaskStatusRequest
@@ -20123,6 +21124,52 @@ export default class Client extends OpenApi {
   async listDataLevelPermissionWhiteList(request: ListDataLevelPermissionWhiteListRequest): Promise<ListDataLevelPermissionWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataLevelPermissionWhiteListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询指定空间下的所有数据源
+   * 
+   * @param request - ListDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataSourceResponse
+   */
+  async listDataSourceWithOptions(request: ListDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<ListDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dsType)) {
+      query["DsType"] = request.dsType;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataSource",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataSourceResponse>(await this.callApi(params, req, runtime), new ListDataSourceResponse({}));
+  }
+
+  /**
+   * 查询指定空间下的所有数据源
+   * 
+   * @param request - ListDataSourceRequest
+   * @returns ListDataSourceResponse
+   */
+  async listDataSource(request: ListDataSourceRequest): Promise<ListDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataSourceWithOptions(request, runtime);
   }
 
   /**
@@ -21456,6 +22503,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看数据集是否开通智能问数
+   * 
+   * @param request - QueryDatasetSmartqStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDatasetSmartqStatusResponse
+   */
+  async queryDatasetSmartqStatusWithOptions(request: QueryDatasetSmartqStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDatasetSmartqStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cubeId)) {
+      query["CubeId"] = request.cubeId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDatasetSmartqStatus",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDatasetSmartqStatusResponse>(await this.callApi(params, req, runtime), new QueryDatasetSmartqStatusResponse({}));
+  }
+
+  /**
+   * 查看数据集是否开通智能问数
+   * 
+   * @param request - QueryDatasetSmartqStatusRequest
+   * @returns QueryDatasetSmartqStatusResponse
+   */
+  async queryDatasetSmartqStatus(request: QueryDatasetSmartqStatusRequest): Promise<QueryDatasetSmartqStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDatasetSmartqStatusWithOptions(request, runtime);
+  }
+
+  /**
    * 获取指定数据集的行级权限开关状态。
    * 
    * @param request - QueryDatasetSwitchInfoRequest
@@ -21569,6 +22658,48 @@ export default class Client extends OpenApi {
   async queryEmbeddedStatus(request: QueryEmbeddedStatusRequest): Promise<QueryEmbeddedStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEmbeddedStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看用户有哪些数据集和分析主题的问数授权
+   * 
+   * @param request - QueryLlmCubeWithThemeListByUserIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryLlmCubeWithThemeListByUserIdResponse
+   */
+  async queryLlmCubeWithThemeListByUserIdWithOptions(request: QueryLlmCubeWithThemeListByUserIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryLlmCubeWithThemeListByUserIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryLlmCubeWithThemeListByUserId",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryLlmCubeWithThemeListByUserIdResponse>(await this.callApi(params, req, runtime), new QueryLlmCubeWithThemeListByUserIdResponse({}));
+  }
+
+  /**
+   * 查看用户有哪些数据集和分析主题的问数授权
+   * 
+   * @param request - QueryLlmCubeWithThemeListByUserIdRequest
+   * @returns QueryLlmCubeWithThemeListByUserIdResponse
+   */
+  async queryLlmCubeWithThemeListByUserId(request: QueryLlmCubeWithThemeListByUserIdRequest): Promise<QueryLlmCubeWithThemeListByUserIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryLlmCubeWithThemeListByUserIdWithOptions(request, runtime);
   }
 
   /**
@@ -21857,6 +22988,52 @@ export default class Client extends OpenApi {
   async querySharesToUserList(request: QuerySharesToUserListRequest): Promise<QuerySharesToUserListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySharesToUserListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看用户是否有某个智能问数数据集权限
+   * 
+   * @param request - QuerySmartqPermissionByCubeIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySmartqPermissionByCubeIdResponse
+   */
+  async querySmartqPermissionByCubeIdWithOptions(request: QuerySmartqPermissionByCubeIdRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmartqPermissionByCubeIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cubeId)) {
+      query["CubeId"] = request.cubeId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySmartqPermissionByCubeId",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySmartqPermissionByCubeIdResponse>(await this.callApi(params, req, runtime), new QuerySmartqPermissionByCubeIdResponse({}));
+  }
+
+  /**
+   * 查看用户是否有某个智能问数数据集权限
+   * 
+   * @param request - QuerySmartqPermissionByCubeIdRequest
+   * @returns QuerySmartqPermissionByCubeIdResponse
+   */
+  async querySmartqPermissionByCubeId(request: QuerySmartqPermissionByCubeIdRequest): Promise<QuerySmartqPermissionByCubeIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySmartqPermissionByCubeIdWithOptions(request, runtime);
   }
 
   /**
@@ -22768,6 +23945,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 将指定用户的问数权限同步给其他用户
+   * 
+   * @param request - SmartqAuthTransferRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SmartqAuthTransferResponse
+   */
+  async smartqAuthTransferWithOptions(request: SmartqAuthTransferRequest, runtime: $Util.RuntimeOptions): Promise<SmartqAuthTransferResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.originUserId)) {
+      query["OriginUserId"] = request.originUserId;
+    }
+
+    if (!Util.isUnset(request.targetUserIds)) {
+      query["TargetUserIds"] = request.targetUserIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SmartqAuthTransfer",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SmartqAuthTransferResponse>(await this.callApi(params, req, runtime), new SmartqAuthTransferResponse({}));
+  }
+
+  /**
+   * 将指定用户的问数权限同步给其他用户
+   * 
+   * @param request - SmartqAuthTransferRequest
+   * @returns SmartqAuthTransferResponse
+   */
+  async smartqAuthTransfer(request: SmartqAuthTransferRequest): Promise<SmartqAuthTransferResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.smartqAuthTransferWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量管理智能问数的授权
+   * 
+   * @param request - SmartqAuthorizeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SmartqAuthorizeResponse
+   */
+  async smartqAuthorizeWithOptions(request: SmartqAuthorizeRequest, runtime: $Util.RuntimeOptions): Promise<SmartqAuthorizeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.expireDay)) {
+      query["ExpireDay"] = request.expireDay;
+    }
+
+    if (!Util.isUnset(request.llmCubeThemes)) {
+      query["LlmCubeThemes"] = request.llmCubeThemes;
+    }
+
+    if (!Util.isUnset(request.llmCubes)) {
+      query["LlmCubes"] = request.llmCubes;
+    }
+
+    if (!Util.isUnset(request.operationType)) {
+      query["OperationType"] = request.operationType;
+    }
+
+    if (!Util.isUnset(request.userIds)) {
+      query["UserIds"] = request.userIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SmartqAuthorize",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SmartqAuthorizeResponse>(await this.callApi(params, req, runtime), new SmartqAuthorizeResponse({}));
+  }
+
+  /**
+   * 批量管理智能问数的授权
+   * 
+   * @param request - SmartqAuthorizeRequest
+   * @returns SmartqAuthorizeResponse
+   */
+  async smartqAuthorize(request: SmartqAuthorizeRequest): Promise<SmartqAuthorizeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.smartqAuthorizeWithOptions(request, runtime);
+  }
+
+  /**
    * 问数能力开放
    * 
    * @param request - SmartqQueryAbilityRequest
@@ -23201,6 +24482,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.roleId)) {
       query["RoleId"] = request.roleId;
+    }
+
+    if (!Util.isUnset(request.roleIds)) {
+      query["RoleIds"] = request.roleIds;
     }
 
     if (!Util.isUnset(request.userId)) {
