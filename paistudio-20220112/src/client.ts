@@ -2,7 +2,6 @@
 /**
  */
 import Util, * as $Util from '@alicloud/tea-util';
-import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -5274,6 +5273,129 @@ export class GetResourceGroupTotalResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetResourceGroupTotalResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSpotPriceHistoryRequest extends $tea.Model {
+  /**
+   * @example
+   * 2024-12-30T09:36:46Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * GmtCreatedTime
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * 0
+   */
+  spotDuration?: number;
+  /**
+   * @example
+   * 2024-12-26T09:36:46Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      spotDuration: 'SpotDuration',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+      spotDuration: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSpotPriceHistoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 8BDA4440-DD3C-5F4B-BBDD-94A9CE1E75C7
+   */
+  requestId?: string;
+  spotPriceHistory?: SpotPriceItem[];
+  /**
+   * @example
+   * 194
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      spotPriceHistory: 'SpotPriceHistory',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      spotPriceHistory: { 'type': 'array', 'itemType': SpotPriceItem },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSpotPriceHistoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSpotPriceHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSpotPriceHistoryResponseBody,
     };
   }
 
@@ -10702,9 +10824,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._productId = "PaiStudio";
-    let gatewayClient = new GatewayClient();
-    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-beijing': "pai.cn-beijing.aliyuncs.com",
@@ -10771,12 +10890,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CheckInstanceWebTerminalResponse>(await this.callApi(params, req, runtime), new CheckInstanceWebTerminalResponse({}));
-    } else {
-      return $tea.cast<CheckInstanceWebTerminalResponse>(await this.execute(params, req, runtime), new CheckInstanceWebTerminalResponse({}));
-    }
-
+    return $tea.cast<CheckInstanceWebTerminalResponse>(await this.callApi(params, req, runtime), new CheckInstanceWebTerminalResponse({}));
   }
 
   /**
@@ -10833,12 +10947,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateAlgorithmResponse>(await this.callApi(params, req, runtime), new CreateAlgorithmResponse({}));
-    } else {
-      return $tea.cast<CreateAlgorithmResponse>(await this.execute(params, req, runtime), new CreateAlgorithmResponse({}));
-    }
-
+    return $tea.cast<CreateAlgorithmResponse>(await this.callApi(params, req, runtime), new CreateAlgorithmResponse({}));
   }
 
   /**
@@ -10889,12 +10998,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateAlgorithmVersionResponse>(await this.callApi(params, req, runtime), new CreateAlgorithmVersionResponse({}));
-    } else {
-      return $tea.cast<CreateAlgorithmVersionResponse>(await this.execute(params, req, runtime), new CreateAlgorithmVersionResponse({}));
-    }
-
+    return $tea.cast<CreateAlgorithmVersionResponse>(await this.callApi(params, req, runtime), new CreateAlgorithmVersionResponse({}));
   }
 
   /**
@@ -10931,12 +11035,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateInstanceWebTerminalResponse>(await this.callApi(params, req, runtime), new CreateInstanceWebTerminalResponse({}));
-    } else {
-      return $tea.cast<CreateInstanceWebTerminalResponse>(await this.execute(params, req, runtime), new CreateInstanceWebTerminalResponse({}));
-    }
-
+    return $tea.cast<CreateInstanceWebTerminalResponse>(await this.callApi(params, req, runtime), new CreateInstanceWebTerminalResponse({}));
   }
 
   /**
@@ -11015,12 +11114,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateQuotaResponse>(await this.callApi(params, req, runtime), new CreateQuotaResponse({}));
-    } else {
-      return $tea.cast<CreateQuotaResponse>(await this.execute(params, req, runtime), new CreateQuotaResponse({}));
-    }
-
+    return $tea.cast<CreateQuotaResponse>(await this.callApi(params, req, runtime), new CreateQuotaResponse({}));
   }
 
   /**
@@ -11085,12 +11179,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateResourceGroupResponse>(await this.callApi(params, req, runtime), new CreateResourceGroupResponse({}));
-    } else {
-      return $tea.cast<CreateResourceGroupResponse>(await this.execute(params, req, runtime), new CreateResourceGroupResponse({}));
-    }
-
+    return $tea.cast<CreateResourceGroupResponse>(await this.callApi(params, req, runtime), new CreateResourceGroupResponse({}));
   }
 
   /**
@@ -11215,12 +11304,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateTrainingJobResponse>(await this.callApi(params, req, runtime), new CreateTrainingJobResponse({}));
-    } else {
-      return $tea.cast<CreateTrainingJobResponse>(await this.execute(params, req, runtime), new CreateTrainingJobResponse({}));
-    }
-
+    return $tea.cast<CreateTrainingJobResponse>(await this.callApi(params, req, runtime), new CreateTrainingJobResponse({}));
   }
 
   /**
@@ -11257,12 +11341,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteAlgorithmResponse>(await this.callApi(params, req, runtime), new DeleteAlgorithmResponse({}));
-    } else {
-      return $tea.cast<DeleteAlgorithmResponse>(await this.execute(params, req, runtime), new DeleteAlgorithmResponse({}));
-    }
-
+    return $tea.cast<DeleteAlgorithmResponse>(await this.callApi(params, req, runtime), new DeleteAlgorithmResponse({}));
   }
 
   /**
@@ -11297,12 +11376,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteAlgorithmVersionResponse>(await this.callApi(params, req, runtime), new DeleteAlgorithmVersionResponse({}));
-    } else {
-      return $tea.cast<DeleteAlgorithmVersionResponse>(await this.execute(params, req, runtime), new DeleteAlgorithmVersionResponse({}));
-    }
-
+    return $tea.cast<DeleteAlgorithmVersionResponse>(await this.callApi(params, req, runtime), new DeleteAlgorithmVersionResponse({}));
   }
 
   /**
@@ -11340,12 +11414,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteMachineGroupResponse>(await this.callApi(params, req, runtime), new DeleteMachineGroupResponse({}));
-    } else {
-      return $tea.cast<DeleteMachineGroupResponse>(await this.execute(params, req, runtime), new DeleteMachineGroupResponse({}));
-    }
-
+    return $tea.cast<DeleteMachineGroupResponse>(await this.callApi(params, req, runtime), new DeleteMachineGroupResponse({}));
   }
 
   /**
@@ -11383,12 +11452,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteQuotaResponse>(await this.callApi(params, req, runtime), new DeleteQuotaResponse({}));
-    } else {
-      return $tea.cast<DeleteQuotaResponse>(await this.execute(params, req, runtime), new DeleteQuotaResponse({}));
-    }
-
+    return $tea.cast<DeleteQuotaResponse>(await this.callApi(params, req, runtime), new DeleteQuotaResponse({}));
   }
 
   /**
@@ -11423,12 +11487,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteResourceGroupResponse>(await this.callApi(params, req, runtime), new DeleteResourceGroupResponse({}));
-    } else {
-      return $tea.cast<DeleteResourceGroupResponse>(await this.execute(params, req, runtime), new DeleteResourceGroupResponse({}));
-    }
-
+    return $tea.cast<DeleteResourceGroupResponse>(await this.callApi(params, req, runtime), new DeleteResourceGroupResponse({}));
   }
 
   /**
@@ -11466,12 +11525,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteResourceGroupMachineGroupResponse>(await this.callApi(params, req, runtime), new DeleteResourceGroupMachineGroupResponse({}));
-    } else {
-      return $tea.cast<DeleteResourceGroupMachineGroupResponse>(await this.execute(params, req, runtime), new DeleteResourceGroupMachineGroupResponse({}));
-    }
-
+    return $tea.cast<DeleteResourceGroupMachineGroupResponse>(await this.callApi(params, req, runtime), new DeleteResourceGroupMachineGroupResponse({}));
   }
 
   /**
@@ -11509,12 +11563,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteTrainingJobResponse>(await this.callApi(params, req, runtime), new DeleteTrainingJobResponse({}));
-    } else {
-      return $tea.cast<DeleteTrainingJobResponse>(await this.execute(params, req, runtime), new DeleteTrainingJobResponse({}));
-    }
-
+    return $tea.cast<DeleteTrainingJobResponse>(await this.callApi(params, req, runtime), new DeleteTrainingJobResponse({}));
   }
 
   /**
@@ -11557,12 +11606,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteTrainingJobLabelsResponse>(await this.callApi(params, req, runtime), new DeleteTrainingJobLabelsResponse({}));
-    } else {
-      return $tea.cast<DeleteTrainingJobLabelsResponse>(await this.execute(params, req, runtime), new DeleteTrainingJobLabelsResponse({}));
-    }
-
+    return $tea.cast<DeleteTrainingJobLabelsResponse>(await this.callApi(params, req, runtime), new DeleteTrainingJobLabelsResponse({}));
   }
 
   /**
@@ -11599,12 +11643,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetAlgorithmResponse>(await this.callApi(params, req, runtime), new GetAlgorithmResponse({}));
-    } else {
-      return $tea.cast<GetAlgorithmResponse>(await this.execute(params, req, runtime), new GetAlgorithmResponse({}));
-    }
-
+    return $tea.cast<GetAlgorithmResponse>(await this.callApi(params, req, runtime), new GetAlgorithmResponse({}));
   }
 
   /**
@@ -11639,12 +11678,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetAlgorithmVersionResponse>(await this.callApi(params, req, runtime), new GetAlgorithmVersionResponse({}));
-    } else {
-      return $tea.cast<GetAlgorithmVersionResponse>(await this.execute(params, req, runtime), new GetAlgorithmVersionResponse({}));
-    }
-
+    return $tea.cast<GetAlgorithmVersionResponse>(await this.callApi(params, req, runtime), new GetAlgorithmVersionResponse({}));
   }
 
   /**
@@ -11682,12 +11716,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetMachineGroupResponse>(await this.callApi(params, req, runtime), new GetMachineGroupResponse({}));
-    } else {
-      return $tea.cast<GetMachineGroupResponse>(await this.execute(params, req, runtime), new GetMachineGroupResponse({}));
-    }
-
+    return $tea.cast<GetMachineGroupResponse>(await this.callApi(params, req, runtime), new GetMachineGroupResponse({}));
   }
 
   /**
@@ -11752,12 +11781,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetNodeMetricsResponse>(await this.callApi(params, req, runtime), new GetNodeMetricsResponse({}));
-    } else {
-      return $tea.cast<GetNodeMetricsResponse>(await this.execute(params, req, runtime), new GetNodeMetricsResponse({}));
-    }
-
+    return $tea.cast<GetNodeMetricsResponse>(await this.callApi(params, req, runtime), new GetNodeMetricsResponse({}));
   }
 
   /**
@@ -11805,12 +11829,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetQuotaResponse>(await this.callApi(params, req, runtime), new GetQuotaResponse({}));
-    } else {
-      return $tea.cast<GetQuotaResponse>(await this.execute(params, req, runtime), new GetQuotaResponse({}));
-    }
-
+    return $tea.cast<GetQuotaResponse>(await this.callApi(params, req, runtime), new GetQuotaResponse({}));
   }
 
   /**
@@ -11865,12 +11884,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetResourceGroupResponse>(await this.callApi(params, req, runtime), new GetResourceGroupResponse({}));
-    } else {
-      return $tea.cast<GetResourceGroupResponse>(await this.execute(params, req, runtime), new GetResourceGroupResponse({}));
-    }
-
+    return $tea.cast<GetResourceGroupResponse>(await this.callApi(params, req, runtime), new GetResourceGroupResponse({}));
   }
 
   /**
@@ -11921,12 +11935,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetResourceGroupMachineGroupResponse>(await this.callApi(params, req, runtime), new GetResourceGroupMachineGroupResponse({}));
-    } else {
-      return $tea.cast<GetResourceGroupMachineGroupResponse>(await this.execute(params, req, runtime), new GetResourceGroupMachineGroupResponse({}));
-    }
-
+    return $tea.cast<GetResourceGroupMachineGroupResponse>(await this.callApi(params, req, runtime), new GetResourceGroupMachineGroupResponse({}));
   }
 
   /**
@@ -11978,12 +11987,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetResourceGroupRequestResponse>(await this.callApi(params, req, runtime), new GetResourceGroupRequestResponse({}));
-    } else {
-      return $tea.cast<GetResourceGroupRequestResponse>(await this.execute(params, req, runtime), new GetResourceGroupRequestResponse({}));
-    }
-
+    return $tea.cast<GetResourceGroupRequestResponse>(await this.callApi(params, req, runtime), new GetResourceGroupRequestResponse({}));
   }
 
   /**
@@ -12031,12 +12035,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetResourceGroupTotalResponse>(await this.callApi(params, req, runtime), new GetResourceGroupTotalResponse({}));
-    } else {
-      return $tea.cast<GetResourceGroupTotalResponse>(await this.execute(params, req, runtime), new GetResourceGroupTotalResponse({}));
-    }
-
+    return $tea.cast<GetResourceGroupTotalResponse>(await this.callApi(params, req, runtime), new GetResourceGroupTotalResponse({}));
   }
 
   /**
@@ -12049,6 +12048,75 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getResourceGroupTotalWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取抢占式实例历史价格
+   * 
+   * @param request - GetSpotPriceHistoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSpotPriceHistoryResponse
+   */
+  async getSpotPriceHistoryWithOptions(InstanceType: string, request: GetSpotPriceHistoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSpotPriceHistoryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.spotDuration)) {
+      query["SpotDuration"] = request.spotDuration;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSpotPriceHistory",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: `/api/v1/spots/${OpenApiUtil.getEncodeParam(InstanceType)}/pricehistory`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSpotPriceHistoryResponse>(await this.callApi(params, req, runtime), new GetSpotPriceHistoryResponse({}));
+  }
+
+  /**
+   * 获取抢占式实例历史价格
+   * 
+   * @param request - GetSpotPriceHistoryRequest
+   * @returns GetSpotPriceHistoryResponse
+   */
+  async getSpotPriceHistory(InstanceType: string, request: GetSpotPriceHistoryRequest): Promise<GetSpotPriceHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSpotPriceHistoryWithOptions(InstanceType, request, headers, runtime);
   }
 
   /**
@@ -12085,12 +12153,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
-    } else {
-      return $tea.cast<GetTokenResponse>(await this.execute(params, req, runtime), new GetTokenResponse({}));
-    }
-
+    return $tea.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
   }
 
   /**
@@ -12127,12 +12190,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetTrainingJobResponse>(await this.callApi(params, req, runtime), new GetTrainingJobResponse({}));
-    } else {
-      return $tea.cast<GetTrainingJobResponse>(await this.execute(params, req, runtime), new GetTrainingJobResponse({}));
-    }
-
+    return $tea.cast<GetTrainingJobResponse>(await this.callApi(params, req, runtime), new GetTrainingJobResponse({}));
   }
 
   /**
@@ -12167,12 +12225,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetTrainingJobErrorInfoResponse>(await this.callApi(params, req, runtime), new GetTrainingJobErrorInfoResponse({}));
-    } else {
-      return $tea.cast<GetTrainingJobErrorInfoResponse>(await this.execute(params, req, runtime), new GetTrainingJobErrorInfoResponse({}));
-    }
-
+    return $tea.cast<GetTrainingJobErrorInfoResponse>(await this.callApi(params, req, runtime), new GetTrainingJobErrorInfoResponse({}));
   }
 
   /**
@@ -12215,12 +12268,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetTrainingJobLatestMetricsResponse>(await this.callApi(params, req, runtime), new GetTrainingJobLatestMetricsResponse({}));
-    } else {
-      return $tea.cast<GetTrainingJobLatestMetricsResponse>(await this.execute(params, req, runtime), new GetTrainingJobLatestMetricsResponse({}));
-    }
-
+    return $tea.cast<GetTrainingJobLatestMetricsResponse>(await this.callApi(params, req, runtime), new GetTrainingJobLatestMetricsResponse({}));
   }
 
   /**
@@ -12292,12 +12340,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetUserViewMetricsResponse>(await this.callApi(params, req, runtime), new GetUserViewMetricsResponse({}));
-    } else {
-      return $tea.cast<GetUserViewMetricsResponse>(await this.execute(params, req, runtime), new GetUserViewMetricsResponse({}));
-    }
-
+    return $tea.cast<GetUserViewMetricsResponse>(await this.callApi(params, req, runtime), new GetUserViewMetricsResponse({}));
   }
 
   /**
@@ -12349,12 +12392,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListAlgorithmVersionsResponse>(await this.callApi(params, req, runtime), new ListAlgorithmVersionsResponse({}));
-    } else {
-      return $tea.cast<ListAlgorithmVersionsResponse>(await this.execute(params, req, runtime), new ListAlgorithmVersionsResponse({}));
-    }
-
+    return $tea.cast<ListAlgorithmVersionsResponse>(await this.callApi(params, req, runtime), new ListAlgorithmVersionsResponse({}));
   }
 
   /**
@@ -12419,12 +12457,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListAlgorithmsResponse>(await this.callApi(params, req, runtime), new ListAlgorithmsResponse({}));
-    } else {
-      return $tea.cast<ListAlgorithmsResponse>(await this.execute(params, req, runtime), new ListAlgorithmsResponse({}));
-    }
-
+    return $tea.cast<ListAlgorithmsResponse>(await this.callApi(params, req, runtime), new ListAlgorithmsResponse({}));
   }
 
   /**
@@ -12525,12 +12558,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
-    } else {
-      return $tea.cast<ListNodesResponse>(await this.execute(params, req, runtime), new ListNodesResponse({}));
-    }
-
+    return $tea.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
   }
 
   /**
@@ -12643,12 +12671,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListQuotaWorkloadsResponse>(await this.callApi(params, req, runtime), new ListQuotaWorkloadsResponse({}));
-    } else {
-      return $tea.cast<ListQuotaWorkloadsResponse>(await this.execute(params, req, runtime), new ListQuotaWorkloadsResponse({}));
-    }
-
+    return $tea.cast<ListQuotaWorkloadsResponse>(await this.callApi(params, req, runtime), new ListQuotaWorkloadsResponse({}));
   }
 
   /**
@@ -12745,12 +12768,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListQuotasResponse>(await this.callApi(params, req, runtime), new ListQuotasResponse({}));
-    } else {
-      return $tea.cast<ListQuotasResponse>(await this.execute(params, req, runtime), new ListQuotasResponse({}));
-    }
-
+    return $tea.cast<ListQuotasResponse>(await this.callApi(params, req, runtime), new ListQuotasResponse({}));
   }
 
   /**
@@ -12839,12 +12857,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListResourceGroupMachineGroupsResponse>(await this.callApi(params, req, runtime), new ListResourceGroupMachineGroupsResponse({}));
-    } else {
-      return $tea.cast<ListResourceGroupMachineGroupsResponse>(await this.execute(params, req, runtime), new ListResourceGroupMachineGroupsResponse({}));
-    }
-
+    return $tea.cast<ListResourceGroupMachineGroupsResponse>(await this.callApi(params, req, runtime), new ListResourceGroupMachineGroupsResponse({}));
   }
 
   /**
@@ -12921,12 +12934,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListResourceGroupsResponse>(await this.callApi(params, req, runtime), new ListResourceGroupsResponse({}));
-    } else {
-      return $tea.cast<ListResourceGroupsResponse>(await this.execute(params, req, runtime), new ListResourceGroupsResponse({}));
-    }
-
+    return $tea.cast<ListResourceGroupsResponse>(await this.callApi(params, req, runtime), new ListResourceGroupsResponse({}));
   }
 
   /**
@@ -12983,12 +12991,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTrainingJobEventsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobEventsResponse({}));
-    } else {
-      return $tea.cast<ListTrainingJobEventsResponse>(await this.execute(params, req, runtime), new ListTrainingJobEventsResponse({}));
-    }
-
+    return $tea.cast<ListTrainingJobEventsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobEventsResponse({}));
   }
 
   /**
@@ -13045,12 +13048,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTrainingJobInstanceEventsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobInstanceEventsResponse({}));
-    } else {
-      return $tea.cast<ListTrainingJobInstanceEventsResponse>(await this.execute(params, req, runtime), new ListTrainingJobInstanceEventsResponse({}));
-    }
-
+    return $tea.cast<ListTrainingJobInstanceEventsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobInstanceEventsResponse({}));
   }
 
   /**
@@ -13111,12 +13109,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTrainingJobInstanceMetricsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobInstanceMetricsResponse({}));
-    } else {
-      return $tea.cast<ListTrainingJobInstanceMetricsResponse>(await this.execute(params, req, runtime), new ListTrainingJobInstanceMetricsResponse({}));
-    }
-
+    return $tea.cast<ListTrainingJobInstanceMetricsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobInstanceMetricsResponse({}));
   }
 
   /**
@@ -13181,12 +13174,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTrainingJobLogsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobLogsResponse({}));
-    } else {
-      return $tea.cast<ListTrainingJobLogsResponse>(await this.execute(params, req, runtime), new ListTrainingJobLogsResponse({}));
-    }
-
+    return $tea.cast<ListTrainingJobLogsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobLogsResponse({}));
   }
 
   /**
@@ -13251,12 +13239,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTrainingJobMetricsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobMetricsResponse({}));
-    } else {
-      return $tea.cast<ListTrainingJobMetricsResponse>(await this.execute(params, req, runtime), new ListTrainingJobMetricsResponse({}));
-    }
-
+    return $tea.cast<ListTrainingJobMetricsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobMetricsResponse({}));
   }
 
   /**
@@ -13293,12 +13276,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTrainingJobOutputModelsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobOutputModelsResponse({}));
-    } else {
-      return $tea.cast<ListTrainingJobOutputModelsResponse>(await this.execute(params, req, runtime), new ListTrainingJobOutputModelsResponse({}));
-    }
-
+    return $tea.cast<ListTrainingJobOutputModelsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobOutputModelsResponse({}));
   }
 
   /**
@@ -13399,12 +13377,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTrainingJobsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobsResponse({}));
-    } else {
-      return $tea.cast<ListTrainingJobsResponse>(await this.execute(params, req, runtime), new ListTrainingJobsResponse({}));
-    }
-
+    return $tea.cast<ListTrainingJobsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobsResponse({}));
   }
 
   /**
@@ -13453,12 +13426,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ScaleQuotaResponse>(await this.callApi(params, req, runtime), new ScaleQuotaResponse({}));
-    } else {
-      return $tea.cast<ScaleQuotaResponse>(await this.execute(params, req, runtime), new ScaleQuotaResponse({}));
-    }
-
+    return $tea.cast<ScaleQuotaResponse>(await this.callApi(params, req, runtime), new ScaleQuotaResponse({}));
   }
 
   /**
@@ -13495,12 +13463,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<StopTrainingJobResponse>(await this.callApi(params, req, runtime), new StopTrainingJobResponse({}));
-    } else {
-      return $tea.cast<StopTrainingJobResponse>(await this.execute(params, req, runtime), new StopTrainingJobResponse({}));
-    }
-
+    return $tea.cast<StopTrainingJobResponse>(await this.callApi(params, req, runtime), new StopTrainingJobResponse({}));
   }
 
   /**
@@ -13547,12 +13510,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateAlgorithmResponse>(await this.callApi(params, req, runtime), new UpdateAlgorithmResponse({}));
-    } else {
-      return $tea.cast<UpdateAlgorithmResponse>(await this.execute(params, req, runtime), new UpdateAlgorithmResponse({}));
-    }
-
+    return $tea.cast<UpdateAlgorithmResponse>(await this.callApi(params, req, runtime), new UpdateAlgorithmResponse({}));
   }
 
   /**
@@ -13603,12 +13561,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateAlgorithmVersionResponse>(await this.callApi(params, req, runtime), new UpdateAlgorithmVersionResponse({}));
-    } else {
-      return $tea.cast<UpdateAlgorithmVersionResponse>(await this.execute(params, req, runtime), new UpdateAlgorithmVersionResponse({}));
-    }
-
+    return $tea.cast<UpdateAlgorithmVersionResponse>(await this.callApi(params, req, runtime), new UpdateAlgorithmVersionResponse({}));
   }
 
   /**
@@ -13669,12 +13622,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateQuotaResponse>(await this.callApi(params, req, runtime), new UpdateQuotaResponse({}));
-    } else {
-      return $tea.cast<UpdateQuotaResponse>(await this.execute(params, req, runtime), new UpdateQuotaResponse({}));
-    }
-
+    return $tea.cast<UpdateQuotaResponse>(await this.callApi(params, req, runtime), new UpdateQuotaResponse({}));
   }
 
   /**
@@ -13731,12 +13679,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateResourceGroupResponse>(await this.callApi(params, req, runtime), new UpdateResourceGroupResponse({}));
-    } else {
-      return $tea.cast<UpdateResourceGroupResponse>(await this.execute(params, req, runtime), new UpdateResourceGroupResponse({}));
-    }
-
+    return $tea.cast<UpdateResourceGroupResponse>(await this.callApi(params, req, runtime), new UpdateResourceGroupResponse({}));
   }
 
   /**
@@ -13781,12 +13724,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateTrainingJobLabelsResponse>(await this.callApi(params, req, runtime), new UpdateTrainingJobLabelsResponse({}));
-    } else {
-      return $tea.cast<UpdateTrainingJobLabelsResponse>(await this.execute(params, req, runtime), new UpdateTrainingJobLabelsResponse({}));
-    }
-
+    return $tea.cast<UpdateTrainingJobLabelsResponse>(await this.callApi(params, req, runtime), new UpdateTrainingJobLabelsResponse({}));
   }
 
   /**
