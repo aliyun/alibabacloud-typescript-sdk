@@ -7,95 +7,6 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class DataSourceInfo extends $tea.Model {
-  configs?: { [key: string]: string };
-  createTime?: number;
-  creator?: string;
-  creatorName?: string;
-  description?: string;
-  env?: string;
-  id?: number;
-  modifyTime?: number;
-  name?: string;
-  owner?: string;
-  ownerName?: string;
-  scope?: string;
-  tenantId?: number;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configs: 'Configs',
-      createTime: 'CreateTime',
-      creator: 'Creator',
-      creatorName: 'CreatorName',
-      description: 'Description',
-      env: 'Env',
-      id: 'Id',
-      modifyTime: 'ModifyTime',
-      name: 'Name',
-      owner: 'Owner',
-      ownerName: 'OwnerName',
-      scope: 'Scope',
-      tenantId: 'TenantId',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configs: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      createTime: 'number',
-      creator: 'string',
-      creatorName: 'string',
-      description: 'string',
-      env: 'string',
-      id: 'number',
-      modifyTime: 'number',
-      name: 'string',
-      owner: 'string',
-      ownerName: 'string',
-      scope: 'string',
-      tenantId: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DatasourceCreate extends $tea.Model {
-  checkActivity?: boolean;
-  configs?: { [key: string]: string };
-  description?: string;
-  name?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      checkActivity: 'CheckActivity',
-      configs: 'Configs',
-      description: 'Description',
-      name: 'Name',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkActivity: 'boolean',
-      configs: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      description: 'string',
-      name: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AddTenantMembersRequest extends $tea.Model {
   /**
    * @remarks
@@ -1081,6 +992,570 @@ export class CreateAdHocFileResponse extends $tea.Model {
   }
 }
 
+export class CreateBatchTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  createCommand?: CreateBatchTaskRequestCreateCommand;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createCommand: 'CreateCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createCommand: CreateBatchTaskRequestCreateCommand,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBatchTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  createCommandShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createCommandShrink: 'CreateCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createCommandShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBatchTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  createResult?: CreateBatchTaskResponseBodyCreateResult;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      createResult: 'CreateResult',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      createResult: CreateBatchTaskResponseBodyCreateResult,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBatchTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBatchTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBatchTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizEntityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  createCommand?: CreateBizEntityRequestCreateCommand;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createCommand: 'CreateCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createCommand: CreateBizEntityRequestCreateCommand,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizEntityShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  createCommandShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createCommandShrink: 'CreateCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createCommandShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  createResult?: CreateBizEntityResponseBodyCreateResult;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      createResult: 'CreateResult',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      createResult: CreateBizEntityResponseBodyCreateResult,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizEntityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBizEntityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBizEntityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizUnitRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  createCommand?: CreateBizUnitRequestCreateCommand;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createCommand: 'CreateCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createCommand: CreateBizUnitRequestCreateCommand,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizUnitShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  createCommandShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createCommandShrink: 'CreateCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createCommandShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizUnitResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  createResult?: CreateBizUnitResponseBodyCreateResult;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      createResult: 'CreateResult',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      createResult: CreateBizUnitResponseBodyCreateResult,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizUnitResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBizUnitResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBizUnitResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  createCommand?: CreateDataDomainRequestCreateCommand;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createCommand: 'CreateCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createCommand: CreateDataDomainRequestCreateCommand,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataDomainShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  createCommandShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createCommandShrink: 'CreateCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createCommandShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataDomainResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  createResult?: CreateDataDomainResponseBodyCreateResult;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      createResult: 'CreateResult',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      createResult: CreateDataDomainResponseBodyCreateResult,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataDomainResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDataSourceRequest extends $tea.Model {
   createCommand?: CreateDataSourceRequestCreateCommand;
   /**
@@ -1530,6 +2005,288 @@ export class CreateNodeSupplementResponse extends $tea.Model {
   }
 }
 
+export class CreatePipelineNodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  createPipelineNodeCommand?: CreatePipelineNodeRequestCreatePipelineNodeCommand;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createPipelineNodeCommand: 'CreatePipelineNodeCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createPipelineNodeCommand: CreatePipelineNodeRequestCreatePipelineNodeCommand,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineNodeShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  createPipelineNodeCommandShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createPipelineNodeCommandShrink: 'CreatePipelineNodeCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createPipelineNodeCommandShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineNodeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: CreatePipelineNodeResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreatePipelineNodeResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineNodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePipelineNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePipelineNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStreamBatchJobMappingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  streamBatchJobMappingCreateCommand?: CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateCommand;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      streamBatchJobMappingCreateCommand: 'StreamBatchJobMappingCreateCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      streamBatchJobMappingCreateCommand: CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateCommand,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStreamBatchJobMappingShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  streamBatchJobMappingCreateCommandShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      streamBatchJobMappingCreateCommandShrink: 'StreamBatchJobMappingCreateCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      streamBatchJobMappingCreateCommandShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStreamBatchJobMappingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: CreateStreamBatchJobMappingResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateStreamBatchJobMappingResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStreamBatchJobMappingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateStreamBatchJobMappingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateStreamBatchJobMappingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateUserGroupRequest extends $tea.Model {
   createCommand?: CreateUserGroupRequestCreateCommand;
   /**
@@ -1781,6 +2538,502 @@ export class DeleteAdHocFileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteAdHocFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBatchTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  deleteCommand?: DeleteBatchTaskRequestDeleteCommand;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deleteCommand: 'DeleteCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteCommand: DeleteBatchTaskRequestDeleteCommand,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBatchTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  deleteCommandShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deleteCommandShrink: 'DeleteCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteCommandShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBatchTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBatchTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBatchTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBatchTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBizEntityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6798087749072704
+   */
+  bizUnitId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 101001201
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BIZ_OBJECT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizUnitId: 'BizUnitId',
+      id: 'Id',
+      opTenantId: 'OpTenantId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUnitId: 'number',
+      id: 'number',
+      opTenantId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBizEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBizEntityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBizEntityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBizEntityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBizUnitRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6798087749072704
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBizUnitResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBizUnitResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBizUnitResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBizUnitResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6798087749072704
+   */
+  bizUnitId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1241844456
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizUnitId: 'BizUnitId',
+      id: 'Id',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUnitId: 'number',
+      id: 'number',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataDomainResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataDomainResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDataDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataDomainResponseBody,
     };
   }
 
@@ -2167,6 +3420,147 @@ export class DeleteUserGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteUserGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdHocTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  executeCommand?: ExecuteAdHocTaskRequestExecuteCommand;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      executeCommand: 'ExecuteCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executeCommand: ExecuteAdHocTaskRequestExecuteCommand,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdHocTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  executeCommandShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      executeCommandShrink: 'ExecuteCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executeCommandShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdHocTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  executeResult?: ExecuteAdHocTaskResponseBodyExecuteResult;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      executeResult: 'ExecuteResult',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      executeResult: ExecuteAdHocTaskResponseBodyExecuteResult,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdHocTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteAdHocTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteAdHocTaskResponseBody,
     };
   }
 
@@ -2614,6 +4008,1502 @@ export class GetAdHocFileResponse extends $tea.Model {
   }
 }
 
+export class GetAdHocTaskLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1021
+   */
+  offset?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 131211211
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  subTaskId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MaxCompute_SQL_300000843_1611548758327
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      offset: 'Offset',
+      opTenantId: 'OpTenantId',
+      projectId: 'ProjectId',
+      subTaskId: 'SubTaskId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offset: 'number',
+      opTenantId: 'number',
+      projectId: 'number',
+      subTaskId: 'number',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdHocTaskLogResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  logInfo?: GetAdHocTaskLogResponseBodyLogInfo;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      logInfo: 'LogInfo',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      logInfo: GetAdHocTaskLogResponseBodyLogInfo,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdHocTaskLogResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAdHocTaskLogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAdHocTaskLogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdHocTaskResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 131211211
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  subTaskId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MaxCompute_SQL_300000843_1611548758327
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      projectId: 'ProjectId',
+      subTaskId: 'SubTaskId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      projectId: 'number',
+      subTaskId: 'number',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdHocTaskResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  executeResult?: GetAdHocTaskResultResponseBodyExecuteResult;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      executeResult: 'ExecuteResult',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      executeResult: GetAdHocTaskResultResponseBodyExecuteResult,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdHocTaskResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAdHocTaskResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAdHocTaskResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertEventRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertEventResponseBody extends $tea.Model {
+  alertEventInfo?: GetAlertEventResponseBodyAlertEventInfo;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      alertEventInfo: 'AlertEventInfo',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertEventInfo: GetAlertEventResponseBodyAlertEventInfo,
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertEventResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAlertEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAlertEventResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * dev
+   */
+  env?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12113111
+   */
+  fileId?: number;
+  includeAllUpStreams?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 131211211
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      env: 'Env',
+      fileId: 'FileId',
+      includeAllUpStreams: 'IncludeAllUpStreams',
+      opTenantId: 'OpTenantId',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      env: 'string',
+      fileId: 'number',
+      includeAllUpStreams: 'boolean',
+      opTenantId: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  taskInfo?: GetBatchTaskInfoResponseBodyTaskInfo;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      taskInfo: 'TaskInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      taskInfo: GetBatchTaskInfoResponseBodyTaskInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBatchTaskInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBatchTaskInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoByVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12113111
+   */
+  fileId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 131211211
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  versionId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+      opTenantId: 'OpTenantId',
+      projectId: 'ProjectId',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'number',
+      opTenantId: 'number',
+      projectId: 'number',
+      versionId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoByVersionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  taskInfo?: GetBatchTaskInfoByVersionResponseBodyTaskInfo;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      taskInfo: 'TaskInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      taskInfo: GetBatchTaskInfoByVersionResponseBodyTaskInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoByVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBatchTaskInfoByVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBatchTaskInfoByVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskUdfLineagesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12113111
+   */
+  fileId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 131211211
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+      opTenantId: 'OpTenantId',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'number',
+      opTenantId: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskUdfLineagesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: GetBatchTaskUdfLineagesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetBatchTaskUdfLineagesResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskUdfLineagesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBatchTaskUdfLineagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBatchTaskUdfLineagesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12113111
+   */
+  fileId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 131211211
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+      opTenantId: 'OpTenantId',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'number',
+      opTenantId: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskVersionsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: GetBatchTaskVersionsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetBatchTaskVersionsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskVersionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBatchTaskVersionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBatchTaskVersionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizEntityInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 101001201
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BIZ_OBJECT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      opTenantId: 'OpTenantId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      opTenantId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizEntityInfoResponseBody extends $tea.Model {
+  bizEntityInfo?: GetBizEntityInfoResponseBodyBizEntityInfo;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bizEntityInfo: 'BizEntityInfo',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizEntityInfo: GetBizEntityInfoResponseBodyBizEntityInfo,
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizEntityInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBizEntityInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBizEntityInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizEntityInfoByVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 101001201
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BIZ_OBJECT
+   */
+  type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  versionId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      opTenantId: 'OpTenantId',
+      type: 'Type',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      opTenantId: 'number',
+      type: 'string',
+      versionId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizEntityInfoByVersionResponseBody extends $tea.Model {
+  bizEntityInfo?: GetBizEntityInfoByVersionResponseBodyBizEntityInfo;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bizEntityInfo: 'BizEntityInfo',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizEntityInfo: GetBizEntityInfoByVersionResponseBodyBizEntityInfo,
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizEntityInfoByVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBizEntityInfoByVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBizEntityInfoByVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizUnitInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 101001201
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizUnitInfoResponseBody extends $tea.Model {
+  bizUnitInfo?: GetBizUnitInfoResponseBodyBizUnitInfo;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bizUnitInfo: 'BizUnitInfo',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUnitInfo: GetBizUnitInfoResponseBodyBizUnitInfo,
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizUnitInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBizUnitInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBizUnitInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterQueueInfoByEnvRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEV
+   */
+  env?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7081229106458752
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BOTH
+   */
+  streamBatchMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      env: 'Env',
+      opTenantId: 'OpTenantId',
+      projectId: 'ProjectId',
+      streamBatchMode: 'StreamBatchMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      env: 'string',
+      opTenantId: 'number',
+      projectId: 'number',
+      streamBatchMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterQueueInfoByEnvResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: GetClusterQueueInfoByEnvResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetClusterQueueInfoByEnvResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterQueueInfoByEnvResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClusterQueueInfoByEnvResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClusterQueueInfoByEnvResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataDomainInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1241844456
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataDomainInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  dataDomainInfo?: GetDataDomainInfoResponseBodyDataDomainInfo;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      dataDomainInfo: 'DataDomainInfo',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      dataDomainInfo: GetDataDomainInfoResponseBodyDataDomainInfo,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataDomainInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataDomainInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataDomainInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDevObjectDependencyRequest extends $tea.Model {
   /**
    * @remarks
@@ -2751,6 +5641,127 @@ export class GetDevObjectDependencyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDevObjectDependencyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDirectoryTreeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * codeManage
+   */
+  category?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7081229106458752
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      opTenantId: 'OpTenantId',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      opTenantId: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDirectoryTreeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: GetDirectoryTreeResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetDirectoryTreeResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDirectoryTreeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDirectoryTreeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDirectoryTreeResponseBody,
     };
   }
 
@@ -3151,6 +6162,147 @@ export class GetInstanceUpDownStreamResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetInstanceUpDownStreamResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLatestSubmitDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  submitDetailQuery?: GetLatestSubmitDetailRequestSubmitDetailQuery;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      submitDetailQuery: 'SubmitDetailQuery',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      submitDetailQuery: GetLatestSubmitDetailRequestSubmitDetailQuery,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLatestSubmitDetailShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  submitDetailQueryShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      submitDetailQueryShrink: 'SubmitDetailQuery',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      submitDetailQueryShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLatestSubmitDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  submitDetailResult?: GetLatestSubmitDetailResponseBodySubmitDetailResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      submitDetailResult: 'SubmitDetailResult',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      submitDetailResult: GetLatestSubmitDetailResponseBodySubmitDetailResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLatestSubmitDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLatestSubmitDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLatestSubmitDetailResponseBody,
     };
   }
 
@@ -4591,6 +7743,157 @@ export class GetProjectProduceUserResponse extends $tea.Model {
   }
 }
 
+export class GetQueueEngineVersionByEnvRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61187014-a3ba-4cdd-8609-1f0aa3df4a3d
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PROD
+   */
+  env?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7081229106458752
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default-queue
+   */
+  queueName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BOTH
+   */
+  streamBatchMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      env: 'Env',
+      opTenantId: 'OpTenantId',
+      projectId: 'ProjectId',
+      queueName: 'QueueName',
+      streamBatchMode: 'StreamBatchMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      env: 'string',
+      opTenantId: 'number',
+      projectId: 'number',
+      queueName: 'string',
+      streamBatchMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueueEngineVersionByEnvResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: string[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueueEngineVersionByEnvResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQueueEngineVersionByEnvResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetQueueEngineVersionByEnvResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSupplementDagrunRequest extends $tea.Model {
   /**
    * @example
@@ -5600,6 +8903,671 @@ export class ListAddableUsersResponse extends $tea.Model {
   }
 }
 
+export class ListAlertEventsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  listQuery?: ListAlertEventsRequestListQuery;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listQuery: 'ListQuery',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listQuery: ListAlertEventsRequestListQuery,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertEventsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  listQueryShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listQueryShrink: 'ListQuery',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listQueryShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertEventsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  listResult?: ListAlertEventsResponseBodyListResult;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      listResult: 'ListResult',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      listResult: ListAlertEventsResponseBodyListResult,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertEventsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAlertEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAlertEventsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertNotificationsRequest extends $tea.Model {
+  listQuery?: ListAlertNotificationsRequestListQuery;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listQuery: 'ListQuery',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listQuery: ListAlertNotificationsRequestListQuery,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertNotificationsShrinkRequest extends $tea.Model {
+  listQueryShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listQueryShrink: 'ListQuery',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listQueryShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertNotificationsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  listResult?: ListAlertNotificationsResponseBodyListResult;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      listResult: 'ListResult',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      listResult: ListAlertNotificationsResponseBodyListResult,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertNotificationsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAlertNotificationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAlertNotificationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizEntitiesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  listQuery?: ListBizEntitiesRequestListQuery;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listQuery: 'ListQuery',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listQuery: ListBizEntitiesRequestListQuery,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizEntitiesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  listQueryShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listQueryShrink: 'ListQuery',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listQueryShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizEntitiesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  pageResult?: ListBizEntitiesResponseBodyPageResult;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageResult: 'PageResult',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      pageResult: ListBizEntitiesResponseBodyPageResult,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizEntitiesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBizEntitiesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBizEntitiesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizUnitsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizUnitsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: ListBizUnitsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListBizUnitsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizUnitsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBizUnitsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBizUnitsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  listQuery?: ListDataDomainsRequestListQuery;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listQuery: 'ListQuery',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listQuery: ListDataDomainsRequestListQuery,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataDomainsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  listQueryShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listQueryShrink: 'ListQuery',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listQueryShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataDomainsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: ListDataDomainsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListDataDomainsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataDomainsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDataSourceWithConfigRequest extends $tea.Model {
   /**
    * @remarks
@@ -6355,6 +10323,147 @@ export class ListNodesResponse extends $tea.Model {
   }
 }
 
+export class ListPublishRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  listQuery?: ListPublishRecordsRequestListQuery;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listQuery: 'ListQuery',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listQuery: ListPublishRecordsRequestListQuery,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishRecordsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  listQueryShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listQueryShrink: 'ListQuery',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listQueryShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishRecordsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  listResult?: ListPublishRecordsResponseBodyListResult;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      listResult: 'ListResult',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      listResult: ListPublishRecordsResponseBodyListResult,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishRecordsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPublishRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPublishRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListResourcePermissionOperationLogRequest extends $tea.Model {
   /**
    * @remarks
@@ -6637,6 +10746,147 @@ export class ListResourcePermissionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListResourcePermissionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubmitRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  listQuery?: ListSubmitRecordsRequestListQuery;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listQuery: 'ListQuery',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listQuery: ListSubmitRecordsRequestListQuery,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubmitRecordsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  listQueryShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listQueryShrink: 'ListQuery',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listQueryShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubmitRecordsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  listResult?: ListSubmitRecordsResponseBodyListResult;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      listResult: 'ListResult',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      listResult: ListSubmitRecordsResponseBodyListResult,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubmitRecordsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSubmitRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSubmitRecordsResponseBody,
     };
   }
 
@@ -7080,6 +11330,413 @@ export class ListUserGroupsResponse extends $tea.Model {
   }
 }
 
+export class OfflineBatchTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test xx
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12113111
+   */
+  fileId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 131211211
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      fileId: 'FileId',
+      opTenantId: 'OpTenantId',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      fileId: 'number',
+      opTenantId: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OfflineBatchTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  offlineResult?: OfflineBatchTaskResponseBodyOfflineResult;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      offlineResult: 'OfflineResult',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      offlineResult: OfflineBatchTaskResponseBodyOfflineResult,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OfflineBatchTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OfflineBatchTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OfflineBatchTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OfflineBizEntityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  offlineCommand?: OfflineBizEntityRequestOfflineCommand;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      offlineCommand: 'OfflineCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offlineCommand: OfflineBizEntityRequestOfflineCommand,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OfflineBizEntityShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  offlineCommandShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      offlineCommandShrink: 'OfflineCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offlineCommandShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OfflineBizEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OfflineBizEntityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OfflineBizEntityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OfflineBizEntityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnlineBizEntityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  onlineCommand?: OnlineBizEntityRequestOnlineCommand;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      onlineCommand: 'OnlineCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      onlineCommand: OnlineBizEntityRequestOnlineCommand,
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnlineBizEntityShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  onlineCommandShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      onlineCommandShrink: 'OnlineCommand',
+      opTenantId: 'OpTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      onlineCommandShrink: 'string',
+      opTenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnlineBizEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnlineBizEntityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnlineBizEntityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnlineBizEntityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OperateInstanceRequest extends $tea.Model {
   /**
    * @example
@@ -7239,6 +11896,147 @@ export class OperateInstanceResponse extends $tea.Model {
   }
 }
 
+export class ParseBatchTaskDependencyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  parseCommand?: ParseBatchTaskDependencyRequestParseCommand;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      parseCommand: 'ParseCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      parseCommand: ParseBatchTaskDependencyRequestParseCommand,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ParseBatchTaskDependencyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  parseCommandShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      parseCommandShrink: 'ParseCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      parseCommandShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ParseBatchTaskDependencyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  parseResult?: ParseBatchTaskDependencyResponseBodyParseResult;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      parseResult: 'ParseResult',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      parseResult: ParseBatchTaskDependencyResponseBodyParseResult,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ParseBatchTaskDependencyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ParseBatchTaskDependencyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ParseBatchTaskDependencyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PausePhysicalNodeRequest extends $tea.Model {
   /**
    * @example
@@ -7390,6 +12188,147 @@ export class PausePhysicalNodeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PausePhysicalNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishObjectListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  publishCommand?: PublishObjectListRequestPublishCommand;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      publishCommand: 'PublishCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      publishCommand: PublishObjectListRequestPublishCommand,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishObjectListShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  publishCommandShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      publishCommandShrink: 'PublishCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      publishCommandShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishObjectListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  publishResult?: PublishObjectListResponseBodyPublishResult;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      publishResult: 'PublishResult',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      publishResult: PublishObjectListResponseBodyPublishResult,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishObjectListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PublishObjectListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PublishObjectListResponseBody,
     };
   }
 
@@ -7990,6 +12929,265 @@ export class RevokeResourcePermissionResponse extends $tea.Model {
   }
 }
 
+export class StopAdHocTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 131211211
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MaxCompute_SQL_300000843_1611548758327
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      projectId: 'ProjectId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      projectId: 'number',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopAdHocTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopAdHocTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopAdHocTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopAdHocTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBatchTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  submitCommand?: SubmitBatchTaskRequestSubmitCommand;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      submitCommand: 'SubmitCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      submitCommand: SubmitBatchTaskRequestSubmitCommand,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBatchTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  submitCommandShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      submitCommandShrink: 'SubmitCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      submitCommandShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBatchTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  submitResult?: SubmitBatchTaskResponseBodySubmitResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      submitResult: 'SubmitResult',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      submitResult: SubmitBatchTaskResponseBodySubmitResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBatchTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitBatchTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitBatchTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAdHocFileRequest extends $tea.Model {
   /**
    * @remarks
@@ -8120,6 +13318,699 @@ export class UpdateAdHocFileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateAdHocFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  updateCommand?: UpdateBatchTaskRequestUpdateCommand;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      updateCommand: 'UpdateCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      updateCommand: UpdateBatchTaskRequestUpdateCommand,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  updateCommandShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      updateCommandShrink: 'UpdateCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      updateCommandShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  updateResult?: UpdateBatchTaskResponseBodyUpdateResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      updateResult: 'UpdateResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      updateResult: UpdateBatchTaskResponseBodyUpdateResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBatchTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateBatchTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskUdfLineagesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  updateCommand?: UpdateBatchTaskUdfLineagesRequestUpdateCommand;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      updateCommand: 'UpdateCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      updateCommand: UpdateBatchTaskUdfLineagesRequestUpdateCommand,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskUdfLineagesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  updateCommandShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      updateCommandShrink: 'UpdateCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      updateCommandShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskUdfLineagesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskUdfLineagesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBatchTaskUdfLineagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateBatchTaskUdfLineagesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBizEntityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  updateCommand?: UpdateBizEntityRequestUpdateCommand;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      updateCommand: 'UpdateCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      updateCommand: UpdateBizEntityRequestUpdateCommand,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBizEntityShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  updateCommandShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      updateCommandShrink: 'UpdateCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      updateCommandShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBizEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBizEntityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBizEntityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateBizEntityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBizUnitRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  updateCommand?: UpdateBizUnitRequestUpdateCommand;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      updateCommand: 'UpdateCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      updateCommand: UpdateBizUnitRequestUpdateCommand,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBizUnitShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  updateCommandShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      updateCommandShrink: 'UpdateCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      updateCommandShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBizUnitResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBizUnitResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBizUnitResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateBizUnitResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  updateCommand?: UpdateDataDomainRequestUpdateCommand;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      updateCommand: 'UpdateCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      updateCommand: UpdateDataDomainRequestUpdateCommand,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataDomainShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  updateCommandShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      updateCommandShrink: 'UpdateCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      updateCommandShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataDomainResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataDomainResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDataDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDataDomainResponseBody,
     };
   }
 
@@ -9479,6 +15370,559 @@ export class CreateAdHocFileRequestCreateCommand extends $tea.Model {
   }
 }
 
+export class CreateBatchTaskRequestCreateCommand extends $tea.Model {
+  /**
+   * @example
+   * mysql_catalog
+   */
+  dataSourceCatalog?: string;
+  /**
+   * @example
+   * 12131111
+   */
+  dataSourceId?: string;
+  /**
+   * @example
+   * erp
+   */
+  dataSourceSchema?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xx test.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /a/b
+   */
+  directory?: string;
+  /**
+   * @example
+   * PYTHON3_7
+   */
+  engine?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test111
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10121101
+   */
+  projectId?: number;
+  pythonModuleList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
+  scheduleType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
+  taskType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceCatalog: 'DataSourceCatalog',
+      dataSourceId: 'DataSourceId',
+      dataSourceSchema: 'DataSourceSchema',
+      description: 'Description',
+      directory: 'Directory',
+      engine: 'Engine',
+      name: 'Name',
+      projectId: 'ProjectId',
+      pythonModuleList: 'PythonModuleList',
+      scheduleType: 'ScheduleType',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceCatalog: 'string',
+      dataSourceId: 'string',
+      dataSourceSchema: 'string',
+      description: 'string',
+      directory: 'string',
+      engine: 'string',
+      name: 'string',
+      projectId: 'number',
+      pythonModuleList: { 'type': 'array', 'itemType': 'string' },
+      scheduleType: 'number',
+      taskType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBatchTaskResponseBodyCreateResult extends $tea.Model {
+  /**
+   * @example
+   * 12113111
+   */
+  fileId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizEntityRequestCreateCommandBizObject extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * create_object_name
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * create_object_code_name
+   */
+  name?: string;
+  /**
+   * @example
+   * 30010010
+   */
+  ownerUserId?: string;
+  /**
+   * @example
+   * 116306
+   */
+  parentId?: number;
+  refBizEntityIdList?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * NORMAL
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      displayName: 'DisplayName',
+      name: 'Name',
+      ownerUserId: 'OwnerUserId',
+      parentId: 'ParentId',
+      refBizEntityIdList: 'RefBizEntityIdList',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      displayName: 'string',
+      name: 'string',
+      ownerUserId: 'string',
+      parentId: 'number',
+      refBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizEntityRequestCreateCommandBizProcess extends $tea.Model {
+  bizEventEntityIdList?: number[];
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * create_process_name
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * create_process_code_name
+   */
+  name?: string;
+  /**
+   * @example
+   * 30010010
+   */
+  ownerUserId?: string;
+  preBizProcessIdList?: number[];
+  refBizEntityIdList?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BIZ_EVENT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizEventEntityIdList: 'BizEventEntityIdList',
+      description: 'Description',
+      displayName: 'DisplayName',
+      name: 'Name',
+      ownerUserId: 'OwnerUserId',
+      preBizProcessIdList: 'PreBizProcessIdList',
+      refBizEntityIdList: 'RefBizEntityIdList',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizEventEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      description: 'string',
+      displayName: 'string',
+      name: 'string',
+      ownerUserId: 'string',
+      preBizProcessIdList: { 'type': 'array', 'itemType': 'number' },
+      refBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizEntityRequestCreateCommand extends $tea.Model {
+  bizObject?: CreateBizEntityRequestCreateCommandBizObject;
+  bizProcess?: CreateBizEntityRequestCreateCommandBizProcess;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6798087749072704
+   */
+  bizUnitId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20101011
+   */
+  dataDomainId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BIZ_OBJECT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizObject: 'BizObject',
+      bizProcess: 'BizProcess',
+      bizUnitId: 'BizUnitId',
+      dataDomainId: 'DataDomainId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizObject: CreateBizEntityRequestCreateCommandBizObject,
+      bizProcess: CreateBizEntityRequestCreateCommandBizProcess,
+      bizUnitId: 'number',
+      dataDomainId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizEntityResponseBodyCreateResult extends $tea.Model {
+  /**
+   * @example
+   * 12113111
+   */
+  bizEntityId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizEntityId: 'BizEntityId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizEntityId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizUnitRequestCreateCommandBizUnitAccountList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20001201
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizUnitRequestCreateCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  bizUnitAccountList?: CreateBizUnitRequestCreateCommandBizUnitAccountList[];
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * create_object_name
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * icon-environment
+   */
+  icon?: string;
+  /**
+   * @example
+   * DEV_PROD
+   */
+  mode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * create_object_code_name
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizUnitAccountList: 'BizUnitAccountList',
+      description: 'Description',
+      displayName: 'DisplayName',
+      icon: 'Icon',
+      mode: 'Mode',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUnitAccountList: { 'type': 'array', 'itemType': CreateBizUnitRequestCreateCommandBizUnitAccountList },
+      description: 'string',
+      displayName: 'string',
+      icon: 'string',
+      mode: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBizUnitResponseBodyCreateResult extends $tea.Model {
+  /**
+   * @example
+   * 545844456
+   */
+  bizUnitId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizUnitId: 'BizUnitId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUnitId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataDomainRequestCreateCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dm_code_name
+   */
+  abbreviation?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 545844456
+   */
+  bizUnitId?: number;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 主题域测试
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dm_code_name
+   */
+  name?: string;
+  /**
+   * @example
+   * 10232311
+   */
+  parentId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abbreviation: 'Abbreviation',
+      bizUnitId: 'BizUnitId',
+      description: 'Description',
+      displayName: 'DisplayName',
+      name: 'Name',
+      parentId: 'ParentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abbreviation: 'string',
+      bizUnitId: 'number',
+      description: 'string',
+      displayName: 'string',
+      name: 'string',
+      parentId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataDomainResponseBodyCreateResult extends $tea.Model {
+  /**
+   * @example
+   * 1241844456
+   */
+  dataDomainId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataDomainId: 'DataDomainId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDomainId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCreateConfigItemList extends $tea.Model {
   /**
    * @remarks
@@ -10018,6 +16462,281 @@ export class CreateNodeSupplementRequestCreateCommand extends $tea.Model {
   }
 }
 
+export class CreatePipelineNodeRequestCreatePipelineNodeCommandFileInfo extends $tea.Model {
+  /**
+   * @example
+   * desc
+   */
+  description?: string;
+  /**
+   * @example
+   * test
+   */
+  directory?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_pipeline
+   */
+  fileName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      directory: 'Directory',
+      fileName: 'FileName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      directory: 'string',
+      fileName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineNodeRequestCreatePipelineNodeCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  fileInfo?: CreatePipelineNodeRequestCreatePipelineNodeCommandFileInfo;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * REAL_TIME
+   */
+  nodeType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_pipeline
+   */
+  pipelineName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * REAL_TIME_PIPELINE
+   */
+  pipelineType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7091124176569088
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileInfo: 'FileInfo',
+      nodeType: 'NodeType',
+      pipelineName: 'PipelineName',
+      pipelineType: 'PipelineType',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileInfo: CreatePipelineNodeRequestCreatePipelineNodeCommandFileInfo,
+      nodeType: 'string',
+      pipelineName: 'string',
+      pipelineType: 'string',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineNodeResponseBodyData extends $tea.Model {
+  errorCodeList?: string[];
+  errorMessageList?: string[];
+  /**
+   * @example
+   * 33749
+   */
+  pipelineId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCodeList: 'ErrorCodeList',
+      errorMessageList: 'ErrorMessageList',
+      pipelineId: 'PipelineId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCodeList: { 'type': 'array', 'itemType': 'string' },
+      errorMessageList: { 'type': 'array', 'itemType': 'string' },
+      pipelineId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61187014-a3ba-4cdd-8609-1f0aa3df4a3d
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * 这是一段任务的描述信息
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /karel
+   */
+  directory?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vvr-8.0.9-flink-1.17
+   */
+  engineVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEV
+   */
+  env?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * karel_hover_3
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FLINK_SQL
+   */
+  fileType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7081229106458752
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default-queue
+   */
+  queueName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PREJOB
+   */
+  vvpClusterType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      description: 'Description',
+      directory: 'Directory',
+      engineVersion: 'EngineVersion',
+      env: 'Env',
+      fileName: 'FileName',
+      fileType: 'FileType',
+      projectId: 'ProjectId',
+      queueName: 'QueueName',
+      vvpClusterType: 'VvpClusterType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      description: 'string',
+      directory: 'string',
+      engineVersion: 'string',
+      env: 'string',
+      fileName: 'string',
+      fileType: 'string',
+      projectId: 'number',
+      queueName: 'string',
+      vvpClusterType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStreamBatchJobMappingResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 7083701105376640
+   */
+  fileId?: string;
+  /**
+   * @example
+   * /dev/streamJob/7083701105376640?env=DEV&projectId=7081229106458752&tenantId=300001420
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateUserGroupRequestCreateCommand extends $tea.Model {
   /**
    * @example
@@ -10054,6 +16773,52 @@ export class CreateUserGroupRequestCreateCommand extends $tea.Model {
   }
 }
 
+export class DeleteBatchTaskRequestDeleteCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test task
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12113111
+   */
+  fileId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 131211211
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      fileId: 'FileId',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      fileId: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDataSourceRequestDeleteCommand extends $tea.Model {
   /**
    * @remarks
@@ -10082,6 +16847,142 @@ export class DeleteDataSourceRequestDeleteCommand extends $tea.Model {
     return {
       mode: 'string',
       prodDataSourceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdHocTaskRequestExecuteCommandParamList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * param1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdHocTaskRequestExecuteCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * show tables;
+   */
+  code?: string;
+  /**
+   * @example
+   * mysql_catalog
+   */
+  dataSourceCatalog?: string;
+  /**
+   * @example
+   * 12131111
+   */
+  dataSourceId?: number;
+  /**
+   * @example
+   * erp
+   */
+  dataSourceSchema?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MaxCompute_SQL
+   */
+  operatorType?: string;
+  paramList?: ExecuteAdHocTaskRequestExecuteCommandParamList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123222121
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      dataSourceCatalog: 'DataSourceCatalog',
+      dataSourceId: 'DataSourceId',
+      dataSourceSchema: 'DataSourceSchema',
+      operatorType: 'OperatorType',
+      paramList: 'ParamList',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      dataSourceCatalog: 'string',
+      dataSourceId: 'number',
+      dataSourceSchema: 'string',
+      operatorType: 'string',
+      paramList: { 'type': 'array', 'itemType': ExecuteAdHocTaskRequestExecuteCommandParamList },
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdHocTaskResponseBodyExecuteResult extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  subTaskCount?: number;
+  /**
+   * @example
+   * MaxCompute_SQL_300000843_1611548758327
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subTaskCount: 'SubTaskCount',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subTaskCount: 'number',
+      taskId: 'string',
     };
   }
 
@@ -10363,6 +17264,2836 @@ export class GetAdHocFileResponseBodyFileInfo extends $tea.Model {
   }
 }
 
+export class GetAdHocTaskLogResponseBodyLogInfo extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  content?: string;
+  hasNext?: boolean;
+  hasResult?: boolean;
+  /**
+   * @example
+   * 2021
+   */
+  nextOffset?: number;
+  /**
+   * @example
+   * 0
+   */
+  subTaskId?: number;
+  /**
+   * @example
+   * MaxCompute_SQL_300000843_1611548758327
+   */
+  taskId?: string;
+  /**
+   * @example
+   * WAIT_RESOURCE
+   */
+  taskStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      hasNext: 'HasNext',
+      hasResult: 'HasResult',
+      nextOffset: 'NextOffset',
+      subTaskId: 'SubTaskId',
+      taskId: 'TaskId',
+      taskStatus: 'TaskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      hasNext: 'boolean',
+      hasResult: 'boolean',
+      nextOffset: 'number',
+      subTaskId: 'number',
+      taskId: 'string',
+      taskStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdHocTaskResultResponseBodyExecuteResult extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  result?: string;
+  /**
+   * @example
+   * t_2242892326444990464_20210125_2242892326444990465
+   */
+  scheduleTaskId?: string;
+  /**
+   * @example
+   * MaxCompute_SQL_300000843_1611548758327
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+      scheduleTaskId: 'ScheduleTaskId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'string',
+      scheduleTaskId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertEventResponseBodyAlertEventInfoAlertObject extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * ALL
+   */
+  sourceSystemType?: string;
+  /**
+   * @example
+   * VDM_BATCH_PYTHON37
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      sourceSystemType: 'SourceSystemType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      sourceSystemType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertEventResponseBodyAlertEventInfoAlertReasonAlertReasonParamList extends $tea.Model {
+  /**
+   * @example
+   * biz_date
+   */
+  key?: string;
+  /**
+   * @example
+   * 2024-11-04 00:00:00
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertEventResponseBodyAlertEventInfoAlertReason extends $tea.Model {
+  alertReasonParamList?: GetAlertEventResponseBodyAlertEventInfoAlertReasonAlertReasonParamList[];
+  /**
+   * @example
+   * 2024-11-05 16:19:32
+   */
+  bizDate?: string;
+  /**
+   * @example
+   * VDM_BATCH_FINISH
+   */
+  type?: string;
+  /**
+   * @example
+   * t_6340131422711644160_20241104_6340142
+   */
+  uniqueKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertReasonParamList: 'AlertReasonParamList',
+      bizDate: 'BizDate',
+      type: 'Type',
+      uniqueKey: 'UniqueKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertReasonParamList: { 'type': 'array', 'itemType': GetAlertEventResponseBodyAlertEventInfoAlertReasonAlertReasonParamList },
+      bizDate: 'string',
+      type: 'string',
+      uniqueKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertEventResponseBodyAlertEventInfoAlertReceiverListUserList extends $tea.Model {
+  /**
+   * @example
+   * Admin
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertEventResponseBodyAlertEventInfoAlertReceiverList extends $tea.Model {
+  alertChannelTypeList?: string[];
+  customAlertChannelIdList?: string[];
+  /**
+   * @example
+   * test
+   */
+  onCallTableName?: string;
+  /**
+   * @example
+   * OWNER
+   */
+  type?: string;
+  userList?: GetAlertEventResponseBodyAlertEventInfoAlertReceiverListUserList[];
+  static names(): { [key: string]: string } {
+    return {
+      alertChannelTypeList: 'AlertChannelTypeList',
+      customAlertChannelIdList: 'CustomAlertChannelIdList',
+      onCallTableName: 'OnCallTableName',
+      type: 'Type',
+      userList: 'UserList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertChannelTypeList: { 'type': 'array', 'itemType': 'string' },
+      customAlertChannelIdList: { 'type': 'array', 'itemType': 'string' },
+      onCallTableName: 'string',
+      type: 'string',
+      userList: { 'type': 'array', 'itemType': GetAlertEventResponseBodyAlertEventInfoAlertReceiverListUserList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertEventResponseBodyAlertEventInfoBelongProject extends $tea.Model {
+  /**
+   * @example
+   * biz_1
+   */
+  bizName?: string;
+  /**
+   * @example
+   * project_1
+   */
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizName: 'BizName',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizName: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertEventResponseBodyAlertEventInfoUrlConfig extends $tea.Model {
+  /**
+   * @example
+   * https://dataphin.com/ops/test3
+   */
+  alertConfigUrl?: string;
+  /**
+   * @example
+   * https://dataphin.com/ops/test2
+   */
+  logUrl?: string;
+  /**
+   * @example
+   * https://dataphin.com/ops/test1
+   */
+  objectUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertConfigUrl: 'AlertConfigUrl',
+      logUrl: 'LogUrl',
+      objectUrl: 'ObjectUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertConfigUrl: 'string',
+      logUrl: 'string',
+      objectUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertEventResponseBodyAlertEventInfo extends $tea.Model {
+  /**
+   * @example
+   * ONCE
+   */
+  alertFrequency?: string;
+  alertObject?: GetAlertEventResponseBodyAlertEventInfoAlertObject;
+  alertReason?: GetAlertEventResponseBodyAlertEventInfoAlertReason;
+  alertReceiverList?: GetAlertEventResponseBodyAlertEventInfoAlertReceiverList[];
+  belongProject?: GetAlertEventResponseBodyAlertEventInfoBelongProject;
+  /**
+   * @example
+   * 2024-11-05 00:00:00
+   */
+  doNotDisturbEndTime?: string;
+  /**
+   * @example
+   * 2024-11-05 16:19:33
+   */
+  firstAlertTime?: string;
+  /**
+   * @example
+   * 12345
+   */
+  id?: number;
+  /**
+   * @example
+   * 2024-11-05 16:19:33
+   */
+  latestAlertTime?: string;
+  /**
+   * @example
+   * FINISH
+   */
+  status?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalAlertTimes?: number;
+  urlConfig?: GetAlertEventResponseBodyAlertEventInfoUrlConfig;
+  static names(): { [key: string]: string } {
+    return {
+      alertFrequency: 'AlertFrequency',
+      alertObject: 'AlertObject',
+      alertReason: 'AlertReason',
+      alertReceiverList: 'AlertReceiverList',
+      belongProject: 'BelongProject',
+      doNotDisturbEndTime: 'DoNotDisturbEndTime',
+      firstAlertTime: 'FirstAlertTime',
+      id: 'Id',
+      latestAlertTime: 'LatestAlertTime',
+      status: 'Status',
+      totalAlertTimes: 'TotalAlertTimes',
+      urlConfig: 'UrlConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertFrequency: 'string',
+      alertObject: GetAlertEventResponseBodyAlertEventInfoAlertObject,
+      alertReason: GetAlertEventResponseBodyAlertEventInfoAlertReason,
+      alertReceiverList: { 'type': 'array', 'itemType': GetAlertEventResponseBodyAlertEventInfoAlertReceiverList },
+      belongProject: GetAlertEventResponseBodyAlertEventInfoBelongProject,
+      doNotDisturbEndTime: 'string',
+      firstAlertTime: 'string',
+      id: 'number',
+      latestAlertTime: 'string',
+      status: 'string',
+      totalAlertTimes: 'number',
+      urlConfig: GetAlertEventResponseBodyAlertEventInfoUrlConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * 20:59
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  interval?: number;
+  /**
+   * @example
+   * HOUR
+   */
+  intervalUnit?: string;
+  /**
+   * @example
+   * DAILY
+   */
+  schedulePeriod?: string;
+  /**
+   * @example
+   * 08:00
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      interval: 'Interval',
+      intervalUnit: 'IntervalUnit',
+      schedulePeriod: 'SchedulePeriod',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      interval: 'number',
+      intervalUnit: 'string',
+      schedulePeriod: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoResponseBodyTaskInfoParamList extends $tea.Model {
+  /**
+   * @example
+   * key
+   */
+  key?: string;
+  /**
+   * @example
+   * Value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoResponseBodyTaskInfoSparkClientInfo extends $tea.Model {
+  /**
+   * @example
+   * abc
+   */
+  sparkClientVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sparkClientVersion: 'SparkClientVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sparkClientVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamListDependPeriod extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  periodOffset?: number;
+  /**
+   * @example
+   * CURRENT_PERIOD
+   */
+  periodType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodOffset: 'PeriodOffset',
+      periodType: 'PeriodType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodOffset: 'number',
+      periodType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamList extends $tea.Model {
+  dependPeriod?: GetBatchTaskInfoResponseBodyTaskInfoUpStreamListDependPeriod;
+  /**
+   * @example
+   * LAST
+   */
+  dependStrategy?: string;
+  fieldList?: string[];
+  /**
+   * @example
+   * PHYSICAL
+   */
+  nodeType?: string;
+  /**
+   * @example
+   * 1
+   */
+  periodDiff?: number;
+  sourceNodeEnabled?: boolean;
+  /**
+   * @example
+   * n_2001
+   */
+  sourceNodeId?: string;
+  /**
+   * @example
+   * t_input1
+   */
+  sourceNodeName?: string;
+  /**
+   * @example
+   * t_input1
+   */
+  sourceNodeOutputName?: string;
+  /**
+   * @example
+   * 张三
+   */
+  sourceNodeUserName?: string;
+  /**
+   * @example
+   * t_input1
+   */
+  sourceTableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dependPeriod: 'DependPeriod',
+      dependStrategy: 'DependStrategy',
+      fieldList: 'FieldList',
+      nodeType: 'NodeType',
+      periodDiff: 'PeriodDiff',
+      sourceNodeEnabled: 'SourceNodeEnabled',
+      sourceNodeId: 'SourceNodeId',
+      sourceNodeName: 'SourceNodeName',
+      sourceNodeOutputName: 'SourceNodeOutputName',
+      sourceNodeUserName: 'SourceNodeUserName',
+      sourceTableName: 'SourceTableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dependPeriod: GetBatchTaskInfoResponseBodyTaskInfoUpStreamListDependPeriod,
+      dependStrategy: 'string',
+      fieldList: { 'type': 'array', 'itemType': 'string' },
+      nodeType: 'string',
+      periodDiff: 'number',
+      sourceNodeEnabled: 'boolean',
+      sourceNodeId: 'string',
+      sourceNodeName: 'string',
+      sourceNodeOutputName: 'string',
+      sourceNodeUserName: 'string',
+      sourceTableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoResponseBodyTaskInfo extends $tea.Model {
+  /**
+   * @example
+   * show tables;
+   */
+  code?: string;
+  /**
+   * @example
+   * 0 0 1 * * ?
+   */
+  cronExpression?: string;
+  customScheduleConfig?: GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig;
+  /**
+   * @example
+   * dag_102121211
+   */
+  dagId?: string;
+  /**
+   * @example
+   * mysql_catalog
+   */
+  dataSourceCatalog?: string;
+  /**
+   * @example
+   * 12131111
+   */
+  dataSourceId?: string;
+  /**
+   * @example
+   * erp
+   */
+  dataSourceSchema?: string;
+  /**
+   * @example
+   * 12113111
+   */
+  fileId?: number;
+  hasDevNode?: boolean;
+  /**
+   * @example
+   * 测试任务1
+   */
+  name?: string;
+  needPublish?: boolean;
+  /**
+   * @example
+   * xx测试
+   */
+  nodeDescription?: string;
+  /**
+   * @example
+   * openapi
+   */
+  nodeFrom?: string;
+  /**
+   * @example
+   * n_1011_21232132322
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * 测试任务1
+   */
+  nodeName?: string;
+  nodeOutputNameList?: string[];
+  /**
+   * @example
+   * 1
+   */
+  nodeStatus?: number;
+  /**
+   * @example
+   * 30231123
+   */
+  operatorUserId?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 30231123
+   */
+  ownerUserId?: string;
+  paramList?: GetBatchTaskInfoResponseBodyTaskInfoParamList[];
+  paused?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * 131211211
+   */
+  projectId?: number;
+  published?: boolean;
+  /**
+   * @example
+   * test xx
+   */
+  remark?: string;
+  rerunable?: boolean;
+  /**
+   * @example
+   * DAILY
+   */
+  schedulePeriod?: string;
+  /**
+   * @example
+   * 3
+   */
+  scheduleType?: number;
+  sparkClientInfo?: GetBatchTaskInfoResponseBodyTaskInfoSparkClientInfo;
+  /**
+   * @example
+   * 测试任务1
+   */
+  status?: string;
+  /**
+   * @example
+   * 21
+   */
+  taskType?: number;
+  upStreamList?: GetBatchTaskInfoResponseBodyTaskInfoUpStreamList[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      cronExpression: 'CronExpression',
+      customScheduleConfig: 'CustomScheduleConfig',
+      dagId: 'DagId',
+      dataSourceCatalog: 'DataSourceCatalog',
+      dataSourceId: 'DataSourceId',
+      dataSourceSchema: 'DataSourceSchema',
+      fileId: 'FileId',
+      hasDevNode: 'HasDevNode',
+      name: 'Name',
+      needPublish: 'NeedPublish',
+      nodeDescription: 'NodeDescription',
+      nodeFrom: 'NodeFrom',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      nodeOutputNameList: 'NodeOutputNameList',
+      nodeStatus: 'NodeStatus',
+      operatorUserId: 'OperatorUserId',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+      paramList: 'ParamList',
+      paused: 'Paused',
+      priority: 'Priority',
+      projectId: 'ProjectId',
+      published: 'Published',
+      remark: 'Remark',
+      rerunable: 'Rerunable',
+      schedulePeriod: 'SchedulePeriod',
+      scheduleType: 'ScheduleType',
+      sparkClientInfo: 'SparkClientInfo',
+      status: 'Status',
+      taskType: 'TaskType',
+      upStreamList: 'UpStreamList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      cronExpression: 'string',
+      customScheduleConfig: GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig,
+      dagId: 'string',
+      dataSourceCatalog: 'string',
+      dataSourceId: 'string',
+      dataSourceSchema: 'string',
+      fileId: 'number',
+      hasDevNode: 'boolean',
+      name: 'string',
+      needPublish: 'boolean',
+      nodeDescription: 'string',
+      nodeFrom: 'string',
+      nodeId: 'string',
+      nodeName: 'string',
+      nodeOutputNameList: { 'type': 'array', 'itemType': 'string' },
+      nodeStatus: 'number',
+      operatorUserId: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+      paramList: { 'type': 'array', 'itemType': GetBatchTaskInfoResponseBodyTaskInfoParamList },
+      paused: 'boolean',
+      priority: 'number',
+      projectId: 'number',
+      published: 'boolean',
+      remark: 'string',
+      rerunable: 'boolean',
+      schedulePeriod: 'string',
+      scheduleType: 'number',
+      sparkClientInfo: GetBatchTaskInfoResponseBodyTaskInfoSparkClientInfo,
+      status: 'string',
+      taskType: 'number',
+      upStreamList: { 'type': 'array', 'itemType': GetBatchTaskInfoResponseBodyTaskInfoUpStreamList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoByVersionResponseBodyTaskInfoCustomScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * 20:59
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  interval?: number;
+  /**
+   * @example
+   * HOUR
+   */
+  intervalUnit?: string;
+  /**
+   * @example
+   * DAILY
+   */
+  schedulePeriod?: string;
+  /**
+   * @example
+   * 08:00
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      interval: 'Interval',
+      intervalUnit: 'IntervalUnit',
+      schedulePeriod: 'SchedulePeriod',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      interval: 'number',
+      intervalUnit: 'string',
+      schedulePeriod: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoByVersionResponseBodyTaskInfoParamList extends $tea.Model {
+  /**
+   * @example
+   * key
+   */
+  key?: string;
+  /**
+   * @example
+   * Value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoByVersionResponseBodyTaskInfoSparkClientInfo extends $tea.Model {
+  /**
+   * @example
+   * abc
+   */
+  sparkClientVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sparkClientVersion: 'SparkClientVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sparkClientVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoByVersionResponseBodyTaskInfoUpStreamListDependPeriod extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  periodOffset?: number;
+  /**
+   * @example
+   * CURRENT_PERIOD
+   */
+  periodType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodOffset: 'PeriodOffset',
+      periodType: 'PeriodType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodOffset: 'number',
+      periodType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoByVersionResponseBodyTaskInfoUpStreamList extends $tea.Model {
+  dependPeriod?: GetBatchTaskInfoByVersionResponseBodyTaskInfoUpStreamListDependPeriod;
+  /**
+   * @example
+   * LAST
+   */
+  dependStrategy?: string;
+  fieldList?: string[];
+  /**
+   * @example
+   * PHYSICAL
+   */
+  nodeType?: string;
+  /**
+   * @example
+   * 1
+   */
+  periodDiff?: number;
+  sourceNodeEnabled?: boolean;
+  /**
+   * @example
+   * n_2001
+   */
+  sourceNodeId?: string;
+  /**
+   * @example
+   * t_input1
+   */
+  sourceNodeName?: string;
+  /**
+   * @example
+   * t_input1
+   */
+  sourceNodeOutputName?: string;
+  /**
+   * @example
+   * 张三
+   */
+  sourceNodeUserName?: string;
+  /**
+   * @example
+   * t_input1
+   */
+  sourceTableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dependPeriod: 'DependPeriod',
+      dependStrategy: 'DependStrategy',
+      fieldList: 'FieldList',
+      nodeType: 'NodeType',
+      periodDiff: 'PeriodDiff',
+      sourceNodeEnabled: 'SourceNodeEnabled',
+      sourceNodeId: 'SourceNodeId',
+      sourceNodeName: 'SourceNodeName',
+      sourceNodeOutputName: 'SourceNodeOutputName',
+      sourceNodeUserName: 'SourceNodeUserName',
+      sourceTableName: 'SourceTableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dependPeriod: GetBatchTaskInfoByVersionResponseBodyTaskInfoUpStreamListDependPeriod,
+      dependStrategy: 'string',
+      fieldList: { 'type': 'array', 'itemType': 'string' },
+      nodeType: 'string',
+      periodDiff: 'number',
+      sourceNodeEnabled: 'boolean',
+      sourceNodeId: 'string',
+      sourceNodeName: 'string',
+      sourceNodeOutputName: 'string',
+      sourceNodeUserName: 'string',
+      sourceTableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $tea.Model {
+  /**
+   * @example
+   * show tables;
+   */
+  code?: string;
+  /**
+   * @example
+   * 0 0 1 * * ?
+   */
+  cronExpression?: string;
+  customScheduleConfig?: GetBatchTaskInfoByVersionResponseBodyTaskInfoCustomScheduleConfig;
+  /**
+   * @example
+   * dag_102121211
+   */
+  dagId?: string;
+  /**
+   * @example
+   * mysql_catalog
+   */
+  dataSourceCatalog?: string;
+  /**
+   * @example
+   * 12131111
+   */
+  dataSourceId?: string;
+  /**
+   * @example
+   * erp
+   */
+  dataSourceSchema?: string;
+  /**
+   * @example
+   * 12113111
+   */
+  fileId?: number;
+  hasDevNode?: boolean;
+  /**
+   * @example
+   * 测试任务1
+   */
+  name?: string;
+  needPublish?: boolean;
+  /**
+   * @example
+   * xx测试
+   */
+  nodeDescription?: string;
+  /**
+   * @example
+   * openapi
+   */
+  nodeFrom?: string;
+  /**
+   * @example
+   * n_1011_21232132322
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * 测试任务1
+   */
+  nodeName?: string;
+  nodeOutputNameList?: string[];
+  /**
+   * @example
+   * 1
+   */
+  nodeStatus?: number;
+  /**
+   * @example
+   * 30231123
+   */
+  operatorUserId?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 30231123
+   */
+  ownerUserId?: string;
+  paramList?: GetBatchTaskInfoByVersionResponseBodyTaskInfoParamList[];
+  paused?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * 131211211
+   */
+  projectId?: number;
+  published?: boolean;
+  /**
+   * @example
+   * test xx
+   */
+  remark?: string;
+  rerunable?: boolean;
+  /**
+   * @example
+   * DAILY
+   */
+  schedulePeriod?: string;
+  /**
+   * @example
+   * 3
+   */
+  scheduleType?: number;
+  sparkClientInfo?: GetBatchTaskInfoByVersionResponseBodyTaskInfoSparkClientInfo;
+  /**
+   * @example
+   * 测试任务1
+   */
+  status?: string;
+  /**
+   * @example
+   * 21
+   */
+  taskType?: number;
+  upStreamList?: GetBatchTaskInfoByVersionResponseBodyTaskInfoUpStreamList[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      cronExpression: 'CronExpression',
+      customScheduleConfig: 'CustomScheduleConfig',
+      dagId: 'DagId',
+      dataSourceCatalog: 'DataSourceCatalog',
+      dataSourceId: 'DataSourceId',
+      dataSourceSchema: 'DataSourceSchema',
+      fileId: 'FileId',
+      hasDevNode: 'HasDevNode',
+      name: 'Name',
+      needPublish: 'NeedPublish',
+      nodeDescription: 'NodeDescription',
+      nodeFrom: 'NodeFrom',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      nodeOutputNameList: 'NodeOutputNameList',
+      nodeStatus: 'NodeStatus',
+      operatorUserId: 'OperatorUserId',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+      paramList: 'ParamList',
+      paused: 'Paused',
+      priority: 'Priority',
+      projectId: 'ProjectId',
+      published: 'Published',
+      remark: 'Remark',
+      rerunable: 'Rerunable',
+      schedulePeriod: 'SchedulePeriod',
+      scheduleType: 'ScheduleType',
+      sparkClientInfo: 'SparkClientInfo',
+      status: 'Status',
+      taskType: 'TaskType',
+      upStreamList: 'UpStreamList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      cronExpression: 'string',
+      customScheduleConfig: GetBatchTaskInfoByVersionResponseBodyTaskInfoCustomScheduleConfig,
+      dagId: 'string',
+      dataSourceCatalog: 'string',
+      dataSourceId: 'string',
+      dataSourceSchema: 'string',
+      fileId: 'number',
+      hasDevNode: 'boolean',
+      name: 'string',
+      needPublish: 'boolean',
+      nodeDescription: 'string',
+      nodeFrom: 'string',
+      nodeId: 'string',
+      nodeName: 'string',
+      nodeOutputNameList: { 'type': 'array', 'itemType': 'string' },
+      nodeStatus: 'number',
+      operatorUserId: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+      paramList: { 'type': 'array', 'itemType': GetBatchTaskInfoByVersionResponseBodyTaskInfoParamList },
+      paused: 'boolean',
+      priority: 'number',
+      projectId: 'number',
+      published: 'boolean',
+      remark: 'string',
+      rerunable: 'boolean',
+      schedulePeriod: 'string',
+      scheduleType: 'number',
+      sparkClientInfo: GetBatchTaskInfoByVersionResponseBodyTaskInfoSparkClientInfo,
+      status: 'string',
+      taskType: 'number',
+      upStreamList: { 'type': 'array', 'itemType': GetBatchTaskInfoByVersionResponseBodyTaskInfoUpStreamList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineageListColumnList extends $tea.Model {
+  /**
+   * @example
+   * varchar
+   */
+  dataType?: string;
+  /**
+   * @example
+   * xx
+   */
+  description?: string;
+  /**
+   * @example
+   * c011
+   */
+  id?: string;
+  /**
+   * @example
+   * c011
+   */
+  name?: string;
+  partitionKey?: boolean;
+  primaryKey?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dataType: 'DataType',
+      description: 'Description',
+      id: 'Id',
+      name: 'Name',
+      partitionKey: 'PartitionKey',
+      primaryKey: 'PrimaryKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataType: 'string',
+      description: 'string',
+      id: 'string',
+      name: 'string',
+      partitionKey: 'boolean',
+      primaryKey: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineageList extends $tea.Model {
+  /**
+   * @example
+   * 103111231
+   */
+  bizUnitId?: string;
+  /**
+   * @example
+   * xx测试
+   */
+  bizUnitName?: string;
+  columnList?: GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineageListColumnList[];
+  /**
+   * @example
+   * test xx
+   */
+  description?: string;
+  /**
+   * @example
+   * t_input
+   */
+  displayName?: string;
+  /**
+   * @example
+   * dev
+   */
+  env?: string;
+  fullTable?: boolean;
+  /**
+   * @example
+   * Guid_101121
+   */
+  guid?: string;
+  /**
+   * @example
+   * t_input
+   */
+  name?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 20112101
+   */
+  ownerUserId?: string;
+  /**
+   * @example
+   * 131211211
+   */
+  projectId?: string;
+  /**
+   * @example
+   * prj_test
+   */
+  projectName?: string;
+  /**
+   * @example
+   * dim
+   */
+  subType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizUnitId: 'BizUnitId',
+      bizUnitName: 'BizUnitName',
+      columnList: 'ColumnList',
+      description: 'Description',
+      displayName: 'DisplayName',
+      env: 'Env',
+      fullTable: 'FullTable',
+      guid: 'Guid',
+      name: 'Name',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+      projectId: 'ProjectId',
+      projectName: 'ProjectName',
+      subType: 'SubType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUnitId: 'string',
+      bizUnitName: 'string',
+      columnList: { 'type': 'array', 'itemType': GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineageListColumnList },
+      description: 'string',
+      displayName: 'string',
+      env: 'string',
+      fullTable: 'boolean',
+      guid: 'string',
+      name: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+      projectId: 'string',
+      projectName: 'string',
+      subType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineageListColumnList extends $tea.Model {
+  /**
+   * @example
+   * varchar
+   */
+  dataType?: string;
+  /**
+   * @example
+   * xx
+   */
+  description?: string;
+  /**
+   * @example
+   * c011
+   */
+  id?: string;
+  /**
+   * @example
+   * c011
+   */
+  name?: string;
+  partitionKey?: boolean;
+  primaryKey?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dataType: 'DataType',
+      description: 'Description',
+      id: 'Id',
+      name: 'Name',
+      partitionKey: 'PartitionKey',
+      primaryKey: 'PrimaryKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataType: 'string',
+      description: 'string',
+      id: 'string',
+      name: 'string',
+      partitionKey: 'boolean',
+      primaryKey: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineageList extends $tea.Model {
+  /**
+   * @example
+   * 103111231
+   */
+  bizUnitId?: string;
+  /**
+   * @example
+   * xx测试
+   */
+  bizUnitName?: string;
+  columnList?: GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineageListColumnList[];
+  /**
+   * @example
+   * test xx
+   */
+  description?: string;
+  /**
+   * @example
+   * t_input
+   */
+  displayName?: string;
+  /**
+   * @example
+   * dev
+   */
+  env?: string;
+  fullTable?: boolean;
+  /**
+   * @example
+   * Guid_101121
+   */
+  guid?: string;
+  /**
+   * @example
+   * t_input
+   */
+  name?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 20112101
+   */
+  ownerUserId?: string;
+  /**
+   * @example
+   * 131211211
+   */
+  projectId?: string;
+  /**
+   * @example
+   * prj_test
+   */
+  projectName?: string;
+  /**
+   * @example
+   * dim
+   */
+  subType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizUnitId: 'BizUnitId',
+      bizUnitName: 'BizUnitName',
+      columnList: 'ColumnList',
+      description: 'Description',
+      displayName: 'DisplayName',
+      env: 'Env',
+      fullTable: 'FullTable',
+      guid: 'Guid',
+      name: 'Name',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+      projectId: 'ProjectId',
+      projectName: 'ProjectName',
+      subType: 'SubType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUnitId: 'string',
+      bizUnitName: 'string',
+      columnList: { 'type': 'array', 'itemType': GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineageListColumnList },
+      description: 'string',
+      displayName: 'string',
+      env: 'string',
+      fullTable: 'boolean',
+      guid: 'string',
+      name: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+      projectId: 'string',
+      projectName: 'string',
+      subType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupList extends $tea.Model {
+  inputLineageList?: GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineageList[];
+  outputLineageList?: GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineageList[];
+  static names(): { [key: string]: string } {
+    return {
+      inputLineageList: 'InputLineageList',
+      outputLineageList: 'OutputLineageList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputLineageList: { 'type': 'array', 'itemType': GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineageList },
+      outputLineageList: { 'type': 'array', 'itemType': GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineageList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskUdfLineagesResponseBodyData extends $tea.Model {
+  lineageGroupList?: GetBatchTaskUdfLineagesResponseBodyDataLineageGroupList[];
+  static names(): { [key: string]: string } {
+    return {
+      lineageGroupList: 'LineageGroupList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lineageGroupList: { 'type': 'array', 'itemType': GetBatchTaskUdfLineagesResponseBodyDataLineageGroupList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskVersionsResponseBodyDataBatchTaskVersionList extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  comment?: string;
+  /**
+   * @example
+   * 2024-10-10 10:10:10
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-10-10 10:10:10
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * n_10231001
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * 10232111011
+   */
+  projectId?: number;
+  published?: boolean;
+  /**
+   * @example
+   * 20110110
+   */
+  userId?: string;
+  /**
+   * @example
+   * 张三
+   */
+  userName?: string;
+  /**
+   * @example
+   * 1
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      nodeId: 'NodeId',
+      projectId: 'ProjectId',
+      published: 'Published',
+      userId: 'UserId',
+      userName: 'UserName',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      nodeId: 'string',
+      projectId: 'number',
+      published: 'boolean',
+      userId: 'string',
+      userName: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskVersionsResponseBodyData extends $tea.Model {
+  batchTaskVersionList?: GetBatchTaskVersionsResponseBodyDataBatchTaskVersionList[];
+  static names(): { [key: string]: string } {
+    return {
+      batchTaskVersionList: 'BatchTaskVersionList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchTaskVersionList: { 'type': 'array', 'itemType': GetBatchTaskVersionsResponseBodyDataBatchTaskVersionList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $tea.Model {
+  /**
+   * @example
+   * 221323121212
+   */
+  approvalId?: string;
+  /**
+   * @example
+   * APPROVING
+   */
+  approvalStatus?: string;
+  childBizEntityIdList?: number[];
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * create_object_name
+   */
+  displayName?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 1011
+   */
+  id?: number;
+  /**
+   * @example
+   * 30010010
+   */
+  lastModifier?: string;
+  /**
+   * @example
+   * 张三
+   */
+  lastModifierName?: string;
+  /**
+   * @example
+   * create_object_code_name
+   */
+  name?: string;
+  /**
+   * @example
+   * SUBMITTED
+   */
+  onlineStatus?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 30010010
+   */
+  ownerUserId?: string;
+  /**
+   * @example
+   * 116306
+   */
+  parentId?: number;
+  refBizEntityIdList?: number[];
+  /**
+   * @example
+   * 1
+   */
+  refDimTableCount?: number;
+  /**
+   * @example
+   * 1
+   */
+  refSummaryTableCount?: number;
+  /**
+   * @example
+   * SUBMITTED
+   */
+  status?: string;
+  /**
+   * @example
+   * NORMAL
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvalId: 'ApprovalId',
+      approvalStatus: 'ApprovalStatus',
+      childBizEntityIdList: 'ChildBizEntityIdList',
+      description: 'Description',
+      displayName: 'DisplayName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      lastModifier: 'LastModifier',
+      lastModifierName: 'LastModifierName',
+      name: 'Name',
+      onlineStatus: 'OnlineStatus',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+      parentId: 'ParentId',
+      refBizEntityIdList: 'RefBizEntityIdList',
+      refDimTableCount: 'RefDimTableCount',
+      refSummaryTableCount: 'RefSummaryTableCount',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalId: 'string',
+      approvalStatus: 'string',
+      childBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      description: 'string',
+      displayName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      lastModifier: 'string',
+      lastModifierName: 'string',
+      name: 'string',
+      onlineStatus: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+      parentId: 'number',
+      refBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      refDimTableCount: 'number',
+      refSummaryTableCount: 'number',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizEntityInfoResponseBodyBizEntityInfoBizProcess extends $tea.Model {
+  /**
+   * @example
+   * 221323121212
+   */
+  approvalId?: string;
+  /**
+   * @example
+   * APPROVING
+   */
+  approvalStatus?: string;
+  bizEventEntityIdList?: number[];
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 业务活动测试
+   */
+  displayName?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtModified?: string;
+  hasDependent?: boolean;
+  /**
+   * @example
+   * 1011
+   */
+  id?: number;
+  /**
+   * @example
+   * 30010010
+   */
+  lastModifier?: string;
+  /**
+   * @example
+   * 张三
+   */
+  lastModifierName?: string;
+  /**
+   * @example
+   * create_process_code_name
+   */
+  name?: string;
+  /**
+   * @example
+   * SUBMITTED
+   */
+  onlineStatus?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 30010010
+   */
+  ownerUserId?: string;
+  preBizProcessIdList?: number[];
+  refBizEntityIdList?: number[];
+  /**
+   * @example
+   * 1
+   */
+  refFactTableCount?: number;
+  /**
+   * @example
+   * SUBMITTED
+   */
+  status?: string;
+  /**
+   * @example
+   * BIZ_EVENT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvalId: 'ApprovalId',
+      approvalStatus: 'ApprovalStatus',
+      bizEventEntityIdList: 'BizEventEntityIdList',
+      description: 'Description',
+      displayName: 'DisplayName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      hasDependent: 'HasDependent',
+      id: 'Id',
+      lastModifier: 'LastModifier',
+      lastModifierName: 'LastModifierName',
+      name: 'Name',
+      onlineStatus: 'OnlineStatus',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+      preBizProcessIdList: 'PreBizProcessIdList',
+      refBizEntityIdList: 'RefBizEntityIdList',
+      refFactTableCount: 'RefFactTableCount',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalId: 'string',
+      approvalStatus: 'string',
+      bizEventEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      description: 'string',
+      displayName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      hasDependent: 'boolean',
+      id: 'number',
+      lastModifier: 'string',
+      lastModifierName: 'string',
+      name: 'string',
+      onlineStatus: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+      preBizProcessIdList: { 'type': 'array', 'itemType': 'number' },
+      refBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      refFactTableCount: 'number',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizEntityInfoResponseBodyBizEntityInfo extends $tea.Model {
+  bizObject?: GetBizEntityInfoResponseBodyBizEntityInfoBizObject;
+  bizProcess?: GetBizEntityInfoResponseBodyBizEntityInfoBizProcess;
+  /**
+   * @example
+   * 6798087749072704
+   */
+  bizUnitId?: number;
+  /**
+   * @example
+   * 20101011
+   */
+  dataDomainId?: number;
+  /**
+   * @example
+   * BIZ_OBJECT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizObject: 'BizObject',
+      bizProcess: 'BizProcess',
+      bizUnitId: 'BizUnitId',
+      dataDomainId: 'DataDomainId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizObject: GetBizEntityInfoResponseBodyBizEntityInfoBizObject,
+      bizProcess: GetBizEntityInfoResponseBodyBizEntityInfoBizProcess,
+      bizUnitId: 'number',
+      dataDomainId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends $tea.Model {
+  /**
+   * @example
+   * 221323121212
+   */
+  approvalId?: string;
+  /**
+   * @example
+   * APPROVING
+   */
+  approvalStatus?: string;
+  childBizEntityIdList?: number[];
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * create_object_name
+   */
+  displayName?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 1011
+   */
+  id?: number;
+  /**
+   * @example
+   * 30010010
+   */
+  lastModifier?: string;
+  /**
+   * @example
+   * 张三
+   */
+  lastModifierName?: string;
+  /**
+   * @example
+   * create_object_code_name
+   */
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  onlineStatus?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 30010010
+   */
+  ownerUserId?: string;
+  /**
+   * @example
+   * 116306
+   */
+  parentId?: number;
+  refBizEntityIdList?: number[];
+  /**
+   * @example
+   * 1
+   */
+  refDimTableCount?: number;
+  /**
+   * @example
+   * 1
+   */
+  refSummaryTableCount?: number;
+  /**
+   * @example
+   * 100
+   */
+  status?: string;
+  /**
+   * @example
+   * NORMAL
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvalId: 'ApprovalId',
+      approvalStatus: 'ApprovalStatus',
+      childBizEntityIdList: 'ChildBizEntityIdList',
+      description: 'Description',
+      displayName: 'DisplayName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      lastModifier: 'LastModifier',
+      lastModifierName: 'LastModifierName',
+      name: 'Name',
+      onlineStatus: 'OnlineStatus',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+      parentId: 'ParentId',
+      refBizEntityIdList: 'RefBizEntityIdList',
+      refDimTableCount: 'RefDimTableCount',
+      refSummaryTableCount: 'RefSummaryTableCount',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalId: 'string',
+      approvalStatus: 'string',
+      childBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      description: 'string',
+      displayName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      lastModifier: 'string',
+      lastModifierName: 'string',
+      name: 'string',
+      onlineStatus: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+      parentId: 'number',
+      refBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      refDimTableCount: 'number',
+      refSummaryTableCount: 'number',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extends $tea.Model {
+  /**
+   * @example
+   * 221323121212
+   */
+  approvalId?: string;
+  /**
+   * @example
+   * APPROVING
+   */
+  approvalStatus?: string;
+  bizEventEntityIdList?: number[];
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 业务活动测试
+   */
+  displayName?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtModified?: string;
+  hasDependent?: boolean;
+  /**
+   * @example
+   * 1011
+   */
+  id?: number;
+  /**
+   * @example
+   * 30010010
+   */
+  lastModifier?: string;
+  /**
+   * @example
+   * 张三
+   */
+  lastModifierName?: string;
+  /**
+   * @example
+   * create_process_code_name
+   */
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  onlineStatus?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 30010010
+   */
+  ownerUserId?: string;
+  preBizProcessIdList?: number[];
+  refBizEntityIdList?: number[];
+  /**
+   * @example
+   * 1
+   */
+  refFactTableCount?: number;
+  /**
+   * @example
+   * 100
+   */
+  status?: string;
+  /**
+   * @example
+   * BIZ_EVENT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvalId: 'ApprovalId',
+      approvalStatus: 'ApprovalStatus',
+      bizEventEntityIdList: 'BizEventEntityIdList',
+      description: 'Description',
+      displayName: 'DisplayName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      hasDependent: 'HasDependent',
+      id: 'Id',
+      lastModifier: 'LastModifier',
+      lastModifierName: 'LastModifierName',
+      name: 'Name',
+      onlineStatus: 'OnlineStatus',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+      preBizProcessIdList: 'PreBizProcessIdList',
+      refBizEntityIdList: 'RefBizEntityIdList',
+      refFactTableCount: 'RefFactTableCount',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalId: 'string',
+      approvalStatus: 'string',
+      bizEventEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      description: 'string',
+      displayName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      hasDependent: 'boolean',
+      id: 'number',
+      lastModifier: 'string',
+      lastModifierName: 'string',
+      name: 'string',
+      onlineStatus: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+      preBizProcessIdList: { 'type': 'array', 'itemType': 'number' },
+      refBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      refFactTableCount: 'number',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizEntityInfoByVersionResponseBodyBizEntityInfo extends $tea.Model {
+  bizObject?: GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject;
+  bizProcess?: GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess;
+  /**
+   * @example
+   * 6798087749072704
+   */
+  bizUnitId?: number;
+  /**
+   * @example
+   * 20101011
+   */
+  dataDomainId?: number;
+  /**
+   * @example
+   * BIZ_OBJECT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizObject: 'BizObject',
+      bizProcess: 'BizProcess',
+      bizUnitId: 'BizUnitId',
+      dataDomainId: 'DataDomainId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizObject: GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject,
+      bizProcess: GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess,
+      bizUnitId: 'number',
+      dataDomainId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizUnitInfoResponseBodyBizUnitInfoAccountList extends $tea.Model {
+  /**
+   * @example
+   * 20001201
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizUnitInfoResponseBodyBizUnitInfoBusinessLeaderList extends $tea.Model {
+  /**
+   * @example
+   * 20001201
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizUnitInfoResponseBodyBizUnitInfoDataLeaderList extends $tea.Model {
+  /**
+   * @example
+   * 20001201
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizUnitInfoResponseBodyBizUnitInfoEnvList extends $tea.Model {
+  /**
+   * @example
+   * 测试数据板块001_开发
+   */
+  displayName?: string;
+  /**
+   * @example
+   * DEV
+   */
+  envName?: string;
+  /**
+   * @example
+   * LD_test001_dev
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      envName: 'EnvName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      envName: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBizUnitInfoResponseBodyBizUnitInfo extends $tea.Model {
+  accountList?: GetBizUnitInfoResponseBodyBizUnitInfoAccountList[];
+  /**
+   * @example
+   * 1
+   */
+  bizObjectCount?: number;
+  /**
+   * @example
+   * 1
+   */
+  bizProcessCount?: number;
+  businessLeaderList?: GetBizUnitInfoResponseBodyBizUnitInfoBusinessLeaderList[];
+  /**
+   * @example
+   * 1
+   */
+  dataDomainCount?: number;
+  dataLeaderList?: GetBizUnitInfoResponseBodyBizUnitInfoDataLeaderList[];
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 测试
+   */
+  displayName?: string;
+  envList?: GetBizUnitInfoResponseBodyBizUnitInfoEnvList[];
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * icon-e-commerce
+   */
+  icon?: string;
+  /**
+   * @example
+   * 101001201
+   */
+  id?: number;
+  /**
+   * @example
+   * 30010010
+   */
+  lastModifier?: string;
+  /**
+   * @example
+   * 张三
+   */
+  lastModifierName?: string;
+  /**
+   * @example
+   * DEV_PROD
+   */
+  mode?: string;
+  /**
+   * @example
+   * test01
+   */
+  name?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 30010010
+   */
+  ownerUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountList: 'AccountList',
+      bizObjectCount: 'BizObjectCount',
+      bizProcessCount: 'BizProcessCount',
+      businessLeaderList: 'BusinessLeaderList',
+      dataDomainCount: 'DataDomainCount',
+      dataLeaderList: 'DataLeaderList',
+      description: 'Description',
+      displayName: 'DisplayName',
+      envList: 'EnvList',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      icon: 'Icon',
+      id: 'Id',
+      lastModifier: 'LastModifier',
+      lastModifierName: 'LastModifierName',
+      mode: 'Mode',
+      name: 'Name',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountList: { 'type': 'array', 'itemType': GetBizUnitInfoResponseBodyBizUnitInfoAccountList },
+      bizObjectCount: 'number',
+      bizProcessCount: 'number',
+      businessLeaderList: { 'type': 'array', 'itemType': GetBizUnitInfoResponseBodyBizUnitInfoBusinessLeaderList },
+      dataDomainCount: 'number',
+      dataLeaderList: { 'type': 'array', 'itemType': GetBizUnitInfoResponseBodyBizUnitInfoDataLeaderList },
+      description: 'string',
+      displayName: 'string',
+      envList: { 'type': 'array', 'itemType': GetBizUnitInfoResponseBodyBizUnitInfoEnvList },
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      icon: 'string',
+      id: 'number',
+      lastModifier: 'string',
+      lastModifierName: 'string',
+      mode: 'string',
+      name: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterQueueInfoByEnvResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * {  "creator": "new_datasource@test.aliyunid.com",  "modifier": "new_datasource@test.aliyunid.com" }
+   */
+  annotations?: string;
+  /**
+   * @example
+   * 61187014-a3ba-4cdd-8609-1f0aa3df4a3d
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * 2024-10-31 10:29:17
+   */
+  createAt?: string;
+  /**
+   * @example
+   * xxxx-registry-vpc.cn-shanghai.cr.aliyuncs.com/xxxx/flink:1.15.4-scala_2.12
+   */
+  flinkImageRegistry?: string;
+  /**
+   * @example
+   * xxxx-registry-vpc.cn-shanghai.cr.aliyuncs.com
+   */
+  flinkImageRepository?: string;
+  /**
+   * @example
+   * 1.15.4
+   */
+  flinkImageTag?: string;
+  /**
+   * @example
+   * 1.15
+   */
+  flinkVersion?: string;
+  /**
+   * @example
+   * cdh
+   */
+  labels?: string;
+  /**
+   * @example
+   * 10
+   */
+  maxVcore?: string;
+  /**
+   * @example
+   * 2024-10-31 10:29:17
+   */
+  modifiedAt?: string;
+  /**
+   * @example
+   * dataphinv45prod
+   */
+  namespace?: string;
+  /**
+   * @example
+   * default-queue
+   */
+  queueName?: string;
+  /**
+   * @example
+   * 1
+   */
+  resourceVersion?: string;
+  /**
+   * @example
+   * {\\n  \\"kind\\" : \\"kubernetes\\",\\n  \\"kubernetes\\{"namespace" : "n1730341728989z7",    "clusterName" : "a51578bdcce145"  },  "state" : "ONLINE"}
+   */
+  spec?: string;
+  /**
+   * @example
+   * PREJOB
+   */
+  vvpClusterType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      annotations: 'Annotations',
+      clusterId: 'ClusterId',
+      createAt: 'CreateAt',
+      flinkImageRegistry: 'FlinkImageRegistry',
+      flinkImageRepository: 'FlinkImageRepository',
+      flinkImageTag: 'FlinkImageTag',
+      flinkVersion: 'FlinkVersion',
+      labels: 'Labels',
+      maxVcore: 'MaxVcore',
+      modifiedAt: 'ModifiedAt',
+      namespace: 'Namespace',
+      queueName: 'QueueName',
+      resourceVersion: 'ResourceVersion',
+      spec: 'Spec',
+      vvpClusterType: 'VvpClusterType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotations: 'string',
+      clusterId: 'string',
+      createAt: 'string',
+      flinkImageRegistry: 'string',
+      flinkImageRepository: 'string',
+      flinkImageTag: 'string',
+      flinkVersion: 'string',
+      labels: 'string',
+      maxVcore: 'string',
+      modifiedAt: 'string',
+      namespace: 'string',
+      queueName: 'string',
+      resourceVersion: 'string',
+      spec: 'string',
+      vvpClusterType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataDomainInfoResponseBodyDataDomainInfo extends $tea.Model {
+  /**
+   * @example
+   * dm_code_name
+   */
+  abbreviation?: string;
+  /**
+   * @example
+   * 545844456
+   */
+  bizUnitId?: number;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 测试
+   */
+  displayName?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 1241844456
+   */
+  id?: number;
+  /**
+   * @example
+   * 30010010
+   */
+  lastModifier?: string;
+  /**
+   * @example
+   * 张三
+   */
+  lastModifierName?: string;
+  /**
+   * @example
+   * dm_code_name
+   */
+  name?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 30010010
+   */
+  ownerUserId?: string;
+  /**
+   * @example
+   * 10232311
+   */
+  parentId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abbreviation: 'Abbreviation',
+      bizUnitId: 'BizUnitId',
+      description: 'Description',
+      displayName: 'DisplayName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      lastModifier: 'LastModifier',
+      lastModifierName: 'LastModifierName',
+      name: 'Name',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+      parentId: 'ParentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abbreviation: 'string',
+      bizUnitId: 'number',
+      description: 'string',
+      displayName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      lastModifier: 'string',
+      lastModifierName: 'string',
+      name: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+      parentId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDevObjectDependencyResponseBodyDevObjectDependencyListDependencyPeriod extends $tea.Model {
   /**
    * @example
@@ -10617,6 +20348,256 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
       selfDepend: 'boolean',
       subBizType: 'string',
       valid: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDirectoryTreeResponseBodyDataChildren extends $tea.Model {
+  /**
+   * @example
+   * codeManage
+   */
+  categoryType?: string;
+  /**
+   * @example
+   * 300000907
+   */
+  creator?: string;
+  /**
+   * @example
+   * John
+   */
+  creatorName?: string;
+  /**
+   * @example
+   * 41342
+   */
+  dataCellId?: number;
+  /**
+   * @example
+   * /
+   */
+  dirName?: string;
+  /**
+   * @example
+   * 2024-11-01 18:08:17
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-11-01 18:08:17
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 3
+   */
+  id?: number;
+  /**
+   * @example
+   * 300000907
+   */
+  lastModifier?: string;
+  /**
+   * @example
+   * John
+   */
+  lastModifierName?: string;
+  /**
+   * @example
+   * 代码管理
+   */
+  name?: string;
+  /**
+   * @example
+   * 7081229106458752
+   */
+  projectId?: number;
+  /**
+   * @example
+   * 3
+   */
+  stringId?: string;
+  /**
+   * @example
+   * codeManage
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryType: 'CategoryType',
+      creator: 'Creator',
+      creatorName: 'CreatorName',
+      dataCellId: 'DataCellId',
+      dirName: 'DirName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      lastModifier: 'LastModifier',
+      lastModifierName: 'LastModifierName',
+      name: 'Name',
+      projectId: 'ProjectId',
+      stringId: 'StringId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryType: 'string',
+      creator: 'string',
+      creatorName: 'string',
+      dataCellId: 'number',
+      dirName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      lastModifier: 'string',
+      lastModifierName: 'string',
+      name: 'string',
+      projectId: 'number',
+      stringId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDirectoryTreeResponseBodyDataParent extends $tea.Model {
+  /**
+   * @example
+   * codeManage
+   */
+  categoryType?: string;
+  /**
+   * @example
+   * 300000907
+   */
+  creator?: string;
+  /**
+   * @example
+   * John
+   */
+  creatorName?: string;
+  /**
+   * @example
+   * 3213
+   */
+  dataCellId?: number;
+  /**
+   * @example
+   * /
+   */
+  dirName?: string;
+  /**
+   * @example
+   * 2024-11-01 18:08:17
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-11-01 18:08:17
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 3
+   */
+  id?: number;
+  /**
+   * @example
+   * 300000907
+   */
+  lastModifier?: string;
+  /**
+   * @example
+   * John
+   */
+  lastModifierName?: string;
+  /**
+   * @example
+   * 代码管理
+   */
+  name?: string;
+  /**
+   * @example
+   * 7081229106458752
+   */
+  projectId?: number;
+  /**
+   * @example
+   * 3
+   */
+  stringId?: string;
+  /**
+   * @example
+   * codeManage
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryType: 'CategoryType',
+      creator: 'Creator',
+      creatorName: 'CreatorName',
+      dataCellId: 'DataCellId',
+      dirName: 'DirName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      lastModifier: 'LastModifier',
+      lastModifierName: 'LastModifierName',
+      name: 'Name',
+      projectId: 'ProjectId',
+      stringId: 'StringId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryType: 'string',
+      creator: 'string',
+      creatorName: 'string',
+      dataCellId: 'number',
+      dirName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      lastModifier: 'string',
+      lastModifierName: 'string',
+      name: 'string',
+      projectId: 'number',
+      stringId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDirectoryTreeResponseBodyData extends $tea.Model {
+  children?: GetDirectoryTreeResponseBodyDataChildren;
+  parent?: GetDirectoryTreeResponseBodyDataParent;
+  static names(): { [key: string]: string } {
+    return {
+      children: 'Children',
+      parent: 'Parent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      children: GetDirectoryTreeResponseBodyDataChildren,
+      parent: GetDirectoryTreeResponseBodyDataParent,
     };
   }
 
@@ -10975,6 +20956,180 @@ export class GetInstanceUpDownStreamResponseBodyInstanceDagInfo extends $tea.Mod
       downInstanceList: { 'type': 'array', 'itemType': GetInstanceUpDownStreamResponseBodyInstanceDagInfoDownInstanceList },
       startInstanceList: { 'type': 'array', 'itemType': GetInstanceUpDownStreamResponseBodyInstanceDagInfoStartInstanceList },
       upInstanceList: { 'type': 'array', 'itemType': GetInstanceUpDownStreamResponseBodyInstanceDagInfoUpInstanceList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLatestSubmitDetailRequestSubmitDetailQuery extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
+  objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MAX_COMPUTE_SQL
+   */
+  objectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      objectId: 'ObjectId',
+      objectType: 'ObjectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      objectId: 'string',
+      objectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObjectSubmitObject extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
+  objectId?: string;
+  /**
+   * @example
+   * abc
+   */
+  objectName?: string;
+  /**
+   * @example
+   * MAX_COMPUTE_SQL
+   */
+  objectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      objectId: 'ObjectId',
+      objectName: 'ObjectName',
+      objectType: 'ObjectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      objectId: 'string',
+      objectName: 'string',
+      objectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObject extends $tea.Model {
+  /**
+   * @example
+   * DELETE
+   */
+  changeType?: string;
+  /**
+   * @example
+   * n_1234
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * 1
+   */
+  objectVersion?: string;
+  /**
+   * @example
+   * 1234
+   */
+  projectId?: number;
+  /**
+   * @example
+   * 提交说明
+   */
+  submitComment?: string;
+  submitObject?: GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObjectSubmitObject;
+  static names(): { [key: string]: string } {
+    return {
+      changeType: 'ChangeType',
+      nodeId: 'NodeId',
+      objectVersion: 'ObjectVersion',
+      projectId: 'ProjectId',
+      submitComment: 'SubmitComment',
+      submitObject: 'SubmitObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeType: 'string',
+      nodeId: 'string',
+      objectVersion: 'string',
+      projectId: 'number',
+      submitComment: 'string',
+      submitObject: GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObjectSubmitObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLatestSubmitDetailResponseBodySubmitDetailResult extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * SUCCESS
+   */
+  publishStatus?: string;
+  releaseObject?: GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObject;
+  /**
+   * @example
+   * TO_BE_PUBLISHED
+   */
+  submitStatus?: string;
+  /**
+   * @example
+   * tag
+   */
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      publishStatus: 'PublishStatus',
+      releaseObject: 'ReleaseObject',
+      submitStatus: 'SubmitStatus',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      publishStatus: 'string',
+      releaseObject: GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObject,
+      submitStatus: 'string',
+      tag: 'string',
     };
   }
 
@@ -13136,6 +23291,1384 @@ export class ListAddableUsersResponseBodyPageResult extends $tea.Model {
   }
 }
 
+export class ListAlertEventsRequestListQuery extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-11-27 13:47:00
+   */
+  alertEndTime?: string;
+  alertObjectTypeList?: string[];
+  alertReasonList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-11-16 00:00:00
+   */
+  alertStartTime?: string;
+  bizNameList?: string[];
+  /**
+   * @example
+   * test
+   */
+  keyword?: string;
+  monitoredItemIdList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  projectNameList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
+  sourceSystem?: string;
+  statusList?: string[];
+  userIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      alertEndTime: 'AlertEndTime',
+      alertObjectTypeList: 'AlertObjectTypeList',
+      alertReasonList: 'AlertReasonList',
+      alertStartTime: 'AlertStartTime',
+      bizNameList: 'BizNameList',
+      keyword: 'Keyword',
+      monitoredItemIdList: 'MonitoredItemIdList',
+      page: 'Page',
+      pageSize: 'PageSize',
+      projectNameList: 'ProjectNameList',
+      sourceSystem: 'SourceSystem',
+      statusList: 'StatusList',
+      userIdList: 'UserIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertEndTime: 'string',
+      alertObjectTypeList: { 'type': 'array', 'itemType': 'string' },
+      alertReasonList: { 'type': 'array', 'itemType': 'string' },
+      alertStartTime: 'string',
+      bizNameList: { 'type': 'array', 'itemType': 'string' },
+      keyword: 'string',
+      monitoredItemIdList: { 'type': 'array', 'itemType': 'string' },
+      page: 'number',
+      pageSize: 'number',
+      projectNameList: { 'type': 'array', 'itemType': 'string' },
+      sourceSystem: 'string',
+      statusList: { 'type': 'array', 'itemType': 'string' },
+      userIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertEventsResponseBodyListResultDataAlertObject extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * VDM_BATCH
+   */
+  sourceSystemType?: string;
+  /**
+   * @example
+   * STREAM_TASK
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      sourceSystemType: 'SourceSystemType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      sourceSystemType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertEventsResponseBodyListResultDataAlertReasonAlertReasonParamList extends $tea.Model {
+  /**
+   * @example
+   * biz_date
+   */
+  key?: string;
+  /**
+   * @example
+   * 2024-11-24 00:00:00
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertEventsResponseBodyListResultDataAlertReason extends $tea.Model {
+  alertReasonParamList?: ListAlertEventsResponseBodyListResultDataAlertReasonAlertReasonParamList[];
+  /**
+   * @example
+   * 2024-11-25 10:02:47
+   */
+  bizDate?: string;
+  /**
+   * @example
+   * VDM_BATCH_FINISH
+   */
+  type?: string;
+  /**
+   * @example
+   * t_6340134343289405440_20241124_639873707610
+   */
+  uniqueKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertReasonParamList: 'AlertReasonParamList',
+      bizDate: 'BizDate',
+      type: 'Type',
+      uniqueKey: 'UniqueKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertReasonParamList: { 'type': 'array', 'itemType': ListAlertEventsResponseBodyListResultDataAlertReasonAlertReasonParamList },
+      bizDate: 'string',
+      type: 'string',
+      uniqueKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertEventsResponseBodyListResultDataAlertReceiverListUserList extends $tea.Model {
+  /**
+   * @example
+   * ADMIN
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertEventsResponseBodyListResultDataAlertReceiverList extends $tea.Model {
+  alertChannelTypeList?: string[];
+  customAlertChannelIdList?: string[];
+  /**
+   * @example
+   * test
+   */
+  onCallTableName?: string;
+  /**
+   * @example
+   * OWNER
+   */
+  type?: string;
+  userList?: ListAlertEventsResponseBodyListResultDataAlertReceiverListUserList[];
+  static names(): { [key: string]: string } {
+    return {
+      alertChannelTypeList: 'AlertChannelTypeList',
+      customAlertChannelIdList: 'CustomAlertChannelIdList',
+      onCallTableName: 'OnCallTableName',
+      type: 'Type',
+      userList: 'UserList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertChannelTypeList: { 'type': 'array', 'itemType': 'string' },
+      customAlertChannelIdList: { 'type': 'array', 'itemType': 'string' },
+      onCallTableName: 'string',
+      type: 'string',
+      userList: { 'type': 'array', 'itemType': ListAlertEventsResponseBodyListResultDataAlertReceiverListUserList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertEventsResponseBodyListResultDataBelongProject extends $tea.Model {
+  /**
+   * @example
+   * biz_1
+   */
+  bizName?: string;
+  /**
+   * @example
+   * project_1
+   */
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizName: 'BizName',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizName: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertEventsResponseBodyListResultDataUrlConfig extends $tea.Model {
+  /**
+   * @example
+   * https://dataphin.com/ops/test3
+   */
+  alertConfigUrl?: string;
+  /**
+   * @example
+   * https://dataphin.com/ops/test2
+   */
+  logUrl?: string;
+  /**
+   * @example
+   * https://dataphin.com/ops/test1
+   */
+  objectUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertConfigUrl: 'AlertConfigUrl',
+      logUrl: 'LogUrl',
+      objectUrl: 'ObjectUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertConfigUrl: 'string',
+      logUrl: 'string',
+      objectUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertEventsResponseBodyListResultData extends $tea.Model {
+  /**
+   * @example
+   * ONCE
+   */
+  alertFrequency?: string;
+  alertObject?: ListAlertEventsResponseBodyListResultDataAlertObject;
+  alertReason?: ListAlertEventsResponseBodyListResultDataAlertReason;
+  alertReceiverList?: ListAlertEventsResponseBodyListResultDataAlertReceiverList[];
+  belongProject?: ListAlertEventsResponseBodyListResultDataBelongProject;
+  /**
+   * @example
+   * 2024-11-25 00:00:00
+   */
+  doNotDisturbEndTime?: string;
+  /**
+   * @example
+   * 2024-11-25 10:02:47
+   */
+  firstAlertTime?: string;
+  /**
+   * @example
+   * 12345
+   */
+  id?: string;
+  /**
+   * @example
+   * 2024-11-25 10:02:47
+   */
+  latestAlertTime?: string;
+  /**
+   * @example
+   * FINISH
+   */
+  status?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalAlertTimes?: number;
+  urlConfig?: ListAlertEventsResponseBodyListResultDataUrlConfig;
+  static names(): { [key: string]: string } {
+    return {
+      alertFrequency: 'AlertFrequency',
+      alertObject: 'AlertObject',
+      alertReason: 'AlertReason',
+      alertReceiverList: 'AlertReceiverList',
+      belongProject: 'BelongProject',
+      doNotDisturbEndTime: 'DoNotDisturbEndTime',
+      firstAlertTime: 'FirstAlertTime',
+      id: 'Id',
+      latestAlertTime: 'LatestAlertTime',
+      status: 'Status',
+      totalAlertTimes: 'TotalAlertTimes',
+      urlConfig: 'UrlConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertFrequency: 'string',
+      alertObject: ListAlertEventsResponseBodyListResultDataAlertObject,
+      alertReason: ListAlertEventsResponseBodyListResultDataAlertReason,
+      alertReceiverList: { 'type': 'array', 'itemType': ListAlertEventsResponseBodyListResultDataAlertReceiverList },
+      belongProject: ListAlertEventsResponseBodyListResultDataBelongProject,
+      doNotDisturbEndTime: 'string',
+      firstAlertTime: 'string',
+      id: 'string',
+      latestAlertTime: 'string',
+      status: 'string',
+      totalAlertTimes: 'number',
+      urlConfig: ListAlertEventsResponseBodyListResultDataUrlConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertEventsResponseBodyListResult extends $tea.Model {
+  data?: ListAlertEventsResponseBodyListResultData[];
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListAlertEventsResponseBodyListResultData },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertNotificationsRequestListQuery extends $tea.Model {
+  alertReasonList?: string[];
+  channelTypeList?: string[];
+  customChannelIdList?: string[];
+  /**
+   * @example
+   * test
+   */
+  keyword?: string;
+  monitoredItemIdList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-11-27 13:47:00
+   */
+  notifyEndTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-11-16 00:00:00
+   */
+  notifyStartTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
+  sourceSystem?: string;
+  statusList?: string[];
+  userIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      alertReasonList: 'AlertReasonList',
+      channelTypeList: 'ChannelTypeList',
+      customChannelIdList: 'CustomChannelIdList',
+      keyword: 'Keyword',
+      monitoredItemIdList: 'MonitoredItemIdList',
+      notifyEndTime: 'NotifyEndTime',
+      notifyStartTime: 'NotifyStartTime',
+      page: 'Page',
+      pageSize: 'PageSize',
+      sourceSystem: 'SourceSystem',
+      statusList: 'StatusList',
+      userIdList: 'UserIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertReasonList: { 'type': 'array', 'itemType': 'string' },
+      channelTypeList: { 'type': 'array', 'itemType': 'string' },
+      customChannelIdList: { 'type': 'array', 'itemType': 'string' },
+      keyword: 'string',
+      monitoredItemIdList: { 'type': 'array', 'itemType': 'string' },
+      notifyEndTime: 'string',
+      notifyStartTime: 'string',
+      page: 'number',
+      pageSize: 'number',
+      sourceSystem: 'string',
+      statusList: { 'type': 'array', 'itemType': 'string' },
+      userIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertNotificationsResponseBodyListResultDataAlertObject extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * VDM_BATCH
+   */
+  sourceSystemType?: string;
+  /**
+   * @example
+   * VDM_BATCH_SHELL
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      sourceSystemType: 'SourceSystemType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      sourceSystemType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertNotificationsResponseBodyListResultDataAlertReasonAlertReasonParamList extends $tea.Model {
+  /**
+   * @example
+   * biz_date
+   */
+  key?: string;
+  /**
+   * @example
+   * 2024-11-24 00:00:00
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertNotificationsResponseBodyListResultDataAlertReason extends $tea.Model {
+  alertReasonParamList?: ListAlertNotificationsResponseBodyListResultDataAlertReasonAlertReasonParamList[];
+  /**
+   * @example
+   * 20241125
+   */
+  bizDate?: string;
+  /**
+   * @example
+   * VDM_BATCH_FINISH
+   */
+  type?: string;
+  /**
+   * @example
+   * 123456
+   */
+  uniqueKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertReasonParamList: 'AlertReasonParamList',
+      bizDate: 'BizDate',
+      type: 'Type',
+      uniqueKey: 'UniqueKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertReasonParamList: { 'type': 'array', 'itemType': ListAlertNotificationsResponseBodyListResultDataAlertReasonAlertReasonParamList },
+      bizDate: 'string',
+      type: 'string',
+      uniqueKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertNotificationsResponseBodyListResultDataAlertReceiverUser extends $tea.Model {
+  /**
+   * @example
+   * ADMIN
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertNotificationsResponseBodyListResultDataAlertReceiver extends $tea.Model {
+  /**
+   * @example
+   * SMS
+   */
+  alertChannelType?: string;
+  /**
+   * @example
+   * 123456
+   */
+  customAlertChannelId?: string;
+  /**
+   * @example
+   * 12345
+   */
+  onCallTableId?: string;
+  /**
+   * @example
+   * test
+   */
+  onCallTableName?: string;
+  /**
+   * @example
+   * OWNER
+   */
+  type?: string;
+  user?: ListAlertNotificationsResponseBodyListResultDataAlertReceiverUser;
+  static names(): { [key: string]: string } {
+    return {
+      alertChannelType: 'AlertChannelType',
+      customAlertChannelId: 'CustomAlertChannelId',
+      onCallTableId: 'OnCallTableId',
+      onCallTableName: 'OnCallTableName',
+      type: 'Type',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertChannelType: 'string',
+      customAlertChannelId: 'string',
+      onCallTableId: 'string',
+      onCallTableName: 'string',
+      type: 'string',
+      user: ListAlertNotificationsResponseBodyListResultDataAlertReceiverUser,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertNotificationsResponseBodyListResultDataAlertSend extends $tea.Model {
+  failReason?: string;
+  /**
+   * @example
+   * test
+   */
+  sendContent?: string;
+  /**
+   * @example
+   * 2024-11-25 10:02:47
+   */
+  sendTime?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failReason: 'FailReason',
+      sendContent: 'SendContent',
+      sendTime: 'SendTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failReason: 'string',
+      sendContent: 'string',
+      sendTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertNotificationsResponseBodyListResultData extends $tea.Model {
+  /**
+   * @example
+   * 12345
+   */
+  alertEventId?: string;
+  alertObject?: ListAlertNotificationsResponseBodyListResultDataAlertObject;
+  alertReason?: ListAlertNotificationsResponseBodyListResultDataAlertReason;
+  alertReceiver?: ListAlertNotificationsResponseBodyListResultDataAlertReceiver;
+  alertSend?: ListAlertNotificationsResponseBodyListResultDataAlertSend;
+  static names(): { [key: string]: string } {
+    return {
+      alertEventId: 'AlertEventId',
+      alertObject: 'AlertObject',
+      alertReason: 'AlertReason',
+      alertReceiver: 'AlertReceiver',
+      alertSend: 'AlertSend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertEventId: 'string',
+      alertObject: ListAlertNotificationsResponseBodyListResultDataAlertObject,
+      alertReason: ListAlertNotificationsResponseBodyListResultDataAlertReason,
+      alertReceiver: ListAlertNotificationsResponseBodyListResultDataAlertReceiver,
+      alertSend: ListAlertNotificationsResponseBodyListResultDataAlertSend,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertNotificationsResponseBodyListResult extends $tea.Model {
+  data?: ListAlertNotificationsResponseBodyListResultData[];
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListAlertNotificationsResponseBodyListResultData },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizEntitiesRequestListQueryFilterCriteria extends $tea.Model {
+  bizUnitIdList?: number[];
+  bizUnitNameList?: string[];
+  dataDomainIdList?: number[];
+  dataDomainNameList?: string[];
+  hasTableRef?: boolean;
+  ownerUserIdList?: string[];
+  statusList?: string[];
+  subTypeList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      bizUnitIdList: 'BizUnitIdList',
+      bizUnitNameList: 'BizUnitNameList',
+      dataDomainIdList: 'DataDomainIdList',
+      dataDomainNameList: 'DataDomainNameList',
+      hasTableRef: 'HasTableRef',
+      ownerUserIdList: 'OwnerUserIdList',
+      statusList: 'StatusList',
+      subTypeList: 'SubTypeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUnitIdList: { 'type': 'array', 'itemType': 'number' },
+      bizUnitNameList: { 'type': 'array', 'itemType': 'string' },
+      dataDomainIdList: { 'type': 'array', 'itemType': 'number' },
+      dataDomainNameList: { 'type': 'array', 'itemType': 'string' },
+      hasTableRef: 'boolean',
+      ownerUserIdList: { 'type': 'array', 'itemType': 'string' },
+      statusList: { 'type': 'array', 'itemType': 'string' },
+      subTypeList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizEntitiesRequestListQuery extends $tea.Model {
+  filterCriteria?: ListBizEntitiesRequestListQueryFilterCriteria;
+  /**
+   * @example
+   * object_
+   */
+  keyword?: string;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      filterCriteria: 'FilterCriteria',
+      keyword: 'Keyword',
+      page: 'Page',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterCriteria: ListBizEntitiesRequestListQueryFilterCriteria,
+      keyword: 'string',
+      page: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizEntitiesResponseBodyPageResultBizEntityList extends $tea.Model {
+  belongToBizEntityIdList?: number[];
+  /**
+   * @example
+   * 6798087749072704
+   */
+  bizUnitId?: number;
+  childBizEntityIdList?: number[];
+  /**
+   * @example
+   * 20101011
+   */
+  dataDomainId?: number;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 业务活动测试
+   */
+  displayName?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtModified?: string;
+  hasChildBizEntity?: boolean;
+  /**
+   * @example
+   * 12121111
+   */
+  id?: number;
+  /**
+   * @example
+   * 30010010
+   */
+  lastModifier?: string;
+  /**
+   * @example
+   * 张三
+   */
+  lastModifierName?: string;
+  levelSubBizObject?: boolean;
+  /**
+   * @example
+   * create_process_code_name
+   */
+  name?: string;
+  /**
+   * @example
+   * SUBMITTED
+   */
+  onlineStatus?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 30010010
+   */
+  ownerUserId?: string;
+  refBizEntityIdList?: number[];
+  /**
+   * @example
+   * 1
+   */
+  refTableCount?: number;
+  /**
+   * @example
+   * SUBMITTED
+   */
+  status?: string;
+  /**
+   * @example
+   * NORMAL
+   */
+  subType?: string;
+  suffixBizEntityIdList?: number[];
+  /**
+   * @example
+   * BIZ_OBJECT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      belongToBizEntityIdList: 'BelongToBizEntityIdList',
+      bizUnitId: 'BizUnitId',
+      childBizEntityIdList: 'ChildBizEntityIdList',
+      dataDomainId: 'DataDomainId',
+      description: 'Description',
+      displayName: 'DisplayName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      hasChildBizEntity: 'HasChildBizEntity',
+      id: 'Id',
+      lastModifier: 'LastModifier',
+      lastModifierName: 'LastModifierName',
+      levelSubBizObject: 'LevelSubBizObject',
+      name: 'Name',
+      onlineStatus: 'OnlineStatus',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+      refBizEntityIdList: 'RefBizEntityIdList',
+      refTableCount: 'RefTableCount',
+      status: 'Status',
+      subType: 'SubType',
+      suffixBizEntityIdList: 'SuffixBizEntityIdList',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      belongToBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      bizUnitId: 'number',
+      childBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      dataDomainId: 'number',
+      description: 'string',
+      displayName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      hasChildBizEntity: 'boolean',
+      id: 'number',
+      lastModifier: 'string',
+      lastModifierName: 'string',
+      levelSubBizObject: 'boolean',
+      name: 'string',
+      onlineStatus: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+      refBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      refTableCount: 'number',
+      status: 'string',
+      subType: 'string',
+      suffixBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizEntitiesResponseBodyPageResult extends $tea.Model {
+  bizEntityList?: ListBizEntitiesResponseBodyPageResultBizEntityList[];
+  /**
+   * @example
+   * 66
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizEntityList: 'BizEntityList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizEntityList: { 'type': 'array', 'itemType': ListBizEntitiesResponseBodyPageResultBizEntityList },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizUnitsResponseBodyDataBizUnitListAccountList extends $tea.Model {
+  /**
+   * @example
+   * 20001201
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizUnitsResponseBodyDataBizUnitList extends $tea.Model {
+  accountList?: ListBizUnitsResponseBodyDataBizUnitListAccountList[];
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 测试
+   */
+  displayName?: string;
+  /**
+   * @example
+   * DEV
+   */
+  env?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * icon-e-commerce
+   */
+  icon?: string;
+  /**
+   * @example
+   * 101001201
+   */
+  id?: number;
+  /**
+   * @example
+   * 30010010
+   */
+  lastModifier?: string;
+  /**
+   * @example
+   * 张三
+   */
+  lastModifierName?: string;
+  /**
+   * @example
+   * DEV_PROD
+   */
+  mode?: string;
+  /**
+   * @example
+   * test01
+   */
+  name?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 30010010
+   */
+  ownerUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountList: 'AccountList',
+      description: 'Description',
+      displayName: 'DisplayName',
+      env: 'Env',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      icon: 'Icon',
+      id: 'Id',
+      lastModifier: 'LastModifier',
+      lastModifierName: 'LastModifierName',
+      mode: 'Mode',
+      name: 'Name',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountList: { 'type': 'array', 'itemType': ListBizUnitsResponseBodyDataBizUnitListAccountList },
+      description: 'string',
+      displayName: 'string',
+      env: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      icon: 'string',
+      id: 'number',
+      lastModifier: 'string',
+      lastModifierName: 'string',
+      mode: 'string',
+      name: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBizUnitsResponseBodyData extends $tea.Model {
+  bizUnitList?: ListBizUnitsResponseBodyDataBizUnitList[];
+  static names(): { [key: string]: string } {
+    return {
+      bizUnitList: 'BizUnitList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUnitList: { 'type': 'array', 'itemType': ListBizUnitsResponseBodyDataBizUnitList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataDomainsRequestListQuery extends $tea.Model {
+  bizUnitIdList?: number[];
+  /**
+   * @example
+   * test
+   */
+  keyword?: string;
+  parentIdList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      bizUnitIdList: 'BizUnitIdList',
+      keyword: 'Keyword',
+      parentIdList: 'ParentIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUnitIdList: { 'type': 'array', 'itemType': 'number' },
+      keyword: 'string',
+      parentIdList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataDomainsResponseBodyDataDataDomainList extends $tea.Model {
+  /**
+   * @example
+   * dm_code_name
+   */
+  abbreviation?: string;
+  /**
+   * @example
+   * 545844456
+   */
+  bizUnitId?: number;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 测试
+   */
+  displayName?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 1241844456
+   */
+  id?: number;
+  /**
+   * @example
+   * 30010010
+   */
+  lastModifier?: string;
+  /**
+   * @example
+   * 张三
+   */
+  lastModifierName?: string;
+  /**
+   * @example
+   * dm_code_name
+   */
+  name?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 30010010
+   */
+  ownerUserId?: string;
+  /**
+   * @example
+   * 10232311
+   */
+  parentId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abbreviation: 'Abbreviation',
+      bizUnitId: 'BizUnitId',
+      description: 'Description',
+      displayName: 'DisplayName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      lastModifier: 'LastModifier',
+      lastModifierName: 'LastModifierName',
+      name: 'Name',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+      parentId: 'ParentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abbreviation: 'string',
+      bizUnitId: 'number',
+      description: 'string',
+      displayName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      lastModifier: 'string',
+      lastModifierName: 'string',
+      name: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+      parentId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataDomainsResponseBodyData extends $tea.Model {
+  dataDomainList?: ListDataDomainsResponseBodyDataDataDomainList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataDomainList: 'DataDomainList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDomainList: { 'type': 'array', 'itemType': ListDataDomainsResponseBodyDataDataDomainList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDataSourceWithConfigRequestListQuery extends $tea.Model {
   /**
    * @example
@@ -14555,6 +26088,256 @@ export class ListNodesResponseBodyPageResult extends $tea.Model {
   }
 }
 
+export class ListPublishRecordsRequestListQuerySearchFilter extends $tea.Model {
+  changeTypeList?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  projectIdList?: number[];
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  publishEndTime?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  publishStartTime?: string;
+  publishStatusList?: number[];
+  submitterList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      changeTypeList: 'ChangeTypeList',
+      page: 'Page',
+      pageSize: 'PageSize',
+      projectIdList: 'ProjectIdList',
+      publishEndTime: 'PublishEndTime',
+      publishStartTime: 'PublishStartTime',
+      publishStatusList: 'PublishStatusList',
+      submitterList: 'SubmitterList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeTypeList: { 'type': 'array', 'itemType': 'number' },
+      page: 'number',
+      pageSize: 'number',
+      projectIdList: { 'type': 'array', 'itemType': 'number' },
+      publishEndTime: 'string',
+      publishStartTime: 'string',
+      publishStatusList: { 'type': 'array', 'itemType': 'number' },
+      submitterList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishRecordsRequestListQuery extends $tea.Model {
+  /**
+   * @example
+   * abc
+   */
+  keyword?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  searchFilter?: ListPublishRecordsRequestListQuerySearchFilter;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      searchFilter: 'SearchFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      searchFilter: ListPublishRecordsRequestListQuerySearchFilter,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishRecordsResponseBodyListResultData extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  changeType?: number;
+  /**
+   * @example
+   * error
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 2024-10-10 10:10:10
+   */
+  finishTime?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtModify?: string;
+  /**
+   * @example
+   * 1241844456
+   */
+  id?: number;
+  /**
+   * @example
+   * n_123456
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * 1234567
+   */
+  objectId?: string;
+  /**
+   * @example
+   * 对象A
+   */
+  objectName?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  objectType?: string;
+  /**
+   * @example
+   * 1
+   */
+  objectVersion?: string;
+  /**
+   * @example
+   * 1241844456
+   */
+  projectId?: string;
+  /**
+   * @example
+   * test_lc__20241118171502
+   */
+  publishName?: string;
+  /**
+   * @example
+   * 1
+   */
+  publishStatus?: number;
+  /**
+   * @example
+   * 307999999
+   */
+  publisher?: string;
+  /**
+   * @example
+   * 张三
+   */
+  publisherName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeType: 'ChangeType',
+      errorMessage: 'ErrorMessage',
+      finishTime: 'FinishTime',
+      gmtCreate: 'GmtCreate',
+      gmtModify: 'GmtModify',
+      id: 'Id',
+      nodeId: 'NodeId',
+      objectId: 'ObjectId',
+      objectName: 'ObjectName',
+      objectType: 'ObjectType',
+      objectVersion: 'ObjectVersion',
+      projectId: 'ProjectId',
+      publishName: 'PublishName',
+      publishStatus: 'PublishStatus',
+      publisher: 'Publisher',
+      publisherName: 'PublisherName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeType: 'number',
+      errorMessage: 'string',
+      finishTime: 'string',
+      gmtCreate: 'string',
+      gmtModify: 'string',
+      id: 'number',
+      nodeId: 'string',
+      objectId: 'string',
+      objectName: 'string',
+      objectType: 'string',
+      objectVersion: 'string',
+      projectId: 'string',
+      publishName: 'string',
+      publishStatus: 'number',
+      publisher: 'string',
+      publisherName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishRecordsResponseBodyListResult extends $tea.Model {
+  data?: ListPublishRecordsResponseBodyListResultData[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListPublishRecordsResponseBodyListResultData },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListResourcePermissionOperationLogRequestListQuery extends $tea.Model {
   /**
    * @remarks
@@ -15341,6 +27124,232 @@ export class ListResourcePermissionsResponseBodyPageResult extends $tea.Model {
   }
 }
 
+export class ListSubmitRecordsRequestListQuerySearchFilter extends $tea.Model {
+  changeTypeList?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  projectIdList?: number[];
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  submitEndTime?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  submitStartTime?: string;
+  submitterList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      changeTypeList: 'ChangeTypeList',
+      page: 'Page',
+      pageSize: 'PageSize',
+      projectIdList: 'ProjectIdList',
+      submitEndTime: 'SubmitEndTime',
+      submitStartTime: 'SubmitStartTime',
+      submitterList: 'SubmitterList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeTypeList: { 'type': 'array', 'itemType': 'number' },
+      page: 'number',
+      pageSize: 'number',
+      projectIdList: { 'type': 'array', 'itemType': 'number' },
+      submitEndTime: 'string',
+      submitStartTime: 'string',
+      submitterList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubmitRecordsRequestListQuery extends $tea.Model {
+  /**
+   * @example
+   * abc
+   */
+  keyword?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  searchFilter?: ListSubmitRecordsRequestListQuerySearchFilter;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      searchFilter: 'SearchFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      searchFilter: ListSubmitRecordsRequestListQuerySearchFilter,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubmitRecordsResponseBodyListResultData extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  changeType?: number;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  gmtModify?: string;
+  /**
+   * @example
+   * 1241844456
+   */
+  id?: number;
+  /**
+   * @example
+   * n_123456
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * 1234567
+   */
+  objectId?: string;
+  /**
+   * @example
+   * 对象A
+   */
+  objectName?: string;
+  /**
+   * @example
+   * 2024-10-10 10:00:00
+   */
+  objectType?: string;
+  /**
+   * @example
+   * 1
+   */
+  objectVersion?: string;
+  /**
+   * @example
+   * 1241844456
+   */
+  projectId?: string;
+  /**
+   * @example
+   * 提交信息
+   */
+  submitComment?: string;
+  /**
+   * @example
+   * 307999999
+   */
+  submitter?: string;
+  /**
+   * @example
+   * 张三
+   */
+  submitterName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeType: 'ChangeType',
+      gmtCreate: 'GmtCreate',
+      gmtModify: 'GmtModify',
+      id: 'Id',
+      nodeId: 'NodeId',
+      objectId: 'ObjectId',
+      objectName: 'ObjectName',
+      objectType: 'ObjectType',
+      objectVersion: 'ObjectVersion',
+      projectId: 'ProjectId',
+      submitComment: 'SubmitComment',
+      submitter: 'Submitter',
+      submitterName: 'SubmitterName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeType: 'number',
+      gmtCreate: 'string',
+      gmtModify: 'string',
+      id: 'number',
+      nodeId: 'string',
+      objectId: 'string',
+      objectName: 'string',
+      objectType: 'string',
+      objectVersion: 'string',
+      projectId: 'string',
+      submitComment: 'string',
+      submitter: 'string',
+      submitterName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubmitRecordsResponseBodyListResult extends $tea.Model {
+  data?: ListSubmitRecordsResponseBodyListResultData[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListSubmitRecordsResponseBodyListResultData },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTenantMembersRequestListQuery extends $tea.Model {
   /**
    * @remarks
@@ -15938,6 +27947,141 @@ export class ListUserGroupsResponseBodyPageResult extends $tea.Model {
   }
 }
 
+export class OfflineBatchTaskResponseBodyOfflineResult extends $tea.Model {
+  /**
+   * @example
+   * 10211123
+   */
+  publishObjectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      publishObjectId: 'PublishObjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      publishObjectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OfflineBizEntityRequestOfflineCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6798087749072704
+   */
+  bizUnitId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 101001201
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BIZ_OBJECT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizUnitId: 'BizUnitId',
+      comment: 'Comment',
+      id: 'Id',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUnitId: 'number',
+      comment: 'string',
+      id: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnlineBizEntityRequestOnlineCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6798087749072704
+   */
+  bizUnitId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 101001201
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BIZ_OBJECT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizUnitId: 'BizUnitId',
+      comment: 'Comment',
+      id: 'Id',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUnitId: 'number',
+      comment: 'string',
+      id: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OperateInstanceRequestOperateCommandInstanceIdList extends $tea.Model {
   fieldInstanceIdList?: string[];
   /**
@@ -16063,6 +28207,185 @@ export class OperateInstanceResponseBodyInstanceStatusList extends $tea.Model {
   }
 }
 
+export class ParseBatchTaskDependencyRequestParseCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * select * from t_test limit 1;
+   */
+  code?: string;
+  /**
+   * @example
+   * mysql_catalog
+   */
+  dataSourceCatalog?: string;
+  /**
+   * @example
+   * 12131111
+   */
+  dataSourceId?: number;
+  /**
+   * @example
+   * erp
+   */
+  dataSourceSchema?: string;
+  includeAllInputTables?: boolean;
+  needQueryLineages?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MaxCompute_SQL
+   */
+  operatorType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 131211211
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      dataSourceCatalog: 'DataSourceCatalog',
+      dataSourceId: 'DataSourceId',
+      dataSourceSchema: 'DataSourceSchema',
+      includeAllInputTables: 'IncludeAllInputTables',
+      needQueryLineages: 'NeedQueryLineages',
+      operatorType: 'OperatorType',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      dataSourceCatalog: 'string',
+      dataSourceId: 'number',
+      dataSourceSchema: 'string',
+      includeAllInputTables: 'boolean',
+      needQueryLineages: 'boolean',
+      operatorType: 'string',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ParseBatchTaskDependencyResponseBodyParseResultDependNodeListScheduleNodeInfoList extends $tea.Model {
+  fieldList?: string[];
+  /**
+   * @example
+   * n_11013121
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * test11
+   */
+  nodeName?: string;
+  /**
+   * @example
+   * t_test
+   */
+  outputName?: string;
+  /**
+   * @example
+   * 张三
+   */
+  ownerName?: string;
+  /**
+   * @example
+   * 201122301
+   */
+  ownerUserId?: string;
+  /**
+   * @example
+   * t_test
+   */
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldList: 'FieldList',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      outputName: 'OutputName',
+      ownerName: 'OwnerName',
+      ownerUserId: 'OwnerUserId',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldList: { 'type': 'array', 'itemType': 'string' },
+      nodeId: 'string',
+      nodeName: 'string',
+      outputName: 'string',
+      ownerName: 'string',
+      ownerUserId: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ParseBatchTaskDependencyResponseBodyParseResultDependNodeList extends $tea.Model {
+  /**
+   * @example
+   * input
+   */
+  nodeIoType?: string;
+  scheduleNodeInfoList?: ParseBatchTaskDependencyResponseBodyParseResultDependNodeListScheduleNodeInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      nodeIoType: 'NodeIoType',
+      scheduleNodeInfoList: 'ScheduleNodeInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeIoType: 'string',
+      scheduleNodeInfoList: { 'type': 'array', 'itemType': ParseBatchTaskDependencyResponseBodyParseResultDependNodeListScheduleNodeInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ParseBatchTaskDependencyResponseBodyParseResult extends $tea.Model {
+  dependNodeList?: ParseBatchTaskDependencyResponseBodyParseResultDependNodeList[];
+  static names(): { [key: string]: string } {
+    return {
+      dependNodeList: 'DependNodeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dependNodeList: { 'type': 'array', 'itemType': ParseBatchTaskDependencyResponseBodyParseResultDependNodeList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PausePhysicalNodeRequestPauseCommand extends $tea.Model {
   /**
    * @remarks
@@ -16125,6 +28448,68 @@ export class PausePhysicalNodeResponseBodyNodeOperateResultList extends $tea.Mod
       errorMessage: 'string',
       nodeId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishObjectListRequestPublishCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 发布
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  submitIdList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      projectId: 'ProjectId',
+      submitIdList: 'SubmitIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      projectId: 'number',
+      submitIdList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishObjectListResponseBodyPublishResult extends $tea.Model {
+  submitIdList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      submitIdList: 'SubmitIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      submitIdList: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
@@ -16338,6 +28723,396 @@ export class RevokeResourcePermissionRequestRevokeCommand extends $tea.Model {
   }
 }
 
+export class SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10:00
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  interval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * HOUR
+   */
+  intervalUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DAILY
+   */
+  schedulePeriod?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10:00
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      interval: 'Interval',
+      intervalUnit: 'IntervalUnit',
+      schedulePeriod: 'SchedulePeriod',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      interval: 'number',
+      intervalUnit: 'string',
+      schedulePeriod: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBatchTaskRequestSubmitCommandParamList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * key
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBatchTaskRequestSubmitCommandSparkClientInfo extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * abc
+   */
+  sparkClientVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sparkClientVersion: 'SparkClientVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sparkClientVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBatchTaskRequestSubmitCommandUpStreamListDependPeriod extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  periodOffset?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CURRENT_PERIOD
+   */
+  periodType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodOffset: 'PeriodOffset',
+      periodType: 'PeriodType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodOffset: 'number',
+      periodType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBatchTaskRequestSubmitCommandUpStreamList extends $tea.Model {
+  dependPeriod?: SubmitBatchTaskRequestSubmitCommandUpStreamListDependPeriod;
+  /**
+   * @example
+   * ALL
+   */
+  dependStrategy?: string;
+  fieldList?: string[];
+  /**
+   * @example
+   * PHYSICAL
+   */
+  nodeType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  periodDiff?: number;
+  sourceNodeEnabled?: boolean;
+  /**
+   * @example
+   * n_2001
+   */
+  sourceNodeId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * t_input1
+   */
+  sourceNodeOutputName?: string;
+  /**
+   * @example
+   * t_input1
+   */
+  sourceTableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dependPeriod: 'DependPeriod',
+      dependStrategy: 'DependStrategy',
+      fieldList: 'FieldList',
+      nodeType: 'NodeType',
+      periodDiff: 'PeriodDiff',
+      sourceNodeEnabled: 'SourceNodeEnabled',
+      sourceNodeId: 'SourceNodeId',
+      sourceNodeOutputName: 'SourceNodeOutputName',
+      sourceTableName: 'SourceTableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dependPeriod: SubmitBatchTaskRequestSubmitCommandUpStreamListDependPeriod,
+      dependStrategy: 'string',
+      fieldList: { 'type': 'array', 'itemType': 'string' },
+      nodeType: 'string',
+      periodDiff: 'number',
+      sourceNodeEnabled: 'boolean',
+      sourceNodeId: 'string',
+      sourceNodeOutputName: 'string',
+      sourceTableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBatchTaskRequestSubmitCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * show tables;
+   */
+  code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  comment?: string;
+  /**
+   * @example
+   * 0 0 1 * * ?
+   */
+  cronExpression?: string;
+  customScheduleConfig?: SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig;
+  /**
+   * @example
+   * PYTHON3_7
+   */
+  engine?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12113111
+   */
+  fileId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test111
+   */
+  name?: string;
+  /**
+   * @example
+   * xx测试
+   */
+  nodeDescription?: string;
+  nodeOutputNameList?: string[];
+  /**
+   * @example
+   * 1
+   */
+  nodeStatus?: number;
+  paramList?: SubmitBatchTaskRequestSubmitCommandParamList[];
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10121101
+   */
+  projectId?: number;
+  pythonModuleList?: string[];
+  /**
+   * @example
+   * DAILY
+   */
+  schedulePeriod?: string;
+  sparkClientInfo?: SubmitBatchTaskRequestSubmitCommandSparkClientInfo;
+  upStreamList?: SubmitBatchTaskRequestSubmitCommandUpStreamList[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      comment: 'Comment',
+      cronExpression: 'CronExpression',
+      customScheduleConfig: 'CustomScheduleConfig',
+      engine: 'Engine',
+      fileId: 'FileId',
+      name: 'Name',
+      nodeDescription: 'NodeDescription',
+      nodeOutputNameList: 'NodeOutputNameList',
+      nodeStatus: 'NodeStatus',
+      paramList: 'ParamList',
+      priority: 'Priority',
+      projectId: 'ProjectId',
+      pythonModuleList: 'PythonModuleList',
+      schedulePeriod: 'SchedulePeriod',
+      sparkClientInfo: 'SparkClientInfo',
+      upStreamList: 'UpStreamList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      comment: 'string',
+      cronExpression: 'string',
+      customScheduleConfig: SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig,
+      engine: 'string',
+      fileId: 'number',
+      name: 'string',
+      nodeDescription: 'string',
+      nodeOutputNameList: { 'type': 'array', 'itemType': 'string' },
+      nodeStatus: 'number',
+      paramList: { 'type': 'array', 'itemType': SubmitBatchTaskRequestSubmitCommandParamList },
+      priority: 'number',
+      projectId: 'number',
+      pythonModuleList: { 'type': 'array', 'itemType': 'string' },
+      schedulePeriod: 'string',
+      sparkClientInfo: SubmitBatchTaskRequestSubmitCommandSparkClientInfo,
+      upStreamList: { 'type': 'array', 'itemType': SubmitBatchTaskRequestSubmitCommandUpStreamList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBatchTaskResponseBodySubmitResult extends $tea.Model {
+  /**
+   * @example
+   * n_12113111
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * 1010312911
+   */
+  submitId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      submitId: 'SubmitId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      submitId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAdHocFileRequestUpdateCommand extends $tea.Model {
   /**
    * @remarks
@@ -16376,6 +29151,946 @@ export class UpdateAdHocFileRequestUpdateCommand extends $tea.Model {
       content: 'string',
       fileId: 'number',
       projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20:59
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  interval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * HOUR
+   */
+  intervalUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DAILY
+   */
+  schedulePeriod?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 08:00
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      interval: 'Interval',
+      intervalUnit: 'IntervalUnit',
+      schedulePeriod: 'SchedulePeriod',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      interval: 'number',
+      intervalUnit: 'string',
+      schedulePeriod: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskRequestUpdateCommandParamList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskRequestUpdateCommandSparkClientInfo extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * abc
+   */
+  sparkClientVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sparkClientVersion: 'SparkClientVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sparkClientVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskRequestUpdateCommandUpStreamListDependPeriod extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  periodOffset?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CURRENT_PERIOD
+   */
+  periodType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodOffset: 'PeriodOffset',
+      periodType: 'PeriodType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodOffset: 'number',
+      periodType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskRequestUpdateCommandUpStreamList extends $tea.Model {
+  dependPeriod?: UpdateBatchTaskRequestUpdateCommandUpStreamListDependPeriod;
+  /**
+   * @example
+   * LAST
+   */
+  dependStrategy?: string;
+  fieldList?: string[];
+  /**
+   * @example
+   * PHYSICAL
+   */
+  nodeType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  periodDiff?: number;
+  sourceNodeEnabled?: boolean;
+  /**
+   * @example
+   * n_2001
+   */
+  sourceNodeId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * t_input1
+   */
+  sourceNodeOutputName?: string;
+  /**
+   * @example
+   * t_input1
+   */
+  sourceTableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dependPeriod: 'DependPeriod',
+      dependStrategy: 'DependStrategy',
+      fieldList: 'FieldList',
+      nodeType: 'NodeType',
+      periodDiff: 'PeriodDiff',
+      sourceNodeEnabled: 'SourceNodeEnabled',
+      sourceNodeId: 'SourceNodeId',
+      sourceNodeOutputName: 'SourceNodeOutputName',
+      sourceTableName: 'SourceTableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dependPeriod: UpdateBatchTaskRequestUpdateCommandUpStreamListDependPeriod,
+      dependStrategy: 'string',
+      fieldList: { 'type': 'array', 'itemType': 'string' },
+      nodeType: 'string',
+      periodDiff: 'number',
+      sourceNodeEnabled: 'boolean',
+      sourceNodeId: 'string',
+      sourceNodeOutputName: 'string',
+      sourceTableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskRequestUpdateCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * show tables;
+   */
+  code?: string;
+  /**
+   * @example
+   * 0 0 1 * * ?
+   */
+  cronExpression?: string;
+  customScheduleConfig?: UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig;
+  /**
+   * @example
+   * mysql_catalog
+   */
+  dataSourceCatalog?: string;
+  /**
+   * @example
+   * 12131111
+   */
+  dataSourceId?: string;
+  /**
+   * @example
+   * erp
+   */
+  dataSourceSchema?: string;
+  /**
+   * @example
+   * PYTHON3_7
+   */
+  engine?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12113111
+   */
+  fileId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test111
+   */
+  name?: string;
+  /**
+   * @example
+   * xx测试
+   */
+  nodeDescription?: string;
+  nodeOutputNameList?: string[];
+  /**
+   * @example
+   * 1
+   */
+  nodeStatus?: number;
+  paramList?: UpdateBatchTaskRequestUpdateCommandParamList[];
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10121101
+   */
+  projectId?: number;
+  pythonModuleList?: string[];
+  /**
+   * @example
+   * DAILY
+   */
+  schedulePeriod?: string;
+  sparkClientInfo?: UpdateBatchTaskRequestUpdateCommandSparkClientInfo;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 21
+   */
+  taskType?: number;
+  upStreamList?: UpdateBatchTaskRequestUpdateCommandUpStreamList[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      cronExpression: 'CronExpression',
+      customScheduleConfig: 'CustomScheduleConfig',
+      dataSourceCatalog: 'DataSourceCatalog',
+      dataSourceId: 'DataSourceId',
+      dataSourceSchema: 'DataSourceSchema',
+      engine: 'Engine',
+      fileId: 'FileId',
+      name: 'Name',
+      nodeDescription: 'NodeDescription',
+      nodeOutputNameList: 'NodeOutputNameList',
+      nodeStatus: 'NodeStatus',
+      paramList: 'ParamList',
+      priority: 'Priority',
+      projectId: 'ProjectId',
+      pythonModuleList: 'PythonModuleList',
+      schedulePeriod: 'SchedulePeriod',
+      sparkClientInfo: 'SparkClientInfo',
+      taskType: 'TaskType',
+      upStreamList: 'UpStreamList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      cronExpression: 'string',
+      customScheduleConfig: UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig,
+      dataSourceCatalog: 'string',
+      dataSourceId: 'string',
+      dataSourceSchema: 'string',
+      engine: 'string',
+      fileId: 'number',
+      name: 'string',
+      nodeDescription: 'string',
+      nodeOutputNameList: { 'type': 'array', 'itemType': 'string' },
+      nodeStatus: 'number',
+      paramList: { 'type': 'array', 'itemType': UpdateBatchTaskRequestUpdateCommandParamList },
+      priority: 'number',
+      projectId: 'number',
+      pythonModuleList: { 'type': 'array', 'itemType': 'string' },
+      schedulePeriod: 'string',
+      sparkClientInfo: UpdateBatchTaskRequestUpdateCommandSparkClientInfo,
+      taskType: 'number',
+      upStreamList: { 'type': 'array', 'itemType': UpdateBatchTaskRequestUpdateCommandUpStreamList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskResponseBodyUpdateResult extends $tea.Model {
+  /**
+   * @example
+   * 12113111
+   */
+  fileId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListInputLineageList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  columnList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dev
+   */
+  env?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  fullTable?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * t_input
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      columnList: 'ColumnList',
+      env: 'Env',
+      fullTable: 'FullTable',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnList: { 'type': 'array', 'itemType': 'string' },
+      env: 'string',
+      fullTable: 'boolean',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListOutputLineageList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  columnList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dev
+   */
+  env?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  fullTable?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * t_output
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      columnList: 'ColumnList',
+      env: 'Env',
+      fullTable: 'FullTable',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnList: { 'type': 'array', 'itemType': 'string' },
+      env: 'string',
+      fullTable: 'boolean',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inputLineageList?: UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListInputLineageList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  outputLineageList?: UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListOutputLineageList[];
+  static names(): { [key: string]: string } {
+    return {
+      inputLineageList: 'InputLineageList',
+      outputLineageList: 'OutputLineageList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputLineageList: { 'type': 'array', 'itemType': UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListInputLineageList },
+      outputLineageList: { 'type': 'array', 'itemType': UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListOutputLineageList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskUdfLineagesRequestUpdateCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12113111
+   */
+  fileId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  lineageGroupList?: UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 131211211
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+      lineageGroupList: 'LineageGroupList',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'number',
+      lineageGroupList: { 'type': 'array', 'itemType': UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupList },
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBizEntityRequestUpdateCommandBizObject extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * create_object_name
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * create_object_code_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30010010
+   */
+  ownerUserId?: string;
+  /**
+   * @example
+   * 116306
+   */
+  parentId?: number;
+  refBizEntityIdList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      displayName: 'DisplayName',
+      name: 'Name',
+      ownerUserId: 'OwnerUserId',
+      parentId: 'ParentId',
+      refBizEntityIdList: 'RefBizEntityIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      displayName: 'string',
+      name: 'string',
+      ownerUserId: 'string',
+      parentId: 'number',
+      refBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBizEntityRequestUpdateCommandBizProcess extends $tea.Model {
+  bizEventEntityIdList?: number[];
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * create_process_name
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * create_process_code_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30010010
+   */
+  ownerUserId?: string;
+  preBizProcessIdList?: number[];
+  refBizEntityIdList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      bizEventEntityIdList: 'BizEventEntityIdList',
+      description: 'Description',
+      displayName: 'DisplayName',
+      name: 'Name',
+      ownerUserId: 'OwnerUserId',
+      preBizProcessIdList: 'PreBizProcessIdList',
+      refBizEntityIdList: 'RefBizEntityIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizEventEntityIdList: { 'type': 'array', 'itemType': 'number' },
+      description: 'string',
+      displayName: 'string',
+      name: 'string',
+      ownerUserId: 'string',
+      preBizProcessIdList: { 'type': 'array', 'itemType': 'number' },
+      refBizEntityIdList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBizEntityRequestUpdateCommand extends $tea.Model {
+  bizObject?: UpdateBizEntityRequestUpdateCommandBizObject;
+  bizProcess?: UpdateBizEntityRequestUpdateCommandBizProcess;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6798087749072704
+   */
+  bizUnitId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20101011
+   */
+  dataDomainId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 101001201
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BIZ_OBJECT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizObject: 'BizObject',
+      bizProcess: 'BizProcess',
+      bizUnitId: 'BizUnitId',
+      dataDomainId: 'DataDomainId',
+      id: 'Id',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizObject: UpdateBizEntityRequestUpdateCommandBizObject,
+      bizProcess: UpdateBizEntityRequestUpdateCommandBizProcess,
+      bizUnitId: 'number',
+      dataDomainId: 'number',
+      id: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBizUnitRequestUpdateCommandBizUnitAccountList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20001201
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBizUnitRequestUpdateCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  bizUnitAccountList?: UpdateBizUnitRequestUpdateCommandBizUnitAccountList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 545844456
+   */
+  bizUnitId?: number;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 测试
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * icon-environment
+   */
+  icon?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bz_code_name
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizUnitAccountList: 'BizUnitAccountList',
+      bizUnitId: 'BizUnitId',
+      description: 'Description',
+      displayName: 'DisplayName',
+      icon: 'Icon',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUnitAccountList: { 'type': 'array', 'itemType': UpdateBizUnitRequestUpdateCommandBizUnitAccountList },
+      bizUnitId: 'number',
+      description: 'string',
+      displayName: 'string',
+      icon: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataDomainRequestUpdateCommand extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dm_code_name
+   */
+  abbreviation?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 545844456
+   */
+  bizUnitId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1241844456
+   */
+  dataDomainId?: number;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 主题域测试
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dm_code_name
+   */
+  name?: string;
+  /**
+   * @example
+   * 10232311
+   */
+  parentId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abbreviation: 'Abbreviation',
+      bizUnitId: 'BizUnitId',
+      dataDomainId: 'DataDomainId',
+      description: 'Description',
+      displayName: 'DisplayName',
+      name: 'Name',
+      parentId: 'ParentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abbreviation: 'string',
+      bizUnitId: 'number',
+      dataDomainId: 'number',
+      description: 'string',
+      displayName: 'string',
+      name: 'string',
+      parentId: 'number',
     };
   }
 
@@ -16999,6 +30714,222 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建离线计算任务。
+   * 
+   * @param tmpReq - CreateBatchTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBatchTaskResponse
+   */
+  async createBatchTaskWithOptions(tmpReq: CreateBatchTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateBatchTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateBatchTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBatchTask",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBatchTaskResponse>(await this.callApi(params, req, runtime), new CreateBatchTaskResponse({}));
+  }
+
+  /**
+   * 创建离线计算任务。
+   * 
+   * @param request - CreateBatchTaskRequest
+   * @returns CreateBatchTaskResponse
+   */
+  async createBatchTask(request: CreateBatchTaskRequest): Promise<CreateBatchTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBatchTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建业务实体。
+   * 
+   * @param tmpReq - CreateBizEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBizEntityResponse
+   */
+  async createBizEntityWithOptions(tmpReq: CreateBizEntityRequest, runtime: $Util.RuntimeOptions): Promise<CreateBizEntityResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateBizEntityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBizEntity",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBizEntityResponse>(await this.callApi(params, req, runtime), new CreateBizEntityResponse({}));
+  }
+
+  /**
+   * 创建业务实体。
+   * 
+   * @param request - CreateBizEntityRequest
+   * @returns CreateBizEntityResponse
+   */
+  async createBizEntity(request: CreateBizEntityRequest): Promise<CreateBizEntityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBizEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据板块。
+   * 
+   * @param tmpReq - CreateBizUnitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBizUnitResponse
+   */
+  async createBizUnitWithOptions(tmpReq: CreateBizUnitRequest, runtime: $Util.RuntimeOptions): Promise<CreateBizUnitResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateBizUnitShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBizUnit",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBizUnitResponse>(await this.callApi(params, req, runtime), new CreateBizUnitResponse({}));
+  }
+
+  /**
+   * 创建数据板块。
+   * 
+   * @param request - CreateBizUnitRequest
+   * @returns CreateBizUnitResponse
+   */
+  async createBizUnit(request: CreateBizUnitRequest): Promise<CreateBizUnitResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBizUnitWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建主题域。
+   * 
+   * @param tmpReq - CreateDataDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataDomainResponse
+   */
+  async createDataDomainWithOptions(tmpReq: CreateDataDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataDomainResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDataDomainShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataDomain",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataDomainResponse>(await this.callApi(params, req, runtime), new CreateDataDomainResponse({}));
+  }
+
+  /**
+   * 创建主题域。
+   * 
+   * @param request - CreateDataDomainRequest
+   * @returns CreateDataDomainResponse
+   */
+  async createDataDomain(request: CreateDataDomainRequest): Promise<CreateDataDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataDomainWithOptions(request, runtime);
+  }
+
+  /**
    * 新建数据源
    * 
    * @param tmpReq - CreateDataSourceRequest
@@ -17165,6 +31096,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建数据集成任务。
+   * 
+   * @param tmpReq - CreatePipelineNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePipelineNodeResponse
+   */
+  async createPipelineNodeWithOptions(tmpReq: CreatePipelineNodeRequest, runtime: $Util.RuntimeOptions): Promise<CreatePipelineNodeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreatePipelineNodeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.createPipelineNodeCommand)) {
+      request.createPipelineNodeCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createPipelineNodeCommand, "CreatePipelineNodeCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.createPipelineNodeCommandShrink)) {
+      body["CreatePipelineNodeCommand"] = request.createPipelineNodeCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePipelineNode",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePipelineNodeResponse>(await this.callApi(params, req, runtime), new CreatePipelineNodeResponse({}));
+  }
+
+  /**
+   * 创建数据集成任务。
+   * 
+   * @param request - CreatePipelineNodeRequest
+   * @returns CreatePipelineNodeResponse
+   */
+  async createPipelineNode(request: CreatePipelineNodeRequest): Promise<CreatePipelineNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPipelineNodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建流批一体任务
+   * 
+   * @param tmpReq - CreateStreamBatchJobMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStreamBatchJobMappingResponse
+   */
+  async createStreamBatchJobMappingWithOptions(tmpReq: CreateStreamBatchJobMappingRequest, runtime: $Util.RuntimeOptions): Promise<CreateStreamBatchJobMappingResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateStreamBatchJobMappingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.streamBatchJobMappingCreateCommand)) {
+      request.streamBatchJobMappingCreateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.streamBatchJobMappingCreateCommand, "StreamBatchJobMappingCreateCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.streamBatchJobMappingCreateCommandShrink)) {
+      body["StreamBatchJobMappingCreateCommand"] = request.streamBatchJobMappingCreateCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateStreamBatchJobMapping",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateStreamBatchJobMappingResponse>(await this.callApi(params, req, runtime), new CreateStreamBatchJobMappingResponse({}));
+  }
+
+  /**
+   * 创建流批一体任务
+   * 
+   * @param request - CreateStreamBatchJobMappingRequest
+   * @returns CreateStreamBatchJobMappingResponse
+   */
+  async createStreamBatchJobMapping(request: CreateStreamBatchJobMappingRequest): Promise<CreateStreamBatchJobMappingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createStreamBatchJobMappingWithOptions(request, runtime);
+  }
+
+  /**
    * 新建用户组.
    * 
    * @param tmpReq - CreateUserGroupRequest
@@ -17266,6 +31305,210 @@ export default class Client extends OpenApi {
   async deleteAdHocFile(request: DeleteAdHocFileRequest): Promise<DeleteAdHocFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAdHocFileWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除离线计算任务，如果任务还没下线需要先下线再删除。
+   * 
+   * @param tmpReq - DeleteBatchTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBatchTaskResponse
+   */
+  async deleteBatchTaskWithOptions(tmpReq: DeleteBatchTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBatchTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteBatchTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.deleteCommand)) {
+      request.deleteCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand, "DeleteCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deleteCommandShrink)) {
+      body["DeleteCommand"] = request.deleteCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBatchTask",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBatchTaskResponse>(await this.callApi(params, req, runtime), new DeleteBatchTaskResponse({}));
+  }
+
+  /**
+   * 删除离线计算任务，如果任务还没下线需要先下线再删除。
+   * 
+   * @param request - DeleteBatchTaskRequest
+   * @returns DeleteBatchTaskResponse
+   */
+  async deleteBatchTask(request: DeleteBatchTaskRequest): Promise<DeleteBatchTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBatchTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除业务实体。
+   * 
+   * @param request - DeleteBizEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBizEntityResponse
+   */
+  async deleteBizEntityWithOptions(request: DeleteBizEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBizEntityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bizUnitId)) {
+      query["BizUnitId"] = request.bizUnitId;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBizEntity",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBizEntityResponse>(await this.callApi(params, req, runtime), new DeleteBizEntityResponse({}));
+  }
+
+  /**
+   * 删除业务实体。
+   * 
+   * @param request - DeleteBizEntityRequest
+   * @returns DeleteBizEntityResponse
+   */
+  async deleteBizEntity(request: DeleteBizEntityRequest): Promise<DeleteBizEntityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBizEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据板块。
+   * 
+   * @param request - DeleteBizUnitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBizUnitResponse
+   */
+  async deleteBizUnitWithOptions(request: DeleteBizUnitRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBizUnitResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBizUnit",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBizUnitResponse>(await this.callApi(params, req, runtime), new DeleteBizUnitResponse({}));
+  }
+
+  /**
+   * 删除数据板块。
+   * 
+   * @param request - DeleteBizUnitRequest
+   * @returns DeleteBizUnitResponse
+   */
+  async deleteBizUnit(request: DeleteBizUnitRequest): Promise<DeleteBizUnitResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBizUnitWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除主题域。
+   * 
+   * @param request - DeleteDataDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataDomainResponse
+   */
+  async deleteDataDomainWithOptions(request: DeleteDataDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bizUnitId)) {
+      query["BizUnitId"] = request.bizUnitId;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataDomain",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataDomainResponse>(await this.callApi(params, req, runtime), new DeleteDataDomainResponse({}));
+  }
+
+  /**
+   * 删除主题域。
+   * 
+   * @param request - DeleteDataDomainRequest
+   * @returns DeleteDataDomainResponse
+   */
+  async deleteDataDomain(request: DeleteDataDomainRequest): Promise<DeleteDataDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataDomainWithOptions(request, runtime);
   }
 
   /**
@@ -17416,6 +31659,60 @@ export default class Client extends OpenApi {
   async deleteUserGroup(request: DeleteUserGroupRequest): Promise<DeleteUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 执行即席查询任务。
+   * 
+   * @param tmpReq - ExecuteAdHocTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAdHocTaskResponse
+   */
+  async executeAdHocTaskWithOptions(tmpReq: ExecuteAdHocTaskRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteAdHocTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ExecuteAdHocTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.executeCommand)) {
+      request.executeCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.executeCommand, "ExecuteCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.executeCommandShrink)) {
+      body["ExecuteCommand"] = request.executeCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteAdHocTask",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteAdHocTaskResponse>(await this.callApi(params, req, runtime), new ExecuteAdHocTaskResponse({}));
+  }
+
+  /**
+   * 执行即席查询任务。
+   * 
+   * @param request - ExecuteAdHocTaskRequest
+   * @returns ExecuteAdHocTaskResponse
+   */
+  async executeAdHocTask(request: ExecuteAdHocTaskRequest): Promise<ExecuteAdHocTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.executeAdHocTaskWithOptions(request, runtime);
   }
 
   /**
@@ -17585,6 +31882,626 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取即席查询任务运行日志。
+   * 
+   * @param request - GetAdHocTaskLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAdHocTaskLogResponse
+   */
+  async getAdHocTaskLogWithOptions(request: GetAdHocTaskLogRequest, runtime: $Util.RuntimeOptions): Promise<GetAdHocTaskLogResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.subTaskId)) {
+      query["SubTaskId"] = request.subTaskId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAdHocTaskLog",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAdHocTaskLogResponse>(await this.callApi(params, req, runtime), new GetAdHocTaskLogResponse({}));
+  }
+
+  /**
+   * 获取即席查询任务运行日志。
+   * 
+   * @param request - GetAdHocTaskLogRequest
+   * @returns GetAdHocTaskLogResponse
+   */
+  async getAdHocTaskLog(request: GetAdHocTaskLogRequest): Promise<GetAdHocTaskLogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAdHocTaskLogWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取即席查询的任务运行结果。
+   * 
+   * @param request - GetAdHocTaskResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAdHocTaskResultResponse
+   */
+  async getAdHocTaskResultWithOptions(request: GetAdHocTaskResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAdHocTaskResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.subTaskId)) {
+      query["SubTaskId"] = request.subTaskId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAdHocTaskResult",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAdHocTaskResultResponse>(await this.callApi(params, req, runtime), new GetAdHocTaskResultResponse({}));
+  }
+
+  /**
+   * 获取即席查询的任务运行结果。
+   * 
+   * @param request - GetAdHocTaskResultRequest
+   * @returns GetAdHocTaskResultResponse
+   */
+  async getAdHocTaskResult(request: GetAdHocTaskResultRequest): Promise<GetAdHocTaskResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAdHocTaskResultWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取告警事件详情
+   * 
+   * @param request - GetAlertEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAlertEventResponse
+   */
+  async getAlertEventWithOptions(request: GetAlertEventRequest, runtime: $Util.RuntimeOptions): Promise<GetAlertEventResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAlertEvent",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAlertEventResponse>(await this.callApi(params, req, runtime), new GetAlertEventResponse({}));
+  }
+
+  /**
+   * 获取告警事件详情
+   * 
+   * @param request - GetAlertEventRequest
+   * @returns GetAlertEventResponse
+   */
+  async getAlertEvent(request: GetAlertEventRequest): Promise<GetAlertEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAlertEventWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取离线计算任务详情。
+   * 
+   * @param request - GetBatchTaskInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBatchTaskInfoResponse
+   */
+  async getBatchTaskInfoWithOptions(request: GetBatchTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchTaskInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.env)) {
+      query["Env"] = request.env;
+    }
+
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.includeAllUpStreams)) {
+      query["IncludeAllUpStreams"] = request.includeAllUpStreams;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBatchTaskInfo",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBatchTaskInfoResponse>(await this.callApi(params, req, runtime), new GetBatchTaskInfoResponse({}));
+  }
+
+  /**
+   * 获取离线计算任务详情。
+   * 
+   * @param request - GetBatchTaskInfoRequest
+   * @returns GetBatchTaskInfoResponse
+   */
+  async getBatchTaskInfo(request: GetBatchTaskInfoRequest): Promise<GetBatchTaskInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBatchTaskInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取离线计算任务指定版本任务详情。
+   * 
+   * @param request - GetBatchTaskInfoByVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBatchTaskInfoByVersionResponse
+   */
+  async getBatchTaskInfoByVersionWithOptions(request: GetBatchTaskInfoByVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchTaskInfoByVersionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBatchTaskInfoByVersion",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBatchTaskInfoByVersionResponse>(await this.callApi(params, req, runtime), new GetBatchTaskInfoByVersionResponse({}));
+  }
+
+  /**
+   * 获取离线计算任务指定版本任务详情。
+   * 
+   * @param request - GetBatchTaskInfoByVersionRequest
+   * @returns GetBatchTaskInfoByVersionResponse
+   */
+  async getBatchTaskInfoByVersion(request: GetBatchTaskInfoByVersionRequest): Promise<GetBatchTaskInfoByVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBatchTaskInfoByVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取离线任务自定义血缘。
+   * 
+   * @param request - GetBatchTaskUdfLineagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBatchTaskUdfLineagesResponse
+   */
+  async getBatchTaskUdfLineagesWithOptions(request: GetBatchTaskUdfLineagesRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchTaskUdfLineagesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBatchTaskUdfLineages",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBatchTaskUdfLineagesResponse>(await this.callApi(params, req, runtime), new GetBatchTaskUdfLineagesResponse({}));
+  }
+
+  /**
+   * 获取离线任务自定义血缘。
+   * 
+   * @param request - GetBatchTaskUdfLineagesRequest
+   * @returns GetBatchTaskUdfLineagesResponse
+   */
+  async getBatchTaskUdfLineages(request: GetBatchTaskUdfLineagesRequest): Promise<GetBatchTaskUdfLineagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBatchTaskUdfLineagesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取离线计算任务版本列表。
+   * 
+   * @param request - GetBatchTaskVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBatchTaskVersionsResponse
+   */
+  async getBatchTaskVersionsWithOptions(request: GetBatchTaskVersionsRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchTaskVersionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBatchTaskVersions",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBatchTaskVersionsResponse>(await this.callApi(params, req, runtime), new GetBatchTaskVersionsResponse({}));
+  }
+
+  /**
+   * 获取离线计算任务版本列表。
+   * 
+   * @param request - GetBatchTaskVersionsRequest
+   * @returns GetBatchTaskVersionsResponse
+   */
+  async getBatchTaskVersions(request: GetBatchTaskVersionsRequest): Promise<GetBatchTaskVersionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBatchTaskVersionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取业务实体详情。
+   * 
+   * @param request - GetBizEntityInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBizEntityInfoResponse
+   */
+  async getBizEntityInfoWithOptions(request: GetBizEntityInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetBizEntityInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBizEntityInfo",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBizEntityInfoResponse>(await this.callApi(params, req, runtime), new GetBizEntityInfoResponse({}));
+  }
+
+  /**
+   * 获取业务实体详情。
+   * 
+   * @param request - GetBizEntityInfoRequest
+   * @returns GetBizEntityInfoResponse
+   */
+  async getBizEntityInfo(request: GetBizEntityInfoRequest): Promise<GetBizEntityInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBizEntityInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询指定版本的业务实体的详情。
+   * 
+   * @param request - GetBizEntityInfoByVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBizEntityInfoByVersionResponse
+   */
+  async getBizEntityInfoByVersionWithOptions(request: GetBizEntityInfoByVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetBizEntityInfoByVersionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBizEntityInfoByVersion",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBizEntityInfoByVersionResponse>(await this.callApi(params, req, runtime), new GetBizEntityInfoByVersionResponse({}));
+  }
+
+  /**
+   * 查询指定版本的业务实体的详情。
+   * 
+   * @param request - GetBizEntityInfoByVersionRequest
+   * @returns GetBizEntityInfoByVersionResponse
+   */
+  async getBizEntityInfoByVersion(request: GetBizEntityInfoByVersionRequest): Promise<GetBizEntityInfoByVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBizEntityInfoByVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据板块详情。
+   * 
+   * @param request - GetBizUnitInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBizUnitInfoResponse
+   */
+  async getBizUnitInfoWithOptions(request: GetBizUnitInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetBizUnitInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBizUnitInfo",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBizUnitInfoResponse>(await this.callApi(params, req, runtime), new GetBizUnitInfoResponse({}));
+  }
+
+  /**
+   * 获取数据板块详情。
+   * 
+   * @param request - GetBizUnitInfoRequest
+   * @returns GetBizUnitInfoResponse
+   */
+  async getBizUnitInfo(request: GetBizUnitInfoRequest): Promise<GetBizUnitInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBizUnitInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据环境获取集群信息
+   * 
+   * @param request - GetClusterQueueInfoByEnvRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClusterQueueInfoByEnvResponse
+   */
+  async getClusterQueueInfoByEnvWithOptions(request: GetClusterQueueInfoByEnvRequest, runtime: $Util.RuntimeOptions): Promise<GetClusterQueueInfoByEnvResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.env)) {
+      query["Env"] = request.env;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.streamBatchMode)) {
+      query["StreamBatchMode"] = request.streamBatchMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClusterQueueInfoByEnv",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClusterQueueInfoByEnvResponse>(await this.callApi(params, req, runtime), new GetClusterQueueInfoByEnvResponse({}));
+  }
+
+  /**
+   * 根据环境获取集群信息
+   * 
+   * @param request - GetClusterQueueInfoByEnvRequest
+   * @returns GetClusterQueueInfoByEnvResponse
+   */
+  async getClusterQueueInfoByEnv(request: GetClusterQueueInfoByEnvRequest): Promise<GetClusterQueueInfoByEnvResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getClusterQueueInfoByEnvWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取主题域详情。
+   * 
+   * @param request - GetDataDomainInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataDomainInfoResponse
+   */
+  async getDataDomainInfoWithOptions(request: GetDataDomainInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetDataDomainInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataDomainInfo",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataDomainInfoResponse>(await this.callApi(params, req, runtime), new GetDataDomainInfoResponse({}));
+  }
+
+  /**
+   * 获取主题域详情。
+   * 
+   * @param request - GetDataDomainInfoRequest
+   * @returns GetDataDomainInfoResponse
+   */
+  async getDataDomainInfo(request: GetDataDomainInfoRequest): Promise<GetDataDomainInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataDomainInfoWithOptions(request, runtime);
+  }
+
+  /**
    * 查询开发态对象上游依赖。
    * 
    * @param request - GetDevObjectDependencyRequest
@@ -17640,6 +32557,56 @@ export default class Client extends OpenApi {
   async getDevObjectDependency(request: GetDevObjectDependencyRequest): Promise<GetDevObjectDependencyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDevObjectDependencyWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取文件夹目录树
+   * 
+   * @param request - GetDirectoryTreeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDirectoryTreeResponse
+   */
+  async getDirectoryTreeWithOptions(request: GetDirectoryTreeRequest, runtime: $Util.RuntimeOptions): Promise<GetDirectoryTreeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDirectoryTree",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDirectoryTreeResponse>(await this.callApi(params, req, runtime), new GetDirectoryTreeResponse({}));
+  }
+
+  /**
+   * 获取文件夹目录树
+   * 
+   * @param request - GetDirectoryTreeRequest
+   * @returns GetDirectoryTreeResponse
+   */
+  async getDirectoryTree(request: GetDirectoryTreeRequest): Promise<GetDirectoryTreeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDirectoryTreeWithOptions(request, runtime);
   }
 
   /**
@@ -17776,6 +32743,60 @@ export default class Client extends OpenApi {
   async getInstanceUpDownStream(request: GetInstanceUpDownStreamRequest): Promise<GetInstanceUpDownStreamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceUpDownStreamWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取最新的待发布记录详情
+   * 
+   * @param tmpReq - GetLatestSubmitDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLatestSubmitDetailResponse
+   */
+  async getLatestSubmitDetailWithOptions(tmpReq: GetLatestSubmitDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetLatestSubmitDetailResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetLatestSubmitDetailShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.submitDetailQuery)) {
+      request.submitDetailQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.submitDetailQuery, "SubmitDetailQuery", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.submitDetailQueryShrink)) {
+      body["SubmitDetailQuery"] = request.submitDetailQueryShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLatestSubmitDetail",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLatestSubmitDetailResponse>(await this.callApi(params, req, runtime), new GetLatestSubmitDetailResponse({}));
+  }
+
+  /**
+   * 获取最新的待发布记录详情
+   * 
+   * @param request - GetLatestSubmitDetailRequest
+   * @returns GetLatestSubmitDetailResponse
+   */
+  async getLatestSubmitDetail(request: GetLatestSubmitDetailRequest): Promise<GetLatestSubmitDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLatestSubmitDetailWithOptions(request, runtime);
   }
 
   /**
@@ -18349,6 +33370,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据集群ID获取集群版本
+   * 
+   * @param request - GetQueueEngineVersionByEnvRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQueueEngineVersionByEnvResponse
+   */
+  async getQueueEngineVersionByEnvWithOptions(request: GetQueueEngineVersionByEnvRequest, runtime: $Util.RuntimeOptions): Promise<GetQueueEngineVersionByEnvResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.env)) {
+      query["Env"] = request.env;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.queueName)) {
+      query["QueueName"] = request.queueName;
+    }
+
+    if (!Util.isUnset(request.streamBatchMode)) {
+      query["StreamBatchMode"] = request.streamBatchMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetQueueEngineVersionByEnv",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetQueueEngineVersionByEnvResponse>(await this.callApi(params, req, runtime), new GetQueueEngineVersionByEnvResponse({}));
+  }
+
+  /**
+   * 根据集群ID获取集群版本
+   * 
+   * @param request - GetQueueEngineVersionByEnvRequest
+   * @returns GetQueueEngineVersionByEnvResponse
+   */
+  async getQueueEngineVersionByEnv(request: GetQueueEngineVersionByEnvRequest): Promise<GetQueueEngineVersionByEnvResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getQueueEngineVersionByEnvWithOptions(request, runtime);
+  }
+
+  /**
    * 获取补数据工作流所有业务日期的Dagrun信息。
    * 
    * @param request - GetSupplementDagrunRequest
@@ -18745,6 +33828,264 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据条件查询多个告警事件
+   * 
+   * @param tmpReq - ListAlertEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAlertEventsResponse
+   */
+  async listAlertEventsWithOptions(tmpReq: ListAlertEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListAlertEventsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListAlertEventsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAlertEvents",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAlertEventsResponse>(await this.callApi(params, req, runtime), new ListAlertEventsResponse({}));
+  }
+
+  /**
+   * 根据条件查询多个告警事件
+   * 
+   * @param request - ListAlertEventsRequest
+   * @returns ListAlertEventsResponse
+   */
+  async listAlertEvents(request: ListAlertEventsRequest): Promise<ListAlertEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAlertEventsWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据条件查询多个推送记录
+   * 
+   * @param tmpReq - ListAlertNotificationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAlertNotificationsResponse
+   */
+  async listAlertNotificationsWithOptions(tmpReq: ListAlertNotificationsRequest, runtime: $Util.RuntimeOptions): Promise<ListAlertNotificationsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListAlertNotificationsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAlertNotifications",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAlertNotificationsResponse>(await this.callApi(params, req, runtime), new ListAlertNotificationsResponse({}));
+  }
+
+  /**
+   * 根据条件查询多个推送记录
+   * 
+   * @param request - ListAlertNotificationsRequest
+   * @returns ListAlertNotificationsResponse
+   */
+  async listAlertNotifications(request: ListAlertNotificationsRequest): Promise<ListAlertNotificationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAlertNotificationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询业务实体列表。
+   * 
+   * @param tmpReq - ListBizEntitiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBizEntitiesResponse
+   */
+  async listBizEntitiesWithOptions(tmpReq: ListBizEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<ListBizEntitiesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListBizEntitiesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListBizEntities",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBizEntitiesResponse>(await this.callApi(params, req, runtime), new ListBizEntitiesResponse({}));
+  }
+
+  /**
+   * 查询业务实体列表。
+   * 
+   * @param request - ListBizEntitiesRequest
+   * @returns ListBizEntitiesResponse
+   */
+  async listBizEntities(request: ListBizEntitiesRequest): Promise<ListBizEntitiesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBizEntitiesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取当前租户下的所有数据板块
+   * 
+   * @param request - ListBizUnitsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBizUnitsResponse
+   */
+  async listBizUnitsWithOptions(request: ListBizUnitsRequest, runtime: $Util.RuntimeOptions): Promise<ListBizUnitsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListBizUnits",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBizUnitsResponse>(await this.callApi(params, req, runtime), new ListBizUnitsResponse({}));
+  }
+
+  /**
+   * 获取当前租户下的所有数据板块
+   * 
+   * @param request - ListBizUnitsRequest
+   * @returns ListBizUnitsResponse
+   */
+  async listBizUnits(request: ListBizUnitsRequest): Promise<ListBizUnitsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBizUnitsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取主题域列表。
+   * 
+   * @param tmpReq - ListDataDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataDomainsResponse
+   */
+  async listDataDomainsWithOptions(tmpReq: ListDataDomainsRequest, runtime: $Util.RuntimeOptions): Promise<ListDataDomainsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListDataDomainsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataDomains",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataDomainsResponse>(await this.callApi(params, req, runtime), new ListDataDomainsResponse({}));
+  }
+
+  /**
+   * 获取主题域列表。
+   * 
+   * @param request - ListDataDomainsRequest
+   * @returns ListDataDomainsResponse
+   */
+  async listDataDomains(request: ListDataDomainsRequest): Promise<ListDataDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataDomainsWithOptions(request, runtime);
+  }
+
+  /**
    * 搜索数据源，所属结果包含数据源配置项
    * 
    * @param tmpReq - ListDataSourceWithConfigRequest
@@ -19027,6 +34368,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页获取发布记录列表
+   * 
+   * @param tmpReq - ListPublishRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPublishRecordsResponse
+   */
+  async listPublishRecordsWithOptions(tmpReq: ListPublishRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListPublishRecordsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListPublishRecordsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPublishRecords",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPublishRecordsResponse>(await this.callApi(params, req, runtime), new ListPublishRecordsResponse({}));
+  }
+
+  /**
+   * 分页获取发布记录列表
+   * 
+   * @param request - ListPublishRecordsRequest
+   * @returns ListPublishRecordsResponse
+   */
+  async listPublishRecords(request: ListPublishRecordsRequest): Promise<ListPublishRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPublishRecordsWithOptions(request, runtime);
+  }
+
+  /**
    * 分页获取权限操作列表
    * 
    * @param tmpReq - ListResourcePermissionOperationLogRequest
@@ -19132,6 +34527,60 @@ export default class Client extends OpenApi {
   async listResourcePermissions(request: ListResourcePermissionsRequest): Promise<ListResourcePermissionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listResourcePermissionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页获取待发布记录列表
+   * 
+   * @param tmpReq - ListSubmitRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSubmitRecordsResponse
+   */
+  async listSubmitRecordsWithOptions(tmpReq: ListSubmitRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListSubmitRecordsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListSubmitRecordsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSubmitRecords",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSubmitRecordsResponse>(await this.callApi(params, req, runtime), new ListSubmitRecordsResponse({}));
+  }
+
+  /**
+   * 分页获取待发布记录列表
+   * 
+   * @param request - ListSubmitRecordsRequest
+   * @returns ListSubmitRecordsResponse
+   */
+  async listSubmitRecords(request: ListSubmitRecordsRequest): Promise<ListSubmitRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSubmitRecordsWithOptions(request, runtime);
   }
 
   /**
@@ -19297,6 +34746,168 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 下线离线计算任务。
+   * 
+   * @param request - OfflineBatchTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OfflineBatchTaskResponse
+   */
+  async offlineBatchTaskWithOptions(request: OfflineBatchTaskRequest, runtime: $Util.RuntimeOptions): Promise<OfflineBatchTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OfflineBatchTask",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OfflineBatchTaskResponse>(await this.callApi(params, req, runtime), new OfflineBatchTaskResponse({}));
+  }
+
+  /**
+   * 下线离线计算任务。
+   * 
+   * @param request - OfflineBatchTaskRequest
+   * @returns OfflineBatchTaskResponse
+   */
+  async offlineBatchTask(request: OfflineBatchTaskRequest): Promise<OfflineBatchTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.offlineBatchTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 下线业务实体、
+   * 
+   * @param tmpReq - OfflineBizEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OfflineBizEntityResponse
+   */
+  async offlineBizEntityWithOptions(tmpReq: OfflineBizEntityRequest, runtime: $Util.RuntimeOptions): Promise<OfflineBizEntityResponse> {
+    Util.validateModel(tmpReq);
+    let request = new OfflineBizEntityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.offlineCommand)) {
+      request.offlineCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.offlineCommand, "OfflineCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.offlineCommandShrink)) {
+      body["OfflineCommand"] = request.offlineCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "OfflineBizEntity",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OfflineBizEntityResponse>(await this.callApi(params, req, runtime), new OfflineBizEntityResponse({}));
+  }
+
+  /**
+   * 下线业务实体、
+   * 
+   * @param request - OfflineBizEntityRequest
+   * @returns OfflineBizEntityResponse
+   */
+  async offlineBizEntity(request: OfflineBizEntityRequest): Promise<OfflineBizEntityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.offlineBizEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * 上线业务实体。
+   * 
+   * @param tmpReq - OnlineBizEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OnlineBizEntityResponse
+   */
+  async onlineBizEntityWithOptions(tmpReq: OnlineBizEntityRequest, runtime: $Util.RuntimeOptions): Promise<OnlineBizEntityResponse> {
+    Util.validateModel(tmpReq);
+    let request = new OnlineBizEntityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.onlineCommand)) {
+      request.onlineCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.onlineCommand, "OnlineCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.onlineCommandShrink)) {
+      body["OnlineCommand"] = request.onlineCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "OnlineBizEntity",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnlineBizEntityResponse>(await this.callApi(params, req, runtime), new OnlineBizEntityResponse({}));
+  }
+
+  /**
+   * 上线业务实体。
+   * 
+   * @param request - OnlineBizEntityRequest
+   * @returns OnlineBizEntityResponse
+   */
+  async onlineBizEntity(request: OnlineBizEntityRequest): Promise<OnlineBizEntityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.onlineBizEntityWithOptions(request, runtime);
+  }
+
+  /**
    * 运维实例。
    * 
    * @param tmpReq - OperateInstanceRequest
@@ -19355,6 +34966,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
+   * 
+   * @param tmpReq - ParseBatchTaskDependencyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ParseBatchTaskDependencyResponse
+   */
+  async parseBatchTaskDependencyWithOptions(tmpReq: ParseBatchTaskDependencyRequest, runtime: $Util.RuntimeOptions): Promise<ParseBatchTaskDependencyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ParseBatchTaskDependencyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.parseCommand)) {
+      request.parseCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parseCommand, "ParseCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.parseCommandShrink)) {
+      body["ParseCommand"] = request.parseCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ParseBatchTaskDependency",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ParseBatchTaskDependencyResponse>(await this.callApi(params, req, runtime), new ParseBatchTaskDependencyResponse({}));
+  }
+
+  /**
+   * 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
+   * 
+   * @param request - ParseBatchTaskDependencyRequest
+   * @returns ParseBatchTaskDependencyResponse
+   */
+  async parseBatchTaskDependency(request: ParseBatchTaskDependencyRequest): Promise<ParseBatchTaskDependencyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.parseBatchTaskDependencyWithOptions(request, runtime);
+  }
+
+  /**
    * 暂停物理节点调度。
    * 
    * @param tmpReq - PausePhysicalNodeRequest
@@ -19410,6 +35075,60 @@ export default class Client extends OpenApi {
   async pausePhysicalNode(request: PausePhysicalNodeRequest): Promise<PausePhysicalNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pausePhysicalNodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量发布对象
+   * 
+   * @param tmpReq - PublishObjectListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishObjectListResponse
+   */
+  async publishObjectListWithOptions(tmpReq: PublishObjectListRequest, runtime: $Util.RuntimeOptions): Promise<PublishObjectListResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PublishObjectListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.publishCommand)) {
+      request.publishCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.publishCommand, "PublishCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.publishCommandShrink)) {
+      body["PublishCommand"] = request.publishCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PublishObjectList",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishObjectListResponse>(await this.callApi(params, req, runtime), new PublishObjectListResponse({}));
+  }
+
+  /**
+   * 批量发布对象
+   * 
+   * @param request - PublishObjectListRequest
+   * @returns PublishObjectListResponse
+   */
+  async publishObjectList(request: PublishObjectListRequest): Promise<PublishObjectListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.publishObjectListWithOptions(request, runtime);
   }
 
   /**
@@ -19633,6 +35352,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 终止即席查询任务。
+   * 
+   * @param request - StopAdHocTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopAdHocTaskResponse
+   */
+  async stopAdHocTaskWithOptions(request: StopAdHocTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopAdHocTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopAdHocTask",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopAdHocTaskResponse>(await this.callApi(params, req, runtime), new StopAdHocTaskResponse({}));
+  }
+
+  /**
+   * 终止即席查询任务。
+   * 
+   * @param request - StopAdHocTaskRequest
+   * @returns StopAdHocTaskResponse
+   */
+  async stopAdHocTask(request: StopAdHocTaskRequest): Promise<StopAdHocTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopAdHocTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交离线计算任务。
+   * 
+   * @param tmpReq - SubmitBatchTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitBatchTaskResponse
+   */
+  async submitBatchTaskWithOptions(tmpReq: SubmitBatchTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitBatchTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitBatchTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.submitCommand)) {
+      request.submitCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.submitCommand, "SubmitCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.submitCommandShrink)) {
+      body["SubmitCommand"] = request.submitCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitBatchTask",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitBatchTaskResponse>(await this.callApi(params, req, runtime), new SubmitBatchTaskResponse({}));
+  }
+
+  /**
+   * 提交离线计算任务。
+   * 
+   * @param request - SubmitBatchTaskRequest
+   * @returns SubmitBatchTaskResponse
+   */
+  async submitBatchTask(request: SubmitBatchTaskRequest): Promise<SubmitBatchTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitBatchTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 编辑即席查询文件。
    * 
    * @param tmpReq - UpdateAdHocFileRequest
@@ -19684,6 +35507,276 @@ export default class Client extends OpenApi {
   async updateAdHocFile(request: UpdateAdHocFileRequest): Promise<UpdateAdHocFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAdHocFileWithOptions(request, runtime);
+  }
+
+  /**
+   * 编辑离线计算任务。
+   * 
+   * @param tmpReq - UpdateBatchTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBatchTaskResponse
+   */
+  async updateBatchTaskWithOptions(tmpReq: UpdateBatchTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBatchTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateBatchTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateBatchTask",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateBatchTaskResponse>(await this.callApi(params, req, runtime), new UpdateBatchTaskResponse({}));
+  }
+
+  /**
+   * 编辑离线计算任务。
+   * 
+   * @param request - UpdateBatchTaskRequest
+   * @returns UpdateBatchTaskResponse
+   */
+  async updateBatchTask(request: UpdateBatchTaskRequest): Promise<UpdateBatchTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateBatchTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 编辑离线计算任务自定义血缘。
+   * 
+   * @param tmpReq - UpdateBatchTaskUdfLineagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBatchTaskUdfLineagesResponse
+   */
+  async updateBatchTaskUdfLineagesWithOptions(tmpReq: UpdateBatchTaskUdfLineagesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBatchTaskUdfLineagesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateBatchTaskUdfLineagesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateBatchTaskUdfLineages",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateBatchTaskUdfLineagesResponse>(await this.callApi(params, req, runtime), new UpdateBatchTaskUdfLineagesResponse({}));
+  }
+
+  /**
+   * 编辑离线计算任务自定义血缘。
+   * 
+   * @param request - UpdateBatchTaskUdfLineagesRequest
+   * @returns UpdateBatchTaskUdfLineagesResponse
+   */
+  async updateBatchTaskUdfLineages(request: UpdateBatchTaskUdfLineagesRequest): Promise<UpdateBatchTaskUdfLineagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateBatchTaskUdfLineagesWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新业务实体、
+   * 
+   * @param tmpReq - UpdateBizEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBizEntityResponse
+   */
+  async updateBizEntityWithOptions(tmpReq: UpdateBizEntityRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBizEntityResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateBizEntityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateBizEntity",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateBizEntityResponse>(await this.callApi(params, req, runtime), new UpdateBizEntityResponse({}));
+  }
+
+  /**
+   * 更新业务实体、
+   * 
+   * @param request - UpdateBizEntityRequest
+   * @returns UpdateBizEntityResponse
+   */
+  async updateBizEntity(request: UpdateBizEntityRequest): Promise<UpdateBizEntityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateBizEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据板块。
+   * 
+   * @param tmpReq - UpdateBizUnitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBizUnitResponse
+   */
+  async updateBizUnitWithOptions(tmpReq: UpdateBizUnitRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBizUnitResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateBizUnitShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateBizUnit",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateBizUnitResponse>(await this.callApi(params, req, runtime), new UpdateBizUnitResponse({}));
+  }
+
+  /**
+   * 更新数据板块。
+   * 
+   * @param request - UpdateBizUnitRequest
+   * @returns UpdateBizUnitResponse
+   */
+  async updateBizUnit(request: UpdateBizUnitRequest): Promise<UpdateBizUnitResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateBizUnitWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新主题域。
+   * 
+   * @param tmpReq - UpdateDataDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataDomainResponse
+   */
+  async updateDataDomainWithOptions(tmpReq: UpdateDataDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataDomainResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDataDomainShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDataDomain",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDataDomainResponse>(await this.callApi(params, req, runtime), new UpdateDataDomainResponse({}));
+  }
+
+  /**
+   * 更新主题域。
+   * 
+   * @param request - UpdateDataDomainRequest
+   * @returns UpdateDataDomainResponse
+   */
+  async updateDataDomain(request: UpdateDataDomainRequest): Promise<UpdateDataDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDataDomainWithOptions(request, runtime);
   }
 
   /**
