@@ -150,12 +150,83 @@ export class DLOrder extends $tea.Model {
   }
 }
 
+export class DLPartition extends $tea.Model {
+  catalogName?: string;
+  createTime?: number;
+  dbName?: string;
+  lastAccessTime?: number;
+  parameters?: { [key: string]: string };
+  sd?: DLStorageDescriptor;
+  tableName?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      createTime: 'CreateTime',
+      dbName: 'DbName',
+      lastAccessTime: 'LastAccessTime',
+      parameters: 'Parameters',
+      sd: 'Sd',
+      tableName: 'TableName',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      createTime: 'number',
+      dbName: 'string',
+      lastAccessTime: 'number',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      sd: DLStorageDescriptor,
+      tableName: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DLPartitionInput extends $tea.Model {
+  createTime?: number;
+  lastAccessTime?: number;
+  parameters?: { [key: string]: string };
+  storageDescriptor?: DLStorageDescriptor;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      lastAccessTime: 'LastAccessTime',
+      parameters: 'Parameters',
+      storageDescriptor: 'StorageDescriptor',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      lastAccessTime: 'number',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      storageDescriptor: DLStorageDescriptor,
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DLSerdeInfo extends $tea.Model {
   description?: string;
   deserializerClass?: string;
   name?: string;
   parameters?: { [key: string]: any };
-  serdeType?: string;
+  serdeType?: number;
   serializationLib?: string;
   serializerClass?: string;
   static names(): { [key: string]: string } {
@@ -176,7 +247,7 @@ export class DLSerdeInfo extends $tea.Model {
       deserializerClass: 'string',
       name: 'string',
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      serdeType: 'string',
+      serdeType: 'number',
       serializationLib: 'string',
       serializerClass: 'string',
     };
@@ -527,6 +598,28 @@ export class ImportMasterKeyVO extends $tea.Model {
   }
 }
 
+export class PartitionError extends $tea.Model {
+  errorDetail?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      errorDetail: 'ErrorDetail',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDetail: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ProjectDetailsLiteVO extends $tea.Model {
   id?: number;
   projectName?: string;
@@ -698,6 +791,70 @@ export class UsersDetailsVO extends $tea.Model {
       userConfirmed: 'number',
       userName: 'string',
       userPublicKeyPem: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenStructDLTableInput extends $tea.Model {
+  createTime?: number;
+  creatorId?: number;
+  description?: string;
+  lastAccessTime?: number;
+  location?: string;
+  modifierId?: number;
+  name?: string;
+  owner?: string;
+  ownerType?: string;
+  parameters?: { [key: string]: string };
+  partitionKeys?: DLColumn[];
+  retention?: number;
+  storageDescriptor?: DLStorageDescriptor;
+  tableType?: string;
+  viewExpandedText?: string;
+  viewOriginalText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      creatorId: 'CreatorId',
+      description: 'Description',
+      lastAccessTime: 'LastAccessTime',
+      location: 'Location',
+      modifierId: 'ModifierId',
+      name: 'Name',
+      owner: 'Owner',
+      ownerType: 'OwnerType',
+      parameters: 'Parameters',
+      partitionKeys: 'PartitionKeys',
+      retention: 'Retention',
+      storageDescriptor: 'StorageDescriptor',
+      tableType: 'TableType',
+      viewExpandedText: 'ViewExpandedText',
+      viewOriginalText: 'ViewOriginalText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      creatorId: 'number',
+      description: 'string',
+      lastAccessTime: 'number',
+      location: 'string',
+      modifierId: 'number',
+      name: 'string',
+      owner: 'string',
+      ownerType: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      partitionKeys: { 'type': 'array', 'itemType': DLColumn },
+      retention: 'number',
+      storageDescriptor: DLStorageDescriptor,
+      tableType: 'string',
+      viewExpandedText: 'string',
+      viewOriginalText: 'string',
     };
   }
 
@@ -2680,6 +2837,607 @@ export class BackFillResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BackFillResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateDataLakePartitionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * true
+   */
+  ifNotExists?: boolean;
+  /**
+   * @example
+   * true
+   */
+  needResult?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  partitionInputs?: DLPartitionInput[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      ifNotExists: 'IfNotExists',
+      needResult: 'NeedResult',
+      partitionInputs: 'PartitionInputs',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      ifNotExists: 'boolean',
+      needResult: 'boolean',
+      partitionInputs: { 'type': 'array', 'itemType': DLPartitionInput },
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateDataLakePartitionsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * true
+   */
+  ifNotExists?: boolean;
+  /**
+   * @example
+   * true
+   */
+  needResult?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  partitionInputsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      ifNotExists: 'IfNotExists',
+      needResult: 'NeedResult',
+      partitionInputsShrink: 'PartitionInputs',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      ifNotExists: 'boolean',
+      needResult: 'boolean',
+      partitionInputsShrink: 'string',
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateDataLakePartitionsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  partitions?: DLPartition[];
+  /**
+   * @example
+   * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      partitions: 'Partitions',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      partitions: { 'type': 'array', 'itemType': DLPartition },
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateDataLakePartitionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchCreateDataLakePartitionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchCreateDataLakePartitionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteDataLakePartitionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * true
+   */
+  ifExists?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  partitionValuesList?: string[][];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * table_name
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3****
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      ifExists: 'IfExists',
+      partitionValuesList: 'PartitionValuesList',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      ifExists: 'boolean',
+      partitionValuesList: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteDataLakePartitionsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  partitionErrors?: PartitionError[];
+  /**
+   * @example
+   * 5B96E35F-A58E-5399-9041-09CF9A1E46EA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      partitionErrors: 'PartitionErrors',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      partitionErrors: { 'type': 'array', 'itemType': PartitionError },
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteDataLakePartitionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchDeleteDataLakePartitionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchDeleteDataLakePartitionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateDataLakePartitionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  partitionInputs?: DLPartitionInput[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      partitionInputs: 'PartitionInputs',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      partitionInputs: { 'type': 'array', 'itemType': DLPartitionInput },
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateDataLakePartitionsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  partitionInputsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      partitionInputsShrink: 'PartitionInputs',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      partitionInputsShrink: 'string',
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateDataLakePartitionsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  partitionErrors?: PartitionError[];
+  /**
+   * @example
+   * C5B8E84B-42B6-4374-AD5A-6264E1753378
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      partitionErrors: 'PartitionErrors',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      partitionErrors: { 'type': 'array', 'itemType': PartitionError },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateDataLakePartitionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchUpdateDataLakePartitionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchUpdateDataLakePartitionsResponseBody,
     };
   }
 
@@ -5057,6 +5815,649 @@ export class CreateDataImportOrderResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDataImportOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakeDatabaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://path/to/database
+   */
+  location?: string;
+  parameters?: { [key: string]: string };
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      description: 'Description',
+      location: 'Location',
+      parameters: 'Parameters',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      description: 'string',
+      location: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakeDatabaseShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://path/to/database
+   */
+  location?: string;
+  parametersShrink?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      description: 'Description',
+      location: 'Location',
+      parametersShrink: 'Parameters',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      description: 'string',
+      location: 'string',
+      parametersShrink: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakeDatabaseResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * D911009F-3E95-5AFD-8CF1-73F7B4F15D6E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakeDatabaseResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataLakeDatabaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataLakeDatabaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakePartitionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * true
+   */
+  ifNotExists?: boolean;
+  /**
+   * @example
+   * true
+   */
+  needResult?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  partitionInput?: DLPartitionInput;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      ifNotExists: 'IfNotExists',
+      needResult: 'NeedResult',
+      partitionInput: 'PartitionInput',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      ifNotExists: 'boolean',
+      needResult: 'boolean',
+      partitionInput: DLPartitionInput,
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakePartitionShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * true
+   */
+  ifNotExists?: boolean;
+  /**
+   * @example
+   * true
+   */
+  needResult?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  partitionInputShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      ifNotExists: 'IfNotExists',
+      needResult: 'NeedResult',
+      partitionInputShrink: 'PartitionInput',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      ifNotExists: 'boolean',
+      needResult: 'boolean',
+      partitionInputShrink: 'string',
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakePartitionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  partition?: DLPartition;
+  /**
+   * @example
+   * 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      partition: 'Partition',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      partition: DLPartition,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakePartitionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataLakePartitionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataLakePartitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakeTableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tableInput?: OpenStructDLTableInput;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      tableInput: 'TableInput',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      tableInput: OpenStructDLTableInput,
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakeTableShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tableInputShrink?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      tableInputShrink: 'TableInput',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      tableInputShrink: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakeTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  table?: DLTable;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+      table: 'Table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      table: DLTable,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakeTableResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataLakeTableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataLakeTableResponseBody,
     };
   }
 
@@ -8841,6 +10242,483 @@ export class DeleteAuthorityTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteAuthorityTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLakeDatabaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLakeDatabaseResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * C51420E3-144A-4A94-B473-8662FCF4AD10
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLakeDatabaseResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDataLakeDatabaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataLakeDatabaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLakePartitionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * true
+   */
+  ifExists?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  partitionValues?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * table_name
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      ifExists: 'IfExists',
+      partitionValues: 'PartitionValues',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      ifExists: 'boolean',
+      partitionValues: { 'type': 'array', 'itemType': 'string' },
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLakePartitionShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * true
+   */
+  ifExists?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  partitionValuesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * table_name
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      ifExists: 'IfExists',
+      partitionValuesShrink: 'PartitionValues',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      ifExists: 'boolean',
+      partitionValuesShrink: 'string',
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLakePartitionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLakePartitionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDataLakePartitionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataLakePartitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLakeTableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLakeTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 8E88933E-E3D4-5BA8-8CBF-0A1CAE666690
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLakeTableResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDataLakeTableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataLakeTableResponseBody,
     };
   }
 
@@ -14940,6 +16818,218 @@ export class GetDataLakeDatabaseResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDataLakeDatabaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakePartitionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  partitionValues?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      partitionValues: 'PartitionValues',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      partitionValues: { 'type': 'array', 'itemType': 'string' },
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakePartitionShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  partitionValuesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      partitionValuesShrink: 'PartitionValues',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      partitionValuesShrink: 'string',
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakePartitionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  partition?: DLPartition;
+  /**
+   * @example
+   * FE8EE2F1-4880-46BC-A704-5CF63EAF9A04
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      partition: 'Partition',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      partition: DLPartition,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakePartitionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataLakePartitionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataLakePartitionResponseBody,
     };
   }
 
@@ -23651,7 +25741,7 @@ export class ListDataLakeCatalogRequest extends $tea.Model {
 }
 
 export class ListDataLakeCatalogResponseBody extends $tea.Model {
-  cataLogList?: ListDataLakeCatalogResponseBodyCataLogList;
+  cataLogList?: DLCatalog[];
   /**
    * @example
    * 400
@@ -23684,7 +25774,7 @@ export class ListDataLakeCatalogResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      cataLogList: ListDataLakeCatalogResponseBodyCataLogList,
+      cataLogList: { 'type': 'array', 'itemType': DLCatalog },
       errorCode: 'string',
       errorMessage: 'string',
       requestId: 'string',
@@ -23788,7 +25878,7 @@ export class ListDataLakeDatabaseRequest extends $tea.Model {
 }
 
 export class ListDataLakeDatabaseResponseBody extends $tea.Model {
-  databaseList?: ListDataLakeDatabaseResponseBodyDatabaseList;
+  databaseList?: DLDatabase[];
   /**
    * @example
    * 400
@@ -23825,7 +25915,7 @@ export class ListDataLakeDatabaseResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      databaseList: ListDataLakeDatabaseResponseBodyDatabaseList,
+      databaseList: { 'type': 'array', 'itemType': DLDatabase },
       errorCode: 'string',
       errorMessage: 'string',
       maxResults: 'number',
@@ -23857,6 +25947,940 @@ export class ListDataLakeDatabaseResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDataLakeDatabaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakePartitionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * **if can be null:**
+   * false
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * f056501ada12c1cc
+   */
+  nextToken?: string;
+  partNames?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      partNames: 'PartNames',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      partNames: { 'type': 'array', 'itemType': 'string' },
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakePartitionShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * **if can be null:**
+   * false
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * f056501ada12c1cc
+   */
+  nextToken?: string;
+  partNamesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      partNamesShrink: 'PartNames',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      partNamesShrink: 'string',
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakePartitionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * NesLoKLEdIZrKhDT7I2gS****
+   */
+  nextToken?: string;
+  partitionList?: DLPartition[];
+  /**
+   * @example
+   * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      partitionList: 'PartitionList',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      partitionList: { 'type': 'array', 'itemType': DLPartition },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakePartitionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataLakePartitionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataLakePartitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakePartitionByFilterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * **if can be null:**
+   * false
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ds>20241201
+   */
+  filter?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * f056501ada12c1cc
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      filter: 'Filter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      filter: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakePartitionByFilterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * NesLoKLEdIZrKhDT7I2gS****
+   */
+  nextToken?: string;
+  partitionList?: DLPartition[];
+  /**
+   * @example
+   * 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      partitionList: 'PartitionList',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      partitionList: { 'type': 'array', 'itemType': DLPartition },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakePartitionByFilterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataLakePartitionByFilterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataLakePartitionByFilterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakePartitionNameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * **if can be null:**
+   * false
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * f056501ada12c1cc
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * table_name
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakePartitionNameResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * NesLoKLEdIZrKhDT7I2gS****
+   */
+  nextToken?: string;
+  partitionNameList?: string[];
+  /**
+   * @example
+   * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      partitionNameList: 'PartitionNameList',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      partitionNameList: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakePartitionNameResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataLakePartitionNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataLakePartitionNameResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeTableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * **if can be null:**
+   * false
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * f056501ada12c1cc
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * .*
+   */
+  tableNamePattern?: string;
+  /**
+   * @example
+   * MANAGED_TABLE
+   */
+  tableType?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      tableNamePattern: 'TableNamePattern',
+      tableType: 'TableType',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      tableNamePattern: 'string',
+      tableType: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * NesLoKLEdIZrKhDT7I2gS****
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 3D3FB827-E667-50DB-AD59-C83F8237FECB
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  tableList?: DLTable[];
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      tableList: 'TableList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      tableList: { 'type': 'array', 'itemType': DLTable },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeTableResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataLakeTableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataLakeTableResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeTableNameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * **if can be null:**
+   * false
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * f056501ada12c1cc
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * .*
+   */
+  tableNamePattern?: string;
+  /**
+   * @example
+   * MANAGED_TABLE
+   */
+  tableType?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      tableNamePattern: 'TableNamePattern',
+      tableType: 'TableType',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      tableNamePattern: 'string',
+      tableType: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeTableNameResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * NesLoKLEdIZrKhDT7I2gS****
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * C5B8E84B-42B6-4374-AD5A-6264E1753378
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  tableNameList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      tableNameList: 'TableNameList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      tableNameList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeTableNameResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataLakeTableNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataLakeTableNameResponseBody,
     };
   }
 
@@ -23960,7 +26984,7 @@ export class ListDataLakeTablebaseInfoResponseBody extends $tea.Model {
    * true
    */
   success?: boolean;
-  tablebaseInfoList?: ListDataLakeTablebaseInfoResponseBodyTablebaseInfoList;
+  tablebaseInfoList?: DLTablebaseInfo[];
   /**
    * @example
    * 100
@@ -23983,7 +27007,7 @@ export class ListDataLakeTablebaseInfoResponseBody extends $tea.Model {
       errorMessage: 'string',
       requestId: 'string',
       success: 'boolean',
-      tablebaseInfoList: ListDataLakeTablebaseInfoResponseBodyTablebaseInfoList,
+      tablebaseInfoList: { 'type': 'array', 'itemType': DLTablebaseInfo },
       totalCount: 'string',
     };
   }
@@ -35439,6 +38463,9 @@ export class SetWorkflowExtraInfoRequest extends $tea.Model {
    */
   tid?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 184****
    */
@@ -36898,6 +39925,625 @@ export class UpdateAuthorityTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateAuthorityTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakeDatabaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://path/to/database
+   */
+  location?: string;
+  parameters?: { [key: string]: string };
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      description: 'Description',
+      location: 'Location',
+      parameters: 'Parameters',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      description: 'string',
+      location: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakeDatabaseShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://path/to/database
+   */
+  location?: string;
+  parametersShrink?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      description: 'Description',
+      location: 'Location',
+      parametersShrink: 'Parameters',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      description: 'string',
+      location: 'string',
+      parametersShrink: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakeDatabaseResponseBody extends $tea.Model {
+  database?: DLDatabase;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: DLDatabase,
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakeDatabaseResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDataLakeDatabaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDataLakeDatabaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakePartitionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  partitionInput?: DLPartitionInput;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * table_name
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      partitionInput: 'PartitionInput',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      partitionInput: DLPartitionInput,
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakePartitionShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  partitionInputShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * table_name
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      partitionInputShrink: 'PartitionInput',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      partitionInputShrink: 'string',
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakePartitionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakePartitionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDataLakePartitionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDataLakePartitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakeTableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tableInput?: OpenStructDLTableInput;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      tableInput: 'TableInput',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      tableInput: OpenStructDLTableInput,
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakeTableShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tableInputShrink?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      tableInputShrink: 'TableInput',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      tableInputShrink: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakeTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * C5B8E84B-42B6-4374-AD5A-6264E1753325
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  table?: DLTable;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+      table: 'Table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      table: DLTable,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakeTableResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDataLakeTableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDataLakeTableResponseBody,
     };
   }
 
@@ -54341,63 +57987,6 @@ export class ListDataImportSQLPreCheckDetailResponseBodyPreCheckSQLDetailList ex
   }
 }
 
-export class ListDataLakeCatalogResponseBodyCataLogList extends $tea.Model {
-  catalog?: DLCatalog[];
-  static names(): { [key: string]: string } {
-    return {
-      catalog: 'Catalog',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      catalog: { 'type': 'array', 'itemType': DLCatalog },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDataLakeDatabaseResponseBodyDatabaseList extends $tea.Model {
-  database?: DLDatabase[];
-  static names(): { [key: string]: string } {
-    return {
-      database: 'Database',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      database: { 'type': 'array', 'itemType': DLDatabase },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDataLakeTablebaseInfoResponseBodyTablebaseInfoList extends $tea.Model {
-  tablebaseInfo?: DLTablebaseInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      tablebaseInfo: 'TablebaseInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tablebaseInfo: { 'type': 'array', 'itemType': DLTablebaseInfo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListDatabaseUserPermssionsResponseBodyUserPermissionsUserPermissionPermDetailsPermDetail extends $tea.Model {
   /**
    * @remarks
@@ -62997,6 +66586,220 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量新建湖仓表分区
+   * 
+   * @param tmpReq - BatchCreateDataLakePartitionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchCreateDataLakePartitionsResponse
+   */
+  async batchCreateDataLakePartitionsWithOptions(tmpReq: BatchCreateDataLakePartitionsRequest, runtime: $Util.RuntimeOptions): Promise<BatchCreateDataLakePartitionsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BatchCreateDataLakePartitionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.partitionInputs)) {
+      request.partitionInputsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.partitionInputs, "PartitionInputs", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.ifNotExists)) {
+      query["IfNotExists"] = request.ifNotExists;
+    }
+
+    if (!Util.isUnset(request.needResult)) {
+      query["NeedResult"] = request.needResult;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.partitionInputsShrink)) {
+      body["PartitionInputs"] = request.partitionInputsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchCreateDataLakePartitions",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchCreateDataLakePartitionsResponse>(await this.callApi(params, req, runtime), new BatchCreateDataLakePartitionsResponse({}));
+  }
+
+  /**
+   * 批量新建湖仓表分区
+   * 
+   * @param request - BatchCreateDataLakePartitionsRequest
+   * @returns BatchCreateDataLakePartitionsResponse
+   */
+  async batchCreateDataLakePartitions(request: BatchCreateDataLakePartitionsRequest): Promise<BatchCreateDataLakePartitionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchCreateDataLakePartitionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量删除湖仓表分区
+   * 
+   * @param request - BatchDeleteDataLakePartitionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchDeleteDataLakePartitionsResponse
+   */
+  async batchDeleteDataLakePartitionsWithOptions(request: BatchDeleteDataLakePartitionsRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteDataLakePartitionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.ifExists)) {
+      query["IfExists"] = request.ifExists;
+    }
+
+    if (!Util.isUnset(request.partitionValuesList)) {
+      query["PartitionValuesList"] = request.partitionValuesList;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchDeleteDataLakePartitions",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchDeleteDataLakePartitionsResponse>(await this.callApi(params, req, runtime), new BatchDeleteDataLakePartitionsResponse({}));
+  }
+
+  /**
+   * 批量删除湖仓表分区
+   * 
+   * @param request - BatchDeleteDataLakePartitionsRequest
+   * @returns BatchDeleteDataLakePartitionsResponse
+   */
+  async batchDeleteDataLakePartitions(request: BatchDeleteDataLakePartitionsRequest): Promise<BatchDeleteDataLakePartitionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchDeleteDataLakePartitionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量更新湖仓表分区
+   * 
+   * @param tmpReq - BatchUpdateDataLakePartitionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchUpdateDataLakePartitionsResponse
+   */
+  async batchUpdateDataLakePartitionsWithOptions(tmpReq: BatchUpdateDataLakePartitionsRequest, runtime: $Util.RuntimeOptions): Promise<BatchUpdateDataLakePartitionsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BatchUpdateDataLakePartitionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.partitionInputs)) {
+      request.partitionInputsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.partitionInputs, "PartitionInputs", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.partitionInputsShrink)) {
+      body["PartitionInputs"] = request.partitionInputsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchUpdateDataLakePartitions",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchUpdateDataLakePartitionsResponse>(await this.callApi(params, req, runtime), new BatchUpdateDataLakePartitionsResponse({}));
+  }
+
+  /**
+   * 批量更新湖仓表分区
+   * 
+   * @param request - BatchUpdateDataLakePartitionsRequest
+   * @returns BatchUpdateDataLakePartitionsResponse
+   */
+  async batchUpdateDataLakePartitions(request: BatchUpdateDataLakePartitionsRequest): Promise<BatchUpdateDataLakePartitionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchUpdateDataLakePartitionsWithOptions(request, runtime);
+  }
+
+  /**
    * Purchases a pay-as-you-go Data Management (DMS) resource.
    * 
    * @param request - BuyPayAsYouGoOrderRequest
@@ -63840,6 +67643,222 @@ export default class Client extends OpenApi {
   async createDataImportOrder(request: CreateDataImportOrderRequest): Promise<CreateDataImportOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataImportOrderWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建湖仓数据库
+   * 
+   * @param tmpReq - CreateDataLakeDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataLakeDatabaseResponse
+   */
+  async createDataLakeDatabaseWithOptions(tmpReq: CreateDataLakeDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataLakeDatabaseResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDataLakeDatabaseShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.location)) {
+      query["Location"] = request.location;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataLakeDatabase",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataLakeDatabaseResponse>(await this.callApi(params, req, runtime), new CreateDataLakeDatabaseResponse({}));
+  }
+
+  /**
+   * 新建湖仓数据库
+   * 
+   * @param request - CreateDataLakeDatabaseRequest
+   * @returns CreateDataLakeDatabaseResponse
+   */
+  async createDataLakeDatabase(request: CreateDataLakeDatabaseRequest): Promise<CreateDataLakeDatabaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataLakeDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建湖仓表分区
+   * 
+   * @param tmpReq - CreateDataLakePartitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataLakePartitionResponse
+   */
+  async createDataLakePartitionWithOptions(tmpReq: CreateDataLakePartitionRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataLakePartitionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDataLakePartitionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.partitionInput)) {
+      request.partitionInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.partitionInput, "PartitionInput", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.ifNotExists)) {
+      query["IfNotExists"] = request.ifNotExists;
+    }
+
+    if (!Util.isUnset(request.needResult)) {
+      query["NeedResult"] = request.needResult;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.partitionInputShrink)) {
+      body["PartitionInput"] = request.partitionInputShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataLakePartition",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataLakePartitionResponse>(await this.callApi(params, req, runtime), new CreateDataLakePartitionResponse({}));
+  }
+
+  /**
+   * 新建湖仓表分区
+   * 
+   * @param request - CreateDataLakePartitionRequest
+   * @returns CreateDataLakePartitionResponse
+   */
+  async createDataLakePartition(request: CreateDataLakePartitionRequest): Promise<CreateDataLakePartitionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataLakePartitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建湖仓表
+   * 
+   * @param tmpReq - CreateDataLakeTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataLakeTableResponse
+   */
+  async createDataLakeTableWithOptions(tmpReq: CreateDataLakeTableRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataLakeTableResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDataLakeTableShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tableInput)) {
+      request.tableInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tableInput, "TableInput", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tableInputShrink)) {
+      body["TableInput"] = request.tableInputShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataLakeTable",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataLakeTableResponse>(await this.callApi(params, req, runtime), new CreateDataLakeTableResponse({}));
+  }
+
+  /**
+   * 新建湖仓表
+   * 
+   * @param request - CreateDataLakeTableRequest
+   * @returns CreateDataLakeTableResponse
+   */
+  async createDataLakeTable(request: CreateDataLakeTableRequest): Promise<CreateDataLakeTableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataLakeTableWithOptions(request, runtime);
   }
 
   /**
@@ -65160,6 +69179,190 @@ export default class Client extends OpenApi {
   async deleteAuthorityTemplate(request: DeleteAuthorityTemplateRequest): Promise<DeleteAuthorityTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAuthorityTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除湖仓数据库
+   * 
+   * @param request - DeleteDataLakeDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataLakeDatabaseResponse
+   */
+  async deleteDataLakeDatabaseWithOptions(request: DeleteDataLakeDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataLakeDatabaseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataLakeDatabase",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataLakeDatabaseResponse>(await this.callApi(params, req, runtime), new DeleteDataLakeDatabaseResponse({}));
+  }
+
+  /**
+   * 删除湖仓数据库
+   * 
+   * @param request - DeleteDataLakeDatabaseRequest
+   * @returns DeleteDataLakeDatabaseResponse
+   */
+  async deleteDataLakeDatabase(request: DeleteDataLakeDatabaseRequest): Promise<DeleteDataLakeDatabaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataLakeDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除湖仓表分区
+   * 
+   * @param tmpReq - DeleteDataLakePartitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataLakePartitionResponse
+   */
+  async deleteDataLakePartitionWithOptions(tmpReq: DeleteDataLakePartitionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataLakePartitionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteDataLakePartitionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.partitionValues)) {
+      request.partitionValuesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.partitionValues, "PartitionValues", "simple");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.ifExists)) {
+      query["IfExists"] = request.ifExists;
+    }
+
+    if (!Util.isUnset(request.partitionValuesShrink)) {
+      query["PartitionValues"] = request.partitionValuesShrink;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataLakePartition",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataLakePartitionResponse>(await this.callApi(params, req, runtime), new DeleteDataLakePartitionResponse({}));
+  }
+
+  /**
+   * 删除湖仓表分区
+   * 
+   * @param request - DeleteDataLakePartitionRequest
+   * @returns DeleteDataLakePartitionResponse
+   */
+  async deleteDataLakePartition(request: DeleteDataLakePartitionRequest): Promise<DeleteDataLakePartitionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataLakePartitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除湖仓表
+   * 
+   * @param request - DeleteDataLakeTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataLakeTableResponse
+   */
+  async deleteDataLakeTableWithOptions(request: DeleteDataLakeTableRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataLakeTableResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataLakeTable",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataLakeTableResponse>(await this.callApi(params, req, runtime), new DeleteDataLakeTableResponse({}));
+  }
+
+  /**
+   * 删除湖仓表
+   * 
+   * @param request - DeleteDataLakeTableRequest
+   * @returns DeleteDataLakeTableResponse
+   */
+  async deleteDataLakeTable(request: DeleteDataLakeTableRequest): Promise<DeleteDataLakeTableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataLakeTableWithOptions(request, runtime);
   }
 
   /**
@@ -67418,6 +71621,74 @@ export default class Client extends OpenApi {
   async getDataLakeDatabase(request: GetDataLakeDatabaseRequest): Promise<GetDataLakeDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataLakeDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取湖仓表分区详情
+   * 
+   * @param tmpReq - GetDataLakePartitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataLakePartitionResponse
+   */
+  async getDataLakePartitionWithOptions(tmpReq: GetDataLakePartitionRequest, runtime: $Util.RuntimeOptions): Promise<GetDataLakePartitionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetDataLakePartitionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.partitionValues)) {
+      request.partitionValuesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.partitionValues, "PartitionValues", "simple");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.partitionValuesShrink)) {
+      query["PartitionValues"] = request.partitionValuesShrink;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataLakePartition",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataLakePartitionResponse>(await this.callApi(params, req, runtime), new GetDataLakePartitionResponse({}));
+  }
+
+  /**
+   * 获取湖仓表分区详情
+   * 
+   * @param request - GetDataLakePartitionRequest
+   * @returns GetDataLakePartitionResponse
+   */
+  async getDataLakePartition(request: GetDataLakePartitionRequest): Promise<GetDataLakePartitionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataLakePartitionWithOptions(request, runtime);
   }
 
   /**
@@ -70744,6 +75015,362 @@ export default class Client extends OpenApi {
   async listDataLakeDatabase(request: ListDataLakeDatabaseRequest): Promise<ListDataLakeDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataLakeDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据湖表分区列表
+   * 
+   * @param tmpReq - ListDataLakePartitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataLakePartitionResponse
+   */
+  async listDataLakePartitionWithOptions(tmpReq: ListDataLakePartitionRequest, runtime: $Util.RuntimeOptions): Promise<ListDataLakePartitionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListDataLakePartitionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.partNames)) {
+      request.partNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.partNames, "PartNames", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.partNamesShrink)) {
+      body["PartNames"] = request.partNamesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataLakePartition",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataLakePartitionResponse>(await this.callApi(params, req, runtime), new ListDataLakePartitionResponse({}));
+  }
+
+  /**
+   * 获取数据湖表分区列表
+   * 
+   * @param request - ListDataLakePartitionRequest
+   * @returns ListDataLakePartitionResponse
+   */
+  async listDataLakePartition(request: ListDataLakePartitionRequest): Promise<ListDataLakePartitionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataLakePartitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据筛选条件获取数据湖表分区列表
+   * 
+   * @param request - ListDataLakePartitionByFilterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataLakePartitionByFilterResponse
+   */
+  async listDataLakePartitionByFilterWithOptions(request: ListDataLakePartitionByFilterRequest, runtime: $Util.RuntimeOptions): Promise<ListDataLakePartitionByFilterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.filter)) {
+      body["Filter"] = request.filter;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataLakePartitionByFilter",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataLakePartitionByFilterResponse>(await this.callApi(params, req, runtime), new ListDataLakePartitionByFilterResponse({}));
+  }
+
+  /**
+   * 根据筛选条件获取数据湖表分区列表
+   * 
+   * @param request - ListDataLakePartitionByFilterRequest
+   * @returns ListDataLakePartitionByFilterResponse
+   */
+  async listDataLakePartitionByFilter(request: ListDataLakePartitionByFilterRequest): Promise<ListDataLakePartitionByFilterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataLakePartitionByFilterWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据湖表分区名列表
+   * 
+   * @param request - ListDataLakePartitionNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataLakePartitionNameResponse
+   */
+  async listDataLakePartitionNameWithOptions(request: ListDataLakePartitionNameRequest, runtime: $Util.RuntimeOptions): Promise<ListDataLakePartitionNameResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataLakePartitionName",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataLakePartitionNameResponse>(await this.callApi(params, req, runtime), new ListDataLakePartitionNameResponse({}));
+  }
+
+  /**
+   * 获取数据湖表分区名列表
+   * 
+   * @param request - ListDataLakePartitionNameRequest
+   * @returns ListDataLakePartitionNameResponse
+   */
+  async listDataLakePartitionName(request: ListDataLakePartitionNameRequest): Promise<ListDataLakePartitionNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataLakePartitionNameWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据湖表列表
+   * 
+   * @param request - ListDataLakeTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataLakeTableResponse
+   */
+  async listDataLakeTableWithOptions(request: ListDataLakeTableRequest, runtime: $Util.RuntimeOptions): Promise<ListDataLakeTableResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.tableNamePattern)) {
+      query["TableNamePattern"] = request.tableNamePattern;
+    }
+
+    if (!Util.isUnset(request.tableType)) {
+      query["TableType"] = request.tableType;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataLakeTable",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataLakeTableResponse>(await this.callApi(params, req, runtime), new ListDataLakeTableResponse({}));
+  }
+
+  /**
+   * 获取数据湖表列表
+   * 
+   * @param request - ListDataLakeTableRequest
+   * @returns ListDataLakeTableResponse
+   */
+  async listDataLakeTable(request: ListDataLakeTableRequest): Promise<ListDataLakeTableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataLakeTableWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据湖表名列表
+   * 
+   * @param request - ListDataLakeTableNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataLakeTableNameResponse
+   */
+  async listDataLakeTableNameWithOptions(request: ListDataLakeTableNameRequest, runtime: $Util.RuntimeOptions): Promise<ListDataLakeTableNameResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.tableNamePattern)) {
+      query["TableNamePattern"] = request.tableNamePattern;
+    }
+
+    if (!Util.isUnset(request.tableType)) {
+      query["TableType"] = request.tableType;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataLakeTableName",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataLakeTableNameResponse>(await this.callApi(params, req, runtime), new ListDataLakeTableNameResponse({}));
+  }
+
+  /**
+   * 获取数据湖表名列表
+   * 
+   * @param request - ListDataLakeTableNameRequest
+   * @returns ListDataLakeTableNameResponse
+   */
+  async listDataLakeTableName(request: ListDataLakeTableNameRequest): Promise<ListDataLakeTableNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataLakeTableNameWithOptions(request, runtime);
   }
 
   /**
@@ -75468,6 +80095,214 @@ export default class Client extends OpenApi {
   async updateAuthorityTemplate(request: UpdateAuthorityTemplateRequest): Promise<UpdateAuthorityTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAuthorityTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新湖仓数据库
+   * 
+   * @param tmpReq - UpdateDataLakeDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataLakeDatabaseResponse
+   */
+  async updateDataLakeDatabaseWithOptions(tmpReq: UpdateDataLakeDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataLakeDatabaseResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDataLakeDatabaseShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.location)) {
+      query["Location"] = request.location;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDataLakeDatabase",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDataLakeDatabaseResponse>(await this.callApi(params, req, runtime), new UpdateDataLakeDatabaseResponse({}));
+  }
+
+  /**
+   * 更新湖仓数据库
+   * 
+   * @param request - UpdateDataLakeDatabaseRequest
+   * @returns UpdateDataLakeDatabaseResponse
+   */
+  async updateDataLakeDatabase(request: UpdateDataLakeDatabaseRequest): Promise<UpdateDataLakeDatabaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDataLakeDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新湖仓表分区
+   * 
+   * @param tmpReq - UpdateDataLakePartitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataLakePartitionResponse
+   */
+  async updateDataLakePartitionWithOptions(tmpReq: UpdateDataLakePartitionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataLakePartitionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDataLakePartitionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.partitionInput)) {
+      request.partitionInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.partitionInput, "PartitionInput", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.partitionInputShrink)) {
+      body["PartitionInput"] = request.partitionInputShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDataLakePartition",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDataLakePartitionResponse>(await this.callApi(params, req, runtime), new UpdateDataLakePartitionResponse({}));
+  }
+
+  /**
+   * 更新湖仓表分区
+   * 
+   * @param request - UpdateDataLakePartitionRequest
+   * @returns UpdateDataLakePartitionResponse
+   */
+  async updateDataLakePartition(request: UpdateDataLakePartitionRequest): Promise<UpdateDataLakePartitionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDataLakePartitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新湖仓表信息
+   * 
+   * @param tmpReq - UpdateDataLakeTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataLakeTableResponse
+   */
+  async updateDataLakeTableWithOptions(tmpReq: UpdateDataLakeTableRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataLakeTableResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDataLakeTableShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tableInput)) {
+      request.tableInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tableInput, "TableInput", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tableInputShrink)) {
+      body["TableInput"] = request.tableInputShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDataLakeTable",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDataLakeTableResponse>(await this.callApi(params, req, runtime), new UpdateDataLakeTableResponse({}));
+  }
+
+  /**
+   * 更新湖仓表信息
+   * 
+   * @param request - UpdateDataLakeTableRequest
+   * @returns UpdateDataLakeTableResponse
+   */
+  async updateDataLakeTable(request: UpdateDataLakeTableRequest): Promise<UpdateDataLakeTableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDataLakeTableWithOptions(request, runtime);
   }
 
   /**
