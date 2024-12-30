@@ -611,6 +611,10 @@ export class CreateCloudResourceRequest extends $tea.Model {
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags to add to the resource.
+   */
   tag?: CreateCloudResourceRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -695,6 +699,10 @@ export class CreateCloudResourceShrinkRequest extends $tea.Model {
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags to add to the resource.
+   */
   tag?: CreateCloudResourceShrinkRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -7103,10 +7111,10 @@ export class DescribeCertsRequest extends $tea.Model {
    * The region in which the WAF instance is deployed. Valid values:
    * 
    * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
-   * cn-hangzhou
+   * ap-southeast-1
    */
   regionId?: string;
   /**
@@ -8883,6 +8891,7 @@ export class DescribeDefenseResourceTemplatesRequest extends $tea.Model {
    * 20111098
    */
   ruleId?: number;
+  ruleName?: string;
   /**
    * @remarks
    * The type of the protection rule. Valid values:
@@ -8894,6 +8903,7 @@ export class DescribeDefenseResourceTemplatesRequest extends $tea.Model {
    * whitelist
    */
   ruleType?: string;
+  templateName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -8902,7 +8912,9 @@ export class DescribeDefenseResourceTemplatesRequest extends $tea.Model {
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       resourceType: 'ResourceType',
       ruleId: 'RuleId',
+      ruleName: 'RuleName',
       ruleType: 'RuleType',
+      templateName: 'TemplateName',
     };
   }
 
@@ -8914,7 +8926,9 @@ export class DescribeDefenseResourceTemplatesRequest extends $tea.Model {
       resourceManagerResourceGroupId: 'string',
       resourceType: 'string',
       ruleId: 'number',
+      ruleName: 'string',
       ruleType: 'string',
+      templateName: 'string',
     };
   }
 
@@ -9039,10 +9053,6 @@ export class DescribeDefenseResourcesRequest extends $tea.Model {
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
-  /**
-   * @remarks
-   * The tags of the resources that you want to query. You can specify up to 20 tags.
-   */
   tag?: DescribeDefenseResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -9084,7 +9094,7 @@ export class DescribeDefenseResourcesResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The protected objects.
+   * An array of protected objects.
    */
   resources?: DescribeDefenseResourcesResponseBodyResources[];
   /**
@@ -9859,6 +9869,8 @@ export class DescribeDefenseTemplatesRequest extends $tea.Model {
    * 12345
    */
   templateId?: number;
+  templateIds?: string;
+  templateName?: string;
   /**
    * @remarks
    * The type of the protection template. Valid values:
@@ -9882,6 +9894,8 @@ export class DescribeDefenseTemplatesRequest extends $tea.Model {
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       resourceType: 'ResourceType',
       templateId: 'TemplateId',
+      templateIds: 'TemplateIds',
+      templateName: 'TemplateName',
       templateType: 'TemplateType',
     };
   }
@@ -9898,6 +9912,8 @@ export class DescribeDefenseTemplatesRequest extends $tea.Model {
       resourceManagerResourceGroupId: 'string',
       resourceType: 'string',
       templateId: 'number',
+      templateIds: 'string',
+      templateName: 'string',
       templateType: 'string',
     };
   }
@@ -20764,7 +20780,7 @@ export class ModifyDefaultHttpsRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * 阿里云资源组ID。
    * 
    * @example
    * rg-acfm***q
@@ -22239,6 +22255,8 @@ export class ModifyHybridCloudClusterBypassStatusRequest extends $tea.Model {
    * waf_elasticity-cn-0xldbqt****
    */
   instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
   /**
    * @remarks
    * The status of manual bypass. Valid values:
@@ -22256,6 +22274,8 @@ export class ModifyHybridCloudClusterBypassStatusRequest extends $tea.Model {
     return {
       clusterResourceId: 'ClusterResourceId',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       ruleStatus: 'RuleStatus',
     };
   }
@@ -22264,6 +22284,8 @@ export class ModifyHybridCloudClusterBypassStatusRequest extends $tea.Model {
     return {
       clusterResourceId: 'string',
       instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
       ruleStatus: 'string',
     };
   }
@@ -23987,7 +24009,7 @@ export class SyncProductInstanceRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * 阿里云资源组ID。
    * 
    * @example
    * rg-acfm4co****f5qa
@@ -24638,7 +24660,21 @@ export class CreateCloudResourceRequestRedirect extends $tea.Model {
 }
 
 export class CreateCloudResourceRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the resource. Valid values of N: 1 to 20.
+   * 
+   * @example
+   * TagKey1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the resource. Valid values of N: 1 to 20.
+   * 
+   * @example
+   * TagValue1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24660,7 +24696,21 @@ export class CreateCloudResourceRequestTag extends $tea.Model {
 }
 
 export class CreateCloudResourceShrinkRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the resource. Valid values of N: 1 to 20.
+   * 
+   * @example
+   * TagKey1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the resource. Valid values of N: 1 to 20.
+   * 
+   * @example
+   * TagValue1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27124,7 +27174,7 @@ export class DescribeCertDetailResponseBodyCertDetail extends $tea.Model {
 export class DescribeCertsResponseBodyCerts extends $tea.Model {
   /**
    * @remarks
-   * The time when the certificate becomes valid.
+   * The expiration time.
    * 
    * @example
    * 1976256736582
@@ -27132,7 +27182,7 @@ export class DescribeCertsResponseBodyCerts extends $tea.Model {
   afterDate?: number;
   /**
    * @remarks
-   * The time when the certificate expires.
+   * The effective time.
    * 
    * @example
    * 1976256836582
@@ -27140,10 +27190,10 @@ export class DescribeCertsResponseBodyCerts extends $tea.Model {
   beforeDate?: number;
   /**
    * @remarks
-   * The globally unique ID of the certificate. The value is in the "Certificate ID-cn-hangzhou" format. For example, if the ID of the certificate is 123, the value of CertIdentifier is 123-cn-hangzhou.
+   * The globally unique ID of the certificate. The value follows a "\\<Certificate ID>-ap-southeast-1" format. For example, if the ID of the certificate is 123, the value of the CertIdentifier parameter is 123-ap-southeast-1.
    * 
    * @example
-   * 1234567-cn-hangzhou
+   * 123-ap-southeast-1
    */
   certIdentifier?: string;
   /**
@@ -27164,7 +27214,7 @@ export class DescribeCertsResponseBodyCerts extends $tea.Model {
   commonName?: string;
   /**
    * @remarks
-   * The domain name that is added to WAF.
+   * The domain that is supported by the certificate.
    * 
    * @example
    * www.example.com
@@ -28319,17 +28369,11 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $tea.
 
 export class DescribeDefenseResourcesRequestTag extends $tea.Model {
   /**
-   * @remarks
-   * The key of the tag.
-   * 
    * @example
    * Tagkey1
    */
   key?: string;
   /**
-   * @remarks
-   * The value of the tag.
-   * 
    * @example
    * TagValue1
    */
@@ -28356,10 +28400,11 @@ export class DescribeDefenseResourcesRequestTag extends $tea.Model {
 export class DescribeDefenseResourcesResponseBodyResources extends $tea.Model {
   /**
    * @remarks
-   * The status of the tracking cookie.
+   * 跟踪cookie开关状态。
    * 
-   * *   **0:** disabled.
-   * *   **1:** enabled.
+   * - **0**：表示关闭。
+   * 
+   * - **1**：表示开启。
    * 
    * @example
    * 1
@@ -28367,10 +28412,11 @@ export class DescribeDefenseResourcesResponseBodyResources extends $tea.Model {
   acwCookieStatus?: number;
   /**
    * @remarks
-   * The status of the secure attribute in the tracking cookie.
+   * 跟踪cookie的secure属性状态。
    * 
-   * *   **0:** disabled.
-   * *   **1:** enabled.
+   * - **0**：表示关闭。
+   * 
+   * - **1**：表示开启。
    * 
    * @example
    * 0
@@ -28378,10 +28424,11 @@ export class DescribeDefenseResourcesResponseBodyResources extends $tea.Model {
   acwSecureStatus?: number;
   /**
    * @remarks
-   * The status of the secure attribute in the slider CAPTCHA cookie.
+   * 滑块cookie的secure属性状态。
    * 
-   * *   **0:** disabled.
-   * *   **1:** enabled.
+   * - **0**：表示关闭。
+   * 
+   * - **1**：表示开启。
    * 
    * @example
    * 0
@@ -28389,7 +28436,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $tea.Model {
   acwV3SecureStatus?: number;
   /**
    * @remarks
-   * The custom XFF headers that are used to identify the originating IP addresses of clients. If the value of XffStatus is 1 and CustomHeaders is left empty, the first IP addresses in the XFF headers are used as the originating IP addresses of clients.
+   * An array of custom XFF headers that are used to identify the originating IP addresses of clients. If the value of the XffStatus parameter is 1 and the CustomHeaders field is left empty, the first IP address in the XFF header is the originating IP address of the client.
    */
   customHeaders?: string[];
   /**
@@ -28402,12 +28449,12 @@ export class DescribeDefenseResourcesResponseBodyResources extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * The details of the protected object. Different key-value pairs indicate different attributes of the protected object.
+   * The description of the protected object. Different key-value pairs in a map indicate different properties of the protected object.
    */
   detail?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the protected object was created. Unit: milliseconds.
+   * The creation time of the protected object. Unit: seconds.
    * 
    * @example
    * 1652149203187
@@ -28415,7 +28462,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $tea.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The time when the protected object was modified. Unit: milliseconds.
+   * The most recent modification time of the protected object. Unit: seconds.
    * 
    * @example
    * 1665633032000
@@ -28423,7 +28470,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $tea.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 多账号统一管理场景中防护对象资产归属账号。
    * 
    * @example
    * 135*********46
@@ -28431,7 +28478,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $tea.Model {
   ownerUserId?: string;
   /**
    * @remarks
-   * The pattern in which the protected object is protected.
+   * The protection pattern.
    * 
    * @example
    * domain
@@ -28463,7 +28510,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $tea.Model {
   resourceGroup?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm***q
@@ -28479,7 +28526,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $tea.Model {
   resourceOrigin?: string;
   /**
    * @remarks
-   * Indicates whether the X-Forwarded-For (XFF) proxy is enabled.
+   * Indicates whether the X-Forwarded-For (XFF) header is used.
    * 
    * @example
    * 1
@@ -38908,8 +38955,16 @@ export default class Client extends OpenApi {
       query["RuleId"] = request.ruleId;
     }
 
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
     if (!Util.isUnset(request.ruleType)) {
       query["RuleType"] = request.ruleType;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -39302,6 +39357,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateIds)) {
+      query["TemplateIds"] = request.templateIds;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
     }
 
     if (!Util.isUnset(request.templateType)) {
@@ -43731,7 +43794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the default SSL and Transport Layer Security (TLS) settings.
+   * Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
    * 
    * @param request - ModifyDefaultHttpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -43790,7 +43853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the default SSL and Transport Layer Security (TLS) settings.
+   * Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
    * 
    * @param request - ModifyDefaultHttpsRequest
    * @returns ModifyDefaultHttpsResponse
@@ -44386,6 +44449,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
     }
 
     if (!Util.isUnset(request.ruleStatus)) {
@@ -45161,7 +45232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances to Web Application Firewall (WAF).
+   * Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances with Web Application Firewall (WAF).
    * 
    * @remarks
    * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
@@ -45203,7 +45274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances to Web Application Firewall (WAF).
+   * Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances with Web Application Firewall (WAF).
    * 
    * @remarks
    * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
