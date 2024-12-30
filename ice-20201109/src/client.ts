@@ -95,6 +95,58 @@ export class AppInfoDTO extends $tea.Model {
   }
 }
 
+export class Channel extends $tea.Model {
+  accessPolicy?: boolean;
+  accessToken?: string;
+  arn?: string;
+  channelName?: string;
+  channelTier?: string;
+  fillerSourceLocationName?: string;
+  fillerSourceName?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  outPutConfigList?: ChannelOutPutConfigList[];
+  playbackMode?: string;
+  state?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessPolicy: 'AccessPolicy',
+      accessToken: 'AccessToken',
+      arn: 'Arn',
+      channelName: 'ChannelName',
+      channelTier: 'ChannelTier',
+      fillerSourceLocationName: 'FillerSourceLocationName',
+      fillerSourceName: 'FillerSourceName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      outPutConfigList: 'OutPutConfigList',
+      playbackMode: 'PlaybackMode',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPolicy: 'boolean',
+      accessToken: 'string',
+      arn: 'string',
+      channelName: 'string',
+      channelTier: 'string',
+      fillerSourceLocationName: 'string',
+      fillerSourceName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      outPutConfigList: { 'type': 'array', 'itemType': ChannelOutPutConfigList },
+      playbackMode: 'string',
+      state: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LicenseInstanceAppDTO extends $tea.Model {
   appId?: string;
   beginOn?: string;
@@ -136,6 +188,172 @@ export class LicenseInstanceAppDTO extends $tea.Model {
       modificationTime: 'string',
       status: 'string',
       userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Program extends $tea.Model {
+  adBreaks?: ProgramAdBreaks[];
+  arn?: string;
+  channelName?: string;
+  clipRange?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  programName?: string;
+  sourceLocationName?: string;
+  sourceName?: string;
+  sourceType?: string;
+  transition?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adBreaks: 'AdBreaks',
+      arn: 'Arn',
+      channelName: 'ChannelName',
+      clipRange: 'ClipRange',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      programName: 'ProgramName',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+      transition: 'Transition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adBreaks: { 'type': 'array', 'itemType': ProgramAdBreaks },
+      arn: 'string',
+      channelName: 'string',
+      clipRange: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      programName: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+      transition: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScheduleData extends $tea.Model {
+  adBreaks?: ScheduleDataAdBreaks[];
+  approximateDurationSeconds?: number;
+  approximateStartTime?: string;
+  entryType?: string;
+  programName?: string;
+  sourceLocationName?: string;
+  sourceName?: string;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adBreaks: 'AdBreaks',
+      approximateDurationSeconds: 'ApproximateDurationSeconds',
+      approximateStartTime: 'ApproximateStartTime',
+      entryType: 'EntryType',
+      programName: 'ProgramName',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adBreaks: { 'type': 'array', 'itemType': ScheduleDataAdBreaks },
+      approximateDurationSeconds: 'number',
+      approximateStartTime: 'string',
+      entryType: 'string',
+      programName: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Source extends $tea.Model {
+  arn?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  httpPackageConfigurations?: string;
+  sourceLocationName?: string;
+  sourceName?: string;
+  sourceType?: string;
+  state?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      httpPackageConfigurations: 'HttpPackageConfigurations',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      httpPackageConfigurations: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+      state: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceLocation extends $tea.Model {
+  arn?: string;
+  baseUrl?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  segmentDeliveryConfigurations?: string;
+  sourceLocationName?: string;
+  state?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      baseUrl: 'BaseUrl',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      segmentDeliveryConfigurations: 'SegmentDeliveryConfigurations',
+      sourceLocationName: 'SourceLocationName',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      baseUrl: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      segmentDeliveryConfigurations: 'string',
+      sourceLocationName: 'string',
+      state: 'number',
     };
   }
 
@@ -25052,10 +25270,12 @@ export class SubmitMediaAiAnalysisJobRequest extends $tea.Model {
    * {"MediaType":"video","Media":"https://xxx.com/your_movie.mp4"}
    */
   input?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       analysisParams: 'AnalysisParams',
       input: 'Input',
+      userData: 'UserData',
     };
   }
 
@@ -25063,6 +25283,7 @@ export class SubmitMediaAiAnalysisJobRequest extends $tea.Model {
     return {
       analysisParams: 'string',
       input: 'string',
+      userData: 'string',
     };
   }
 
@@ -31087,6 +31308,40 @@ export class AppInfoDTOPlatforms extends $tea.Model {
   }
 }
 
+export class ChannelOutPutConfigList extends $tea.Model {
+  channelName?: string;
+  format?: string;
+  manifestName?: string;
+  manifestSettings?: string;
+  playbackUrl?: string;
+  sourceGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+      format: 'Format',
+      manifestName: 'ManifestName',
+      manifestSettings: 'ManifestSettings',
+      playbackUrl: 'PlaybackUrl',
+      sourceGroupName: 'SourceGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+      format: 'string',
+      manifestName: 'string',
+      manifestSettings: 'string',
+      playbackUrl: 'string',
+      sourceGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LicenseInstanceAppDTOLicenseConfigs extends $tea.Model {
   businessType?: string;
   featureIds?: string;
@@ -31116,6 +31371,80 @@ export class LicenseInstanceAppDTOLicenseConfigs extends $tea.Model {
       subscription: 'string',
       subscriptionImp: 'string',
       subscriptionPkg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ProgramAdBreaks extends $tea.Model {
+  channelName?: string;
+  messageType?: string;
+  offsetMillis?: number;
+  programName?: string;
+  sourceLocationName?: string;
+  sourceName?: string;
+  spliceInsertSettings?: string;
+  timeSignalSettings?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+      messageType: 'MessageType',
+      offsetMillis: 'OffsetMillis',
+      programName: 'ProgramName',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      spliceInsertSettings: 'SpliceInsertSettings',
+      timeSignalSettings: 'TimeSignalSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+      messageType: 'string',
+      offsetMillis: 'number',
+      programName: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      spliceInsertSettings: 'string',
+      timeSignalSettings: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScheduleDataAdBreaks extends $tea.Model {
+  messageType?: string;
+  offsetMillis?: string;
+  sourceLocationName?: string;
+  sourceName?: string;
+  spliceInsertSettings?: string;
+  timeSignalSettings?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageType: 'MessageType',
+      offsetMillis: 'OffsetMillis',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      spliceInsertSettings: 'SpliceInsertSettings',
+      timeSignalSettings: 'TimeSignalSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageType: 'string',
+      offsetMillis: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      spliceInsertSettings: 'string',
+      timeSignalSettings: 'string',
     };
   }
 
@@ -79696,6 +80025,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.input)) {
       query["Input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
     }
 
     let req = new $OpenApi.OpenApiRequest({
