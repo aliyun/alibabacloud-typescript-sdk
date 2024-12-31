@@ -32,11 +32,13 @@ export class DataTopicLagMapValue extends $tea.Model {
    * 12
    */
   deliveryDuration?: number;
+  lastConsumeTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
       readyCount: 'readyCount',
       inflightCount: 'inflightCount',
       deliveryDuration: 'deliveryDuration',
+      lastConsumeTimestamp: 'lastConsumeTimestamp',
     };
   }
 
@@ -45,6 +47,7 @@ export class DataTopicLagMapValue extends $tea.Model {
       readyCount: 'number',
       inflightCount: 'number',
       deliveryDuration: 'number',
+      lastConsumeTimestamp: 'number',
     };
   }
 
@@ -1872,6 +1875,74 @@ export class DeleteConsumerGroupSubscriptionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteConsumerGroupSubscriptionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDisasterRecoveryPlanResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDisasterRecoveryPlanResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDisasterRecoveryPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDisasterRecoveryPlanResponseBody,
     };
   }
 
@@ -5303,6 +5374,135 @@ export class ListMessagesResponse extends $tea.Model {
   }
 }
 
+export class ListMetricMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetricMetaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  data?: ListMetricMetaResponseBodyData;
+  /**
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * The topic already exists.
+   */
+  message?: string;
+  /**
+   * @example
+   * 8B459455-4A35-5796-BA9D-98EF1AB9A931
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListMetricMetaResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetricMetaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMetricMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMetricMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRegionsResponseBody extends $tea.Model {
   /**
    * @remarks
@@ -6324,6 +6524,142 @@ export class ResetConsumeOffsetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ResetConsumeOffsetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDisasterRecoveryItemResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDisasterRecoveryItemResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartDisasterRecoveryItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartDisasterRecoveryItemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDisasterRecoveryItemResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDisasterRecoveryItemResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDisasterRecoveryItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopDisasterRecoveryItemResponseBody,
     };
   }
 
@@ -12432,6 +12768,83 @@ export class ListMessagesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListMetricMetaResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * Bug
+   */
+  category?: string;
+  /**
+   * @example
+   * Using Serverless Devs to deploy the infrastructure of project:get-userinfo-v1-infrastructure-as-template-project
+   */
+  description?: string;
+  /**
+   * @example
+   * SendMessageCountPerInstance
+   */
+  metricName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      description: 'description',
+      metricName: 'metricName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      description: 'string',
+      metricName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetricMetaResponseBodyData extends $tea.Model {
+  list?: ListMetricMetaResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'list',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListMetricMetaResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRegionsResponseBodyDataTags extends $tea.Model {
   /**
    * @remarks
@@ -13956,6 +14369,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除容灾计划
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDisasterRecoveryPlanResponse
+   */
+  async deleteDisasterRecoveryPlanWithOptions(planId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDisasterRecoveryPlanResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDisasterRecoveryPlan",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery/${OpenApiUtil.getEncodeParam(planId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDisasterRecoveryPlanResponse>(await this.callApi(params, req, runtime), new DeleteDisasterRecoveryPlanResponse({}));
+  }
+
+  /**
+   * 删除容灾计划
+   * @returns DeleteDisasterRecoveryPlanResponse
+   */
+  async deleteDisasterRecoveryPlan(planId: string): Promise<DeleteDisasterRecoveryPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDisasterRecoveryPlanWithOptions(planId, headers, runtime);
+  }
+
+  /**
    * Deletes a ApsaraMQ for RocketMQ instance.
    * 
    * @remarks
@@ -14999,6 +15447,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询监控项列表
+   * 
+   * @param request - ListMetricMetaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMetricMetaResponse
+   */
+  async listMetricMetaWithOptions(request: ListMetricMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMetricMetaResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMetricMeta",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/monitor/metrics/meta`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMetricMetaResponse>(await this.callApi(params, req, runtime), new ListMetricMetaResponse({}));
+  }
+
+  /**
+   * 查询监控项列表
+   * 
+   * @param request - ListMetricMetaRequest
+   * @returns ListMetricMetaResponse
+   */
+  async listMetricMeta(request: ListMetricMetaRequest): Promise<ListMetricMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMetricMetaWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries regions in which ApsaraMQ for RocketMQ is available.
    * 
    * @param headers - map
@@ -15312,6 +15809,76 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.resetConsumeOffsetWithOptions(instanceId, consumerGroupId, topicName, request, headers, runtime);
+  }
+
+  /**
+   * 启用容灾计划条目
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartDisasterRecoveryItemResponse
+   */
+  async startDisasterRecoveryItemWithOptions(planId: string, itemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartDisasterRecoveryItemResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "StartDisasterRecoveryItem",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery/${OpenApiUtil.getEncodeParam(planId)}/items/${OpenApiUtil.getEncodeParam(itemId)}/start`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartDisasterRecoveryItemResponse>(await this.callApi(params, req, runtime), new StartDisasterRecoveryItemResponse({}));
+  }
+
+  /**
+   * 启用容灾计划条目
+   * @returns StartDisasterRecoveryItemResponse
+   */
+  async startDisasterRecoveryItem(planId: string, itemId: string): Promise<StartDisasterRecoveryItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startDisasterRecoveryItemWithOptions(planId, itemId, headers, runtime);
+  }
+
+  /**
+   * 停用容灾计划条目
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopDisasterRecoveryItemResponse
+   */
+  async stopDisasterRecoveryItemWithOptions(planId: string, itemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopDisasterRecoveryItemResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "StopDisasterRecoveryItem",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery/${OpenApiUtil.getEncodeParam(planId)}/items/${OpenApiUtil.getEncodeParam(itemId)}/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopDisasterRecoveryItemResponse>(await this.callApi(params, req, runtime), new StopDisasterRecoveryItemResponse({}));
+  }
+
+  /**
+   * 停用容灾计划条目
+   * @returns StopDisasterRecoveryItemResponse
+   */
+  async stopDisasterRecoveryItem(planId: string, itemId: string): Promise<StopDisasterRecoveryItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopDisasterRecoveryItemWithOptions(planId, itemId, headers, runtime);
   }
 
   /**
