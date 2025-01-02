@@ -16948,6 +16948,7 @@ export class SubmitEnterpriseVocAnalysisTaskResponse extends $tea.Model {
 
 export class SubmitSmartClipTaskRequest extends $tea.Model {
   editingConfig?: SubmitSmartClipTaskRequestEditingConfig;
+  extendParam?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -16962,6 +16963,7 @@ export class SubmitSmartClipTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       editingConfig: 'EditingConfig',
+      extendParam: 'ExtendParam',
       inputConfig: 'InputConfig',
       outputConfig: 'OutputConfig',
       workspaceId: 'WorkspaceId',
@@ -16971,6 +16973,7 @@ export class SubmitSmartClipTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       editingConfig: SubmitSmartClipTaskRequestEditingConfig,
+      extendParam: 'string',
       inputConfig: SubmitSmartClipTaskRequestInputConfig,
       outputConfig: SubmitSmartClipTaskRequestOutputConfig,
       workspaceId: 'string',
@@ -16984,6 +16987,7 @@ export class SubmitSmartClipTaskRequest extends $tea.Model {
 
 export class SubmitSmartClipTaskShrinkRequest extends $tea.Model {
   editingConfigShrink?: string;
+  extendParam?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -16998,6 +17002,7 @@ export class SubmitSmartClipTaskShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       editingConfigShrink: 'EditingConfig',
+      extendParam: 'ExtendParam',
       inputConfigShrink: 'InputConfig',
       outputConfigShrink: 'OutputConfig',
       workspaceId: 'WorkspaceId',
@@ -17007,6 +17012,7 @@ export class SubmitSmartClipTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       editingConfigShrink: 'string',
+      extendParam: 'string',
       inputConfigShrink: 'string',
       outputConfigShrink: 'string',
       workspaceId: 'string',
@@ -34981,6 +34987,143 @@ export class SubmitEnterpriseVocAnalysisTaskResponseBodyData extends $tea.Model 
   }
 }
 
+export class SubmitSmartClipTaskRequestEditingConfigBackgroundMusicConfig extends $tea.Model {
+  style?: string;
+  /**
+   * @example
+   * 0.2
+   */
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      style: 'Style',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      style: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskRequestEditingConfigMediaConfig extends $tea.Model {
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskRequestEditingConfigSpeechConfigAsrConfig extends $tea.Model {
+  alignment?: string;
+  /**
+   * @example
+   * SimSun
+   */
+  font?: string;
+  /**
+   * @example
+   * #ffffff
+   */
+  fontColor?: string;
+  /**
+   * @example
+   * 0
+   */
+  fontSize?: string;
+  /**
+   * @example
+   * 0
+   */
+  spacing?: string;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alignment: 'Alignment',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      spacing: 'Spacing',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alignment: 'string',
+      font: 'string',
+      fontColor: 'string',
+      fontSize: 'string',
+      spacing: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskRequestEditingConfigSpeechConfig extends $tea.Model {
+  asrConfig?: SubmitSmartClipTaskRequestEditingConfigSpeechConfigAsrConfig;
+  /**
+   * @example
+   * 0
+   */
+  speechRate?: number;
+  style?: string;
+  voice?: string;
+  /**
+   * @example
+   * 0.5
+   */
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      asrConfig: 'AsrConfig',
+      speechRate: 'SpeechRate',
+      style: 'Style',
+      voice: 'Voice',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asrConfig: SubmitSmartClipTaskRequestEditingConfigSpeechConfigAsrConfig,
+      speechRate: 'number',
+      style: 'string',
+      voice: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitSmartClipTaskRequestEditingConfigTitleConfig extends $tea.Model {
   /**
    * @example
@@ -35033,15 +35176,24 @@ export class SubmitSmartClipTaskRequestEditingConfigTitleConfig extends $tea.Mod
 }
 
 export class SubmitSmartClipTaskRequestEditingConfig extends $tea.Model {
+  backgroundMusicConfig?: SubmitSmartClipTaskRequestEditingConfigBackgroundMusicConfig;
+  mediaConfig?: SubmitSmartClipTaskRequestEditingConfigMediaConfig;
+  speechConfig?: SubmitSmartClipTaskRequestEditingConfigSpeechConfig;
   titleConfig?: SubmitSmartClipTaskRequestEditingConfigTitleConfig;
   static names(): { [key: string]: string } {
     return {
+      backgroundMusicConfig: 'BackgroundMusicConfig',
+      mediaConfig: 'MediaConfig',
+      speechConfig: 'SpeechConfig',
       titleConfig: 'TitleConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backgroundMusicConfig: SubmitSmartClipTaskRequestEditingConfigBackgroundMusicConfig,
+      mediaConfig: SubmitSmartClipTaskRequestEditingConfigMediaConfig,
+      speechConfig: SubmitSmartClipTaskRequestEditingConfigSpeechConfig,
       titleConfig: SubmitSmartClipTaskRequestEditingConfigTitleConfig,
     };
   }
@@ -42987,6 +43139,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.editingConfigShrink)) {
       body["EditingConfig"] = request.editingConfigShrink;
+    }
+
+    if (!Util.isUnset(request.extendParam)) {
+      body["ExtendParam"] = request.extendParam;
     }
 
     if (!Util.isUnset(request.inputConfigShrink)) {
