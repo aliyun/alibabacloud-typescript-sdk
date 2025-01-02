@@ -308,8 +308,8 @@ export class CreateAclRequest extends $tea.Model {
    * *   **Read**
    * *   **Describe**: reads of transactional IDs.
    * *   **IdempotentWrite**: idempotent data writes to clusters.
-   * *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for ApsaraMQ for Kafka V3 instances.
-   * *   **DESCRIBE_CONFIGS**: queries of configurations. This value is available only for ApsaraMQ for Kafka V3 instances.
+   * *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for serverless ApsaraMQ for Kafka instances.
+   * *   **DESCRIBE_CONFIGS**: configuration query. This value is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * This parameter is required.
    * 
@@ -327,10 +327,10 @@ export class CreateAclRequest extends $tea.Model {
    * *   **Read**
    * *   **Describe**: reads of transactional IDs.
    * *   **IdempotentWrite**: idempotent data writes to clusters.
-   * *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for ApsaraMQ for Kafka V3 instances.
-   * *   **DESCRIBE_CONFIGS**: queries of configurations. This value is available only for ApsaraMQ for Kafka V3 instances.
+   * *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for serverless ApsaraMQ for Kafka instances.
+   * *   **DESCRIBE_CONFIGS**: configuration query. This value is available only for serverless ApsaraMQ for Kafka instances.
    * 
-   * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+   * >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @example
    * Write,Read
@@ -343,7 +343,7 @@ export class CreateAclRequest extends $tea.Model {
    * *   **DENY**
    * *   **ALLOW**
    * 
-   * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+   * >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @example
    * DENY
@@ -394,10 +394,13 @@ export class CreateAclRequest extends $tea.Model {
   aclResourceType?: string;
   /**
    * @remarks
-   * The source IP address.
+   * The IP address of the source.
    * 
-   * > -  You can specify only a specific IP address or use the asterisk (\\*) wildcard character to specify all IP addresses. CIDR blocks are not supported.
-   * > -  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+   * > 
+   * 
+   * *   You can specify a specific IP address or use the asterisk (\\*) wildcard character to specify all IP addresses. CIDR blocks are not supported.
+   * 
+   * *   This parameter is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @example
    * *
@@ -707,6 +710,274 @@ export class CreateConsumerGroupResponse extends $tea.Model {
   }
 }
 
+export class CreatePostPayInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
+  deployType?: number;
+  /**
+   * @example
+   * 1500
+   */
+  diskSize?: number;
+  /**
+   * @example
+   * 0
+   */
+  diskType?: string;
+  /**
+   * @example
+   * 3
+   */
+  eipMax?: number;
+  /**
+   * @example
+   * alikafka.hw.2xlarge
+   */
+  ioMaxSpec?: string;
+  /**
+   * @example
+   * 0
+   */
+  paidType?: number;
+  /**
+   * @example
+   * 100
+   */
+  partitionNum?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-ac***********7q
+   */
+  resourceGroupId?: string;
+  serverlessConfig?: CreatePostPayInstanceRequestServerlessConfig;
+  /**
+   * @example
+   * professional
+   */
+  specType?: string;
+  tag?: CreatePostPayInstanceRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      deployType: 'DeployType',
+      diskSize: 'DiskSize',
+      diskType: 'DiskType',
+      eipMax: 'EipMax',
+      ioMaxSpec: 'IoMaxSpec',
+      paidType: 'PaidType',
+      partitionNum: 'PartitionNum',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      serverlessConfig: 'ServerlessConfig',
+      specType: 'SpecType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deployType: 'number',
+      diskSize: 'number',
+      diskType: 'string',
+      eipMax: 'number',
+      ioMaxSpec: 'string',
+      paidType: 'number',
+      partitionNum: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      serverlessConfig: CreatePostPayInstanceRequestServerlessConfig,
+      specType: 'string',
+      tag: { 'type': 'array', 'itemType': CreatePostPayInstanceRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostPayInstanceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
+  deployType?: number;
+  /**
+   * @example
+   * 1500
+   */
+  diskSize?: number;
+  /**
+   * @example
+   * 0
+   */
+  diskType?: string;
+  /**
+   * @example
+   * 3
+   */
+  eipMax?: number;
+  /**
+   * @example
+   * alikafka.hw.2xlarge
+   */
+  ioMaxSpec?: string;
+  /**
+   * @example
+   * 0
+   */
+  paidType?: number;
+  /**
+   * @example
+   * 100
+   */
+  partitionNum?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-ac***********7q
+   */
+  resourceGroupId?: string;
+  serverlessConfigShrink?: string;
+  /**
+   * @example
+   * professional
+   */
+  specType?: string;
+  tag?: CreatePostPayInstanceShrinkRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      deployType: 'DeployType',
+      diskSize: 'DiskSize',
+      diskType: 'DiskType',
+      eipMax: 'EipMax',
+      ioMaxSpec: 'IoMaxSpec',
+      paidType: 'PaidType',
+      partitionNum: 'PartitionNum',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      serverlessConfigShrink: 'ServerlessConfig',
+      specType: 'SpecType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deployType: 'number',
+      diskSize: 'number',
+      diskType: 'string',
+      eipMax: 'number',
+      ioMaxSpec: 'string',
+      paidType: 'number',
+      partitionNum: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      serverlessConfigShrink: 'string',
+      specType: 'string',
+      tag: { 'type': 'array', 'itemType': CreatePostPayInstanceShrinkRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostPayInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: CreatePostPayInstanceResponseBodyData;
+  /**
+   * @example
+   * operation success.
+   */
+  message?: string;
+  /**
+   * @example
+   * ABA4A7FD-E10F-45C7-9774-A5236015A***
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: CreatePostPayInstanceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostPayInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePostPayInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePostPayInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePostPayOrderRequest extends $tea.Model {
   /**
    * @remarks
@@ -727,7 +998,7 @@ export class CreatePostPayOrderRequest extends $tea.Model {
    * 
    * For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 500
@@ -735,12 +1006,12 @@ export class CreatePostPayOrderRequest extends $tea.Model {
   diskSize?: number;
   /**
    * @remarks
-   * The disk type. Valid values:
+   * The disk type of the instance. Valid values:
    * 
    * *   **0**: ultra disk
    * *   **1**: standard SSD
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 0
@@ -748,12 +1019,12 @@ export class CreatePostPayOrderRequest extends $tea.Model {
   diskType?: string;
   /**
    * @remarks
-   * The maximum Internet traffic in the instance.
+   * The Internet traffic.
    * 
    * *   If you set **DeployType** to **4**, you must configure this parameter.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 0
@@ -766,7 +1037,7 @@ export class CreatePostPayOrderRequest extends $tea.Model {
    * *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 20
@@ -779,7 +1050,7 @@ export class CreatePostPayOrderRequest extends $tea.Model {
    * *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * alikafka.hw.2xlarge
@@ -789,8 +1060,8 @@ export class CreatePostPayOrderRequest extends $tea.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   1: the pay-as-you-go billing method for ApsaraMQ for Kafka V2 instances.
-   * *   3: the pay-as-you-go billing method for serverless ApsaraMQ for Kafka V3 instances.
+   * *   1: pay-as-you-go (reserved capacity).
+   * *   3: pay-as-you-go (reserved capacity) + pay-as-you-go (on-demand capacity)
    * 
    * @example
    * 1
@@ -804,7 +1075,7 @@ export class CreatePostPayOrderRequest extends $tea.Model {
    * *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 50
@@ -832,7 +1103,7 @@ export class CreatePostPayOrderRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The parameters configured for the serverless ApsaraMQ for Kafka V3 instance. When you create a Serverless ApsaraMQ for Kafka V3 serverless instance, you must configure these parameters.
+   * The parameters configured for the serverless ApsaraMQ for Kafka instance. These parameters are required only when you create a serverless instance.
    */
   serverlessConfig?: CreatePostPayOrderRequestServerlessConfig;
   /**
@@ -869,7 +1140,7 @@ export class CreatePostPayOrderRequest extends $tea.Model {
    * *   The default value of TopicQuota varies based on the value of IoMaxSpec. If the number of topics that you consume exceeds the default value, you are charged additional fees.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 50
@@ -938,7 +1209,7 @@ export class CreatePostPayOrderShrinkRequest extends $tea.Model {
    * 
    * For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 500
@@ -946,12 +1217,12 @@ export class CreatePostPayOrderShrinkRequest extends $tea.Model {
   diskSize?: number;
   /**
    * @remarks
-   * The disk type. Valid values:
+   * The disk type of the instance. Valid values:
    * 
    * *   **0**: ultra disk
    * *   **1**: standard SSD
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 0
@@ -959,12 +1230,12 @@ export class CreatePostPayOrderShrinkRequest extends $tea.Model {
   diskType?: string;
   /**
    * @remarks
-   * The maximum Internet traffic in the instance.
+   * The Internet traffic.
    * 
    * *   If you set **DeployType** to **4**, you must configure this parameter.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 0
@@ -977,7 +1248,7 @@ export class CreatePostPayOrderShrinkRequest extends $tea.Model {
    * *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 20
@@ -990,7 +1261,7 @@ export class CreatePostPayOrderShrinkRequest extends $tea.Model {
    * *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * alikafka.hw.2xlarge
@@ -1000,8 +1271,8 @@ export class CreatePostPayOrderShrinkRequest extends $tea.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   1: the pay-as-you-go billing method for ApsaraMQ for Kafka V2 instances.
-   * *   3: the pay-as-you-go billing method for serverless ApsaraMQ for Kafka V3 instances.
+   * *   1: pay-as-you-go (reserved capacity).
+   * *   3: pay-as-you-go (reserved capacity) + pay-as-you-go (on-demand capacity)
    * 
    * @example
    * 1
@@ -1015,7 +1286,7 @@ export class CreatePostPayOrderShrinkRequest extends $tea.Model {
    * *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 50
@@ -1043,7 +1314,7 @@ export class CreatePostPayOrderShrinkRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The parameters configured for the serverless ApsaraMQ for Kafka V3 instance. When you create a Serverless ApsaraMQ for Kafka V3 serverless instance, you must configure these parameters.
+   * The parameters configured for the serverless ApsaraMQ for Kafka instance. These parameters are required only when you create a serverless instance.
    */
   serverlessConfigShrink?: string;
   /**
@@ -1080,7 +1351,7 @@ export class CreatePostPayOrderShrinkRequest extends $tea.Model {
    * *   The default value of TopicQuota varies based on the value of IoMaxSpec. If the number of topics that you consume exceeds the default value, you are charged additional fees.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 50
@@ -1212,6 +1483,282 @@ export class CreatePostPayOrderResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreatePostPayOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrePayInstanceRequest extends $tea.Model {
+  confluentConfig?: CreatePrePayInstanceRequestConfluentConfig;
+  /**
+   * @example
+   * 5
+   */
+  deployType?: number;
+  /**
+   * @example
+   * 500
+   */
+  diskSize?: number;
+  /**
+   * @example
+   * 1
+   */
+  diskType?: string;
+  /**
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @example
+   * 3
+   */
+  eipMax?: number;
+  /**
+   * @example
+   * alikafka.hw.2xlarge
+   */
+  ioMaxSpec?: string;
+  /**
+   * @example
+   * 1
+   */
+  paidType?: number;
+  /**
+   * @example
+   * 1000
+   */
+  partitionNum?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-ac***********7q
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * professional
+   */
+  specType?: string;
+  tag?: CreatePrePayInstanceRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      confluentConfig: 'ConfluentConfig',
+      deployType: 'DeployType',
+      diskSize: 'DiskSize',
+      diskType: 'DiskType',
+      duration: 'Duration',
+      eipMax: 'EipMax',
+      ioMaxSpec: 'IoMaxSpec',
+      paidType: 'PaidType',
+      partitionNum: 'PartitionNum',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      specType: 'SpecType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confluentConfig: CreatePrePayInstanceRequestConfluentConfig,
+      deployType: 'number',
+      diskSize: 'number',
+      diskType: 'string',
+      duration: 'number',
+      eipMax: 'number',
+      ioMaxSpec: 'string',
+      paidType: 'number',
+      partitionNum: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      specType: 'string',
+      tag: { 'type': 'array', 'itemType': CreatePrePayInstanceRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrePayInstanceShrinkRequest extends $tea.Model {
+  confluentConfigShrink?: string;
+  /**
+   * @example
+   * 5
+   */
+  deployType?: number;
+  /**
+   * @example
+   * 500
+   */
+  diskSize?: number;
+  /**
+   * @example
+   * 1
+   */
+  diskType?: string;
+  /**
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @example
+   * 3
+   */
+  eipMax?: number;
+  /**
+   * @example
+   * alikafka.hw.2xlarge
+   */
+  ioMaxSpec?: string;
+  /**
+   * @example
+   * 1
+   */
+  paidType?: number;
+  /**
+   * @example
+   * 1000
+   */
+  partitionNum?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-ac***********7q
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * professional
+   */
+  specType?: string;
+  tag?: CreatePrePayInstanceShrinkRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      confluentConfigShrink: 'ConfluentConfig',
+      deployType: 'DeployType',
+      diskSize: 'DiskSize',
+      diskType: 'DiskType',
+      duration: 'Duration',
+      eipMax: 'EipMax',
+      ioMaxSpec: 'IoMaxSpec',
+      paidType: 'PaidType',
+      partitionNum: 'PartitionNum',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      specType: 'SpecType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confluentConfigShrink: 'string',
+      deployType: 'number',
+      diskSize: 'number',
+      diskType: 'string',
+      duration: 'number',
+      eipMax: 'number',
+      ioMaxSpec: 'string',
+      paidType: 'number',
+      partitionNum: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      specType: 'string',
+      tag: { 'type': 'array', 'itemType': CreatePrePayInstanceShrinkRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrePayInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: CreatePrePayInstanceResponseBodyData;
+  /**
+   * @example
+   * operation success
+   */
+  message?: string;
+  /**
+   * @example
+   * E57A8862-DF68-4055-8E55-B80CB4****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: CreatePrePayInstanceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrePayInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePrePayInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePrePayInstanceResponseBody,
     };
   }
 
@@ -1771,9 +2318,7 @@ export class CreateSaslUserRequest extends $tea.Model {
    * *   SCRAM-SHA-512 (default)
    * *   SCRAM-SHA-256
    * 
-   * > 
-   * 
-   * *   This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+   * >  This parameter is available only for ApsaraMQ for Kafka serverless instances.
    * 
    * @example
    * SCRAM-SHA-256
@@ -1853,7 +2398,7 @@ export class CreateSaslUserRequest extends $tea.Model {
 export class CreateSaslUserResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+   * The HTTP status code. The HTTP status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -1869,7 +2414,7 @@ export class CreateSaslUserResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C5CA600C-7D5A-45B5-B6DB-44FAC2C****
@@ -1877,7 +2422,7 @@ export class CreateSaslUserResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -2375,7 +2920,7 @@ export class CreateTopicRequest extends $tea.Model {
   compactTopic?: boolean;
   /**
    * @remarks
-   * The additional configurations.
+   * The additional configuration.
    * 
    * *   The value must be in JSON format.
    * *   Set Key to **replications**. This value specifies the number of replicas of the topic. The value must be an integer that ranges from 1 to 3.
@@ -2621,14 +3166,14 @@ export class CreateTopicResponse extends $tea.Model {
 export class DeleteAclRequest extends $tea.Model {
   /**
    * @remarks
-   * The operation allowed by the access control list (ACL). Valid values:
+   * The type of the operation allowed by the access control list (ACL). Valid values:
    * 
-   * *   **Write**
-   * *   **Read**
-   * *   **Describe**: reads of transactional IDs
-   * *   **IdempotentWrite**: idempotent data writes to clusters
-   * *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for ApsaraMQ for Kafka V3 instances.
-   * *   **DESCRIBE_CONFIGS**: configuration queries. This value is available only for ApsaraMQ for Kafka V3 instances.
+   * *   **Write**: data writes.
+   * *   **Read**: data reads.
+   * *   **Describe**: reads of transaction IDs.
+   * *   **IdempotentWrite**: idempotent data writes to clusters.
+   * *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for serverless ApsaraMQ for Kafka instances.
+   * *   **DESCRIBE_CONFIGS**: configuration query. This value is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * This parameter is required.
    * 
@@ -2638,18 +3183,18 @@ export class DeleteAclRequest extends $tea.Model {
   aclOperationType?: string;
   /**
    * @remarks
-   * The operations allowed by the ACL. Separate multiple operations with commas (,).
+   * The types of operations allowed by the ACL. Separate multiple operations with commas (,).
    * 
    * Valid values:
    * 
-   * *   **Write**: data writes
-   * *   **Read**: data reads
-   * *   **Describe**: reads of transactional IDs
-   * *   **IdempotentWrite**: idempotent data writes to clusters
-   * *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for ApsaraMQ for Kafka V3 instances.
-   * *   **DESCRIBE_CONFIGS**: queries of configurations. This value is available only for ApsaraMQ for Kafka V3 instances.
+   * *   **Write**: data writes.
+   * *   **Read**: data reads.
+   * *   **Describe**: reads of transaction IDs.
+   * *   **IdempotentWrite**: idempotent data writes to clusters.
+   * *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for serverless ApsaraMQ for Kafka instances.
+   * *   **DESCRIBE_CONFIGS**: configuration query. This value is available only for serverless ApsaraMQ for Kafka instances.
    * 
-   * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+   * >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @example
    * Write,Read
@@ -2662,7 +3207,7 @@ export class DeleteAclRequest extends $tea.Model {
    * *   Deny
    * *   ALLOW
    * 
-   * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+   * >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @example
    * DENY
@@ -2713,8 +3258,11 @@ export class DeleteAclRequest extends $tea.Model {
    * @remarks
    * The IP address of the source.
    * 
-   * > - You can specify only a specific IP address or use the asterisk (\\*) wildcard character to specify all IP addresses. CIDR blocks are not supported.
-   * >- This parameter is available only for serverless ApsaraMQ for Kafka V3 instances.
+   * > 
+   * 
+   * *   You can specify only a specific IP address or use the asterisk (\\*) wildcard character to specify all IP addresses. CIDR blocks are not supported.
+   * 
+   * *   This parameter is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @example
    * *
@@ -3138,7 +3686,7 @@ export class DeleteSaslUserRequest extends $tea.Model {
    * *   SCRAM-SHA-512. This is the default value.
    * *   SCRAM-SHA-256
    * 
-   * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+   * >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @example
    * SCRAM-SHA-256
@@ -4071,8 +4619,6 @@ export class EnableAutoTopicCreationRequest extends $tea.Model {
    * *   disable: disables the automatic topic creation feature.
    * *   updatePartition: changes the number of partitions in topics that are automatically created.
    * 
-   * This parameter is required.
-   * 
    * @example
    * enable
    */
@@ -4097,12 +4643,14 @@ export class EnableAutoTopicCreationRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  updatePartition?: boolean;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       operate: 'Operate',
       partitionNum: 'PartitionNum',
       regionId: 'RegionId',
+      updatePartition: 'UpdatePartition',
     };
   }
 
@@ -4112,6 +4660,7 @@ export class EnableAutoTopicCreationRequest extends $tea.Model {
       operate: 'string',
       partitionNum: 'number',
       regionId: 'string',
+      updatePartition: 'boolean',
     };
   }
 
@@ -4773,6 +5322,19 @@ export class GetConsumerProgressRequest extends $tea.Model {
    * kafka-test
    */
   consumerId?: string;
+  /**
+   * @remarks
+   * Specifies whether to hide LastTimestamp. Default value: false. We recommend that you set this parameter to true.
+   * 
+   * > 
+   * 
+   * *   If you set this parameter to true, -1 is returned for LastTimestamp. If you set this parameter to false, a specific value is returned for LastTimestamp. This parameter is supported only by topics that use cloud storage on reserved instances.
+   * 
+   * *   A large amount of data is processed by this operation, which causes performance loss. We recommend that you set this parameter to true to accelerate processing.
+   * 
+   * @example
+   * true
+   */
   hideLastTimestamp?: boolean;
   /**
    * @remarks
@@ -5075,6 +5637,8 @@ export class GetInstanceListResponse extends $tea.Model {
 export class GetKafkaClientIpRequest extends $tea.Model {
   /**
    * @remarks
+   * The end of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5082,12 +5646,19 @@ export class GetKafkaClientIpRequest extends $tea.Model {
    */
   endTime?: number;
   /**
+   * @remarks
+   * The ID of the consumer group.
+   * 
+   * >  This parameter is required only if you set Type to byGroup.
+   * 
    * @example
    * group_name
    */
   group?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5096,6 +5667,8 @@ export class GetKafkaClientIpRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the region where the instance is deployed.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5104,6 +5677,8 @@ export class GetKafkaClientIpRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The beginning of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5111,12 +5686,25 @@ export class GetKafkaClientIpRequest extends $tea.Model {
    */
   startTime?: number;
   /**
+   * @remarks
+   * The topic name.
+   * 
+   * > 
+   * 
+   * *   This parameter is required only if you set Type to byTopic.
+   * 
    * @example
    * topic_name
    */
   topic?: string;
   /**
    * @remarks
+   * The query method that you want to use to query the client IP addresses. Valid values:
+   * 
+   * *   byInstance: queries the IP addresses of the clients that are connected to the instance within a specific period of time.
+   * *   byTopic: queries the IP addresses of the clients that are connected to a specific topic on the instance within a specific period of time.
+   * *   byGroup: queries the IP addresses of the clients that are connected to a specific group on the instance within a specific period of time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5154,22 +5742,38 @@ export class GetKafkaClientIpRequest extends $tea.Model {
 
 export class GetKafkaClientIpResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The returned status code. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetKafkaClientIpResponseBodyData;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * operation success.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E57A8862-DF68-4055-8E55-B80CB4****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -7548,7 +8152,7 @@ export class TagResourcesRequest extends $tea.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags that you want to add.
+   * The tags.
    * 
    * This parameter is required.
    */
@@ -8393,10 +8997,10 @@ export class UpdateTopicConfigRequest extends $tea.Model {
    * @remarks
    * The key of the topic configuration.
    * 
-   * *   ApsaraMQ for Kafka V2 instances allow you to modify configurations only for topics that use local storage.
-   * *   ApsaraMQ for Kafka V3 instances allow you to modify configurations for all topics.
-   * *   The following keys are supported by `local topic` of ApsaraMQ for Kafka V2 instances: retention.ms, retention.bytes, and replications.
-   * *   The following keys are supported by ApsaraMQ for Kafka V3 instances: retention.hours and max.message.bytes.
+   * *   For reserved instances, you can modify only the configurations of the topics that use local storage.
+   * *   For serverless instances, you can modify the configurations of all topics.
+   * *   Reserved instances whose topics use local storage support the following keys: retention.ms, max.message.bytes, replications, message.timestamp.type, and message.timestamp.difference.max.ms.``
+   * *   Serverless instances support the following keys: retention.hours, max.message.bytes, message.timestamp.type, message.timestamp.difference.max.ms.
    * 
    * This parameter is required.
    * 
@@ -8436,10 +9040,22 @@ export class UpdateTopicConfigRequest extends $tea.Model {
   topic?: string;
   /**
    * @remarks
-   * The configuration item that you want to update for the topic. The following configuration items are supported by ApsaraMQ for Kafka V3 instances:
+   * The value of the topic configuration.
    * 
-   * *   `retention.hours` specifies the message retention period. Value type: string. Valid values: 24 to 8760.
-   * *   `max.message.bytes` specifies the maximum size of a sent message. Value type: string. Valid values: 1048576 to 10485760.
+   * *   Serverless instances support the following values:
+   * 
+   *     *   `retention.hours`: the message retention period. Value type: string. Valid values: 24 to 8760.
+   *     *   `max.message.bytes`: the maximum size of a sent message. Value type: string. Valid values: 1048576 to 10485760.
+   *     *   `message.timestamp.type`: the timestamp type of a message. Valid values: CreateTime and LogAppendTime. The value CreateTime specifies the timestamp that is specified by the producer when the message is sent. The value LogAppendTime specifies the time when the broker appends the message to its log. If you do not specify this parameter, the time when the message is created on the client is used.
+   *     *   `message.timestamp.difference.max.ms`: the maximum positive or negative difference allowed between the timestamp when the broker receives a message and the timestamp specified in the message. If you set message.timestamp.type to CreateTime, **a message is rejected** if the difference in timestamp exceeds the threshold. If you set message.timestamp.type to LogAppendTime, this configuration does not take effect.
+   * 
+   * *   Reserved instances support the following values:
+   * 
+   *     *   `retention.ms`: the message retention period. Value type: string. Valid values: 3600000 to 31536000000.
+   *     *   `max.message.bytes`: the maximum size of a sent message. Value type: string. Valid values: 1048576 to 10485760.
+   *     *   `replications`: the number of replicas. Value type: string. Valid values: 1 to 3.
+   *     *   `message.timestamp.type`: the timestamp type of a message. Valid values: CreateTime and LogAppendTime. The value CreateTime specifies the timestamp that is specified by the producer when the message is sent. The value LogAppendTime specifies the time when the broker appends the message to its log. If you do not specify this parameter, the time when the message is created on the client is used.
+   *     *   `message.timestamp.difference.max.ms`: the maximum positive or negative difference allowed between the timestamp when the broker receives a message and the timestamp specified in the message. If you set message.timestamp.type to CreateTime, **a message is rejected** if the difference in timestamp exceeds the threshold. If you set message.timestamp.type to LogAppendTime, this configuration does not take effect.
    * 
    * This parameter is required.
    * 
@@ -8709,7 +9325,7 @@ export class UpgradePostPayOrderRequest extends $tea.Model {
    * *   The disk size that you specify must be greater than or equal to the current disk size of the instance.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
+   * >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 500
@@ -8717,14 +9333,18 @@ export class UpgradePostPayOrderRequest extends $tea.Model {
   diskSize?: number;
   /**
    * @remarks
-   * The Internet traffic for the instance.
+   * The maximum Internet traffic of the instance.
    * 
    * *   The Internet traffic that you specify must be greater than or equal to the current Internet traffic of the instance.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > -  If you set **EipModel** to **true**, set **EipMax** to a value that is greater than 0.
-   * >- If you set **EipModel** to **false**, set **EipMax** to **0**.
-   * >- When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
+   * > 
+   * 
+   * *   If you set **EipModel** to **true**, set **EipMax** to a value that is greater than 0.
+   * 
+   * *   If you set **EipModel** to **false**, set **EipMax** to **0**.
+   * 
+   * *   If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 0
@@ -8753,13 +9373,13 @@ export class UpgradePostPayOrderRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum traffic for the instance. We recommend that you do not configure this parameter.
+   * The maximum traffic of the instance. We recommend that you do not configure this parameter.
    * 
    * *   The maximum traffic that you specify must be greater than or equal to the current maximum traffic of the instance.
    * *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
+   * >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 60
@@ -8773,7 +9393,7 @@ export class UpgradePostPayOrderRequest extends $tea.Model {
    * *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
+   * >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * alikafka.hw.6xlarge
@@ -8783,11 +9403,11 @@ export class UpgradePostPayOrderRequest extends $tea.Model {
    * @remarks
    * The number of partitions. We recommend that you configure this parameter.
    * 
-   * *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only ParittionNum.
+   * *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
    * *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
+   * >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 80
@@ -8805,7 +9425,7 @@ export class UpgradePostPayOrderRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The parameters that are configured for the ApsaraMQ for Kafka serverless instance. When you create a serverless ApsaraMQ for Kafka instance, you must configure these parameters.
+   * The parameters that are configured for the serverless instance. These parameters are required only when you create a serverless instance.
    */
   serverlessConfig?: UpgradePostPayOrderRequestServerlessConfig;
   /**
@@ -8832,12 +9452,12 @@ export class UpgradePostPayOrderRequest extends $tea.Model {
    * @remarks
    * The number of topics. We recommend that you do not configure this parameter.
    * 
-   * *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only ParittionNum.
+   * *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
    * *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
-   * *   The default value of TopicQuota varies based on the value of IoMaxSpec. If the number of topics that you consume exceeds the default value, you are charged additional fees.
+   * *   The default value of TopicQuota varies based on the value of IoMaxSpec. If the number of topics that you use exceeds the default value, you are charged additional fees.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
+   * >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 80
@@ -8888,7 +9508,7 @@ export class UpgradePostPayOrderShrinkRequest extends $tea.Model {
    * *   The disk size that you specify must be greater than or equal to the current disk size of the instance.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
+   * >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 500
@@ -8896,14 +9516,18 @@ export class UpgradePostPayOrderShrinkRequest extends $tea.Model {
   diskSize?: number;
   /**
    * @remarks
-   * The Internet traffic for the instance.
+   * The maximum Internet traffic of the instance.
    * 
    * *   The Internet traffic that you specify must be greater than or equal to the current Internet traffic of the instance.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > -  If you set **EipModel** to **true**, set **EipMax** to a value that is greater than 0.
-   * >- If you set **EipModel** to **false**, set **EipMax** to **0**.
-   * >- When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
+   * > 
+   * 
+   * *   If you set **EipModel** to **true**, set **EipMax** to a value that is greater than 0.
+   * 
+   * *   If you set **EipModel** to **false**, set **EipMax** to **0**.
+   * 
+   * *   If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 0
@@ -8932,13 +9556,13 @@ export class UpgradePostPayOrderShrinkRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum traffic for the instance. We recommend that you do not configure this parameter.
+   * The maximum traffic of the instance. We recommend that you do not configure this parameter.
    * 
    * *   The maximum traffic that you specify must be greater than or equal to the current maximum traffic of the instance.
    * *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
+   * >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 60
@@ -8952,7 +9576,7 @@ export class UpgradePostPayOrderShrinkRequest extends $tea.Model {
    * *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
+   * >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * alikafka.hw.6xlarge
@@ -8962,11 +9586,11 @@ export class UpgradePostPayOrderShrinkRequest extends $tea.Model {
    * @remarks
    * The number of partitions. We recommend that you configure this parameter.
    * 
-   * *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only ParittionNum.
+   * *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
    * *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
+   * >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 80
@@ -8984,7 +9608,7 @@ export class UpgradePostPayOrderShrinkRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The parameters that are configured for the ApsaraMQ for Kafka serverless instance. When you create a serverless ApsaraMQ for Kafka instance, you must configure these parameters.
+   * The parameters that are configured for the serverless instance. These parameters are required only when you create a serverless instance.
    */
   serverlessConfigShrink?: string;
   /**
@@ -9011,12 +9635,12 @@ export class UpgradePostPayOrderShrinkRequest extends $tea.Model {
    * @remarks
    * The number of topics. We recommend that you do not configure this parameter.
    * 
-   * *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only ParittionNum.
+   * *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
    * *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
-   * *   The default value of TopicQuota varies based on the value of IoMaxSpec. If the number of topics that you consume exceeds the default value, you are charged additional fees.
+   * *   The default value of TopicQuota varies based on the value of IoMaxSpec. If the number of topics that you use exceeds the default value, you are charged additional fees.
    * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
+   * >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
    * 
    * @example
    * 80
@@ -9588,6 +10212,132 @@ export class CreateConsumerGroupRequestTag extends $tea.Model {
   }
 }
 
+export class CreatePostPayInstanceRequestServerlessConfig extends $tea.Model {
+  /**
+   * @example
+   * 60
+   */
+  reservedPublishCapacity?: number;
+  /**
+   * @example
+   * 50
+   */
+  reservedSubscribeCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      reservedPublishCapacity: 'ReservedPublishCapacity',
+      reservedSubscribeCapacity: 'ReservedSubscribeCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reservedPublishCapacity: 'number',
+      reservedSubscribeCapacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostPayInstanceRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostPayInstanceShrinkRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostPayInstanceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * alikafka_pre-cn-pe333xxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 236972661580636
+   */
+  orderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePostPayOrderRequestServerlessConfig extends $tea.Model {
   /**
    * @remarks
@@ -9712,6 +10462,244 @@ export class CreatePostPayOrderShrinkRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrePayInstanceRequestConfluentConfig extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
+  connectCU?: number;
+  /**
+   * @example
+   * 2
+   */
+  connectReplica?: number;
+  /**
+   * @example
+   * 4
+   */
+  controlCenterCU?: number;
+  /**
+   * @example
+   * 1
+   */
+  controlCenterReplica?: number;
+  /**
+   * @example
+   * 300
+   */
+  controlCenterStorage?: number;
+  /**
+   * @example
+   * 4
+   */
+  kafkaCU?: number;
+  /**
+   * @example
+   * 3
+   */
+  kafkaReplica?: number;
+  /**
+   * @example
+   * 4
+   */
+  kafkaRestProxyCU?: number;
+  /**
+   * @example
+   * 2
+   */
+  kafkaRestProxyReplica?: number;
+  /**
+   * @example
+   * 800
+   */
+  kafkaStorage?: number;
+  /**
+   * @example
+   * 4
+   */
+  ksqlCU?: number;
+  /**
+   * @example
+   * 2
+   */
+  ksqlReplica?: number;
+  /**
+   * @example
+   * 100
+   */
+  ksqlStorage?: number;
+  /**
+   * @example
+   * 1
+   */
+  schemaRegistryCU?: number;
+  /**
+   * @example
+   * 2
+   */
+  schemaRegistryReplica?: number;
+  /**
+   * @example
+   * 2
+   */
+  zooKeeperCU?: number;
+  /**
+   * @example
+   * 3
+   */
+  zooKeeperReplica?: number;
+  /**
+   * @example
+   * 100
+   */
+  zooKeeperStorage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectCU: 'ConnectCU',
+      connectReplica: 'ConnectReplica',
+      controlCenterCU: 'ControlCenterCU',
+      controlCenterReplica: 'ControlCenterReplica',
+      controlCenterStorage: 'ControlCenterStorage',
+      kafkaCU: 'KafkaCU',
+      kafkaReplica: 'KafkaReplica',
+      kafkaRestProxyCU: 'KafkaRestProxyCU',
+      kafkaRestProxyReplica: 'KafkaRestProxyReplica',
+      kafkaStorage: 'KafkaStorage',
+      ksqlCU: 'KsqlCU',
+      ksqlReplica: 'KsqlReplica',
+      ksqlStorage: 'KsqlStorage',
+      schemaRegistryCU: 'SchemaRegistryCU',
+      schemaRegistryReplica: 'SchemaRegistryReplica',
+      zooKeeperCU: 'ZooKeeperCU',
+      zooKeeperReplica: 'ZooKeeperReplica',
+      zooKeeperStorage: 'ZooKeeperStorage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectCU: 'number',
+      connectReplica: 'number',
+      controlCenterCU: 'number',
+      controlCenterReplica: 'number',
+      controlCenterStorage: 'number',
+      kafkaCU: 'number',
+      kafkaReplica: 'number',
+      kafkaRestProxyCU: 'number',
+      kafkaRestProxyReplica: 'number',
+      kafkaStorage: 'number',
+      ksqlCU: 'number',
+      ksqlReplica: 'number',
+      ksqlStorage: 'number',
+      schemaRegistryCU: 'number',
+      schemaRegistryReplica: 'number',
+      zooKeeperCU: 'number',
+      zooKeeperReplica: 'number',
+      zooKeeperStorage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrePayInstanceRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrePayInstanceShrinkRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrePayInstanceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * alikafka_post-cn-xxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 236972661xxxx
+   */
+  orderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderId: 'number',
     };
   }
 
@@ -10182,7 +11170,7 @@ export class DescribeSaslUsersResponseBodySaslUserListSaslUserVO extends $tea.Mo
    * @remarks
    * The encryption method.
    * 
-   * >  This field is available only for serverless ApsaraMQ for Kafka V3 instances.
+   * >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @example
    * SCRAM-SHA-256
@@ -10662,6 +11650,9 @@ export class GetConsumerListResponseBodyConsumerListConsumerVO extends $tea.Mode
   /**
    * @remarks
    * Indicates that the consumer group was automatically created by the system.
+   * 
+   * @example
+   * false
    */
   automaticallyCreatedGroup?: boolean;
   /**
@@ -10672,6 +11663,14 @@ export class GetConsumerListResponseBodyConsumerListConsumerVO extends $tea.Mode
    * kafka-test
    */
   consumerId?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the consumer group was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1729736584002
+   */
+  createTime?: number;
   /**
    * @remarks
    * The instance ID.
@@ -10705,6 +11704,7 @@ export class GetConsumerListResponseBodyConsumerListConsumerVO extends $tea.Mode
     return {
       automaticallyCreatedGroup: 'AutomaticallyCreatedGroup',
       consumerId: 'ConsumerId',
+      createTime: 'CreateTime',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       remark: 'Remark',
@@ -10716,6 +11716,7 @@ export class GetConsumerListResponseBodyConsumerListConsumerVO extends $tea.Mode
     return {
       automaticallyCreatedGroup: 'boolean',
       consumerId: 'string',
+      createTime: 'number',
       instanceId: 'string',
       regionId: 'string',
       remark: 'string',
@@ -10853,6 +11854,22 @@ export class GetConsumerProgressResponseBodyConsumerProgressTopicListTopicListOf
   brokerOffset?: number;
   /**
    * @remarks
+   * Client ID of the application.
+   * 
+   * @example
+   * client-id-KafkaConsumerDemo
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 172.16.11.3
+   */
+  clientIp?: string;
+  /**
+   * @remarks
    * The consumer offset in the partition of the topic.
    * 
    * @example
@@ -10869,6 +11886,14 @@ export class GetConsumerProgressResponseBodyConsumerProgressTopicListTopicListOf
   lastTimestamp?: number;
   /**
    * @remarks
+   * Member ID.
+   * 
+   * @example
+   * client-id-KafkaConsumerDemo-70b64883-a911-4882-8084-598b958848b4
+   */
+  memberId?: string;
+  /**
+   * @remarks
    * The partition ID.
    * 
    * @example
@@ -10878,8 +11903,11 @@ export class GetConsumerProgressResponseBodyConsumerProgressTopicListTopicListOf
   static names(): { [key: string]: string } {
     return {
       brokerOffset: 'BrokerOffset',
+      clientId: 'ClientId',
+      clientIp: 'ClientIp',
       consumerOffset: 'ConsumerOffset',
       lastTimestamp: 'LastTimestamp',
+      memberId: 'MemberId',
       partition: 'Partition',
     };
   }
@@ -10887,8 +11915,11 @@ export class GetConsumerProgressResponseBodyConsumerProgressTopicListTopicListOf
   static types(): { [key: string]: any } {
     return {
       brokerOffset: 'number',
+      clientId: 'string',
+      clientIp: 'string',
       consumerOffset: 'number',
       lastTimestamp: 'number',
+      memberId: 'string',
       partition: 'number',
     };
   }
@@ -11386,8 +12417,29 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
    * {\\"enable.vpc_sasl_ssl\\":\\"false\\",\\"kafka.log.retention.hours\\":\\"66\\",\\"enable.acl\\":\\"false\\",\\"kafka.message.max.bytes\\":\\"6291456\\"}
    */
   allConfig?: string;
+  /**
+   * @remarks
+   * Indicates whether the flexible group creation feature is enabled.
+   * 
+   * @example
+   * true
+   */
   autoCreateGroupEnable?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the automatic topic creation feature is enabled.
+   * 
+   * @example
+   * true
+   */
   autoCreateTopicEnable?: boolean;
+  /**
+   * @remarks
+   * The ID of the secondary zone.
+   * 
+   * @example
+   * cn-hangzhou-a
+   */
   backupZoneId?: string;
   /**
    * @remarks
@@ -11402,6 +12454,13 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
    * 1577961819000
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The number of partitions in a topic that is automatically created.
+   * 
+   * @example
+   * 12
+   */
   defaultPartitionNum?: number;
   /**
    * @remarks
@@ -11597,6 +12656,17 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   saslDomainEndpoint?: string;
   /**
    * @remarks
+   * The Simple Authentication and Security Layer (SASL) endpoint of the instance in IP address mode. ApsaraMQ for Kafka instances support endpoints in domain name mode and IP address mode.
+   * 
+   * *   Endpoints in domain name mode: An endpoint in this mode consists of the domain name of the instance and a port number. The format of an endpoint in this mode is `{Instance domain name}:{Port number}`.
+   * *   Endpoints in IP address mode: An endpoint in this mode consists of the IP address of the broker and a port number. The format of an endpoint in this mode is `{Broker IP address}:{Port number}`.
+   * 
+   * @example
+   * 172.16.3.XX:9094,172.16.3.XX:9094,172.16.3.XX:9094
+   */
+  saslEndPoint?: string;
+  /**
+   * @remarks
    * The security group to which the instance belongs.
    * 
    * *   If the instance is deployed in the ApsaraMQ for Kafka console or by calling the [StartInstance](https://help.aliyun.com/document_detail/157786.html) operation without a security group configured, no value is returned.
@@ -11730,6 +12800,10 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
    * vsw-bp1fvuw0ljd7vzmo3****
    */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   */
   vSwitchIds?: GetInstanceListResponseBodyInstanceListInstanceVOVSwitchIds;
   /**
    * @remarks
@@ -11768,6 +12842,28 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   vpcId?: string;
   /**
    * @remarks
+   * The SSL endpoint of the instance in domain name mode. You can use the endpoint to access the instance only in virtual private clouds (VPCs). ApsaraMQ for Kafka instances support endpoints in domain name mode and IP address mode.
+   * 
+   * *   Endpoints in domain name mode: An endpoint in this mode consists of the domain name of the instance and a port number. The format of an endpoint in this mode is `{Instance domain name}:{Port number}`.
+   * *   Endpoints in IP address mode: An endpoint in this mode consists of the IP address of the broker and a port number. The format of an endpoint in this mode is `{Broker IP address}:{Port number}`.
+   * 
+   * @example
+   * alikafka-post-cn-******-1-vpc.alikafka.aliyuncs.com:9095,alikafka-post-cn-******-2-vpc.alikafka.aliyuncs.com:9095,alikafka-post-cn-******-3-vpc.alikafka.aliyuncs.com:9095
+   */
+  vpcSaslDomainEndpoint?: string;
+  /**
+   * @remarks
+   * The Secure Sockets Layer (SSL) endpoint of the instance in IP address mode. You can use the endpoint to access the instance only in virtual private clouds (VPCs). ApsaraMQ for Kafka instances support endpoints in domain name mode and IP address mode.
+   * 
+   * *   Endpoints in domain name mode: An endpoint in this mode consists of the domain name of the instance and a port number. The format of an endpoint in this mode is `{Instance domain name}:{Port number}`.
+   * *   Endpoints in IP address mode: An endpoint in this mode consists of the IP address of the broker and a port number. The format of an endpoint in this mode is `{Broker IP address}:{Port number}`.
+   * 
+   * @example
+   * 172.16.3.XX:9095,172.16.3.XX:9095,172.16.3.XX:9095
+   */
+  vpcSaslEndPoint?: string;
+  /**
+   * @remarks
    * The zone ID.
    * 
    * @example
@@ -11804,6 +12900,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       reservedSubscribeCapacity: 'ReservedSubscribeCapacity',
       resourceGroupId: 'ResourceGroupId',
       saslDomainEndpoint: 'SaslDomainEndpoint',
+      saslEndPoint: 'SaslEndPoint',
       securityGroup: 'SecurityGroup',
       series: 'Series',
       serviceStatus: 'ServiceStatus',
@@ -11821,6 +12918,8 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       vSwitchIds: 'VSwitchIds',
       viewInstanceStatusCode: 'ViewInstanceStatusCode',
       vpcId: 'VpcId',
+      vpcSaslDomainEndpoint: 'VpcSaslDomainEndpoint',
+      vpcSaslEndPoint: 'VpcSaslEndPoint',
       zoneId: 'ZoneId',
     };
   }
@@ -11855,6 +12954,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       reservedSubscribeCapacity: 'number',
       resourceGroupId: 'string',
       saslDomainEndpoint: 'string',
+      saslEndPoint: 'string',
       securityGroup: 'string',
       series: 'string',
       serviceStatus: 'number',
@@ -11872,6 +12972,8 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       vSwitchIds: GetInstanceListResponseBodyInstanceListInstanceVOVSwitchIds,
       viewInstanceStatusCode: 'number',
       vpcId: 'string',
+      vpcSaslDomainEndpoint: 'string',
+      vpcSaslEndPoint: 'string',
       zoneId: 'string',
     };
   }
@@ -11902,11 +13004,19 @@ export class GetInstanceListResponseBodyInstanceList extends $tea.Model {
 
 export class GetKafkaClientIpResponseBodyDataDataDataDataData extends $tea.Model {
   /**
+   * @remarks
+   * The IP address of the client.
+   * 
    * @example
    * 58.210.117.154
    */
   ip?: string;
   /**
+   * @remarks
+   * The statistics.
+   * 
+   * >  The value of this parameter indicates the number of connections on different ports of the IP address within the specified period of time.
+   * 
    * @example
    * 3
    */
@@ -11950,8 +13060,17 @@ export class GetKafkaClientIpResponseBodyDataDataDataData extends $tea.Model {
 }
 
 export class GetKafkaClientIpResponseBodyDataDataData extends $tea.Model {
+  /**
+   * @remarks
+   * The response parameters.
+   */
   data?: GetKafkaClientIpResponseBodyDataDataDataData;
   /**
+   * @remarks
+   * The request name.
+   * 
+   * >  The value of this parameter indicates the type of request that the client sends to the broker within the specified period of time.
+   * 
    * @example
    * OFFSET_COMMIT
    */
@@ -11996,27 +13115,52 @@ export class GetKafkaClientIpResponseBodyDataData extends $tea.Model {
 
 export class GetKafkaClientIpResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The value true indicates that the broker is not of the latest minor version.
+   * 
+   * >  If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
+   * 
    * @example
    * true
    */
   alert?: boolean;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetKafkaClientIpResponseBodyDataData;
   /**
+   * @remarks
+   * The end of the date range within which data is queried.
+   * 
    * @example
    * 1716343502000
    */
   endDate?: number;
   /**
+   * @remarks
+   * The time range within which the client IP addresses are queried.
+   * 
+   * >  The valid value is 1 hour. If the beginning of the time range to query and the end of the time range to query exceeds 1 hour, only data within 1 hour is returned.
+   * 
    * @example
    * 1
    */
   searchTimeRange?: number;
   /**
+   * @remarks
+   * The beginning of the date range within which data is queried.
+   * 
    * @example
    * 1716343501000
    */
   startDate?: number;
   /**
+   * @remarks
+   * The date range within which the client IP addresses are queried.
+   * 
+   * >  The valid value is 7 days. If the beginning of the date range to query and the end of the date range to query exceeds 7 days, only data within 7 days is returned.
+   * 
    * @example
    * 7
    */
@@ -12865,7 +14009,7 @@ export class QueryMessageResponseBodyMessageList extends $tea.Model {
 export class TagResourcesRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The key of the resource tag.
+   * The tag key.
    * 
    * *   You must specify this parameter.
    * *   The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
@@ -12878,7 +14022,7 @@ export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the resource tag.
+   * The tag value.
    * 
    * *   You can leave this parameter empty.
    * *   The tag value can be up to 128 characters in length and cannot contain http:// or https://. The tag value cannot start with acs: or aliyun.
@@ -12945,7 +14089,7 @@ export class UpdateConsumerOffsetRequestOffsets extends $tea.Model {
 export class UpgradePostPayOrderRequestServerlessConfig extends $tea.Model {
   /**
    * @remarks
-   * The reserved capacity for publishing messages. You can specify only integers for this parameter. Minimum value: 60.
+   * The reserved capacity for publishing messages. You can specify only an integer for this parameter. Minimum value: 60.
    * 
    * >  The maximum capacity that you can reserve for an instance varies based on available resources in a region. The reserved capacity range displayed on the buy page shall prevail.
    * 
@@ -12955,7 +14099,7 @@ export class UpgradePostPayOrderRequestServerlessConfig extends $tea.Model {
   reservedPublishCapacity?: number;
   /**
    * @remarks
-   * The reserved capacity for subscribing to messages. You can specify only integers for this parameter. Minimum value: 50.
+   * The reserved capacity for subscribing to messages. You can specify only an integer for this parameter. Minimum value: 50.
    * 
    * >  The maximum capacity that you can reserve for an instance varies based on available resources in a region. The reserved capacity range displayed on the buy page shall prevail.
    * 
@@ -13312,6 +14456,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建后付费实例。
+   * 
+   * @param tmpReq - CreatePostPayInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePostPayInstanceResponse
+   */
+  async createPostPayInstanceWithOptions(tmpReq: CreatePostPayInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreatePostPayInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreatePostPayInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.serverlessConfig)) {
+      request.serverlessConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serverlessConfig, "ServerlessConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.deployType)) {
+      query["DeployType"] = request.deployType;
+    }
+
+    if (!Util.isUnset(request.diskSize)) {
+      query["DiskSize"] = request.diskSize;
+    }
+
+    if (!Util.isUnset(request.diskType)) {
+      query["DiskType"] = request.diskType;
+    }
+
+    if (!Util.isUnset(request.eipMax)) {
+      query["EipMax"] = request.eipMax;
+    }
+
+    if (!Util.isUnset(request.ioMaxSpec)) {
+      query["IoMaxSpec"] = request.ioMaxSpec;
+    }
+
+    if (!Util.isUnset(request.paidType)) {
+      query["PaidType"] = request.paidType;
+    }
+
+    if (!Util.isUnset(request.partitionNum)) {
+      query["PartitionNum"] = request.partitionNum;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.serverlessConfigShrink)) {
+      query["ServerlessConfig"] = request.serverlessConfigShrink;
+    }
+
+    if (!Util.isUnset(request.specType)) {
+      query["SpecType"] = request.specType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePostPayInstance",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePostPayInstanceResponse>(await this.callApi(params, req, runtime), new CreatePostPayInstanceResponse({}));
+  }
+
+  /**
+   * 创建后付费实例。
+   * 
+   * @param request - CreatePostPayInstanceRequest
+   * @returns CreatePostPayInstanceResponse
+   */
+  async createPostPayInstance(request: CreatePostPayInstanceRequest): Promise<CreatePostPayInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPostPayInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
    * 
    * @remarks
@@ -13415,6 +14651,102 @@ export default class Client extends OpenApi {
   async createPostPayOrder(request: CreatePostPayOrderRequest): Promise<CreatePostPayOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPostPayOrderWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建预付费实例
+   * 
+   * @param tmpReq - CreatePrePayInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePrePayInstanceResponse
+   */
+  async createPrePayInstanceWithOptions(tmpReq: CreatePrePayInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrePayInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreatePrePayInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.confluentConfig)) {
+      request.confluentConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.confluentConfig, "ConfluentConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.confluentConfigShrink)) {
+      query["ConfluentConfig"] = request.confluentConfigShrink;
+    }
+
+    if (!Util.isUnset(request.deployType)) {
+      query["DeployType"] = request.deployType;
+    }
+
+    if (!Util.isUnset(request.diskSize)) {
+      query["DiskSize"] = request.diskSize;
+    }
+
+    if (!Util.isUnset(request.diskType)) {
+      query["DiskType"] = request.diskType;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.eipMax)) {
+      query["EipMax"] = request.eipMax;
+    }
+
+    if (!Util.isUnset(request.ioMaxSpec)) {
+      query["IoMaxSpec"] = request.ioMaxSpec;
+    }
+
+    if (!Util.isUnset(request.paidType)) {
+      query["PaidType"] = request.paidType;
+    }
+
+    if (!Util.isUnset(request.partitionNum)) {
+      query["PartitionNum"] = request.partitionNum;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.specType)) {
+      query["SpecType"] = request.specType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePrePayInstance",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePrePayInstanceResponse>(await this.callApi(params, req, runtime), new CreatePrePayInstanceResponse({}));
+  }
+
+  /**
+   * 创建预付费实例
+   * 
+   * @param request - CreatePrePayInstanceRequest
+   * @returns CreatePrePayInstanceResponse
+   */
+  async createPrePayInstance(request: CreatePrePayInstanceRequest): Promise<CreatePrePayInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPrePayInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -14012,10 +15344,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a scheduled scaling task for a serverless ApsaraMQ for Kafka V3 instance.
+   * Deletes the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
    * 
    * @remarks
-   * ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instance.
+   * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @param request - DeleteScheduledScalingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14054,10 +15386,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a scheduled scaling task for a serverless ApsaraMQ for Kafka V3 instance.
+   * Deletes the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
    * 
    * @remarks
-   * ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instance.
+   * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @param request - DeleteScheduledScalingRuleRequest
    * @returns DeleteScheduledScalingRuleResponse
@@ -14313,6 +15645,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.updatePartition)) {
+      query["UpdatePartition"] = request.updatePartition;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -14430,10 +15766,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of the scheduled scaling rule of a serverless ApsaraMQ for Kafka V3 instance.
+   * Queries the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
    * 
    * @remarks
-   * ###### [](#-v3-serverless-)**This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+   * ###### [](#-serverless-)**This operation is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @param request - GetAutoScalingConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14468,10 +15804,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of the scheduled scaling rule of a serverless ApsaraMQ for Kafka V3 instance.
+   * Queries the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
    * 
    * @remarks
-   * ###### [](#-v3-serverless-)**This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+   * ###### [](#-serverless-)**This operation is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @param request - GetAutoScalingConfigurationRequest
    * @returns GetAutoScalingConfigurationResponse
@@ -14656,7 +15992,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取kafka客户端ip
+   * Queries the IP addresses of the clients that are connected to an ApsaraMQ for Kafka instance.
+   * 
+   * @remarks
+   *   The IP information is obtained from the sampled logs generated for the requests that the client sends to the broker by calling the API operations of ApsaraMQ for Kafka.
+   * *   Statistics refers to the number of connections on different ports of an IP address within a specific period of time.
+   * *   If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
    * 
    * @param request - GetKafkaClientIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14711,7 +16052,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取kafka客户端ip
+   * Queries the IP addresses of the clients that are connected to an ApsaraMQ for Kafka instance.
+   * 
+   * @remarks
+   *   The IP information is obtained from the sampled logs generated for the requests that the client sends to the broker by calling the API operations of ApsaraMQ for Kafka.
+   * *   Statistics refers to the number of connections on different ports of an IP address within a specific period of time.
+   * *   If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
    * 
    * @param request - GetKafkaClientIpRequest
    * @returns GetKafkaClientIpResponse
@@ -15088,10 +16434,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
+   * Modifies the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
    * 
    * @remarks
-   * ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+   * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @param request - ModifyScheduledScalingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15134,10 +16480,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
+   * Modifies the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
    * 
    * @remarks
-   * ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+   * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
    * 
    * @param request - ModifyScheduledScalingRuleRequest
    * @returns ModifyScheduledScalingRuleResponse
