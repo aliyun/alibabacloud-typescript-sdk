@@ -979,6 +979,14 @@ export class CreateDownloadTaskRequest extends $tea.Model {
   taskData?: string;
   /**
    * @remarks
+   * The type of the task. For more information about task types, see the descriptions in the "DescribeDownloadTaskType" topic.
+   * 
+   * @example
+   * InternetFirewallAsset
+   */
+  taskType?: string;
+  /**
+   * @remarks
    * The time zone of the time information in the downloaded file. The value must be an identifier of a time zone in the Internet Assigned Numbers Authority (IANA) database. The default value is Asia/Shanghai, which indicates UTC+8.
    * 
    * @example
@@ -989,6 +997,7 @@ export class CreateDownloadTaskRequest extends $tea.Model {
     return {
       lang: 'Lang',
       taskData: 'TaskData',
+      taskType: 'TaskType',
       timeZone: 'TimeZone',
     };
   }
@@ -997,6 +1006,7 @@ export class CreateDownloadTaskRequest extends $tea.Model {
     return {
       lang: 'string',
       taskData: 'string',
+      taskType: 'string',
       timeZone: 'string',
     };
   }
@@ -3865,6 +3875,8 @@ export class DeleteNatFirewallControlPolicyBatchRequest extends $tea.Model {
   /**
    * @remarks
    * The UUIDs of access control policies.
+   * 
+   * This parameter is required.
    */
   aclUuidList?: string[];
   /**
@@ -4867,6 +4879,13 @@ export class DescribeAssetListRequest extends $tea.Model {
    * discovered in 1 hour
    */
   newResourceTag?: string;
+  /**
+   * @remarks
+   * Whether to query external traffic information.
+   * 
+   * @example
+   * true
+   */
   outStatistic?: string;
   /**
    * @remarks
@@ -4916,6 +4935,13 @@ export class DescribeAssetListRequest extends $tea.Model {
    * 192.0.XX.XX
    */
   searchItem?: string;
+  /**
+   * @remarks
+   * Data leakage detection activation status.
+   * 
+   * @example
+   * open
+   */
   sensitiveStatus?: string;
   /**
    * @remarks
@@ -5013,7 +5039,7 @@ export class DescribeAssetListRequest extends $tea.Model {
 export class DescribeAssetListResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details about the assets that are protected by Cloud Firewall.
+   * The assets that are protected by Cloud Firewall.
    */
   assets?: DescribeAssetListResponseBodyAssets[];
   /**
@@ -5217,10 +5243,23 @@ export class DescribeAssetRiskListResponse extends $tea.Model {
 
 export class DescribeAssetStatisticRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the content within the request. Valid values:
+   * 
+   * *   **zh** (default): Chinese
+   * *   **en**: English
+   * 
    * @example
    * zh
    */
   lang?: string;
+  /**
+   * @remarks
+   * The source IP address of the request.
+   * 
+   * @example
+   * 112.239.XX.XX
+   */
   sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5243,10 +5282,17 @@ export class DescribeAssetStatisticRequest extends $tea.Model {
 
 export class DescribeAssetStatisticResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 850A84******25g4d2
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics on specifications.
+   */
   resourceSpecStatistic?: DescribeAssetStatisticResponseBodyResourceSpecStatistic;
   static names(): { [key: string]: string } {
     return {
@@ -8044,8 +8090,8 @@ export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
    * @remarks
    * The language of the content within the response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * *   **zh** (default)
+   * *   **en**
    * 
    * @example
    * zh
@@ -8053,10 +8099,10 @@ export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The method that is used to sort the results. Valid values:
+   * The method that you want to use to sort the query results. Valid values:
    * 
-   * *   **asc**: the ascending order.
-   * *   **desc** (default): the descending order.
+   * *   **asc**
+   * *   **desc** (default)
    * 
    * @example
    * desc
@@ -8464,7 +8510,7 @@ export class DescribeOutgoingDomainRequest extends $tea.Model {
 export class DescribeOutgoingDomainResponseBody extends $tea.Model {
   /**
    * @remarks
-   * An array that consists of the domain names in outbound connections.
+   * The domain names in outbound connections.
    */
   domainList?: DescribeOutgoingDomainResponseBodyDomainList[];
   /**
@@ -8833,6 +8879,13 @@ export class DescribePostpayTrafficDetailRequest extends $tea.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionNo?: string;
   /**
    * @remarks
@@ -9142,6 +9195,8 @@ export class DescribePrefixListsRequest extends $tea.Model {
    * @remarks
    * The region ID of the instance.
    * 
+   * This parameter is required.
+   * 
    * @example
    * cn-shenzhen
    */
@@ -9358,6 +9413,14 @@ export class DescribeRiskEventGroupRequest extends $tea.Model {
   firewallType?: string;
   /**
    * @remarks
+   * Whether to query only the data that has completed private network tracing.
+   * 
+   * @example
+   * true
+   */
+  isOnlyPrivateAssoc?: string;
+  /**
+   * @remarks
    * The language of the content within the request and response. Valid values:
    * 
    * *   **zh**: Chinese (default)
@@ -9492,6 +9555,7 @@ export class DescribeRiskEventGroupRequest extends $tea.Model {
       endTime: 'EndTime',
       eventName: 'EventName',
       firewallType: 'FirewallType',
+      isOnlyPrivateAssoc: 'IsOnlyPrivateAssoc',
       lang: 'Lang',
       noLocation: 'NoLocation',
       order: 'Order',
@@ -9519,6 +9583,7 @@ export class DescribeRiskEventGroupRequest extends $tea.Model {
       endTime: 'string',
       eventName: 'string',
       firewallType: 'string',
+      isOnlyPrivateAssoc: 'string',
       lang: 'string',
       noLocation: 'string',
       order: 'string',
@@ -9746,8 +9811,29 @@ export class DescribeRiskEventPayloadResponseBody extends $tea.Model {
    * vpc-bp10w5nb30r4jzfyc****
    */
   dstVpcId?: string;
+  /**
+   * @remarks
+   * Type of the hit.
+   * 
+   * @example
+   * 1
+   */
   hitContentType?: number;
+  /**
+   * @remarks
+   * The position where the hit ends.
+   * 
+   * @example
+   * 67
+   */
   hitTo?: number;
+  /**
+   * @remarks
+   * Hit payload.
+   * 
+   * @example
+   * 2f636f6d706f7365722f73656e645f656d61696c3f746f3d6d61667740776f66736f7961792675726c3d687474703a2f2f302e302e302e303a31323334352f692f6431366530312f313664622f673670772f
+   */
   parsedContent?: string;
   /**
    * @remarks
@@ -10692,7 +10778,7 @@ export class DescribeTrFirewallsV2ListResponseBody extends $tea.Model {
   totalCount?: string;
   /**
    * @remarks
-   * The VPC firewalls.
+   * The information about the VPC firewalls.
    */
   vpcTrFirewalls?: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls[];
   static names(): { [key: string]: string } {
@@ -11053,6 +11139,13 @@ export class DescribeUserAssetIPTrafficInfoResponse extends $tea.Model {
 }
 
 export class DescribeUserBuyVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Instance ID. If the Instance ID is provided, the query will be based on this ID. If not provided, the latest instance will be queried by default.
+   * 
+   * @example
+   * cfw_elasticity_public_cn-*******
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11073,66 +11166,141 @@ export class DescribeUserBuyVersionRequest extends $tea.Model {
 
 export class DescribeUserBuyVersionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to purchase Cloud Firewall.
+   * 
    * @example
    * 119898001566xxxx
    */
   aliUid?: number;
   /**
+   * @remarks
+   * The time when Cloud Firewall expires.
+   * 
+   * >  The value is a timestamp in milliseconds.
+   * 
+   * >  If you use Cloud Firewall that uses the pay-as-you-go billing method, ignore this parameter.
+   * 
    * @example
    * 1726934400000
    */
   expire?: number;
   /**
+   * @remarks
+   * The instance ID of Cloud Firewall.
+   * 
+   * >  If you use a trial of Cloud Firewall, ignore this parameter.
+   * 
    * @example
    * vipcloudfw-cn-xxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The status of Cloud Firewall. Valid values:
+   * 
+   * *   **normal**: Cloud Firewall is running as expected.
+   * *   **init**: Cloud Firewall is being initialized.
+   * *   **deleting**: Cloud Firewall is being deleted.
+   * *   **abnormal**: An exception occurs in Cloud Firewall.
+   * *   **free**: Cloud Firewall is invalid.
+   * 
    * @example
    * normal
    */
   instanceStatus?: string;
   /**
+   * @remarks
+   * The number of public IP addresses that can be protected.
+   * 
+   * >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
+   * 
    * @example
    * 63
    */
   ipNumber?: number;
   /**
+   * @remarks
+   * Indicates whether log delivery is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   logStatus?: boolean;
   /**
+   * @remarks
+   * The log storage capacity.
+   * 
+   * >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
+   * 
    * @example
    * 3000
    */
   logStorage?: number;
   /**
+   * @remarks
+   * The status of the burstable protected traffic feature. Valid values:
+   * 
+   * *   **1000000**: enabled.
+   * *   **0**: disabled.
+   * 
+   * >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
+   * 
    * @example
    * 0
    */
   maxOverflow?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F71B03EE-xxxxx-91D79CC6AA1A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The time when Cloud Firewall was activated.
+   * 
+   * >  The value is a timestamp in milliseconds.
+   * 
    * @example
    * 1692504764000
    */
   startTime?: number;
   /**
+   * @remarks
+   * Indicates whether Cloud Firewall is valid. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   userStatus?: boolean;
   /**
+   * @remarks
+   * The edition of Cloud Firewall. Valid values:
+   * 
+   * *   **2**: Premium Edition.
+   * *   **3**: Enterprise Edition.
+   * *   **4**: Ultimate Edition.
+   * *   **10**: Cloud Firewall that uses the pay-as-you-go billing method.
+   * 
    * @example
    * 2
    */
   version?: number;
   /**
+   * @remarks
+   * The number of virtual private clouds (VPCs) that can be protected.
+   * 
+   * >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
+   * 
    * @example
    * 21
    */
@@ -11750,7 +11918,7 @@ export class DescribeVpcFirewallCenListResponseBody extends $tea.Model {
   totalCount?: number;
   /**
    * @remarks
-   * An array that consists of the details about the VPC firewall.
+   * The information about the VPC firewalls.
    */
   vpcFirewalls?: DescribeVpcFirewallCenListResponseBodyVpcFirewalls[];
   static names(): { [key: string]: string } {
@@ -11826,8 +11994,6 @@ export class DescribeVpcFirewallControlPolicyRequest extends $tea.Model {
    * @remarks
    * The number of the page to return.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1
    */
@@ -11876,8 +12042,6 @@ export class DescribeVpcFirewallControlPolicyRequest extends $tea.Model {
    * The number of entries to return on each page.
    * 
    * Maximum value: 50.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 10
@@ -12129,6 +12293,17 @@ export class DescribeVpcFirewallDefaultIPSConfigResponseBody extends $tea.Model 
    * 850A84D6-0DE4-4797-A1E8-00090125adf1
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The level of the rule group for the IPS. Valid values:
+   * 
+   * *   **1**: loose.
+   * *   **2**: medium.
+   * *   **3**: strict.
+   * 
+   * @example
+   * 1
+   */
   ruleClass?: number;
   /**
    * @remarks
@@ -12993,6 +13168,8 @@ export class DescribeVpcZoneRequest extends $tea.Model {
   /**
    * @remarks
    * The region ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * cn-shanghai
@@ -18176,6 +18353,28 @@ export class DescribeACLProtectTrendResponseBodyTrendList extends $tea.Model {
   }
 }
 
+export class DescribeAddressBookResponseBodyAclsAddresses extends $tea.Model {
+  address?: string;
+  note?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      note: 'Note',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      note: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAddressBookResponseBodyAclsTagList extends $tea.Model {
   /**
    * @remarks
@@ -18226,6 +18425,7 @@ export class DescribeAddressBookResponseBodyAcls extends $tea.Model {
    * 2
    */
   addressListCount?: number;
+  addresses?: DescribeAddressBookResponseBodyAclsAddresses[];
   /**
    * @remarks
    * Indicates whether the public IP addresses of ECS instances are automatically added to the address book if the instances match the specified tags. The setting takes effect on both newly purchased ECS instances whose tag settings are complete and ECS instances whose tag settings are modified. Valid values:
@@ -18304,6 +18504,7 @@ export class DescribeAddressBookResponseBodyAcls extends $tea.Model {
     return {
       addressList: 'AddressList',
       addressListCount: 'AddressListCount',
+      addresses: 'Addresses',
       autoAddTagEcs: 'AutoAddTagEcs',
       description: 'Description',
       groupName: 'GroupName',
@@ -18319,6 +18520,7 @@ export class DescribeAddressBookResponseBodyAcls extends $tea.Model {
     return {
       addressList: { 'type': 'array', 'itemType': 'string' },
       addressListCount: 'number',
+      addresses: { 'type': 'array', 'itemType': DescribeAddressBookResponseBodyAclsAddresses },
       autoAddTagEcs: 'number',
       description: 'string',
       groupName: 'string',
@@ -18399,6 +18601,13 @@ export class DescribeAssetListResponseBodyAssets extends $tea.Model {
    * 4
    */
   ipVersion?: number;
+  /**
+   * @remarks
+   * Outbound traffic in the last 7 days.
+   * 
+   * @example
+   * 0
+   */
   last7DayOutTrafficBytes?: number;
   /**
    * @remarks
@@ -18513,6 +18722,13 @@ export class DescribeAssetListResponseBodyAssets extends $tea.Model {
    * low
    */
   riskLevel?: string;
+  /**
+   * @remarks
+   * Data leakage detection enabled status.
+   * 
+   * @example
+   * open
+   */
   sensitiveDataStatus?: string;
   /**
    * @remarks
@@ -18681,31 +18897,41 @@ export class DescribeAssetRiskListResponseBodyAssetList extends $tea.Model {
 
 export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $tea.Model {
   /**
+   * @remarks
+   * The number of public IP addresses that can be protected.
+   * 
    * @example
    * 20
    */
   ipNumSpec?: number;
   /**
+   * @remarks
+   * The number of public IP addresses that are protected.
+   * 
    * @example
    * 10
    */
   ipNumUsed?: number;
-  isIpNumEnough?: number;
-  isRegionNumEnough?: number;
-  isSuggestUpdate?: number;
-  regionNumSpec?: number;
-  regionNumUsed?: number;
+  /**
+   * @remarks
+   * The number of public IP addresses that can enable data leakage detection.
+   * 
+   * @example
+   * 0
+   */
   sensitiveDataIpNumSpec?: number;
+  /**
+   * @remarks
+   * The number of public IP addresses that enabled data leakage detection.
+   * 
+   * @example
+   * 0
+   */
   sensitiveDataIpNumUsed?: number;
   static names(): { [key: string]: string } {
     return {
       ipNumSpec: 'IpNumSpec',
       ipNumUsed: 'IpNumUsed',
-      isIpNumEnough: 'IsIpNumEnough',
-      isRegionNumEnough: 'IsRegionNumEnough',
-      isSuggestUpdate: 'IsSuggestUpdate',
-      regionNumSpec: 'RegionNumSpec',
-      regionNumUsed: 'RegionNumUsed',
       sensitiveDataIpNumSpec: 'SensitiveDataIpNumSpec',
       sensitiveDataIpNumUsed: 'SensitiveDataIpNumUsed',
     };
@@ -18715,11 +18941,6 @@ export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $te
     return {
       ipNumSpec: 'number',
       ipNumUsed: 'number',
-      isIpNumEnough: 'number',
-      isRegionNumEnough: 'number',
-      isSuggestUpdate: 'number',
-      regionNumSpec: 'number',
-      regionNumUsed: 'number',
       sensitiveDataIpNumSpec: 'number',
       sensitiveDataIpNumUsed: 'number',
     };
@@ -19795,7 +20016,21 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $tea.Model {
    * The list of applications.
    */
   serviceNameList?: string[];
+  /**
+   * @remarks
+   * Number of source IPs.
+   * 
+   * @example
+   * 22
+   */
   srcIpCnt?: number;
+  /**
+   * @remarks
+   * Outbound traffic in the last 7 days.
+   * 
+   * @example
+   * 100000
+   */
   totalReplyBytes?: number;
   /**
    * @remarks
@@ -21017,9 +21252,9 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPListTagList extends $
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **1**: low
-   * *   **2**: medium
-   * *   **3**: high
+   * *   **1**: low.
+   * *   **2**: medium.
+   * *   **3**: high.
    * 
    * @example
    * 1
@@ -21113,8 +21348,17 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Mod
   /**
    * @remarks
    * The application ports.
+   * 
+   * >  Only the first 100 application ports are displayed.
    */
   applicationPortList?: DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList[];
+  /**
+   * @remarks
+   * The outbound asset count.
+   * 
+   * @example
+   * 20
+   */
   assetCount?: number;
   /**
    * @remarks
@@ -21207,6 +21451,13 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Mod
    * true
    */
   isMarkNormal?: boolean;
+  /**
+   * @remarks
+   * Location name.
+   * 
+   * @example
+   * 山东省青岛市
+   */
   locationName?: string;
   /**
    * @remarks
@@ -21216,6 +21467,13 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Mod
    * 965
    */
   outBytes?: number;
+  /**
+   * @remarks
+   * The outbound private asset count.
+   * 
+   * @example
+   * 20
+   */
   privateAssetCount?: number;
   /**
    * @remarks
@@ -21460,7 +21718,18 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $tea.Model {
    * fdad-fdafa-dafa-dfa****
    */
   addressGroupUUID?: string;
+  /**
+   * @remarks
+   * The application names.
+   */
   applicationNameList?: string[];
+  /**
+   * @remarks
+   * The outbound asset count.
+   * 
+   * @example
+   * 20
+   */
   assetCount?: number;
   /**
    * @remarks
@@ -21577,6 +21846,13 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $tea.Model {
    * 4582
    */
   outBytes?: number;
+  /**
+   * @remarks
+   * The outbound private asset count.
+   * 
+   * @example
+   * 20
+   */
   privateAssetCount?: number;
   /**
    * @remarks
@@ -21737,7 +22013,21 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $tea.Mo
    * 100000000
    */
   outBytes?: number;
+  /**
+   * @remarks
+   * Protection duration. Unit: hours.
+   * 
+   * @example
+   * 20
+   */
   protectionDuration?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionNo?: string;
   /**
    * @remarks
@@ -22764,6 +23054,17 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig extend
    * 1
    */
   enableAllPatch?: number;
+  /**
+   * @remarks
+   * The level of the rule group for the IPS. Valid values:
+   * 
+   * *   **1**: loose.
+   * *   **2**: medium.
+   * *   **3**: strict.
+   * 
+   * @example
+   * 3
+   */
   ruleClass?: number;
   /**
    * @remarks
@@ -22808,6 +23109,10 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsProtectedResourc
    * 1
    */
   count?: number;
+  /**
+   * @remarks
+   * The protected express connect routers.
+   */
   ecrList?: string[];
   /**
    * @remarks
@@ -22865,6 +23170,10 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsUnprotectedResou
    * 1
    */
   count?: number;
+  /**
+   * @remarks
+   * The unprotected express connect routers.
+   */
   ecrList?: string[];
   /**
    * @remarks
@@ -22930,6 +23239,16 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $tea.Mo
    * cen_swas
    */
   cenName?: string;
+  /**
+   * @remarks
+   * The party responsible for the TR fees generated by the VPC firewall. Values:
+   * 
+   * - **PayByCloudFirewall**: Fees are borne by the Cloud Firewall.
+   * - **PayByCenOwner**: Fees are borne by the account to which the CEN instance belongs.
+   * 
+   * @example
+   * PayByCenOwner
+   */
   cloudFirewallVpcOrderType?: string;
   /**
    * @remarks
@@ -22959,7 +23278,7 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $tea.Mo
   firewallSwitchStatus?: string;
   /**
    * @remarks
-   * The information about the intrusion prevention system (IPS) configuration.
+   * The intrusion prevention system (IPS) configurations.
    */
   ipsConfig?: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig;
   /**
@@ -23698,6 +24017,17 @@ export class DescribeVpcFirewallCenListResponseBodyVpcFirewallsIpsConfig extends
    * 1
    */
   enableAllPatch?: number;
+  /**
+   * @remarks
+   * The level of the rule group for the IPS. Valid values:
+   * 
+   * *   **1**: loose.
+   * *   **2**: medium.
+   * *   **3**: strict.
+   * 
+   * @example
+   * 1
+   */
   ruleClass?: number;
   /**
    * @remarks
@@ -24004,7 +24334,7 @@ export class DescribeVpcFirewallCenListResponseBodyVpcFirewalls extends $tea.Mod
   firewallSwitchStatus?: string;
   /**
    * @remarks
-   * The information about the intrusion prevention system (IPS) configuration.
+   * The intrusion prevention system (IPS) configurations.
    */
   ipsConfig?: DescribeVpcFirewallCenListResponseBodyVpcFirewallsIpsConfig;
   /**
@@ -26516,6 +26846,10 @@ export default class Client extends OpenApi {
       query["TaskData"] = request.taskData;
     }
 
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     if (!Util.isUnset(request.timeZone)) {
       query["TimeZone"] = request.timeZone;
     }
@@ -28329,7 +28663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资产统计信息
+   * Queries statistics on the assets that are protected by Cloud Firewall.
    * 
    * @param request - DescribeAssetStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28368,7 +28702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资产统计信息
+   * Queries statistics on the assets that are protected by Cloud Firewall.
    * 
    * @param request - DescribeAssetStatisticRequest
    * @returns DescribeAssetStatisticResponse
@@ -29945,6 +30279,10 @@ export default class Client extends OpenApi {
       query["FirewallType"] = request.firewallType;
     }
 
+    if (!Util.isUnset(request.isOnlyPrivateAssoc)) {
+      query["IsOnlyPrivateAssoc"] = request.isOnlyPrivateAssoc;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -30475,7 +30813,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户版本信息
+   * Queries the edition information about Cloud Firewall.
+   * 
+   * @remarks
+   * You can call this operation to query the edition information about Cloud Firewall.
+   * ## [](#qps-)Limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - DescribeUserBuyVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30506,7 +30849,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户版本信息
+   * Queries the edition information about Cloud Firewall.
+   * 
+   * @remarks
+   * You can call this operation to query the edition information about Cloud Firewall.
+   * ## [](#qps-)Limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - DescribeUserBuyVersionRequest
    * @returns DescribeUserBuyVersionResponse
