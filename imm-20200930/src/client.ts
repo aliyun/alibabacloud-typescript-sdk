@@ -2841,6 +2841,25 @@ export class Story extends $tea.Model {
   }
 }
 
+export class StreamOptions extends $tea.Model {
+  incrementalOutput?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      incrementalOutput: 'IncrementalOutput',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      incrementalOutput: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubtitleStream extends $tea.Model {
   bitrate?: number;
   codecLongName?: string;
@@ -4962,6 +4981,8 @@ export class ContextualAnswerShrinkRequest extends $tea.Model {
 
 export class ContextualAnswerResponseBody extends $tea.Model {
   answer?: Answer;
+  code?: string;
+  message?: string;
   /**
    * @example
    * 22F081FB-90D7-525A-BFE4-D28DC906A28F
@@ -4970,6 +4991,8 @@ export class ContextualAnswerResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       answer: 'Answer',
+      code: 'Code',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -4977,6 +5000,8 @@ export class ContextualAnswerResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       answer: Answer,
+      code: 'string',
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -6523,8 +6548,9 @@ export class CreateDatasetResponse extends $tea.Model {
 export class CreateDecodeBlindWatermarkTaskRequest extends $tea.Model {
   /**
    * @remarks
-   * The quality of the output image.
-   * The higher the quality, the larger the image size and the higher the watermark resolution quality.
+   * The quality of the output image. This parameter is also available in the earlier DecodeBlindWatermark operation.
+   * 
+   * Higher image quality indicates a larger image size and higher watermark resolution quality.
    * 
    * @example
    * 90
@@ -6532,9 +6558,9 @@ export class CreateDecodeBlindWatermarkTaskRequest extends $tea.Model {
   imageQuality?: number;
   /**
    * @remarks
-   * The watermark algorithm model.Valid values: FFT, FFT_FULL, DWT, and DWT_IBG. Default value: FFT.
+   * The watermark algorithm model. This parameter is also available in the earlier DecodeBlindWatermark operation. Valid values: FFT, FFT_FULL, DWT, and DWT_IBG. Default value: FFT.
    * 
-   * If this parameter is left empty, the DecodeBlindWatermark operation is called. Otherwise, the CreateDecodeBlindWatermarkTask operation is called.
+   * If this parameter is left empty, the CreateDecodeBlindWatermarkTask operation is called. Otherwise, the earlier DecodeBlindWatermark operation is called.
    * 
    * @example
    * FFT
@@ -6547,7 +6573,7 @@ export class CreateDecodeBlindWatermarkTaskRequest extends $tea.Model {
   notification?: Notification;
   /**
    * @remarks
-   * The OSS URI of the image before the blind watermark is added. 
+   * The OSS URI of the image before the blind watermark is added. This parameter is also available in the earlier DecodeBlindWatermark operation.
    * 
    * Do not specify this parameter when you set the Model parameter to DWT or DWT_IBG.
    * 
@@ -6560,6 +6586,8 @@ export class CreateDecodeBlindWatermarkTaskRequest extends $tea.Model {
   /**
    * @remarks
    * The name of the project.[](~~478153~~)
+   * 
+   * >  The project specified in the request must match the one in the EncodeBlindWatermark request to encode the blind watermark.
    * 
    * This parameter is required.
    * 
@@ -6589,7 +6617,8 @@ export class CreateDecodeBlindWatermarkTaskRequest extends $tea.Model {
   strengthLevel?: string;
   /**
    * @remarks
-   * The OSS URI of the output image.
+   * The OSS URI of the output image. This parameter is also available in the earlier DecodeBlindWatermark operation.
+   * 
    * Specify the OSS URI in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
    * 
    * @example
@@ -6642,8 +6671,9 @@ export class CreateDecodeBlindWatermarkTaskRequest extends $tea.Model {
 export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The quality of the output image.
-   * The higher the quality, the larger the image size and the higher the watermark resolution quality.
+   * The quality of the output image. This parameter is also available in the earlier DecodeBlindWatermark operation.
+   * 
+   * Higher image quality indicates a larger image size and higher watermark resolution quality.
    * 
    * @example
    * 90
@@ -6651,9 +6681,9 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $tea.Model {
   imageQuality?: number;
   /**
    * @remarks
-   * The watermark algorithm model.Valid values: FFT, FFT_FULL, DWT, and DWT_IBG. Default value: FFT.
+   * The watermark algorithm model. This parameter is also available in the earlier DecodeBlindWatermark operation. Valid values: FFT, FFT_FULL, DWT, and DWT_IBG. Default value: FFT.
    * 
-   * If this parameter is left empty, the DecodeBlindWatermark operation is called. Otherwise, the CreateDecodeBlindWatermarkTask operation is called.
+   * If this parameter is left empty, the CreateDecodeBlindWatermarkTask operation is called. Otherwise, the earlier DecodeBlindWatermark operation is called.
    * 
    * @example
    * FFT
@@ -6666,7 +6696,7 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $tea.Model {
   notificationShrink?: string;
   /**
    * @remarks
-   * The OSS URI of the image before the blind watermark is added. 
+   * The OSS URI of the image before the blind watermark is added. This parameter is also available in the earlier DecodeBlindWatermark operation.
    * 
    * Do not specify this parameter when you set the Model parameter to DWT or DWT_IBG.
    * 
@@ -6679,6 +6709,8 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The name of the project.[](~~478153~~)
+   * 
+   * >  The project specified in the request must match the one in the EncodeBlindWatermark request to encode the blind watermark.
    * 
    * This parameter is required.
    * 
@@ -6708,7 +6740,8 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $tea.Model {
   strengthLevel?: string;
   /**
    * @remarks
-   * The OSS URI of the output image.
+   * The OSS URI of the output image. This parameter is also available in the earlier DecodeBlindWatermark operation.
+   * 
    * Specify the OSS URI in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
    * 
    * @example
@@ -28377,8 +28410,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
    * *   Make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   The region and project specified in the request to decode a blind watermark must match those in the [EncodeBlindWatermark](https://help.aliyun.com/document_detail/2743655.html) request to encode the blind watermark.
    * *   A blind watermark can still be extracted even if attacks, such as compression, scaling, cropping, rotation, and color transformation, are performed on the image.
+   * *   This operation is compatible with its earlier version DecodeBlindWatermark.
    * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param tmpReq - CreateDecodeBlindWatermarkTaskRequest
@@ -28452,8 +28489,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
+   *     **
+   *     **Note** Asynchronous processing does not guarantee timely task completion.
    * *   Make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * *   The region and project specified in the request to decode a blind watermark must match those in the [EncodeBlindWatermark](https://help.aliyun.com/document_detail/2743655.html) request to encode the blind watermark.
    * *   A blind watermark can still be extracted even if attacks, such as compression, scaling, cropping, rotation, and color transformation, are performed on the image.
+   * *   This operation is compatible with its earlier version DecodeBlindWatermark.
    * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
    * 
    * @param request - CreateDecodeBlindWatermarkTaskRequest
@@ -29525,7 +29566,7 @@ export default class Client extends OpenApi {
    *     *   Text files: txt
    *     *   PDF files: pdf
    * *   Each input document can be up to 200 MB in size.
-   * *   The maximum conversion time is 120 seconds. If the document is large in size or contains complex content, the conversion may time out.
+   * *   The maximum conversion time is 120 seconds. If the document contains too much or complex content, the conversion may time out.
    * *   The operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can use one of the following methods to query task information:
    *     *   Call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.``
    *     *   In the region in which the IMM project is located, configure a Simple Message Queue (SMQ) subscription to receive task information notifications. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html). For information about SMQ SDKs, see [Use queues](https://help.aliyun.com/document_detail/32449.html).
@@ -29725,7 +29766,7 @@ export default class Client extends OpenApi {
    *     *   Text files: txt
    *     *   PDF files: pdf
    * *   Each input document can be up to 200 MB in size.
-   * *   The maximum conversion time is 120 seconds. If the document is large in size or contains complex content, the conversion may time out.
+   * *   The maximum conversion time is 120 seconds. If the document contains too much or complex content, the conversion may time out.
    * *   The operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can use one of the following methods to query task information:
    *     *   Call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.``
    *     *   In the region in which the IMM project is located, configure a Simple Message Queue (SMQ) subscription to receive task information notifications. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html). For information about SMQ SDKs, see [Use queues](https://help.aliyun.com/document_detail/32449.html).
