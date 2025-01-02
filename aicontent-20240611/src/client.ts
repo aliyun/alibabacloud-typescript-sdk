@@ -4414,25 +4414,25 @@ export class GetAITeacherSyncDialogueSuggestionRequestRecords extends $tea.Model
 export class GetAITeacherSyncDialogueSuggestionResponseBodyData extends $tea.Model {
   /**
    * @example
+   * 谢谢莉莉.你喜欢吃肉吗，莉莉？
+   */
+  chineseResult?: string;
+  /**
+   * @example
    * Thanks, Lily. Do you like meat, Lily?
    */
   englishResult?: string;
-  /**
-   * @example
-   * 谢谢莉莉.你喜欢吃肉吗，莉莉？
-   */
-  englishResult1?: string;
   static names(): { [key: string]: string } {
     return {
+      chineseResult: 'chineseResult',
       englishResult: 'englishResult',
-      englishResult1: 'englishResult1',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      chineseResult: 'string',
       englishResult: 'string',
-      englishResult1: 'string',
     };
   }
 
