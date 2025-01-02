@@ -9,11 +9,17 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class ApproveOperationRequest extends $tea.Model {
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * e01-cn-zvp2tgykr08
    */
   nodeId?: string;
   /**
+   * @remarks
+   * Operation Type
+   * 
    * @example
    * RepairMachine
    */
@@ -39,11 +45,17 @@ export class ApproveOperationRequest extends $tea.Model {
 
 export class ApproveOperationResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Error Message
+   * 
    * @example
    * Resource not found
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 8F065DDD-6996-5973-9691-9EC57BD0072E
    */
@@ -95,6 +107,8 @@ export class ApproveOperationResponse extends $tea.Model {
 export class ChangeResourceGroupRequest extends $tea.Model {
   /**
    * @remarks
+   * Target Resource Group
+   * 
    * This parameter is required.
    * 
    * @example
@@ -103,6 +117,8 @@ export class ChangeResourceGroupRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
+   * Resource ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -111,6 +127,8 @@ export class ChangeResourceGroupRequest extends $tea.Model {
   resourceId?: string;
   /**
    * @remarks
+   * Region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -141,7 +159,7 @@ export class ChangeResourceGroupRequest extends $tea.Model {
 export class ChangeResourceGroupResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 8F065DDD-6996-5973-9691-9EC57BD0072E
@@ -190,33 +208,86 @@ export class ChangeResourceGroupResponse extends $tea.Model {
 }
 
 export class CreateClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Cluster description
+   * 
+   * @example
+   * Cluster description
+   */
   clusterDescription?: string;
   /**
+   * @remarks
+   * Cluster name
+   * 
    * @example
    * Standard_Cluster
    */
   clusterName?: string;
   /**
+   * @remarks
+   * Cluster type
+   * 
    * @example
    * Lite
    */
   clusterType?: string;
+  /**
+   * @remarks
+   * Components (software instances)
+   */
   components?: CreateClusterRequestComponents[];
+  /**
+   * @remarks
+   * Cluster number
+   * 
+   * @example
+   * A1
+   */
   hpnZone?: string;
   /**
+   * @remarks
+   * Whether to allow skipping failed nodes, default value is False
+   * 
    * @example
    * False
    */
   ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * Network information
+   */
   networks?: CreateClusterRequestNetworks;
+  /**
+   * @remarks
+   * Node VSwitches
+   */
   nimizVSwitches?: string[];
+  /**
+   * @remarks
+   * Node group list
+   */
   nodeGroups?: CreateClusterRequestNodeGroups[];
+  /**
+   * @remarks
+   * Open Eni Jumbo Frame
+   * 
+   * @example
+   * false
+   */
   openEniJumboFrame?: boolean;
   /**
+   * @remarks
+   * Resource group ID
+   * 
    * @example
    * rg-aek2xdkc6icwfha
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * Resource tags
+   */
   tag?: CreateClusterRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -258,33 +329,86 @@ export class CreateClusterRequest extends $tea.Model {
 }
 
 export class CreateClusterShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Cluster description
+   * 
+   * @example
+   * Cluster description
+   */
   clusterDescription?: string;
   /**
+   * @remarks
+   * Cluster name
+   * 
    * @example
    * Standard_Cluster
    */
   clusterName?: string;
   /**
+   * @remarks
+   * Cluster type
+   * 
    * @example
    * Lite
    */
   clusterType?: string;
+  /**
+   * @remarks
+   * Components (software instances)
+   */
   componentsShrink?: string;
+  /**
+   * @remarks
+   * Cluster number
+   * 
+   * @example
+   * A1
+   */
   hpnZone?: string;
   /**
+   * @remarks
+   * Whether to allow skipping failed nodes, default value is False
+   * 
    * @example
    * False
    */
   ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * Network information
+   */
   networksShrink?: string;
+  /**
+   * @remarks
+   * Node VSwitches
+   */
   nimizVSwitchesShrink?: string;
+  /**
+   * @remarks
+   * Node group list
+   */
   nodeGroupsShrink?: string;
+  /**
+   * @remarks
+   * Open Eni Jumbo Frame
+   * 
+   * @example
+   * false
+   */
   openEniJumboFrame?: boolean;
   /**
+   * @remarks
+   * Resource group ID
+   * 
    * @example
    * rg-aek2xdkc6icwfha
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * Resource tags
+   */
   tag?: CreateClusterShrinkRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -327,16 +451,25 @@ export class CreateClusterShrinkRequest extends $tea.Model {
 
 export class CreateClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i116913051663373010974
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 3C683243-7915-57FB-9570-A2932C1C0F78
    */
   requestId?: string;
   /**
+   * @remarks
+   * Task Id
+   * 
    * @example
    * i159809891662373011015
    */
@@ -390,6 +523,8 @@ export class CreateClusterResponse extends $tea.Model {
 export class DeleteClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * Cluster ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -415,6 +550,9 @@ export class DeleteClusterRequest extends $tea.Model {
 
 export class DeleteClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request Id
+   * 
    * @example
    * 0FC4A1C7-421C-5EAB-9361-4C0338EFA287
    */
@@ -464,6 +602,8 @@ export class DeleteClusterResponse extends $tea.Model {
 export class DescribeClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * Cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -488,67 +628,143 @@ export class DescribeClusterRequest extends $tea.Model {
 }
 
 export class DescribeClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Cluster Description
+   * 
+   * @example
+   * Default cluster
+   */
   clusterDescription?: string;
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i116913051662373010974
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Cluster Name
+   * 
    * @example
    * Eflo-YJ-Test-Cluster
    */
   clusterName?: string;
   /**
+   * @remarks
+   * Cluster Type
+   * 
    * @example
-   * AckEdgPro
+   * AckEdgePro
    */
   clusterType?: string;
+  /**
+   * @remarks
+   * Component Information
+   */
   components?: DescribeClusterResponseBodyComponents[];
+  /**
+   * @remarks
+   * Type of IP in the compute network
+   * 
+   * @example
+   * IPv4
+   */
   computingIpVersion?: string;
   /**
+   * @remarks
+   * Creation Time
+   * 
    * @example
    * 2022-06-08T07:05:11Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Cluster Number
+   * 
+   * @example
+   * A2
+   */
   hpnZone?: string;
+  /**
+   * @remarks
+   * Network Information
+   */
   networks?: DescribeClusterResponseBodyNetworks[];
   /**
+   * @remarks
+   * Number of Nodes
+   * 
    * @example
    * 2
    */
   nodeCount?: number;
   /**
+   * @remarks
+   * Number of Node Groups
+   * 
    * @example
    * 2
    */
   nodeGroupCount?: number;
+  /**
+   * @remarks
+   * Open Eni Jumbo Frame
+   * 
+   * @example
+   * close
+   */
   openEniJumboFrame?: string;
   /**
+   * @remarks
+   * Cluster State
+   * 
    * @example
    * running
    */
   operatingState?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 887FA855-89F4-5DB3-B305-C5879EC480E6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Resource Group ID
+   * 
    * @example
    * rg-aek2k3rqlvv6ytq
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * i152609221670466904596
    */
   taskId?: string;
   /**
+   * @remarks
+   * Update Time
+   * 
    * @example
    * 2022-08-23T06:36:17.000Z
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * VPC ID
+   * 
+   * @example
+   * vpc-0jlkqysom5dmcviymep3f
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -628,17 +844,35 @@ export class DescribeClusterResponse extends $tea.Model {
 
 export class DescribeInvocationsRequest extends $tea.Model {
   /**
+   * @remarks
+   * Sets the encoding method for the `CommandContent` and `Output` fields in the returned data. Possible values:
+   * 
+   * - PlainText: Returns the original command content and output information.
+   * - Base64: Returns the Base64-encoded command content and output information.
+   * 
+   * Default value: Base64.
+   * 
    * @example
    * PlainText
    */
   contentEncoding?: string;
   /**
+   * @remarks
+   * Indicates whether to return the output information of the command execution in the result.
+   * 
+   * - true: Return. In this case, you must specify at least the `InvokeId` or `InstanceId` parameter.
+   * - false: Do not return.
+   * 
+   * Default value: false.
+   * 
    * @example
    * true
    */
   includeOutput?: boolean;
   /**
    * @remarks
+   * Command execution ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -646,6 +880,9 @@ export class DescribeInvocationsRequest extends $tea.Model {
    */
   invokeId?: string;
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * e01-cn-zvp2tgykr08
    */
@@ -674,8 +911,15 @@ export class DescribeInvocationsRequest extends $tea.Model {
 }
 
 export class DescribeInvocationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Script execution record object.
+   */
   invocations?: DescribeInvocationsResponseBodyInvocations;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
    */
@@ -727,6 +971,8 @@ export class DescribeInvocationsResponse extends $tea.Model {
 export class DescribeNodeRequest extends $tea.Model {
   /**
    * @remarks
+   * Node ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -752,78 +998,142 @@ export class DescribeNodeRequest extends $tea.Model {
 
 export class DescribeNodeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i116913051662373010974
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Cluster name
+   * 
    * @example
    * Standard_Cluster
    */
   clusterName?: string;
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 2022-09-30T03:35:53Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Expiration time
+   * 
    * @example
    * 2022-06-23T16:00:00Z
    */
   expiredTime?: string;
   /**
+   * @remarks
+   * Hostname
+   * 
    * @example
    * 31d38530-241e-11ed-bc63-acde48001122
    */
   hostname?: string;
+  /**
+   * @remarks
+   * Cluster number
+   * 
+   * @example
+   * A1
+   */
   hpnZone?: string;
   /**
+   * @remarks
+   * Image ID
+   * 
    * @example
    * i190297201634099844192
    */
   imageId?: string;
   /**
    * @remarks
-   * 镜像名称
+   * Image name
    * 
    * @example
    * Centos7.9_all_0811
    */
   imageName?: string;
   /**
+   * @remarks
+   * Machine type
+   * 
    * @example
    * efg1.nvga1
    */
   machineType?: string;
+  /**
+   * @remarks
+   * Network information
+   */
   networks?: DescribeNodeResponseBodyNetworks[];
   /**
+   * @remarks
+   * Node group ID
+   * 
    * @example
    * ng-ec3c96ff0aa4c60d
    */
   nodeGroupId?: string;
   /**
+   * @remarks
+   * Node group name
+   * 
    * @example
    * emr-default
    */
   nodeGroupName?: string;
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * e01-cn-zvp2tgykr08
    */
   nodeId?: string;
+  /**
+   * @remarks
+   * Node status
+   * 
+   * @example
+   * Using
+   */
   operatingState?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * AC4F0004-7BCE-52E0-891B-CAC7D64E3368
    */
   requestId?: string;
+  /**
+   * @remarks
+   * 资源组ID
+   * 
+   * @example
+   * rg-acfmywpvugkh7kq
+   */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Unique machine identifier
+   * 
    * @example
    * sag42ckf4jx
    */
   sn?: string;
   /**
+   * @remarks
+   * Zone ID
+   * 
    * @example
    * cn-hangzhou-i
    */
@@ -906,6 +1216,13 @@ export class DescribeNodeResponse extends $tea.Model {
 
 export class DescribeRegionsRequest extends $tea.Model {
   /**
+   * @remarks
+   * Filter the returned results based on Chinese, English, and Japanese. For more information, see RFC7231. Valid values:
+   * 
+   * zh-CN
+   * en-US
+   * Default value: zh-CN
+   * 
    * @example
    * zh-CN
    */
@@ -928,8 +1245,15 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * List of region information.
+   */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 1D2FBB36-C39B-5EBB-9928-FCC1A236D65D
    */
@@ -981,6 +1305,8 @@ export class DescribeRegionsResponse extends $tea.Model {
 export class DescribeSendFileResultsRequest extends $tea.Model {
   /**
    * @remarks
+   * Command execution ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -988,6 +1314,9 @@ export class DescribeSendFileResultsRequest extends $tea.Model {
    */
   invokeId?: string;
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * e01-cn-zvp2tgykr08
    */
@@ -1012,16 +1341,23 @@ export class DescribeSendFileResultsRequest extends $tea.Model {
 }
 
 export class DescribeSendFileResultsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Record of file distribution.
+   */
   invocations?: DescribeSendFileResultsResponseBodyInvocations;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of commands.
+   * 
    * @example
    * 1
    */
@@ -1075,6 +1411,8 @@ export class DescribeSendFileResultsResponse extends $tea.Model {
 export class DescribeTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * Task ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1100,43 +1438,75 @@ export class DescribeTaskRequest extends $tea.Model {
 
 export class DescribeTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i119982311660892626523
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Cluster Name
+   * 
    * @example
    * Standard_Cluster
    */
   clusterName?: string;
   /**
+   * @remarks
+   * Start Time
+   * 
    * @example
    * 2022-11-30T02:00:00.852Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Task Failure Message
+   * 
    * @example
    * Releasing [prod_main_mid_26e234cf] in region [cn-beijing] with weight [0]
    */
   message?: string;
+  /**
+   * @remarks
+   * List of node IDs
+   */
   nodeIds?: string[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * A7FD7411-9395-52E8-AF42-EB3A4A55446D
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Execution Steps
+   */
   steps?: DescribeTaskResponseBodySteps[];
   /**
+   * @remarks
+   * Task State
+   * 
    * @example
    * running
    */
   taskState?: string;
   /**
+   * @remarks
+   * Task Type
+   * 
    * @example
    * cut_cluster
    */
   taskType?: string;
   /**
+   * @remarks
+   * Update Time
+   * 
    * @example
    * 2022-11-30T03:40:14.852Z
    */
@@ -1203,6 +1573,13 @@ export class DescribeTaskResponse extends $tea.Model {
 
 export class DescribeZonesRequest extends $tea.Model {
   /**
+   * @remarks
+   * Filter the returned results based on Chinese or English. For more information, see RFC7231. Valid values:
+   * 
+   * zh-CN
+   * en-US
+   * Default value: zh-CN
+   * 
    * @example
    * zh-CN
    */
@@ -1226,10 +1603,17 @@ export class DescribeZonesRequest extends $tea.Model {
 
 export class DescribeZonesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * E9116F2D-82F8-501E-9ADB-2BE0C02B6A84
    */
   requestId?: string;
+  /**
+   * @remarks
+   * List of available zones
+   */
   zones?: DescribeZonesResponseBodyZones[];
   static names(): { [key: string]: string } {
     return {
@@ -1277,18 +1661,43 @@ export class DescribeZonesResponse extends $tea.Model {
 
 export class ExtendClusterRequest extends $tea.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i15b480fbd2fcdbc2869cd80
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
    * @example
    * False
    */
   ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * IP allocation policy combination: Each policy can only choose one type, and multiple policies can be combined
+   */
   ipAllocationPolicy?: ExtendClusterRequestIpAllocationPolicy[];
+  /**
+   * @remarks
+   * Node Group
+   */
   nodeGroups?: ExtendClusterRequestNodeGroups[];
+  /**
+   * @remarks
+   * VSwitch availability zone ID
+   * 
+   * @example
+   * cn-shanghai-b
+   */
   vSwitchZoneId?: string;
+  /**
+   * @remarks
+   * List of cluster subnets
+   */
   vpdSubnets?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1319,18 +1728,43 @@ export class ExtendClusterRequest extends $tea.Model {
 
 export class ExtendClusterShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i15b480fbd2fcdbc2869cd80
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
    * @example
    * False
    */
   ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * IP allocation policy combination: Each policy can only choose one type, and multiple policies can be combined
+   */
   ipAllocationPolicyShrink?: string;
+  /**
+   * @remarks
+   * Node Group
+   */
   nodeGroupsShrink?: string;
+  /**
+   * @remarks
+   * VSwitch availability zone ID
+   * 
+   * @example
+   * cn-shanghai-b
+   */
   vSwitchZoneId?: string;
+  /**
+   * @remarks
+   * List of cluster subnets
+   */
   vpdSubnetsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1361,11 +1795,17 @@ export class ExtendClusterShrinkRequest extends $tea.Model {
 
 export class ExtendClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 03668372-18FF-5959-98D9-6B36A4643C7A
    */
   requestId?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * i158475611663639202234
    */
@@ -1417,6 +1857,8 @@ export class ExtendClusterResponse extends $tea.Model {
 export class ListClusterNodesRequest extends $tea.Model {
   /**
    * @remarks
+   * Cluster ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1424,16 +1866,25 @@ export class ListClusterNodesRequest extends $tea.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Number of items per page in a paginated query, with a default value of 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Query token (Token), which is the value of the NextToken parameter returned by the previous API call.
+   * 
    * @example
    * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Node group ID
+   * 
    * @example
    * ng-ec3c96ff0aa4c60d
    */
@@ -1463,12 +1914,22 @@ export class ListClusterNodesRequest extends $tea.Model {
 
 export class ListClusterNodesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The query token value returned by this call.
+   * 
    * @example
    * AAAAAXW/ZB9TBvH+0ZK0phtCibQgQmu1RbqplAI6Velo2OKR
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * List of nodes
+   */
   nodes?: ListClusterNodesResponseBodyNodes[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 2BA76272-6608-5AEC-BBA8-B6F0D3D14CDB
    */
@@ -1521,16 +1982,25 @@ export class ListClusterNodesResponse extends $tea.Model {
 
 export class ListClustersRequest extends $tea.Model {
   /**
+   * @remarks
+   * Number of items per page for paginated queries, with a default value of 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Query token, which is the value of the NextToken parameter returned by the previous API call.
+   * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Resource group ID
+   * 
    * @example
    * rg-aek2bg6wyoox6jq
    */
@@ -1557,13 +2027,23 @@ export class ListClustersRequest extends $tea.Model {
 }
 
 export class ListClustersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Cluster information
+   */
   clusters?: ListClustersResponseBodyClusters[];
   /**
+   * @remarks
+   * The query token value returned by this call.
+   * 
    * @example
    * f4f9a292c17072a2
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 2FE2B22C-CF9D-59DE-BF63-DC9B9B33A9D1
    */
@@ -1615,22 +2095,45 @@ export class ListClustersResponse extends $tea.Model {
 }
 
 export class ListFreeNodesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Cluster number
+   * 
+   * @example
+   * A1
+   */
   hpnZone?: string;
   /**
+   * @remarks
+   * Machine type
+   * 
    * @example
    * mock-machine-type2
    */
   machineType?: string;
   /**
+   * @remarks
+   * Number of items per page for paginated queries, default is 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Query token (Token), the value should be the NextToken parameter value returned from the previous API call.
+   * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * Resource group ID
+   * 
+   * @example
+   * rg-acfmxno4vh5muoq
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1659,12 +2162,22 @@ export class ListFreeNodesRequest extends $tea.Model {
 
 export class ListFreeNodesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The query token value returned by this call.
+   * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * List of nodes
+   */
   nodes?: ListFreeNodesResponseBodyNodes[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * AA14CB86-70C4-5CB7-9E7B-6CCA77F3512B
    */
@@ -1717,12 +2230,17 @@ export class ListFreeNodesResponse extends $tea.Model {
 
 export class ListTagResourcesRequest extends $tea.Model {
   /**
+   * @remarks
+   * Query token (Token), the value should be the NextToken returned from the previous API call
+   * 
    * @example
    * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
    */
   nextToken?: string;
   /**
    * @remarks
+   * Region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1731,17 +2249,25 @@ export class ListTagResourcesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * List of resource IDs
+   * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
+   * Resource type
+   * 
    * This parameter is required.
    * 
    * @example
    * Node
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * List of tags
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -1770,15 +2296,25 @@ export class ListTagResourcesRequest extends $tea.Model {
 
 export class ListTagResourcesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * NextToken for the next page, include this returned value when requesting the next page
+   * 
    * @example
    * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 8F208B6D-4C42-5FD3-B6BE-E826E92A44DD
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Tagged resources.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {
@@ -1828,15 +2364,25 @@ export class ListTagResourcesResponse extends $tea.Model {
 
 export class RebootNodesRequest extends $tea.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i15b480fbd2fcdbc2869cd80
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
    * @example
    * False
    */
   ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * List of nodes
+   */
   nodes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1861,15 +2407,25 @@ export class RebootNodesRequest extends $tea.Model {
 
 export class RebootNodesShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i15b480fbd2fcdbc2869cd80
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
    * @example
    * False
    */
   ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * List of nodes
+   */
   nodesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1894,11 +2450,17 @@ export class RebootNodesShrinkRequest extends $tea.Model {
 
 export class RebootNodesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
    */
   requestId?: string;
   /**
+   * @remarks
+   * Task Id
+   * 
    * @example
    * i158475611663639202234
    */
@@ -1949,16 +2511,34 @@ export class RebootNodesResponse extends $tea.Model {
 
 export class ReimageNodesRequest extends $tea.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i15dfa12e8f27c44f4a006c2c8bb
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
    * @example
    * False
    */
   ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * Node list
+   */
   nodes?: ReimageNodesRequestNodes[];
+  /**
+   * @remarks
+   * Custom data
+   * 
+   * @example
+   * #!/bin/sh
+   * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1985,16 +2565,34 @@ export class ReimageNodesRequest extends $tea.Model {
 
 export class ReimageNodesShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i15dfa12e8f27c44f4a006c2c8bb
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
    * @example
    * False
    */
   ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * Node list
+   */
   nodesShrink?: string;
+  /**
+   * @remarks
+   * Custom data
+   * 
+   * @example
+   * #!/bin/sh
+   * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2021,11 +2619,17 @@ export class ReimageNodesShrinkRequest extends $tea.Model {
 
 export class ReimageNodesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 15FBCD9B-C93F-54E8-A168-AADE7E66DAD2
    */
   requestId?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * i158782151663841517926
    */
@@ -2076,12 +2680,24 @@ export class ReimageNodesResponse extends $tea.Model {
 
 export class RunCommandRequest extends $tea.Model {
   /**
+   * @remarks
+   * Ensures idempotence of the request. Generate a unique parameter value from your client to ensure that the value is unique across different requests. 
+   * ClientToken supports only ASCII characters and cannot exceed 64 characters. For more information, see How to Ensure Idempotence.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
    * @remarks
+   * Command content. Please note the following:
+   * 
+   * - Specify `EnableParameter=true` to enable custom parameters in the command content.
+   * - Define custom parameters using the {{}} format; spaces and newlines within `{{}}` will be ignored.
+   * - The number of custom parameters cannot exceed 20.
+   * - Custom parameter names can only contain a-zA-Z0-9-_, and are case-insensitive.
+   * - A single custom parameter name cannot exceed 64 bytes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2089,48 +2705,129 @@ export class RunCommandRequest extends $tea.Model {
    */
   commandContent?: string;
   /**
+   * @remarks
+   * Encoding method for the script content. Valid values:
+   * 
+   * - PlainText: No encoding, transmitted in plain text.
+   * - Base64: Base64 encoding.
+   * 
+   * Default value: PlainText. If an invalid value is provided, it will be treated as PlainText.
+   * 
    * @example
    * Base64
    */
   contentEncoding?: string;
   /**
+   * @remarks
+   * Command description.
+   * 
    * @example
    * testDescription
    */
   description?: string;
   /**
+   * @remarks
+   * Whether the command contains custom parameters.
+   * 
+   * Default value: false.
+   * 
    * @example
    * false
    */
   enableParameter?: boolean;
+  /**
+   * @remarks
+   * Execution time for scheduled commands. Currently, three types of scheduling methods are supported: fixed interval (based on Rate expression), one-time execution at a specific time, and clock-based scheduling (based on Cron expression).
+   * 
+   * Fixed interval execution: Based on the Rate expression, the command is executed at the set interval. The interval can be set in seconds (s), minutes (m), hours (h), and days (d), suitable for scenarios where tasks need to be executed at fixed intervals. The format is rate(<interval value><interval unit>), such as rate(5m) for every 5 minutes. The following restrictions apply to fixed interval execution:
+   * - The interval should not exceed 7 days and should be no less than 60 seconds, and it must be greater than the timeout of the scheduled task.
+   * - The interval is based on a fixed frequency and is independent of the actual execution time of the task. For example, if the command is set to execute every 5 minutes and the task takes 2 minutes to complete, the next round will start 3 minutes after the completion of the task.
+   * - The task will not be executed immediately upon creation. For example, if the command is set to execute every 5 minutes, it will not be executed immediately upon creation but will start 5 minutes after the task is created.
+   * One-time execution at a specific time: Executes the command once at the specified time and timezone. The format is at(yyyy-MM-dd HH:mm:ss <timezone>), which is at(year-month-day hour:minute:second <timezone>). If no timezone is specified, UTC is used by default. Timezones support the following three formats:
+   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
+   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
+   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
+   * 
+   * For example, to execute once at 13:15:30 on June 6, 2022, in Shanghai, China, the format would be: at(2022-06-06 13:15:30 Asia/Shanghai); to execute once at 13:15:30 on June 6, 2022, in the GMT-7:00 timezone, the format would be: at(2022-06-06 13:15:30 GMT-7:00).
+   * 
+   * Clock-based scheduling (based on Cron expression): Based on the Cron expression, the command is executed according to the set schedule. The format is <second> <minute> <hour> <day> <month> <weekday> <year (optional)> <timezone>, i.e., <Cron expression> <timezone>. In the specified timezone, the scheduled task execution time is calculated based on the Cron expression and then executed. If no timezone is specified, the system\\"s internal timezone of the instance running the scheduled task is used by default. For more information about Cron expressions, see Cron Expressions. Timezones support the following three formats:
+   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
+   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
+   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
+   * 
+   * For example, to execute the command at 10:15 AM every day in 2022 in Shanghai, China, the format would be 0 15 10 ? * * 2022 Asia/Shanghai; to execute the command every 30 minutes between 10:00 AM and 11:30 AM every day in 2022 in the GMT+8:00 timezone, the format would be 0 0/30 10-11 * * ? 2022 GMT+8:00; to execute the command every 5 minutes between 2:00 PM and 2:55 PM every day in October every two years starting from 2022 in UTC, the format would be 0 0/5 14 * 10 ? 2022/2 UTC.
+   */
   frequency?: string;
   /**
+   * @remarks
+   * Command name.
+   * 
    * @example
    * testName
    */
   name?: string;
+  /**
+   * @remarks
+   * List of nodes.
+   */
   nodeIdList?: string[];
   /**
+   * @remarks
+   * When the command contains custom parameters, you need to pass in key-value pairs of these custom parameters when executing the command. For example, if the command content is `echo {{name}}`, you can pass in the key-value pair `{"name":"Jack"}` through the `Parameter` parameter. The custom parameter will automatically replace the variable value `name`, resulting in a new command, which actually executes as `echo Jack`.
+   * 
+   * The number of custom parameters ranges from 0 to 10, and you should note:
+   * 
+   * - Keys cannot be empty strings and support up to 64 characters at most.
+   * - Values can be empty strings.
+   * - When combined with the original command content and Base64 encoded, if the command is saved, the size after Base64 encoding must not exceed 18 KB; if the command is not saved, the size after Base64 encoding must not exceed 24 KB. You can set whether to keep the command via `KeepCommand`.
+   * - The set of custom parameter names must be a subset of the parameter set defined during command creation. For parameters that are not passed in, you can use an empty string as a substitute.
+   * 
+   * The default value is empty, indicating that the parameter is not set, thus disabling custom parameters.
+   * 
    * @example
    * {"name":"Jack", "accessKey":"LTAIdyvdIqaRY****"}
    */
   parameters?: { [key: string]: any };
   /**
+   * @remarks
+   * Set the command execution mode. Valid values:
+   * 
+   * - Once: Execute the command immediately.
+   * - Period: Execute the command at a scheduled time. When this parameter is set to `Period`, you must also specify the `Frequency` parameter.
+   * - NextRebootOnly: Automatically execute the command when the instance starts next time.
+   * - EveryReboot: Automatically execute the command every time the instance starts.
+   * 
+   * Default value:
+   * - If the `Frequency` parameter is not specified, the default value is `Once`.
+   * - If the `Frequency` parameter is specified, regardless of whether this parameter is already set, it will be processed as `Period`.
+   * 
    * @example
    * Once
    */
   repeatMode?: string;
   /**
+   * @remarks
+   * Timeout for executing the command, in seconds. If the command cannot run due to process issues, missing modules, or the absence of the Cloud Assistant Agent, a timeout will occur. After a timeout, the command process will be forcibly terminated. Default value: 60.
+   * 
    * @example
    * 3600
    */
   timeout?: number;
   /**
+   * @remarks
+   * The username to execute the command in the instance. The length must not exceed 255 characters.
+   *     For Linux systems, the command is executed by the root user by default.
+   * 
    * @example
    * root
    */
   username?: string;
   /**
+   * @remarks
+   * You can customize the execution path of the command. The default paths are as follows:
+   * 
+   * - Linux instances: The default execution path is under the /home directory of the root user.
+   * 
    * @example
    * /home/user
    */
@@ -2178,12 +2875,24 @@ export class RunCommandRequest extends $tea.Model {
 
 export class RunCommandShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * Ensures idempotence of the request. Generate a unique parameter value from your client to ensure that the value is unique across different requests. 
+   * ClientToken supports only ASCII characters and cannot exceed 64 characters. For more information, see How to Ensure Idempotence.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
    * @remarks
+   * Command content. Please note the following:
+   * 
+   * - Specify `EnableParameter=true` to enable custom parameters in the command content.
+   * - Define custom parameters using the {{}} format; spaces and newlines within `{{}}` will be ignored.
+   * - The number of custom parameters cannot exceed 20.
+   * - Custom parameter names can only contain a-zA-Z0-9-_, and are case-insensitive.
+   * - A single custom parameter name cannot exceed 64 bytes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2191,48 +2900,129 @@ export class RunCommandShrinkRequest extends $tea.Model {
    */
   commandContent?: string;
   /**
+   * @remarks
+   * Encoding method for the script content. Valid values:
+   * 
+   * - PlainText: No encoding, transmitted in plain text.
+   * - Base64: Base64 encoding.
+   * 
+   * Default value: PlainText. If an invalid value is provided, it will be treated as PlainText.
+   * 
    * @example
    * Base64
    */
   contentEncoding?: string;
   /**
+   * @remarks
+   * Command description.
+   * 
    * @example
    * testDescription
    */
   description?: string;
   /**
+   * @remarks
+   * Whether the command contains custom parameters.
+   * 
+   * Default value: false.
+   * 
    * @example
    * false
    */
   enableParameter?: boolean;
+  /**
+   * @remarks
+   * Execution time for scheduled commands. Currently, three types of scheduling methods are supported: fixed interval (based on Rate expression), one-time execution at a specific time, and clock-based scheduling (based on Cron expression).
+   * 
+   * Fixed interval execution: Based on the Rate expression, the command is executed at the set interval. The interval can be set in seconds (s), minutes (m), hours (h), and days (d), suitable for scenarios where tasks need to be executed at fixed intervals. The format is rate(<interval value><interval unit>), such as rate(5m) for every 5 minutes. The following restrictions apply to fixed interval execution:
+   * - The interval should not exceed 7 days and should be no less than 60 seconds, and it must be greater than the timeout of the scheduled task.
+   * - The interval is based on a fixed frequency and is independent of the actual execution time of the task. For example, if the command is set to execute every 5 minutes and the task takes 2 minutes to complete, the next round will start 3 minutes after the completion of the task.
+   * - The task will not be executed immediately upon creation. For example, if the command is set to execute every 5 minutes, it will not be executed immediately upon creation but will start 5 minutes after the task is created.
+   * One-time execution at a specific time: Executes the command once at the specified time and timezone. The format is at(yyyy-MM-dd HH:mm:ss <timezone>), which is at(year-month-day hour:minute:second <timezone>). If no timezone is specified, UTC is used by default. Timezones support the following three formats:
+   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
+   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
+   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
+   * 
+   * For example, to execute once at 13:15:30 on June 6, 2022, in Shanghai, China, the format would be: at(2022-06-06 13:15:30 Asia/Shanghai); to execute once at 13:15:30 on June 6, 2022, in the GMT-7:00 timezone, the format would be: at(2022-06-06 13:15:30 GMT-7:00).
+   * 
+   * Clock-based scheduling (based on Cron expression): Based on the Cron expression, the command is executed according to the set schedule. The format is <second> <minute> <hour> <day> <month> <weekday> <year (optional)> <timezone>, i.e., <Cron expression> <timezone>. In the specified timezone, the scheduled task execution time is calculated based on the Cron expression and then executed. If no timezone is specified, the system\\"s internal timezone of the instance running the scheduled task is used by default. For more information about Cron expressions, see Cron Expressions. Timezones support the following three formats:
+   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
+   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
+   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
+   * 
+   * For example, to execute the command at 10:15 AM every day in 2022 in Shanghai, China, the format would be 0 15 10 ? * * 2022 Asia/Shanghai; to execute the command every 30 minutes between 10:00 AM and 11:30 AM every day in 2022 in the GMT+8:00 timezone, the format would be 0 0/30 10-11 * * ? 2022 GMT+8:00; to execute the command every 5 minutes between 2:00 PM and 2:55 PM every day in October every two years starting from 2022 in UTC, the format would be 0 0/5 14 * 10 ? 2022/2 UTC.
+   */
   frequency?: string;
   /**
+   * @remarks
+   * Command name.
+   * 
    * @example
    * testName
    */
   name?: string;
+  /**
+   * @remarks
+   * List of nodes.
+   */
   nodeIdListShrink?: string;
   /**
+   * @remarks
+   * When the command contains custom parameters, you need to pass in key-value pairs of these custom parameters when executing the command. For example, if the command content is `echo {{name}}`, you can pass in the key-value pair `{"name":"Jack"}` through the `Parameter` parameter. The custom parameter will automatically replace the variable value `name`, resulting in a new command, which actually executes as `echo Jack`.
+   * 
+   * The number of custom parameters ranges from 0 to 10, and you should note:
+   * 
+   * - Keys cannot be empty strings and support up to 64 characters at most.
+   * - Values can be empty strings.
+   * - When combined with the original command content and Base64 encoded, if the command is saved, the size after Base64 encoding must not exceed 18 KB; if the command is not saved, the size after Base64 encoding must not exceed 24 KB. You can set whether to keep the command via `KeepCommand`.
+   * - The set of custom parameter names must be a subset of the parameter set defined during command creation. For parameters that are not passed in, you can use an empty string as a substitute.
+   * 
+   * The default value is empty, indicating that the parameter is not set, thus disabling custom parameters.
+   * 
    * @example
    * {"name":"Jack", "accessKey":"LTAIdyvdIqaRY****"}
    */
   parametersShrink?: string;
   /**
+   * @remarks
+   * Set the command execution mode. Valid values:
+   * 
+   * - Once: Execute the command immediately.
+   * - Period: Execute the command at a scheduled time. When this parameter is set to `Period`, you must also specify the `Frequency` parameter.
+   * - NextRebootOnly: Automatically execute the command when the instance starts next time.
+   * - EveryReboot: Automatically execute the command every time the instance starts.
+   * 
+   * Default value:
+   * - If the `Frequency` parameter is not specified, the default value is `Once`.
+   * - If the `Frequency` parameter is specified, regardless of whether this parameter is already set, it will be processed as `Period`.
+   * 
    * @example
    * Once
    */
   repeatMode?: string;
   /**
+   * @remarks
+   * Timeout for executing the command, in seconds. If the command cannot run due to process issues, missing modules, or the absence of the Cloud Assistant Agent, a timeout will occur. After a timeout, the command process will be forcibly terminated. Default value: 60.
+   * 
    * @example
    * 3600
    */
   timeout?: number;
   /**
+   * @remarks
+   * The username to execute the command in the instance. The length must not exceed 255 characters.
+   *     For Linux systems, the command is executed by the root user by default.
+   * 
    * @example
    * root
    */
   username?: string;
   /**
+   * @remarks
+   * You can customize the execution path of the command. The default paths are as follows:
+   * 
+   * - Linux instances: The default execution path is under the /home directory of the root user.
+   * 
    * @example
    * /home/user
    */
@@ -2280,13 +3070,16 @@ export class RunCommandShrinkRequest extends $tea.Model {
 
 export class RunCommandResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * ID of the command execution.
+   * 
    * @example
    * t-7d2a745b412b4601b2d47f6a768d*
    */
   invokeId?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 2FE2B22C-CF9D-59DE-BF63-DC9B9B33A9D1
@@ -2339,6 +3132,11 @@ export class RunCommandResponse extends $tea.Model {
 export class SendFileRequest extends $tea.Model {
   /**
    * @remarks
+   * The content of the file. After Base64 encoding, the size cannot exceed 32 KB.
+   * 
+   * - When the `ContentType` parameter is `PlainText`, this field is plain text.
+   * - When the `ContentType` parameter is `Base64`, this field is Base64 encoded text.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2346,32 +3144,58 @@ export class SendFileRequest extends $tea.Model {
    */
   content?: string;
   /**
+   * @remarks
+   * The content type of the file.
+   * 
+   * PlainText: Plain text.
+   * Base64: Base64 encoded.
+   * The default value is PlainText.
+   * 
    * @example
    * PlainText
    */
   contentType?: string;
   /**
+   * @remarks
+   * Description information. Supports all character sets, and the length must not exceed 512 characters.
+   * 
    * @example
    * This is a test file.
    */
   description?: string;
   /**
+   * @remarks
+   * The group of the file. Applies only to Linux instances, and the default is root. The length must not exceed 64 characters.
+   * 
+   * Note
+   * When using other groups, ensure that the group exists in the instance.
+   * 
    * @example
    * test
    */
   fileGroup?: string;
   /**
+   * @remarks
+   * The permissions of the file. Applies only to Linux instances, and the setting method is the same as the chmod command.
+   * 
+   * The default value is 0644, which means the user has read and write permissions, while the group and other users have read-only permissions.
+   * 
    * @example
    * 0644
    */
   fileMode?: string;
   /**
+   * @remarks
+   * The owner of the file. Applies only to Linux instances, and the default is root.
+   * 
    * @example
    * root
    */
   fileOwner?: string;
   /**
    * @remarks
+   * The name of the file. Supports all character sets, and the length must not exceed 255 characters.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2380,16 +3204,27 @@ export class SendFileRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
+   * List of nodes.
+   * 
    * This parameter is required.
    */
   nodeIdList?: string[];
   /**
+   * @remarks
+   * Whether to overwrite the file if a file with the same name already exists in the target directory.
+   * - true: Overwrite.
+   * - false: Do not overwrite.
+   * 
+   * The default value is false.
+   * 
    * @example
    * True
    */
   overwrite?: boolean;
   /**
    * @remarks
+   * The directory in the target Lingjun node where the file will be sent. If it does not exist, it will be automatically created.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2397,6 +3232,14 @@ export class SendFileRequest extends $tea.Model {
    */
   targetDir?: string;
   /**
+   * @remarks
+   * The timeout for sending the file. Unit: seconds.
+   * 
+   * - A timeout may occur due to process reasons, missing modules, or missing Cloud Assistant Agent.
+   * - If the set timeout is less than 10 seconds, to ensure successful delivery, the system will automatically set the timeout to 10 seconds.
+   * 
+   * The default value is 60.
+   * 
    * @example
    * 600
    */
@@ -2441,6 +3284,11 @@ export class SendFileRequest extends $tea.Model {
 export class SendFileShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The content of the file. After Base64 encoding, the size cannot exceed 32 KB.
+   * 
+   * - When the `ContentType` parameter is `PlainText`, this field is plain text.
+   * - When the `ContentType` parameter is `Base64`, this field is Base64 encoded text.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2448,32 +3296,58 @@ export class SendFileShrinkRequest extends $tea.Model {
    */
   content?: string;
   /**
+   * @remarks
+   * The content type of the file.
+   * 
+   * PlainText: Plain text.
+   * Base64: Base64 encoded.
+   * The default value is PlainText.
+   * 
    * @example
    * PlainText
    */
   contentType?: string;
   /**
+   * @remarks
+   * Description information. Supports all character sets, and the length must not exceed 512 characters.
+   * 
    * @example
    * This is a test file.
    */
   description?: string;
   /**
+   * @remarks
+   * The group of the file. Applies only to Linux instances, and the default is root. The length must not exceed 64 characters.
+   * 
+   * Note
+   * When using other groups, ensure that the group exists in the instance.
+   * 
    * @example
    * test
    */
   fileGroup?: string;
   /**
+   * @remarks
+   * The permissions of the file. Applies only to Linux instances, and the setting method is the same as the chmod command.
+   * 
+   * The default value is 0644, which means the user has read and write permissions, while the group and other users have read-only permissions.
+   * 
    * @example
    * 0644
    */
   fileMode?: string;
   /**
+   * @remarks
+   * The owner of the file. Applies only to Linux instances, and the default is root.
+   * 
    * @example
    * root
    */
   fileOwner?: string;
   /**
    * @remarks
+   * The name of the file. Supports all character sets, and the length must not exceed 255 characters.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2482,16 +3356,27 @@ export class SendFileShrinkRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
+   * List of nodes.
+   * 
    * This parameter is required.
    */
   nodeIdListShrink?: string;
   /**
+   * @remarks
+   * Whether to overwrite the file if a file with the same name already exists in the target directory.
+   * - true: Overwrite.
+   * - false: Do not overwrite.
+   * 
+   * The default value is false.
+   * 
    * @example
    * True
    */
   overwrite?: boolean;
   /**
    * @remarks
+   * The directory in the target Lingjun node where the file will be sent. If it does not exist, it will be automatically created.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2499,6 +3384,14 @@ export class SendFileShrinkRequest extends $tea.Model {
    */
   targetDir?: string;
   /**
+   * @remarks
+   * The timeout for sending the file. Unit: seconds.
+   * 
+   * - A timeout may occur due to process reasons, missing modules, or missing Cloud Assistant Agent.
+   * - If the set timeout is less than 10 seconds, to ensure successful delivery, the system will automatically set the timeout to 10 seconds.
+   * 
+   * The default value is 60.
+   * 
    * @example
    * 600
    */
@@ -2542,13 +3435,16 @@ export class SendFileShrinkRequest extends $tea.Model {
 
 export class SendFileResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Command execution ID.
+   * 
    * @example
    * t-hz03la52z1zkvls
    */
   invokeId?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 3C683243-7915-57FB-9570-A2932C1C0F78
@@ -2600,15 +3496,25 @@ export class SendFileResponse extends $tea.Model {
 
 export class ShrinkClusterRequest extends $tea.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i15dfa12e8f27c44f4a006c2c8bb
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
    * @example
    * False
    */
   ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * Node group information
+   */
   nodeGroups?: ShrinkClusterRequestNodeGroups[];
   static names(): { [key: string]: string } {
     return {
@@ -2633,15 +3539,25 @@ export class ShrinkClusterRequest extends $tea.Model {
 
 export class ShrinkClusterShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i15dfa12e8f27c44f4a006c2c8bb
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
    * @example
    * False
    */
   ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * Node group information
+   */
   nodeGroupsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2666,11 +3582,17 @@ export class ShrinkClusterShrinkRequest extends $tea.Model {
 
 export class ShrinkClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * CC9FEF89-9BE5-5E03-845E-238B48D7599B
    */
   requestId?: string;
   /**
+   * @remarks
+   * task id
+   * 
    * @example
    * i159136551662516768776
    */
@@ -2722,12 +3644,18 @@ export class ShrinkClusterResponse extends $tea.Model {
 export class StopInvocationRequest extends $tea.Model {
   /**
    * @remarks
+   * Command execution ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * f-hz044748dzepds0
    */
   invokeId?: string;
+  /**
+   * @remarks
+   * List of nodes.
+   */
   nodeIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2751,12 +3679,18 @@ export class StopInvocationRequest extends $tea.Model {
 export class StopInvocationShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * Command execution ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * f-hz044748dzepds0
    */
   invokeId?: string;
+  /**
+   * @remarks
+   * List of nodes.
+   */
   nodeIdListShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2831,6 +3765,8 @@ export class StopInvocationResponse extends $tea.Model {
 export class TagResourcesRequest extends $tea.Model {
   /**
    * @remarks
+   * Region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2839,11 +3775,15 @@ export class TagResourcesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * List of resource IDs
+   * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
+   * Resource type
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2852,6 +3792,8 @@ export class TagResourcesRequest extends $tea.Model {
   resourceType?: string;
   /**
    * @remarks
+   * Tags
+   * 
    * This parameter is required.
    */
   tag?: TagResourcesRequestTag[];
@@ -2881,7 +3823,7 @@ export class TagResourcesRequest extends $tea.Model {
 export class TagResourcesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * E7BB53E1-0B08-5C4E-BA66-9225548C3151
@@ -2931,12 +3873,22 @@ export class TagResourcesResponse extends $tea.Model {
 
 export class UntagResourcesRequest extends $tea.Model {
   /**
+   * @remarks
+   * Whether to remove all, only effective when TagKey.N is empty. Valid values:
+   * 
+   * - True, remove all
+   * - False, do not remove all
+   * 
+   * Default is False
+   * 
    * @example
    * False
    */
   all?: boolean;
   /**
    * @remarks
+   * Region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2945,17 +3897,25 @@ export class UntagResourcesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * List of resource IDs
+   * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
+   * Resource type
+   * 
    * This parameter is required.
    * 
    * @example
    * Cluster
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * List of tag keys
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2984,6 +3944,9 @@ export class UntagResourcesRequest extends $tea.Model {
 
 export class UntagResourcesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * request id
+   * 
    * @example
    * 81F648D0-5570-5351-AE98-6F501C7E957F
    */
@@ -3032,6 +3995,9 @@ export class UntagResourcesResponse extends $tea.Model {
 
 export class CreateClusterRequestComponentsComponentConfig extends $tea.Model {
   /**
+   * @remarks
+   * Basic component parameters
+   * 
    * @example
    * {
    *       "EndpointPublicAccess": false,
@@ -3064,6 +4030,10 @@ export class CreateClusterRequestComponentsComponentConfig extends $tea.Model {
    * }
    */
   basicArgs?: any;
+  /**
+   * @remarks
+   * Node pool configuration, used to establish the correspondence between node groups and node pools. Required when ComponentType is "ACKEdge", otherwise it can be empty.
+   */
   nodeUnits?: any[];
   static names(): { [key: string]: string } {
     return {
@@ -3085,8 +4055,15 @@ export class CreateClusterRequestComponentsComponentConfig extends $tea.Model {
 }
 
 export class CreateClusterRequestComponents extends $tea.Model {
+  /**
+   * @remarks
+   * Component configuration
+   */
   componentConfig?: CreateClusterRequestComponentsComponentConfig;
   /**
+   * @remarks
+   * Component type
+   * 
    * @example
    * ACKEdge
    */
@@ -3111,7 +4088,21 @@ export class CreateClusterRequestComponents extends $tea.Model {
 }
 
 export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds extends $tea.Model {
+  /**
+   * @remarks
+   * Bond name
+   * 
+   * @example
+   * bond0
+   */
   name?: string;
+  /**
+   * @remarks
+   * IP source cluster subnet
+   * 
+   * @example
+   * 172.16.0.0/24
+   */
   subnet?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3133,7 +4124,18 @@ export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds exten
 }
 
 export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * Default bond cluster subnet
+   * 
+   * @example
+   * 172.168.0.0/24
+   */
   bondDefaultSubnet?: string;
+  /**
+   * @remarks
+   * Bond information
+   */
   bonds?: CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds[];
   static names(): { [key: string]: string } {
     return {
@@ -3155,7 +4157,21 @@ export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicy extends $t
 }
 
 export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds extends $tea.Model {
+  /**
+   * @remarks
+   * Bond name
+   * 
+   * @example
+   * bond0
+   */
   name?: string;
+  /**
+   * @remarks
+   * IP source cluster subnet
+   * 
+   * @example
+   * 192.168.1.0/24
+   */
   subnet?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3177,7 +4193,18 @@ export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBond
 }
 
 export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy extends $tea.Model {
+  /**
+   * @remarks
+   * Bond information
+   */
   bonds?: CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds[];
+  /**
+   * @remarks
+   * Machine type
+   * 
+   * @example
+   * efg1.nvga8n
+   */
   machineType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3199,7 +4226,21 @@ export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy ext
 }
 
 export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds extends $tea.Model {
+  /**
+   * @remarks
+   * Bond name
+   * 
+   * @example
+   * bond0
+   */
   name?: string;
+  /**
+   * @remarks
+   * IP source cluster subnet
+   * 
+   * @example
+   * 10.0.0.0/24
+   */
   subnet?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3221,7 +4262,18 @@ export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds exten
 }
 
 export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicy extends $tea.Model {
+  /**
+   * @remarks
+   * Bond information
+   */
   bonds?: CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds[];
+  /**
+   * @remarks
+   * Node ID
+   * 
+   * @example
+   * e01-cn-2r42vq62001
+   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3243,8 +4295,20 @@ export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicy extends $t
 }
 
 export class CreateClusterRequestNetworksIpAllocationPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * Bond policy
+   */
   bondPolicy?: CreateClusterRequestNetworksIpAllocationPolicyBondPolicy;
+  /**
+   * @remarks
+   * Machine type allocation policy
+   */
   machineTypePolicy?: CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy[];
+  /**
+   * @remarks
+   * Node allocation policy
+   */
   nodePolicy?: CreateClusterRequestNetworksIpAllocationPolicyNodePolicy[];
   static names(): { [key: string]: string } {
     return {
@@ -3268,8 +4332,29 @@ export class CreateClusterRequestNetworksIpAllocationPolicy extends $tea.Model {
 }
 
 export class CreateClusterRequestNetworksNewVpdInfoVpdSubnets extends $tea.Model {
+  /**
+   * @remarks
+   * Subnet CIDR
+   * 
+   * @example
+   * 10.0.1.8/24
+   */
   subnetCidr?: string;
+  /**
+   * @remarks
+   * Subnet type
+   * 
+   * @example
+   * 10.0.2.8/24
+   */
   subnetType?: string;
+  /**
+   * @remarks
+   * Zone ID
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3294,35 +4379,57 @@ export class CreateClusterRequestNetworksNewVpdInfoVpdSubnets extends $tea.Model
 
 export class CreateClusterRequestNetworksNewVpdInfo extends $tea.Model {
   /**
+   * @remarks
+   * Cloud Enterprise Network ID
+   * 
    * @example
    * cen-1gb1eftc5qp2ao75fo
    */
   cenId?: string;
   /**
+   * @remarks
+   * Cloud link CIDR
+   * 
    * @example
    * 172.16.0.0/24
    */
   cloudLinkCidr?: string;
   /**
+   * @remarks
+   * Cloud link ID
+   * 
    * @example
    * vcc-cn-c4dtycm5i08
    */
   cloudLinkId?: string;
   /**
+   * @remarks
+   * VPC
+   * 
    * @example
    * vpc-0jl2x45apm6odc2c10h25
    */
   monitorVpcId?: string;
   /**
+   * @remarks
+   * VPC switch
+   * 
    * @example
    * vsw-0jl2w3ffbghkss0x2foff
    */
   monitorVswitchId?: string;
   /**
+   * @remarks
+   * Cluster Network Segment
+   * 
    * @example
    * 192.168.0.0/16
    */
   vpdCidr?: string;
+  /**
+   * @remarks
+   * Cluster subnets
+   */
   vpdSubnets?: CreateClusterRequestNetworksNewVpdInfoVpdSubnets[];
   static names(): { [key: string]: string } {
     return {
@@ -3356,7 +4463,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $tea.Model {
 export class CreateClusterRequestNetworksVpdInfo extends $tea.Model {
   /**
    * @remarks
-   * 专有网络 id
+   * VPC ID
    * 
    * @example
    * vpd-vfuz6ejv
@@ -3364,7 +4471,7 @@ export class CreateClusterRequestNetworksVpdInfo extends $tea.Model {
   vpdId?: string;
   /**
    * @remarks
-   * 集群子网id列表
+   * List of cluster subnet IDs
    */
   vpdSubnets?: string[];
   static names(): { [key: string]: string } {
@@ -3387,16 +4494,59 @@ export class CreateClusterRequestNetworksVpdInfo extends $tea.Model {
 }
 
 export class CreateClusterRequestNetworks extends $tea.Model {
+  /**
+   * @remarks
+   * IP allocation policy
+   */
   ipAllocationPolicy?: CreateClusterRequestNetworksIpAllocationPolicy[];
+  /**
+   * @remarks
+   * Vpd configuration information
+   */
   newVpdInfo?: CreateClusterRequestNetworksNewVpdInfo;
+  /**
+   * @remarks
+   * Security group ID
+   * 
+   * @example
+   * sg-bp1d3dvbh9by7j5rujax
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * IP version
+   * 
+   * @example
+   * IPv4
+   */
   tailIpVersion?: string;
+  /**
+   * @remarks
+   * VSwitch ID
+   * 
+   * @example
+   * vsw-asjdfklj
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * VSwitch Zone ID
+   * 
+   * @example
+   * cn-shanghai-b
+   */
   vSwitchZoneId?: string;
+  /**
+   * @remarks
+   * VPC ID
+   * 
+   * @example
+   * vpc-0jl36lqzmc06qogy0t5ll
+   */
   vpcId?: string;
   /**
    * @remarks
-   * 复用VPD信息
+   * Reuse VPD information
    */
   vpdInfo?: CreateClusterRequestNetworksVpdInfo;
   static names(): { [key: string]: string } {
@@ -3432,21 +4582,44 @@ export class CreateClusterRequestNetworks extends $tea.Model {
 
 export class CreateClusterRequestNodeGroupsNodes extends $tea.Model {
   /**
+   * @remarks
+   * Hostname
+   * 
    * @example
    * 8d13b784-17a9-11ed-bc7b-acde48001122
    */
   hostname?: string;
   /**
+   * @remarks
+   * Login password
+   * 
    * @example
    * ***
    */
   loginPassword?: string;
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * e01poc-cn-i7m2wnivf0d
    */
   nodeId?: string;
+  /**
+   * @remarks
+   * Virtual switch ID
+   * 
+   * @example
+   * vsw-bp169pi5fj151rrms4sia
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * VPC ID
+   * 
+   * @example
+   * vpc-0jlasms92fdxqd3wlf8ny
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3475,24 +4648,54 @@ export class CreateClusterRequestNodeGroupsNodes extends $tea.Model {
 
 export class CreateClusterRequestNodeGroups extends $tea.Model {
   /**
+   * @remarks
+   * System image ID
+   * 
    * @example
    * i190297201634099844192
    */
   imageId?: string;
   /**
+   * @remarks
+   * Machine type
+   * 
    * @example
    * efg1.nvga1
    */
   machineType?: string;
+  /**
+   * @remarks
+   * Node group description
+   * 
+   * @example
+   * Node group description
+   */
   nodeGroupDescription?: string;
   /**
+   * @remarks
+   * Node group name
+   * 
    * @example
    * emr-default
    */
   nodeGroupName?: string;
+  /**
+   * @remarks
+   * Node list
+   */
   nodes?: CreateClusterRequestNodeGroupsNodes[];
+  /**
+   * @remarks
+   * Instance custom data. It needs to be Base64 encoded, and the original data should not exceed 16 KB.
+   * 
+   * @example
+   * ZWNobyBoZWxsbyBlY3Mh
+   */
   userData?: string;
   /**
+   * @remarks
+   * Zone ID
+   * 
    * @example
    * cn-hangzhou-i
    */
@@ -3528,11 +4731,17 @@ export class CreateClusterRequestNodeGroups extends $tea.Model {
 
 export class CreateClusterRequestTag extends $tea.Model {
   /**
+   * @remarks
+   * Key
+   * 
    * @example
    * env-name
    */
   key?: string;
   /**
+   * @remarks
+   * Value
+   * 
    * @example
    * dev
    */
@@ -3558,11 +4767,17 @@ export class CreateClusterRequestTag extends $tea.Model {
 
 export class CreateClusterShrinkRequestTag extends $tea.Model {
   /**
+   * @remarks
+   * Key
+   * 
    * @example
    * env-name
    */
   key?: string;
   /**
+   * @remarks
+   * Value
+   * 
    * @example
    * dev
    */
@@ -3588,11 +4803,17 @@ export class CreateClusterShrinkRequestTag extends $tea.Model {
 
 export class DescribeClusterResponseBodyComponents extends $tea.Model {
   /**
+   * @remarks
+   * Component ID
+   * 
    * @example
    * i149549021660892626529
    */
   componentId?: string;
   /**
+   * @remarks
+   * Component Type
+   * 
    * @example
    * ACKEdge
    */
@@ -3618,6 +4839,9 @@ export class DescribeClusterResponseBodyComponents extends $tea.Model {
 
 export class DescribeClusterResponseBodyNetworks extends $tea.Model {
   /**
+   * @remarks
+   * VPC Segment ID
+   * 
    * @example
    * vpd-iqd7xunc
    */
@@ -3641,76 +4865,185 @@ export class DescribeClusterResponseBodyNetworks extends $tea.Model {
 
 export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvokeNode extends $tea.Model {
   /**
+   * @remarks
+   * The start time of the command execution.
+   * 
    * @example
    * 2023-02-06T07:12:50Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The length of the text that is truncated and discarded when the length of the `Output` field exceeds 24 KB.
+   * 
    * @example
    * 0
    */
   dropped?: number;
   /**
+   * @remarks
+   * Reason code for file delivery failure. Possible values:
+   * - Empty: File delivery is normal. 
+   * - NodeNotExists: The specified instance does not exist or has been released. 
+   * - NodeReleased: The instance was released during the file delivery process. 
+   * - NodeNotRunning: The instance was not running when the file delivery task was created. 
+   * - AccountNotExists: The specified account does not exist. 
+   * - ClientNotRunning: The Cloud Assistant Agent is not running. 
+   * - ClientNotResponse: The Cloud Assistant Agent is not responding. 
+   * - ClientIsUpgrading: The Cloud Assistant Agent is currently upgrading. 
+   * - ClientNeedUpgrade: The Cloud Assistant Agent needs to be upgraded. 
+   * - DeliveryTimeout: File sending timed out. 
+   * - FileCreateFail: File creation failed. 
+   * - FileAlreadyExists: A file with the same name already exists at the specified path. 
+   * - FileContentInvalid: The file content is invalid. - FileNameInvalid: The file name is invalid. 
+   * - FilePathInvalid: The file path is invalid. 
+   * - FileAuthorityInvalid: The file permissions are invalid. 
+   * - UserGroupNotExists: The user group specified for file sending does not exist.
+   * 
    * @example
    * NodeNotExists：
    */
-  errorCode?: boolean;
+  errorCode?: string;
   /**
+   * @remarks
+   * Details of the reason for command delivery failure or execution failure, possible values: 
+   * - Empty: The command executed normally. 
+   * - the specified node does not exist: The specified instance does not exist or has been released. 
+   * - the node was released when creating the task: The instance was released during command execution. 
+   * - the node is not running when creating the task: The instance was not in a running state when the command was executed. 
+   * - the command is not applicable: The command is not applicable to the specified instance. 
+   * - the specified account does not exist: The specified account does not exist. 
+   * - the specified directory does not exist: The specified directory does not exist. 
+   * - the cron job expression is invalid: The specified execution time expression is invalid. 
+   * - the aliyun service is not running on the instance: The Cloud Assistant Agent is not running. 
+   * - the aliyun service in the instance does not respond: The Cloud Assistant Agent is not responding. 
+   * - the aliyun service in the node is upgrading now: The Cloud Assistant Agent is currently being upgraded. 
+   * - the aliyun service in the node needs upgrade: The Cloud Assistant Agent needs an upgrade. 
+   * - the command delivery has timed out: Command delivery has timed out. 
+   * - the command execution has timed out: Command execution has timed out. 
+   * - the command execution got an exception: An exception occurred during command execution. 
+   * - the command execution was interrupted: Command execution was interrupted. 
+   *  - the command execution exit code is not zero: Command execution completed with a non-zero exit code. 
+   * - the specified node has been released: The instance was released during file delivery.
+   * 
    * @example
    * the specified node does not exists
    */
   errorInfo?: string;
   /**
+   * @remarks
+   * The exit code of the command process. Possible values:
+   * - For Linux instances, it is the exit code of the Shell process. - For Windows instances, it is the exit code of the Bat or PowerShell process.
+   * 
    * @example
    * 0
    */
   exitCode?: number;
   /**
+   * @remarks
+   * Completion time.
+   * 
    * @example
    * 2023-02-06T07:12:50Z
    */
   finishTime?: string;
   /**
+   * @remarks
+   * The command progress status for a single instance. Possible values:
+   * -  Pending: The system is validating or sending the command.
+   * -  Invalid: The specified command type or parameters are incorrect.
+   * -  Aborted: Failed to send the command to the instance. The instance must be running, and the command should be sent within 1 minute.
+   * -  Running: The command is running on the instance.
+   * -  Success:
+   *     -  For a one-time execution command: The command has completed with an exit code of 0.
+   *     -  For a periodic execution command: The last run was successful with an exit code of 0, and the specified period has ended.
+   * -  Failed:
+   *     -  For a one-time execution command: The command has completed with a non-zero exit code.
+   *     -  For a periodic execution command: The last run was successful with a non-zero exit code, and the specified period will be terminated.
+   * -  Error: An exception occurred during command execution, and it cannot continue.
+   * -  Timeout: The command execution timed out.
+   * -  Cancelled: The command execution action has been canceled, and the command was never started.
+   * -  Stopping: The task is being stopped.
+   * -  Terminated: The command was terminated while running.
+   * -  Scheduled:
+   *     -  For a one-time execution command: Not applicable, will not appear.
+   *     -  For a periodic execution command: Waiting to run.
+   * 
    * @example
    * Pending
    */
   invocationStatus?: string;
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * e01-cn-lbj36wkp70b
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The command progress status of a single instance.
+   * 
    * @example
    * Finished
    */
   nodeInvokeStatus?: string;
   /**
+   * @remarks
+   * The output information of the command.
+   * 
+   * - If `ContentEncoding` is set to `PlainText`, the original output information is returned.
+   * - If `ContentEncoding` is set to `Base64`, the Base64-encoded output information is returned.
+   * 
    * @example
    * OutPutTestmsg
    */
   output?: string;
   /**
+   * @remarks
+   * The number of times the command has been executed on this instance.
+   * -  If the execution mode is one-time, the value is 0 or 1.
+   * -  If the execution mode is periodic, the value is the number of times it has been executed.
+   * 
    * @example
    * 0
    */
   repeats?: number;
   /**
+   * @remarks
+   * Start Time
+   * 
    * @example
    * 2019-12-20T06:15:55Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time when `StopInvocation` was called to stop the command execution.
+   * 
    * @example
    * 2019-12-20T06:15:55Z
    */
   stopTime?: string;
   /**
+   * @remarks
+   * Whether the queried command will be automatically executed in the future. The value range is as follows:
+   * - true: The command, when executed by calling `RunCommand` or `InvokeCommand`, has the `RepeatMode` parameter set to `Period`, `NextRebootOnly`, or `EveryReboot`. 
+   * - false: Queries commands in the following two states. 
+   * - When executing a command via `RunCommand` or `InvokeCommand`, the `RepeatMode` parameter is set to `Once`. 
+   * - Commands that have been canceled, stopped, or completed.
+   * 
+   * Default value: false.
+   * 
    * @example
    * false
    */
   timed?: string;
   /**
+   * @remarks
+   * Update Time
+   * 
    * @example
    * 2023-02-06T07:12:50Z
    */
@@ -3739,7 +5072,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
     return {
       creationTime: 'string',
       dropped: 'number',
-      errorCode: 'boolean',
+      errorCode: 'string',
       errorInfo: 'string',
       exitCode: 'number',
       finishTime: 'string',
@@ -3761,6 +5094,10 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
 }
 
 export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodes extends $tea.Model {
+  /**
+   * @remarks
+   * Command execution records for nodes.
+   */
   invokeNode?: DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvokeNode[];
   static names(): { [key: string]: string } {
     return {
@@ -3781,63 +5118,146 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodes ext
 
 export class DescribeInvocationsResponseBodyInvocationsInvocation extends $tea.Model {
   /**
+   * @remarks
+   * Command content.
+   * 
+   * - If `ContentEncoding` is set to `PlainText`, the original script content is returned.
+   * - If `ContentEncoding` is set to `Base64`, the Base64-encoded script content is returned.
+   * 
    * @example
    * cnBtIC1xYSB8IGdyZXAgdnNm****
    */
   commandContent?: string;
   /**
+   * @remarks
+   * Command description.
+   * 
    * @example
    * testDescription
    */
   commandDescription?: string;
   /**
+   * @remarks
+   * Command name.
+   * 
    * @example
    * CommandTestName
    */
   commandName?: string;
   /**
+   * @remarks
+   * The creation time of the task.
+   * 
    * @example
    * 2020-01-19T09:15:46Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The execution time for scheduled commands.
+   */
   frequency?: string;
   /**
+   * @remarks
+   * The overall execution status of the command, which depends on the common execution status of all instances involved in the call. Possible values:
+   * - Pending: The system is validating or sending the command. If at least one instance has a command execution status of Pending, the overall status is Pending.
+   * - Scheduled: The scheduled command has been sent and is waiting to run. If at least one instance has a command execution status of Scheduled, the overall status is Scheduled.
+   * - Running: The command is running on the instance. If at least one instance has a command execution status of Running, the overall status is Running.
+   * - Success: The command execution status of all instances is Stopped or Success, and at least one instance\\"s command execution status is Success. The overall status is Success.
+   *     - For immediately executed tasks: The command has completed with an exit code of 0.
+   *     - For periodically executed tasks: The most recent execution was successful with an exit code of 0, and the specified times have all been completed.
+   * - Failed: The command execution status of all instances is Stopped or Failed. The overall status is Failed if any of the following conditions apply to the instance\\"s command execution status:
+   *     - Command validation failed (Invalid).
+   *     - Command sending failed (Aborted).
+   *     - Command completed but the exit code is not 0 (Failed).
+   *     - Command execution timed out (Timeout).
+   *     - Command execution encountered an error (Error).
+   * - Stopping: The task is being stopped. If at least one instance has a command execution status of Stopping, the overall status is Stopping.
+   * - Stopped: The task has been stopped. If all instances\\" command execution statuses are Stopped, the overall status is Stopped. The overall status is Stopped if the instance\\"s command execution status is any of the following:
+   *     - The task was canceled (Cancelled).
+   *     - The task was terminated (Terminated).
+   * - PartialFailed: Some instances succeeded and some failed. If the command execution statuses of all instances are Success, Failed, or Stopped, the overall status is PartialFailed.
+   * 
+   * > The `InvokeStatus` in the response parameters is similar in meaning to this parameter, but it is recommended that you check this return value.
+   * 
    * @example
    * Success
    */
   invocationStatus?: string;
   /**
+   * @remarks
+   * Command execution ID.
+   * 
    * @example
    * t-ind3k9ytvvduoe8
    */
   invokeId?: string;
+  /**
+   * @remarks
+   * Command execution records.
+   */
   invokeNodes?: DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodes;
   /**
+   * @remarks
+   * The overall execution status of the command. The overall execution status depends on the common execution status of one or more instances in the execution. Possible values: 
+   * - Running:
+   *     - For scheduled execution: The execution status remains ongoing until the scheduled command is manually stopped.
+   *     - For single execution: If there is any command process running, the overall execution status is ongoing.
+   * - Finished:
+   *     - For scheduled execution: The command process cannot be completed.
+   *     - For single execution: All instances have completed execution, or some instances\\" command processes are manually stopped and the rest have completed.
+   * - Failed:
+   *     - For scheduled execution: The command process cannot fail.
+   *     - For single execution: All instances have failed to execute.
+   * - Stopped: The command has been stopped.
+   * - Stopping: The command is being stopped.
+   * - PartialFailed: Partial failure; if the `InstanceId` parameter is set, this does not apply.
+   * 
    * @example
    * Running
    */
   invokeStatus?: string;
   /**
+   * @remarks
+   * Custom parameters in the command.
+   * 
    * @example
    * {}
    */
   parameters?: string;
   /**
+   * @remarks
+   * 命令执行的方式。可能值：
+   * 
+   * Once：立即执行命令。
+   * Period：定时执行命令。
+   * NextRebootOnly：当实例下一次启动时，自动执行命令。
+   * EveryReboot：实例每一次启动都将自动执行命令。
+   * 
    * @example
    * Once
    */
   repeatMode?: string;
   /**
+   * @remarks
+   * Timeout for executing the command, in seconds.
+   * 
    * @example
    * 60
    */
   timeout?: number;
   /**
+   * @remarks
+   * Username for executing the command.
+   * 
    * @example
    * root
    */
   username?: string;
   /**
+   * @remarks
+   * The working directory of the command on the instance.
+   * 
    * @example
    * /home
    */
@@ -3886,6 +5306,10 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $tea.M
 }
 
 export class DescribeInvocationsResponseBodyInvocations extends $tea.Model {
+  /**
+   * @remarks
+   * File delivery record.
+   */
   invocation?: DescribeInvocationsResponseBodyInvocationsInvocation[];
   static names(): { [key: string]: string } {
     return {
@@ -3906,21 +5330,33 @@ export class DescribeInvocationsResponseBodyInvocations extends $tea.Model {
 
 export class DescribeNodeResponseBodyNetworks extends $tea.Model {
   /**
+   * @remarks
+   * Network interface port information
+   * 
    * @example
    * Bond0
    */
   bondName?: string;
   /**
+   * @remarks
+   * Machine IP
+   * 
    * @example
    * 47.254.235.44
    */
   ip?: string;
   /**
+   * @remarks
+   * Cluster subnet ID
+   * 
    * @example
    * vsw-uf68v51fldm5egmui5a6k
    */
   subnetId?: string;
   /**
+   * @remarks
+   * Cluster network ID
+   * 
    * @example
    * vpd-xcuhjyrj
    */
@@ -3949,8 +5385,18 @@ export class DescribeNodeResponseBodyNetworks extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+  /**
+   * @remarks
+   * Region name
+   * 
+   * @example
+   * Hang Zhou
+   */
   localName?: string;
   /**
+   * @remarks
+   * region id
+   * 
    * @example
    * cn-hangzhou
    */
@@ -3976,41 +5422,108 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 
 export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodesInvokeNode extends $tea.Model {
   /**
+   * @remarks
+   * The creation time of the file distribution task.
+   * 
    * @example
    * 2023-02-06T07:12:50Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The failure reason code for file distribution. Possible values:
+   * - Empty: The file was distributed normally. 
+   * - NodeNotExists: The specified instance does not exist or has been released. 
+   * - NodeReleased: The instance was released during the file distribution process. 
+   * - NodeNotRunning: The instance was not running when the file distribution task was created. 
+   * - AccountNotExists: The specified account does not exist. 
+   * - ClientNotRunning: The Cloud Assistant Agent is not running. 
+   * - ClientNotResponse: The Cloud Assistant Agent is not responding. 
+   * - ClientIsUpgrading: The Cloud Assistant Agent is currently being upgraded. 
+   * - ClientNeedUpgrade: The Cloud Assistant Agent needs to be upgraded. 
+   * - DeliveryTimeout: File delivery timed out. 
+   * - FileCreateFail: Failed to create the file. 
+   * - FileAlreadyExists: A file with the same name already exists at the specified path. 
+   * - FileContentInvalid: The file content is invalid. 
+   * - FileNameInvalid: The file name is invalid. 
+   * - FilePathInvalid: The file path is invalid. 
+   * - FileAuthorityInvalid: The file permissions are invalid. 
+   * - UserGroupNotExists: The user group specified for file delivery does not exist.
+   * 
    * @example
    * AccountNotExists
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Details of the reason for command delivery failure or execution failure, possible values: 
+   * - Empty: The command executed normally. 
+   * - the specified instance does not exist: The specified instance does not exist or has been released. 
+   * - the node has been released when creating task: The instance was released during the command execution. 
+   * - the node is not running when creating task: The instance was not in a running state when the command was executed. 
+   * - the command is not applicable: The command is not applicable to the specified instance. 
+   * - the specified account does not exist: The specified account does not exist. 
+   * - the specified directory does not exist: The specified directory does not exist. 
+   * - the cron job expression is invalid: The specified execution time expression is invalid. 
+   * - the aliyun service is not running on the instance: The Cloud Assistant Agent is not running. 
+   * - the aliyun service in the instance does not respond: The Cloud Assistant Agent is not responding. 
+   * - the aliyun service in the node is upgrading now: The Cloud Assistant Agent is currently being upgraded. 
+   * - the aliyun service in the node needs upgrade: The Cloud Assistant Agent needs an upgrade. 
+   * - the command delivery has timed out: Command delivery has timed out. 
+   * - the command execution has timed out: Command execution has timed out. 
+   * - the command execution got an exception: An exception occurred during command execution. 
+   * - the command execution has been interrupted: The command execution was interrupted. 
+   * - the command execution exit code is not zero: The command execution completed with a non-zero exit code. 
+   * - the specified instance has been released: The instance was released during file delivery.
+   * 
    * @example
    * the specified instance does not exists
    */
   errorInfo?: string;
   /**
+   * @remarks
+   * Completion time, format: "2020-05-22T17:04:18".
+   * 
    * @example
    * 2023-04-10T10:53:46.156+08:00
    */
   finishTime?: string;
   /**
+   * @remarks
+   * Status of the task on a single instance. Possible values:
+   * - Pending: The system is validating or distributing the file.
+   * - Invalid: The specified file parameters are incorrect, and validation failed.
+   * - Running: The file is being distributed to the instance.
+   * - Aborted: Failed to distribute the file to the instance.
+   * - Success: The file distribution is complete.
+   * - Failed: The file creation failed within the instance.
+   * - Error: An exception occurred during file distribution and could not continue.
+   * - Timeout: The file distribution timed out.
+   * 
    * @example
    * Success
    */
   invocationStatus?: string;
   /**
+   * @remarks
+   * Node ID.
+   * 
    * @example
    * e01-cn-9lb3c15m81j
    */
   nodeId?: string;
   /**
+   * @remarks
+   * Start Time
+   * 
    * @example
    * 2023-03-30T16:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * Update Time
+   * 
    * @example
    * 2023-03-30T16:00:00Z
    */
@@ -4047,6 +5560,10 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes
 }
 
 export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes extends $tea.Model {
+  /**
+   * @remarks
+   * Record of file distribution for the node.
+   */
   invokeNode?: DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodesInvokeNode[];
   static names(): { [key: string]: string } {
     return {
@@ -4067,58 +5584,124 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes
 
 export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $tea.Model {
   /**
+   * @remarks
+   * Output information after command execution.
+   * 
+   * If ContentEncoding is specified as PlainText, the original output information is returned.
+   * If ContentEncoding is specified as Base64, the Base64 encoded output information is returned.
+   * 
    * @example
    * Base64
    */
   content?: string;
   /**
+   * @remarks
+   * File content type.
+   * 
+   * PlainText: Plain text.
+   * Base64: Base64 encoding.
+   * The default value is PlainText.
+   * 
    * @example
    * PlainText
    */
   contentType?: string;
   /**
+   * @remarks
+   * Creation time of the distribution.
+   * 
    * @example
    * 2023-04-10T10:53:46.156+08:00
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * Command description.
+   * 
+   * @example
+   * 描述信息。
+   */
   description?: string;
   /**
+   * @remarks
+   * The user group of the file.
+   * 
    * @example
    * root
    */
   fileGroup?: string;
   /**
+   * @remarks
+   * File permissions.
+   * 
    * @example
    * 0644
    */
   fileMode?: string;
   /**
+   * @remarks
+   * The owner of the file.
+   * 
    * @example
    * root
    */
   fileOwner?: string;
   /**
+   * @remarks
+   * Overall status of the file distribution. The overall status depends on the common execution status of all instances involved in this distribution, possible values are:
+   * 
+   * - Pending: The system is verifying or distributing the file. If at least one instance has a file distribution status of Pending, the overall execution status will be Pending.
+   * - Running: The file is being distributed on the instance. If at least one instance has a file distribution status of Running, the overall execution status will be Running.
+   * - Success: All instances have a file distribution status of Success, then the overall execution status will be Success.
+   * - Failed: All instances have a file distribution status of Failed, then the overall execution status will be Failed. If any of the following conditions occur for the file distribution status on an instance, the return value will be Failed:
+   *     - The specified file parameters are incorrect, verification failed (Invalid).
+   *     - Failed to distribute the file to the instance (Aborted).
+   *     - The file creation failed within the instance (Failed).
+   *     - The file distribution timed out (Timeout).
+   *     - An exception occurred during file distribution and could not continue (Error).
+   * - PartialFailed: Some instances successfully received the file while others failed. If the file distribution status of all instances is either Success or Failed, the overall execution status will be PartialFailed.
+   * 
    * @example
    * Pending
    */
   invocationStatus?: string;
+  /**
+   * @remarks
+   * Record of file distribution.
+   */
   invokeNodes?: DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes;
   /**
+   * @remarks
+   * Name of the file distribution.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * Number of nodes
+   * 
    * @example
    * 3
    */
   nodeCount?: number;
   /**
+   * @remarks
+   * Whether to overwrite the file if a file with the same name already exists in the target directory.
+   * - true: Overwrite.
+   * - false: Do not overwrite.
+   * 
+   * The default value is false.
+   * 
    * @example
    * true
    */
   overwrite?: boolean;
   /**
+   * @remarks
+   * Target path.
+   * 
    * @example
    * /home/user
    */
@@ -4165,6 +5748,10 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $t
 }
 
 export class DescribeSendFileResultsResponseBodyInvocations extends $tea.Model {
+  /**
+   * @remarks
+   * Command execution ID.
+   */
   invocation?: DescribeSendFileResultsResponseBodyInvocationsInvocation[];
   static names(): { [key: string]: string } {
     return {
@@ -4185,31 +5772,49 @@ export class DescribeSendFileResultsResponseBodyInvocations extends $tea.Model {
 
 export class DescribeTaskResponseBodyStepsSubTasks extends $tea.Model {
   /**
+   * @remarks
+   * Creation Time
+   * 
    * @example
    * 2022-11-30T2:00:00.852Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Subtask Failure Message
+   * 
    * @example
    * Releasing [prod_main_mid_26e234cf] in region [cn-beijing] with weight [0]
    */
   message?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * i158805051661047928377
    */
   taskId?: string;
   /**
+   * @remarks
+   * Task Execution State
+   * 
    * @example
    * running
    */
   taskState?: string;
   /**
+   * @remarks
+   * Task Type
+   * 
    * @example
    * cut_node_sub_task
    */
   taskType?: string;
   /**
+   * @remarks
+   * Update Time
+   * 
    * @example
    * 2022-11-30T02:20:14.852Z
    */
@@ -4243,33 +5848,62 @@ export class DescribeTaskResponseBodyStepsSubTasks extends $tea.Model {
 
 export class DescribeTaskResponseBodySteps extends $tea.Model {
   /**
+   * @remarks
+   * Step Failure Message
+   * 
    * @example
    * get taskinfo failed
    */
   message?: string;
+  /**
+   * @remarks
+   * Stage Tag
+   * 
+   * @example
+   * Node scaling
+   */
   stageTag?: string;
   /**
+   * @remarks
+   * Start Time
+   * 
    * @example
    * 2022-11-30T2:00:00.852Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * Step Name
+   * 
    * @example
    * create_vpd
    */
   stepName?: string;
   /**
+   * @remarks
+   * Step Execution State
+   * 
    * @example
    * execution_success
    */
   stepState?: string;
   /**
+   * @remarks
+   * Step Type
+   * 
    * @example
    * normal
    */
   stepType?: string;
+  /**
+   * @remarks
+   * Subtasks
+   */
   subTasks?: DescribeTaskResponseBodyStepsSubTasks[];
   /**
+   * @remarks
+   * Update Time
+   * 
    * @example
    * 2022-11-30T02:20:14.852Z
    */
@@ -4306,8 +5940,18 @@ export class DescribeTaskResponseBodySteps extends $tea.Model {
 }
 
 export class DescribeZonesResponseBodyZones extends $tea.Model {
+  /**
+   * @remarks
+   * Zone name
+   * 
+   * @example
+   * Hang Zhou
+   */
   localName?: string;
   /**
+   * @remarks
+   * Zone ID
+   * 
    * @example
    * cn-hangzhou-i
    */
@@ -4333,11 +5977,17 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
 
 export class ExtendClusterRequestIpAllocationPolicyBondPolicyBonds extends $tea.Model {
   /**
+   * @remarks
+   * Bond name
+   * 
    * @example
    * Bond0
    */
   name?: string;
   /**
+   * @remarks
+   * IP source cluster subnet
+   * 
    * @example
    * subnet-3od2fe
    */
@@ -4363,10 +6013,17 @@ export class ExtendClusterRequestIpAllocationPolicyBondPolicyBonds extends $tea.
 
 export class ExtendClusterRequestIpAllocationPolicyBondPolicy extends $tea.Model {
   /**
+   * @remarks
+   * Default bond cluster subnet
+   * 
    * @example
    * subnet-3od2fe
    */
   bondDefaultSubnet?: string;
+  /**
+   * @remarks
+   * Bond information
+   */
   bonds?: ExtendClusterRequestIpAllocationPolicyBondPolicyBonds[];
   static names(): { [key: string]: string } {
     return {
@@ -4389,11 +6046,17 @@ export class ExtendClusterRequestIpAllocationPolicyBondPolicy extends $tea.Model
 
 export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds extends $tea.Model {
   /**
+   * @remarks
+   * Bond name
+   * 
    * @example
    * Bond0
    */
   name?: string;
   /**
+   * @remarks
+   * IP source cluster subnet
+   * 
    * @example
    * subnet-fdo3dv
    */
@@ -4418,8 +6081,15 @@ export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds extend
 }
 
 export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicy extends $tea.Model {
+  /**
+   * @remarks
+   * Bond information
+   */
   bonds?: ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds[];
   /**
+   * @remarks
+   * Machine Type
+   * 
    * @example
    * efg1.nvga1
    */
@@ -4445,11 +6115,17 @@ export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicy extends $te
 
 export class ExtendClusterRequestIpAllocationPolicyNodePolicyBonds extends $tea.Model {
   /**
+   * @remarks
+   * Bond name
+   * 
    * @example
    * Bond0
    */
   name?: string;
   /**
+   * @remarks
+   * IP source cluster subnet
+   * 
    * @example
    * subnet-fdo3dv
    */
@@ -4474,8 +6150,15 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicyBonds extends $tea.
 }
 
 export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $tea.Model {
+  /**
+   * @remarks
+   * Bond information
+   */
   bonds?: ExtendClusterRequestIpAllocationPolicyNodePolicyBonds[];
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * i-3fdodw2
    */
@@ -4500,8 +6183,20 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $tea.Model
 }
 
 export class ExtendClusterRequestIpAllocationPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * Specify the cluster subnet ID based on the bond name
+   */
   bondPolicy?: ExtendClusterRequestIpAllocationPolicyBondPolicy;
+  /**
+   * @remarks
+   * Machine type allocation policy
+   */
   machineTypePolicy?: ExtendClusterRequestIpAllocationPolicyMachineTypePolicy[];
+  /**
+   * @remarks
+   * Node allocation policy
+   */
   nodePolicy?: ExtendClusterRequestIpAllocationPolicyNodePolicy[];
   static names(): { [key: string]: string } {
     return {
@@ -4526,21 +6221,44 @@ export class ExtendClusterRequestIpAllocationPolicy extends $tea.Model {
 
 export class ExtendClusterRequestNodeGroupsNodes extends $tea.Model {
   /**
+   * @remarks
+   * Hostname
+   * 
    * @example
    * d044d220-33fd-11ed-86a6
    */
   hostname?: string;
   /**
+   * @remarks
+   * Login Password
+   * 
    * @example
    * ***
    */
   loginPassword?: string;
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * e01-cn-zvp2zdpy601
    */
   nodeId?: string;
+  /**
+   * @remarks
+   * VSwitch ID
+   * 
+   * @example
+   * vsw-bp169pi5fj151rrms4sia
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * VPC ID
+   * 
+   * @example
+   * vpc-0jlasms92fdxqd3wlf8ny
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4569,12 +6287,34 @@ export class ExtendClusterRequestNodeGroupsNodes extends $tea.Model {
 
 export class ExtendClusterRequestNodeGroups extends $tea.Model {
   /**
+   * @remarks
+   * Node Group ID
+   * 
    * @example
    * i16d4883a46cbadeb4bc9
    */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * List of Nodes
+   */
   nodes?: ExtendClusterRequestNodeGroupsNodes[];
+  /**
+   * @remarks
+   * Custom Data
+   * 
+   * @example
+   * #!/bin/sh
+   * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
+   */
   userData?: string;
+  /**
+   * @remarks
+   * Zone ID
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4600,9 +6340,37 @@ export class ExtendClusterRequestNodeGroups extends $tea.Model {
 }
 
 export class ListClusterNodesResponseBodyNodesNetworks extends $tea.Model {
+  /**
+   * @remarks
+   * Machine network interface name
+   * 
+   * @example
+   * bond0
+   */
   bondName?: string;
+  /**
+   * @remarks
+   * IP address within the VPC
+   * 
+   * @example
+   * 192.168.22.2
+   */
   ip?: string;
+  /**
+   * @remarks
+   * VPC subnet ID
+   * 
+   * @example
+   * subnet-fwekrvg9
+   */
   subnetId?: string;
+  /**
+   * @remarks
+   * VPC ID
+   * 
+   * @example
+   * vpd-eoiy88ju
+   */
   vpdId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4629,58 +6397,102 @@ export class ListClusterNodesResponseBodyNodesNetworks extends $tea.Model {
 
 export class ListClusterNodesResponseBodyNodes extends $tea.Model {
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 1642472468000
    */
   createTime?: string;
   /**
+   * @remarks
+   * Machine expiration time
+   * 
    * @example
    * 1762185600000
    */
   expiredTime?: string;
   /**
+   * @remarks
+   * Hostname
+   * 
    * @example
    * 72432f80-273e-11ed-b57a-acde48001122
    */
   hostname?: string;
+  /**
+   * @remarks
+   * Hpn Zone
+   * 
+   * @example
+   * A1
+   */
   hpnZone?: string;
   /**
+   * @remarks
+   * System image ID
+   * 
    * @example
    * i190297201669099844192
    */
   imageId?: string;
   /**
+   * @remarks
+   * Machine type
+   * 
    * @example
    * cn-wulanchabu-b11
    */
   machineType?: string;
+  /**
+   * @remarks
+   * Network information
+   */
   networks?: ListClusterNodesResponseBodyNodesNetworks[];
   /**
+   * @remarks
+   * Node group ID
+   * 
    * @example
    * ng-e9b74f4d450cf18d
    */
   nodeGroupId?: string;
   /**
+   * @remarks
+   * Node group name
+   * 
    * @example
    * emr_master
    */
   nodeGroupName?: string;
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * e01-cn-2r42tmj4z02
    */
   nodeId?: string;
   /**
+   * @remarks
+   * Node status
+   * 
    * @example
    * Extending
    */
   operatingState?: string;
   /**
+   * @remarks
+   * Machine SN
+   * 
    * @example
    * sn_tOuUk
    */
   sn?: string;
   /**
+   * @remarks
+   * Zone ID
+   * 
    * @example
    * cn-hangzhou-b
    */
@@ -4727,64 +6539,125 @@ export class ListClusterNodesResponseBodyNodes extends $tea.Model {
 }
 
 export class ListClustersResponseBodyClusters extends $tea.Model {
+  /**
+   * @remarks
+   * Cluster description
+   * 
+   * @example
+   * PPU-cluster2 bz
+   */
   clusterDescription?: string;
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i137590131672134915401
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Cluster name
+   * 
    * @example
    * cnp_test_cluster
    */
   clusterName?: string;
   /**
+   * @remarks
+   * Cluster type
+   * 
    * @example
-   * AckEdgPro
+   * AckEdgePro
    */
   clusterType?: string;
   /**
+   * @remarks
+   * Component information
+   * 
    * @example
    * {}
    */
   components?: any;
+  /**
+   * @remarks
+   * IP version of the computing network
+   * 
+   * @example
+   * IPv4
+   */
   computingIpVersion?: string;
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 1672134938
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Cluster number
+   * 
+   * @example
+   * B1
+   */
   hpnZone?: string;
   /**
+   * @remarks
+   * Number of nodes
+   * 
    * @example
    * 12
    */
   nodeCount?: number;
   /**
+   * @remarks
+   * Number of node groups
+   * 
    * @example
    * 2
    */
   nodeGroupCount?: number;
   /**
+   * @remarks
+   * Cluster status
+   * 
    * @example
    * initializing
    */
   operatingState?: string;
   /**
+   * @remarks
+   * Resource group ID
+   * 
    * @example
    * rg-aek2ajbjoloa23q
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * i156365121663149566024
    */
   taskId?: string;
   /**
+   * @remarks
+   * Update time
+   * 
    * @example
    * 1672134968
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * VPC ID
+   * 
+   * @example
+   * vpc-0jlx4hol2bjboafzmffvd
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4833,33 +6706,65 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
 
 export class ListFreeNodesResponseBodyNodes extends $tea.Model {
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 1652321554
    */
   createTime?: string;
   /**
+   * @remarks
+   * Expiration time of the machine
+   * 
    * @example
    * 1673107200
    */
   expiredTime?: string;
+  /**
+   * @remarks
+   * Cluster number
+   * 
+   * @example
+   * A1
+   */
   hpnZone?: string;
   /**
+   * @remarks
+   * Machine type
+   * 
    * @example
    * efg1.nvga1
    */
   machineType?: string;
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * e01-cn-7pp2x193801
    */
   nodeId?: string;
+  /**
+   * @remarks
+   * Resource group ID
+   * 
+   * @example
+   * rg-aekzkkbrpl4owgy
+   */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Machine SN
+   * 
    * @example
    * sn_pozkHBgicd
    */
   sn?: string;
   /**
+   * @remarks
+   * Availability zone ID
+   * 
    * @example
    * cn-hangzhou-j
    */
@@ -4897,11 +6802,17 @@ export class ListFreeNodesResponseBodyNodes extends $tea.Model {
 
 export class ListTagResourcesRequestTag extends $tea.Model {
   /**
+   * @remarks
+   * Tag key
+   * 
    * @example
    * PodName
    */
   key?: string;
   /**
+   * @remarks
+   * Tag value
+   * 
    * @example
    * WFT-OTC
    */
@@ -4927,21 +6838,33 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
   /**
+   * @remarks
+   * Resource ID
+   * 
    * @example
    * i15azeddnvf7uhw2oij57o0
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Resource type
+   * 
    * @example
    * Cluster
    */
   resourceType?: string;
   /**
+   * @remarks
+   * Tag key
+   * 
    * @example
    * env
    */
   tagKey?: string;
   /**
+   * @remarks
+   * Tag value
+   * 
    * @example
    * dev
    */
@@ -4990,21 +6913,33 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 
 export class ReimageNodesRequestNodes extends $tea.Model {
   /**
+   * @remarks
+   * Hostname
+   * 
    * @example
    * 457db5ca-241d-11ed-9fd7-acde48001122
    */
   hostname?: string;
   /**
+   * @remarks
+   * System image ID
+   * 
    * @example
    * m-8vbf8rpv2nn14y7oybjy
    */
   imageId?: string;
   /**
+   * @remarks
+   * Login password
+   * 
    * @example
    * ***
    */
   loginPassword?: string;
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * e01-cn-zvp2tgykr0b
    */
@@ -5034,6 +6969,9 @@ export class ReimageNodesRequestNodes extends $tea.Model {
 
 export class ShrinkClusterRequestNodeGroupsNodes extends $tea.Model {
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * e01poc-cn-zmb2ypjdc01
    */
@@ -5057,10 +6995,17 @@ export class ShrinkClusterRequestNodeGroupsNodes extends $tea.Model {
 
 export class ShrinkClusterRequestNodeGroups extends $tea.Model {
   /**
+   * @remarks
+   * Node group ID
+   * 
    * @example
    * ng-3b6fbd24b1b845a0
    */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * List of nodes
+   */
   nodes?: ShrinkClusterRequestNodeGroupsNodes[];
   static names(): { [key: string]: string } {
     return {
@@ -5083,11 +7028,17 @@ export class ShrinkClusterRequestNodeGroups extends $tea.Model {
 
 export class TagResourcesRequestTag extends $tea.Model {
   /**
+   * @remarks
+   * Tag key
+   * 
    * @example
    * app
    */
   key?: string;
   /**
+   * @remarks
+   * Tag value
+   * 
    * @example
    * v3
    */
@@ -5135,7 +7086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 审批运维操作
+   * Approve Operation
    * 
    * @param request - ApproveOperationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5170,7 +7121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 审批运维操作
+   * Approve Operation
    * 
    * @param request - ApproveOperationRequest
    * @returns ApproveOperationResponse
@@ -5181,7 +7132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源转组
+   * Resource Group Change
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5220,7 +7171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源转组
+   * Resource Group Change
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -5231,7 +7182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建大计算集群
+   * Create a large-scale computing cluster
    * 
    * @param tmpReq - CreateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5326,7 +7277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建大计算集群
+   * Create a large-scale computing cluster
    * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
@@ -5337,7 +7288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除集群实例
+   * Delete cluster instance
    * 
    * @param request - DeleteClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5368,7 +7319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除集群实例
+   * Delete cluster instance
    * 
    * @param request - DeleteClusterRequest
    * @returns DeleteClusterResponse
@@ -5379,7 +7330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 集群详情
+   * Cluster Details
    * 
    * @param request - DescribeClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5410,7 +7361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 集群详情
+   * Cluster Details
    * 
    * @param request - DescribeClusterRequest
    * @returns DescribeClusterResponse
@@ -5421,7 +7372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询运维助手命令的执行列表和状态
+   * Query the list and status of operations assistant command executions
    * 
    * @param request - DescribeInvocationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5464,7 +7415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询运维助手命令的执行列表和状态
+   * Query the list and status of operations assistant command executions
    * 
    * @param request - DescribeInvocationsRequest
    * @returns DescribeInvocationsResponse
@@ -5475,7 +7426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询节点列表
+   * Query node list
    * 
    * @param request - DescribeNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5506,7 +7457,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询节点列表
+   * Query node list
    * 
    * @param request - DescribeNodeRequest
    * @returns DescribeNodeResponse
@@ -5517,7 +7468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 区域列表
+   * Region List
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5548,7 +7499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 区域列表
+   * Region List
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -5559,7 +7510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询运维助手下发文件列表及状态
+   * Query the list and status of files sent by the operation assistant
    * 
    * @param request - DescribeSendFileResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5594,7 +7545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询运维助手下发文件列表及状态
+   * Query the list and status of files sent by the operation assistant
    * 
    * @param request - DescribeSendFileResultsRequest
    * @returns DescribeSendFileResultsResponse
@@ -5605,7 +7556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询任务详情
+   * Query Task Details
    * 
    * @param request - DescribeTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5636,7 +7587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询任务详情
+   * Query Task Details
    * 
    * @param request - DescribeTaskRequest
    * @returns DescribeTaskResponse
@@ -5647,7 +7598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 可用区列表
+   * List of Available Zones
    * 
    * @param request - DescribeZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5678,7 +7629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 可用区列表
+   * List of Available Zones
    * 
    * @param request - DescribeZonesRequest
    * @returns DescribeZonesResponse
@@ -5689,7 +7640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 集群扩容
+   * Cluster Scaling
    * 
    * @param tmpReq - ExtendClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5754,7 +7705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 集群扩容
+   * Cluster Scaling
    * 
    * @param request - ExtendClusterRequest
    * @returns ExtendClusterResponse
@@ -5765,7 +7716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 集群下的主机分组列表，分组下的主机列表
+   * List of host groups under the cluster, and list of hosts under each group
    * 
    * @param request - ListClusterNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5808,7 +7759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 集群下的主机分组列表，分组下的主机列表
+   * List of host groups under the cluster, and list of hosts under each group
    * 
    * @param request - ListClusterNodesRequest
    * @returns ListClusterNodesResponse
@@ -5819,7 +7770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群实例列表
+   * Get the list of cluster instances
    * 
    * @param request - ListClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5858,7 +7809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群实例列表
+   * Get the list of cluster instances
    * 
    * @param request - ListClustersRequest
    * @returns ListClustersResponse
@@ -5869,7 +7820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 可用物理机列表
+   * List of Available Physical Machines
    * 
    * @param request - ListFreeNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5916,7 +7867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 可用物理机列表
+   * List of Available Physical Machines
    * 
    * @param request - ListFreeNodesRequest
    * @returns ListFreeNodesResponse
@@ -5927,7 +7878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源标签
+   * Query Resource Tags
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5974,7 +7925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源标签
+   * Query Resource Tags
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -5985,7 +7936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启机器
+   * Reboot Machine
    * 
    * @param tmpReq - RebootNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6030,7 +7981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启机器
+   * Reboot Machine
    * 
    * @param request - RebootNodesRequest
    * @returns RebootNodesResponse
@@ -6041,7 +7992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 机器重装
+   * Machine Reinstallation
    * 
    * @param tmpReq - ReimageNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6090,7 +8041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 机器重装
+   * Machine Reinstallation
    * 
    * @param request - ReimageNodesRequest
    * @returns ReimageNodesResponse
@@ -6101,7 +8052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 一台或多台灵骏机器中执行一段Shell的脚本
+   * Execute a Shell script on one or more Lingjun machines
    * 
    * @param tmpReq - RunCommandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6190,7 +8141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 一台或多台灵骏机器中执行一段Shell的脚本
+   * Execute a Shell script on one or more Lingjun machines
    * 
    * @param request - RunCommandRequest
    * @returns RunCommandResponse
@@ -6201,7 +8152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 一台或多台灵骏机器下发远程文件
+   * Send a remote file to one or more Lingjun machines
    * 
    * @param tmpReq - SendFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6278,7 +8229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 一台或多台灵骏机器下发远程文件
+   * Send a remote file to one or more Lingjun machines
    * 
    * @param request - SendFileRequest
    * @returns SendFileResponse
@@ -6289,7 +8240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 缩容
+   * Shrink
    * 
    * @param tmpReq - ShrinkClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6334,7 +8285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 缩容
+   * Shrink
    * 
    * @param request - ShrinkClusterRequest
    * @returns ShrinkClusterResponse
@@ -6345,7 +8296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止运维助手命令进程
+   * Stop the operation assistant command process
    * 
    * @param tmpReq - StopInvocationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6386,7 +8337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止运维助手命令进程
+   * Stop the operation assistant command process
    * 
    * @param request - StopInvocationRequest
    * @returns StopInvocationResponse
@@ -6397,7 +8348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源打用户标签
+   * Tag User Resources
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6440,7 +8391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源打用户标签
+   * Tag User Resources
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -6451,7 +8402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源去除用户标签
+   * Remove user tags from resources
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6498,7 +8449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源去除用户标签
+   * Remove user tags from resources
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
