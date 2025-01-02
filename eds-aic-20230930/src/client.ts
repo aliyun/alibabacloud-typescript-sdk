@@ -3915,6 +3915,94 @@ export class ModifyPolicyGroupResponse extends $tea.Model {
   }
 }
 
+export class OperateAppRequest extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
+  appId?: number;
+  instanceIdList?: string[];
+  /**
+   * @example
+   * start
+   */
+  operateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      instanceIdList: 'InstanceIdList',
+      operateType: 'OperateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'number',
+      instanceIdList: { 'type': 'array', 'itemType': 'string' },
+      operateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateAppResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 425F351C-3F8E-5218-A520-B6311D0D****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * t-imr0fufqgac2z****
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateAppResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OperateAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OperateAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RebootAndroidInstancesInGroupRequest extends $tea.Model {
   androidInstanceIds?: string[];
   forceStop?: boolean;
@@ -8743,6 +8831,56 @@ export default class Client extends OpenApi {
   async modifyPolicyGroup(request: ModifyPolicyGroupRequest): Promise<ModifyPolicyGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPolicyGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 操作App
+   * 
+   * @param request - OperateAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateAppResponse
+   */
+  async operateAppWithOptions(request: OperateAppRequest, runtime: $Util.RuntimeOptions): Promise<OperateAppResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.instanceIdList)) {
+      query["InstanceIdList"] = request.instanceIdList;
+    }
+
+    if (!Util.isUnset(request.operateType)) {
+      query["OperateType"] = request.operateType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OperateApp",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OperateAppResponse>(await this.callApi(params, req, runtime), new OperateAppResponse({}));
+  }
+
+  /**
+   * 操作App
+   * 
+   * @param request - OperateAppRequest
+   * @returns OperateAppResponse
+   */
+  async operateApp(request: OperateAppRequest): Promise<OperateAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.operateAppWithOptions(request, runtime);
   }
 
   /**
