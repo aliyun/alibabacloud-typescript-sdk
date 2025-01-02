@@ -1904,6 +1904,146 @@ export class GetChatQuestionRespResponse extends $tea.Model {
   }
 }
 
+export class GetDialogAnalysisResultRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  asc?: boolean;
+  /**
+   * @example
+   * 2024-09-23 09:20:02
+   */
+  endTime?: string;
+  sessionIds?: string[];
+  /**
+   * @example
+   * 2024-09-14 09:11:00
+   */
+  startTime?: string;
+  /**
+   * @example
+   * true
+   */
+  useUrl?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      asc: 'asc',
+      endTime: 'endTime',
+      sessionIds: 'sessionIds',
+      startTime: 'startTime',
+      useUrl: 'useUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asc: 'boolean',
+      endTime: 'string',
+      sessionIds: { 'type': 'array', 'itemType': 'string' },
+      startTime: 'string',
+      useUrl: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDialogAnalysisResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: GetDialogAnalysisResultResponseBodyData;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 88A006F0-B565-53BA-B38A-DBDF9D0B2935
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: GetDialogAnalysisResultResponseBodyData,
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDialogAnalysisResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDialogAnalysisResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDialogAnalysisResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDocumentChunkListRequest extends $tea.Model {
   chunkIdList?: string[];
   /**
@@ -6366,6 +6506,123 @@ export class GetChatQuestionRespResponseBodyData extends $tea.Model {
     return {
       currentState: 'string',
       questionList: { 'type': 'array', 'itemType': GetChatQuestionRespResponseBodyDataQuestionList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisRespDialogLabels extends $tea.Model {
+  name?: string;
+  /**
+   * @example
+   * 0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisResp extends $tea.Model {
+  dialogExecPlan?: string;
+  dialogLabels?: GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisRespDialogLabels[];
+  dialogSummary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dialogExecPlan: 'dialogExecPlan',
+      dialogLabels: 'dialogLabels',
+      dialogSummary: 'dialogSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogExecPlan: 'string',
+      dialogLabels: { 'type': 'array', 'itemType': GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisRespDialogLabels },
+      dialogSummary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespList extends $tea.Model {
+  analysisResp?: GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisResp;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * https://xxx.oss-cn-beijing.aliyuncs.com/dialog-analysis/2024-12-30/2/1826661605606129665
+   */
+  ossUrl?: string;
+  /**
+   * @example
+   * 183764873624
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      analysisResp: 'analysisResp',
+      gmtCreate: 'gmtCreate',
+      ossUrl: 'ossUrl',
+      sessionId: 'sessionId',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysisResp: GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisResp,
+      gmtCreate: 'string',
+      ossUrl: 'string',
+      sessionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDialogAnalysisResultResponseBodyData extends $tea.Model {
+  dialogAnalysisRespList?: GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespList[];
+  static names(): { [key: string]: string } {
+    return {
+      dialogAnalysisRespList: 'dialogAnalysisRespList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogAnalysisRespList: { 'type': 'array', 'itemType': GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespList },
     };
   }
 
@@ -11370,6 +11627,67 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getChatQuestionRespWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取外呼会话分析结果
+   * 
+   * @param request - GetDialogAnalysisResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDialogAnalysisResultResponse
+   */
+  async getDialogAnalysisResultWithOptions(workspaceId: string, request: GetDialogAnalysisResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDialogAnalysisResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.asc)) {
+      body["asc"] = request.asc;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["endTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.sessionIds)) {
+      body["sessionIds"] = request.sessionIds;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["startTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.useUrl)) {
+      body["useUrl"] = request.useUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDialogAnalysisResult",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/virtualHuman/dialog/analysis`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDialogAnalysisResultResponse>(await this.callApi(params, req, runtime), new GetDialogAnalysisResultResponse({}));
+  }
+
+  /**
+   * 获取外呼会话分析结果
+   * 
+   * @param request - GetDialogAnalysisResultRequest
+   * @returns GetDialogAnalysisResultResponse
+   */
+  async getDialogAnalysisResult(workspaceId: string, request: GetDialogAnalysisResultRequest): Promise<GetDialogAnalysisResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDialogAnalysisResultWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
