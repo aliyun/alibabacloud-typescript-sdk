@@ -18924,6 +18924,7 @@ export class GetWebshellTokenRequest extends $tea.Model {
    * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
    */
   appId?: string;
+  containerName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -18935,6 +18936,7 @@ export class GetWebshellTokenRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      containerName: 'ContainerName',
       podName: 'PodName',
     };
   }
@@ -18942,6 +18944,7 @@ export class GetWebshellTokenRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      containerName: 'string',
       podName: 'string',
     };
   }
@@ -30396,6 +30399,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
   enableGreyTagRoute?: boolean;
   enableIdle?: boolean;
   enableNewArms?: boolean;
+  enabledle?: boolean;
   /**
    * @remarks
    * The environment variables. Variable description:
@@ -30915,6 +30919,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       enableGreyTagRoute: 'EnableGreyTagRoute',
       enableIdle: 'EnableIdle',
       enableNewArms: 'EnableNewArms',
+      enabledle: 'Enabledle',
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
@@ -30995,6 +31000,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       enableGreyTagRoute: 'boolean',
       enableIdle: 'boolean',
       enableNewArms: 'boolean',
+      enabledle: 'boolean',
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
@@ -46379,6 +46385,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.containerName)) {
+      query["ContainerName"] = request.containerName;
     }
 
     if (!Util.isUnset(request.podName)) {
