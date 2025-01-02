@@ -4978,6 +4978,182 @@ export class DescribeSecurityIpsResponse extends $tea.Model {
   }
 }
 
+export class DescribeSlowLogRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * polarx_cn
+   */
+  characterType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-bjxxxxxxxx
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * testdb
+   */
+  DBName?: string;
+  /**
+   * @example
+   * pxc-i-mezcj4ejdz
+   */
+  DBNodeIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-11-22T02:22Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-10-09T02:26
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      characterType: 'CharacterType',
+      DBInstanceName: 'DBInstanceName',
+      DBName: 'DBName',
+      DBNodeIds: 'DBNodeIds',
+      endTime: 'EndTime',
+      page: 'Page',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      characterType: 'string',
+      DBInstanceName: 'string',
+      DBName: 'string',
+      DBNodeIds: 'string',
+      endTime: 'string',
+      page: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogRecordsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pxc-********
+   */
+  DBInstanceId?: string;
+  items?: DescribeSlowLogRecordsResponseBodyItems[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 30
+   */
+  pageRecordCount?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C458B1E8-1683-3645-B154-6BA32080EEA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 3
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageRecordCount: 'PageRecordCount',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      items: { 'type': 'array', 'itemType': DescribeSlowLogRecordsResponseBodyItems },
+      pageNumber: 'string',
+      pageRecordCount: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogRecordsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSlowLogRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSlowLogRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTagsRequest extends $tea.Model {
   /**
    * @example
@@ -11727,6 +11903,197 @@ export class DescribeSecurityIpsResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeSlowLogRecordsResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * pxc-i-xxxx
+   */
+  CNname?: string;
+  /**
+   * @example
+   * dcdev
+   */
+  DBName?: string;
+  /**
+   * @example
+   * tddl:5.4.19-20240927
+   */
+  extension?: string;
+  /**
+   * @example
+   * 0
+   */
+  fail?: string;
+  /**
+   * @example
+   * 1
+   */
+  frows?: string;
+  /**
+   * @example
+   * ****[****] @ [1XX.XX.XX.XX]
+   */
+  hostAddress?: string;
+  /**
+   * @example
+   * pxc-xdb-s-xxxx
+   */
+  insName?: string;
+  /**
+   * @example
+   * 0
+   */
+  isBind?: string;
+  /**
+   * @example
+   * 1
+   */
+  lockTimeMS?: string;
+  /**
+   * @example
+   * ["1"]
+   */
+  params?: string;
+  /**
+   * @example
+   * 10
+   */
+  parseRowCounts?: string;
+  /**
+   * @example
+   * 2024-11-22T02:22:22.444Z
+   */
+  queryStartTime?: string;
+  /**
+   * @example
+   * 3.000
+   */
+  queryTime?: string;
+  /**
+   * @example
+   * 3000.000
+   */
+  queryTimeMS?: string;
+  /**
+   * @example
+   * 20
+   */
+  returnRowCounts?: string;
+  /**
+   * @example
+   * 1
+   */
+  rows?: string;
+  /**
+   * @example
+   * 1
+   */
+  SCNT?: string;
+  /**
+   * @example
+   * c8df07e5d45cd68da8b4771c2016e20b
+   */
+  SQLHash?: string;
+  /**
+   * @example
+   * select * from test
+   */
+  SQLText?: string;
+  /**
+   * @example
+   * select
+   */
+  sqlType?: string;
+  /**
+   * @example
+   * 0
+   */
+  tooLong?: string;
+  /**
+   * @example
+   * 17a5c5c840006000
+   */
+  traceId?: string;
+  /**
+   * @example
+   * XA
+   */
+  transactionPolicy?: string;
+  /**
+   * @example
+   * 17a5c5c840006000
+   */
+  trxId?: string;
+  /**
+   * @example
+   * TP
+   */
+  WT?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CNname: 'CNname',
+      DBName: 'DBName',
+      extension: 'Extension',
+      fail: 'Fail',
+      frows: 'Frows',
+      hostAddress: 'HostAddress',
+      insName: 'InsName',
+      isBind: 'IsBind',
+      lockTimeMS: 'LockTimeMS',
+      params: 'Params',
+      parseRowCounts: 'ParseRowCounts',
+      queryStartTime: 'QueryStartTime',
+      queryTime: 'QueryTime',
+      queryTimeMS: 'QueryTimeMS',
+      returnRowCounts: 'ReturnRowCounts',
+      rows: 'Rows',
+      SCNT: 'SCNT',
+      SQLHash: 'SQLHash',
+      SQLText: 'SQLText',
+      sqlType: 'SqlType',
+      tooLong: 'TooLong',
+      traceId: 'TraceId',
+      transactionPolicy: 'TransactionPolicy',
+      trxId: 'TrxId',
+      WT: 'WT',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CNname: 'string',
+      DBName: 'string',
+      extension: 'string',
+      fail: 'string',
+      frows: 'string',
+      hostAddress: 'string',
+      insName: 'string',
+      isBind: 'string',
+      lockTimeMS: 'string',
+      params: 'string',
+      parseRowCounts: 'string',
+      queryStartTime: 'string',
+      queryTime: 'string',
+      queryTimeMS: 'string',
+      returnRowCounts: 'string',
+      rows: 'string',
+      SCNT: 'string',
+      SQLHash: 'string',
+      SQLText: 'string',
+      sqlType: 'string',
+      tooLong: 'string',
+      traceId: 'string',
+      transactionPolicy: 'string',
+      trxId: 'string',
+      WT: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTagsResponseBodyTagInfos extends $tea.Model {
   DBInstanceIds?: string[];
   /**
@@ -14437,6 +14804,80 @@ export default class Client extends OpenApi {
   async describeSecurityIps(request: DescribeSecurityIpsRequest): Promise<DescribeSecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityIpsWithOptions(request, runtime);
+  }
+
+  /**
+   * 慢SQL明细
+   * 
+   * @param request - DescribeSlowLogRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlowLogRecordsResponse
+   */
+  async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.characterType)) {
+      query["CharacterType"] = request.characterType;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!Util.isUnset(request.DBNodeIds)) {
+      query["DBNodeIds"] = request.DBNodeIds;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSlowLogRecords",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSlowLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogRecordsResponse({}));
+  }
+
+  /**
+   * 慢SQL明细
+   * 
+   * @param request - DescribeSlowLogRecordsRequest
+   * @returns DescribeSlowLogRecordsResponse
+   */
+  async describeSlowLogRecords(request: DescribeSlowLogRecordsRequest): Promise<DescribeSlowLogRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSlowLogRecordsWithOptions(request, runtime);
   }
 
   /**
