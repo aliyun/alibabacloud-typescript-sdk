@@ -140,6 +140,7 @@ export class AddFileRequest extends $tea.Model {
    * cate_cdd11b1b79a74e8bbd675c356a91ee3510024405
    */
   categoryId?: string;
+  categoryType?: string;
   /**
    * @remarks
    * The lease ID, which corresponds to the `FileUploadLeaseId` parameter returned by the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation.
@@ -170,6 +171,7 @@ export class AddFileRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       categoryId: 'CategoryId',
+      categoryType: 'CategoryType',
       leaseId: 'LeaseId',
       parser: 'Parser',
       tags: 'Tags',
@@ -179,6 +181,7 @@ export class AddFileRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       categoryId: 'string',
+      categoryType: 'string',
       leaseId: 'string',
       parser: 'string',
       tags: { 'type': 'array', 'itemType': 'string' },
@@ -201,6 +204,7 @@ export class AddFileShrinkRequest extends $tea.Model {
    * cate_cdd11b1b79a74e8bbd675c356a91ee3510024405
    */
   categoryId?: string;
+  categoryType?: string;
   /**
    * @remarks
    * The lease ID, which corresponds to the `FileUploadLeaseId` parameter returned by the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation.
@@ -231,6 +235,7 @@ export class AddFileShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       categoryId: 'CategoryId',
+      categoryType: 'CategoryType',
       leaseId: 'LeaseId',
       parser: 'Parser',
       tagsShrink: 'Tags',
@@ -240,6 +245,7 @@ export class AddFileShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       categoryId: 'string',
+      categoryType: 'string',
       leaseId: 'string',
       parser: 'string',
       tagsShrink: 'string',
@@ -353,6 +359,7 @@ export class AddFileResponse extends $tea.Model {
 }
 
 export class ApplyFileUploadLeaseRequest extends $tea.Model {
+  categoryType?: string;
   /**
    * @remarks
    * The name of the uploaded document, including the extension. Supported formats: pdf, doc, docx, md, txt, ppt, and pptx. The document name must be 4 to 128 characters in length.
@@ -382,6 +389,7 @@ export class ApplyFileUploadLeaseRequest extends $tea.Model {
   sizeInBytes?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryType: 'CategoryType',
       fileName: 'FileName',
       md5: 'Md5',
       sizeInBytes: 'SizeInBytes',
@@ -390,6 +398,7 @@ export class ApplyFileUploadLeaseRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      categoryType: 'string',
       fileName: 'string',
       md5: 'string',
       sizeInBytes: 'string',
@@ -798,6 +807,7 @@ export class CreateIndexRequest extends $tea.Model {
    * structured
    */
   structureType?: string;
+  enableHeaders?: boolean;
   metaExtractColumns?: CreateIndexRequestMetaExtractColumns[];
   static names(): { [key: string]: string } {
     return {
@@ -818,6 +828,7 @@ export class CreateIndexRequest extends $tea.Model {
       sinkType: 'SinkType',
       sourceType: 'SourceType',
       structureType: 'StructureType',
+      enableHeaders: 'enableHeaders',
       metaExtractColumns: 'metaExtractColumns',
     };
   }
@@ -841,6 +852,7 @@ export class CreateIndexRequest extends $tea.Model {
       sinkType: 'string',
       sourceType: 'string',
       structureType: 'string',
+      enableHeaders: 'boolean',
       metaExtractColumns: { 'type': 'array', 'itemType': CreateIndexRequestMetaExtractColumns },
     };
   }
@@ -1025,6 +1037,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
    * structured
    */
   structureType?: string;
+  enableHeaders?: boolean;
   metaExtractColumnsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1045,6 +1058,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
       sinkType: 'SinkType',
       sourceType: 'SourceType',
       structureType: 'StructureType',
+      enableHeaders: 'enableHeaders',
       metaExtractColumnsShrink: 'metaExtractColumns',
     };
   }
@@ -1068,6 +1082,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
       sinkType: 'string',
       sourceType: 'string',
       structureType: 'string',
+      enableHeaders: 'boolean',
       metaExtractColumnsShrink: 'string',
     };
   }
@@ -8051,6 +8066,10 @@ export default class Client extends OpenApi {
       body["CategoryId"] = request.categoryId;
     }
 
+    if (!Util.isUnset(request.categoryType)) {
+      body["CategoryType"] = request.categoryType;
+    }
+
     if (!Util.isUnset(request.leaseId)) {
       body["LeaseId"] = request.leaseId;
     }
@@ -8117,6 +8136,10 @@ export default class Client extends OpenApi {
   async applyFileUploadLeaseWithOptions(CategoryId: string, WorkspaceId: string, request: ApplyFileUploadLeaseRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ApplyFileUploadLeaseResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryType)) {
+      body["CategoryType"] = request.categoryType;
+    }
+
     if (!Util.isUnset(request.fileName)) {
       body["FileName"] = request.fileName;
     }
@@ -8340,6 +8363,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.structureType)) {
       query["StructureType"] = request.structureType;
+    }
+
+    if (!Util.isUnset(request.enableHeaders)) {
+      query["enableHeaders"] = request.enableHeaders;
     }
 
     if (!Util.isUnset(request.metaExtractColumnsShrink)) {
