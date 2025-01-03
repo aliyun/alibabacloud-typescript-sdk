@@ -1775,9 +1775,6 @@ export class DescribeDBClusterConfigResponse extends $tea.Model {
 
 export class DescribeDBClusterConfigChangeLogsRequest extends $tea.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * be.conf
    */
