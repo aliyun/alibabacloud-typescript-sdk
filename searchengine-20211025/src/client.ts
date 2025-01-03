@@ -4477,6 +4477,8 @@ export class ListAdvanceConfigsRequest extends $tea.Model {
    * true
    */
   newMode?: boolean;
+  pageNumber?: string;
+  pageSize?: string;
   /**
    * @remarks
    * The type of advanced configurations that you want to query. Valid values: - online -offline (default)
@@ -4490,6 +4492,8 @@ export class ListAdvanceConfigsRequest extends $tea.Model {
       dataSourceName: 'dataSourceName',
       indexName: 'indexName',
       newMode: 'newMode',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
       type: 'type',
     };
   }
@@ -4499,6 +4503,8 @@ export class ListAdvanceConfigsRequest extends $tea.Model {
       dataSourceName: 'string',
       indexName: 'string',
       newMode: 'boolean',
+      pageNumber: 'string',
+      pageSize: 'string',
       type: 'string',
     };
   }
@@ -14906,6 +14912,7 @@ export class GetInstanceResponseBodyResultTags extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyResult extends $tea.Model {
+  bsVersion?: string;
   /**
    * @remarks
    * The billing method.
@@ -15056,6 +15063,7 @@ export class GetInstanceResponseBodyResult extends $tea.Model {
   version?: string;
   static names(): { [key: string]: string } {
     return {
+      bsVersion: 'bsVersion',
       chargeType: 'chargeType',
       commodityCode: 'commodityCode',
       createTime: 'createTime',
@@ -15080,6 +15088,7 @@ export class GetInstanceResponseBodyResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bsVersion: 'string',
       chargeType: 'string',
       commodityCode: 'string',
       createTime: 'string',
@@ -22920,6 +22929,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.newMode)) {
       query["newMode"] = request.newMode;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.type)) {
