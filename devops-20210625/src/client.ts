@@ -5825,159 +5825,6 @@ export class CreateWorkitemV2Response extends $tea.Model {
   }
 }
 
-export class CreateWorkspaceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * git@codeup.aliyun.com:demo/Codeup-Demo.git
-   */
-  codeUrl?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * master
-   */
-  codeVersion?: string;
-  /**
-   * @example
-   * src/Test.java
-   */
-  filePath?: string;
-  /**
-   * @example
-   * Demo
-   */
-  name?: string;
-  /**
-   * @example
-   * fc
-   */
-  requestFrom?: string;
-  /**
-   * @example
-   * acs:fc:cn-shenzhen:XXX:services/demo.LATEST/functions/demo
-   */
-  resourceIdentifier?: string;
-  /**
-   * @example
-   * false
-   */
-  reuse?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * all-in-one
-   */
-  workspaceTemplate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      codeUrl: 'codeUrl',
-      codeVersion: 'codeVersion',
-      filePath: 'filePath',
-      name: 'name',
-      requestFrom: 'requestFrom',
-      resourceIdentifier: 'resourceIdentifier',
-      reuse: 'reuse',
-      workspaceTemplate: 'workspaceTemplate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      codeUrl: 'string',
-      codeVersion: 'string',
-      filePath: 'string',
-      name: 'string',
-      requestFrom: 'string',
-      resourceIdentifier: 'string',
-      reuse: 'boolean',
-      workspaceTemplate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWorkspaceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * WorkspaceQuotaExceeded
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * The maximum number of workspace per user is exceeded.
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * F7B85D1B-D1C2-140F-A039-341859F130B9
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  workspace?: CreateWorkspaceResponseBodyWorkspace;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      workspace: CreateWorkspaceResponseBodyWorkspace,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWorkspaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateWorkspaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateWorkspaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteAppMemberRequest extends $tea.Model {
   /**
    * @example
@@ -9986,75 +9833,6 @@ export class ExportWorkitemActivityResponse extends $tea.Model {
   }
 }
 
-export class FrozenWorkspaceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * InvalidWorkspace.NotFound
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * The workspace is not found.
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * F7B85D1B-D1C2-140F-A039-341859F130B9
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FrozenWorkspaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FrozenWorkspaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FrozenWorkspaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetApplicationRequest extends $tea.Model {
   /**
    * @example
@@ -12423,111 +12201,6 @@ export class GetProjectMemberResponse extends $tea.Model {
   }
 }
 
-export class GetPushRuleRequest extends $tea.Model {
-  /**
-   * @example
-   * f0b1e61db5961df5975a93f9129d2513
-   */
-  accessToken?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 5ebbc0228123212b59xxxxx
-   */
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessToken: 'accessToken',
-      organizationId: 'organizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessToken: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPushRuleResponseBody extends $tea.Model {
-  /**
-   * @example
-   * SYSTEM_UNKNOWN_ERROR
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * F7B85D1B-D1C2-140F-A039-341859F130B9
-   */
-  requestId?: string;
-  result?: GetPushRuleResponseBodyResult;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      result: 'result',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      requestId: 'string',
-      result: GetPushRuleResponseBodyResult,
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPushRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetPushRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetPushRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetReleaseStagePipelineRunRequest extends $tea.Model {
   /**
    * @example
@@ -14273,78 +13946,6 @@ export class GetWorkitemTimeTypeListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetWorkitemTimeTypeListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWorkspaceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * InvalidWorkspace.NotFound
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * The workspace is not found.
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * F7B85D1B-D1C2-140F-A039-341859F130B9
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  workspace?: GetWorkspaceResponseBodyWorkspace;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      workspace: GetWorkspaceResponseBodyWorkspace,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWorkspaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetWorkspaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetWorkspaceResponseBody,
     };
   }
 
@@ -22499,174 +22100,6 @@ export class ListWorkitemsResponse extends $tea.Model {
   }
 }
 
-export class ListWorkspacesRequest extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * beb1eff55bf03a13cf321a395dxxxxxx
-   */
-  nextToken?: string;
-  statusList?: string[];
-  workspaceTemplateList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
-      statusList: 'statusList',
-      workspaceTemplateList: 'workspaceTemplateList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      statusList: { 'type': 'array', 'itemType': 'string' },
-      workspaceTemplateList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWorkspacesShrinkRequest extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * beb1eff55bf03a13cf321a395dxxxxxx
-   */
-  nextToken?: string;
-  statusListShrink?: string;
-  workspaceTemplateListShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
-      statusListShrink: 'statusList',
-      workspaceTemplateListShrink: 'workspaceTemplateList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      statusListShrink: 'string',
-      workspaceTemplateListShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWorkspacesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * beb1eff55bf03a13cf321a395dxxxxxx
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * F7B85D1B-D1C2-140F-A039-341859F130B9
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 100
-   */
-  totalCount?: number;
-  workspaces?: ListWorkspacesResponseBodyWorkspaces[];
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
-      requestId: 'requestId',
-      success: 'success',
-      totalCount: 'totalCount',
-      workspaces: 'workspaces',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-      workspaces: { 'type': 'array', 'itemType': ListWorkspacesResponseBodyWorkspaces },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWorkspacesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListWorkspacesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListWorkspacesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class LogPipelineJobRunResponseBody extends $tea.Model {
   /**
    * @example
@@ -23232,75 +22665,6 @@ export class RefuseReleaseStagePipelineValidateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RefuseReleaseStagePipelineValidateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseWorkspaceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Forbidden.AccessDenied
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * The user is not authorized to perform the operation.
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * F7B85D1B-D1C2-140F-A039-341859F130B9
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseWorkspaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReleaseWorkspaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReleaseWorkspaceResponseBody,
     };
   }
 
@@ -32759,64 +32123,6 @@ export class CreateWorkitemV2RequestFieldValueList extends $tea.Model {
   }
 }
 
-export class CreateWorkspaceResponseBodyWorkspace extends $tea.Model {
-  /**
-   * @example
-   * 1628564442000
-   */
-  createTime?: string;
-  /**
-   * @example
-   * 1470227819xxxxxx
-   */
-  creator?: string;
-  /**
-   * @example
-   * 6ed82817-ab75-4563-865d-81e60dxxxxxx
-   */
-  id?: string;
-  /**
-   * @example
-   * Demo
-   */
-  name?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
-  status?: string;
-  /**
-   * @example
-   * all-in-one
-   */
-  template?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'createTime',
-      creator: 'creator',
-      id: 'id',
-      name: 'name',
-      status: 'status',
-      template: 'template',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      creator: 'string',
-      id: 'string',
-      name: 'string',
-      status: 'string',
-      template: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteBranchResponseBodyResult extends $tea.Model {
   /**
    * @example
@@ -38138,86 +37444,6 @@ export class GetProjectMemberResponseBodyResult extends $tea.Model {
   }
 }
 
-export class GetPushRuleResponseBodyResultRuleInfos extends $tea.Model {
-  /**
-   * @example
-   * CommitAuthorChecker
-   */
-  checkerName?: string;
-  /**
-   * @example
-   * warn
-   */
-  checkerType?: string;
-  /**
-   * @example
-   * on
-   */
-  extraMessage?: string;
-  fileRuleRegexes?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      checkerName: 'checkerName',
-      checkerType: 'checkerType',
-      extraMessage: 'extraMessage',
-      fileRuleRegexes: 'fileRuleRegexes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkerName: 'string',
-      checkerType: 'string',
-      extraMessage: 'string',
-      fileRuleRegexes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPushRuleResponseBodyResult extends $tea.Model {
-  /**
-   * @example
-   * 2023-09-03T18:20:06+08:00
-   */
-  gmtCreate?: string;
-  /**
-   * @example
-   * 2023-09-03T18:20:06+08:00
-   */
-  gmtModified?: string;
-  /**
-   * @example
-   * 2077
-   */
-  id?: number;
-  ruleInfos?: GetPushRuleResponseBodyResultRuleInfos[];
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreate: 'gmtCreate',
-      gmtModified: 'gmtModified',
-      id: 'id',
-      ruleInfos: 'ruleInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      id: 'number',
-      ruleInfos: { 'type': 'array', 'itemType': GetPushRuleResponseBodyResultRuleInfos },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetReleaseStagePipelineRunResponseBodyPipelineRunSourcesData extends $tea.Model {
   /**
    * @example
@@ -40498,6 +39724,28 @@ export class GetWorkItemInfoResponseBodyWorkitemTagDetails extends $tea.Model {
   }
 }
 
+export class GetWorkItemInfoResponseBodyWorkitemVersions extends $tea.Model {
+  identifier?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'identifier',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
   /**
    * @example
@@ -40603,6 +39851,7 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
    */
   updateStatusAt?: number;
   verifier?: string[];
+  versions?: GetWorkItemInfoResponseBodyWorkitemVersions[];
   /**
    * @example
    * 9uxxxxxxre573f5xxxxxx0
@@ -40638,6 +39887,7 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
       tracker: 'tracker',
       updateStatusAt: 'updateStatusAt',
       verifier: 'verifier',
+      versions: 'versions',
       workitemTypeIdentifier: 'workitemTypeIdentifier',
     };
   }
@@ -40672,6 +39922,7 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
       tracker: { 'type': 'array', 'itemType': 'string' },
       updateStatusAt: 'number',
       verifier: { 'type': 'array', 'itemType': 'string' },
+      versions: { 'type': 'array', 'itemType': GetWorkItemInfoResponseBodyWorkitemVersions },
       workitemTypeIdentifier: 'string',
     };
   }
@@ -41263,85 +40514,6 @@ export class GetWorkitemTimeTypeListResponseBodyTimeType extends $tea.Model {
       identifier: 'string',
       name: 'string',
       position: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWorkspaceResponseBodyWorkspace extends $tea.Model {
-  /**
-   * @example
-   * https://codeup.aliyun.com/demo/group/Codeup-Demo.git
-   */
-  codeUrl?: string;
-  /**
-   * @example
-   * master
-   */
-  codeVersion?: string;
-  /**
-   * @example
-   * 1628564442000
-   */
-  createTime?: string;
-  /**
-   * @example
-   * 6ed82817-ab75-4563-865d-81e60dxxxxxx
-   */
-  id?: string;
-  /**
-   * @example
-   * Demo
-   */
-  name?: string;
-  /**
-   * @example
-   * 2::4::60
-   */
-  spec?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
-  status?: string;
-  /**
-   * @example
-   * all-in-one
-   */
-  template?: string;
-  /**
-   * @example
-   * 1470227819xxxxxx
-   */
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      codeUrl: 'codeUrl',
-      codeVersion: 'codeVersion',
-      createTime: 'createTime',
-      id: 'id',
-      name: 'name',
-      spec: 'spec',
-      status: 'status',
-      template: 'template',
-      userId: 'userId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      codeUrl: 'string',
-      codeVersion: 'string',
-      createTime: 'string',
-      id: 'string',
-      name: 'string',
-      spec: 'string',
-      status: 'string',
-      template: 'string',
-      userId: 'string',
     };
   }
 
@@ -49142,85 +48314,6 @@ export class ListWorkitemsResponseBodyWorkitems extends $tea.Model {
   }
 }
 
-export class ListWorkspacesResponseBodyWorkspaces extends $tea.Model {
-  /**
-   * @example
-   * https://codeup.aliyun.com/demo/group/Codeup-Demo.git
-   */
-  codeUrl?: string;
-  /**
-   * @example
-   * master
-   */
-  codeVersion?: string;
-  /**
-   * @example
-   * 1628564442000
-   */
-  createTime?: string;
-  /**
-   * @example
-   * 6ed82817-ab75-4563-865d-81e60dxxxxxx
-   */
-  id?: string;
-  /**
-   * @example
-   * Demo
-   */
-  name?: string;
-  /**
-   * @example
-   * 2::4::60
-   */
-  spec?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
-  status?: string;
-  /**
-   * @example
-   * all-in-one
-   */
-  template?: string;
-  /**
-   * @example
-   * 1470227819xxxxxx
-   */
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      codeUrl: 'codeUrl',
-      codeVersion: 'codeVersion',
-      createTime: 'createTime',
-      id: 'id',
-      name: 'name',
-      spec: 'spec',
-      status: 'status',
-      template: 'template',
-      userId: 'userId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      codeUrl: 'string',
-      codeVersion: 'string',
-      createTime: 'string',
-      id: 'string',
-      name: 'string',
-      spec: 'string',
-      status: 'string',
-      template: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class LogPipelineJobRunResponseBodyLog extends $tea.Model {
   /**
    * @example
@@ -55587,79 +54680,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作空间
-   * 
-   * @param request - CreateWorkspaceRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateWorkspaceResponse
-   */
-  async createWorkspaceWithOptions(request: CreateWorkspaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWorkspaceResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.codeUrl)) {
-      body["codeUrl"] = request.codeUrl;
-    }
-
-    if (!Util.isUnset(request.codeVersion)) {
-      body["codeVersion"] = request.codeVersion;
-    }
-
-    if (!Util.isUnset(request.filePath)) {
-      body["filePath"] = request.filePath;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      body["name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.requestFrom)) {
-      body["requestFrom"] = request.requestFrom;
-    }
-
-    if (!Util.isUnset(request.resourceIdentifier)) {
-      body["resourceIdentifier"] = request.resourceIdentifier;
-    }
-
-    if (!Util.isUnset(request.reuse)) {
-      body["reuse"] = request.reuse;
-    }
-
-    if (!Util.isUnset(request.workspaceTemplate)) {
-      body["workspaceTemplate"] = request.workspaceTemplate;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateWorkspace",
-      version: "2021-06-25",
-      protocol: "HTTPS",
-      pathname: `/api/workspaces`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateWorkspaceResponse>(await this.callApi(params, req, runtime), new CreateWorkspaceResponse({}));
-  }
-
-  /**
-   * 创建工作空间
-   * 
-   * @param request - CreateWorkspaceRequest
-   * @returns CreateWorkspaceResponse
-   */
-  async createWorkspace(request: CreateWorkspaceRequest): Promise<CreateWorkspaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createWorkspaceWithOptions(request, headers, runtime);
-  }
-
-  /**
    * 删除应用成员
    * 
    * @param request - DeleteAppMemberRequest
@@ -57615,41 +56635,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 冻结工作空间
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns FrozenWorkspaceResponse
-   */
-  async frozenWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FrozenWorkspaceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "FrozenWorkspace",
-      version: "2021-06-25",
-      protocol: "HTTPS",
-      pathname: `/api/workspaces/${OpenApiUtil.getEncodeParam(workspaceId)}/frozen`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<FrozenWorkspaceResponse>(await this.callApi(params, req, runtime), new FrozenWorkspaceResponse({}));
-  }
-
-  /**
-   * 冻结工作空间
-   * @returns FrozenWorkspaceResponse
-   */
-  async frozenWorkspace(workspaceId: string): Promise<FrozenWorkspaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.frozenWorkspaceWithOptions(workspaceId, headers, runtime);
-  }
-
-  /**
    * 查找应用详情
    * 
    * @param request - GetApplicationRequest
@@ -58743,55 +57728,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询推送规则
-   * 
-   * @param request - GetPushRuleRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetPushRuleResponse
-   */
-  async getPushRuleWithOptions(repositoryId: string, pushRuleId: string, request: GetPushRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPushRuleResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accessToken)) {
-      query["accessToken"] = request.accessToken;
-    }
-
-    if (!Util.isUnset(request.organizationId)) {
-      query["organizationId"] = request.organizationId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetPushRule",
-      version: "2021-06-25",
-      protocol: "HTTPS",
-      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/push_rule/${OpenApiUtil.getEncodeParam(pushRuleId)}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetPushRuleResponse>(await this.callApi(params, req, runtime), new GetPushRuleResponse({}));
-  }
-
-  /**
-   * 查询推送规则
-   * 
-   * @param request - GetPushRuleRequest
-   * @returns GetPushRuleResponse
-   */
-  async getPushRule(repositoryId: string, pushRuleId: string, request: GetPushRuleRequest): Promise<GetPushRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getPushRuleWithOptions(repositoryId, pushRuleId, request, headers, runtime);
-  }
-
-  /**
    * 获取研发阶段流水线运行实例
    * 
    * @param request - GetReleaseStagePipelineRunRequest
@@ -59620,41 +58556,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getWorkitemTimeTypeListWithOptions(organizationId, headers, runtime);
-  }
-
-  /**
-   * 查询工作空间详情
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetWorkspaceResponse
-   */
-  async getWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkspaceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetWorkspace",
-      version: "2021-06-25",
-      protocol: "HTTPS",
-      pathname: `/api/workspaces/${OpenApiUtil.getEncodeParam(workspaceId)}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetWorkspaceResponse>(await this.callApi(params, req, runtime), new GetWorkspaceResponse({}));
-  }
-
-  /**
-   * 查询工作空间详情
-   * @returns GetWorkspaceResponse
-   */
-  async getWorkspace(workspaceId: string): Promise<GetWorkspaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getWorkspaceWithOptions(workspaceId, headers, runtime);
   }
 
   /**
@@ -63519,73 +62420,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询工作空间列表
-   * 
-   * @param tmpReq - ListWorkspacesRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListWorkspacesResponse
-   */
-  async listWorkspacesWithOptions(tmpReq: ListWorkspacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkspacesResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListWorkspacesShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.statusList)) {
-      request.statusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statusList, "statusList", "simple");
-    }
-
-    if (!Util.isUnset(tmpReq.workspaceTemplateList)) {
-      request.workspaceTemplateListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workspaceTemplateList, "workspaceTemplateList", "simple");
-    }
-
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
-      query["maxResults"] = request.maxResults;
-    }
-
-    if (!Util.isUnset(request.nextToken)) {
-      query["nextToken"] = request.nextToken;
-    }
-
-    if (!Util.isUnset(request.statusListShrink)) {
-      query["statusList"] = request.statusListShrink;
-    }
-
-    if (!Util.isUnset(request.workspaceTemplateListShrink)) {
-      query["workspaceTemplateList"] = request.workspaceTemplateListShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListWorkspaces",
-      version: "2021-06-25",
-      protocol: "HTTPS",
-      pathname: `/api/workspaces`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListWorkspacesResponse>(await this.callApi(params, req, runtime), new ListWorkspacesResponse({}));
-  }
-
-  /**
-   * 查询工作空间列表
-   * 
-   * @param request - ListWorkspacesRequest
-   * @returns ListWorkspacesResponse
-   */
-  async listWorkspaces(request: ListWorkspacesRequest): Promise<ListWorkspacesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listWorkspacesWithOptions(request, headers, runtime);
-  }
-
-  /**
    * 获取流水线运行任务日志
    * 
    * @param headers - map
@@ -63884,41 +62718,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.refuseReleaseStagePipelineValidateWithOptions(appName, releaseWorkflowSn, releaseStageSn, executionNumber, request, headers, runtime);
-  }
-
-  /**
-   * 释放工作空间
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ReleaseWorkspaceResponse
-   */
-  async releaseWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReleaseWorkspaceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "ReleaseWorkspace",
-      version: "2021-06-25",
-      protocol: "HTTPS",
-      pathname: `/api/workspaces/${OpenApiUtil.getEncodeParam(workspaceId)}/release`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ReleaseWorkspaceResponse>(await this.callApi(params, req, runtime), new ReleaseWorkspaceResponse({}));
-  }
-
-  /**
-   * 释放工作空间
-   * @returns ReleaseWorkspaceResponse
-   */
-  async releaseWorkspace(workspaceId: string): Promise<ReleaseWorkspaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.releaseWorkspaceWithOptions(workspaceId, headers, runtime);
   }
 
   /**
