@@ -204,6 +204,7 @@ export class BackupFileRequest extends $tea.Model {
    * This parameter is required.
    */
   androidInstanceIdList?: string[];
+  backupAll?: boolean;
   backupFileName?: string;
   /**
    * @remarks
@@ -226,6 +227,7 @@ export class BackupFileRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       androidInstanceIdList: 'AndroidInstanceIdList',
+      backupAll: 'BackupAll',
       backupFileName: 'BackupFileName',
       backupFilePath: 'BackupFilePath',
       description: 'Description',
@@ -239,6 +241,7 @@ export class BackupFileRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
+      backupAll: 'boolean',
       backupFileName: 'string',
       backupFilePath: 'string',
       description: 'string',
@@ -1956,6 +1959,7 @@ export class DescribeBackupFilesRequest extends $tea.Model {
    * acp-34pqe4r0kd9kn****
    */
   androidInstanceName?: string;
+  backupAll?: boolean;
   /**
    * @example
    * bf-dxrh5jrv0zpb8****
@@ -1998,6 +2002,7 @@ export class DescribeBackupFilesRequest extends $tea.Model {
     return {
       androidInstanceId: 'AndroidInstanceId',
       androidInstanceName: 'AndroidInstanceName',
+      backupAll: 'BackupAll',
       backupFileId: 'BackupFileId',
       backupFileName: 'BackupFileName',
       description: 'Description',
@@ -2015,6 +2020,7 @@ export class DescribeBackupFilesRequest extends $tea.Model {
     return {
       androidInstanceId: 'string',
       androidInstanceName: 'string',
+      backupAll: 'boolean',
       backupFileId: 'string',
       backupFileName: 'string',
       description: 'string',
@@ -4079,6 +4085,7 @@ export class RecoveryFileRequest extends $tea.Model {
    * This parameter is required.
    */
   androidInstanceIdList?: string[];
+  backupAll?: boolean;
   /**
    * @example
    * bf-azhps4rdyi2th****
@@ -4098,6 +4105,7 @@ export class RecoveryFileRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       androidInstanceIdList: 'AndroidInstanceIdList',
+      backupAll: 'BackupAll',
       backupFileId: 'BackupFileId',
       backupFilePath: 'BackupFilePath',
       uploadEndpoint: 'UploadEndpoint',
@@ -4108,6 +4116,7 @@ export class RecoveryFileRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
+      backupAll: 'boolean',
       backupFileId: 'string',
       backupFilePath: 'string',
       uploadEndpoint: 'string',
@@ -5675,6 +5684,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
    * 2023-05-06 10:42:10
    */
   gmtModified?: string;
+  imageVersion?: string;
   instanceType?: string;
   /**
    * @example
@@ -5694,6 +5704,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
    */
   persistentAppInstanceId?: string;
   policyGroupId?: string;
+  publicIpAddress?: string;
   /**
    * @example
    * 100
@@ -5724,6 +5735,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
       gmtCreate: 'GmtCreate',
       gmtExpired: 'GmtExpired',
       gmtModified: 'GmtModified',
+      imageVersion: 'ImageVersion',
       instanceType: 'InstanceType',
       keyPairId: 'KeyPairId',
       memory: 'Memory',
@@ -5731,6 +5743,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
       officeSiteId: 'OfficeSiteId',
       persistentAppInstanceId: 'PersistentAppInstanceId',
       policyGroupId: 'PolicyGroupId',
+      publicIpAddress: 'PublicIpAddress',
       rate: 'Rate',
       regionId: 'RegionId',
       renderingType: 'RenderingType',
@@ -5756,6 +5769,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
       gmtCreate: 'string',
       gmtExpired: 'string',
       gmtModified: 'string',
+      imageVersion: 'string',
       instanceType: 'string',
       keyPairId: 'string',
       memory: 'number',
@@ -5763,6 +5777,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
       officeSiteId: 'string',
       persistentAppInstanceId: 'string',
       policyGroupId: 'string',
+      publicIpAddress: 'string',
       rate: 'number',
       regionId: 'string',
       renderingType: 'string',
@@ -5872,6 +5887,7 @@ export class DescribeBackupFilesResponseBodyData extends $tea.Model {
    */
   androidInstanceId?: string;
   androidInstanceName?: string;
+  backupAll?: boolean;
   /**
    * @example
    * bf-b0qbg3pbpjkn7****
@@ -5936,6 +5952,7 @@ export class DescribeBackupFilesResponseBodyData extends $tea.Model {
     return {
       androidInstanceId: 'AndroidInstanceId',
       androidInstanceName: 'AndroidInstanceName',
+      backupAll: 'BackupAll',
       backupFileId: 'BackupFileId',
       backupFileName: 'BackupFileName',
       backupFilePath: 'BackupFilePath',
@@ -5959,6 +5976,7 @@ export class DescribeBackupFilesResponseBodyData extends $tea.Model {
     return {
       androidInstanceId: 'string',
       androidInstanceName: 'string',
+      backupAll: 'boolean',
       backupFileId: 'string',
       backupFileName: 'string',
       backupFilePath: 'string',
@@ -6271,6 +6289,7 @@ export class DescribeTasksResponseBodyData extends $tea.Model {
   finishTime?: string;
   instanceId?: string;
   instanceName?: string;
+  instanceStatus?: string;
   /**
    * @example
    * B8ED2BA9-0C6A-5643-818F-B5D60A64****
@@ -6322,6 +6341,7 @@ export class DescribeTasksResponseBodyData extends $tea.Model {
       finishTime: 'FinishTime',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
+      instanceStatus: 'InstanceStatus',
       invokeId: 'InvokeId',
       level: 'Level',
       operator: 'Operator',
@@ -6348,6 +6368,7 @@ export class DescribeTasksResponseBodyData extends $tea.Model {
       finishTime: 'string',
       instanceId: 'string',
       instanceName: 'string',
+      instanceStatus: 'string',
       invokeId: 'string',
       level: 'number',
       operator: 'string',
@@ -6801,6 +6822,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.androidInstanceIdList)) {
       query["AndroidInstanceIdList"] = request.androidInstanceIdList;
+    }
+
+    if (!Util.isUnset(request.backupAll)) {
+      query["BackupAll"] = request.backupAll;
     }
 
     if (!Util.isUnset(request.backupFileName)) {
@@ -7770,6 +7795,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询备份文件列表
+   * 
    * @param request - DescribeBackupFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupFilesResponse
@@ -7783,6 +7810,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.androidInstanceName)) {
       query["AndroidInstanceName"] = request.androidInstanceName;
+    }
+
+    if (!Util.isUnset(request.backupAll)) {
+      query["BackupAll"] = request.backupAll;
     }
 
     if (!Util.isUnset(request.backupFileId)) {
@@ -7843,6 +7874,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询备份文件列表
+   * 
    * @param request - DescribeBackupFilesRequest
    * @returns DescribeBackupFilesResponse
    */
@@ -8941,6 +8974,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.androidInstanceIdList)) {
       query["AndroidInstanceIdList"] = request.androidInstanceIdList;
+    }
+
+    if (!Util.isUnset(request.backupAll)) {
+      query["BackupAll"] = request.backupAll;
     }
 
     if (!Util.isUnset(request.backupFileId)) {
