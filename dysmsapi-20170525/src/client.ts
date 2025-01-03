@@ -2580,33 +2580,52 @@ export class DeleteSmsTemplateResponse extends $tea.Model {
 
 export class GetCardSmsDetailsRequest extends $tea.Model {
   /**
+   * @remarks
+   * Card SMS sending ID, which is the BizCardId field in the response when calling SendCardSms or SendBatchCardSms.
+   * 
    * @example
    * 123456^0
    */
   bizCardId?: string;
   /**
+   * @remarks
+   * Digital SMS sending ID, which is the BizDigitalId field in the response when calling SendCardSms or SendBatchCardSms.
+   * 
    * @example
    * 12346^0
    */
   bizDigitId?: string;
   /**
+   * @remarks
+   * Text SMS sending ID, which is the BizSmsId field in the response when calling SendCardSms or SendBatchCardSms.
+   * 
    * @example
    * 1234576^0
    */
   bizSmsId?: string;
   /**
+   * @remarks
+   * For paginated viewing of sending records, specify the current page number of the sending records.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   ownerId?: number;
   /**
+   * @remarks
+   * For paginated viewing of sending records, specify the number of card SMS records to display per page.
+   * 
+   * The value range is 1~50.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * Domestic phone number that received the SMS. Format: 11-digit phone number, for example, 1390000****.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2617,6 +2636,10 @@ export class GetCardSmsDetailsRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * Card SMS sending date, supports querying records from the last 30 days.
+   * 
+   * Format: yyyyMMdd, for example, 20240112.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2659,15 +2682,24 @@ export class GetCardSmsDetailsRequest extends $tea.Model {
 }
 
 export class GetCardSmsDetailsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Access denied detail; this field is returned only if the RAM check fails.
+   * 
+   * @example
+   * 无
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 卡片短信发送结果
+   * Card SMS sending result
    */
   cardSendDetailDTO?: GetCardSmsDetailsResponseBodyCardSendDetailDTO;
   /**
    * @remarks
-   * 状态码
+   * Request status code.
+   * * OK indicates a successful request.
+   * * For other error codes, see [API Error Codes](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -2675,13 +2707,17 @@ export class GetCardSmsDetailsResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * 状态描述
+   * Description of the status code.
    * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * Indicates whether the API call was successful. Values:
+   * - **true** - **false**
+   * 
    * @example
    * true
    */
@@ -3454,6 +3490,7 @@ export class GetSmsSignResponseBody extends $tea.Model {
    * 2004393****
    */
   qualificationId?: number;
+  registerResult?: number;
   /**
    * @remarks
    * Explanation of the SMS signature scenario, with a maximum length of 200 characters.
@@ -3542,6 +3579,7 @@ export class GetSmsSignResponseBody extends $tea.Model {
       message: 'Message',
       orderId: 'OrderId',
       qualificationId: 'QualificationId',
+      registerResult: 'RegisterResult',
       remark: 'Remark',
       requestId: 'RequestId',
       signCode: 'SignCode',
@@ -3563,6 +3601,7 @@ export class GetSmsSignResponseBody extends $tea.Model {
       message: 'string',
       orderId: 'string',
       qualificationId: 'number',
+      registerResult: 'number',
       remark: 'string',
       requestId: 'string',
       signCode: 'string',
@@ -4673,8 +4712,6 @@ export class QueryExtCodeSignRequest extends $tea.Model {
    * @remarks
    * 扩展码A3
    * 
-   * This parameter is required.
-   * 
    * @example
    * 01
    */
@@ -4695,8 +4732,6 @@ export class QueryExtCodeSignRequest extends $tea.Model {
   /**
    * @remarks
    * 签名
-   * 
-   * This parameter is required.
    * 
    * @example
    * 示例值示例值
@@ -8781,7 +8816,7 @@ export class CreateSmartShortUrlResponseBodyModel extends $tea.Model {
 export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.Model {
   /**
    * @remarks
-   * 发送错误码
+   * Error code for sending
    * 
    * @example
    * Success
@@ -8789,7 +8824,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.
   errCode?: string;
   /**
    * @remarks
-   * 客户传输outId
+   * Customer-transmitted outId
    * 
    * @example
    * 12345678
@@ -8797,7 +8832,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.
   outId?: string;
   /**
    * @remarks
-   * 接收短信手机号
+   * Phone number that received the SMS
    * 
    * @example
    * 156****9080
@@ -8805,7 +8840,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.
   phoneNumber?: string;
   /**
    * @remarks
-   * 接收时间
+   * Receive date
    * 
    * @example
    * 2024-09-27 11:26:35
@@ -8813,7 +8848,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.
   receiveDate?: string;
   /**
    * @remarks
-   * 接收短信类型
+   * Receive SMS type
    * 
    * @example
    * CARD_SMS
@@ -8821,7 +8856,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.
   receiveType?: string;
   /**
    * @remarks
-   * 渲染时间
+   * Render date
    * 
    * @example
    * 2024-09-27 12:13:39
@@ -8829,7 +8864,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.
   renderDate?: string;
   /**
    * @remarks
-   * 解析状态.。0：未解析；1：解析成功；3：未解析
+   * Render status. 0: Not rendered; 1: Rendered successfully; 3: Not rendered
    * 
    * @example
    * 1
@@ -8837,7 +8872,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.
   renderStatus?: number;
   /**
    * @remarks
-   * 短信发送时间
+   * Time when the SMS was sent
    * 
    * @example
    * 2024-09-27 11:26:32
@@ -8845,7 +8880,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.
   sendDate?: string;
   /**
    * @remarks
-   * 发送状态 1：发送中；2：发送失败；3：发送成功；4：寻址失败
+   * Sending status. 1: Sending; 2: Send failed; 3: Sent successfully; 4: Addressing failed
    * 
    * @example
    * 3
@@ -8853,7 +8888,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.
   sendStatus?: number;
   /**
    * @remarks
-   * 短信内容。只有文本短信有值
+   * SMS content. Only applicable for text messages.
    * 
    * @example
    * 您收到一条短信消息
@@ -8861,7 +8896,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.
   smsContent?: string;
   /**
    * @remarks
-   * 模板code
+   * Template code
    * 
    * @example
    * CARD_SMS_6***
@@ -8907,7 +8942,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.
 export class GetCardSmsDetailsResponseBodyCardSendDetailDTO extends $tea.Model {
   /**
    * @remarks
-   * 页码
+   * Current page number
    * 
    * @example
    * 1
@@ -8915,16 +8950,20 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTO extends $tea.Model {
   currentPage?: number;
   /**
    * @remarks
-   * 页数
+   * Page size
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * List of card SMS sending records
+   */
   records?: GetCardSmsDetailsResponseBodyCardSendDetailDTORecords[];
   /**
    * @remarks
-   * 总量
+   * Total count
    * 
    * @example
    * 10
@@ -11752,7 +11791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询卡片发送详情
+   * Query card sending details
    * 
    * @param request - GetCardSmsDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11819,7 +11858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询卡片发送详情
+   * Query card sending details
    * 
    * @param request - GetCardSmsDetailsRequest
    * @returns GetCardSmsDetailsResponse
