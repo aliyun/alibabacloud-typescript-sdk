@@ -3652,6 +3652,18 @@ export class DescribeEventsRequest extends $tea.Model {
   endTime?: string;
   /**
    * @remarks
+   * The severity level of the event. Valid values:
+   * 
+   * *   **INFO**
+   * *   **WARN**
+   * *   **CRITICAL**
+   * 
+   * @example
+   * WARN
+   */
+  eventLevel?: string;
+  /**
+   * @remarks
    * The name of the event. Valid values:
    * 
    * *   NoSnapshot: indicates the event that is triggered because no snapshot is created for a disk to protect data on the disk.
@@ -3673,11 +3685,11 @@ export class DescribeEventsRequest extends $tea.Model {
   eventName?: string;
   /**
    * @remarks
-   * The maximum number of entries per page. If you specify MaxResults, `MaxResults` and `NextToken` are used for a paged query.
+   * The number of entries to return on each page. If you specify MaxResults, `MaxResults` and `NextToken` are used for a paged query.
    * 
    * Valid values: 1 to 100.
    * 
-   * Default value: 10.
+   * Default value: 10
    * 
    * @example
    * 10
@@ -3747,6 +3759,7 @@ export class DescribeEventsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      eventLevel: 'EventLevel',
       eventName: 'EventName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -3761,6 +3774,7 @@ export class DescribeEventsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      eventLevel: 'string',
       eventName: 'string',
       maxResults: 'number',
       nextToken: 'string',
@@ -3870,6 +3884,7 @@ export class DescribeLensMonitorDisksRequest extends $tea.Model {
    * cloud_auto
    */
   diskCategory?: string;
+  diskIdPattern?: string;
   /**
    * @remarks
    * The list of disks.
@@ -3928,6 +3943,7 @@ export class DescribeLensMonitorDisksRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       diskCategory: 'DiskCategory',
+      diskIdPattern: 'DiskIdPattern',
       diskIds: 'DiskIds',
       lensTags: 'LensTags',
       maxResults: 'MaxResults',
@@ -3939,6 +3955,7 @@ export class DescribeLensMonitorDisksRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       diskCategory: 'string',
+      diskIdPattern: 'string',
       diskIds: { 'type': 'array', 'itemType': 'string' },
       lensTags: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
@@ -10985,6 +11002,17 @@ export class DescribeEventsResponseBodyResourceEvents extends $tea.Model {
   eventType?: string;
   /**
    * @remarks
+   * Extra attributes of event, possible fields are:
+   * 
+   * - EcsInstanceId: ECS instance ID where the cloud disk is mounted;
+   * - Adapter: cloud disk mount point.
+   * 
+   * @example
+   * {\\"EcsInstanceId\\":\\"i-uf6dkn9qpcw6y94g7ag7\\",\\"Adapter\\":\\"hda\\"}
+   */
+  extraAttributes?: string;
+  /**
+   * @remarks
    * The recommended action after the event occurred. Valid values:
    * 
    * *   ModifyDiskSpec
@@ -11051,6 +11079,7 @@ export class DescribeEventsResponseBodyResourceEvents extends $tea.Model {
       eventLevel: 'EventLevel',
       eventName: 'EventName',
       eventType: 'EventType',
+      extraAttributes: 'ExtraAttributes',
       recommendAction: 'RecommendAction',
       recommendParams: 'RecommendParams',
       resourceId: 'ResourceId',
@@ -11067,6 +11096,7 @@ export class DescribeEventsResponseBodyResourceEvents extends $tea.Model {
       eventLevel: 'string',
       eventName: 'string',
       eventType: 'string',
+      extraAttributes: 'string',
       recommendAction: 'string',
       recommendParams: 'string',
       resourceId: 'string',
@@ -14061,6 +14091,10 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
+    if (!Util.isUnset(request.eventLevel)) {
+      query["EventLevel"] = request.eventLevel;
+    }
+
     if (!Util.isUnset(request.eventName)) {
       query["EventName"] = request.eventName;
     }
@@ -14133,6 +14167,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.diskCategory)) {
       query["DiskCategory"] = request.diskCategory;
+    }
+
+    if (!Util.isUnset(request.diskIdPattern)) {
+      query["DiskIdPattern"] = request.diskIdPattern;
     }
 
     if (!Util.isUnset(request.diskIds)) {
