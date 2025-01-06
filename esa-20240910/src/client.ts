@@ -568,6 +568,110 @@ export class ActivateClientCertificateResponse extends $tea.Model {
   }
 }
 
+export class ApplyCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * www.example.com,blog.example.com
+   */
+  domains?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      siteId: 'SiteId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: 'string',
+      siteId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyCertificateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 156A6B-677B1A-4297B7-9187B7-2B44792
+   */
+  requestId?: string;
+  result?: ApplyCertificateResponseBodyResult[];
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      siteName: 'SiteName',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ApplyCertificateResponseBodyResult },
+      siteName: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyCertificateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchCreateRecordsRequest extends $tea.Model {
   /**
    * @remarks
@@ -3429,6 +3533,135 @@ export class CreateListResponse extends $tea.Model {
   }
 }
 
+export class CreateOriginPoolRequest extends $tea.Model {
+  enabled?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CreateOriginPool
+   */
+  name?: string;
+  origins?: CreateOriginPoolRequestOrigins[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      name: 'Name',
+      origins: 'Origins',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      name: 'string',
+      origins: { 'type': 'array', 'itemType': CreateOriginPoolRequestOrigins },
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOriginPoolShrinkRequest extends $tea.Model {
+  enabled?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CreateOriginPool
+   */
+  name?: string;
+  originsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      name: 'Name',
+      originsShrink: 'Origins',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      name: 'string',
+      originsShrink: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOriginPoolResponseBody extends $tea.Model {
+  id?: number;
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOriginPoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateOriginPoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOriginPoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOriginProtectionRequest extends $tea.Model {
   /**
    * @remarks
@@ -5504,6 +5737,7 @@ export class CreateUserDeliveryTaskRequest extends $tea.Model {
    * sls
    */
   deliveryType?: string;
+  details?: string;
   /**
    * @remarks
    * The discard rate. Default value: 0.
@@ -5562,6 +5796,7 @@ export class CreateUserDeliveryTaskRequest extends $tea.Model {
       businessType: 'BusinessType',
       dataCenter: 'DataCenter',
       deliveryType: 'DeliveryType',
+      details: 'Details',
       discardRate: 'DiscardRate',
       fieldName: 'FieldName',
       httpDelivery: 'HttpDelivery',
@@ -5578,6 +5813,7 @@ export class CreateUserDeliveryTaskRequest extends $tea.Model {
       businessType: 'string',
       dataCenter: 'string',
       deliveryType: 'string',
+      details: 'string',
       discardRate: 'number',
       fieldName: 'string',
       httpDelivery: CreateUserDeliveryTaskRequestHttpDelivery,
@@ -5640,6 +5876,7 @@ export class CreateUserDeliveryTaskShrinkRequest extends $tea.Model {
    * sls
    */
   deliveryType?: string;
+  details?: string;
   /**
    * @remarks
    * The discard rate. Default value: 0.
@@ -5698,6 +5935,7 @@ export class CreateUserDeliveryTaskShrinkRequest extends $tea.Model {
       businessType: 'BusinessType',
       dataCenter: 'DataCenter',
       deliveryType: 'DeliveryType',
+      details: 'Details',
       discardRate: 'DiscardRate',
       fieldName: 'FieldName',
       httpDeliveryShrink: 'HttpDelivery',
@@ -5714,6 +5952,7 @@ export class CreateUserDeliveryTaskShrinkRequest extends $tea.Model {
       businessType: 'string',
       dataCenter: 'string',
       deliveryType: 'string',
+      details: 'string',
       discardRate: 'number',
       fieldName: 'string',
       httpDeliveryShrink: 'string',
@@ -7736,6 +7975,87 @@ export class DeleteListResponse extends $tea.Model {
   }
 }
 
+export class DeleteOriginPoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DeleteOriginPool
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOriginPoolResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOriginPoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteOriginPoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteOriginPoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteOriginProtectionRequest extends $tea.Model {
   /**
    * @remarks
@@ -9444,6 +9764,278 @@ export class DescribeDDoSAllEventListResponse extends $tea.Model {
   }
 }
 
+export class DescribeDDoSBpsListRequest extends $tea.Model {
+  coverage?: string;
+  /**
+   * @example
+   * 2023-05-18T06:19:42Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 70966210986912
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-05-14T17:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coverage: 'Coverage',
+      endTime: 'EndTime',
+      siteId: 'SiteId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverage: 'string',
+      endTime: 'string',
+      siteId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDDoSBpsListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 300
+   */
+  dataInterval?: number;
+  dataModule?: DescribeDDoSBpsListResponseBodyDataModule[];
+  /**
+   * @example
+   * 2023-05-18T06:19:42Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 156A6B-677B1A-4297B7-9187B7-2B44792
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2023-05-14T17:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataInterval: 'DataInterval',
+      dataModule: 'DataModule',
+      endTime: 'EndTime',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataInterval: 'number',
+      dataModule: { 'type': 'array', 'itemType': DescribeDDoSBpsListResponseBodyDataModule },
+      endTime: 'string',
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDDoSBpsListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDDoSBpsListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDDoSBpsListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDDoSL7QpsListRequest extends $tea.Model {
+  /**
+   * @example
+   * 2023-04-19T19:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 300
+   */
+  interval?: number;
+  /**
+   * @example
+   * 86510927836942****
+   */
+  recordId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * A short description of struct
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-19T16:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      interval: 'Interval',
+      recordId: 'RecordId',
+      siteId: 'SiteId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      interval: 'number',
+      recordId: 'number',
+      siteId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDDoSL7QpsListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 300
+   */
+  dataInterval?: number;
+  dataModule?: DescribeDDoSL7QpsListResponseBodyDataModule[];
+  /**
+   * @example
+   * 2023-04-19T19:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 86510927836942****
+   */
+  recordId?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 156A6B-677B1A-4297B7-9187B7-2B44792
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  /**
+   * @example
+   * 2023-04-19T16:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataInterval: 'DataInterval',
+      dataModule: 'DataModule',
+      endTime: 'EndTime',
+      recordId: 'RecordId',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataInterval: 'number',
+      dataModule: { 'type': 'array', 'itemType': DescribeDDoSL7QpsListResponseBodyDataModule },
+      endTime: 'string',
+      recordId: 'number',
+      requestId: 'string',
+      siteId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDDoSL7QpsListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDDoSL7QpsListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDDoSL7QpsListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHttpDDoSAttackIntelligentProtectionRequest extends $tea.Model {
   /**
    * @remarks
@@ -10565,6 +11157,144 @@ export class GetCacheReserveSpecificationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCacheReserveSpecificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * babaded901474b9693acf530e0fb1d95
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCertificateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The certificate content.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----
+   */
+  certificate?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The certificate information.
+   */
+  result?: GetCertificateResponseBodyResult;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * The website name.
+   * 
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @remarks
+   * The certificate status.
+   * 
+   * @example
+   * OK
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificate: 'Certificate',
+      requestId: 'RequestId',
+      result: 'Result',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificate: 'string',
+      requestId: 'string',
+      result: GetCertificateResponseBodyResult,
+      siteId: 'number',
+      siteName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCertificateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCertificateResponseBody,
     };
   }
 
@@ -12367,6 +13097,111 @@ export class GetListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginPoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * GetOriginPool
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginPoolResponseBody extends $tea.Model {
+  enabled?: boolean;
+  id?: number;
+  name?: string;
+  origins?: GetOriginPoolResponseBodyOrigins[];
+  recordName?: string;
+  referenceLBCount?: number;
+  references?: GetOriginPoolResponseBodyReferences;
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      id: 'Id',
+      name: 'Name',
+      origins: 'Origins',
+      recordName: 'RecordName',
+      referenceLBCount: 'ReferenceLBCount',
+      references: 'References',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      id: 'number',
+      name: 'string',
+      origins: { 'type': 'array', 'itemType': GetOriginPoolResponseBodyOrigins },
+      recordName: 'string',
+      referenceLBCount: 'number',
+      references: GetOriginPoolResponseBodyReferences,
+      requestId: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginPoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOriginPoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOriginPoolResponseBody,
     };
   }
 
@@ -14479,6 +15314,7 @@ export class GetUserDeliveryTaskResponseBody extends $tea.Model {
    * oss
    */
   deliveryType?: string;
+  details?: string;
   /**
    * @remarks
    * The discard rate.
@@ -14540,6 +15376,7 @@ export class GetUserDeliveryTaskResponseBody extends $tea.Model {
       businessType: 'BusinessType',
       dataCenter: 'DataCenter',
       deliveryType: 'DeliveryType',
+      details: 'Details',
       discardRate: 'DiscardRate',
       fieldList: 'FieldList',
       filterRules: 'FilterRules',
@@ -14555,6 +15392,7 @@ export class GetUserDeliveryTaskResponseBody extends $tea.Model {
       businessType: 'string',
       dataCenter: 'string',
       deliveryType: 'string',
+      details: 'string',
       discardRate: 'number',
       fieldList: 'string',
       filterRules: 'string',
@@ -15148,6 +15986,146 @@ export class ListCacheReserveInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCacheReserveInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertificatesRequest extends $tea.Model {
+  /**
+   * @example
+   * example
+   */
+  keyword?: string;
+  /**
+   * @example
+   * 3
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @example
+   * 1
+   */
+  validOnly?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      siteId: 'SiteId',
+      validOnly: 'ValidOnly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      siteId: 'number',
+      validOnly: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertificatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A74
+   */
+  requestId?: string;
+  result?: ListCertificatesResponseBodyResult[];
+  /**
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      result: 'Result',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListCertificatesResponseBodyResult },
+      siteId: 'number',
+      siteName: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertificatesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCertificatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCertificatesResponseBody,
     };
   }
 
@@ -17459,6 +18437,107 @@ export class ListManagedRulesGroupsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListManagedRulesGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginPoolsRequest extends $tea.Model {
+  matchType?: string;
+  name?: string;
+  orderBy?: string;
+  /**
+   * @example
+   * ListOriginPools
+   */
+  pageNumber?: number;
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      matchType: 'MatchType',
+      name: 'Name',
+      orderBy: 'OrderBy',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchType: 'string',
+      name: 'string',
+      orderBy: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginPoolsResponseBody extends $tea.Model {
+  originPools?: ListOriginPoolsResponseBodyOriginPools[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      originPools: 'OriginPools',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originPools: { 'type': 'array', 'itemType': ListOriginPoolsResponseBodyOriginPools },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginPoolsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOriginPoolsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListOriginPoolsResponseBody,
     };
   }
 
@@ -23378,6 +24457,135 @@ export class UpdateKvNamespaceResponse extends $tea.Model {
   }
 }
 
+export class UpdateOriginPoolRequest extends $tea.Model {
+  enabled?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UpdateOriginPool
+   */
+  id?: number;
+  origins?: UpdateOriginPoolRequestOrigins[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      id: 'Id',
+      origins: 'Origins',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      id: 'number',
+      origins: { 'type': 'array', 'itemType': UpdateOriginPoolRequestOrigins },
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOriginPoolShrinkRequest extends $tea.Model {
+  enabled?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UpdateOriginPool
+   */
+  id?: number;
+  originsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      id: 'Id',
+      originsShrink: 'Origins',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      id: 'number',
+      originsShrink: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOriginPoolResponseBody extends $tea.Model {
+  id?: number;
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOriginPoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateOriginPoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateOriginPoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateOriginProtectionRequest extends $tea.Model {
   /**
    * @remarks
@@ -23578,6 +24786,8 @@ export class UpdatePageRequest extends $tea.Model {
   /**
    * @remarks
    * The description of the custom error page.
+   * 
+   * This parameter is required.
    * 
    * @example
    * a custom deny page
@@ -24876,6 +26086,7 @@ export class UpdateUserDeliveryTaskRequest extends $tea.Model {
    * dcdn_log_er
    */
   businessType?: string;
+  details?: string;
   /**
    * @remarks
    * The discard rate. Default value: 0.
@@ -24907,6 +26118,7 @@ export class UpdateUserDeliveryTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       businessType: 'BusinessType',
+      details: 'Details',
       discardRate: 'DiscardRate',
       fieldName: 'FieldName',
       taskName: 'TaskName',
@@ -24916,6 +26128,7 @@ export class UpdateUserDeliveryTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       businessType: 'string',
+      details: 'string',
       discardRate: 'number',
       fieldName: 'string',
       taskName: 'string',
@@ -27273,6 +28486,43 @@ export class FieldContentValueFieldList extends $tea.Model {
   }
 }
 
+export class ApplyCertificateResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * *.example.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * 30000478
+   */
+  id?: string;
+  /**
+   * @example
+   * Applying
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      id: 'Id',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      id: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchCreateRecordsRequestRecordListAuthConf extends $tea.Model {
   accessKey?: string;
   authType?: string;
@@ -28689,6 +29939,74 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $tea.Model {
       probeType: 'string',
       spec: 'string',
       storage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOriginPoolRequestOriginsAuthConf extends $tea.Model {
+  accessKey?: string;
+  authType?: string;
+  region?: string;
+  secretKey?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      authType: 'AuthType',
+      region: 'Region',
+      secretKey: 'SecretKey',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      authType: 'string',
+      region: 'string',
+      secretKey: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOriginPoolRequestOrigins extends $tea.Model {
+  address?: string;
+  authConf?: CreateOriginPoolRequestOriginsAuthConf;
+  enabled?: boolean;
+  header?: any;
+  name?: string;
+  type?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      authConf: 'AuthConf',
+      enabled: 'Enabled',
+      header: 'Header',
+      name: 'Name',
+      type: 'Type',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      authConf: CreateOriginPoolRequestOriginsAuthConf,
+      enabled: 'boolean',
+      header: 'any',
+      name: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -30474,6 +31792,115 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $tea.Model {
   }
 }
 
+export class DescribeDDoSBpsListResponseBodyDataModule extends $tea.Model {
+  /**
+   * @example
+   * 9000000000
+   */
+  attackBps?: number;
+  /**
+   * @example
+   * 9000000
+   */
+  attackPps?: number;
+  /**
+   * @example
+   * 1000000000
+   */
+  normalBps?: number;
+  /**
+   * @example
+   * 1000000
+   */
+  normalPps?: number;
+  /**
+   * @example
+   * 2023-05-14T17:00:00Z
+   */
+  timeStamp?: string;
+  /**
+   * @example
+   * 10000000000
+   */
+  totalBps?: number;
+  /**
+   * @example
+   * 100000000
+   */
+  totalPps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attackBps: 'AttackBps',
+      attackPps: 'AttackPps',
+      normalBps: 'NormalBps',
+      normalPps: 'NormalPps',
+      timeStamp: 'TimeStamp',
+      totalBps: 'TotalBps',
+      totalPps: 'TotalPps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attackBps: 'number',
+      attackPps: 'number',
+      normalBps: 'number',
+      normalPps: 'number',
+      timeStamp: 'string',
+      totalBps: 'number',
+      totalPps: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDDoSL7QpsListResponseBodyDataModule extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
+  attack?: number;
+  /**
+   * @example
+   * 4
+   */
+  normal?: number;
+  /**
+   * @example
+   * 2023-04-19T16:00:00Z
+   */
+  timeStamp?: string;
+  /**
+   * @example
+   * 9
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attack: 'Attack',
+      normal: 'Normal',
+      timeStamp: 'TimeStamp',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attack: 'number',
+      normal: 'number',
+      timeStamp: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePreloadTasksResponseBodyTasks extends $tea.Model {
   /**
    * @remarks
@@ -30647,6 +32074,273 @@ export class DescribePurgeTasksResponseBodyTasks extends $tea.Model {
       status: 'string',
       taskId: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCertificateResponseBodyResultDCV extends $tea.Model {
+  /**
+   * @remarks
+   * DCV ID.
+   * 
+   * @example
+   * bababf7cdd1546a2ad04c0def1f4c980
+   */
+  id?: string;
+  /**
+   * @example
+   * http://www.example.com/.well-known/acme-challenge/pH20CqwS5L3ZnvkhI436DCzadKFuG7QcUcvB_4KsAow
+   */
+  key?: string;
+  /**
+   * @example
+   * pending
+   */
+  status?: string;
+  /**
+   * @example
+   * HTTP
+   */
+  type?: string;
+  /**
+   * @example
+   * pH20CqwS5L3ZnvkhI436DCzadKFuG7QcUcvB_4KsAow.KfzYo4LH3EgOt7a73G-RqZkbR0eYtLfEUmtmqGmr4FQ
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      key: 'Key',
+      status: 'Status',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      key: 'string',
+      status: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCertificateResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
+  applyCode?: number;
+  /**
+   * @example
+   * canceled
+   */
+  applyMessage?: string;
+  /**
+   * @remarks
+   * The certificate ID on Certificate Management Service.
+   * 
+   * @example
+   * 30000478
+   */
+  casId?: string;
+  /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @remarks
+   * The time when the certificate was created.
+   * 
+   * @example
+   * 2020-05-12 02:00:53
+   */
+  createTime?: string;
+  DCV?: GetCertificateResponseBodyResultDCV[];
+  /**
+   * @remarks
+   * The SHA-256 fingerprint of the certificate.
+   * 
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456aca66
+   */
+  fingerprintSha256?: string;
+  /**
+   * @remarks
+   * The certificate ID on ESA.
+   * 
+   * @example
+   * babaded901474b9693acf530e0fb1d95
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
+   * @example
+   * DigiCert
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * The Common Name of the CA that issued the certificate.
+   * 
+   * @example
+   * DigiCert Global Root CA
+   */
+  issuerCN?: string;
+  /**
+   * @remarks
+   * The certificate name.
+   * 
+   * @example
+   * yourCertName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The time when the certificate expires.
+   * 
+   * @example
+   * 2023-11-26T16:00:00Z
+   */
+  notAfter?: string;
+  /**
+   * @remarks
+   * The time when the certificate takes effect.
+   * 
+   * @example
+   * 2023-11-26T16:00:00Z
+   */
+  notBefore?: string;
+  /**
+   * @remarks
+   * The public-key algorithm of the certificate.
+   * 
+   * @example
+   * ECDSA
+   */
+  pubAlg?: string;
+  /**
+   * @remarks
+   * The region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The Subject Alternative Name (SAN) of the certificate.
+   * 
+   * @example
+   * www.example.com,*.example.com
+   */
+  SAN?: string;
+  /**
+   * @remarks
+   * The serial number of the certificate.
+   * 
+   * @example
+   * babaded901474b9693acf530e0fb1daa
+   */
+  serialNumber?: string;
+  /**
+   * @remarks
+   * The signature algorithm of the certificate.
+   * 
+   * @example
+   * ECDSA-SHA1
+   */
+  sigAlg?: string;
+  /**
+   * @remarks
+   * The certificate status.
+   * 
+   * @example
+   * OK
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The certificate type.
+   * 
+   * @example
+   * free
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The time when the certificate was updated.
+   * 
+   * @example
+   * 2022-09-22 05:33:13
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applyCode: 'ApplyCode',
+      applyMessage: 'ApplyMessage',
+      casId: 'CasId',
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      DCV: 'DCV',
+      fingerprintSha256: 'FingerprintSha256',
+      id: 'Id',
+      issuer: 'Issuer',
+      issuerCN: 'IssuerCN',
+      name: 'Name',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      pubAlg: 'PubAlg',
+      region: 'Region',
+      SAN: 'SAN',
+      serialNumber: 'SerialNumber',
+      sigAlg: 'SigAlg',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyCode: 'number',
+      applyMessage: 'string',
+      casId: 'string',
+      commonName: 'string',
+      createTime: 'string',
+      DCV: { 'type': 'array', 'itemType': GetCertificateResponseBodyResultDCV },
+      fingerprintSha256: 'string',
+      id: 'string',
+      issuer: 'string',
+      issuerCN: 'string',
+      name: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      pubAlg: 'string',
+      region: 'string',
+      SAN: 'string',
+      serialNumber: 'string',
+      sigAlg: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -32039,6 +33733,168 @@ export class GetKvAccountResponseBodyNamespaceList extends $tea.Model {
       namespace: 'string',
       namespaceId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginPoolResponseBodyOriginsAuthConf extends $tea.Model {
+  accessKey?: string;
+  authType?: string;
+  region?: string;
+  secretKey?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      authType: 'AuthType',
+      region: 'Region',
+      secretKey: 'SecretKey',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      authType: 'string',
+      region: 'string',
+      secretKey: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginPoolResponseBodyOrigins extends $tea.Model {
+  address?: string;
+  authConf?: GetOriginPoolResponseBodyOriginsAuthConf;
+  enabled?: boolean;
+  header?: any;
+  id?: number;
+  name?: string;
+  type?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      authConf: 'AuthConf',
+      enabled: 'Enabled',
+      header: 'Header',
+      id: 'Id',
+      name: 'Name',
+      type: 'Type',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      authConf: GetOriginPoolResponseBodyOriginsAuthConf,
+      enabled: 'boolean',
+      header: 'any',
+      id: 'number',
+      name: 'string',
+      type: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginPoolResponseBodyReferencesDnsRecords extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginPoolResponseBodyReferencesIPARecords extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginPoolResponseBodyReferencesLoadBalancers extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginPoolResponseBodyReferences extends $tea.Model {
+  dnsRecords?: GetOriginPoolResponseBodyReferencesDnsRecords[];
+  IPARecords?: GetOriginPoolResponseBodyReferencesIPARecords[];
+  loadBalancers?: GetOriginPoolResponseBodyReferencesLoadBalancers[];
+  static names(): { [key: string]: string } {
+    return {
+      dnsRecords: 'DnsRecords',
+      IPARecords: 'IPARecords',
+      loadBalancers: 'LoadBalancers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsRecords: { 'type': 'array', 'itemType': GetOriginPoolResponseBodyReferencesDnsRecords },
+      IPARecords: { 'type': 'array', 'itemType': GetOriginPoolResponseBodyReferencesIPARecords },
+      loadBalancers: { 'type': 'array', 'itemType': GetOriginPoolResponseBodyReferencesLoadBalancers },
     };
   }
 
@@ -33785,6 +35641,188 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $tea.Mode
       expireTime: 'string',
       instanceId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertificatesResponseBodyResultDCV extends $tea.Model {
+  id?: string;
+  key?: string;
+  status?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      key: 'Key',
+      status: 'Status',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      key: 'string',
+      status: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertificatesResponseBodyResult extends $tea.Model {
+  applyCode?: number;
+  applyMessage?: string;
+  /**
+   * @example
+   * 30000569
+   */
+  casId?: string;
+  /**
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @example
+   * 2022-06-24 07:48:51
+   */
+  createTime?: string;
+  DCV?: ListCertificatesResponseBodyResultDCV[];
+  /**
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456a****
+   */
+  fingerprintSha256?: string;
+  /**
+   * @example
+   * baba39055622c008b90285a8838e****
+   */
+  id?: string;
+  /**
+   * @example
+   * GlobalSign nv-sa
+   */
+  issuer?: string;
+  /**
+   * @example
+   * GlobalSign Organization Validation CA - SHA256 - G3
+   */
+  issuerCN?: string;
+  /**
+   * @example
+   * yourCertName
+   */
+  name?: string;
+  /**
+   * @example
+   * 2024-03-31 02:08:00
+   */
+  notAfter?: string;
+  /**
+   * @example
+   * 2023-03-31 02:08:00
+   */
+  notBefore?: string;
+  /**
+   * @example
+   * RSA
+   */
+  pubAlg?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @example
+   * www.example.com,*.example.com
+   */
+  SAN?: string;
+  /**
+   * @example
+   * babab022c5e9b27bf9c64d7f4b16****
+   */
+  serialNumber?: string;
+  /**
+   * @example
+   * SHA256-RSA
+   */
+  sigAlg?: string;
+  /**
+   * @example
+   * OK
+   */
+  status?: string;
+  /**
+   * @example
+   * free
+   */
+  type?: string;
+  /**
+   * @example
+   * 2023-04-20 06:18:42
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applyCode: 'ApplyCode',
+      applyMessage: 'ApplyMessage',
+      casId: 'CasId',
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      DCV: 'DCV',
+      fingerprintSha256: 'FingerprintSha256',
+      id: 'Id',
+      issuer: 'Issuer',
+      issuerCN: 'IssuerCN',
+      name: 'Name',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      pubAlg: 'PubAlg',
+      region: 'Region',
+      SAN: 'SAN',
+      serialNumber: 'SerialNumber',
+      sigAlg: 'SigAlg',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyCode: 'number',
+      applyMessage: 'string',
+      casId: 'string',
+      commonName: 'string',
+      createTime: 'string',
+      DCV: { 'type': 'array', 'itemType': ListCertificatesResponseBodyResultDCV },
+      fingerprintSha256: 'string',
+      id: 'string',
+      issuer: 'string',
+      issuerCN: 'string',
+      name: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      pubAlg: 'string',
+      region: 'string',
+      SAN: 'string',
+      serialNumber: 'string',
+      sigAlg: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -35549,6 +37587,208 @@ export class ListManagedRulesGroupsResponseBodyManagedRulesGroups extends $tea.M
     return {
       name: 'string',
       ruleCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginPoolsResponseBodyOriginPoolsOriginsAuthConf extends $tea.Model {
+  accessKey?: string;
+  authType?: string;
+  region?: string;
+  secretKey?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      authType: 'AuthType',
+      region: 'Region',
+      secretKey: 'SecretKey',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      authType: 'string',
+      region: 'string',
+      secretKey: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginPoolsResponseBodyOriginPoolsOrigins extends $tea.Model {
+  address?: string;
+  authConf?: ListOriginPoolsResponseBodyOriginPoolsOriginsAuthConf;
+  enabled?: boolean;
+  header?: any;
+  id?: number;
+  name?: string;
+  type?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      authConf: 'AuthConf',
+      enabled: 'Enabled',
+      header: 'Header',
+      id: 'Id',
+      name: 'Name',
+      type: 'Type',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      authConf: ListOriginPoolsResponseBodyOriginPoolsOriginsAuthConf,
+      enabled: 'boolean',
+      header: 'any',
+      id: 'number',
+      name: 'string',
+      type: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginPoolsResponseBodyOriginPoolsReferencesDnsRecords extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginPoolsResponseBodyOriginPoolsReferencesIPARecords extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginPoolsResponseBodyOriginPoolsReferencesLoadBalancers extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginPoolsResponseBodyOriginPoolsReferences extends $tea.Model {
+  dnsRecords?: ListOriginPoolsResponseBodyOriginPoolsReferencesDnsRecords[];
+  IPARecords?: ListOriginPoolsResponseBodyOriginPoolsReferencesIPARecords[];
+  loadBalancers?: ListOriginPoolsResponseBodyOriginPoolsReferencesLoadBalancers[];
+  static names(): { [key: string]: string } {
+    return {
+      dnsRecords: 'DnsRecords',
+      IPARecords: 'IPARecords',
+      loadBalancers: 'LoadBalancers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsRecords: { 'type': 'array', 'itemType': ListOriginPoolsResponseBodyOriginPoolsReferencesDnsRecords },
+      IPARecords: { 'type': 'array', 'itemType': ListOriginPoolsResponseBodyOriginPoolsReferencesIPARecords },
+      loadBalancers: { 'type': 'array', 'itemType': ListOriginPoolsResponseBodyOriginPoolsReferencesLoadBalancers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginPoolsResponseBodyOriginPools extends $tea.Model {
+  enabled?: boolean;
+  id?: number;
+  name?: string;
+  origins?: ListOriginPoolsResponseBodyOriginPoolsOrigins[];
+  recordName?: string;
+  referenceLBCount?: number;
+  references?: ListOriginPoolsResponseBodyOriginPoolsReferences;
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      id: 'Id',
+      name: 'Name',
+      origins: 'Origins',
+      recordName: 'RecordName',
+      referenceLBCount: 'ReferenceLBCount',
+      references: 'References',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      id: 'number',
+      name: 'string',
+      origins: { 'type': 'array', 'itemType': ListOriginPoolsResponseBodyOriginPoolsOrigins },
+      recordName: 'string',
+      referenceLBCount: 'number',
+      references: ListOriginPoolsResponseBodyOriginPoolsReferences,
+      siteId: 'number',
     };
   }
 
@@ -38112,6 +40352,74 @@ export class PurgeCachesRequestContent extends $tea.Model {
   }
 }
 
+export class UpdateOriginPoolRequestOriginsAuthConf extends $tea.Model {
+  accessKey?: string;
+  authType?: string;
+  region?: string;
+  secretKey?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      authType: 'AuthType',
+      region: 'Region',
+      secretKey: 'SecretKey',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      authType: 'string',
+      region: 'string',
+      secretKey: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOriginPoolRequestOrigins extends $tea.Model {
+  address?: string;
+  authConf?: UpdateOriginPoolRequestOriginsAuthConf;
+  enabled?: boolean;
+  header?: any;
+  name?: string;
+  type?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      authConf: 'AuthConf',
+      enabled: 'Enabled',
+      header: 'Header',
+      name: 'Name',
+      type: 'Type',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      authConf: UpdateOriginPoolRequestOriginsAuthConf,
+      enabled: 'boolean',
+      header: 'any',
+      name: 'string',
+      type: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateRecordRequestAuthConf extends $tea.Model {
   /**
    * @remarks
@@ -38457,6 +40765,44 @@ export default class Client extends OpenApi {
   async activateClientCertificate(request: ActivateClientCertificateRequest): Promise<ActivateClientCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.activateClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 申请免费证书
+   * 
+   * @param request - ApplyCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyCertificateResponse
+   */
+  async applyCertificateWithOptions(request: ApplyCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ApplyCertificateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApplyCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyCertificateResponse>(await this.callApi(params, req, runtime), new ApplyCertificateResponse({}));
+  }
+
+  /**
+   * 申请免费证书
+   * 
+   * @param request - ApplyCertificateRequest
+   * @returns ApplyCertificateResponse
+   */
+  async applyCertificate(request: ApplyCertificateRequest): Promise<ApplyCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.applyCertificateWithOptions(request, runtime);
   }
 
   /**
@@ -39798,6 +42144,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增源地址池
+   * 
+   * @param tmpReq - CreateOriginPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOriginPoolResponse
+   */
+  async createOriginPoolWithOptions(tmpReq: CreateOriginPoolRequest, runtime: $Util.RuntimeOptions): Promise<CreateOriginPoolResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateOriginPoolShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.origins)) {
+      request.originsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.origins, "Origins", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.originsShrink)) {
+      query["Origins"] = request.originsShrink;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOriginPool",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOriginPoolResponse>(await this.callApi(params, req, runtime), new CreateOriginPoolResponse({}));
+  }
+
+  /**
+   * 新增源地址池
+   * 
+   * @param request - CreateOriginPoolRequest
+   * @returns CreateOriginPoolResponse
+   */
+  async createOriginPool(request: CreateOriginPoolRequest): Promise<CreateOriginPoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOriginPoolWithOptions(request, runtime);
+  }
+
+  /**
    * Enables origin protection.
    * 
    * @param request - CreateOriginProtectionRequest
@@ -40556,6 +42962,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deliveryType)) {
       body["DeliveryType"] = request.deliveryType;
+    }
+
+    if (!Util.isUnset(request.details)) {
+      body["Details"] = request.details;
     }
 
     if (!Util.isUnset(request.discardRate)) {
@@ -41331,6 +43741,52 @@ export default class Client extends OpenApi {
   async deleteList(request: DeleteListRequest): Promise<DeleteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteListWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除源地址池
+   * 
+   * @param request - DeleteOriginPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOriginPoolResponse
+   */
+  async deleteOriginPoolWithOptions(request: DeleteOriginPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOriginPoolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteOriginPool",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteOriginPoolResponse>(await this.callApi(params, req, runtime), new DeleteOriginPoolResponse({}));
+  }
+
+  /**
+   * 删除源地址池
+   * 
+   * @param request - DeleteOriginPoolRequest
+   * @returns DeleteOriginPoolResponse
+   */
+  async deleteOriginPool(request: DeleteOriginPoolRequest): Promise<DeleteOriginPoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteOriginPoolWithOptions(request, runtime);
   }
 
   /**
@@ -42142,6 +44598,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询DCDN DDoS用户bps、pps数据
+   * 
+   * @param request - DescribeDDoSBpsListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDDoSBpsListResponse
+   */
+  async describeDDoSBpsListWithOptions(request: DescribeDDoSBpsListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDoSBpsListResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDDoSBpsList",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDDoSBpsListResponse>(await this.callApi(params, req, runtime), new DescribeDDoSBpsListResponse({}));
+  }
+
+  /**
+   * 查询DCDN DDoS用户bps、pps数据
+   * 
+   * @param request - DescribeDDoSBpsListRequest
+   * @returns DescribeDDoSBpsListResponse
+   */
+  async describeDDoSBpsList(request: DescribeDDoSBpsListRequest): Promise<DescribeDDoSBpsListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDDoSBpsListWithOptions(request, runtime);
+  }
+
+  /**
+   * ddos分析七层qps走势图接口
+   * 
+   * @param request - DescribeDDoSL7QpsListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDDoSL7QpsListResponse
+   */
+  async describeDDoSL7QpsListWithOptions(request: DescribeDDoSL7QpsListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDoSL7QpsListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDDoSL7QpsList",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDDoSL7QpsListResponse>(await this.callApi(params, req, runtime), new DescribeDDoSL7QpsListResponse({}));
+  }
+
+  /**
+   * ddos分析七层qps走势图接口
+   * 
+   * @param request - DescribeDDoSL7QpsListRequest
+   * @returns DescribeDDoSL7QpsListResponse
+   */
+  async describeDDoSL7QpsList(request: DescribeDDoSL7QpsListRequest): Promise<DescribeDDoSL7QpsListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDDoSL7QpsListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the configuration of smart HTTP DDoS protection for a website.
    * 
    * @param request - DescribeHttpDDoSAttackIntelligentProtectionRequest
@@ -42543,6 +45095,44 @@ export default class Client extends OpenApi {
   async getCacheReserveSpecification(): Promise<GetCacheReserveSpecificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCacheReserveSpecificationWithOptions(runtime);
+  }
+
+  /**
+   * Queries certificate information about a website.
+   * 
+   * @param request - GetCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCertificateResponse
+   */
+  async getCertificateWithOptions(request: GetCertificateRequest, runtime: $Util.RuntimeOptions): Promise<GetCertificateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCertificateResponse>(await this.callApi(params, req, runtime), new GetCertificateResponse({}));
+  }
+
+  /**
+   * Queries certificate information about a website.
+   * 
+   * @param request - GetCertificateRequest
+   * @returns GetCertificateResponse
+   */
+  async getCertificate(request: GetCertificateRequest): Promise<GetCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCertificateWithOptions(request, runtime);
   }
 
   /**
@@ -43127,6 +45717,44 @@ export default class Client extends OpenApi {
   async getList(request: GetListRequest): Promise<GetListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询特定源地址池
+   * 
+   * @param request - GetOriginPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOriginPoolResponse
+   */
+  async getOriginPoolWithOptions(request: GetOriginPoolRequest, runtime: $Util.RuntimeOptions): Promise<GetOriginPoolResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOriginPool",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOriginPoolResponse>(await this.callApi(params, req, runtime), new GetOriginPoolResponse({}));
+  }
+
+  /**
+   * 查询特定源地址池
+   * 
+   * @param request - GetOriginPoolRequest
+   * @returns GetOriginPoolResponse
+   */
+  async getOriginPool(request: GetOriginPoolRequest): Promise<GetOriginPoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOriginPoolWithOptions(request, runtime);
   }
 
   /**
@@ -44086,6 +46714,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询站点下证书列表
+   * 
+   * @param request - ListCertificatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCertificatesResponse
+   */
+  async listCertificatesWithOptions(request: ListCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListCertificatesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCertificates",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCertificatesResponse>(await this.callApi(params, req, runtime), new ListCertificatesResponse({}));
+  }
+
+  /**
+   * 查询站点下证书列表
+   * 
+   * @param request - ListCertificatesRequest
+   * @returns ListCertificatesResponse
+   */
+  async listCertificates(request: ListCertificatesRequest): Promise<ListCertificatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCertificatesWithOptions(request, runtime);
+  }
+
+  /**
    * 查询TLS密码套件列表
    * 
    * @param request - ListCiphersRequest
@@ -44709,6 +47375,44 @@ export default class Client extends OpenApi {
   async listManagedRulesGroups(request: ListManagedRulesGroupsRequest): Promise<ListManagedRulesGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listManagedRulesGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询源地址池列表
+   * 
+   * @param request - ListOriginPoolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOriginPoolsResponse
+   */
+  async listOriginPoolsWithOptions(request: ListOriginPoolsRequest, runtime: $Util.RuntimeOptions): Promise<ListOriginPoolsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListOriginPools",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListOriginPoolsResponse>(await this.callApi(params, req, runtime), new ListOriginPoolsResponse({}));
+  }
+
+  /**
+   * 查询源地址池列表
+   * 
+   * @param request - ListOriginPoolsRequest
+   * @returns ListOriginPoolsResponse
+   */
+  async listOriginPools(request: ListOriginPoolsRequest): Promise<ListOriginPoolsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listOriginPoolsWithOptions(request, runtime);
   }
 
   /**
@@ -46775,6 +49479,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改监视器
+   * 
+   * @param tmpReq - UpdateOriginPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOriginPoolResponse
+   */
+  async updateOriginPoolWithOptions(tmpReq: UpdateOriginPoolRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOriginPoolResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateOriginPoolShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.origins)) {
+      request.originsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.origins, "Origins", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.originsShrink)) {
+      query["Origins"] = request.originsShrink;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateOriginPool",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateOriginPoolResponse>(await this.callApi(params, req, runtime), new UpdateOriginPoolResponse({}));
+  }
+
+  /**
+   * 修改监视器
+   * 
+   * @param request - UpdateOriginPoolRequest
+   * @returns UpdateOriginPoolResponse
+   */
+  async updateOriginPool(request: UpdateOriginPoolRequest): Promise<UpdateOriginPoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateOriginPoolWithOptions(request, runtime);
+  }
+
+  /**
    * Enables or disables IP convergence.
    * 
    * @param request - UpdateOriginProtectionRequest
@@ -47406,6 +50170,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.businessType)) {
       body["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.details)) {
+      body["Details"] = request.details;
     }
 
     if (!Util.isUnset(request.discardRate)) {
