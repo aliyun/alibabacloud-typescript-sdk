@@ -520,6 +520,167 @@ export class CreateClusterResponse extends $tea.Model {
   }
 }
 
+export class CreateDiagnosticTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Log information
+   */
+  aiJobLogInfo?: CreateDiagnosticTaskRequestAiJobLogInfo;
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i118913031696573280136
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Diagnostic type.
+   * 
+   * @example
+   * CheckByAiJobLogs
+   */
+  diagnosticType?: string;
+  /**
+   * @remarks
+   * List of node IDs
+   */
+  nodeIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      aiJobLogInfo: 'AiJobLogInfo',
+      clusterId: 'ClusterId',
+      diagnosticType: 'DiagnosticType',
+      nodeIds: 'NodeIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiJobLogInfo: CreateDiagnosticTaskRequestAiJobLogInfo,
+      clusterId: 'string',
+      diagnosticType: 'string',
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnosticTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Log information
+   */
+  aiJobLogInfoShrink?: string;
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i118913031696573280136
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Diagnostic type.
+   * 
+   * @example
+   * CheckByAiJobLogs
+   */
+  diagnosticType?: string;
+  /**
+   * @remarks
+   * List of node IDs
+   */
+  nodeIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aiJobLogInfoShrink: 'AiJobLogInfo',
+      clusterId: 'ClusterId',
+      diagnosticType: 'DiagnosticType',
+      nodeIdsShrink: 'NodeIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiJobLogInfoShrink: 'string',
+      clusterId: 'string',
+      diagnosticType: 'string',
+      nodeIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnosticTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Diagnosis ID
+   * 
+   * @example
+   * diag-i150553931717380274931
+   */
+  diagnosticId?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * A511C02A-0127-51AA-A9F9-966382C9A1B5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnosticId: 'DiagnosticId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnosticId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnosticTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDiagnosticTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDiagnosticTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteClusterRequest extends $tea.Model {
   /**
    * @remarks
@@ -2228,6 +2389,219 @@ export class ListFreeNodesResponse extends $tea.Model {
   }
 }
 
+export class ListMachineTypesRequest extends $tea.Model {
+  /**
+   * @example
+   * efg1.nvga1
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineTypesResponseBody extends $tea.Model {
+  machineTypes?: ListMachineTypesResponseBodyMachineTypes[];
+  /**
+   * @example
+   * a3f2224a5ec7224116c4f5246120abe4
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F16BA4D8-FF50-53B6-A026-F443FE31006C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      machineTypes: 'MachineTypes',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      machineTypes: { 'type': 'array', 'itemType': ListMachineTypesResponseBodyMachineTypes },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineTypesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMachineTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMachineTypesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i119982311660892626523
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Number of items per page in a paginated query. The maximum value is 100.
+   * 
+   * Default value:
+   * 
+   * - If no value is set or the set value is less than 20, the default value is 20.
+   * - If the set value is greater than 100, the default value is 100.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * NextToken for the next page, include this value when requesting the next page
+   * 
+   * @example
+   * a3f2224a5ec7224116c4f5246120abe4
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Node group ID
+   * 
+   * @example
+   * ng-ec3c96ff0aa4c60d
+   */
+  nodeGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      nodeGroupId: 'NodeGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      nodeGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Cluster group information
+   */
+  groups?: ListNodeGroupsResponseBodyGroups[];
+  /**
+   * @remarks
+   * NextToken for the next page, include this value when requesting the next page
+   * 
+   * @example
+   * 563d42ae0b17572449ec8c97f7f66069
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * ID of the request
+   * 
+   * @example
+   * 887FA855-89F4-5DB3-B305-C5879EC480E6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groups: 'Groups',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groups: { 'type': 'array', 'itemType': ListNodeGroupsResponseBodyGroups },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeGroupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNodeGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNodeGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequest extends $tea.Model {
   /**
    * @remarks
@@ -2698,12 +3072,15 @@ export class RunCommandRequest extends $tea.Model {
    * - Custom parameter names can only contain a-zA-Z0-9-_, and are case-insensitive.
    * - A single custom parameter name cannot exceed 64 bytes.
    * 
-   * This parameter is required.
-   * 
    * @example
    * ZWNobyAxMjM=
    */
   commandContent?: string;
+  /**
+   * @example
+   * c-e996287206324975b5fbe1d***
+   */
+  commandId?: string;
   /**
    * @remarks
    * Encoding method for the script content. Valid values:
@@ -2758,6 +3135,11 @@ export class RunCommandRequest extends $tea.Model {
    * For example, to execute the command at 10:15 AM every day in 2022 in Shanghai, China, the format would be 0 15 10 ? * * 2022 Asia/Shanghai; to execute the command every 30 minutes between 10:00 AM and 11:30 AM every day in 2022 in the GMT+8:00 timezone, the format would be 0 0/30 10-11 * * ? 2022 GMT+8:00; to execute the command every 5 minutes between 2:00 PM and 2:55 PM every day in October every two years starting from 2022 in UTC, the format would be 0 0/5 14 * 10 ? 2022/2 UTC.
    */
   frequency?: string;
+  /**
+   * @example
+   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+   */
+  launcher?: string;
   /**
    * @remarks
    * Command name.
@@ -2806,6 +3188,11 @@ export class RunCommandRequest extends $tea.Model {
    */
   repeatMode?: string;
   /**
+   * @example
+   * ProcessTree
+   */
+  terminationMode?: string;
+  /**
    * @remarks
    * Timeout for executing the command, in seconds. If the command cannot run due to process issues, missing modules, or the absence of the Cloud Assistant Agent, a timeout will occur. After a timeout, the command process will be forcibly terminated. Default value: 60.
    * 
@@ -2836,14 +3223,17 @@ export class RunCommandRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       commandContent: 'CommandContent',
+      commandId: 'CommandId',
       contentEncoding: 'ContentEncoding',
       description: 'Description',
       enableParameter: 'EnableParameter',
       frequency: 'Frequency',
+      launcher: 'Launcher',
       name: 'Name',
       nodeIdList: 'NodeIdList',
       parameters: 'Parameters',
       repeatMode: 'RepeatMode',
+      terminationMode: 'TerminationMode',
       timeout: 'Timeout',
       username: 'Username',
       workingDir: 'WorkingDir',
@@ -2854,14 +3244,17 @@ export class RunCommandRequest extends $tea.Model {
     return {
       clientToken: 'string',
       commandContent: 'string',
+      commandId: 'string',
       contentEncoding: 'string',
       description: 'string',
       enableParameter: 'boolean',
       frequency: 'string',
+      launcher: 'string',
       name: 'string',
       nodeIdList: { 'type': 'array', 'itemType': 'string' },
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       repeatMode: 'string',
+      terminationMode: 'string',
       timeout: 'number',
       username: 'string',
       workingDir: 'string',
@@ -2893,12 +3286,15 @@ export class RunCommandShrinkRequest extends $tea.Model {
    * - Custom parameter names can only contain a-zA-Z0-9-_, and are case-insensitive.
    * - A single custom parameter name cannot exceed 64 bytes.
    * 
-   * This parameter is required.
-   * 
    * @example
    * ZWNobyAxMjM=
    */
   commandContent?: string;
+  /**
+   * @example
+   * c-e996287206324975b5fbe1d***
+   */
+  commandId?: string;
   /**
    * @remarks
    * Encoding method for the script content. Valid values:
@@ -2954,6 +3350,11 @@ export class RunCommandShrinkRequest extends $tea.Model {
    */
   frequency?: string;
   /**
+   * @example
+   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+   */
+  launcher?: string;
+  /**
    * @remarks
    * Command name.
    * 
@@ -3001,6 +3402,11 @@ export class RunCommandShrinkRequest extends $tea.Model {
    */
   repeatMode?: string;
   /**
+   * @example
+   * ProcessTree
+   */
+  terminationMode?: string;
+  /**
    * @remarks
    * Timeout for executing the command, in seconds. If the command cannot run due to process issues, missing modules, or the absence of the Cloud Assistant Agent, a timeout will occur. After a timeout, the command process will be forcibly terminated. Default value: 60.
    * 
@@ -3031,14 +3437,17 @@ export class RunCommandShrinkRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       commandContent: 'CommandContent',
+      commandId: 'CommandId',
       contentEncoding: 'ContentEncoding',
       description: 'Description',
       enableParameter: 'EnableParameter',
       frequency: 'Frequency',
+      launcher: 'Launcher',
       name: 'Name',
       nodeIdListShrink: 'NodeIdList',
       parametersShrink: 'Parameters',
       repeatMode: 'RepeatMode',
+      terminationMode: 'TerminationMode',
       timeout: 'Timeout',
       username: 'Username',
       workingDir: 'WorkingDir',
@@ -3049,14 +3458,17 @@ export class RunCommandShrinkRequest extends $tea.Model {
     return {
       clientToken: 'string',
       commandContent: 'string',
+      commandId: 'string',
       contentEncoding: 'string',
       description: 'string',
       enableParameter: 'boolean',
       frequency: 'string',
+      launcher: 'string',
       name: 'string',
       nodeIdListShrink: 'string',
       parametersShrink: 'string',
       repeatMode: 'string',
+      terminationMode: 'string',
       timeout: 'number',
       username: 'string',
       workingDir: 'string',
@@ -4793,6 +5205,130 @@ export class CreateClusterShrinkRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogsLogs extends $tea.Model {
+  /**
+   * @remarks
+   * Sent date, in the format yyyymmdd.
+   * 
+   * @example
+   * 2024-08-05T10:10:01
+   */
+  datetime?: string;
+  /**
+   * @remarks
+   * Log content
+   * 
+   * @example
+   * success
+   */
+  logContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datetime: 'Datetime',
+      logContent: 'LogContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datetime: 'string',
+      logContent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogs extends $tea.Model {
+  /**
+   * @remarks
+   * Instance ID
+   * 
+   * @example
+   * null
+   */
+  aiInstance?: string;
+  /**
+   * @remarks
+   * Log object
+   */
+  logs?: CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogsLogs[];
+  /**
+   * @remarks
+   * Node ID
+   * 
+   * @example
+   * e01-tw-p2p2al5u1hn
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aiInstance: 'AiInstance',
+      logs: 'Logs',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiInstance: 'string',
+      logs: { 'type': 'array', 'itemType': CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogsLogs },
+      nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnosticTaskRequestAiJobLogInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Task logs
+   */
+  aiJobLogs?: CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogs[];
+  /**
+   * @remarks
+   * End time. In timestamp format, unit: seconds.
+   * > Must be on the hour or half-hour mark.
+   * 
+   * @example
+   * 2024-08-05T10:10:01
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * Start time. In timestamp format, unit: seconds.
+   * > Must be on the hour or half-hour mark.
+   * 
+   * @example
+   * 2024-10-11T00:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aiJobLogs: 'AiJobLogs',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiJobLogs: { 'type': 'array', 'itemType': CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogs },
+      endTime: 'string',
+      startTime: 'string',
     };
   }
 
@@ -6800,6 +7336,224 @@ export class ListFreeNodesResponseBodyNodes extends $tea.Model {
   }
 }
 
+export class ListMachineTypesResponseBodyMachineTypes extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
+  bondNum?: number;
+  /**
+   * @example
+   * 2x Intel Icelake 8369B 32C CPU
+   */
+  cpuInfo?: string;
+  /**
+   * @example
+   * 2x 480GB SATA SSD
+   */
+  diskInfo?: string;
+  /**
+   * @example
+   * 8x NVIDIA SXM4 80GB A100 GPU
+   */
+  gpuInfo?: string;
+  /**
+   * @example
+   * 32x 64GB DDR4 3200 Memory
+   */
+  memoryInfo?: string;
+  /**
+   * @example
+   * efg1.nvga1
+   */
+  name?: string;
+  /**
+   * @example
+   * 2x 100Gbps DP NIC
+   */
+  networkInfo?: string;
+  /**
+   * @example
+   * 10
+   */
+  nodeCount?: string;
+  totalCpuCore?: number;
+  /**
+   * @example
+   * Public
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bondNum: 'BondNum',
+      cpuInfo: 'CpuInfo',
+      diskInfo: 'DiskInfo',
+      gpuInfo: 'GpuInfo',
+      memoryInfo: 'MemoryInfo',
+      name: 'Name',
+      networkInfo: 'NetworkInfo',
+      nodeCount: 'NodeCount',
+      totalCpuCore: 'TotalCpuCore',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bondNum: 'number',
+      cpuInfo: 'string',
+      diskInfo: 'string',
+      gpuInfo: 'string',
+      memoryInfo: 'string',
+      name: 'string',
+      networkInfo: 'string',
+      nodeCount: 'string',
+      totalCpuCore: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeGroupsResponseBodyGroups extends $tea.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i113952461729854708648
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Cluster name
+   * 
+   * @example
+   * wzq-exclusivelite-71
+   */
+  clusterName?: string;
+  /**
+   * @remarks
+   * Creation time
+   * 
+   * @example
+   * 2024-02-27T13:16:31.599
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Description
+   * 
+   * @example
+   * created by ga2_prepare
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Group ID.
+   * 
+   * @example
+   * 238276221
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * Group name.
+   * 
+   * @example
+   * backend-group
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * Image ID
+   * 
+   * @example
+   * i194015071707321240258
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * Image name
+   * 
+   * @example
+   * CentOS_7.9_x86_64_FULL_20221110
+   */
+  imageName?: string;
+  /**
+   * @remarks
+   * Machine type
+   * 
+   * @example
+   * efg1.nvga1n
+   */
+  machineType?: string;
+  /**
+   * @remarks
+   * Number of nodes
+   * 
+   * @example
+   * 2
+   */
+  nodeCount?: number;
+  /**
+   * @remarks
+   * Update time
+   * 
+   * @example
+   * 2023-09-22T00:03:05.114
+   */
+  updateTime?: string;
+  /**
+   * @remarks
+   * 可用区id
+   * 
+   * @example
+   * cn-shenzhen-c
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      createTime: 'CreateTime',
+      description: 'Description',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      machineType: 'MachineType',
+      nodeCount: 'NodeCount',
+      updateTime: 'UpdateTime',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterName: 'string',
+      createTime: 'string',
+      description: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      machineType: 'string',
+      nodeCount: 'number',
+      updateTime: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   /**
    * @remarks
@@ -7285,6 +8039,70 @@ export default class Client extends OpenApi {
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * Diagnostic Task Creation Interface
+   * 
+   * @param tmpReq - CreateDiagnosticTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDiagnosticTaskResponse
+   */
+  async createDiagnosticTaskWithOptions(tmpReq: CreateDiagnosticTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiagnosticTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDiagnosticTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.aiJobLogInfo)) {
+      request.aiJobLogInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aiJobLogInfo, "AiJobLogInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.nodeIds)) {
+      request.nodeIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeIds, "NodeIds", "simple");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aiJobLogInfoShrink)) {
+      body["AiJobLogInfo"] = request.aiJobLogInfoShrink;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.diagnosticType)) {
+      body["DiagnosticType"] = request.diagnosticType;
+    }
+
+    if (!Util.isUnset(request.nodeIdsShrink)) {
+      body["NodeIds"] = request.nodeIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDiagnosticTask",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDiagnosticTaskResponse>(await this.callApi(params, req, runtime), new CreateDiagnosticTaskResponse({}));
+  }
+
+  /**
+   * Diagnostic Task Creation Interface
+   * 
+   * @param request - CreateDiagnosticTaskRequest
+   * @returns CreateDiagnosticTaskResponse
+   */
+  async createDiagnosticTask(request: CreateDiagnosticTaskRequest): Promise<CreateDiagnosticTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDiagnosticTaskWithOptions(request, runtime);
   }
 
   /**
@@ -7878,6 +8696,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询用户可用的机型列表
+   * 
+   * @param request - ListMachineTypesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMachineTypesResponse
+   */
+  async listMachineTypesWithOptions(request: ListMachineTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListMachineTypesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMachineTypes",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMachineTypesResponse>(await this.callApi(params, req, runtime), new ListMachineTypesResponse({}));
+  }
+
+  /**
+   * 查询用户可用的机型列表
+   * 
+   * @param request - ListMachineTypesRequest
+   * @returns ListMachineTypesResponse
+   */
+  async listMachineTypes(request: ListMachineTypesRequest): Promise<ListMachineTypesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMachineTypesWithOptions(request, runtime);
+  }
+
+  /**
+   * Query Node Group Information Under the Cluster
+   * 
+   * @param request - ListNodeGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodeGroupsResponse
+   */
+  async listNodeGroupsWithOptions(request: ListNodeGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListNodeGroupsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.nodeGroupId)) {
+      body["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListNodeGroups",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListNodeGroupsResponse>(await this.callApi(params, req, runtime), new ListNodeGroupsResponse({}));
+  }
+
+  /**
+   * Query Node Group Information Under the Cluster
+   * 
+   * @param request - ListNodeGroupsRequest
+   * @returns ListNodeGroupsResponse
+   */
+  async listNodeGroups(request: ListNodeGroupsRequest): Promise<ListNodeGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listNodeGroupsWithOptions(request, runtime);
+  }
+
+  /**
    * Query Resource Tags
    * 
    * @param request - ListTagResourcesRequest
@@ -8079,6 +8993,10 @@ export default class Client extends OpenApi {
       body["CommandContent"] = request.commandContent;
     }
 
+    if (!Util.isUnset(request.commandId)) {
+      body["CommandId"] = request.commandId;
+    }
+
     if (!Util.isUnset(request.contentEncoding)) {
       body["ContentEncoding"] = request.contentEncoding;
     }
@@ -8095,6 +9013,10 @@ export default class Client extends OpenApi {
       body["Frequency"] = request.frequency;
     }
 
+    if (!Util.isUnset(request.launcher)) {
+      body["Launcher"] = request.launcher;
+    }
+
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
     }
@@ -8109,6 +9031,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.repeatMode)) {
       body["RepeatMode"] = request.repeatMode;
+    }
+
+    if (!Util.isUnset(request.terminationMode)) {
+      body["TerminationMode"] = request.terminationMode;
     }
 
     if (!Util.isUnset(request.timeout)) {
