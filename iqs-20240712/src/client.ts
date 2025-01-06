@@ -663,6 +663,7 @@ export class GeoCodeResponse extends $tea.Model {
 }
 
 export class NearbySearchNovaRequest extends $tea.Model {
+  cityLimit?: boolean;
   keywords?: string;
   /**
    * @example
@@ -696,6 +697,7 @@ export class NearbySearchNovaRequest extends $tea.Model {
   types?: string;
   static names(): { [key: string]: string } {
     return {
+      cityLimit: 'cityLimit',
       keywords: 'keywords',
       latitude: 'latitude',
       longitude: 'longitude',
@@ -708,6 +710,7 @@ export class NearbySearchNovaRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cityLimit: 'boolean',
       keywords: 'string',
       latitude: 'string',
       longitude: 'string',
@@ -792,6 +795,7 @@ export class NearbySearchNovaResponse extends $tea.Model {
 }
 
 export class PlaceSearchNovaRequest extends $tea.Model {
+  cityLimit?: boolean;
   keywords?: string;
   /**
    * @example
@@ -811,6 +815,7 @@ export class PlaceSearchNovaRequest extends $tea.Model {
   types?: string;
   static names(): { [key: string]: string } {
     return {
+      cityLimit: 'cityLimit',
       keywords: 'keywords',
       page: 'page',
       region: 'region',
@@ -821,6 +826,7 @@ export class PlaceSearchNovaRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cityLimit: 'boolean',
       keywords: 'string',
       page: 'number',
       region: 'string',
@@ -4403,6 +4409,10 @@ export default class Client extends OpenApi {
   async nearbySearchNovaWithOptions(request: NearbySearchNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<NearbySearchNovaResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cityLimit)) {
+      query["cityLimit"] = request.cityLimit;
+    }
+
     if (!Util.isUnset(request.keywords)) {
       query["keywords"] = request.keywords;
     }
@@ -4472,6 +4482,10 @@ export default class Client extends OpenApi {
   async placeSearchNovaWithOptions(request: PlaceSearchNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PlaceSearchNovaResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cityLimit)) {
+      query["cityLimit"] = request.cityLimit;
+    }
+
     if (!Util.isUnset(request.keywords)) {
       query["keywords"] = request.keywords;
     }
