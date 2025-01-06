@@ -2962,6 +2962,7 @@ export class GetClusterResponseBody extends $tea.Model {
    * rg-acfmxazb4ph****
    */
   resourceGroupId?: string;
+  schedulerSpec?: GetClusterResponseBodySchedulerSpec;
   /**
    * @remarks
    * The security group ID.
@@ -2995,6 +2996,7 @@ export class GetClusterResponseBody extends $tea.Model {
       monitorSpec: 'MonitorSpec',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
+      schedulerSpec: 'SchedulerSpec',
       securityGroupId: 'SecurityGroupId',
     };
   }
@@ -3024,6 +3026,7 @@ export class GetClusterResponseBody extends $tea.Model {
       monitorSpec: GetClusterResponseBodyMonitorSpec,
       requestId: 'string',
       resourceGroupId: 'string',
+      schedulerSpec: GetClusterResponseBodySchedulerSpec,
       securityGroupId: 'string',
     };
   }
@@ -7004,6 +7007,7 @@ export class UpdateClusterRequest extends $tea.Model {
    */
   maxCount?: number;
   monitorSpec?: UpdateClusterRequestMonitorSpec;
+  schedulerSpec?: UpdateClusterRequestSchedulerSpec;
   static names(): { [key: string]: string } {
     return {
       clientVersion: 'ClientVersion',
@@ -7019,6 +7023,7 @@ export class UpdateClusterRequest extends $tea.Model {
       maxCoreCount: 'MaxCoreCount',
       maxCount: 'MaxCount',
       monitorSpec: 'MonitorSpec',
+      schedulerSpec: 'SchedulerSpec',
     };
   }
 
@@ -7037,6 +7042,7 @@ export class UpdateClusterRequest extends $tea.Model {
       maxCoreCount: 'number',
       maxCount: 'number',
       monitorSpec: UpdateClusterRequestMonitorSpec,
+      schedulerSpec: UpdateClusterRequestSchedulerSpec,
     };
   }
 
@@ -7153,6 +7159,7 @@ export class UpdateClusterShrinkRequest extends $tea.Model {
    */
   maxCount?: number;
   monitorSpecShrink?: string;
+  schedulerSpecShrink?: string;
   static names(): { [key: string]: string } {
     return {
       clientVersion: 'ClientVersion',
@@ -7168,6 +7175,7 @@ export class UpdateClusterShrinkRequest extends $tea.Model {
       maxCoreCount: 'MaxCoreCount',
       maxCount: 'MaxCount',
       monitorSpecShrink: 'MonitorSpec',
+      schedulerSpecShrink: 'SchedulerSpec',
     };
   }
 
@@ -7186,6 +7194,7 @@ export class UpdateClusterShrinkRequest extends $tea.Model {
       maxCoreCount: 'number',
       maxCount: 'number',
       monitorSpecShrink: 'string',
+      schedulerSpecShrink: 'string',
     };
   }
 
@@ -9757,6 +9766,25 @@ export class GetClusterResponseBodyMonitorSpec extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       enableComputeLoadMonitor: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodySchedulerSpec extends $tea.Model {
+  enableTopologyAwareness?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableTopologyAwareness: 'EnableTopologyAwareness',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableTopologyAwareness: 'boolean',
     };
   }
 
@@ -13386,6 +13414,25 @@ export class UpdateClusterRequestMonitorSpec extends $tea.Model {
   }
 }
 
+export class UpdateClusterRequestSchedulerSpec extends $tea.Model {
+  enableTopologyAwareness?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableTopologyAwareness: 'EnableTopologyAwareness',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableTopologyAwareness: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateNodesRequestInstances extends $tea.Model {
   /**
    * @remarks
@@ -15761,6 +15808,10 @@ export default class Client extends OpenApi {
       request.monitorSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.monitorSpec, "MonitorSpec", "json");
     }
 
+    if (!Util.isUnset(tmpReq.schedulerSpec)) {
+      request.schedulerSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.schedulerSpec, "SchedulerSpec", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.clientVersion)) {
       query["ClientVersion"] = request.clientVersion;
@@ -15812,6 +15863,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.monitorSpecShrink)) {
       query["MonitorSpec"] = request.monitorSpecShrink;
+    }
+
+    if (!Util.isUnset(request.schedulerSpecShrink)) {
+      query["SchedulerSpec"] = request.schedulerSpecShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
