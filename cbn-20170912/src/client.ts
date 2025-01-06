@@ -1247,7 +1247,6 @@ export class CreateCenBandwidthPackageRequest extends $tea.Model {
    * *   **North-America**: North America
    * *   **Asia-Pacific**: Asia Pacific
    * *   **Europe**: Europe
-   * *   **Australia**: Australia
    * 
    * This parameter is required.
    * 
@@ -1263,7 +1262,6 @@ export class CreateCenBandwidthPackageRequest extends $tea.Model {
    * *   **North-America**: North America
    * *   **Asia-Pacific**: Asia Pacific
    * *   **Europe**: Europe
-   * *   **Australia**: Australia
    * 
    * This parameter is required.
    * 
@@ -1763,6 +1761,16 @@ export class CreateCenChildInstanceRouteEntryToCenResponse extends $tea.Model {
 }
 
 export class CreateCenInterRegionTrafficQosPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The allocation mode of the guaranteed bandwidth. You can specify an absolute bandwidth value or a bandwidth percentage. Valid values:
+   * 
+   * *   **byBandwidth**: allocates an absolute bandwidth value for the QoS queue.
+   * *   **byBandwidthPercent** (default): allocates a bandwidth percentage for the OoS queue.
+   * 
+   * @example
+   * byBandwidthPercent
+   */
   bandwidthGuaranteeMode?: string;
   /**
    * @remarks
@@ -1937,35 +1945,78 @@ export class CreateCenInterRegionTrafficQosPolicyResponse extends $tea.Model {
 }
 
 export class CreateCenInterRegionTrafficQosQueueRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum absolute bandwidth value that can be allocated to the queue. Unit: Mbit/s.
+   * 
+   * - The value specifies an absolute bandwidth. For example, a value of 20 specifies that the queue can consume at most 20 Mbit/s of bandwidth.
+   * - The sum of the bandwidth values specified for all queues that belong to the same inter-region connection cannot exceed the maximum bandwidth of the inter-region connection.
+   * 
+   * @example
+   * 20
+   */
   bandwidth?: number;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to perform a dry run. Valid values:
+   * 
+   * - **true**: performs a dry run. The system checks the required parameters, the request format, and the service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): performs a dry run and sends the request.
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
    * @remarks
+   * The differentiated services code point (DSCP) value that matches the current queue.
+   * 
+   * You can specify at most 20 DSCP values for a queue in each call. Separate DSCP values with commas (,).
+   * 
    * This parameter is required.
    */
   dscps?: number[];
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The description of the queue.
+   * 
+   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
+   * 
    * @example
    * desctest
    */
   qosQueueDescription?: string;
   /**
+   * @remarks
+   * The name of the queue.
+   * 
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+   * 
    * @example
    * nametest
    */
   qosQueueName?: string;
   /**
+   * @remarks
+   * The maximum percentage of inter-region bandwidth that can be allocated to the queue.
+   * 
+   * - Unit: percentage. For example, a value of 20 specifies that the queue can consume at most 20% of inter-region bandwidth.
+   * - The sum of the percentage values specified for all queues that belong to the same inter-region connection cannot exceed 100%.
+   * 
    * @example
    * 20
    */
@@ -1974,6 +2025,8 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The ID of the QoS policy.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2021,11 +2074,17 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $tea.Model {
 
 export class CreateCenInterRegionTrafficQosQueueResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the queue.
+   * 
    * @example
    * qos-queue-irqhi8k5fdyuu5****
    */
   qosQueueId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 845F66F6-5C27-53A1-9428-B859086237B2
    */
@@ -2636,7 +2695,7 @@ export class CreateFlowlogRequest extends $tea.Model {
    * @remarks
    * The description of the flow log.
    * 
-   * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+   * The description is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * myFlowlog
@@ -2644,9 +2703,9 @@ export class CreateFlowlogRequest extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the flow log.
+   * The flow log name.
    * 
-   * The name must be 2 to 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * myFlowlog
@@ -2660,10 +2719,22 @@ export class CreateFlowlogRequest extends $tea.Model {
    * 600
    */
   interval?: number;
+  /**
+   * @remarks
+   * The strings that define the fields in the flow log.
+   * 
+   * Format: `${Field 1}${Field 2}${Field 3}...{Field n}`
+   * 
+   * *   If you do not configure this parameter, all fields are included in the flow log.
+   * *   If you configure this parameter, start the string with `${srcaddr}${dstaddr}${bytes}` because `${srcaddr}${dstaddr}${bytes}` are required variables. For more information about the fields supported by flow logs, see [Configure a flow log](https://help.aliyun.com/document_detail/339822.html).
+   * 
+   * @example
+   * ${srcaddr}${dstaddr}${bytes}
+   */
   logFormatString?: string;
   /**
    * @remarks
-   * The Logstore where the flow log is stored.
+   * The Logstore that stores the captured traffic data.
    * 
    * *   If a Logstore is already created in the selected region, enter the name of the Logstore.
    * 
@@ -2672,7 +2743,7 @@ export class CreateFlowlogRequest extends $tea.Model {
    *     *   The name must be unique in a project.
    *     *   The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
    *     *   The name must start and end with a lowercase letter or a digit.
-   *     *   The name must be 3 to 63 characters in length.
+   *     *   The name must be 3 to 63 characters in length,
    * 
    * This parameter is required.
    * 
@@ -2684,18 +2755,18 @@ export class CreateFlowlogRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The Log Service project where the flow log is stored.
+   * The project that stores the captured traffic data.
    * 
    * *   If a project is already created in the selected region, enter the name of the project.
    * 
    * *   If no projects are created in the selected region, enter a name and the system automatically creates a project.
    * 
-   *     The project name must be unique in a region. You cannot change the name after you create the project. The naming conventions are:
+   *     The project name must be unique in a region. You cannot change the name after the project is created. The name must meet the following requirements:
    * 
    *     *   The name must be globally unique.
    *     *   The name can contain only lowercase letters, digits, and hyphens (-).
    *     *   The name must start and end with a lowercase letter or a digit.
-   *     *   The name must be 3 to 63 characters in length.
+   *     *   The name must be 3 to 63 characters in length,
    * 
    * This parameter is required.
    * 
@@ -2719,21 +2790,28 @@ export class CreateFlowlogRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The information about the tags.
+   * The tags.
    * 
-   * You can specify at most 20 tags in each call.
+   * You can specify at most 20 tags.
    */
   tag?: CreateFlowlogRequestTag[];
   /**
    * @remarks
-   * The ID of the inter-region connection or the VBR connection.
+   * The ID of the VPC connection, VPN connection, VBR connection, ECR connection, or inter-region connection.
    * 
-   * > This parameter is required.
+   * If you create the flow log for a transfer router, skip this parameter.
    * 
    * @example
    * tr-attach-r6g0m3epjehw57****
    */
   transitRouterAttachmentId?: string;
+  /**
+   * @remarks
+   * The ID of the transit router.
+   * 
+   * @example
+   * tr-bp1rmwxnk221e3fas****
+   */
   transitRouterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3977,6 +4055,7 @@ export class CreateTransitRouterMulticastDomainRequest extends $tea.Model {
    * false
    */
   dryRun?: boolean;
+  options?: CreateTransitRouterMulticastDomainRequestOptions;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -4031,6 +4110,7 @@ export class CreateTransitRouterMulticastDomainRequest extends $tea.Model {
       cenId: 'CenId',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      options: 'Options',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -4048,6 +4128,7 @@ export class CreateTransitRouterMulticastDomainRequest extends $tea.Model {
       cenId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
+      options: CreateTransitRouterMulticastDomainRequestOptions,
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -5267,6 +5348,10 @@ export class CreateTransitRouterVpcAttachmentRequest extends $tea.Model {
    * tr-bp1su1ytdxtataupl****
    */
   transitRouterId?: string;
+  /**
+   * @remarks
+   * Feature configurations of the VPC connection.
+   */
   transitRouterVPCAttachmentOptions?: { [key: string]: string };
   /**
    * @remarks
@@ -5448,6 +5533,10 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $tea.Model {
    * tr-bp1su1ytdxtataupl****
    */
   transitRouterId?: string;
+  /**
+   * @remarks
+   * Feature configurations of the VPC connection.
+   */
   transitRouterVPCAttachmentOptionsShrink?: string;
   /**
    * @remarks
@@ -9773,6 +9862,7 @@ export class DescribeCenChildInstanceRouteEntriesRequest extends $tea.Model {
    * *   **VPC**: virtual private cloud (VPC)
    * *   **VBR**: virtual border router (VBR)
    * *   **CCN**: Cloud Connect Network (CCN) instance
+   * *   **ECR**: Express Connect Router (ECR)
    * 
    * This parameter is required.
    * 
@@ -9960,7 +10050,6 @@ export class DescribeCenGeographicSpanRemainingBandwidthRequest extends $tea.Mod
    * *   **North-America**: North America
    * *   **Asia-Pacific**: Asia Pacific
    * *   **Europe**: Europe
-   * *   **Australia**: Australia
    * 
    * This parameter is required.
    * 
@@ -9976,7 +10065,6 @@ export class DescribeCenGeographicSpanRemainingBandwidthRequest extends $tea.Mod
    * *   **North-America**: North America
    * *   **Asia-Pacific**: Asia Pacific
    * *   **Europe**: Europe
-   * *   **Australia**: Australia
    * 
    * This parameter is required.
    * 
@@ -11467,7 +11555,23 @@ export class DescribeFlowlogsRequest extends $tea.Model {
    * myFlowlog
    */
   flowLogName?: string;
+  /**
+   * @remarks
+   * The flow log version.
+   * 
+   * Flow logs are automatically created in the latest version, which is **3**.
+   * 
+   * @example
+   * 3
+   */
   flowLogVersion?: string;
+  /**
+   * @remarks
+   * The time window for collecting log data. Unit: seconds Valid values: **60** or **600** Default value: **600**.
+   * 
+   * @example
+   * 600
+   */
   interval?: number;
   /**
    * @remarks
@@ -11483,7 +11587,7 @@ export class DescribeFlowlogsRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -11545,6 +11649,13 @@ export class DescribeFlowlogsRequest extends $tea.Model {
    * tr-attach-qieks13jnt1cchy****
    */
   transitRouterAttachmentId?: string;
+  /**
+   * @remarks
+   * The ID of the transit router.
+   * 
+   * @example
+   * tr-uf654ttymmljlvh2x****
+   */
   transitRouterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11705,6 +11816,13 @@ export class DescribeFlowlogsResponse extends $tea.Model {
 export class DescribeGeographicRegionMembershipRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the area that you want to query. Valid values:
+   * 
+   * *   **china**: the Chinese mainland
+   * *   **asia-pacific**: Asia Pacific
+   * *   **europe**: Europe
+   * *   **north-america**: North America
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11714,11 +11832,17 @@ export class DescribeGeographicRegionMembershipRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return per page. Default value: **10**. Valid values: **1** to **50**.
+   * 
    * @example
    * 10
    */
@@ -11756,22 +11880,38 @@ export class DescribeGeographicRegionMembershipRequest extends $tea.Model {
 
 export class DescribeGeographicRegionMembershipResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 10
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 2
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of regions.
+   */
   regionIds?: DescribeGeographicRegionMembershipResponseBodyRegionIds;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * DC9EB0C9-60AF-4A09-A36C-608F70130274
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 2
    */
@@ -14693,7 +14833,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponse extends $tea.Model {
 export class ListCenInterRegionTrafficQosQueuesRequest extends $tea.Model {
   /**
    * @remarks
-   * 按照实际的生效带宽值进行过滤，只允许输入正整数，单位Mbps。
+   * The filter works based on the actual bandwidth. Enter a positive integer. Unit: Mbit/s.
    */
   effectiveBandwidthFilter?: ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter;
   /**
@@ -19766,10 +19906,10 @@ export class ModifyCenBandwidthPackageSpecResponse extends $tea.Model {
 export class ModifyCenRouteMapRequest extends $tea.Model {
   /**
    * @remarks
-   * The match method that is used to match routes against the AS paths. Valid values:
+   * The match method that is used to match routes based on the AS path. Valid values:
    * 
-   * *   **Include**: fuzzy match. A route meets the match condition if the AS path of the route overlaps with the AS paths specified in the match condition.
-   * *   **Complete**: exact match. A route is a match only if the AS path of the route is the same as an AS path specified in the match condition.
+   * *   **Include**: fuzzy match. A route is a match if the AS path of the route overlaps with the AS path in the match conditions.
+   * *   **Complete**: exact match. A route is a match only if the AS path of the route matches the AS path in the match conditions.
    * 
    * @example
    * Include
@@ -19803,11 +19943,11 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
    * 
    * *   **Include**: fuzzy match. A route is a match if the route prefix is included in the match conditions.
    * 
-   *     For example, if you set the match condition to 10.10.0.0/16 and fuzzy match is enabled, the route whose prefix is 10.10.1.0/24 is a match.
+   * For example, if you set the match condition to 10.10.0.0/16 and fuzzy match is applied, the route whose prefix is 10.10.1.0/24 meets the match condition.
    * 
    * *   **Complete**: exact match. A route is a match only if the route prefix is the same as the prefix specified in the match condition.
    * 
-   *     For example, if you set the match condition to 10.10.0.0/16 and exact match is enabled, a route is a match only if the prefix is 10.10.0.0/16.
+   * For example, if you set the match condition to 10.10.0.0/16 and exact match is applied, only the route whose prefix is 10.10.0.0/16 meets the match condition.
    * 
    * @example
    * Include
@@ -19815,10 +19955,10 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
   cidrMatchMode?: string;
   /**
    * @remarks
-   * The match method that is sed to match routes based on the community. Valid values:
+   * The match method that is used to match routes based on the community. Valid values:
    * 
-   * *   **Include**: fuzzy match. A route meets the match condition if the community of the route overlaps with the community specified in the match condition.
-   * *   **Complete**: exact match. A route meets the match condition only if the community of the route is the same as the community specified in the match condition.
+   * *   **Include**: fuzzy match. A route is a match if the community of the route overlaps with the community in the match conditions.
+   * *   **Complete**: exact match. A route is a match only if the community of the route matches the community in the match conditions.
    * 
    * @example
    * Include
@@ -19826,7 +19966,7 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
   communityMatchMode?: string;
   /**
    * @remarks
-   * The action that is performed on the community. Valid values:
+   * The action to be performed on the community. Valid values:
    * 
    * *   **Additive**: adds the community to the route.
    * *   **Replace**: replaces the original community of the route.
@@ -19841,7 +19981,7 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
    * @remarks
    * The description of the routing policy.
    * 
-   * The description cannot start with `http://` or `https://`. It must start with a letter and can contain letters, digits, hyphens (-), periods (.), and underscores (_).
+   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * desctest
@@ -19897,15 +20037,19 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
   destinationInstanceIds?: string[];
   /**
    * @remarks
-   * Specifies whether to exclude the destination network instance IDs. Valid values:
+   * Specifies whether to exclude destination instance IDs. Valid values:
    * 
-   * *   **false** (default value): A route is a match if its destination network instance ID is in the list specified by **DestinationInstanceIds.N**.
-   * *   **true**: A route meets the match condition if its destination network instance ID is not in the list specified by **DestinationInstanceIds.N**.
+   * *   **false** (default): A route is a match if the destination instance ID is included in the list specified by **SourceInstanceIds.N**.
+   * *   **true**: A route is a match if the destination network instance ID is not in the list specified by **SourceInstanceIds.N**.
    * 
    * @example
    * false
    */
   destinationInstanceIdsReverseMatch?: boolean;
+  /**
+   * @remarks
+   * The destination region IDs of the route. You can specify at most 32 region IDs.
+   */
   destinationRegionIds?: string[];
   /**
    * @remarks
@@ -19919,7 +20063,7 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
   destinationRouteTableIds?: string[];
   /**
    * @remarks
-   * The action to be performed on a route that meets all match conditions. Valid values:
+   * The action to be performed on a route that meets all the match conditions. Valid values:
    * 
    * *   **Permit**: the route is permitted.
    * *   **Deny**: the route is denied.
@@ -20095,10 +20239,10 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
   sourceInstanceIds?: string[];
   /**
    * @remarks
-   * Specifies whether to exclude the source network instance IDs. Valid values:
+   * Specifies whether to exclude source instance IDs. Valid values:
    * 
-   * *   **false** (default value): A route is a match if its source network instance ID is in the list specified by **SourceInstanceIds.N**.
-   * *   **true**: A route is a match if its source network instance ID is not in the list specified by **SourceInstanceIds.N**.
+   * *   **false** (default): A route is a match if the source instance ID is included in the list specified by **SourceInstanceIds.N**.
+   * *   **true**: A route is a match if the source network instance ID is not in the list specified by **SourceInstanceIds.N**.
    * 
    * @example
    * false
@@ -20257,7 +20401,7 @@ export class ModifyCenRouteMapResponse extends $tea.Model {
 export class ModifyFlowLogAttributeRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * @example
    * cen-7qthudw0ll6jmc****
@@ -20305,6 +20449,13 @@ export class ModifyFlowLogAttributeRequest extends $tea.Model {
    * myFlowlog
    */
   flowLogName?: string;
+  /**
+   * @remarks
+   * The time window for collecting log data. Unit: seconds. Valid values: **60** or **600** Default value: **600**.
+   * 
+   * @example
+   * 600
+   */
   interval?: number;
   ownerAccount?: string;
   ownerId?: number;
@@ -20425,11 +20576,24 @@ export class ModifyFlowLogAttributeResponse extends $tea.Model {
 
 export class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to perform only a dry run without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the request.
+   * 
    * @example
    * false
    */
@@ -20440,6 +20604,8 @@ export class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest extends $tea.Mo
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The ID of the traffic marking policy.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20447,12 +20613,19 @@ export class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest extends $tea.Mo
    */
   trafficMarkingPolicyId?: string;
   /**
+   * @remarks
+   * The description of the traffic classification rule.
+   * 
+   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
+   * 
    * @example
    * descriptiontest
    */
   trafficMatchRuleDescription?: string;
   /**
    * @remarks
+   * The ID of the traffic classification rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20460,6 +20633,11 @@ export class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest extends $tea.Mo
    */
   trafficMatchRuleId?: string;
   /**
+   * @remarks
+   * The name of the traffic classification rule.
+   * 
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+   * 
    * @example
    * nametest
    */
@@ -20501,6 +20679,9 @@ export class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest extends $tea.Mo
 
 export class ModifyTrafficMatchRuleToTrafficMarkingPolicyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 13526224-5780-4426-8ADF-BC8B08700F23
    */
@@ -20765,6 +20946,7 @@ export class ModifyTransitRouterMulticastDomainRequest extends $tea.Model {
    * false
    */
   dryRun?: boolean;
+  options?: ModifyTransitRouterMulticastDomainRequestOptions;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -20803,6 +20985,7 @@ export class ModifyTransitRouterMulticastDomainRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      options: 'Options',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -20817,6 +21000,7 @@ export class ModifyTransitRouterMulticastDomainRequest extends $tea.Model {
     return {
       clientToken: 'string',
       dryRun: 'boolean',
+      options: ModifyTransitRouterMulticastDomainRequestOptions,
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -23345,9 +23529,9 @@ export class UpdateCenInterRegionTrafficQosPolicyAttributeResponse extends $tea.
 export class UpdateCenInterRegionTrafficQosQueueAttributeRequest extends $tea.Model {
   /**
    * @remarks
-   * 按带宽绝对值模式分配时，当前队列可使用的跨地域带宽的绝对值，单位Mbps。
+   * The absolute bandwidth value that can be allocated to the current queue. Unit: Mbit/s.
    * 
-   * 输入数字即可，无需输入单位。
+   * Enter a number. You do not need to enter a unit.
    * 
    * @example
    * 1
@@ -23413,7 +23597,7 @@ export class UpdateCenInterRegionTrafficQosQueueAttributeRequest extends $tea.Mo
   qosQueueName?: string;
   /**
    * @remarks
-   * The percentage of the inter-region bandwidth that can be used by the queue.
+   * The percentage of bandwidth that can be allocated to the current queue.
    * 
    * Enter a number. You do not need to enter a percent sign (%).
    * 
@@ -24693,9 +24877,7 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $tea.Model
   transitRouterAttachmentName?: string;
   /**
    * @remarks
-   * Feature configurations of the VPC connection.
-   * 
-   * *   ipv6Support: specifies whether to enable IPv6. Valid values: true and false. The default value is the status of the VPC connection.
+   * The features of the VPC connection.
    */
   transitRouterVPCAttachmentOptions?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -24806,9 +24988,7 @@ export class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends $tea
   transitRouterAttachmentName?: string;
   /**
    * @remarks
-   * Feature configurations of the VPC connection.
-   * 
-   * *   ipv6Support: specifies whether to enable IPv6. Valid values: true and false. The default value is the status of the VPC connection.
+   * The features of the VPC connection.
    */
   transitRouterVPCAttachmentOptionsShrink?: string;
   static names(): { [key: string]: string } {
@@ -25703,6 +25883,19 @@ export class CreateCenBandwidthPackageRequestTag extends $tea.Model {
 }
 
 export class CreateCenInterRegionTrafficQosPolicyRequestTrafficQosQueues extends $tea.Model {
+  /**
+   * @remarks
+   * The absolute bandwidth that can be consumed by the QoS queue. Unit: Mbit/s.
+   * 
+   * Each QoS policy supports at most 10 queues. You can specify a valid bandwidth value for each queue.
+   * 
+   * For example, a value of 1 specifies that the queue can consume 1 Mbit/s of the inter-region bandwidth.
+   * 
+   * >  The sum of the absolute bandwidth values of all the queues in a QoS policy cannot exceed the total bandwidth of the inter-region connection.
+   * 
+   * @example
+   * 1
+   */
   bandwidth?: string;
   /**
    * @remarks
@@ -25715,7 +25908,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequestTrafficQosQueues extends
    * @remarks
    * The description of the current queue.
    * 
-   * Each QoS policy supports at most three queues. You can specify a description for each queue.
+   * Each QoS policy supports at most 10 queues. You can specify a description for each queue.
    * 
    * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
    * 
@@ -25739,7 +25932,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequestTrafficQosQueues extends
    * @remarks
    * The percentage of the inter-region bandwidth that can be used by the queue.
    * 
-   * Each QoS policy supports at most three queues. You can specify a valid percentage for each queue.
+   * Each QoS policy supports at most 10 queues. You can specify a valid percentage for each queue.
    * 
    * For example, a value of **1** specifies that the queue can consume 1% of the inter-region bandwidth.
    * 
@@ -25777,11 +25970,11 @@ export class CreateCenInterRegionTrafficQosPolicyRequestTrafficQosQueues extends
 export class CreateFlowlogRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag keys.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag keys cannot be an empty string. The tag keys can be up to 64 characters in length. The tag keys cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
-   * You can specify at most 20 tag keys.
+   * You can specify at most 20 tag keys in each call.
    * 
    * @example
    * TagKey
@@ -25789,11 +25982,11 @@ export class CreateFlowlogRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag values.
    * 
-   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
-   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
    * 
    * @example
    * TagValue
@@ -26173,6 +26366,25 @@ export class CreateTransitRouterEcrAttachmentRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTransitRouterMulticastDomainRequestOptions extends $tea.Model {
+  igmpv2Support?: string;
+  static names(): { [key: string]: string } {
+    return {
+      igmpv2Support: 'Igmpv2Support',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      igmpv2Support: 'string',
     };
   }
 
@@ -27197,7 +27409,6 @@ export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBand
    * *   **china**: Chinese mainland.
    * *   **asia-pacific**: Asia Pacific
    * *   **europe**: Europe
-   * *   **australia**: Australia
    * *   **north-america**: North America
    * 
    * @example
@@ -27211,7 +27422,6 @@ export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBand
    * *   **china**: Chinese mainland.
    * *   **asia-pacific**: Asia Pacific
    * *   **europe**: Europe
-   * *   **australia**: Australia
    * *   **north-america**: North America
    * 
    * @example
@@ -27514,9 +27724,10 @@ export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenR
    * @remarks
    * The type of the peer network instance on which the overlapping routes are found. Valid values:
    * 
-   * *   **VPC**
-   * *   **VBR**
-   * *   **CCN**
+   * *   **VPC**: VPC
+   * *   **VBR**: VBR
+   * *   **CCN**: CCN instance
+   * *   **ECR**: ECR
    * 
    * @example
    * CCN
@@ -29631,6 +29842,15 @@ export class DescribeFlowlogsResponseBodyFlowLogsFlowLog extends $tea.Model {
    * myFlowlog
    */
   flowLogName?: string;
+  /**
+   * @remarks
+   * The flow log version.
+   * 
+   * Flow logs are automatically created in the latest version, which is **3**.
+   * 
+   * @example
+   * 3
+   */
   flowLogVersion?: string;
   /**
    * @remarks
@@ -29640,6 +29860,15 @@ export class DescribeFlowlogsResponseBodyFlowLogsFlowLog extends $tea.Model {
    * 60
    */
   interval?: number;
+  /**
+   * @remarks
+   * The string that defines the format of the flow log. Format:
+   * 
+   * `${Field 1}${Field 2}${Field 3}`
+   * 
+   * @example
+   * ${srcaddr}${dstaddr}${bytes}
+   */
   logFormatString?: string;
   /**
    * @remarks
@@ -29678,7 +29907,7 @@ export class DescribeFlowlogsResponseBodyFlowLogsFlowLog extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The tags.
    */
   tags?: DescribeFlowlogsResponseBodyFlowLogsFlowLogTags;
   /**
@@ -29689,6 +29918,13 @@ export class DescribeFlowlogsResponseBodyFlowLogsFlowLog extends $tea.Model {
    * tr-attach-5x4o4ynzuqbv6g****
    */
   transitRouterAttachmentId?: string;
+  /**
+   * @remarks
+   * The ID of the transit router.
+   * 
+   * @example
+   * tr-bp1g9313sx675zr1lajmj
+   */
   transitRouterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29756,6 +29992,11 @@ export class DescribeFlowlogsResponseBodyFlowLogs extends $tea.Model {
 
 export class DescribeGeographicRegionMembershipResponseBodyRegionIdsRegionId extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * 
    * @example
    * us-west-1
    */
@@ -30709,7 +30950,7 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry 
 export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesTrafficQosQueues extends $tea.Model {
   /**
    * @remarks
-   * 带宽保障类型为按绝对值模式时，当前队列分配的跨地域带宽的值。
+   * If the QoS queues are assigned absolute bandwidth values, this parameter indicates the absolute bandwidth value that is allocated to the queue.
    * 
    * @example
    * 1
@@ -30722,7 +30963,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesT
   dscps?: number[];
   /**
    * @remarks
-   * 当前队列实际生效的带宽值。
+   * The actual bandwidth value of the current queue.
    * 
    * @example
    * 1.35
@@ -30754,7 +30995,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesT
   qosQueueName?: string;
   /**
    * @remarks
-   * The percentage of the inter-region bandwidth that can be used by the queue.
+   * If the QoS queues are assigned bandwidth percentages, this parameter indicates the percentage of bandwidth that is allocated to the queue.
    * 
    * @example
    * 1
@@ -30792,9 +31033,10 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesT
 export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies extends $tea.Model {
   /**
    * @remarks
-   * 带宽保障类型。
-   * - **byBandwidth**：按带宽绝对值模式配置QoS队列。
-   * - **byBandwidthPercent**：按带宽百分比模式配置QoS队列。
+   * The guaranteed bandwidth mode.
+   * 
+   * *   **byBandwidth**: allocates absolute bandwidth values to QoS queues.
+   * *   **byBandwidthPercent**: assigns bandwidth percentages to QoS queues.
    * 
    * @example
    * byBandwidthPercent
@@ -30892,7 +31134,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies 
 export class ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter extends $tea.Model {
   /**
    * @remarks
-   * 实际生效带宽大于或等于指定带宽值。
+   * The actual bandwidth is equal to or larger than the specified value.
    * 
    * @example
    * 50
@@ -30900,7 +31142,7 @@ export class ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter e
   gte?: number;
   /**
    * @remarks
-   * 实际生效带宽小于或等于指定带宽值。
+   * The actual bandwidth is equal to or smaller than the specified value.
    * 
    * @example
    * 20
@@ -30928,9 +31170,9 @@ export class ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter e
 export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues extends $tea.Model {
   /**
    * @remarks
-   * 带宽保障类型为按绝对值模式时，当前队列分配跨地域带宽的值。
+   * The absolute bandwidth value that can be allocated to the current queue.
    * 
-   * 例如，**1**表示符合当前队列的流量报文最多只能使用1Mbps的跨地域带宽。
+   * A value of **1** indicates that the QoS queue can consume at most 1 Mbit/s of inter-region bandwidth.
    * 
    * @example
    * 1
@@ -30943,7 +31185,7 @@ export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues exte
   dscps?: number[];
   /**
    * @remarks
-   * 当前队列实际生效的带宽值。
+   * The actual bandwidth of the current queue.
    * 
    * @example
    * 1.35
@@ -30951,7 +31193,7 @@ export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues exte
   effectiveBandwidth?: string;
   /**
    * @remarks
-   * The percentage of the inter-region bandwidth that can be consumed by the QoS queue.
+   * The percentage of bandwidth that can be allocated to the current queue.
    * 
    * A value of **1** indicates that the QoS queue can consume at most 1% of the inter-region bandwidth.
    * 
@@ -31343,10 +31585,17 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTrafficMatchRules extends $tea.Model {
+  /**
+   * @remarks
+   * The address family. You can set the value to IPv4 or IPv6, or leave the value empty.
+   * 
+   * @example
+   * IPv4
+   */
   addressFamily?: string;
   /**
    * @remarks
-   * The destination CIDR block that is used to match packets.
+   * The destination CIDR block of packets. IPv4 and IPv6 addresses are supported.
    * 
    * @example
    * 192.168.120.0/24
@@ -31379,7 +31628,7 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTraffic
   protocol?: string;
   /**
    * @remarks
-   * The source CIDR block that is used to match packets.
+   * The source CIDR block of packets. IPv6 and IPv4 addresses are supported.
    * 
    * @example
    * 192.168.10.0/24
@@ -32111,6 +32360,25 @@ export class ListTransitRouterMulticastDomainsRequestTag extends $tea.Model {
   }
 }
 
+export class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsOptions extends $tea.Model {
+  igmpv2Support?: string;
+  static names(): { [key: string]: string } {
+    return {
+      igmpv2Support: 'Igmpv2Support',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      igmpv2Support: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsTags extends $tea.Model {
   /**
    * @remarks
@@ -32156,6 +32424,7 @@ export class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticast
    * cen-a7syd349kne38g****
    */
   cenId?: string;
+  options?: ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsOptions;
   /**
    * @remarks
    * The region ID of the transit router.
@@ -32216,6 +32485,7 @@ export class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticast
   static names(): { [key: string]: string } {
     return {
       cenId: 'CenId',
+      options: 'Options',
       regionId: 'RegionId',
       status: 'Status',
       tags: 'Tags',
@@ -32229,6 +32499,7 @@ export class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticast
   static types(): { [key: string]: any } {
     return {
       cenId: 'string',
+      options: ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsOptions,
       regionId: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsTags },
@@ -34038,7 +34309,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
   status?: string;
   /**
    * @remarks
-   * The tag key.
+   * The tags.
    */
   tags?: ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsTags[];
   /**
@@ -34073,6 +34344,10 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
    * tr-bp1su1ytdxtataupl****
    */
   transitRouterId?: string;
+  /**
+   * @remarks
+   * The features of the VPC connection.
+   */
   transitRouterVPCAttachmentOptions?: { [key: string]: string };
   /**
    * @remarks
@@ -34776,6 +35051,25 @@ export class ListTransitRoutersResponseBodyTransitRouters extends $tea.Model {
       transitRouterId: 'string',
       transitRouterName: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTransitRouterMulticastDomainRequestOptions extends $tea.Model {
+  igmpv2Support?: string;
+  static names(): { [key: string]: string } {
+    return {
+      igmpv2Support: 'Igmpv2Support',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      igmpv2Support: 'string',
     };
   }
 
@@ -36258,7 +36552,7 @@ export default class Client extends OpenApi {
    * *   **CreateCenInterRegionTrafficQosPolicy** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the **ListCenInterRegionTrafficQosPolicies** operation to query the status of the task.
    *     *   If the QoS policy is in the **Creating** state, the QoS policy is being created. You can query the QoS policy but cannot perform other operations on the QoS policy.
    *     *   If the QoS policy is in the **Active** state, the QoS policy is created.
-   * ## [](#)Prerequisite
+   * ### [](#)Prerequisites
    * Before you call the **CreateCenInterRegionTrafficQosPolicy** operation, make sure that the following requirements are met:
    * *   An inter-region connection is created. For more information, see [CreateTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261363.html).
    * *   A traffic marking policy is created. For more information, see [CreateTrafficMarkingPolicy](https://help.aliyun.com/document_detail/419025.html).
@@ -36345,7 +36639,7 @@ export default class Client extends OpenApi {
    * *   **CreateCenInterRegionTrafficQosPolicy** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the **ListCenInterRegionTrafficQosPolicies** operation to query the status of the task.
    *     *   If the QoS policy is in the **Creating** state, the QoS policy is being created. You can query the QoS policy but cannot perform other operations on the QoS policy.
    *     *   If the QoS policy is in the **Active** state, the QoS policy is created.
-   * ## [](#)Prerequisite
+   * ### [](#)Prerequisites
    * Before you call the **CreateCenInterRegionTrafficQosPolicy** operation, make sure that the following requirements are met:
    * *   An inter-region connection is created. For more information, see [CreateTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261363.html).
    * *   A traffic marking policy is created. For more information, see [CreateTrafficMarkingPolicy](https://help.aliyun.com/document_detail/419025.html).
@@ -36359,10 +36653,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the queue.
+   * Creates queues in a quality of service (QoS) policy to manage network traffic based on finer granularities, improve service performance, and meet service-level agreements (SLAs).
    * 
    * @remarks
-   * The ID of the request.
+   * The **CreateCenInterRegionTrafficQosQueue** operation is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the **ListCenInterRegionTrafficQosPolicies** operation to query the status of the QoS policy to determine the status of the queue. When you call this operation, you must set the **TrafficQosPolicyId** parameter.
+   * - If a QoS policy is in the **Modifying** state, the queue is being created. In this case, you can query the QoS policy and queue but cannot perform other operations.
+   * - If a QoS policy is in the **Active** state, the queue is created.
    * 
    * @param request - CreateCenInterRegionTrafficQosQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36437,10 +36733,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the queue.
+   * Creates queues in a quality of service (QoS) policy to manage network traffic based on finer granularities, improve service performance, and meet service-level agreements (SLAs).
    * 
    * @remarks
-   * The ID of the request.
+   * The **CreateCenInterRegionTrafficQosQueue** operation is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the **ListCenInterRegionTrafficQosPolicies** operation to query the status of the QoS policy to determine the status of the queue. When you call this operation, you must set the **TrafficQosPolicyId** parameter.
+   * - If a QoS policy is in the **Modifying** state, the queue is being created. In this case, you can query the QoS policy and queue but cannot perform other operations.
+   * - If a QoS policy is in the **Active** state, the queue is created.
    * 
    * @param request - CreateCenInterRegionTrafficQosQueueRequest
    * @returns CreateCenInterRegionTrafficQosQueueResponse
@@ -36640,16 +36938,22 @@ export default class Client extends OpenApi {
    * Creates a flow log.
    * 
    * @remarks
-   * Flow logs are used to capture the information about network traffic between transit routers and between virtual border routers (VBRs). Before you create a flow log, take note of the following items:
+   * Flow logs can be used to capture traffic information about transit routers and network instance connections, including inter-region connections, virtual private cloud (VPC) connections, VPN connections, Express Connect Router (ECR) connections, and virtual border router (VBR) connections. Before you create a flow log, take note of the following items:
    * *   Flow logs are supported only by Enterprise Edition transit routers.
-   * *   Only flow logs in some regions can capture the information about network traffic over VBR connections. For more information, see [Limits](https://help.aliyun.com/document_detail/339822.html).
-   * *   Flow logs are used to capture the information about outbound traffic on transit routers. Information about inbound traffic on transit routers is not captured.
-   *     For example, an Elastic Compute Service (ECS) instance in the US (Silicon Valley) region accesses an ECS instance in the US (Virginia) region through CEN. After you enable the flow log feature for the transit router in the US (Virginia) region, you can check the log entries about packets sent from the ECS instance in the US (Virginia) region to the ECS instance in the US (Silicon Valley) region. However, packets sent from the ECS instance in the US (Silicon Valley) region to the ECS instance in the US (Virginia) region are not recorded. If you want to record the packets sent from the ECS instance in the US (Silicon Valley) region to the ECS instance in the US (Virginia) region, you must also enable the flow log feature on the transit router that is in the US (Silicon Valley) region.
-   * *   `CreateFlowLog` is an asynchronous operation. After you send a request, the system returns a flow log ID and runs the task in the background. You can call the `DescribeFlowLogs` operation to query the status of a flow log.
-   *     *   If a flow log is in the **Creating** state, the flow log is being created. In this case, you can query the flow log but cannot perform other operations.
-   *     *   If a flow log is in the **Active** state, the flow log is created.
-   * # Prerequisites
-   * An inter-region connection or a VBR connection is created. For more information, see [CreateTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261363.html) or [CreateTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261361.html).
+   * *   Flow logs are used to capture information about outbound traffic on transit routers. Information about inbound traffic on transit routers is not captured.
+   *     For example, an Elastic Compute Service (ECS) instance in the US (Silicon Valley) region accesses an ECS instance in the US (Virginia) region through Cloud Enterprise Network (CEN). After you enable the flow log feature for the transit router in the US (Virginia) region, you can check the log entries about packets sent from the ECS instance in the US (Virginia) region to the ECS instance in the US (Silicon Valley) region. However, packets sent from the ECS instance in the US (Silicon Valley) region to the ECS instance in the US (Virginia) region are not recorded. If you want to record the packets sent from the ECS instance in the US (Silicon Valley) region to the ECS instance in the US (Virginia) region, you must also enable the flow log feature on the transit router that is in the US (Silicon Valley) region.
+   * *   If you use a flow log to capture traffic information about VPC connections, the flow log captures information only about traffic on the elastic network interface (ENI) of the transit router. For more information about how to view traffic information about other ENIs in the VPC, see [VPC flow log overview](https://help.aliyun.com/document_detail/127150.html).
+   * *   `CreateFlowLog` is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the `DescribeFlowlogs` operation to query the status of a flow log.
+   *     *   If the flow log is in the **Creating** state, the flow log is being created. In this case, you can query the flow log but cannot perform other operations.
+   *     *   If the flow log is in the **Active** state, the flow log is created.
+   * ### [](#)Prerequisites
+   * Required resources are created. For more information about how to create resources, see the following topics:
+   * *   [CreateTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/468237.html)
+   * *   [CreateTransitRouterEcrAttachment](https://help.aliyun.com/document_detail/2715446.html)
+   * *   [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html)
+   * *   [CreateTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/468243.html)
+   * *   [CreateTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/468270.html)
+   * *   [CreateTransitRouter](https://help.aliyun.com/document_detail/468222.html)
    * 
    * @param request - CreateFlowlogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36743,16 +37047,22 @@ export default class Client extends OpenApi {
    * Creates a flow log.
    * 
    * @remarks
-   * Flow logs are used to capture the information about network traffic between transit routers and between virtual border routers (VBRs). Before you create a flow log, take note of the following items:
+   * Flow logs can be used to capture traffic information about transit routers and network instance connections, including inter-region connections, virtual private cloud (VPC) connections, VPN connections, Express Connect Router (ECR) connections, and virtual border router (VBR) connections. Before you create a flow log, take note of the following items:
    * *   Flow logs are supported only by Enterprise Edition transit routers.
-   * *   Only flow logs in some regions can capture the information about network traffic over VBR connections. For more information, see [Limits](https://help.aliyun.com/document_detail/339822.html).
-   * *   Flow logs are used to capture the information about outbound traffic on transit routers. Information about inbound traffic on transit routers is not captured.
-   *     For example, an Elastic Compute Service (ECS) instance in the US (Silicon Valley) region accesses an ECS instance in the US (Virginia) region through CEN. After you enable the flow log feature for the transit router in the US (Virginia) region, you can check the log entries about packets sent from the ECS instance in the US (Virginia) region to the ECS instance in the US (Silicon Valley) region. However, packets sent from the ECS instance in the US (Silicon Valley) region to the ECS instance in the US (Virginia) region are not recorded. If you want to record the packets sent from the ECS instance in the US (Silicon Valley) region to the ECS instance in the US (Virginia) region, you must also enable the flow log feature on the transit router that is in the US (Silicon Valley) region.
-   * *   `CreateFlowLog` is an asynchronous operation. After you send a request, the system returns a flow log ID and runs the task in the background. You can call the `DescribeFlowLogs` operation to query the status of a flow log.
-   *     *   If a flow log is in the **Creating** state, the flow log is being created. In this case, you can query the flow log but cannot perform other operations.
-   *     *   If a flow log is in the **Active** state, the flow log is created.
-   * # Prerequisites
-   * An inter-region connection or a VBR connection is created. For more information, see [CreateTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261363.html) or [CreateTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261361.html).
+   * *   Flow logs are used to capture information about outbound traffic on transit routers. Information about inbound traffic on transit routers is not captured.
+   *     For example, an Elastic Compute Service (ECS) instance in the US (Silicon Valley) region accesses an ECS instance in the US (Virginia) region through Cloud Enterprise Network (CEN). After you enable the flow log feature for the transit router in the US (Virginia) region, you can check the log entries about packets sent from the ECS instance in the US (Virginia) region to the ECS instance in the US (Silicon Valley) region. However, packets sent from the ECS instance in the US (Silicon Valley) region to the ECS instance in the US (Virginia) region are not recorded. If you want to record the packets sent from the ECS instance in the US (Silicon Valley) region to the ECS instance in the US (Virginia) region, you must also enable the flow log feature on the transit router that is in the US (Silicon Valley) region.
+   * *   If you use a flow log to capture traffic information about VPC connections, the flow log captures information only about traffic on the elastic network interface (ENI) of the transit router. For more information about how to view traffic information about other ENIs in the VPC, see [VPC flow log overview](https://help.aliyun.com/document_detail/127150.html).
+   * *   `CreateFlowLog` is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the `DescribeFlowlogs` operation to query the status of a flow log.
+   *     *   If the flow log is in the **Creating** state, the flow log is being created. In this case, you can query the flow log but cannot perform other operations.
+   *     *   If the flow log is in the **Active** state, the flow log is created.
+   * ### [](#)Prerequisites
+   * Required resources are created. For more information about how to create resources, see the following topics:
+   * *   [CreateTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/468237.html)
+   * *   [CreateTransitRouterEcrAttachment](https://help.aliyun.com/document_detail/2715446.html)
+   * *   [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html)
+   * *   [CreateTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/468243.html)
+   * *   [CreateTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/468270.html)
+   * *   [CreateTransitRouter](https://help.aliyun.com/document_detail/468222.html)
    * 
    * @param request - CreateFlowlogRequest
    * @returns CreateFlowlogResponse
@@ -37328,6 +37638,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.options)) {
+      query["Options"] = request.options;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -37952,18 +38266,18 @@ export default class Client extends OpenApi {
    * Attaches virtual private clouds (VPCs) that you want to connect to a transit router. After you attach the VPCs to the same transit router, the VPCs can communicate with each other.
    * 
    * @remarks
-   *   You can use the following methods to attach a VPC to an Enterprise Edition transit router:
-   *     *   If an Enterprise Edition transit router is already created in the region where you want to create a VPC connection, set **VpcId**, **ZoneMappings.N.VSwitchId**, **ZoneMappings.N.ZoneId**, and **TransitRouterId**.
-   *     *   If no Enterprise Edition transit router is created in the region where you want to create a VPC connection, set **VpcId**, **ZoneMappings.N.VSwitchId**, **ZoneMappings.N.ZoneId**, **CenId**, and **RegionId**. When you create a VPC connection, the system automatically creates an Enterprise Edition transit router in the specified region.
-   * *   **CreateTransitRouterVpcAttachment** is an asynchronous operation. After you send a request, the VPC connection ID is returned but the operation is still being performed in the system background. You can call the [ListTransitRouterVpcAttachments](https://help.aliyun.com/document_detail/261222.html) operation to query the status of a VPC connection.
-   *     *   If a VPC connection is in the **Attaching** state, the VPC connection is being created. You can query the VPC connection but cannot perform other operations.
-   *     *   If a VPC connection is in the **Attached** state, the VPC connection is created.
+   *   You can use the following methods to create a VPC connection from an Enterprise Edition transit router:
+   *     *   If an Enterprise Edition transit router is already created in the region where you want to create a VPC connection, configure the **VpcId**, **ZoneMappings.N.VSwitchId**, **ZoneMappings.N.ZoneId**, **TransitRouterId**, and **RegionId** parameters.
+   *     *   If no Enterprise Edition transit router is created in the region where you want to create a VPC connection, configure the **VpcId**, **ZoneMappings.N.VSwitchId**, **ZoneMappings.N.ZoneId**, **CenId**, and **RegionId** parameters. Then, the system automatically creates an Enterprise Edition transit router in the specified region.
+   * *   **CreateTransitRouterVpcAttachment** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTransitRouterVpcAttachments](https://help.aliyun.com/document_detail/261222.html) operation to query the status of a VPC connection.
+   *     *   If the VPC connection is in the **Attaching** state, the VPC connection is being created. You can query the VPC connection but cannot perform other operations.
+   *     *   If the VPC connection is in the **Attached** state, the VPC connection is created.
    * *   By default, route learning and associated forwarding are disabled between transit router route tables and VPC connections.
-   * ## Prerequisites
+   * ### [](#)Prerequisites
    * Before you call this operation, make sure that the following requirements are met:
-   * *   At least one vSwitch is deployed for the VPC in the zones supported by Enterprise Edition transit routers. Each vSwitch must have at least one idle IP address. For more information, see [Regions and zones supported by Enterprise Edition transit routers](https://help.aliyun.com/document_detail/181681.html).
-   * *   To connect to a network instance that belongs to another Alibaba Cloud account, you must first acquire the required permissions from the account. For more information, see [Acquire permissions to connect to a network instance that belongs to another account](https://help.aliyun.com/document_detail/181553.html).
-   * *   VPC connections incur fees. Take note of the billing rules of VPC connections before you create a VPC connection. For more information, see [Billing](https://help.aliyun.com/document_detail/189836.html).
+   * *   The VPC in the zones of the Enterprise Edition transit router contains at least one vSwitch. Each vSwitch must have at least one idle IP address. For more information, see [Regions and zones supported by Enterprise Edition transit routers](https://help.aliyun.com/document_detail/181681.html).
+   * *   To connect to a network instance that belongs to another Alibaba Cloud account, you must first acquire the permissions from the account. For more information, see [Acquire permissions to connect to a network instance that belongs to another account](https://help.aliyun.com/document_detail/181553.html).
+   * *   VPC connections incur fees. Make sure that you understand the billing rules of VPC connections before you create a VPC connection. For more information, see [Billing](https://help.aliyun.com/document_detail/189836.html).
    * 
    * @param tmpReq - CreateTransitRouterVpcAttachmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38071,18 +38385,18 @@ export default class Client extends OpenApi {
    * Attaches virtual private clouds (VPCs) that you want to connect to a transit router. After you attach the VPCs to the same transit router, the VPCs can communicate with each other.
    * 
    * @remarks
-   *   You can use the following methods to attach a VPC to an Enterprise Edition transit router:
-   *     *   If an Enterprise Edition transit router is already created in the region where you want to create a VPC connection, set **VpcId**, **ZoneMappings.N.VSwitchId**, **ZoneMappings.N.ZoneId**, and **TransitRouterId**.
-   *     *   If no Enterprise Edition transit router is created in the region where you want to create a VPC connection, set **VpcId**, **ZoneMappings.N.VSwitchId**, **ZoneMappings.N.ZoneId**, **CenId**, and **RegionId**. When you create a VPC connection, the system automatically creates an Enterprise Edition transit router in the specified region.
-   * *   **CreateTransitRouterVpcAttachment** is an asynchronous operation. After you send a request, the VPC connection ID is returned but the operation is still being performed in the system background. You can call the [ListTransitRouterVpcAttachments](https://help.aliyun.com/document_detail/261222.html) operation to query the status of a VPC connection.
-   *     *   If a VPC connection is in the **Attaching** state, the VPC connection is being created. You can query the VPC connection but cannot perform other operations.
-   *     *   If a VPC connection is in the **Attached** state, the VPC connection is created.
+   *   You can use the following methods to create a VPC connection from an Enterprise Edition transit router:
+   *     *   If an Enterprise Edition transit router is already created in the region where you want to create a VPC connection, configure the **VpcId**, **ZoneMappings.N.VSwitchId**, **ZoneMappings.N.ZoneId**, **TransitRouterId**, and **RegionId** parameters.
+   *     *   If no Enterprise Edition transit router is created in the region where you want to create a VPC connection, configure the **VpcId**, **ZoneMappings.N.VSwitchId**, **ZoneMappings.N.ZoneId**, **CenId**, and **RegionId** parameters. Then, the system automatically creates an Enterprise Edition transit router in the specified region.
+   * *   **CreateTransitRouterVpcAttachment** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTransitRouterVpcAttachments](https://help.aliyun.com/document_detail/261222.html) operation to query the status of a VPC connection.
+   *     *   If the VPC connection is in the **Attaching** state, the VPC connection is being created. You can query the VPC connection but cannot perform other operations.
+   *     *   If the VPC connection is in the **Attached** state, the VPC connection is created.
    * *   By default, route learning and associated forwarding are disabled between transit router route tables and VPC connections.
-   * ## Prerequisites
+   * ### [](#)Prerequisites
    * Before you call this operation, make sure that the following requirements are met:
-   * *   At least one vSwitch is deployed for the VPC in the zones supported by Enterprise Edition transit routers. Each vSwitch must have at least one idle IP address. For more information, see [Regions and zones supported by Enterprise Edition transit routers](https://help.aliyun.com/document_detail/181681.html).
-   * *   To connect to a network instance that belongs to another Alibaba Cloud account, you must first acquire the required permissions from the account. For more information, see [Acquire permissions to connect to a network instance that belongs to another account](https://help.aliyun.com/document_detail/181553.html).
-   * *   VPC connections incur fees. Take note of the billing rules of VPC connections before you create a VPC connection. For more information, see [Billing](https://help.aliyun.com/document_detail/189836.html).
+   * *   The VPC in the zones of the Enterprise Edition transit router contains at least one vSwitch. Each vSwitch must have at least one idle IP address. For more information, see [Regions and zones supported by Enterprise Edition transit routers](https://help.aliyun.com/document_detail/181681.html).
+   * *   To connect to a network instance that belongs to another Alibaba Cloud account, you must first acquire the permissions from the account. For more information, see [Acquire permissions to connect to a network instance that belongs to another account](https://help.aliyun.com/document_detail/181553.html).
+   * *   VPC connections incur fees. Make sure that you understand the billing rules of VPC connections before you create a VPC connection. For more information, see [Billing](https://help.aliyun.com/document_detail/189836.html).
    * 
    * @param request - CreateTransitRouterVpcAttachmentRequest
    * @returns CreateTransitRouterVpcAttachmentResponse
@@ -41401,7 +41715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定区域内的地域信息
+   * Queries regions in an area.
    * 
    * @param request - DescribeGeographicRegionMembershipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41456,7 +41770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定区域内的地域信息
+   * Queries regions in an area.
    * 
    * @param request - DescribeGeographicRegionMembershipRequest
    * @returns DescribeGeographicRegionMembershipResponse
@@ -45473,7 +45787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name and description of a flow log.
+   * Modifies the name, description, and capture window of a flow log.
    * 
    * @remarks
    * `ModifyFlowLogAttribute` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `DescribeFlowlogs` operation to query the status of a flow log.
@@ -45549,7 +45863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name and description of a flow log.
+   * Modifies the name, description, and capture window of a flow log.
    * 
    * @remarks
    * `ModifyFlowLogAttribute` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `DescribeFlowlogs` operation to query the status of a flow log.
@@ -45565,7 +45879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑流分类规则的名称和描述
+   * Modifies the name and description of a traffic classification rule.
    * 
    * @param request - ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45632,7 +45946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑流分类规则的名称和描述
+   * Modifies the name and description of a traffic classification rule.
    * 
    * @param request - ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest
    * @returns ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse
@@ -45764,6 +46078,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.options)) {
+      query["Options"] = request.options;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
