@@ -537,6 +537,72 @@ export class GetImageAnalyzeTaskStatusResponse extends $tea.Model {
   }
 }
 
+export class GetPredictionHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPredictionRequest extends $tea.Model {
+  body?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPredictionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: string;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetQueryAnalysisRequest extends $tea.Model {
   functions?: GetQueryAnalysisRequestFunctions[];
   history?: GetQueryAnalysisRequestHistory[];
@@ -2048,6 +2114,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getImageAnalyzeTaskStatusWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取推理结果
+   * 
+   * @param request - GetPredictionRequest
+   * @param headers - GetPredictionHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPredictionResponse
+   */
+  async getPredictionWithOptions(deploymentId: string, request: GetPredictionRequest, headers: GetPredictionHeaders, runtime: $Util.RuntimeOptions): Promise<GetPredictionResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.token)) {
+      realHeaders["Token"] = Util.toJSONString(headers.token);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPrediction",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/deployments/${deploymentId}/predict`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "string",
+    });
+    return $tea.cast<GetPredictionResponse>(await this.execute(params, req, runtime), new GetPredictionResponse({}));
+  }
+
+  /**
+   * 获取推理结果
+   * 
+   * @param request - GetPredictionRequest
+   * @returns GetPredictionResponse
+   */
+  async getPrediction(deploymentId: string, request: GetPredictionRequest): Promise<GetPredictionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetPredictionHeaders({ });
+    return await this.getPredictionWithOptions(deploymentId, request, headers, runtime);
   }
 
   /**
