@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,10 +8,39 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateManualDagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2018-12-12 00:00:00
+   */
   bizdate?: string;
+  /**
+   * @example
+   * param_k1=param_v1 param_k2=param_v2
+   */
   dagPara?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_flow
+   */
   flowName?: string;
+  /**
+   * @example
+   * {"103180025": "test=$[yyyy-mm-dd]"}
+   */
   nodePara?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,10 +68,30 @@ export class CreateManualDagRequest extends $tea.Model {
 }
 
 export class CreateManualDagResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2d9ce-38ef-4923-baf6-391a7e656
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0
+   */
   returnCode?: string;
+  /**
+   * @example
+   * test
+   */
   returnErrorSolution?: string;
+  /**
+   * @example
+   * test
+   */
   returnMessage?: string;
+  /**
+   * @example
+   * 1244311235
+   */
   returnValue?: number;
   static names(): { [key: string]: string } {
     return {
@@ -96,6 +144,10 @@ export class CreateManualDagResponse extends $tea.Model {
 }
 
 export class DeleteFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   fileId?: number;
   projectId?: number;
   projectIdentifier?: string;
@@ -177,8 +229,26 @@ export class DeleteFileResponse extends $tea.Model {
 }
 
 export class DescribeEmrHiveTableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * C-D033DD5FB82436A6
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
   databaseName?: string;
+  /**
+   * @example
+   * pt_table_090901_emr
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -203,8 +273,20 @@ export class DescribeEmrHiveTableRequest extends $tea.Model {
 
 export class DescribeEmrHiveTableResponseBody extends $tea.Model {
   data?: DescribeEmrHiveTableResponseBodyData;
+  /**
+   * @example
+   * 0
+   */
   errorCode?: string;
+  /**
+   * @example
+   * test
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * E6F0DBDD-5AD8-4870-A6A0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -254,11 +336,155 @@ export class DescribeEmrHiveTableResponse extends $tea.Model {
   }
 }
 
-export class GetDataServiceApiContextRequest extends $tea.Model {
+export class GetDataServiceApiAuthMapContextRequest extends $tea.Model {
+  /**
+   * @remarks
+   * API ID
+   * 
+   * @example
+   * 1
+   */
   apiId?: number;
+  /**
+   * @example
+   * /apiPath
+   */
+  apiPath?: string;
+  /**
+   * @example
+   * 1
+   */
+  projectId?: number;
+  /**
+   * @example
+   * true
+   */
+  verbose?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      apiPath: 'ApiPath',
+      projectId: 'ProjectId',
+      verbose: 'Verbose',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'number',
+      apiPath: 'string',
+      projectId: 'number',
+      verbose: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataServiceApiAuthMapContextResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
+  data?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * success
+   */
+  errMsg?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 123-abc
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errCode: 'ErrCode',
+      errMsg: 'ErrMsg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      errCode: 'string',
+      errMsg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataServiceApiAuthMapContextResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataServiceApiAuthMapContextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataServiceApiAuthMapContextResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataServiceApiContextRequest extends $tea.Model {
+  /**
+   * @remarks
+   * apiId
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
+  apiId?: number;
+  /**
+   * @example
+   * 1
+   */
   apiStatus?: number;
+  /**
+   * @example
+   * abc-124
+   */
   cacheKey?: string;
+  /**
+   * @example
+   * true
+   */
   forPrivateResGroup?: boolean;
+  /**
+   * @example
+   * true
+   */
   verbose?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -286,9 +512,25 @@ export class GetDataServiceApiContextRequest extends $tea.Model {
 }
 
 export class GetDataServiceApiContextResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {"apiId":123}
+   */
   data?: string;
+  /**
+   * @example
+   * 0
+   */
   errCode?: string;
+  /**
+   * @example
+   * success
+   */
   errMsg?: string;
+  /**
+   * @example
+   * 1AFAE64E-D1BE-432B-A9****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -338,10 +580,128 @@ export class GetDataServiceApiContextResponse extends $tea.Model {
   }
 }
 
-export class GetDataServiceContextUpdateEventResponseBody extends $tea.Model {
+export class GetDataServiceConnectionRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  connectionId?: number;
+  /**
+   * @example
+   * normal
+   */
+  dataSourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionId: 'ConnectionId',
+      dataSourceType: 'DataSourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionId: 'number',
+      dataSourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataServiceConnectionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   data?: string;
+  /**
+   * @example
+   * 0
+   */
   errCode?: string;
+  /**
+   * @example
+   * success
+   */
   errMsg?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 123-abc
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errCode: 'ErrCode',
+      errMsg: 'ErrMsg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      errCode: 'string',
+      errMsg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataServiceConnectionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataServiceConnectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataServiceConnectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataServiceContextUpdateEventResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {\\"TotalCount\\": 0, \\"CalcEngines\\": []}
+   */
+  data?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * success
+   */
+  errMsg?: string;
+  /**
+   * @example
+   * 8754EE08-4AA2-5F77-ADD7-754DBBDA9F75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -383,6 +743,82 @@ export class GetDataServiceContextUpdateEventResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDataServiceContextUpdateEventResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataServiceFunctionRequest extends $tea.Model {
+  functionId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      functionId: 'FunctionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functionId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataServiceFunctionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   */
+  data?: string;
+  errCode?: string;
+  errMsg?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errCode: 'ErrCode',
+      errMsg: 'ErrMsg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      errCode: 'string',
+      errMsg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataServiceFunctionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataServiceFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataServiceFunctionResponseBody,
     };
   }
 
@@ -530,12 +966,55 @@ export class GetTimeMachineTaskResponse extends $tea.Model {
 }
 
 export class ListEmrHiveAuditLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * C-D033DD5FB82436A6
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
   databaseName?: string;
+  /**
+   * @example
+   * 1586509710
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1586509407
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -568,8 +1047,20 @@ export class ListEmrHiveAuditLogsRequest extends $tea.Model {
 
 export class ListEmrHiveAuditLogsResponseBody extends $tea.Model {
   data?: ListEmrHiveAuditLogsResponseBodyData;
+  /**
+   * @example
+   * 0
+   */
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * 58D5334A-B013-430E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -620,6 +1111,13 @@ export class ListEmrHiveAuditLogsResponse extends $tea.Model {
 }
 
 export class ListEmrHiveDatabasesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * C-D033DD5FB82436A6
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -640,8 +1138,20 @@ export class ListEmrHiveDatabasesRequest extends $tea.Model {
 
 export class ListEmrHiveDatabasesResponseBody extends $tea.Model {
   data?: ListEmrHiveDatabasesResponseBodyData[];
+  /**
+   * @example
+   * 0
+   */
   errorCode?: string;
+  /**
+   * @example
+   * test
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * D9A61DC0-B922-421B-B706
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -692,9 +1202,37 @@ export class ListEmrHiveDatabasesResponse extends $tea.Model {
 }
 
 export class ListEmrHiveTablesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * C-D033DD5FB82436A6
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -721,8 +1259,20 @@ export class ListEmrHiveTablesRequest extends $tea.Model {
 
 export class ListEmrHiveTablesResponseBody extends $tea.Model {
   data?: ListEmrHiveTablesResponseBodyData;
+  /**
+   * @example
+   * 0
+   */
   errorCode?: string;
+  /**
+   * @example
+   * test
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * E6F0DBDD-5AD8-4870-A6A0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -777,7 +1327,15 @@ export class ListGovernanceIssueDataServiceAPIsRequest extends $tea.Model {
   ownerId?: string;
   pageNumber?: number;
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ruleCategory?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
@@ -879,7 +1437,15 @@ export class ListGovernanceIssueTablesRequest extends $tea.Model {
   ownerId?: string;
   pageNumber?: number;
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ruleCategory?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
@@ -981,7 +1547,15 @@ export class ListGovernanceIssueTasksRequest extends $tea.Model {
   ownerId?: string;
   pageNumber?: number;
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ruleCategory?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
@@ -1172,9 +1746,37 @@ export class ListGovernanceRulesResponse extends $tea.Model {
 }
 
 export class ListHiveColumnLineagesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * C-D033DD5FB82436A6
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * balance
+   */
   columnName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1201,8 +1803,20 @@ export class ListHiveColumnLineagesRequest extends $tea.Model {
 
 export class ListHiveColumnLineagesResponseBody extends $tea.Model {
   data?: ListHiveColumnLineagesResponseBodyData;
+  /**
+   * @example
+   * 0
+   */
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * 58D5334A-B013-430E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1253,8 +1867,29 @@ export class ListHiveColumnLineagesResponse extends $tea.Model {
 }
 
 export class ListHiveTableLineagesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * C-D033DD5FB82436A6
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pt_table_090901_emr
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1279,8 +1914,20 @@ export class ListHiveTableLineagesRequest extends $tea.Model {
 
 export class ListHiveTableLineagesResponseBody extends $tea.Model {
   data?: ListHiveTableLineagesResponseBodyData;
+  /**
+   * @example
+   * 0
+   */
   errorCode?: string;
+  /**
+   * @example
+   * test
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1331,11 +1978,50 @@ export class ListHiveTableLineagesResponse extends $tea.Model {
 }
 
 export class ListTablePartitionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * C-2A51D3826C701234
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
   databaseName?: string;
+  /**
+   * @example
+   * ASC/DESC
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_table
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1366,8 +2052,20 @@ export class ListTablePartitionsRequest extends $tea.Model {
 
 export class ListTablePartitionsResponseBody extends $tea.Model {
   data?: ListTablePartitionsResponseBodyData;
+  /**
+   * @example
+   * 0
+   */
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * UUID
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1418,6 +2116,10 @@ export class ListTablePartitionsResponse extends $tea.Model {
 }
 
 export class OpenDataWorksStandardServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1484,7 +2186,21 @@ export class OpenDataWorksStandardServiceResponse extends $tea.Model {
 }
 
 export class SearchManualDagNodeInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123434234
+   */
   dagId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_odps_project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1507,9 +2223,25 @@ export class SearchManualDagNodeInstanceRequest extends $tea.Model {
 
 export class SearchManualDagNodeInstanceResponseBody extends $tea.Model {
   data?: SearchManualDagNodeInstanceResponseBodyData;
+  /**
+   * @example
+   * 0
+   */
   errCode?: string;
+  /**
+   * @example
+   * test
+   */
   errMsg?: string;
+  /**
+   * @example
+   * 2d9ced66-38ef-4923-baf6-391dd3a7e656
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1562,14 +2294,46 @@ export class SearchManualDagNodeInstanceResponse extends $tea.Model {
 }
 
 export class SendTaskMetaCallbackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   connectionInfo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   endTime?: number;
   resources?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   subType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   taskEnvParam?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   type?: string;
   user?: string;
   static names(): { [key: string]: string } {
@@ -1730,6 +2494,10 @@ export class SetSwitchValueResponse extends $tea.Model {
 }
 
 export class StartCollectQualityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   callbackResultString?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1799,6 +2567,10 @@ export class StartCollectQualityResponse extends $tea.Model {
 }
 
 export class StartDoCheckQualityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   callbackResultString?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1868,6 +2640,10 @@ export class StartDoCheckQualityResponse extends $tea.Model {
 }
 
 export class StartTaskQualityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   callbackResultString?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2037,12 +2813,40 @@ export class TriggerTimeMachineTaskResponse extends $tea.Model {
 }
 
 export class DescribeEmrHiveTableResponseBodyDataColumns extends $tea.Model {
+  /**
+   * @example
+   * BALANCE FIELD
+   */
   columnComment?: string;
+  /**
+   * @example
+   * double
+   */
   columnName?: string;
+  /**
+   * @example
+   * 1
+   */
   columnPosition?: number;
+  /**
+   * @example
+   * double
+   */
   columnType?: string;
+  /**
+   * @example
+   * BALANCE FIELD
+   */
   comment?: string;
+  /**
+   * @example
+   * 2019-09-09 20:23:47
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2019-09-09 20:23:47
+   */
   gmtModified?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2074,29 +2878,117 @@ export class DescribeEmrHiveTableResponseBodyDataColumns extends $tea.Model {
 }
 
 export class DescribeEmrHiveTableResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * C-D033DD5FB82436A6
+   */
   clusterBizId?: string;
   clusterBizName?: string;
   columns?: DescribeEmrHiveTableResponseBodyDataColumns[];
+  /**
+   * @example
+   * default
+   */
   databaseName?: string;
+  /**
+   * @example
+   * 2019-09-09 20:41:28
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2019-09-09 20:41:28
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * org.apache.hadoop.mapred.TextInputFormat
+   */
   inputFormat?: string;
+  /**
+   * @example
+   * false
+   */
   isCompressed?: boolean;
+  /**
+   * @example
+   * false
+   */
   isTemporary?: boolean;
+  /**
+   * @example
+   * 1970-01-01 08:00:00
+   */
   lastAccessTime?: string;
+  /**
+   * @example
+   * 2019-09-09 20:23:47
+   */
   lastModifyTime?: string;
+  /**
+   * @example
+   * hdfs://emr-header-1.cluster-136574:9000/user/hive/warehouse/pt_table_090901_emr
+   */
   location?: string;
+  /**
+   * @example
+   * org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat
+   */
   outputFormat?: string;
+  /**
+   * @example
+   * root
+   */
   owner?: string;
+  /**
+   * @example
+   * 1861276710322536
+   */
   ownerId?: string;
+  /**
+   * @example
+   * USER
+   */
   ownerType?: string;
+  /**
+   * @example
+   * DS,HR,REGION
+   */
   partitionKeys?: string;
+  /**
+   * @example
+   * org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
+   */
   serializationLib?: string;
+  /**
+   * @example
+   * RANDOM GENERATED TEST DATA BY FUNCTION OF RANDOM_TEST_DATA
+   */
   tableComment?: string;
+  /**
+   * @example
+   * RANDOM GENERATED TEST DATA BY FUNCTION OF RANDOM_TEST_DATA
+   */
   tableDesc?: string;
+  /**
+   * @example
+   * pt_table_090901_emr
+   */
   tableName?: string;
+  /**
+   * @example
+   * {\\"transient_lastDdlTime\\":\\"1568031823\\",\\"bucketing_version\\":\\"2\\",\\"comment\\":\\"RANDOM GENERATED TEST DATA BY FUNCTION OF RANDOM_TEST_DATA\\"}
+   */
   tableParameters?: string;
+  /**
+   * @example
+   * 552
+   */
   tableSize?: number;
+  /**
+   * @example
+   * MANAGED_TABLE
+   */
   tableType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2202,11 +3094,31 @@ export class GetTimeMachineTaskResponseBodyData extends $tea.Model {
 }
 
 export class ListEmrHiveAuditLogsResponseBodyDataPagedData extends $tea.Model {
+  /**
+   * @example
+   * default
+   */
   database?: string;
+  /**
+   * @example
+   * 1564019679506
+   */
   eventTime?: number;
   groups?: string[];
+  /**
+   * @example
+   * CREATE_TABLE
+   */
   operation?: string;
+  /**
+   * @example
+   * test_table
+   */
   table?: string;
+  /**
+   * @example
+   * root
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2236,9 +3148,21 @@ export class ListEmrHiveAuditLogsResponseBodyDataPagedData extends $tea.Model {
 }
 
 export class ListEmrHiveAuditLogsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 2
+   */
   pageSize?: number;
   pagedData?: ListEmrHiveAuditLogsResponseBodyDataPagedData[];
+  /**
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2264,17 +3188,65 @@ export class ListEmrHiveAuditLogsResponseBodyData extends $tea.Model {
 }
 
 export class ListEmrHiveDatabasesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * Default Hive database
+   */
   comment?: string;
+  /**
+   * @example
+   * 1568010630000
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 1568010630000
+   */
   gmtModified?: number;
+  /**
+   * @example
+   * hdfs://emr-header-1.cluster-136574:9000/user/hive/warehouse
+   */
   location?: string;
+  /**
+   * @example
+   * default
+   */
   name?: string;
+  /**
+   * @example
+   * public
+   */
   owner?: string;
+  /**
+   * @example
+   * 18612767
+   */
   ownerId?: string;
+  /**
+   * @example
+   * ROLE
+   */
   ownerType?: string;
+  /**
+   * @example
+   * {}
+   */
   parameters?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * -
+   */
   status?: string;
+  /**
+   * @example
+   * HIVE
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2316,27 +3288,111 @@ export class ListEmrHiveDatabasesResponseBodyData extends $tea.Model {
 }
 
 export class ListEmrHiveTablesResponseBodyDataPagedData extends $tea.Model {
+  /**
+   * @example
+   * C-D033DD5FB82436A6
+   */
   clusterBizId?: string;
   clusterBizName?: string;
+  /**
+   * @example
+   * default
+   */
   databaseName?: string;
+  /**
+   * @example
+   * 2019-09-09 20:23:47
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2019-09-09 20:23:47
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * org.apache.hadoop.hive.ql.io.orc.OrcInputFormat
+   */
   inputFormat?: string;
+  /**
+   * @example
+   * false
+   */
   isCompressed?: boolean;
+  /**
+   * @example
+   * false
+   */
   isTemporary?: boolean;
+  /**
+   * @example
+   * 1970-01-01 08:00:00
+   */
   lastAccessTime?: string;
+  /**
+   * @example
+   * 2019-09-09 20:23:47
+   */
   lastModifyTime?: string;
+  /**
+   * @example
+   * hdfs://emr-header-1.cluster-136574:9000/user/hive/warehouse/pt_table_090901_emr
+   */
   location?: string;
+  /**
+   * @example
+   * org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat
+   */
   outputFormat?: string;
+  /**
+   * @example
+   * root
+   */
   owner?: string;
+  /**
+   * @example
+   * 18612767103****
+   */
   ownerId?: string;
+  /**
+   * @example
+   * ROLE
+   */
   ownerType?: string;
+  /**
+   * @example
+   * DS,HR,REGION
+   */
   partitionKeys?: string;
+  /**
+   * @example
+   * org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
+   */
   serializationLib?: string;
+  /**
+   * @example
+   * RANDOM GENERATED TEST DATA BY FUNCTION OF RANDOM_TEST_DATA
+   */
   tableComment?: string;
+  /**
+   * @example
+   * RANDOM GENERATED TEST DATA BY FUNCTION OF RANDOM_TEST_DATA
+   */
   tableDesc?: string;
+  /**
+   * @example
+   * pt_table_090901_emr_orc
+   */
   tableName?: string;
+  /**
+   * @example
+   * {\\"transient_lastDdlTime\\":\\"1568031823\\",\\"bucketing_version\\":\\"2\\",\\"comment\\":\\"RANDOM GENERATED TEST DATA BY FUNCTION OF RANDOM_TEST_DATA\\"}
+   */
   tableParameters?: string;
+  /**
+   * @example
+   * MANAGED_TABLE
+   */
   tableType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2398,9 +3454,21 @@ export class ListEmrHiveTablesResponseBodyDataPagedData extends $tea.Model {
 }
 
 export class ListEmrHiveTablesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 2
+   */
   pageSize?: number;
   pagedData?: ListEmrHiveTablesResponseBodyDataPagedData[];
+  /**
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2731,16 +3799,60 @@ export class ListGovernanceRulesResponseBodyData extends $tea.Model {
 }
 
 export class ListHiveColumnLineagesResponseBodyDataDownstreamLineages extends $tea.Model {
+  /**
+   * @example
+   * C-D033DD5FB82436A6
+   */
   clusterId?: string;
+  /**
+   * @example
+   * balance
+   */
   columnName?: string;
+  /**
+   * @example
+   * 2019-11-10 11:33:52
+   */
   createTime?: string;
+  /**
+   * @example
+   * default
+   */
   databaseName?: string;
+  /**
+   * @example
+   * 0
+   */
   directDownColumnNumber?: number;
+  /**
+   * @example
+   * 0
+   */
   directDownTableNumber?: number;
+  /**
+   * @example
+   * 1
+   */
   directUpperColumnNumber?: number;
+  /**
+   * @example
+   * 1
+   */
   directUpperTableNumber?: number;
+  /**
+   * @example
+   * 2019-11-10 11:33:52
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * HIVE
+   */
   source?: string;
+  /**
+   * @example
+   * pt_table_090901_emr_child
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2780,16 +3892,60 @@ export class ListHiveColumnLineagesResponseBodyDataDownstreamLineages extends $t
 }
 
 export class ListHiveColumnLineagesResponseBodyDataUpstreamLineages extends $tea.Model {
+  /**
+   * @example
+   * C-D033DD5FB82436A6
+   */
   clusterId?: string;
+  /**
+   * @example
+   * balance
+   */
   columnName?: string;
+  /**
+   * @example
+   * 2019-11-10 11:33:51
+   */
   createTime?: string;
+  /**
+   * @example
+   * default
+   */
   databaseName?: string;
+  /**
+   * @example
+   * 1
+   */
   directDownColumnNumber?: number;
+  /**
+   * @example
+   * 0
+   */
   directDownTableNumber?: number;
+  /**
+   * @example
+   * 2
+   */
   directUpperColumnNumber?: number;
+  /**
+   * @example
+   * 1
+   */
   directUpperTableNumber?: number;
+  /**
+   * @example
+   * 2019-11-10 11:33:51
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * HIVE
+   */
   source?: string;
+  /**
+   * @example
+   * pt_table_090901_emr_child
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2830,8 +3986,16 @@ export class ListHiveColumnLineagesResponseBodyDataUpstreamLineages extends $tea
 
 export class ListHiveColumnLineagesResponseBodyData extends $tea.Model {
   downstreamLineages?: ListHiveColumnLineagesResponseBodyDataDownstreamLineages[];
+  /**
+   * @example
+   * 3
+   */
   downstreamNumber?: number;
   upstreamLineages?: ListHiveColumnLineagesResponseBodyDataUpstreamLineages[];
+  /**
+   * @example
+   * 0
+   */
   upstreamNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2857,14 +4021,50 @@ export class ListHiveColumnLineagesResponseBodyData extends $tea.Model {
 }
 
 export class ListHiveTableLineagesResponseBodyDataDownstreamLineages extends $tea.Model {
+  /**
+   * @example
+   * C-D033DD5FB82436A6
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 2020-01-09 18:16:15
+   */
   createTime?: string;
+  /**
+   * @example
+   * default
+   */
   databaseName?: string;
+  /**
+   * @example
+   * mr
+   */
   engine?: string;
+  /**
+   * @example
+   * job_1234567055_0006
+   */
   jobId?: string;
+  /**
+   * @example
+   * 2020-01-09 18:16:37
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * create table parquet_example_0407 select id as one,name as two,salary as three  from PTtable_0407_emr
+   */
   queryText?: string;
+  /**
+   * @example
+   * HIVE
+   */
   source?: string;
+  /**
+   * @example
+   * pt_table_090901_emr_orc
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2900,14 +4100,50 @@ export class ListHiveTableLineagesResponseBodyDataDownstreamLineages extends $te
 }
 
 export class ListHiveTableLineagesResponseBodyDataUpstreamLineages extends $tea.Model {
+  /**
+   * @example
+   * C-D033DD5FB82436A6
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 2020-01-09 18:16:15
+   */
   createTime?: string;
+  /**
+   * @example
+   * default
+   */
   databaseName?: string;
+  /**
+   * @example
+   * mr
+   */
   engine?: string;
+  /**
+   * @example
+   * job_1234567055_0006
+   */
   jobId?: string;
+  /**
+   * @example
+   * 2020-01-09 18:16:37
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * create table parquet_example_0407 select id as one,name as two,salary as three  from PTtable_0407_emr
+   */
   queryText?: string;
+  /**
+   * @example
+   * HIVE
+   */
   source?: string;
+  /**
+   * @example
+   * pt_table_090901_emr_orc
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2944,8 +4180,16 @@ export class ListHiveTableLineagesResponseBodyDataUpstreamLineages extends $tea.
 
 export class ListHiveTableLineagesResponseBodyData extends $tea.Model {
   downstreamLineages?: ListHiveTableLineagesResponseBodyDataDownstreamLineages[];
+  /**
+   * @example
+   * 3
+   */
   downstreamNumber?: number;
   upstreamLineages?: ListHiveTableLineagesResponseBodyDataUpstreamLineages[];
+  /**
+   * @example
+   * 0
+   */
   upstreamNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2971,12 +4215,40 @@ export class ListHiveTableLineagesResponseBodyData extends $tea.Model {
 }
 
 export class ListTablePartitionsResponseBodyDataPagedData extends $tea.Model {
+  /**
+   * @example
+   * 1568032253000
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 1568032253000
+   */
   gmtModified?: number;
+  /**
+   * @example
+   * hdfs://emr-header-1.cluster-136574:9000/user/hive/warehouse/pt_table_090901_emr_child/ds=20190909/hr=20/region=shanghai
+   */
   location?: string;
+  /**
+   * @example
+   * test
+   */
   partitionComment?: string;
+  /**
+   * @example
+   * ds=20190909/hr=20/region=shanghai
+   */
   partitionName?: string;
+  /**
+   * @example
+   * hdfs://emr-header-1.cluster-136574:9000/user/hive/warehouse/pt_table_090901_emr_child/ds=20190909/hr=20/region=shanghai
+   */
   partitionPath?: string;
+  /**
+   * @example
+   * HIVE
+   */
   partitionType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3008,8 +4280,16 @@ export class ListTablePartitionsResponseBodyDataPagedData extends $tea.Model {
 }
 
 export class ListTablePartitionsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   pagedData?: ListTablePartitionsResponseBodyDataPagedData[];
+  /**
+   * @example
+   * 3
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3033,18 +4313,70 @@ export class ListTablePartitionsResponseBodyData extends $tea.Model {
 }
 
 export class SearchManualDagNodeInstanceResponseBodyDataNodeInsInfo extends $tea.Model {
+  /**
+   * @example
+   * 2018-12-12 00:00:00
+   */
   beginRunningTime?: string;
+  /**
+   * @example
+   * 2018-12-12 00:00:00
+   */
   beginWaitResTime?: string;
+  /**
+   * @example
+   * 2018-12-12 00:00:00
+   */
   beginWaitTimeTime?: string;
+  /**
+   * @example
+   * 2018-12-12 00:00:00
+   */
   bizdate?: string;
+  /**
+   * @example
+   * 2018-12-12 00:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * 12434232423
+   */
   dagId?: number;
+  /**
+   * @example
+   * 5
+   */
   dagType?: number;
+  /**
+   * @example
+   * 2018-12-12 00:00:00
+   */
   finishTime?: string;
+  /**
+   * @example
+   * 12322434112
+   */
   instanceId?: number;
+  /**
+   * @example
+   * 2018-12-12 00:00:00
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * test_node
+   */
   nodeName?: string;
+  /**
+   * @example
+   * param_k1=param_v1
+   */
   paraValue?: string;
+  /**
+   * @example
+   * 6
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3436,9 +4768,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateManualDagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateManualDagResponse
+   * @param request - CreateManualDagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateManualDagResponse
    */
   async createManualDagWithOptions(request: CreateManualDagRequest, runtime: $Util.RuntimeOptions): Promise<CreateManualDagResponse> {
     Util.validateModel(request);
@@ -3481,8 +4813,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateManualDagRequest
-   * @return CreateManualDagResponse
+   * @param request - CreateManualDagRequest
+   * @returns CreateManualDagResponse
    */
   async createManualDag(request: CreateManualDagRequest): Promise<CreateManualDagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3490,9 +4822,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteFileResponse
+   * @param request - DeleteFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFileResponse
    */
   async deleteFileWithOptions(request: DeleteFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
     Util.validateModel(request);
@@ -3527,8 +4859,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteFileRequest
-   * @return DeleteFileResponse
+   * @param request - DeleteFileRequest
+   * @returns DeleteFileResponse
    */
   async deleteFile(request: DeleteFileRequest): Promise<DeleteFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3536,9 +4868,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeEmrHiveTableRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeEmrHiveTableResponse
+   * @param request - DescribeEmrHiveTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEmrHiveTableResponse
    */
   async describeEmrHiveTableWithOptions(request: DescribeEmrHiveTableRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEmrHiveTableResponse> {
     Util.validateModel(request);
@@ -3573,8 +4905,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeEmrHiveTableRequest
-   * @return DescribeEmrHiveTableResponse
+   * @param request - DescribeEmrHiveTableRequest
+   * @returns DescribeEmrHiveTableResponse
    */
   async describeEmrHiveTable(request: DescribeEmrHiveTableRequest): Promise<DescribeEmrHiveTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3582,11 +4914,49 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询apiContext接口
-   *
-   * @param request GetDataServiceApiContextRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDataServiceApiContextResponse
+   * 新server独享资源组获取api context
+   * 
+   * @param request - GetDataServiceApiAuthMapContextRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataServiceApiAuthMapContextResponse
+   */
+  async getDataServiceApiAuthMapContextWithOptions(request: GetDataServiceApiAuthMapContextRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceApiAuthMapContextResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataServiceApiAuthMapContext",
+      version: "2018-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataServiceApiAuthMapContextResponse>(await this.callApi(params, req, runtime), new GetDataServiceApiAuthMapContextResponse({}));
+  }
+
+  /**
+   * 新server独享资源组获取api context
+   * 
+   * @param request - GetDataServiceApiAuthMapContextRequest
+   * @returns GetDataServiceApiAuthMapContextResponse
+   */
+  async getDataServiceApiAuthMapContext(request: GetDataServiceApiAuthMapContextRequest): Promise<GetDataServiceApiAuthMapContextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataServiceApiAuthMapContextWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询apiContext接口
+   * 
+   * @param request - GetDataServiceApiContextRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataServiceApiContextResponse
    */
   async getDataServiceApiContextWithOptions(request: GetDataServiceApiContextRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceApiContextResponse> {
     Util.validateModel(request);
@@ -3609,10 +4979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询apiContext接口
-   *
-   * @param request GetDataServiceApiContextRequest
-   * @return GetDataServiceApiContextResponse
+   * 查询apiContext接口
+   * 
+   * @param request - GetDataServiceApiContextRequest
+   * @returns GetDataServiceApiContextResponse
    */
   async getDataServiceApiContext(request: GetDataServiceApiContextRequest): Promise<GetDataServiceApiContextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3620,11 +4990,49 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询apiContext更新事件接口
-   *
-   * @param request GetDataServiceContextUpdateEventRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDataServiceContextUpdateEventResponse
+   * 新server独享资源组获取数据源信息
+   * 
+   * @param request - GetDataServiceConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataServiceConnectionResponse
+   */
+  async getDataServiceConnectionWithOptions(request: GetDataServiceConnectionRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceConnectionResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataServiceConnection",
+      version: "2018-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataServiceConnectionResponse>(await this.callApi(params, req, runtime), new GetDataServiceConnectionResponse({}));
+  }
+
+  /**
+   * 新server独享资源组获取数据源信息
+   * 
+   * @param request - GetDataServiceConnectionRequest
+   * @returns GetDataServiceConnectionResponse
+   */
+  async getDataServiceConnection(request: GetDataServiceConnectionRequest): Promise<GetDataServiceConnectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataServiceConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询apiContext更新事件接口
+   * 
+   * @param request - GetDataServiceContextUpdateEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataServiceContextUpdateEventResponse
    */
   async getDataServiceContextUpdateEventWithOptions(runtime: $Util.RuntimeOptions): Promise<GetDataServiceContextUpdateEventResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -3643,9 +5051,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询apiContext更新事件接口
-   *
-   * @return GetDataServiceContextUpdateEventResponse
+   * 查询apiContext更新事件接口
+   * @returns GetDataServiceContextUpdateEventResponse
    */
   async getDataServiceContextUpdateEvent(): Promise<GetDataServiceContextUpdateEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3653,11 +5060,49 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据Switch名称获取值
-   *
-   * @param request GetSwitchValueRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSwitchValueResponse
+   * 查询函数信息
+   * 
+   * @param request - GetDataServiceFunctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataServiceFunctionResponse
+   */
+  async getDataServiceFunctionWithOptions(request: GetDataServiceFunctionRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceFunctionResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataServiceFunction",
+      version: "2018-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataServiceFunctionResponse>(await this.callApi(params, req, runtime), new GetDataServiceFunctionResponse({}));
+  }
+
+  /**
+   * 查询函数信息
+   * 
+   * @param request - GetDataServiceFunctionRequest
+   * @returns GetDataServiceFunctionResponse
+   */
+  async getDataServiceFunction(request: GetDataServiceFunctionRequest): Promise<GetDataServiceFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataServiceFunctionWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据Switch名称获取值
+   * 
+   * @param request - GetSwitchValueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSwitchValueResponse
    */
   async getSwitchValueWithOptions(request: GetSwitchValueRequest, runtime: $Util.RuntimeOptions): Promise<GetSwitchValueResponse> {
     Util.validateModel(request);
@@ -3684,10 +5129,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据Switch名称获取值
-   *
-   * @param request GetSwitchValueRequest
-   * @return GetSwitchValueResponse
+   * 根据Switch名称获取值
+   * 
+   * @param request - GetSwitchValueRequest
+   * @returns GetSwitchValueResponse
    */
   async getSwitchValue(request: GetSwitchValueRequest): Promise<GetSwitchValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3695,11 +5140,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询timeMachine任务详情
-   *
-   * @param request GetTimeMachineTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTimeMachineTaskResponse
+   * 查询timeMachine任务详情
+   * 
+   * @param request - GetTimeMachineTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTimeMachineTaskResponse
    */
   async getTimeMachineTaskWithOptions(request: GetTimeMachineTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTimeMachineTaskResponse> {
     Util.validateModel(request);
@@ -3726,10 +5171,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询timeMachine任务详情
-   *
-   * @param request GetTimeMachineTaskRequest
-   * @return GetTimeMachineTaskResponse
+   * 查询timeMachine任务详情
+   * 
+   * @param request - GetTimeMachineTaskRequest
+   * @returns GetTimeMachineTaskResponse
    */
   async getTimeMachineTask(request: GetTimeMachineTaskRequest): Promise<GetTimeMachineTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3737,9 +5182,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListEmrHiveAuditLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListEmrHiveAuditLogsResponse
+   * @param request - ListEmrHiveAuditLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEmrHiveAuditLogsResponse
    */
   async listEmrHiveAuditLogsWithOptions(request: ListEmrHiveAuditLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListEmrHiveAuditLogsResponse> {
     Util.validateModel(request);
@@ -3790,8 +5235,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListEmrHiveAuditLogsRequest
-   * @return ListEmrHiveAuditLogsResponse
+   * @param request - ListEmrHiveAuditLogsRequest
+   * @returns ListEmrHiveAuditLogsResponse
    */
   async listEmrHiveAuditLogs(request: ListEmrHiveAuditLogsRequest): Promise<ListEmrHiveAuditLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3799,9 +5244,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListEmrHiveDatabasesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListEmrHiveDatabasesResponse
+   * @param request - ListEmrHiveDatabasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEmrHiveDatabasesResponse
    */
   async listEmrHiveDatabasesWithOptions(request: ListEmrHiveDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<ListEmrHiveDatabasesResponse> {
     Util.validateModel(request);
@@ -3828,8 +5273,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListEmrHiveDatabasesRequest
-   * @return ListEmrHiveDatabasesResponse
+   * @param request - ListEmrHiveDatabasesRequest
+   * @returns ListEmrHiveDatabasesResponse
    */
   async listEmrHiveDatabases(request: ListEmrHiveDatabasesRequest): Promise<ListEmrHiveDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3837,9 +5282,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListEmrHiveTablesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListEmrHiveTablesResponse
+   * @param request - ListEmrHiveTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEmrHiveTablesResponse
    */
   async listEmrHiveTablesWithOptions(request: ListEmrHiveTablesRequest, runtime: $Util.RuntimeOptions): Promise<ListEmrHiveTablesResponse> {
     Util.validateModel(request);
@@ -3878,8 +5323,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListEmrHiveTablesRequest
-   * @return ListEmrHiveTablesResponse
+   * @param request - ListEmrHiveTablesRequest
+   * @returns ListEmrHiveTablesResponse
    */
   async listEmrHiveTables(request: ListEmrHiveTablesRequest): Promise<ListEmrHiveTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3887,11 +5332,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询数据服务API
-   *
-   * @param request ListGovernanceIssueDataServiceAPIsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGovernanceIssueDataServiceAPIsResponse
+   * 查询数据服务API
+   * 
+   * @param request - ListGovernanceIssueDataServiceAPIsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGovernanceIssueDataServiceAPIsResponse
    */
   async listGovernanceIssueDataServiceAPIsWithOptions(request: ListGovernanceIssueDataServiceAPIsRequest, runtime: $Util.RuntimeOptions): Promise<ListGovernanceIssueDataServiceAPIsResponse> {
     Util.validateModel(request);
@@ -3942,10 +5387,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询数据服务API
-   *
-   * @param request ListGovernanceIssueDataServiceAPIsRequest
-   * @return ListGovernanceIssueDataServiceAPIsResponse
+   * 查询数据服务API
+   * 
+   * @param request - ListGovernanceIssueDataServiceAPIsRequest
+   * @returns ListGovernanceIssueDataServiceAPIsResponse
    */
   async listGovernanceIssueDataServiceAPIs(request: ListGovernanceIssueDataServiceAPIsRequest): Promise<ListGovernanceIssueDataServiceAPIsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3953,11 +5398,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询治理项问题详情
-   *
-   * @param request ListGovernanceIssueTablesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGovernanceIssueTablesResponse
+   * 查询治理项问题详情
+   * 
+   * @param request - ListGovernanceIssueTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGovernanceIssueTablesResponse
    */
   async listGovernanceIssueTablesWithOptions(request: ListGovernanceIssueTablesRequest, runtime: $Util.RuntimeOptions): Promise<ListGovernanceIssueTablesResponse> {
     Util.validateModel(request);
@@ -4008,10 +5453,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询治理项问题详情
-   *
-   * @param request ListGovernanceIssueTablesRequest
-   * @return ListGovernanceIssueTablesResponse
+   * 查询治理项问题详情
+   * 
+   * @param request - ListGovernanceIssueTablesRequest
+   * @returns ListGovernanceIssueTablesResponse
    */
   async listGovernanceIssueTables(request: ListGovernanceIssueTablesRequest): Promise<ListGovernanceIssueTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4019,11 +5464,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询治理项-任务问题详情
-   *
-   * @param request ListGovernanceIssueTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGovernanceIssueTasksResponse
+   * 查询治理项-任务问题详情
+   * 
+   * @param request - ListGovernanceIssueTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGovernanceIssueTasksResponse
    */
   async listGovernanceIssueTasksWithOptions(request: ListGovernanceIssueTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListGovernanceIssueTasksResponse> {
     Util.validateModel(request);
@@ -4074,10 +5519,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询治理项-任务问题详情
-   *
-   * @param request ListGovernanceIssueTasksRequest
-   * @return ListGovernanceIssueTasksResponse
+   * 查询治理项-任务问题详情
+   * 
+   * @param request - ListGovernanceIssueTasksRequest
+   * @returns ListGovernanceIssueTasksResponse
    */
   async listGovernanceIssueTasks(request: ListGovernanceIssueTasksRequest): Promise<ListGovernanceIssueTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4085,11 +5530,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询治理项定义信息
-   *
-   * @param request ListGovernanceRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGovernanceRulesResponse
+   * 查询治理项定义信息
+   * 
+   * @param request - ListGovernanceRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGovernanceRulesResponse
    */
   async listGovernanceRulesWithOptions(request: ListGovernanceRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListGovernanceRulesResponse> {
     Util.validateModel(request);
@@ -4128,10 +5573,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询治理项定义信息
-   *
-   * @param request ListGovernanceRulesRequest
-   * @return ListGovernanceRulesResponse
+   * 查询治理项定义信息
+   * 
+   * @param request - ListGovernanceRulesRequest
+   * @returns ListGovernanceRulesResponse
    */
   async listGovernanceRules(request: ListGovernanceRulesRequest): Promise<ListGovernanceRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4139,9 +5584,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListHiveColumnLineagesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListHiveColumnLineagesResponse
+   * @param request - ListHiveColumnLineagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHiveColumnLineagesResponse
    */
   async listHiveColumnLineagesWithOptions(request: ListHiveColumnLineagesRequest, runtime: $Util.RuntimeOptions): Promise<ListHiveColumnLineagesResponse> {
     Util.validateModel(request);
@@ -4180,8 +5625,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListHiveColumnLineagesRequest
-   * @return ListHiveColumnLineagesResponse
+   * @param request - ListHiveColumnLineagesRequest
+   * @returns ListHiveColumnLineagesResponse
    */
   async listHiveColumnLineages(request: ListHiveColumnLineagesRequest): Promise<ListHiveColumnLineagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4189,9 +5634,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListHiveTableLineagesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListHiveTableLineagesResponse
+   * @param request - ListHiveTableLineagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHiveTableLineagesResponse
    */
   async listHiveTableLineagesWithOptions(request: ListHiveTableLineagesRequest, runtime: $Util.RuntimeOptions): Promise<ListHiveTableLineagesResponse> {
     Util.validateModel(request);
@@ -4226,8 +5671,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListHiveTableLineagesRequest
-   * @return ListHiveTableLineagesResponse
+   * @param request - ListHiveTableLineagesRequest
+   * @returns ListHiveTableLineagesResponse
    */
   async listHiveTableLineages(request: ListHiveTableLineagesRequest): Promise<ListHiveTableLineagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4235,9 +5680,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTablePartitionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTablePartitionsResponse
+   * @param request - ListTablePartitionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTablePartitionsResponse
    */
   async listTablePartitionsWithOptions(request: ListTablePartitionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTablePartitionsResponse> {
     Util.validateModel(request);
@@ -4284,8 +5729,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTablePartitionsRequest
-   * @return ListTablePartitionsResponse
+   * @param request - ListTablePartitionsRequest
+   * @returns ListTablePartitionsResponse
    */
   async listTablePartitions(request: ListTablePartitionsRequest): Promise<ListTablePartitionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4293,9 +5738,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request OpenDataWorksStandardServiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenDataWorksStandardServiceResponse
+   * @param request - OpenDataWorksStandardServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenDataWorksStandardServiceResponse
    */
   async openDataWorksStandardServiceWithOptions(request: OpenDataWorksStandardServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenDataWorksStandardServiceResponse> {
     Util.validateModel(request);
@@ -4322,8 +5767,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request OpenDataWorksStandardServiceRequest
-   * @return OpenDataWorksStandardServiceResponse
+   * @param request - OpenDataWorksStandardServiceRequest
+   * @returns OpenDataWorksStandardServiceResponse
    */
   async openDataWorksStandardService(request: OpenDataWorksStandardServiceRequest): Promise<OpenDataWorksStandardServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4331,9 +5776,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SearchManualDagNodeInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchManualDagNodeInstanceResponse
+   * @param request - SearchManualDagNodeInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchManualDagNodeInstanceResponse
    */
   async searchManualDagNodeInstanceWithOptions(request: SearchManualDagNodeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SearchManualDagNodeInstanceResponse> {
     Util.validateModel(request);
@@ -4364,8 +5809,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SearchManualDagNodeInstanceRequest
-   * @return SearchManualDagNodeInstanceResponse
+   * @param request - SearchManualDagNodeInstanceRequest
+   * @returns SearchManualDagNodeInstanceResponse
    */
   async searchManualDagNodeInstance(request: SearchManualDagNodeInstanceRequest): Promise<SearchManualDagNodeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4373,9 +5818,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SendTaskMetaCallbackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SendTaskMetaCallbackResponse
+   * @param request - SendTaskMetaCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendTaskMetaCallbackResponse
    */
   async sendTaskMetaCallbackWithOptions(request: SendTaskMetaCallbackRequest, runtime: $Util.RuntimeOptions): Promise<SendTaskMetaCallbackResponse> {
     Util.validateModel(request);
@@ -4438,8 +5883,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SendTaskMetaCallbackRequest
-   * @return SendTaskMetaCallbackResponse
+   * @param request - SendTaskMetaCallbackRequest
+   * @returns SendTaskMetaCallbackResponse
    */
   async sendTaskMetaCallback(request: SendTaskMetaCallbackRequest): Promise<SendTaskMetaCallbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4447,11 +5892,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 设置Switch的值
-   *
-   * @param request SetSwitchValueRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetSwitchValueResponse
+   * 设置Switch的值
+   * 
+   * @param request - SetSwitchValueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetSwitchValueResponse
    */
   async setSwitchValueWithOptions(request: SetSwitchValueRequest, runtime: $Util.RuntimeOptions): Promise<SetSwitchValueResponse> {
     Util.validateModel(request);
@@ -4482,10 +5927,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 设置Switch的值
-   *
-   * @param request SetSwitchValueRequest
-   * @return SetSwitchValueResponse
+   * 设置Switch的值
+   * 
+   * @param request - SetSwitchValueRequest
+   * @returns SetSwitchValueResponse
    */
   async setSwitchValue(request: SetSwitchValueRequest): Promise<SetSwitchValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4493,11 +5938,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary startCollect
-   *
-   * @param request StartCollectQualityRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartCollectQualityResponse
+   * startCollect
+   * 
+   * @param request - StartCollectQualityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartCollectQualityResponse
    */
   async startCollectQualityWithOptions(request: StartCollectQualityRequest, runtime: $Util.RuntimeOptions): Promise<StartCollectQualityResponse> {
     Util.validateModel(request);
@@ -4524,10 +5969,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary startCollect
-   *
-   * @param request StartCollectQualityRequest
-   * @return StartCollectQualityResponse
+   * startCollect
+   * 
+   * @param request - StartCollectQualityRequest
+   * @returns StartCollectQualityResponse
    */
   async startCollectQuality(request: StartCollectQualityRequest): Promise<StartCollectQualityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4535,9 +5980,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartDoCheckQualityRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartDoCheckQualityResponse
+   * @param request - StartDoCheckQualityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartDoCheckQualityResponse
    */
   async startDoCheckQualityWithOptions(request: StartDoCheckQualityRequest, runtime: $Util.RuntimeOptions): Promise<StartDoCheckQualityResponse> {
     Util.validateModel(request);
@@ -4564,8 +6009,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartDoCheckQualityRequest
-   * @return StartDoCheckQualityResponse
+   * @param request - StartDoCheckQualityRequest
+   * @returns StartDoCheckQualityResponse
    */
   async startDoCheckQuality(request: StartDoCheckQualityRequest): Promise<StartDoCheckQualityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4573,9 +6018,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartTaskQualityRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartTaskQualityResponse
+   * @param request - StartTaskQualityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartTaskQualityResponse
    */
   async startTaskQualityWithOptions(request: StartTaskQualityRequest, runtime: $Util.RuntimeOptions): Promise<StartTaskQualityResponse> {
     Util.validateModel(request);
@@ -4602,8 +6047,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartTaskQualityRequest
-   * @return StartTaskQualityResponse
+   * @param request - StartTaskQualityRequest
+   * @returns StartTaskQualityResponse
    */
   async startTaskQuality(request: StartTaskQualityRequest): Promise<StartTaskQualityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4611,11 +6056,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 触发元数据的Merge操作
-   *
-   * @param request TriggerDataLoaderRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TriggerDataLoaderResponse
+   * 触发元数据的Merge操作
+   * 
+   * @param request - TriggerDataLoaderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TriggerDataLoaderResponse
    */
   async triggerDataLoaderWithOptions(runtime: $Util.RuntimeOptions): Promise<TriggerDataLoaderResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -4634,9 +6079,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 触发元数据的Merge操作
-   *
-   * @return TriggerDataLoaderResponse
+   * 触发元数据的Merge操作
+   * @returns TriggerDataLoaderResponse
    */
   async triggerDataLoader(): Promise<TriggerDataLoaderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4644,11 +6088,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 触发timeMachine任务
-   *
-   * @param request TriggerTimeMachineTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TriggerTimeMachineTaskResponse
+   * 触发timeMachine任务
+   * 
+   * @param request - TriggerTimeMachineTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TriggerTimeMachineTaskResponse
    */
   async triggerTimeMachineTaskWithOptions(runtime: $Util.RuntimeOptions): Promise<TriggerTimeMachineTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -4667,9 +6111,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 触发timeMachine任务
-   *
-   * @return TriggerTimeMachineTaskResponse
+   * 触发timeMachine任务
+   * @returns TriggerTimeMachineTaskResponse
    */
   async triggerTimeMachineTask(): Promise<TriggerTimeMachineTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
