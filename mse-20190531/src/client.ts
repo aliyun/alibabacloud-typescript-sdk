@@ -18989,6 +18989,159 @@ export class GetKubernetesSourceResponse extends $tea.Model {
   }
 }
 
+export class GetLocalityRuleRequest extends $tea.Model {
+  /**
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @example
+   * hgxznfcvbe@be2c0228f******
+   */
+  appId?: string;
+  /**
+   * @example
+   * example-app
+   */
+  appName?: string;
+  /**
+   * @example
+   * default
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @example
+   * edasmsc
+   */
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      namespace: 'Namespace',
+      region: 'Region',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      namespace: 'string',
+      region: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLocalityRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @example
+   * {
+   *   "pageNumber":0,
+   *   "namespaceId":"cn-hangzhou",
+   *   "enable":false,
+   *   "appId":"hkhon1po62@3aa3582********",
+   *   "pageSize":0,
+   *   "region":"cn-hangzhou",
+   *   "routeRules":[
+   *     {
+   *       "threshold":0.2,
+   *       "tags":[]
+   *     }
+   *   ]
+   * }
+   */
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  /**
+   * @example
+   * D3971C60-3F07-58B0-8EA0-A194********
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLocalityRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLocalityRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLocalityRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLosslessRuleByAppRequest extends $tea.Model {
   /**
    * @remarks
@@ -27695,36 +27848,18 @@ export class ListGatewayRouteResponse extends $tea.Model {
 
 export class ListGatewayRouteOnAuthRequest extends $tea.Model {
   /**
-   * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
-   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
-   * The unique ID of the gateway.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * gw-c9bc5afd61014165bd58f621b491****
    */
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The authentication method. Valid values:
-   * 
-   * *   JWT
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * JWT
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -27749,53 +27884,11 @@ export class ListGatewayRouteOnAuthRequest extends $tea.Model {
 }
 
 export class ListGatewayRouteOnAuthResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response code.
-   * 
-   * @example
-   * 200
-   */
   code?: number;
-  /**
-   * @remarks
-   * The details of the data.
-   */
   data?: ListGatewayRouteOnAuthResponseBodyData[];
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * The request is successfully processed.
-   */
   message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 58E06A0A-BD2C-47A0-99C2-B100F353****
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`
-   * *   `false`
-   * 
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -44494,6 +44587,172 @@ export class UpdateIsolationRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateIsolationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLocalityRuleRequest extends $tea.Model {
+  /**
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @example
+   * hkhon1po62@c3df23522******
+   */
+  appId?: string;
+  /**
+   * @example
+   * example-app
+   */
+  appName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @example
+   * myNamespace
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  rules?: string;
+  /**
+   * @example
+   * edasmsc
+   */
+  source?: string;
+  /**
+   * @example
+   * 0.2
+   */
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      enable: 'Enable',
+      namespace: 'Namespace',
+      region: 'Region',
+      rules: 'Rules',
+      source: 'Source',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      enable: 'boolean',
+      namespace: 'string',
+      region: 'string',
+      rules: 'string',
+      source: 'string',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLocalityRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @example
+   * {
+   *   "Message":"updateLocalityPolicy success",
+   *   "RequestId":"3B519913-7348-16AB-AD71-******",
+   *   "HttpStatusCode":200,
+   *   "Code":200,
+   *   "Success":true
+   * }
+   */
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  /**
+   * @example
+   * 78F05E89-D387-50CE-8186-2E27A8AB****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLocalityRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLocalityRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateLocalityRuleResponseBody,
     };
   }
 
@@ -65481,21 +65740,7 @@ export class ListGatewayRouteResponseBodyData extends $tea.Model {
 }
 
 export class ListGatewayRouteOnAuthResponseBodyDataRoutePredicatesPathPredicates extends $tea.Model {
-  /**
-   * @remarks
-   * The path.
-   * 
-   * @example
-   * /api
-   */
   path?: string;
-  /**
-   * @remarks
-   * The matching type.
-   * 
-   * @example
-   * PRE
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -65517,10 +65762,6 @@ export class ListGatewayRouteOnAuthResponseBodyDataRoutePredicatesPathPredicates
 }
 
 export class ListGatewayRouteOnAuthResponseBodyDataRoutePredicates extends $tea.Model {
-  /**
-   * @remarks
-   * The information about route matching.
-   */
   pathPredicates?: ListGatewayRouteOnAuthResponseBodyDataRoutePredicatesPathPredicates;
   static names(): { [key: string]: string } {
     return {
@@ -65540,68 +65781,14 @@ export class ListGatewayRouteOnAuthResponseBodyDataRoutePredicates extends $tea.
 }
 
 export class ListGatewayRouteOnAuthResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The domain ID.
-   * 
-   * @example
-   * 235
-   */
   domainId?: number;
-  /**
-   * @remarks
-   * The domain IDs.
-   */
   domainIdList?: number[];
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * 123.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The domain names.
-   */
   domainNameList?: string[];
-  /**
-   * @remarks
-   * The gateway ID.
-   * 
-   * @example
-   * 399
-   */
   gatewayId?: string;
-  /**
-   * @remarks
-   * The unique ID of the gateway.
-   * 
-   * @example
-   * gw-7ea3da97b96543e19f6c597c****
-   */
   gatewayUniqueId?: string;
-  /**
-   * @remarks
-   * The route ID.
-   * 
-   * @example
-   * 12
-   */
   id?: number;
-  /**
-   * @remarks
-   * The name of the route.
-   * 
-   * @example
-   * ceshi
-   */
   name?: string;
-  /**
-   * @remarks
-   * The information about route matching.
-   */
   routePredicates?: ListGatewayRouteOnAuthResponseBodyDataRoutePredicates;
   static names(): { [key: string]: string } {
     return {
@@ -68756,6 +68943,11 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute extend
 }
 
 export class QueryAllSwimmingLaneResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  enable?: string;
   entryRules?: QueryAllSwimmingLaneResponseBodyDataEntryRules[];
   gatewaySwimmingLaneRoute?: QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute;
   groupId?: string;
@@ -68798,6 +68990,7 @@ export class QueryAllSwimmingLaneResponseBodyData extends $tea.Model {
   gmtModified?: string;
   static names(): { [key: string]: string } {
     return {
+      enable: 'Enable',
       entryRules: 'EntryRules',
       gatewaySwimmingLaneRoute: 'GatewaySwimmingLaneRoute',
       groupId: 'GroupId',
@@ -68819,6 +69012,7 @@ export class QueryAllSwimmingLaneResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enable: 'string',
       entryRules: { 'type': 'array', 'itemType': QueryAllSwimmingLaneResponseBodyDataEntryRules },
       gatewaySwimmingLaneRoute: QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute,
       groupId: 'string',
@@ -80394,6 +80588,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取同AZ路由规则
+   * 
+   * @param request - GetLocalityRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLocalityRuleResponse
+   */
+  async getLocalityRuleWithOptions(request: GetLocalityRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetLocalityRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLocalityRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLocalityRuleResponse>(await this.callApi(params, req, runtime), new GetLocalityRuleResponse({}));
+  }
+
+  /**
+   * 获取同AZ路由规则
+   * 
+   * @param request - GetLocalityRuleRequest
+   * @returns GetLocalityRuleResponse
+   */
+  async getLocalityRule(request: GetLocalityRuleRequest): Promise<GetLocalityRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLocalityRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the rules for graceful start and shutdown of an application.
    * 
    * @remarks
@@ -83176,7 +83432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of routes for which authentication is enabled.
+   * 获取网关开启鉴权的路由
    * 
    * @param request - ListGatewayRouteOnAuthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -83215,7 +83471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of routes for which authentication is enabled.
+   * 获取网关开启鉴权的路由
    * 
    * @param request - ListGatewayRouteOnAuthRequest
    * @returns ListGatewayRouteOnAuthResponse
@@ -88545,6 +88801,80 @@ export default class Client extends OpenApi {
   async updateIsolationRule(request: UpdateIsolationRuleRequest): Promise<UpdateIsolationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIsolationRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新同AZ路由规则
+   * 
+   * @param request - UpdateLocalityRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLocalityRuleResponse
+   */
+  async updateLocalityRuleWithOptions(request: UpdateLocalityRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLocalityRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.rules)) {
+      query["Rules"] = request.rules;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateLocalityRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateLocalityRuleResponse>(await this.callApi(params, req, runtime), new UpdateLocalityRuleResponse({}));
+  }
+
+  /**
+   * 更新同AZ路由规则
+   * 
+   * @param request - UpdateLocalityRuleRequest
+   * @returns UpdateLocalityRuleResponse
+   */
+  async updateLocalityRule(request: UpdateLocalityRuleRequest): Promise<UpdateLocalityRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateLocalityRuleWithOptions(request, runtime);
   }
 
   /**
