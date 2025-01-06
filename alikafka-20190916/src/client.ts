@@ -177,6 +177,7 @@ export class ConvertPostPayOrderRequest extends $tea.Model {
    * alikafka_post-cn-v0h1fgs2****
    */
   instanceId?: string;
+  paidType?: number;
   /**
    * @remarks
    * The region ID of the instance.
@@ -191,6 +192,7 @@ export class ConvertPostPayOrderRequest extends $tea.Model {
     return {
       duration: 'Duration',
       instanceId: 'InstanceId',
+      paidType: 'PaidType',
       regionId: 'RegionId',
     };
   }
@@ -199,6 +201,7 @@ export class ConvertPostPayOrderRequest extends $tea.Model {
     return {
       duration: 'number',
       instanceId: 'string',
+      paidType: 'number',
       regionId: 'string',
     };
   }
@@ -14285,6 +14288,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.paidType)) {
+      query["PaidType"] = request.paidType;
     }
 
     if (!Util.isUnset(request.regionId)) {
