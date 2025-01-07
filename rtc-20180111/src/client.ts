@@ -13351,7 +13351,7 @@ export class DescribeAppRecordTemplatesResponseBodyTemplates extends $tea.Model 
    * @example
    * 2020-09-04T06:22:15Z
    */
-  createTime?: Buffer;
+  createTime?: string;
   /**
    * @example
    * 180
@@ -13368,7 +13368,7 @@ export class DescribeAppRecordTemplatesResponseBodyTemplates extends $tea.Model 
    */
   fileSplitInterval?: number;
   formats?: string[];
-  layoutIds?: number[];
+  layoutIds?: string[];
   /**
    * @example
    * 1
@@ -13400,12 +13400,12 @@ export class DescribeAppRecordTemplatesResponseBodyTemplates extends $tea.Model 
 
   static types(): { [key: string]: any } {
     return {
-      createTime: 'Buffer',
+      createTime: 'string',
       delayStopTime: 'number',
       filePrefix: 'string',
       fileSplitInterval: 'number',
       formats: { 'type': 'array', 'itemType': 'string' },
-      layoutIds: { 'type': 'array', 'itemType': 'number' },
+      layoutIds: { 'type': 'array', 'itemType': 'string' },
       mediaEncode: 'number',
       name: 'string',
       templateId: 'string',
