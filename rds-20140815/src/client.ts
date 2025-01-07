@@ -655,8 +655,20 @@ export class AllocateReadWriteSplittingConnectionResponse extends $tea.Model {
 }
 
 export class AssociateEipAddressWithRCInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * eip-bp166out2x4bpcf******
+   */
   allocationId?: string;
+  /**
+   * @example
+   * rc-i322y2t562oh7o******
+   */
   instanceId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -680,6 +692,10 @@ export class AssociateEipAddressWithRCInstanceRequest extends $tea.Model {
 }
 
 export class AssociateEipAddressWithRCInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EFFC7565-B3CF-5CFA-9E1F-164DD1E1F498
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -734,6 +750,8 @@ export class AttachRCDiskRequest extends $tea.Model {
   deleteWithInstance?: boolean;
   /**
    * @remarks
+   * The disk ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -742,6 +760,8 @@ export class AttachRCDiskRequest extends $tea.Model {
   diskId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -750,6 +770,8 @@ export class AttachRCDiskRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -781,6 +803,9 @@ export class AttachRCDiskRequest extends $tea.Model {
 
 export class AttachRCDiskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C19D1668-70CB-5421-AA91-D6D8EE3AB664
    */
@@ -4816,9 +4841,13 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * *   **VPC**: a virtual private cloud (VPC)
    * *   **Classic**: the classic network
    * 
-   * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-   * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-   * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+   * > 
+   * 
+   * *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+   * 
+   * *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+   * 
+   * *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
    * 
    * @example
    * Classic
@@ -4839,7 +4868,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   ioAccelerationEnabled?: string;
   /**
    * @remarks
-   * Specifies whether to enable the write optimization feature.
+   * Specifies whether to enable the write optimization feature. Valid values:
    * 
    * *   **optimized**: enables the feature.
    * *   **none**: disables the feature.
@@ -5700,9 +5729,13 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * *   **VPC**: a virtual private cloud (VPC)
    * *   **Classic**: the classic network
    * 
-   * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-   * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-   * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+   * > 
+   * 
+   * *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+   * 
+   * *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+   * 
+   * *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
    * 
    * @example
    * Classic
@@ -5723,7 +5756,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   ioAccelerationEnabled?: string;
   /**
    * @remarks
-   * Specifies whether to enable the write optimization feature.
+   * Specifies whether to enable the write optimization feature. Valid values:
    * 
    * *   **optimized**: enables the feature.
    * *   **none**: disables the feature.
@@ -10542,6 +10575,7 @@ export class CreateRCNodePoolRequest extends $tea.Model {
   securityEnhancementStrategy?: string;
   securityGroupId?: string;
   spotStrategy?: string;
+  supportCase?: string;
   systemDisk?: CreateRCNodePoolRequestSystemDisk;
   tag?: CreateRCNodePoolRequestTag[];
   /**
@@ -10580,6 +10614,7 @@ export class CreateRCNodePoolRequest extends $tea.Model {
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       spotStrategy: 'SpotStrategy',
+      supportCase: 'SupportCase',
       systemDisk: 'SystemDisk',
       tag: 'Tag',
       vSwitchId: 'VSwitchId',
@@ -10617,6 +10652,7 @@ export class CreateRCNodePoolRequest extends $tea.Model {
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       spotStrategy: 'string',
+      supportCase: 'string',
       systemDisk: CreateRCNodePoolRequestSystemDisk,
       tag: { 'type': 'array', 'itemType': CreateRCNodePoolRequestTag },
       vSwitchId: 'string',
@@ -10670,6 +10706,7 @@ export class CreateRCNodePoolShrinkRequest extends $tea.Model {
   securityEnhancementStrategy?: string;
   securityGroupId?: string;
   spotStrategy?: string;
+  supportCase?: string;
   systemDiskShrink?: string;
   tag?: CreateRCNodePoolShrinkRequestTag[];
   /**
@@ -10708,6 +10745,7 @@ export class CreateRCNodePoolShrinkRequest extends $tea.Model {
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       spotStrategy: 'SpotStrategy',
+      supportCase: 'SupportCase',
       systemDiskShrink: 'SystemDisk',
       tag: 'Tag',
       vSwitchId: 'VSwitchId',
@@ -10745,6 +10783,7 @@ export class CreateRCNodePoolShrinkRequest extends $tea.Model {
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       spotStrategy: 'string',
+      supportCase: 'string',
       systemDiskShrink: 'string',
       tag: { 'type': 'array', 'itemType': CreateRCNodePoolShrinkRequestTag },
       vSwitchId: 'string',
@@ -27099,112 +27138,6 @@ export class DescribeDetachedBackupsResponse extends $tea.Model {
   }
 }
 
-export class DescribeDiagnosticReportListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rm-uf6wjk5xxxxxxx
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-acfmy*****
-   */
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiagnosticReportListResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * rm-uf6wjk5*****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The details of a diagnostic report.
-   */
-  reportList?: DescribeDiagnosticReportListResponseBodyReportList[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * B7E9A79C-DE1B-4398-845F-D654FC0958BD
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      reportList: 'ReportList',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      reportList: { 'type': 'array', 'itemType': DescribeDiagnosticReportListResponseBodyReportList },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiagnosticReportListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDiagnosticReportListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDiagnosticReportListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeErrorLogsRequest extends $tea.Model {
   /**
    * @remarks
@@ -38814,7 +38747,7 @@ export class DescribeTasksRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Valid values: any non-zero positive integer. Default value: **1**.
+   * The page number. Pages start from page 1. Default value: **1**.
    * 
    * @example
    * 1
@@ -46437,6 +46370,113 @@ export class ModifyDBInstancePayTypeResponse extends $tea.Model {
   }
 }
 
+export class ModifyDBInstanceReplicationSwitchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rm-bp*****
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ON
+   */
+  externalReplication?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-acfmy****
+   */
+  resourceGroupId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      externalReplication: 'ExternalReplication',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      externalReplication: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceReplicationSwitchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9F8C06AD-3F37-57A0-ABBF-ABD7824F55CE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceReplicationSwitchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceReplicationSwitchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBInstanceReplicationSwitchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBInstanceSSLRequest extends $tea.Model {
   /**
    * @remarks
@@ -46950,6 +46990,15 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * true
    */
   coldDataEnabled?: boolean;
+  /**
+   * @remarks
+   * Whether to enable storage compression.
+   * - on: Enable
+   * - off: Disable
+   * 
+   * @example
+   * on
+   */
   compressionMode?: string;
   /**
    * @remarks
@@ -47346,6 +47395,15 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * true
    */
   coldDataEnabled?: boolean;
+  /**
+   * @remarks
+   * Whether to enable storage compression.
+   * - on: Enable
+   * - off: Disable
+   * 
+   * @example
+   * on
+   */
   compressionMode?: string;
   /**
    * @remarks
@@ -55623,31 +55681,52 @@ export class RenewInstanceResponse extends $tea.Model {
 
 export class ReplaceRCInstanceSystemDiskRequest extends $tea.Model {
   /**
+   * @remarks
+   * The image ID that is used when you reinstall the OS.
+   * 
    * @example
    * m-2zec4lvlhcdkyd13****
    */
   imageId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rc-m5ei7b1w38w2l91x****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
    * @example
    * None
    */
   isLocalDisk?: boolean;
   /**
+   * @remarks
+   * The name of the new key pair. If you do not specify this parameter, you must reset the key pair after the OS is reinstalled.
+   * 
    * @example
    * testKeyPairName
    */
   keyPairName?: string;
   /**
+   * @remarks
+   * The new logon password of the RDS Custom instance. If you do not specify this parameter, you must reset the logon password after the OS is reinstalled.
+   * 
+   * *   The value must be 8 to 30 characters in length.
+   * *   The value must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Supported special characters include: ( ) \\` ~ ! @ # $ % ^ & \\* - _ + =
+   * 
    * @example
    * testPassword
    */
   password?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
@@ -55681,6 +55760,9 @@ export class ReplaceRCInstanceSystemDiskRequest extends $tea.Model {
 
 export class ReplaceRCInstanceSystemDiskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8B993DA9-5272-5414-94E3-4CA8BA0146C2
    */
@@ -56842,6 +56924,7 @@ export class RunRCInstancesRequest extends $tea.Model {
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  createAckEdgeParam?: RunRCInstancesRequestCreateAckEdgeParam;
   createExtraParam?: string;
   createMode?: string;
   /**
@@ -57035,6 +57118,7 @@ export class RunRCInstancesRequest extends $tea.Model {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       clientToken: 'ClientToken',
+      createAckEdgeParam: 'CreateAckEdgeParam',
       createExtraParam: 'CreateExtraParam',
       createMode: 'CreateMode',
       dataDisk: 'DataDisk',
@@ -57072,6 +57156,7 @@ export class RunRCInstancesRequest extends $tea.Model {
       autoPay: 'boolean',
       autoRenew: 'boolean',
       clientToken: 'string',
+      createAckEdgeParam: RunRCInstancesRequestCreateAckEdgeParam,
       createExtraParam: 'string',
       createMode: 'string',
       dataDisk: { 'type': 'array', 'itemType': RunRCInstancesRequestDataDisk },
@@ -57153,6 +57238,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  createAckEdgeParamShrink?: string;
   createExtraParam?: string;
   createMode?: string;
   /**
@@ -57346,6 +57432,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       clientToken: 'ClientToken',
+      createAckEdgeParamShrink: 'CreateAckEdgeParam',
       createExtraParam: 'CreateExtraParam',
       createMode: 'CreateMode',
       dataDiskShrink: 'DataDisk',
@@ -57383,6 +57470,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       autoPay: 'boolean',
       autoRenew: 'boolean',
       clientToken: 'string',
+      createAckEdgeParamShrink: 'string',
       createExtraParam: 'string',
       createMode: 'string',
       dataDiskShrink: 'string',
@@ -58543,8 +58631,29 @@ export class SyncRCKeyPairResponse extends $tea.Model {
 }
 
 export class SyncRCSecurityGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rc-i322y2t562oh7o******
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-bp196e4d2ndjgy******
+   */
   securityGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58568,6 +58677,13 @@ export class SyncRCSecurityGroupRequest extends $tea.Model {
 }
 
 export class SyncRCSecurityGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 300333A0-68E5-59CE-94AD-75153D17639E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59071,8 +59187,29 @@ export class TransformDBInstancePayTypeResponse extends $tea.Model {
 }
 
 export class UnassociateEipAddressWithRCInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The EIP ID.
+   * 
+   * @example
+   * eip-bp166out2x4bpcf******
+   */
   allocationId?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rc-i322y2t562oh7o******
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59096,6 +59233,13 @@ export class UnassociateEipAddressWithRCInstanceRequest extends $tea.Model {
 }
 
 export class UnassociateEipAddressWithRCInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CDEAC7BF-D64B-54A1-9051-BE9AC0990E68
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -60941,8 +61085,11 @@ export class CreateDBInstanceRequestServerlessConfig extends $tea.Model {
    * *   **true**
    * *   **false** (default)
    * 
-   * > *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. If you set this parameter to true, a service interruption that lasts approximately 30 to 120 seconds occurs during forced scaling. Process with caution.
-   * > *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
+   * > 
+   * 
+   * *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. If you set this parameter to true, a service interruption that lasts approximately 30 to 120 seconds occurs during forced scaling. Process with caution.
+   * 
+   * *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
    * 
    * @example
    * false
@@ -65897,7 +66044,21 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * Chinese_PRC_CI_AS
    */
   collation?: string;
+  /**
+   * @remarks
+   * The storage compression mode.
+   * 
+   * @example
+   * on, off
+   */
   compressionMode?: string;
+  /**
+   * @remarks
+   * The storage compression ratio.
+   * 
+   * @example
+   * 1.25
+   */
   compressionRatio?: string;
   /**
    * @remarks
@@ -66419,6 +66580,13 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * Disabled
    */
   superPermissionMode?: string;
+  /**
+   * @remarks
+   * Indicates whether the storage compression mode can be enabled for the instance.
+   * 
+   * @example
+   * true, false
+   */
   supportCompression?: boolean;
   /**
    * @remarks
@@ -72257,72 +72425,6 @@ export class DescribeDetachedBackupsResponseBodyItems extends $tea.Model {
   }
 }
 
-export class DescribeDiagnosticReportListResponseBodyReportList extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the diagnosis was performed.
-   * 
-   * @example
-   * 2018-01-17T12:46:09Z
-   */
-  diagnosticTime?: string;
-  /**
-   * @remarks
-   * The URL that is used to download the backup set over the Internet. If the backup set cannot be downloaded, an empty string is returned.
-   * 
-   * @example
-   * http://rdsreport-hz-v3.oss-cn-hangzhou.aliyuncs.com/xxxxx
-   */
-  downloadURL?: string;
-  /**
-   * @remarks
-   * The end time of the monitoring data.
-   * 
-   * @example
-   * 2018-01-10T15:31:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The diagnostic score.
-   * 
-   * @example
-   * 100
-   */
-  score?: number;
-  /**
-   * @remarks
-   * The start time of the monitoring data.
-   * 
-   * @example
-   * 2018-01-10T15:30:00Z
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diagnosticTime: 'DiagnosticTime',
-      downloadURL: 'DownloadURL',
-      endTime: 'EndTime',
-      score: 'Score',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diagnosticTime: 'string',
-      downloadURL: 'string',
-      endTime: 'string',
-      score: 'number',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeErrorLogsResponseBodyItemsErrorLog extends $tea.Model {
   /**
    * @remarks
@@ -77205,7 +77307,7 @@ export class DescribeRCDisksResponseBodyDisks extends $tea.Model {
    * @remarks
    * The billing method of the disk.
    * 
-   * PostPaid: pay-as-you-go
+   * Only **PostPaid** (pay-as-you-go) is supported.
    * 
    * @example
    * PostPaid
@@ -77248,7 +77350,7 @@ export class DescribeRCDisksResponseBodyDisks extends $tea.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Storage capacity - Baseline performance}. Baseline performance = min{1,800 + 50 × Storage capacity, 50,000}.
+   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × *Capacity - Baseline performance}. Baseline performance = min{1,800 + 50 × *Capacity, 50,000}
    * 
    * This parameter is available only when the `Category` parameter is set to `cloud_auto`.
    * 
@@ -78485,6 +78587,9 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $tea.Model {
   /**
    * @remarks
    * The snapshot name.
+   * 
+   * @example
+   * s-2ze8klip00xcogcwer76
    */
   snapshotName?: string;
   /**
@@ -83578,6 +83683,28 @@ export class RemoveTagsFromResourceRequestTag extends $tea.Model {
   }
 }
 
+export class RunRCInstancesRequestCreateAckEdgeParam extends $tea.Model {
+  clusterId?: string;
+  nodePoolId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      nodePoolId: 'NodePoolId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      nodePoolId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunRCInstancesRequestDataDisk extends $tea.Model {
   /**
    * @remarks
@@ -84337,7 +84464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 挂载RC云盘
+   * Attaches a pay-as-you-go data disk or a system disk to an RDS Custom instance. The instance and the disk must reside in the same zone.
    * 
    * @param request - AttachRCDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -84380,7 +84507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 挂载RC云盘
+   * Attaches a pay-as-you-go data disk or a system disk to an RDS Custom instance. The instance and the disk must reside in the same zone.
    * 
    * @param request - AttachRCDiskRequest
    * @returns AttachRCDiskResponse
@@ -88352,6 +88479,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.spotStrategy)) {
       query["SpotStrategy"] = request.spotStrategy;
+    }
+
+    if (!Util.isUnset(request.supportCase)) {
+      query["SupportCase"] = request.supportCase;
     }
 
     if (!Util.isUnset(request.systemDiskShrink)) {
@@ -96146,64 +96277,6 @@ export default class Client extends OpenApi {
   async describeDetachedBackups(request: DescribeDetachedBackupsRequest): Promise<DescribeDetachedBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDetachedBackupsWithOptions(request, runtime);
-  }
-
-  /**
-   * Queries the information about diagnostics reports.
-   * 
-   * @remarks
-   * >  This operation is phased out.
-   * 
-   * @deprecated OpenAPI DescribeDiagnosticReportList is deprecated
-   * 
-   * @param request - DescribeDiagnosticReportListRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeDiagnosticReportListResponse
-   */
-  // Deprecated
-  async describeDiagnosticReportListWithOptions(request: DescribeDiagnosticReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosticReportListResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDiagnosticReportList",
-      version: "2014-08-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDiagnosticReportListResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosticReportListResponse({}));
-  }
-
-  /**
-   * Queries the information about diagnostics reports.
-   * 
-   * @remarks
-   * >  This operation is phased out.
-   * 
-   * @deprecated OpenAPI DescribeDiagnosticReportList is deprecated
-   * 
-   * @param request - DescribeDiagnosticReportListRequest
-   * @returns DescribeDiagnosticReportListResponse
-   */
-  // Deprecated
-  async describeDiagnosticReportList(request: DescribeDiagnosticReportListRequest): Promise<DescribeDiagnosticReportListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDiagnosticReportListWithOptions(request, runtime);
   }
 
   /**
@@ -105445,6 +105518,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改数据库复制
+   * 
+   * @param request - ModifyDBInstanceReplicationSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBInstanceReplicationSwitchResponse
+   */
+  async modifyDBInstanceReplicationSwitchWithOptions(request: ModifyDBInstanceReplicationSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceReplicationSwitchResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.externalReplication)) {
+      query["ExternalReplication"] = request.externalReplication;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceReplicationSwitch",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceReplicationSwitchResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceReplicationSwitchResponse({}));
+  }
+
+  /**
+   * 修改数据库复制
+   * 
+   * @param request - ModifyDBInstanceReplicationSwitchRequest
+   * @returns ModifyDBInstanceReplicationSwitchResponse
+   */
+  async modifyDBInstanceReplicationSwitch(request: ModifyDBInstanceReplicationSwitchRequest): Promise<ModifyDBInstanceReplicationSwitchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBInstanceReplicationSwitchWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the SSL encryption settings of an instance.
    * 
    * @remarks
@@ -108298,13 +108429,10 @@ export default class Client extends OpenApi {
    * Enables or disables the SQL Explorer (SQL Audit) feature for an instance.
    * 
    * @remarks
-   * ### [](#)Supported database engines
-   * *   MySQL
-   * *   PostgreSQL
-   * *   SQL Server
-   * >  If DAS Enterprise Edition is supported in the region in which the instance resides, the most recent version of DAS Enterprise Edition is enabled when you call the operation to enable the SQL Audit feature for the instance. For more information about the database engines and regions supported by each version of DAS Enterprise Edition, see [Supported databases and regions](https://help.aliyun.com/document_detail/156204.html).
+   * ### [](#)Note:
+   * This operation is no longer maintained. We recommend that you enable or configure Database Autonomy Service (DAS) Enterprise Edition. For more information, see [Enable or configure DAS Enterprise Edition](https://help.aliyun.com/document_detail/2778835.html).
    * ### [](#)References
-   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
    * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/476574.html)
    * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96766.html)
    * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95712.html)
@@ -108365,13 +108493,10 @@ export default class Client extends OpenApi {
    * Enables or disables the SQL Explorer (SQL Audit) feature for an instance.
    * 
    * @remarks
-   * ### [](#)Supported database engines
-   * *   MySQL
-   * *   PostgreSQL
-   * *   SQL Server
-   * >  If DAS Enterprise Edition is supported in the region in which the instance resides, the most recent version of DAS Enterprise Edition is enabled when you call the operation to enable the SQL Audit feature for the instance. For more information about the database engines and regions supported by each version of DAS Enterprise Edition, see [Supported databases and regions](https://help.aliyun.com/document_detail/156204.html).
+   * ### [](#)Note:
+   * This operation is no longer maintained. We recommend that you enable or configure Database Autonomy Service (DAS) Enterprise Edition. For more information, see [Enable or configure DAS Enterprise Edition](https://help.aliyun.com/document_detail/2778835.html).
    * ### [](#)References
-   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
    * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/476574.html)
    * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96766.html)
    * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95712.html)
@@ -109961,7 +110086,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更换rds custom实例系统盘
+   * Reinstalls the operating system (OS) of an RDS Custom instance.
+   * 
+   * @remarks
+   *   The instance must be in the Stopped state.
+   * *   If you reinstall the system, the data on the original system disk is lost. Exercise caution when you perform this operation.
    * 
    * @param request - ReplaceRCInstanceSystemDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -110012,7 +110141,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更换rds custom实例系统盘
+   * Reinstalls the operating system (OS) of an RDS Custom instance.
+   * 
+   * @remarks
+   *   The instance must be in the Stopped state.
+   * *   If you reinstall the system, the data on the original system disk is lost. Exercise caution when you perform this operation.
    * 
    * @param request - ReplaceRCInstanceSystemDiskRequest
    * @returns ReplaceRCInstanceSystemDiskResponse
@@ -110742,6 +110875,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new RunRCInstancesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.createAckEdgeParam)) {
+      request.createAckEdgeParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createAckEdgeParam, "CreateAckEdgeParam", "json");
+    }
+
     if (!Util.isUnset(tmpReq.dataDisk)) {
       request.dataDiskShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataDisk, "DataDisk", "json");
     }
@@ -110765,6 +110902,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.createAckEdgeParamShrink)) {
+      query["CreateAckEdgeParam"] = request.createAckEdgeParamShrink;
     }
 
     if (!Util.isUnset(request.createExtraParam)) {
@@ -111533,7 +111674,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步RDS Custom的安全组
+   * Adds security group rules to an RDS Custom for SQL Server instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * SQL Server
+   * ### [](#)References
+   * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
    * 
    * @param request - SyncRCSecurityGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -111572,7 +111719,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步RDS Custom的安全组
+   * Adds security group rules to an RDS Custom for SQL Server instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * SQL Server
+   * ### [](#)References
+   * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
    * 
    * @param request - SyncRCSecurityGroupRequest
    * @returns SyncRCSecurityGroupResponse
@@ -111857,7 +112010,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑RDS Custom实例的弹性公网
+   * Unbinds a elastic IP address (EIP) from an RDS Custom for SQL Server instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * SQL Server
+   * ### [](#)References
+   * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
    * 
    * @param request - UnassociateEipAddressWithRCInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -111896,7 +112055,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑RDS Custom实例的弹性公网
+   * Unbinds a elastic IP address (EIP) from an RDS Custom for SQL Server instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * SQL Server
+   * ### [](#)References
+   * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
    * 
    * @param request - UnassociateEipAddressWithRCInstanceRequest
    * @returns UnassociateEipAddressWithRCInstanceResponse
