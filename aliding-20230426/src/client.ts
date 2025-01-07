@@ -20725,6 +20725,11 @@ export class GetOrgOrWebOpenDocContentTaskIdRequest extends $tea.Model {
   generateCp?: boolean;
   /**
    * @example
+   * 0
+   */
+  scopeType?: number;
+  /**
+   * @example
    * markdown
    */
   targetFormat?: string;
@@ -20733,6 +20738,7 @@ export class GetOrgOrWebOpenDocContentTaskIdRequest extends $tea.Model {
     return {
       dentryUuid: 'DentryUuid',
       generateCp: 'GenerateCp',
+      scopeType: 'ScopeType',
       targetFormat: 'TargetFormat',
       tenantContext: 'TenantContext',
     };
@@ -20742,6 +20748,7 @@ export class GetOrgOrWebOpenDocContentTaskIdRequest extends $tea.Model {
     return {
       dentryUuid: 'string',
       generateCp: 'boolean',
+      scopeType: 'number',
       targetFormat: 'string',
       tenantContext: GetOrgOrWebOpenDocContentTaskIdRequestTenantContext,
     };
@@ -20764,6 +20771,11 @@ export class GetOrgOrWebOpenDocContentTaskIdShrinkRequest extends $tea.Model {
   generateCp?: boolean;
   /**
    * @example
+   * 0
+   */
+  scopeType?: number;
+  /**
+   * @example
    * markdown
    */
   targetFormat?: string;
@@ -20772,6 +20784,7 @@ export class GetOrgOrWebOpenDocContentTaskIdShrinkRequest extends $tea.Model {
     return {
       dentryUuid: 'DentryUuid',
       generateCp: 'GenerateCp',
+      scopeType: 'ScopeType',
       targetFormat: 'TargetFormat',
       tenantContextShrink: 'TenantContext',
     };
@@ -20781,6 +20794,7 @@ export class GetOrgOrWebOpenDocContentTaskIdShrinkRequest extends $tea.Model {
     return {
       dentryUuid: 'string',
       generateCp: 'boolean',
+      scopeType: 'number',
       targetFormat: 'string',
       tenantContextShrink: 'string',
     };
@@ -79876,6 +79890,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.generateCp)) {
       body["GenerateCp"] = request.generateCp;
+    }
+
+    if (!Util.isUnset(request.scopeType)) {
+      body["ScopeType"] = request.scopeType;
     }
 
     if (!Util.isUnset(request.targetFormat)) {
