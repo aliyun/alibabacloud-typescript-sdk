@@ -7203,6 +7203,7 @@ export class CarBillSettlementQueryHeaders extends $tea.Model {
 }
 
 export class CarBillSettlementQueryRequest extends $tea.Model {
+  billBatch?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -7220,36 +7221,38 @@ export class CarBillSettlementQueryRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2022-07-01
    */
   periodEnd?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2022-07-01
    */
   periodStart?: string;
+  scrollId?: string;
+  scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {
+      billBatch: 'bill_batch',
       pageNo: 'page_no',
       pageSize: 'page_size',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
+      scrollMod: 'scroll_mod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billBatch: 'string',
       pageNo: 'number',
       pageSize: 'number',
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
+      scrollMod: 'boolean',
     };
   }
 
@@ -8404,6 +8407,7 @@ export class CooperatorFlightBillSettlementQueryHeaders extends $tea.Model {
 }
 
 export class CooperatorFlightBillSettlementQueryRequest extends $tea.Model {
+  billBatch?: string;
   /**
    * @example
    * cooperator_alibtrip
@@ -8426,38 +8430,40 @@ export class CooperatorFlightBillSettlementQueryRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2021-10-02
    */
   periodEnd?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2021-10-01
    */
   periodStart?: string;
+  scrollId?: string;
+  scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {
+      billBatch: 'bill_batch',
       cooperatorId: 'cooperator_id',
       pageNo: 'page_no',
       pageSize: 'page_size',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
+      scrollMod: 'scroll_mod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billBatch: 'string',
       cooperatorId: 'string',
       pageNo: 'number',
       pageSize: 'number',
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
+      scrollMod: 'boolean',
     };
   }
 
@@ -8571,6 +8577,7 @@ export class CooperatorHotelBillSettlementQueryHeaders extends $tea.Model {
 }
 
 export class CooperatorHotelBillSettlementQueryRequest extends $tea.Model {
+  billBatch?: string;
   /**
    * @example
    * cooperator_alibtrip
@@ -8593,9 +8600,6 @@ export class CooperatorHotelBillSettlementQueryRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2021-10-02
    */
@@ -8605,23 +8609,31 @@ export class CooperatorHotelBillSettlementQueryRequest extends $tea.Model {
    * 2021-10-01
    */
   periodStart?: string;
+  scrollId?: string;
+  scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {
+      billBatch: 'bill_batch',
       cooperatorId: 'cooperator_id',
       pageNo: 'page_no',
       pageSize: 'page_size',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
+      scrollMod: 'scroll_mod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billBatch: 'string',
       cooperatorId: 'string',
       pageNo: 'number',
       pageSize: 'number',
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
+      scrollMod: 'boolean',
     };
   }
 
@@ -12751,6 +12763,7 @@ export class FlightBillSettlementQueryHeaders extends $tea.Model {
 }
 
 export class FlightBillSettlementQueryRequest extends $tea.Model {
+  billBatch?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -12768,36 +12781,38 @@ export class FlightBillSettlementQueryRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2021-10-01
    */
   periodEnd?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2021-10-01
    */
   periodStart?: string;
+  scrollId?: string;
+  scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {
+      billBatch: 'bill_batch',
       pageNo: 'page_no',
       pageSize: 'page_size',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
+      scrollMod: 'scroll_mod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billBatch: 'string',
       pageNo: 'number',
       pageSize: 'number',
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
+      scrollMod: 'boolean',
     };
   }
 
@@ -19260,6 +19275,199 @@ export class FlightSearchListResponse extends $tea.Model {
   }
 }
 
+export class FuPointBillSettlementQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * feth00jqwls
+   */
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FuPointBillSettlementQueryRequest extends $tea.Model {
+  /**
+   * @example
+   * 20240101
+   */
+  billBatch?: string;
+  /**
+   * @example
+   * cooperator_alibtrip
+   */
+  cooperatorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 2021-10-02
+   */
+  periodEnd?: string;
+  /**
+   * @example
+   * 2021-10-01
+   */
+  periodStart?: string;
+  /**
+   * @example
+   * 1qwe
+   */
+  scrollId?: string;
+  /**
+   * @example
+   * true
+   */
+  scrollMod?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      billBatch: 'bill_batch',
+      cooperatorId: 'cooperator_id',
+      pageNo: 'page_no',
+      pageSize: 'page_size',
+      periodEnd: 'period_end',
+      periodStart: 'period_start',
+      scrollId: 'scroll_id',
+      scrollMod: 'scroll_mod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billBatch: 'string',
+      cooperatorId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      periodEnd: 'string',
+      periodStart: 'string',
+      scrollId: 'string',
+      scrollMod: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FuPointBillSettlementQueryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
+  code?: number;
+  /**
+   * @remarks
+   * module。
+   */
+  module?: FuPointBillSettlementQueryResponseBodyModule;
+  /**
+   * @example
+   * true
+   */
+  morePage?: boolean;
+  /**
+   * @example
+   * 210bc22017109867047728291dd406
+   */
+  requestId?: string;
+  resultMsg?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @remarks
+   * trace_id
+   * 
+   * @example
+   * 213e382517240341253056547e41fc
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      module: 'module',
+      morePage: 'more_page',
+      requestId: 'requestId',
+      resultMsg: 'result_msg',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      module: FuPointBillSettlementQueryResponseBodyModule,
+      morePage: 'boolean',
+      requestId: 'string',
+      resultMsg: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FuPointBillSettlementQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FuPointBillSettlementQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FuPointBillSettlementQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GroupCorpTokenHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -20205,6 +20413,7 @@ export class HotelBillSettlementQueryHeaders extends $tea.Model {
 }
 
 export class HotelBillSettlementQueryRequest extends $tea.Model {
+  billBatch?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -20222,36 +20431,38 @@ export class HotelBillSettlementQueryRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2021-10-02
    */
   periodEnd?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2021-10-01
    */
   periodStart?: string;
+  scrollId?: string;
+  scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {
+      billBatch: 'bill_batch',
       pageNo: 'page_no',
       pageSize: 'page_size',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
+      scrollMod: 'scroll_mod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billBatch: 'string',
       pageNo: 'number',
       pageSize: 'number',
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
+      scrollMod: 'boolean',
     };
   }
 
@@ -24604,6 +24815,7 @@ export class IeFlightBillSettlementQueryHeaders extends $tea.Model {
 }
 
 export class IeFlightBillSettlementQueryRequest extends $tea.Model {
+  billBatch?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -24621,36 +24833,38 @@ export class IeFlightBillSettlementQueryRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2021-10-02
    */
   periodEnd?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2021-10-01
    */
   periodStart?: string;
+  scrollId?: string;
+  scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {
+      billBatch: 'bill_batch',
       pageNo: 'page_no',
       pageSize: 'page_size',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
+      scrollMod: 'scroll_mod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billBatch: 'string',
       pageNo: 'number',
       pageSize: 'number',
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
+      scrollMod: 'boolean',
     };
   }
 
@@ -24768,6 +24982,7 @@ export class IeHotelBillSettlementQueryHeaders extends $tea.Model {
 }
 
 export class IeHotelBillSettlementQueryRequest extends $tea.Model {
+  billBatch?: string;
   /**
    * @example
    * 12
@@ -24787,38 +25002,40 @@ export class IeHotelBillSettlementQueryRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2021-10-02
    */
   periodEnd?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2021-10-01
    */
   periodStart?: string;
+  scrollId?: string;
+  scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {
+      billBatch: 'bill_batch',
       category: 'category',
       pageNo: 'page_no',
       pageSize: 'page_size',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
+      scrollMod: 'scroll_mod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billBatch: 'string',
       category: 'number',
       pageNo: 'number',
       pageSize: 'number',
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
+      scrollMod: 'boolean',
     };
   }
 
@@ -30015,6 +30232,7 @@ export class MealBillSettlementQueryHeaders extends $tea.Model {
 }
 
 export class MealBillSettlementQueryRequest extends $tea.Model {
+  billBatch?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -30032,36 +30250,38 @@ export class MealBillSettlementQueryRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2022-07-02
    */
   periodEnd?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2022-07-01
    */
   periodStart?: string;
+  scrollId?: string;
+  scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {
+      billBatch: 'bill_batch',
       pageNo: 'page_no',
       pageSize: 'page_size',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
+      scrollMod: 'scroll_mod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billBatch: 'string',
       pageNo: 'number',
       pageSize: 'number',
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
+      scrollMod: 'boolean',
     };
   }
 
@@ -30565,6 +30785,7 @@ export class MonthBillGetHeaders extends $tea.Model {
 }
 
 export class MonthBillGetRequest extends $tea.Model {
+  billBatch?: string;
   /**
    * @example
    * 202207
@@ -30572,12 +30793,14 @@ export class MonthBillGetRequest extends $tea.Model {
   billMonth?: string;
   static names(): { [key: string]: string } {
     return {
+      billBatch: 'bill_batch',
       billMonth: 'bill_month',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billBatch: 'string',
       billMonth: 'string',
     };
   }
@@ -30654,6 +30877,140 @@ export class MonthBillGetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: MonthBillGetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OrderRefundDetailQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * feth00jqwls
+   */
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OrderRefundDetailQueryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ZLJD12241231000002
+   */
+  cooperatorOrderId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1012000000000000
+   */
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cooperatorOrderId: 'cooperator_order_id',
+      orderId: 'order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cooperatorOrderId: 'string',
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OrderRefundDetailQueryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 8CA36096-1FEE-5756-86DD-D195FEDE080E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
+  code?: string;
+  /**
+   * @example
+   * true
+   */
+  message?: string;
+  module?: OrderRefundDetailQueryResponseBodyModule;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'string',
+      message: 'string',
+      module: OrderRefundDetailQueryResponseBodyModule,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OrderRefundDetailQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OrderRefundDetailQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OrderRefundDetailQueryResponseBody,
     };
   }
 
@@ -31113,6 +31470,133 @@ export class ProjectModifyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ProjectModifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCorpDetailInfoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * aqfr****21
+   */
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCorpDetailInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * btripxxxxxx
+   */
+  targetCorpId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      targetCorpId: 'target_corp_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetCorpId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCorpDetailInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
+  code?: string;
+  message?: string;
+  module?: QueryCorpDetailInfoResponseBodyModule;
+  /**
+   * @example
+   * C61ECFF6-****-****-****-D77369043A5F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 21041ce********056433edbb2
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: QueryCorpDetailInfoResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCorpDetailInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCorpDetailInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCorpDetailInfoResponseBody,
     };
   }
 
@@ -33801,6 +34285,7 @@ export class TrainBillSettlementQueryHeaders extends $tea.Model {
 }
 
 export class TrainBillSettlementQueryRequest extends $tea.Model {
+  billBatch?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -33818,36 +34303,38 @@ export class TrainBillSettlementQueryRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2021-10-02
    */
   periodEnd?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2021-10-01
    */
   periodStart?: string;
+  scrollId?: string;
+  scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {
+      billBatch: 'bill_batch',
       pageNo: 'page_no',
       pageSize: 'page_size',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
+      scrollMod: 'scroll_mod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billBatch: 'string',
       pageNo: 'number',
       pageSize: 'number',
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
+      scrollMod: 'boolean',
     };
   }
 
@@ -44980,6 +45467,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
   capitalDirection?: string;
   carLevel?: string;
   cascadeDepartment?: string;
+  categoryDesc?: string;
   costCenter?: string;
   /**
    * @example
@@ -45029,6 +45517,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
    * 40107
    */
   feeType?: string;
+  feeTypeDesc?: string;
   /**
    * @example
    * 4988580
@@ -45086,6 +45575,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
    * 12.7
    */
   serviceFee?: number;
+  settleTypeDesc?: string;
   /**
    * @example
    * 5
@@ -45113,6 +45603,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
    * 1
    */
   status?: number;
+  statusDesc?: string;
   /**
    * @example
    * 123123232
@@ -45129,6 +45620,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
   taxRate?: string;
   thirdItineraryId?: string;
   timeType?: string;
+  tradeActionDesc?: string;
   travelerId?: string;
   /**
    * @example
@@ -45171,6 +45663,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       capitalDirection: 'capital_direction',
       carLevel: 'car_level',
       cascadeDepartment: 'cascade_department',
+      categoryDesc: 'category_desc',
       costCenter: 'cost_center',
       costCenterNumber: 'cost_center_number',
       coupon: 'coupon',
@@ -45188,6 +45681,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       estimateDriveDistance: 'estimate_drive_distance',
       estimatePrice: 'estimate_price',
       feeType: 'fee_type',
+      feeTypeDesc: 'fee_type_desc',
       index: 'index',
       invoiceTitle: 'invoice_title',
       levelName: 'level_name',
@@ -45209,6 +45703,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       sceneId: 'scene_id',
       sceneName: 'scene_name',
       serviceFee: 'service_fee',
+      settleTypeDesc: 'settle_type_desc',
       settlementFee: 'settlement_fee',
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
@@ -45216,11 +45711,13 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       specialOrder: 'special_order',
       specialReason: 'special_reason',
       status: 'status',
+      statusDesc: 'status_desc',
       subOrderId: 'sub_order_id',
       supplementApplyId: 'supplement_apply_id',
       taxRate: 'tax_rate',
       thirdItineraryId: 'third_itinerary_id',
       timeType: 'time_type',
+      tradeActionDesc: 'trade_action_desc',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberTypeName: 'traveler_member_type_name',
@@ -45258,6 +45755,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       capitalDirection: 'string',
       carLevel: 'string',
       cascadeDepartment: 'string',
+      categoryDesc: 'string',
       costCenter: 'string',
       costCenterNumber: 'string',
       coupon: 'number',
@@ -45275,6 +45773,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       estimateDriveDistance: 'string',
       estimatePrice: 'number',
       feeType: 'string',
+      feeTypeDesc: 'string',
       index: 'string',
       invoiceTitle: 'string',
       levelName: 'string',
@@ -45296,6 +45795,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       sceneId: 'string',
       sceneName: 'string',
       serviceFee: 'number',
+      settleTypeDesc: 'string',
       settlementFee: 'number',
       settlementGrantFee: 'number',
       settlementTime: 'string',
@@ -45303,11 +45803,13 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       specialOrder: 'string',
       specialReason: 'string',
       status: 'number',
+      statusDesc: 'string',
       subOrderId: 'string',
       supplementApplyId: 'string',
       taxRate: 'string',
       thirdItineraryId: 'string',
       timeType: 'string',
+      tradeActionDesc: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberTypeName: 'string',
@@ -45343,6 +45845,7 @@ export class CarBillSettlementQueryResponseBodyModule extends $tea.Model {
    * 2021-10-13
    */
   periodStart?: string;
+  scrollId?: string;
   /**
    * @example
    * 2695
@@ -45355,6 +45858,7 @@ export class CarBillSettlementQueryResponseBodyModule extends $tea.Model {
       dataList: 'data_list',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
       totalNum: 'total_num',
     };
   }
@@ -45366,6 +45870,7 @@ export class CarBillSettlementQueryResponseBodyModule extends $tea.Model {
       dataList: { 'type': 'array', 'itemType': CarBillSettlementQueryResponseBodyModuleDataList },
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
       totalNum: 'number',
     };
   }
@@ -46603,6 +47108,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
   cabinClass?: string;
   capitalDirection?: string;
   cascadeDepartment?: string;
+  categoryDesc?: string;
   /**
    * @example
    * 100.0
@@ -46676,6 +47182,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
   discount?: string;
   exceedReason?: string;
   feeType?: string;
+  feeTypeDesc?: string;
   /**
    * @example
    * CZ3590
@@ -46811,6 +47318,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    * 0.0
    */
   serviceFee?: number;
+  settleTypeDesc?: string;
   /**
    * @example
    * 200.0
@@ -46832,6 +47340,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    * 0
    */
   status?: number;
+  statusDesc?: string;
   /**
    * @example
    * 169551103
@@ -46862,6 +47371,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    * 1
    */
   trade?: string;
+  tradeActionDesc?: string;
   /**
    * @example
    * A1234
@@ -46919,6 +47429,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       cabinClass: 'cabin_class',
       capitalDirection: 'capital_direction',
       cascadeDepartment: 'cascade_department',
+      categoryDesc: 'category_desc',
       changeFee: 'change_fee',
       changeResult: 'change_result',
       cooperatorBillCode: 'cooperator_bill_code',
@@ -46940,6 +47451,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       discount: 'discount',
       exceedReason: 'exceed_reason',
       feeType: 'fee_type',
+      feeTypeDesc: 'fee_type_desc',
       flightNo: 'flight_no',
       index: 'index',
       insOrderId: 'ins_order_id',
@@ -46975,17 +47487,20 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       repeatRefund: 'repeat_refund',
       sealPrice: 'seal_price',
       serviceFee: 'service_fee',
+      settleTypeDesc: 'settle_type_desc',
       settlementFee: 'settlement_fee',
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
       status: 'status',
+      statusDesc: 'status_desc',
       subOrderId: 'sub_order_id',
       taxRate: 'tax_rate',
       thirdInvoiceId: 'third_invoice_id',
       thirdItineraryId: 'third_itinerary_id',
       ticketId: 'ticket_id',
       trade: 'trade',
+      tradeActionDesc: 'trade_action_desc',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberType: 'traveler_member_type',
@@ -47030,6 +47545,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       cabinClass: 'string',
       capitalDirection: 'string',
       cascadeDepartment: 'string',
+      categoryDesc: 'string',
       changeFee: 'number',
       changeResult: 'string',
       cooperatorBillCode: 'string',
@@ -47051,6 +47567,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       discount: 'string',
       exceedReason: 'string',
       feeType: 'string',
+      feeTypeDesc: 'string',
       flightNo: 'string',
       index: 'string',
       insOrderId: 'string',
@@ -47086,17 +47603,20 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       repeatRefund: 'string',
       sealPrice: 'number',
       serviceFee: 'number',
+      settleTypeDesc: 'string',
       settlementFee: 'number',
       settlementGrantFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
       status: 'number',
+      statusDesc: 'string',
       subOrderId: 'string',
       taxRate: 'string',
       thirdInvoiceId: 'string',
       thirdItineraryId: 'string',
       ticketId: 'string',
       trade: 'string',
+      tradeActionDesc: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberType: 'string',
@@ -47136,6 +47656,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModule extends $tea.
    * 2021-10-13
    */
   periodStart?: string;
+  scrollId?: string;
   /**
    * @example
    * 30
@@ -47148,6 +47669,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModule extends $tea.
       items: 'items',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
       totalSize: 'total_size',
     };
   }
@@ -47159,6 +47681,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModule extends $tea.
       items: { 'type': 'array', 'itemType': CooperatorFlightBillSettlementQueryResponseBodyModuleItems },
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
       totalSize: 'number',
     };
   }
@@ -47225,6 +47748,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
   businessTripResult?: string;
   capitalDirection?: string;
   cascadeDepartment?: string;
+  categoryDesc?: string;
   /**
    * @example
    * 2024-02-13
@@ -47282,6 +47806,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
   departmentId?: string;
   exceedReason?: string;
   feeType?: string;
+  feeTypeDesc?: string;
   /**
    * @example
    * 10.0
@@ -47384,6 +47909,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
    * 5.0
    */
   serviceFee?: number;
+  settleTypeDesc?: string;
   /**
    * @example
    * 110.0
@@ -47406,6 +47932,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
    * 2
    */
   status?: number;
+  statusDesc?: string;
   /**
    * @example
    * 166564408
@@ -47431,6 +47958,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
    * 2
    */
   totalNights?: number;
+  tradeActionDesc?: string;
   /**
    * @example
    * 123
@@ -47472,6 +48000,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       businessTripResult: 'business_trip_result',
       capitalDirection: 'capital_direction',
       cascadeDepartment: 'cascade_department',
+      categoryDesc: 'category_desc',
       checkInDate: 'check_in_date',
       checkoutDate: 'checkout_date',
       city: 'city',
@@ -47489,6 +48018,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       departmentId: 'department_id',
       exceedReason: 'exceed_reason',
       feeType: 'fee_type',
+      feeTypeDesc: 'fee_type_desc',
       fees: 'fees',
       fines: 'fines',
       fuPointFee: 'fu_point_fee',
@@ -47519,17 +48049,20 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       roomPrice: 'room_price',
       roomType: 'room_type',
       serviceFee: 'service_fee',
+      settleTypeDesc: 'settle_type_desc',
       settlementFee: 'settlement_fee',
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
       star: 'star',
       status: 'status',
+      statusDesc: 'status_desc',
       subOrderId: 'sub_order_id',
       taxRate: 'tax_rate',
       thirdInvoiceId: 'third_invoice_id',
       thirdItineraryId: 'third_itinerary_id',
       totalNights: 'total_nights',
+      tradeActionDesc: 'trade_action_desc',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberType: 'traveler_member_type',
@@ -47562,6 +48095,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       businessTripResult: 'string',
       capitalDirection: 'string',
       cascadeDepartment: 'string',
+      categoryDesc: 'string',
       checkInDate: 'string',
       checkoutDate: 'string',
       city: 'string',
@@ -47579,6 +48113,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       departmentId: 'string',
       exceedReason: 'string',
       feeType: 'string',
+      feeTypeDesc: 'string',
       fees: 'number',
       fines: 'number',
       fuPointFee: 'number',
@@ -47609,17 +48144,20 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       roomPrice: 'number',
       roomType: 'string',
       serviceFee: 'number',
+      settleTypeDesc: 'string',
       settlementFee: 'number',
       settlementGrantFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
       star: 'string',
       status: 'number',
+      statusDesc: 'string',
       subOrderId: 'string',
       taxRate: 'string',
       thirdInvoiceId: 'string',
       thirdItineraryId: 'string',
       totalNights: 'number',
+      tradeActionDesc: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberType: 'string',
@@ -47657,6 +48195,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModule extends $tea.M
    * 2021-10-13
    */
   periodStart?: string;
+  scrollId?: string;
   /**
    * @example
    * 30
@@ -47669,6 +48208,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModule extends $tea.M
       items: 'items',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
       totalSize: 'total_size',
     };
   }
@@ -47680,6 +48220,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModule extends $tea.M
       items: { 'type': 'array', 'itemType': CooperatorHotelBillSettlementQueryResponseBodyModuleItems },
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
       totalSize: 'number',
     };
   }
@@ -49035,6 +49576,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
    */
   capitalDirection?: string;
   cascadeDepartment?: string;
+  categoryDesc?: string;
   /**
    * @example
    * 23.9
@@ -49091,6 +49633,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
    * 10101
    */
   feeType?: string;
+  feeTypeDesc?: string;
   /**
    * @example
    * MU9684
@@ -49211,6 +49754,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
    * 23.9
    */
   serviceFee?: number;
+  settleTypeDesc?: string;
   /**
    * @example
    * 460
@@ -49236,6 +49780,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
    * 1
    */
   status?: number;
+  statusDesc?: string;
   /**
    * @remarks
    * 税率
@@ -49251,6 +49796,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
    */
   ticketId?: string;
   trade?: string;
+  tradeActionDesc?: string;
   travelerId?: string;
   /**
    * @example
@@ -49303,6 +49849,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       cabinClass: 'cabin_class',
       capitalDirection: 'capital_direction',
       cascadeDepartment: 'cascade_department',
+      categoryDesc: 'category_desc',
       changeFee: 'change_fee',
       changeReasonCode: 'change_reason_code',
       changeResult: 'change_result',
@@ -49323,6 +49870,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       discount: 'discount',
       exceedReason: 'exceed_reason',
       feeType: 'fee_type',
+      feeTypeDesc: 'fee_type_desc',
       flightNo: 'flight_no',
       index: 'index',
       insOrderId: 'ins_order_id',
@@ -49363,15 +49911,18 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       sceneName: 'scene_name',
       sealPrice: 'seal_price',
       serviceFee: 'service_fee',
+      settleTypeDesc: 'settle_type_desc',
       settlementFee: 'settlement_fee',
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
       status: 'status',
+      statusDesc: 'status_desc',
       taxRate: 'tax_rate',
       thirdItineraryId: 'third_itinerary_id',
       ticketId: 'ticket_id',
       trade: 'trade',
+      tradeActionDesc: 'trade_action_desc',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberTypeName: 'traveler_member_type_name',
@@ -49415,6 +49966,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       cabinClass: 'string',
       capitalDirection: 'string',
       cascadeDepartment: 'string',
+      categoryDesc: 'string',
       changeFee: 'number',
       changeReasonCode: 'string',
       changeResult: 'string',
@@ -49435,6 +49987,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       discount: 'string',
       exceedReason: 'string',
       feeType: 'string',
+      feeTypeDesc: 'string',
       flightNo: 'string',
       index: 'string',
       insOrderId: 'string',
@@ -49475,15 +50028,18 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       sceneName: 'string',
       sealPrice: 'number',
       serviceFee: 'number',
+      settleTypeDesc: 'string',
       settlementFee: 'number',
       settlementGrantFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
       status: 'number',
+      statusDesc: 'string',
       taxRate: 'string',
       thirdItineraryId: 'string',
       ticketId: 'string',
       trade: 'string',
+      tradeActionDesc: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberTypeName: 'string',
@@ -49518,6 +50074,7 @@ export class FlightBillSettlementQueryResponseBodyModule extends $tea.Model {
    * 2021-10-13
    */
   periodStart?: string;
+  scrollId?: string;
   /**
    * @example
    * 5180
@@ -49530,6 +50087,7 @@ export class FlightBillSettlementQueryResponseBodyModule extends $tea.Model {
       dataList: 'data_list',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
       totalNum: 'total_num',
     };
   }
@@ -49541,6 +50099,7 @@ export class FlightBillSettlementQueryResponseBodyModule extends $tea.Model {
       dataList: { 'type': 'array', 'itemType': FlightBillSettlementQueryResponseBodyModuleDataList },
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
       totalNum: 'number',
     };
   }
@@ -68058,6 +68617,483 @@ export class FlightSearchListResponseBodyModule extends $tea.Model {
   }
 }
 
+export class FuPointBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
+  /**
+   * @example
+   * 123aaa
+   */
+  alipayId?: string;
+  /**
+   * @example
+   * 124
+   */
+  alipayTradeNo?: string;
+  /**
+   * @example
+   * CD
+   */
+  applyArrCityCode?: string;
+  applyArrCityName?: string;
+  /**
+   * @example
+   * 123
+   */
+  applyDepCityCode?: string;
+  applyDepCityName?: string;
+  applyExtendField?: string;
+  /**
+   * @example
+   * 1424041616244499302
+   */
+  applyId?: string;
+  /**
+   * @example
+   * 123@qq.com
+   */
+  approverEmail?: string;
+  /**
+   * @example
+   * 11
+   */
+  approverId?: string;
+  approverName?: string;
+  /**
+   * @example
+   * 10.5
+   */
+  awardNum?: number;
+  /**
+   * @example
+   * 100.12
+   */
+  basisAmount?: string;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
+  billRecordTime?: string;
+  billingEntity?: string;
+  bookMode?: string;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
+  bookTime?: string;
+  /**
+   * @example
+   * 1234
+   */
+  bookerId?: string;
+  /**
+   * @example
+   * zs123
+   */
+  bookerJobNo?: string;
+  bookerName?: string;
+  capitalDirection?: string;
+  cascadeDepartment?: string;
+  categoryDesc?: string;
+  /**
+   * @example
+   * 100.32
+   */
+  categoryOrderSettlePrice?: string;
+  costCenter?: string;
+  /**
+   * @example
+   * cs1
+   */
+  costCenterNumber?: string;
+  /**
+   * @example
+   * 0.11
+   */
+  deductibleTax?: number;
+  department?: string;
+  /**
+   * @example
+   * 1112
+   */
+  departmentId?: string;
+  feeType?: string;
+  feeTypeDesc?: string;
+  foreignersTag?: string;
+  /**
+   * @example
+   * 10
+   */
+  grantNum?: number;
+  /**
+   * @example
+   * 1
+   */
+  index?: string;
+  invoiceTitle?: string;
+  /**
+   * @remarks
+   * Location
+   */
+  location?: string;
+  makeInvoice?: string;
+  /**
+   * @example
+   * 4801105714092
+   */
+  orderId?: string;
+  orderStatusDesc?: string;
+  originCategory?: string;
+  /**
+   * @example
+   * 111234
+   */
+  originOrderId?: string;
+  /**
+   * @example
+   * 123
+   */
+  overApplyId?: string;
+  /**
+   * @example
+   * 123
+   */
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
+  /**
+   * @example
+   * 93746933
+   */
+  primaryId?: number;
+  /**
+   * @example
+   * acs
+   */
+  projectCode?: string;
+  projectName?: string;
+  /**
+   * @example
+   * 111224324
+   */
+  purchaseOrderId?: string;
+  remark?: string;
+  /**
+   * @example
+   * 10.45
+   */
+  saveAmount?: number;
+  /**
+   * @example
+   * 1
+   */
+  sceneId?: string;
+  sceneName?: string;
+  settleTypeDesc?: string;
+  /**
+   * @example
+   * 110.0
+   */
+  settlementFee?: number;
+  /**
+   * @example
+   * 0.0
+   */
+  settlementGrantFee?: number;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
+  settlementTime?: string;
+  settlementType?: string;
+  /**
+   * @example
+   * 166564408
+   */
+  showSubOrderId?: string;
+  /**
+   * @remarks
+   * SIO
+   * 
+   * @example
+   * SIO
+   */
+  sio?: string;
+  /**
+   * @example
+   * 2
+   */
+  status?: number;
+  statusDesc?: string;
+  /**
+   * @example
+   * 1019199938284381
+   */
+  subOrderId?: string;
+  /**
+   * @example
+   * 9%
+   */
+  taxRate?: string;
+  /**
+   * @example
+   * cs2
+   */
+  thirdInvoiceId?: string;
+  /**
+   * @example
+   * 11
+   */
+  thirdItineraryId?: string;
+  tradeActionDesc?: string;
+  tradeReason?: string;
+  /**
+   * @example
+   * 123@qq.com
+   */
+  travelerEmail?: string;
+  /**
+   * @example
+   * 1234
+   */
+  travelerId?: string;
+  /**
+   * @example
+   * A1234
+   */
+  travelerJobNo?: string;
+  travelerMemberType?: string;
+  travelerMemberTypeName?: string;
+  travelerName?: string;
+  /**
+   * @example
+   * 11
+   */
+  voucherType?: number;
+  voucherTypeDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alipayId: 'alipay_id',
+      alipayTradeNo: 'alipay_trade_no',
+      applyArrCityCode: 'apply_arr_city_code',
+      applyArrCityName: 'apply_arr_city_name',
+      applyDepCityCode: 'apply_dep_city_code',
+      applyDepCityName: 'apply_dep_city_name',
+      applyExtendField: 'apply_extend_field',
+      applyId: 'apply_id',
+      approverEmail: 'approver_email',
+      approverId: 'approver_id',
+      approverName: 'approver_name',
+      awardNum: 'award_num',
+      basisAmount: 'basis_amount',
+      billRecordTime: 'bill_record_time',
+      billingEntity: 'billing_entity',
+      bookMode: 'book_mode',
+      bookTime: 'book_time',
+      bookerId: 'booker_id',
+      bookerJobNo: 'booker_job_no',
+      bookerName: 'booker_name',
+      capitalDirection: 'capital_direction',
+      cascadeDepartment: 'cascade_department',
+      categoryDesc: 'category_desc',
+      categoryOrderSettlePrice: 'category_order_settle_price',
+      costCenter: 'cost_center',
+      costCenterNumber: 'cost_center_number',
+      deductibleTax: 'deductible_tax',
+      department: 'department',
+      departmentId: 'department_id',
+      feeType: 'fee_type',
+      feeTypeDesc: 'fee_type_desc',
+      foreignersTag: 'foreigners_tag',
+      grantNum: 'grant_num',
+      index: 'index',
+      invoiceTitle: 'invoice_title',
+      location: 'location',
+      makeInvoice: 'make_invoice',
+      orderId: 'order_id',
+      orderStatusDesc: 'order_status_desc',
+      originCategory: 'origin_category',
+      originOrderId: 'origin_order_id',
+      overApplyId: 'over_apply_id',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
+      primaryId: 'primary_id',
+      projectCode: 'project_code',
+      projectName: 'project_name',
+      purchaseOrderId: 'purchase_order_id',
+      remark: 'remark',
+      saveAmount: 'save_amount',
+      sceneId: 'scene_id',
+      sceneName: 'scene_name',
+      settleTypeDesc: 'settle_type_desc',
+      settlementFee: 'settlement_fee',
+      settlementGrantFee: 'settlement_grant_fee',
+      settlementTime: 'settlement_time',
+      settlementType: 'settlement_type',
+      showSubOrderId: 'show_sub_order_id',
+      sio: 'sio',
+      status: 'status',
+      statusDesc: 'status_desc',
+      subOrderId: 'sub_order_id',
+      taxRate: 'tax_rate',
+      thirdInvoiceId: 'third_invoice_id',
+      thirdItineraryId: 'third_itinerary_id',
+      tradeActionDesc: 'trade_action_desc',
+      tradeReason: 'trade_reason',
+      travelerEmail: 'traveler_email',
+      travelerId: 'traveler_id',
+      travelerJobNo: 'traveler_job_no',
+      travelerMemberType: 'traveler_member_type',
+      travelerMemberTypeName: 'traveler_member_type_name',
+      travelerName: 'traveler_name',
+      voucherType: 'voucher_type',
+      voucherTypeDesc: 'voucher_type_desc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alipayId: 'string',
+      alipayTradeNo: 'string',
+      applyArrCityCode: 'string',
+      applyArrCityName: 'string',
+      applyDepCityCode: 'string',
+      applyDepCityName: 'string',
+      applyExtendField: 'string',
+      applyId: 'string',
+      approverEmail: 'string',
+      approverId: 'string',
+      approverName: 'string',
+      awardNum: 'number',
+      basisAmount: 'string',
+      billRecordTime: 'string',
+      billingEntity: 'string',
+      bookMode: 'string',
+      bookTime: 'string',
+      bookerId: 'string',
+      bookerJobNo: 'string',
+      bookerName: 'string',
+      capitalDirection: 'string',
+      cascadeDepartment: 'string',
+      categoryDesc: 'string',
+      categoryOrderSettlePrice: 'string',
+      costCenter: 'string',
+      costCenterNumber: 'string',
+      deductibleTax: 'number',
+      department: 'string',
+      departmentId: 'string',
+      feeType: 'string',
+      feeTypeDesc: 'string',
+      foreignersTag: 'string',
+      grantNum: 'number',
+      index: 'string',
+      invoiceTitle: 'string',
+      location: 'string',
+      makeInvoice: 'string',
+      orderId: 'string',
+      orderStatusDesc: 'string',
+      originCategory: 'string',
+      originOrderId: 'string',
+      overApplyId: 'string',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
+      primaryId: 'number',
+      projectCode: 'string',
+      projectName: 'string',
+      purchaseOrderId: 'string',
+      remark: 'string',
+      saveAmount: 'number',
+      sceneId: 'string',
+      sceneName: 'string',
+      settleTypeDesc: 'string',
+      settlementFee: 'number',
+      settlementGrantFee: 'number',
+      settlementTime: 'string',
+      settlementType: 'string',
+      showSubOrderId: 'string',
+      sio: 'string',
+      status: 'number',
+      statusDesc: 'string',
+      subOrderId: 'string',
+      taxRate: 'string',
+      thirdInvoiceId: 'string',
+      thirdItineraryId: 'string',
+      tradeActionDesc: 'string',
+      tradeReason: 'string',
+      travelerEmail: 'string',
+      travelerId: 'string',
+      travelerJobNo: 'string',
+      travelerMemberType: 'string',
+      travelerMemberTypeName: 'string',
+      travelerName: 'string',
+      voucherType: 'number',
+      voucherTypeDesc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FuPointBillSettlementQueryResponseBodyModule extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  category?: number;
+  /**
+   * @example
+   * corpid
+   */
+  corpId?: string;
+  items?: FuPointBillSettlementQueryResponseBodyModuleItems[];
+  /**
+   * @example
+   * 2022-07-02
+   */
+  periodEnd?: string;
+  /**
+   * @example
+   * 2021-10-13
+   */
+  periodStart?: string;
+  /**
+   * @example
+   * 1qwe
+   */
+  scrollId?: string;
+  /**
+   * @example
+   * 30
+   */
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      corpId: 'corp_id',
+      items: 'items',
+      periodEnd: 'period_end',
+      periodStart: 'period_start',
+      scrollId: 'scroll_id',
+      totalSize: 'total_size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'number',
+      corpId: 'string',
+      items: { 'type': 'array', 'itemType': FuPointBillSettlementQueryResponseBodyModuleItems },
+      periodEnd: 'string',
+      periodStart: 'string',
+      scrollId: 'string',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GroupCorpTokenResponseBodyModule extends $tea.Model {
   /**
    * @example
@@ -68307,6 +69343,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    */
   capitalDirection?: string;
   cascadeDepartment?: string;
+  categoryDesc?: string;
   /**
    * @example
    * 2021-10-14 00:00:00
@@ -68350,6 +69387,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    * 20101
    */
   feeType?: string;
+  feeTypeDesc?: string;
   /**
    * @example
    * 0
@@ -68380,6 +69418,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    * 2
    */
   nights?: number;
+  noAdvanceBookingReason?: string;
   /**
    * @example
    * 223423423432422
@@ -68447,6 +69486,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    * 0
    */
   serviceFee?: number;
+  settleTypeDesc?: string;
   /**
    * @example
    * 1000
@@ -68473,6 +69513,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    * 1
    */
   status?: number;
+  statusDesc?: string;
   /**
    * @remarks
    * 税率
@@ -68487,6 +69528,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    * 2
    */
   totalNights?: number;
+  tradeActionDesc?: string;
   travelerId?: string;
   /**
    * @example
@@ -68528,6 +69570,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       cancelOrModifyScene: 'cancel_or_modify_scene',
       capitalDirection: 'capital_direction',
       cascadeDepartment: 'cascade_department',
+      categoryDesc: 'category_desc',
       checkInDate: 'check_in_date',
       checkoutDate: 'checkout_date',
       city: 'city',
@@ -68543,6 +69586,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       departmentId: 'department_id',
       exceedReason: 'exceed_reason',
       feeType: 'fee_type',
+      feeTypeDesc: 'fee_type_desc',
       fees: 'fees',
       fines: 'fines',
       fuPointFee: 'fu_point_fee',
@@ -68557,6 +69601,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       isNegotiation: 'is_negotiation',
       isShareStr: 'is_share_str',
       nights: 'nights',
+      noAdvanceBookingReason: 'no_advance_booking_reason',
       orderId: 'order_id',
       orderPrice: 'order_price',
       orderType: 'order_type',
@@ -68580,15 +69625,18 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       sceneId: 'scene_id',
       sceneName: 'scene_name',
       serviceFee: 'service_fee',
+      settleTypeDesc: 'settle_type_desc',
       settlementFee: 'settlement_fee',
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
       star: 'star',
       status: 'status',
+      statusDesc: 'status_desc',
       taxRate: 'tax_rate',
       thirdItineraryId: 'third_itinerary_id',
       totalNights: 'total_nights',
+      tradeActionDesc: 'trade_action_desc',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberTypeName: 'traveler_member_type_name',
@@ -68625,6 +69673,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       cancelOrModifyScene: 'string',
       capitalDirection: 'string',
       cascadeDepartment: 'string',
+      categoryDesc: 'string',
       checkInDate: 'string',
       checkoutDate: 'string',
       city: 'string',
@@ -68640,6 +69689,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       departmentId: 'string',
       exceedReason: 'string',
       feeType: 'string',
+      feeTypeDesc: 'string',
       fees: 'number',
       fines: 'number',
       fuPointFee: 'number',
@@ -68654,6 +69704,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       isNegotiation: 'string',
       isShareStr: 'string',
       nights: 'number',
+      noAdvanceBookingReason: 'string',
       orderId: 'string',
       orderPrice: 'number',
       orderType: 'string',
@@ -68677,15 +69728,18 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       sceneId: 'string',
       sceneName: 'string',
       serviceFee: 'number',
+      settleTypeDesc: 'string',
       settlementFee: 'number',
       settlementGrantFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
       star: 'string',
       status: 'number',
+      statusDesc: 'string',
       taxRate: 'string',
       thirdItineraryId: 'string',
       totalNights: 'number',
+      tradeActionDesc: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberTypeName: 'string',
@@ -68719,6 +69773,7 @@ export class HotelBillSettlementQueryResponseBodyModule extends $tea.Model {
    * 2021-10-13
    */
   periodStart?: string;
+  scrollId?: string;
   /**
    * @example
    * 1402
@@ -68731,6 +69786,7 @@ export class HotelBillSettlementQueryResponseBodyModule extends $tea.Model {
       dataList: 'data_list',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
       totalNum: 'total_num',
     };
   }
@@ -68742,6 +69798,7 @@ export class HotelBillSettlementQueryResponseBodyModule extends $tea.Model {
       dataList: { 'type': 'array', 'itemType': HotelBillSettlementQueryResponseBodyModuleDataList },
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
       totalNum: 'number',
     };
   }
@@ -77459,6 +78516,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
    */
   capitalDirection?: string;
   cascadeDepartment?: string;
+  categoryDesc?: string;
   /**
    * @example
    * 23.0
@@ -77519,6 +78577,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
    * 20101
    */
   feeType?: string;
+  feeTypeDesc?: string;
   /**
    * @example
    * MU9684
@@ -77621,6 +78680,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
    * 23.9
    */
   serviceFee?: number;
+  settleTypeDesc?: string;
   /**
    * @example
    * 350
@@ -77646,6 +78706,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
    * 1
    */
   status?: number;
+  statusDesc?: string;
   /**
    * @example
    * 123123232
@@ -77675,6 +78736,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
    * CAN-KUL-BKK
    */
   trade?: string;
+  tradeActionDesc?: string;
   /**
    * @example
    * 54463464
@@ -77685,6 +78747,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
    * 326246
    */
   travelerJobNo?: string;
+  travelerMemberType?: string;
   travelerName?: string;
   /**
    * @example
@@ -77725,6 +78788,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       cabinClass: 'cabin_class',
       capitalDirection: 'capital_direction',
       cascadeDepartment: 'cascade_department',
+      categoryDesc: 'category_desc',
       changeFee: 'change_fee',
       changeResult: 'change_result',
       corpPayOrderFee: 'corp_pay_order_fee',
@@ -77745,6 +78809,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       discount: 'discount',
       exceedReason: 'exceed_reason',
       feeType: 'fee_type',
+      feeTypeDesc: 'fee_type_desc',
       flightNo: 'flight_no',
       index: 'index',
       insOrderId: 'ins_order_id',
@@ -77775,19 +78840,23 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       sealPrice: 'seal_price',
       segmentType: 'segment_type',
       serviceFee: 'service_fee',
+      settleTypeDesc: 'settle_type_desc',
       settlementFee: 'settlement_fee',
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
       status: 'status',
+      statusDesc: 'status_desc',
       subOrderId: 'sub_order_id',
       taxFee: 'tax_fee',
       taxRate: 'tax_rate',
       thirdItineraryId: 'third_itinerary_id',
       ticketId: 'ticket_id',
       trade: 'trade',
+      tradeActionDesc: 'trade_action_desc',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
+      travelerMemberType: 'traveler_member_type',
       travelerName: 'traveler_name',
       voucherType: 'voucher_type',
       voucherTypeDesc: 'voucher_type_desc',
@@ -77827,6 +78896,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       cabinClass: 'string',
       capitalDirection: 'string',
       cascadeDepartment: 'string',
+      categoryDesc: 'string',
       changeFee: 'number',
       changeResult: 'string',
       corpPayOrderFee: 'number',
@@ -77847,6 +78917,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       discount: 'string',
       exceedReason: 'string',
       feeType: 'string',
+      feeTypeDesc: 'string',
       flightNo: 'string',
       index: 'string',
       insOrderId: 'string',
@@ -77877,19 +78948,23 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       sealPrice: 'number',
       segmentType: 'string',
       serviceFee: 'number',
+      settleTypeDesc: 'string',
       settlementFee: 'number',
       settlementGrantFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
       status: 'number',
+      statusDesc: 'string',
       subOrderId: 'string',
       taxFee: 'number',
       taxRate: 'string',
       thirdItineraryId: 'string',
       ticketId: 'string',
       trade: 'string',
+      tradeActionDesc: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
+      travelerMemberType: 'string',
       travelerName: 'string',
       voucherType: 'number',
       voucherTypeDesc: 'string',
@@ -77924,6 +78999,7 @@ export class IeFlightBillSettlementQueryResponseBodyModule extends $tea.Model {
    * 2021-10-13
    */
   periodStart?: string;
+  scrollId?: string;
   /**
    * @example
    * 1402
@@ -77936,6 +79012,7 @@ export class IeFlightBillSettlementQueryResponseBodyModule extends $tea.Model {
       dataList: 'data_list',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
       totalNum: 'total_num',
     };
   }
@@ -77947,6 +79024,7 @@ export class IeFlightBillSettlementQueryResponseBodyModule extends $tea.Model {
       dataList: { 'type': 'array', 'itemType': IeFlightBillSettlementQueryResponseBodyModuleDataList },
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
       totalNum: 'number',
     };
   }
@@ -78031,6 +79109,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
    */
   capitalDirection?: string;
   cascadeDepartment?: string;
+  categoryDesc?: string;
   /**
    * @example
    * 2021-10-14 00:00:00
@@ -78078,6 +79157,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
    * 20101
    */
   feeType?: string;
+  feeTypeDesc?: string;
   /**
    * @example
    * 10.1
@@ -78191,6 +79271,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
    * 23.9
    */
   serviceFee?: number;
+  settleTypeDesc?: string;
   /**
    * @example
    * 350
@@ -78216,6 +79297,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
    * 1
    */
   status?: number;
+  statusDesc?: string;
   /**
    * @example
    * 123123232
@@ -78251,6 +79333,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
    * 2
    */
   totalNights?: number;
+  tradeActionDesc?: string;
   /**
    * @example
    * al_xinuan.zsy
@@ -78293,6 +79376,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
       businessTripResult: 'business_trip_result',
       capitalDirection: 'capital_direction',
       cascadeDepartment: 'cascade_department',
+      categoryDesc: 'category_desc',
       checkInDate: 'check_in_date',
       checkoutDate: 'checkout_date',
       city: 'city',
@@ -78308,6 +79392,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
       departmentId: 'department_id',
       exceedReason: 'exceed_reason',
       feeType: 'fee_type',
+      feeTypeDesc: 'fee_type_desc',
       fines: 'fines',
       foreignBusinessExpense: 'foreign_business_expense',
       hotelName: 'hotel_name',
@@ -78341,11 +79426,13 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
       roomPrice: 'room_price',
       roomType: 'room_type',
       serviceFee: 'service_fee',
+      settleTypeDesc: 'settle_type_desc',
       settlementFee: 'settlement_fee',
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
       status: 'status',
+      statusDesc: 'status_desc',
       subOrderId: 'sub_order_id',
       taxRate: 'tax_rate',
       thirdInvoiceId: 'third_invoice_id',
@@ -78353,6 +79440,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
       thirdPartBusinessId: 'third_part_business_id',
       thirdpartApplyId: 'thirdpart_apply_id',
       totalNights: 'total_nights',
+      tradeActionDesc: 'trade_action_desc',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberType: 'traveler_member_type',
@@ -78386,6 +79474,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
       businessTripResult: 'string',
       capitalDirection: 'string',
       cascadeDepartment: 'string',
+      categoryDesc: 'string',
       checkInDate: 'string',
       checkoutDate: 'string',
       city: 'string',
@@ -78401,6 +79490,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
       departmentId: 'string',
       exceedReason: 'string',
       feeType: 'string',
+      feeTypeDesc: 'string',
       fines: 'number',
       foreignBusinessExpense: 'number',
       hotelName: 'string',
@@ -78434,11 +79524,13 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
       roomPrice: 'number',
       roomType: 'string',
       serviceFee: 'number',
+      settleTypeDesc: 'string',
       settlementFee: 'number',
       settlementGrantFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
       status: 'number',
+      statusDesc: 'string',
       subOrderId: 'string',
       taxRate: 'string',
       thirdInvoiceId: 'string',
@@ -78446,6 +79538,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
       thirdPartBusinessId: 'string',
       thirdpartApplyId: 'string',
       totalNights: 'number',
+      tradeActionDesc: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberType: 'string',
@@ -78487,6 +79580,7 @@ export class IeHotelBillSettlementQueryResponseBodyModule extends $tea.Model {
    * 2022-11-01
    */
   periodStart?: string;
+  scrollId?: string;
   /**
    * @example
    * 30
@@ -78500,6 +79594,7 @@ export class IeHotelBillSettlementQueryResponseBodyModule extends $tea.Model {
       orderId: 'order_id',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
       totalSize: 'total_size',
     };
   }
@@ -78512,6 +79607,7 @@ export class IeHotelBillSettlementQueryResponseBodyModule extends $tea.Model {
       orderId: 'string',
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
       totalSize: 'number',
     };
   }
@@ -85530,6 +86626,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
    */
   capitalDirection?: string;
   cascadeDepartment?: string;
+  categoryDesc?: string;
   consumeReportAddress?: string;
   consumeReportCity?: string;
   consumeReportCityCode?: string;
@@ -85556,6 +86653,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
    * 70101
    */
   feeType?: string;
+  feeTypeDesc?: string;
   /**
    * @example
    * 1
@@ -85578,6 +86676,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
    * XXX
    */
   mealCityCode?: string;
+  mealReason?: string;
   mealRule?: string;
   mealScene?: string;
   /**
@@ -85623,6 +86722,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
    * 5.0
    */
   serviceFee?: number;
+  settleTypeDesc?: string;
   /**
    * @example
    * 110.0
@@ -85644,6 +86744,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
    * 0
    */
   status?: number;
+  statusDesc?: string;
   /**
    * @example
    * XXXX
@@ -85669,6 +86770,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
    * 7244-1968
    */
   thirdpartApplyId?: string;
+  tradeActionDesc?: string;
   /**
    * @example
    * 1234
@@ -85698,6 +86800,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
       bookerName: 'booker_name',
       capitalDirection: 'capital_direction',
       cascadeDepartment: 'cascade_department',
+      categoryDesc: 'category_desc',
       consumeReportAddress: 'consume_report_address',
       consumeReportCity: 'consume_report_city',
       consumeReportCityCode: 'consume_report_city_code',
@@ -85708,12 +86811,14 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
       department: 'department',
       departmentId: 'department_id',
       feeType: 'fee_type',
+      feeTypeDesc: 'fee_type_desc',
       index: 'index',
       invoiceTitle: 'invoice_title',
       mainApplyId: 'main_apply_id',
       mealAddress: 'meal_address',
       mealCity: 'meal_city',
       mealCityCode: 'meal_city_code',
+      mealReason: 'meal_reason',
       mealRule: 'meal_rule',
       mealScene: 'meal_scene',
       merchantCategory: 'merchant_category',
@@ -85727,16 +86832,19 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
       projectName: 'project_name',
       remark: 'remark',
       serviceFee: 'service_fee',
+      settleTypeDesc: 'settle_type_desc',
       settlementFee: 'settlement_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
       shareDinner: 'share_dinner',
       status: 'status',
+      statusDesc: 'status_desc',
       storeAddress: 'store_address',
       taxRate: 'tax_rate',
       thirdInvoiceId: 'third_invoice_id',
       thirdPartBusinessId: 'third_part_business_id',
       thirdpartApplyId: 'thirdpart_apply_id',
+      tradeActionDesc: 'trade_action_desc',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberTypeName: 'traveler_member_type_name',
@@ -85757,6 +86865,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
       bookerName: 'string',
       capitalDirection: 'string',
       cascadeDepartment: 'string',
+      categoryDesc: 'string',
       consumeReportAddress: 'string',
       consumeReportCity: 'string',
       consumeReportCityCode: 'string',
@@ -85767,12 +86876,14 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
       department: 'string',
       departmentId: 'string',
       feeType: 'string',
+      feeTypeDesc: 'string',
       index: 'string',
       invoiceTitle: 'string',
       mainApplyId: 'string',
       mealAddress: 'string',
       mealCity: 'string',
       mealCityCode: 'string',
+      mealReason: 'string',
       mealRule: 'string',
       mealScene: 'string',
       merchantCategory: 'string',
@@ -85786,16 +86897,19 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
       projectName: 'string',
       remark: 'string',
       serviceFee: 'number',
+      settleTypeDesc: 'string',
       settlementFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
       shareDinner: 'string',
       status: 'number',
+      statusDesc: 'string',
       storeAddress: 'string',
       taxRate: 'string',
       thirdInvoiceId: 'string',
       thirdPartBusinessId: 'string',
       thirdpartApplyId: 'string',
+      tradeActionDesc: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberTypeName: 'string',
@@ -85833,6 +86947,7 @@ export class MealBillSettlementQueryResponseBodyModule extends $tea.Model {
    * 2022-07-01
    */
   periodStart?: string;
+  scrollId?: string;
   /**
    * @example
    * 2695
@@ -85851,6 +86966,7 @@ export class MealBillSettlementQueryResponseBodyModule extends $tea.Model {
       orderId: 'order_id',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
       totalNum: 'total_num',
       totalSize: 'total_size',
     };
@@ -85864,6 +86980,7 @@ export class MealBillSettlementQueryResponseBodyModule extends $tea.Model {
       orderId: 'string',
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
       totalNum: 'number',
       totalSize: 'number',
     };
@@ -85896,6 +87013,7 @@ export class MealOrderDetailQueryResponseBodyModule extends $tea.Model {
    * 100
    */
   corpRefundAmount?: number;
+  mealReason?: string;
   merchantName?: string;
   /**
    * @example
@@ -85962,6 +87080,7 @@ export class MealOrderDetailQueryResponseBodyModule extends $tea.Model {
       corpId: 'corp_id',
       corpPayAmount: 'corp_pay_amount',
       corpRefundAmount: 'corp_refund_amount',
+      mealReason: 'meal_reason',
       merchantName: 'merchant_name',
       orderId: 'order_id',
       orderStatus: 'order_status',
@@ -85987,6 +87106,7 @@ export class MealOrderDetailQueryResponseBodyModule extends $tea.Model {
       corpId: 'string',
       corpPayAmount: 'number',
       corpRefundAmount: 'number',
+      mealReason: 'string',
       merchantName: 'string',
       orderId: 'string',
       orderStatus: 'number',
@@ -86152,6 +87272,7 @@ export class MonthBillGetResponseBodyModuleMonthAccountBillDetail extends $tea.M
    * 20200501
    */
   mailBillDate?: number;
+  mealAmount?: number;
   /**
    * @remarks
    * 服务费金额（单位：元）
@@ -86168,6 +87289,7 @@ export class MonthBillGetResponseBodyModuleMonthAccountBillDetail extends $tea.M
    * xx.xx
    */
   trainAmount?: number;
+  vasAmount?: number;
   static names(): { [key: string]: string } {
     return {
       billConfirmed: 'billConfirmed',
@@ -86179,8 +87301,10 @@ export class MonthBillGetResponseBodyModuleMonthAccountBillDetail extends $tea.M
       ieFlightAmount: 'ieFlightAmount',
       ieHotelAmount: 'ieHotelAmount',
       mailBillDate: 'mailBillDate',
+      mealAmount: 'mealAmount',
       serviceAmount: 'serviceAmount',
       trainAmount: 'trainAmount',
+      vasAmount: 'vasAmount',
     };
   }
 
@@ -86195,8 +87319,10 @@ export class MonthBillGetResponseBodyModuleMonthAccountBillDetail extends $tea.M
       ieFlightAmount: 'number',
       ieHotelAmount: 'number',
       mailBillDate: 'number',
+      mealAmount: 'number',
       serviceAmount: 'number',
       trainAmount: 'number',
+      vasAmount: 'number',
     };
   }
 
@@ -86233,6 +87359,147 @@ export class MonthBillGetResponseBodyModule extends $tea.Model {
       monthAccountBillDetail: MonthBillGetResponseBodyModuleMonthAccountBillDetail,
       startDate: 'string',
       url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OrderRefundDetailQueryResponseBodyModuleRefundDetails extends $tea.Model {
+  /**
+   * @example
+   * ALIPAY
+   */
+  personPayChannel?: string;
+  /**
+   * @example
+   * 2025010223001423691442474885
+   */
+  personRefundId?: string;
+  /**
+   * @example
+   * 5000
+   */
+  refundAmount?: number;
+  /**
+   * @example
+   * 4800
+   */
+  refundAmountCorp?: number;
+  /**
+   * @example
+   * 200
+   */
+  refundAmountPerson?: number;
+  /**
+   * @example
+   * ZLJD12241231000002
+   */
+  supplierRefundId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      personPayChannel: 'person_pay_channel',
+      personRefundId: 'person_refund_id',
+      refundAmount: 'refund_amount',
+      refundAmountCorp: 'refund_amount_corp',
+      refundAmountPerson: 'refund_amount_person',
+      supplierRefundId: 'supplier_refund_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      personPayChannel: 'string',
+      personRefundId: 'string',
+      refundAmount: 'number',
+      refundAmountCorp: 'number',
+      refundAmountPerson: 'number',
+      supplierRefundId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OrderRefundDetailQueryResponseBodyModule extends $tea.Model {
+  /**
+   * @example
+   * 1017002195370467138
+   */
+  orderId?: string;
+  refundDetails?: OrderRefundDetailQueryResponseBodyModuleRefundDetails[];
+  /**
+   * @example
+   * 10000
+   */
+  totalAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'order_id',
+      refundDetails: 'refund_details',
+      totalAmount: 'total_amount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      refundDetails: { 'type': 'array', 'itemType': OrderRefundDetailQueryResponseBodyModuleRefundDetails },
+      totalAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCorpDetailInfoResponseBodyModule extends $tea.Model {
+  /**
+   * @example
+   * btrip5txxxxxxx
+   */
+  corpId?: string;
+  corpName?: string;
+  /**
+   * @example
+   * open12********012jq
+   */
+  openAgentId?: string;
+  superAdminName?: string;
+  /**
+   * @example
+   * 138xxxx0001
+   */
+  superAdminPhone?: string;
+  /**
+   * @example
+   * user1234
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'corp_id',
+      corpName: 'corp_name',
+      openAgentId: 'open_agent_id',
+      superAdminName: 'super_admin_name',
+      superAdminPhone: 'super_admin_phone',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      corpName: 'string',
+      openAgentId: 'string',
+      superAdminName: 'string',
+      superAdminPhone: 'string',
+      userId: 'string',
     };
   }
 
@@ -89337,6 +90604,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    */
   capitalDirection?: string;
   cascadeDepartment?: string;
+  categoryDesc?: string;
   changeAffiliateNo?: string;
   changeApplyId?: string;
   /**
@@ -89379,6 +90647,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    * 6001
    */
   feeType?: string;
+  feeTypeDesc?: string;
   /**
    * @example
    * 4740293
@@ -89442,6 +90711,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    * 23.0
    */
   serviceFee?: number;
+  settleTypeDesc?: string;
   /**
    * @example
    * 350
@@ -89469,6 +90739,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    * 1
    */
   status?: number;
+  statusDesc?: string;
   /**
    * @remarks
    * 税率
@@ -89490,6 +90761,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    * 350
    */
   ticketPrice?: number;
+  tradeActionDesc?: string;
   /**
    * @example
    * G906
@@ -89529,6 +90801,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       cabinMaxPrice: 'cabin_max_price',
       capitalDirection: 'capital_direction',
       cascadeDepartment: 'cascade_department',
+      categoryDesc: 'category_desc',
       changeAffiliateNo: 'change_affiliate_no',
       changeApplyId: 'change_apply_id',
       changeFee: 'change_fee',
@@ -89547,6 +90820,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       deptTime: 'dept_time',
       exceedReason: 'exceed_reason',
       feeType: 'fee_type',
+      feeTypeDesc: 'fee_type_desc',
       index: 'index',
       invoiceTitle: 'invoice_title',
       isTransferOrder: 'is_transfer_order',
@@ -89574,6 +90848,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       seatNo: 'seat_no',
       seatType: 'seat_type',
       serviceFee: 'service_fee',
+      settleTypeDesc: 'settle_type_desc',
       settlementFee: 'settlement_fee',
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
@@ -89581,12 +90856,14 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       shortTicketNo: 'short_ticket_no',
       speedPackageFee: 'speed_package_fee',
       status: 'status',
+      statusDesc: 'status_desc',
       taxRate: 'tax_rate',
       thirdItineraryId: 'third_itinerary_id',
       ticketCorpPayPrice: 'ticket_corp_pay_price',
       ticketNo: 'ticket_no',
       ticketPersonPayPrice: 'ticket_person_pay_price',
       ticketPrice: 'ticket_price',
+      tradeActionDesc: 'trade_action_desc',
       trainNo: 'train_no',
       trainType: 'train_type',
       travelerId: 'traveler_id',
@@ -89621,6 +90898,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       cabinMaxPrice: 'number',
       capitalDirection: 'string',
       cascadeDepartment: 'string',
+      categoryDesc: 'string',
       changeAffiliateNo: 'string',
       changeApplyId: 'string',
       changeFee: 'number',
@@ -89639,6 +90917,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       deptTime: 'string',
       exceedReason: 'string',
       feeType: 'string',
+      feeTypeDesc: 'string',
       index: 'string',
       invoiceTitle: 'string',
       isTransferOrder: 'string',
@@ -89666,6 +90945,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       seatNo: 'string',
       seatType: 'string',
       serviceFee: 'number',
+      settleTypeDesc: 'string',
       settlementFee: 'number',
       settlementGrantFee: 'number',
       settlementTime: 'string',
@@ -89673,12 +90953,14 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       shortTicketNo: 'string',
       speedPackageFee: 'number',
       status: 'number',
+      statusDesc: 'string',
       taxRate: 'string',
       thirdItineraryId: 'string',
       ticketCorpPayPrice: 'string',
       ticketNo: 'string',
       ticketPersonPayPrice: 'string',
       ticketPrice: 'number',
+      tradeActionDesc: 'string',
       trainNo: 'string',
       trainType: 'string',
       travelerId: 'string',
@@ -89713,6 +90995,7 @@ export class TrainBillSettlementQueryResponseBodyModule extends $tea.Model {
    * 2021-10-13
    */
   periodStart?: string;
+  scrollId?: string;
   /**
    * @example
    * 2694
@@ -89725,6 +91008,7 @@ export class TrainBillSettlementQueryResponseBodyModule extends $tea.Model {
       dataList: 'data_list',
       periodEnd: 'period_end',
       periodStart: 'period_start',
+      scrollId: 'scroll_id',
       totalNum: 'total_num',
     };
   }
@@ -89736,6 +91020,7 @@ export class TrainBillSettlementQueryResponseBodyModule extends $tea.Model {
       dataList: { 'type': 'array', 'itemType': TrainBillSettlementQueryResponseBodyModuleDataList },
       periodEnd: 'string',
       periodStart: 'string',
+      scrollId: 'string',
       totalNum: 'number',
     };
   }
@@ -94383,6 +95668,10 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoList exte
    * 120
    */
   runTime?: number;
+  subFromCityAdCode?: string;
+  subFromCityAdName?: string;
+  subToCityCode?: string;
+  subToCityName?: string;
   toCityAdCode?: string;
   toCityName?: string;
   toStationName?: string;
@@ -94401,6 +95690,10 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoList exte
       fromStationName: 'from_station_name',
       itemId: 'item_id',
       runTime: 'run_time',
+      subFromCityAdCode: 'sub_from_city_ad_code',
+      subFromCityAdName: 'sub_from_city_ad_name',
+      subToCityCode: 'sub_to_city_code',
+      subToCityName: 'sub_to_city_name',
       toCityAdCode: 'to_city_ad_code',
       toCityName: 'to_city_name',
       toStationName: 'to_station_name',
@@ -94418,6 +95711,10 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoList exte
       fromStationName: 'string',
       itemId: 'number',
       runTime: 'number',
+      subFromCityAdCode: 'string',
+      subFromCityAdName: 'string',
+      subToCityCode: 'string',
+      subToCityName: 'string',
       toCityAdCode: 'string',
       toCityName: 'string',
       toStationName: 'string',
@@ -94459,6 +95756,12 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainTransferInfo 
    * 2022-11-01 00:00:00
    */
   startTime?: string;
+  subFromCityAdCode?: string;
+  subFromCityAdName?: string;
+  subMiddleCityCode?: string;
+  subMiddleCityName?: string;
+  subToCityCode?: string;
+  subToCityName?: string;
   toCityAdCode?: string;
   toCityName?: string;
   toStationName?: string;
@@ -94480,6 +95783,12 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainTransferInfo 
       middleStation: 'middle_station',
       middleType: 'middle_type',
       startTime: 'start_time',
+      subFromCityAdCode: 'sub_from_city_ad_code',
+      subFromCityAdName: 'sub_from_city_ad_name',
+      subMiddleCityCode: 'sub_middle_city_code',
+      subMiddleCityName: 'sub_middle_city_name',
+      subToCityCode: 'sub_to_city_code',
+      subToCityName: 'sub_to_city_name',
       toCityAdCode: 'to_city_ad_code',
       toCityName: 'to_city_name',
       toStationName: 'to_station_name',
@@ -94500,6 +95809,12 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainTransferInfo 
       middleStation: 'string',
       middleType: 'string',
       startTime: 'string',
+      subFromCityAdCode: 'string',
+      subFromCityAdName: 'string',
+      subMiddleCityCode: 'string',
+      subMiddleCityName: 'string',
+      subToCityCode: 'string',
+      subToCityName: 'string',
       toCityAdCode: 'string',
       toCityName: 'string',
       toStationName: 'string',
@@ -97957,6 +99272,10 @@ export default class Client extends OpenApi {
   async carBillSettlementQueryWithOptions(request: CarBillSettlementQueryRequest, headers: CarBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
     if (!Util.isUnset(request.pageNo)) {
       query["page_no"] = request.pageNo;
     }
@@ -97971,6 +99290,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.periodStart)) {
       query["period_start"] = request.periodStart;
+    }
+
+    if (!Util.isUnset(request.scrollId)) {
+      query["scroll_id"] = request.scrollId;
+    }
+
+    if (!Util.isUnset(request.scrollMod)) {
+      query["scroll_mod"] = request.scrollMod;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -98495,6 +99822,10 @@ export default class Client extends OpenApi {
   async cooperatorFlightBillSettlementQueryWithOptions(request: CooperatorFlightBillSettlementQueryRequest, headers: CooperatorFlightBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CooperatorFlightBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
     if (!Util.isUnset(request.cooperatorId)) {
       query["cooperator_id"] = request.cooperatorId;
     }
@@ -98513,6 +99844,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.periodStart)) {
       query["period_start"] = request.periodStart;
+    }
+
+    if (!Util.isUnset(request.scrollId)) {
+      query["scroll_id"] = request.scrollId;
+    }
+
+    if (!Util.isUnset(request.scrollMod)) {
+      query["scroll_mod"] = request.scrollMod;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -98565,6 +99904,10 @@ export default class Client extends OpenApi {
   async cooperatorHotelBillSettlementQueryWithOptions(request: CooperatorHotelBillSettlementQueryRequest, headers: CooperatorHotelBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CooperatorHotelBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
     if (!Util.isUnset(request.cooperatorId)) {
       query["cooperator_id"] = request.cooperatorId;
     }
@@ -98583,6 +99926,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.periodStart)) {
       query["period_start"] = request.periodStart;
+    }
+
+    if (!Util.isUnset(request.scrollId)) {
+      query["scroll_id"] = request.scrollId;
+    }
+
+    if (!Util.isUnset(request.scrollMod)) {
+      query["scroll_mod"] = request.scrollMod;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -100300,6 +101651,10 @@ export default class Client extends OpenApi {
   async flightBillSettlementQueryWithOptions(request: FlightBillSettlementQueryRequest, headers: FlightBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
     if (!Util.isUnset(request.pageNo)) {
       query["page_no"] = request.pageNo;
     }
@@ -100314,6 +101669,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.periodStart)) {
       query["period_start"] = request.periodStart;
+    }
+
+    if (!Util.isUnset(request.scrollId)) {
+      query["scroll_id"] = request.scrollId;
+    }
+
+    if (!Util.isUnset(request.scrollMod)) {
+      query["scroll_mod"] = request.scrollMod;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -102942,6 +104305,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询福豆记账数据
+   * 
+   * @param request - FuPointBillSettlementQueryRequest
+   * @param headers - FuPointBillSettlementQueryHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FuPointBillSettlementQueryResponse
+   */
+  async fuPointBillSettlementQueryWithOptions(request: FuPointBillSettlementQueryRequest, headers: FuPointBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FuPointBillSettlementQueryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
+    if (!Util.isUnset(request.cooperatorId)) {
+      query["cooperator_id"] = request.cooperatorId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["page_no"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["page_size"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.periodEnd)) {
+      query["period_end"] = request.periodEnd;
+    }
+
+    if (!Util.isUnset(request.periodStart)) {
+      query["period_start"] = request.periodStart;
+    }
+
+    if (!Util.isUnset(request.scrollId)) {
+      query["scroll_id"] = request.scrollId;
+    }
+
+    if (!Util.isUnset(request.scrollMod)) {
+      query["scroll_mod"] = request.scrollMod;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FuPointBillSettlementQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/fupoint/v1/bill-settlement`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FuPointBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new FuPointBillSettlementQueryResponse({}));
+  }
+
+  /**
+   * 查询福豆记账数据
+   * 
+   * @param request - FuPointBillSettlementQueryRequest
+   * @returns FuPointBillSettlementQueryResponse
+   */
+  async fuPointBillSettlementQuery(request: FuPointBillSettlementQueryRequest): Promise<FuPointBillSettlementQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new FuPointBillSettlementQueryHeaders({ });
+    return await this.fuPointBillSettlementQueryWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 换取GroupCorpToken接口
    * 
    * @param request - GroupCorpTokenRequest
@@ -103302,6 +104747,10 @@ export default class Client extends OpenApi {
   async hotelBillSettlementQueryWithOptions(request: HotelBillSettlementQueryRequest, headers: HotelBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
     if (!Util.isUnset(request.pageNo)) {
       query["page_no"] = request.pageNo;
     }
@@ -103316,6 +104765,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.periodStart)) {
       query["period_start"] = request.periodStart;
+    }
+
+    if (!Util.isUnset(request.scrollId)) {
+      query["scroll_id"] = request.scrollId;
+    }
+
+    if (!Util.isUnset(request.scrollMod)) {
+      query["scroll_mod"] = request.scrollMod;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -105016,6 +106473,10 @@ export default class Client extends OpenApi {
   async ieFlightBillSettlementQueryWithOptions(request: IeFlightBillSettlementQueryRequest, headers: IeFlightBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<IeFlightBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
     if (!Util.isUnset(request.pageNo)) {
       query["page_no"] = request.pageNo;
     }
@@ -105030,6 +106491,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.periodStart)) {
       query["period_start"] = request.periodStart;
+    }
+
+    if (!Util.isUnset(request.scrollId)) {
+      query["scroll_id"] = request.scrollId;
+    }
+
+    if (!Util.isUnset(request.scrollMod)) {
+      query["scroll_mod"] = request.scrollMod;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -105082,6 +106551,10 @@ export default class Client extends OpenApi {
   async ieHotelBillSettlementQueryWithOptions(request: IeHotelBillSettlementQueryRequest, headers: IeHotelBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<IeHotelBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
     if (!Util.isUnset(request.category)) {
       query["category"] = request.category;
     }
@@ -105100,6 +106573,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.periodStart)) {
       query["period_start"] = request.periodStart;
+    }
+
+    if (!Util.isUnset(request.scrollId)) {
+      query["scroll_id"] = request.scrollId;
+    }
+
+    if (!Util.isUnset(request.scrollMod)) {
+      query["scroll_mod"] = request.scrollMod;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -107286,6 +108767,10 @@ export default class Client extends OpenApi {
   async mealBillSettlementQueryWithOptions(request: MealBillSettlementQueryRequest, headers: MealBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<MealBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
     if (!Util.isUnset(request.pageNo)) {
       query["page_no"] = request.pageNo;
     }
@@ -107300,6 +108785,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.periodStart)) {
       query["period_start"] = request.periodStart;
+    }
+
+    if (!Util.isUnset(request.scrollId)) {
+      query["scroll_id"] = request.scrollId;
+    }
+
+    if (!Util.isUnset(request.scrollMod)) {
+      query["scroll_mod"] = request.scrollMod;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -107518,6 +109011,10 @@ export default class Client extends OpenApi {
   async monthBillGetWithOptions(request: MonthBillGetRequest, headers: MonthBillGetHeaders, runtime: $Util.RuntimeOptions): Promise<MonthBillGetResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
     if (!Util.isUnset(request.billMonth)) {
       query["bill_month"] = request.billMonth;
     }
@@ -107559,6 +109056,64 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new MonthBillGetHeaders({ });
     return await this.monthBillGetWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询订单退款明细
+   * 
+   * @param request - OrderRefundDetailQueryRequest
+   * @param headers - OrderRefundDetailQueryHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OrderRefundDetailQueryResponse
+   */
+  async orderRefundDetailQueryWithOptions(request: OrderRefundDetailQueryRequest, headers: OrderRefundDetailQueryHeaders, runtime: $Util.RuntimeOptions): Promise<OrderRefundDetailQueryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cooperatorOrderId)) {
+      body["cooperator_order_id"] = request.cooperatorOrderId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "OrderRefundDetailQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/coop-hotel/v1/refund/action/detail`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OrderRefundDetailQueryResponse>(await this.callApi(params, req, runtime), new OrderRefundDetailQueryResponse({}));
+  }
+
+  /**
+   * 查询订单退款明细
+   * 
+   * @param request - OrderRefundDetailQueryRequest
+   * @returns OrderRefundDetailQueryResponse
+   */
+  async orderRefundDetailQuery(request: OrderRefundDetailQueryRequest): Promise<OrderRefundDetailQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new OrderRefundDetailQueryHeaders({ });
+    return await this.orderRefundDetailQueryWithOptions(request, headers, runtime);
   }
 
   /**
@@ -107753,6 +109308,60 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ProjectModifyHeaders({ });
     return await this.projectModifyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询企业信息详情
+   * 
+   * @param request - QueryCorpDetailInfoRequest
+   * @param headers - QueryCorpDetailInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCorpDetailInfoResponse
+   */
+  async queryCorpDetailInfoWithOptions(request: QueryCorpDetailInfoRequest, headers: QueryCorpDetailInfoHeaders, runtime: $Util.RuntimeOptions): Promise<QueryCorpDetailInfoResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.targetCorpId)) {
+      query["target_corp_id"] = request.targetCorpId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCorpDetailInfo",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/corps/v1/corps/detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCorpDetailInfoResponse>(await this.callApi(params, req, runtime), new QueryCorpDetailInfoResponse({}));
+  }
+
+  /**
+   * 查询企业信息详情
+   * 
+   * @param request - QueryCorpDetailInfoRequest
+   * @returns QueryCorpDetailInfoResponse
+   */
+  async queryCorpDetailInfo(request: QueryCorpDetailInfoRequest): Promise<QueryCorpDetailInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new QueryCorpDetailInfoHeaders({ });
+    return await this.queryCorpDetailInfoWithOptions(request, headers, runtime);
   }
 
   /**
@@ -108786,6 +110395,10 @@ export default class Client extends OpenApi {
   async trainBillSettlementQueryWithOptions(request: TrainBillSettlementQueryRequest, headers: TrainBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
     if (!Util.isUnset(request.pageNo)) {
       query["page_no"] = request.pageNo;
     }
@@ -108800,6 +110413,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.periodStart)) {
       query["period_start"] = request.periodStart;
+    }
+
+    if (!Util.isUnset(request.scrollId)) {
+      query["scroll_id"] = request.scrollId;
+    }
+
+    if (!Util.isUnset(request.scrollMod)) {
+      query["scroll_mod"] = request.scrollMod;
     }
 
     let realHeaders : {[key: string ]: string} = { };
