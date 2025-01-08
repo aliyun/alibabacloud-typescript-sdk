@@ -630,6 +630,7 @@ export class AttachInstancesRequest extends $tea.Model {
    * false
    */
   entrusted?: boolean;
+  ignoreInvalidInstance?: boolean;
   /**
    * @remarks
    * The IDs of the ECS instances, elastic container instances, non-Alibaba Cloud instances, or instances in Economical Mode.
@@ -681,6 +682,7 @@ export class AttachInstancesRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       entrusted: 'Entrusted',
+      ignoreInvalidInstance: 'IgnoreInvalidInstance',
       instanceIds: 'InstanceIds',
       lifecycleHook: 'LifecycleHook',
       loadBalancerWeights: 'LoadBalancerWeights',
@@ -697,6 +699,7 @@ export class AttachInstancesRequest extends $tea.Model {
     return {
       clientToken: 'string',
       entrusted: 'boolean',
+      ignoreInvalidInstance: 'boolean',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       lifecycleHook: 'boolean',
       loadBalancerWeights: { 'type': 'array', 'itemType': 'number' },
@@ -7287,18 +7290,41 @@ export class DescribeEciScalingConfigurationsResponse extends $tea.Model {
 }
 
 export class DescribeElasticStrengthRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The disk categories of the data disks. The disk categories that do not match the specified criteria are returned after you call this operation.
+   * 
+   * >  If you do not specify the scaling group ID, you must specify this parameter.
+   */
   dataDiskCategories?: string[];
   /**
+   * @remarks
+   * The name of the image family. You can specify the ImageFamily request parameter to obtain the most recent available images in the current image family for instance creation. If you specify ImageId, you cannot specify ImageFamily.
+   * 
+   * >  If you do not specify the scaling group ID, you must specify at least one of ImageId, ImageName, and ImageFamily.
+   * 
    * @example
    * CentOS7
    */
   imageFamily?: string;
   /**
+   * @remarks
+   * The ID of the image file that provides the image resource for Auto Scaling to create instances.
+   * 
+   * >  If you do not specify the scaling group ID, you must specify at least one of ImageId, ImageName, and ImageFamily.
+   * 
    * @example
    * centos6u5_64_20G_aliaegis****.vhd
    */
   imageId?: string;
   /**
+   * @remarks
+   * The name of the image. Each image name must be unique in a region. If you specify ImageId, ImageName is ignored.
+   * 
+   * You cannot use ImageName to specify an Alibaba Cloud Marketplace image.
+   * 
+   * >  If you do not specify the scaling group ID, you must specify at least one of ImageId, ImageName, and ImageFamily.
+   * 
    * @example
    * ubuntu_18_04_x64_20G_alibase_20231225.vhd
    */
@@ -7309,16 +7335,25 @@ export class DescribeElasticStrengthRequest extends $tea.Model {
    */
   instanceTypes?: string[];
   /**
+   * @remarks
+   * The number of IPv6 addresses. If the instance type that you specified does meet the requirement for the number of IPv6 addresses, the scaling strength is weak.
+   * 
+   * >  If you do not specify the scaling group ID, you must specify this parameter.
+   * 
    * @example
    * 1
    */
   ipv6AddressCount?: number;
   /**
    * @remarks
+   * **
+   * 
+   * **Warning** This parameter is deprecated. We recommend that you use SpotStrategy.
+   * 
    * The preemption policy that you want to apply to pay-as-you-go instances. The preemption policy specified by this parameter overwrites the preemption policy specified in the scaling configuration. Valid values:
    * 
    * *   NoSpot: The instances are created as regular pay-as-you-go instances.
-   * *   SpotWithPriceLimit: The instances are created as preemptible instances that have a user-defined maximum hourly price.
+   * *   SpotWithPriceLimit: The instances are created as preemptible instances with a user-defined maximum hourly price.
    * *   SpotAsPriceGo: The instances are created as preemptible instances for which the market price at the time of purchase is automatically used as the bidding price.
    * 
    * Default value: NoSpot.
@@ -7351,6 +7386,15 @@ export class DescribeElasticStrengthRequest extends $tea.Model {
    */
   scalingGroupIds?: string[];
   /**
+   * @remarks
+   * The instance bidding policy. Valid values:
+   * 
+   * *   NoSpot: The instances are created as pay-as-you-go instances.
+   * *   SpotWithPriceLimit: The instances are created as preemptible instances with a user-defined maximum hourly price.
+   * *   SpotAsPriceGo: The instances are created as preemptible instances for which the market price at the time of purchase is used as the bid price.
+   * 
+   * Default value: NoSpot.
+   * 
    * @example
    * NoSpot
    */
@@ -7363,8 +7407,16 @@ export class DescribeElasticStrengthRequest extends $tea.Model {
    * *   cloud_efficiency: ultra disk.
    * *   cloud_ssd: standard SSD.
    * *   cloud_essd: Enterprise SSD (ESSD).
+   * 
+   * >  If you do not specify the scaling group ID, you must specify this parameter.
    */
   systemDiskCategories?: string[];
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   * 
+   * >  If you do not specify the scaling group ID, you must specify this parameter.
+   */
   vSwitchIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7410,7 +7462,7 @@ export class DescribeElasticStrengthRequest extends $tea.Model {
 export class DescribeElasticStrengthResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The scaling strengths of scaling configurations that are queried at the same time.
+   * The scaling strength models.
    */
   elasticStrengthModels?: DescribeElasticStrengthResponseBodyElasticStrengthModels[];
   /**
@@ -7428,7 +7480,11 @@ export class DescribeElasticStrengthResponseBody extends $tea.Model {
   resourcePools?: DescribeElasticStrengthResponseBodyResourcePools[];
   /**
    * @remarks
-   * The scaling strength of the scaling group. Each combination of instance type + zone is scored from 0 to 1 based on its availability, with 0 being the weakest scaling strength and 1 being the strongest. The scaling strength of the scaling group is measured by the combined scores of all the combinations of instance type + zone.
+   * The scaling strength score of the scaling group. Each combination of instance type + zone is scored from 0 to 1 based on its availability, with 0 being the weakest scaling strength and 1 being the strongest. The scaling strength score of the scaling group is measured by the combined scores of all the combinations of instance type + zone.
+   * 
+   * **
+   * 
+   * **Warning** This parameter is deprecated.
    * 
    * @example
    * 1.5
@@ -16394,6 +16450,13 @@ export class ModifyScheduledTaskRequest extends $tea.Model {
    * 2
    */
   recurrenceValue?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -28035,9 +28098,49 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurations e
 }
 
 export class DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoolsInventoryHealth extends $tea.Model {
+  /**
+   * @remarks
+   * The adequacy score.
+   * 
+   * Valid values: 0 to 3.
+   * 
+   * @example
+   * 3
+   */
   adequacyScore?: number;
+  /**
+   * @remarks
+   * The score of the inventory health.
+   * 
+   * *   A score between 5 and 6 indicates a sufficient inventory.
+   * *   A score between 1 and 4 indicates that there is no guarantee of a sufficient inventory. Select a reservation as necessary.
+   * *   A score between -3 and 0 indicates that the inventory is sufficient, and an alert is triggered. Select another instance type.
+   * 
+   * Calculation formula: `HealthScore` = `AdequacyScore` + `SupplyScore` - `HotScore`.
+   * 
+   * @example
+   * 3
+   */
   healthScore?: number;
+  /**
+   * @remarks
+   * The popularity score.
+   * 
+   * Valid values: 0 to 3.
+   * 
+   * @example
+   * 0
+   */
   hotScore?: number;
+  /**
+   * @remarks
+   * The score of the replenishment capability.
+   * 
+   * Valid values: 0 to 3.
+   * 
+   * @example
+   * 2
+   */
   supplyScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28079,6 +28182,10 @@ export class DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoo
    * ecs.r7.large
    */
   instanceType?: string;
+  /**
+   * @remarks
+   * The inventory health.
+   */
   inventoryHealth?: DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoolsInventoryHealth;
   /**
    * @remarks
@@ -28088,10 +28195,24 @@ export class DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoo
    * The instanceTypes or diskTypes are not supported.
    */
   msg?: string;
+  /**
+   * @remarks
+   * Indicates whether the resource pool is available. Valid values:
+   * 
+   * *   Available
+   * *   Unavailable (If a constraint is not provided, the instance type is not deployed, or the instance type is out of stock, the resource pool becomes unavailable.)
+   * 
+   * @example
+   * Available
+   */
   status?: string;
   /**
    * @remarks
    * The scaling strength of the resource pool.
+   * 
+   * **
+   * 
+   * **Warning** This parameter is deprecated.
    * 
    * @example
    * 0.6
@@ -28142,6 +28263,17 @@ export class DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoo
 }
 
 export class DescribeElasticStrengthResponseBodyElasticStrengthModels extends $tea.Model {
+  /**
+   * @remarks
+   * The scaling strength level of the scaling group. Valid values:
+   * 
+   * *   Strong
+   * *   Medium
+   * *   Weak
+   * 
+   * @example
+   * Strong
+   */
   elasticStrength?: string;
   /**
    * @remarks
@@ -28158,7 +28290,11 @@ export class DescribeElasticStrengthResponseBodyElasticStrengthModels extends $t
   scalingGroupId?: string;
   /**
    * @remarks
-   * The scaling strength of the scaling group. Each combination of instance type + zone is scored from 0 to 1 based on its availability, with 0 being the weakest scaling strength and 1 being the strongest. The scaling strength of the scaling group is measured by the combined scores of all the combinations of instance type + zone.
+   * The scaling strength score of the scaling group. Each combination of instance type + zone is scored from 0 to 1 based on its availability, with 0 being the weakest scaling strength and 1 being the strongest. The scaling strength score of the scaling group is measured by the combined scores of all the combinations of instance type + zone.
+   * 
+   * **
+   * 
+   * **Warning** This parameter is deprecated.
    * 
    * @example
    * 1.5
@@ -38702,6 +38838,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.entrusted)) {
       query["Entrusted"] = request.entrusted;
+    }
+
+    if (!Util.isUnset(request.ignoreInvalidInstance)) {
+      query["IgnoreInvalidInstance"] = request.ignoreInvalidInstance;
     }
 
     if (!Util.isUnset(request.instanceIds)) {
