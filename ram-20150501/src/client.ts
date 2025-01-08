@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,7 +8,21 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddUserToGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,6 +44,13 @@ export class AddUserToGroupRequest extends $tea.Model {
 }
 
 export class AddUserToGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1B968853-B423-63A6-FE1F-45E81BC2AD61
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -75,8 +95,29 @@ export class AddUserToGroupResponse extends $tea.Model {
 }
 
 export class AttachPolicyToGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * dev
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values: `System` and `Custom`.
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -100,6 +141,13 @@ export class AttachPolicyToGroupRequest extends $tea.Model {
 }
 
 export class AttachPolicyToGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 697852FB-50D7-44D9-9774-530C31EAC572
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -144,8 +192,29 @@ export class AttachPolicyToGroupResponse extends $tea.Model {
 }
 
 export class AttachPolicyToRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values: `System` and `Custom`.
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
+  /**
+   * @remarks
+   * The name of the RAM role.
+   * 
+   * @example
+   * OSSAdminRole
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -169,6 +238,13 @@ export class AttachPolicyToRoleRequest extends $tea.Model {
 }
 
 export class AttachPolicyToRoleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 697852FB-50D7-44D9-9774-530C31EAC572
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -213,8 +289,29 @@ export class AttachPolicyToRoleResponse extends $tea.Model {
 }
 
 export class AttachPolicyToUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values: `System` and `Custom`.
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -238,6 +335,13 @@ export class AttachPolicyToUserRequest extends $tea.Model {
 }
 
 export class AttachPolicyToUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 697852FB-50D7-44D9-9774-530C31EAC572
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -282,9 +386,37 @@ export class AttachPolicyToUserResponse extends $tea.Model {
 }
 
 export class BindMFADeviceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The first authentication code.
+   * 
+   * @example
+   * 11****
+   */
   authenticationCode1?: string;
+  /**
+   * @remarks
+   * The second authentication code.
+   * 
+   * @example
+   * 33****
+   */
   authenticationCode2?: string;
+  /**
+   * @remarks
+   * The serial number of the MFA device.
+   * 
+   * @example
+   * acs:ram::123456789012****:mfa/device002
+   */
   serialNumber?: string;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -310,6 +442,13 @@ export class BindMFADeviceRequest extends $tea.Model {
 }
 
 export class BindMFADeviceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -354,7 +493,23 @@ export class BindMFADeviceResponse extends $tea.Model {
 }
 
 export class ChangePasswordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new password that is used to log on to the Alibaba Cloud Management Console.
+   * 
+   * The password must meet the complexity requirements. For more information, see [SetPasswordPolicy](https://help.aliyun.com/document_detail/28739.html).
+   * 
+   * @example
+   * aw$2****
+   */
   newPassword?: string;
+  /**
+   * @remarks
+   * The old password that is used to log on to the Alibaba Cloud Management Console.
+   * 
+   * @example
+   * 12****
+   */
   oldPassword?: string;
   static names(): { [key: string]: string } {
     return {
@@ -376,6 +531,13 @@ export class ChangePasswordRequest extends $tea.Model {
 }
 
 export class ChangePasswordResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -420,6 +582,13 @@ export class ChangePasswordResponse extends $tea.Model {
 }
 
 export class ClearAccountAliasResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -464,6 +633,13 @@ export class ClearAccountAliasResponse extends $tea.Model {
 }
 
 export class CreateAccessKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user. If a RAM user calls this operation and does not specify this parameter, an AccessKey pair is created for the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -483,7 +659,18 @@ export class CreateAccessKeyRequest extends $tea.Model {
 }
 
 export class CreateAccessKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information of the AccessKey pair.
+   */
   accessKey?: CreateAccessKeyResponseBodyAccessKey;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -530,7 +717,25 @@ export class CreateAccessKeyResponse extends $tea.Model {
 }
 
 export class CreateGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * The value can be up to 128 characters in length.
+   * 
+   * @example
+   * Dev-Team
+   */
   comments?: string;
+  /**
+   * @remarks
+   * The name of the user group.
+   * 
+   * The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
+   * 
+   * @example
+   * Dev-Team
+   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -552,7 +757,18 @@ export class CreateGroupRequest extends $tea.Model {
 }
 
 export class CreateGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the group.
+   */
   group?: CreateGroupResponseBodyGroup;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D3F0679E-9757-95DB-AF2D-04D5188C69C5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -599,9 +815,37 @@ export class CreateGroupResponse extends $tea.Model {
 }
 
 export class CreateLoginProfileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether an MFA device must be attached to the RAM user upon logon. Default value: `false`.
+   * 
+   * @example
+   * false
+   */
   MFABindRequired?: boolean;
+  /**
+   * @remarks
+   * The logon password of the RAM user. The password must meet the password strength requirements. For more information, see [GetPasswordPolicy](https://help.aliyun.com/document_detail/2337691.html).
+   * 
+   * @example
+   * mypassword
+   */
   password?: string;
+  /**
+   * @remarks
+   * Specifies whether the RAM user must change the password upon logon. Default value: `false`.
+   * 
+   * @example
+   * false
+   */
   passwordResetRequired?: boolean;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -627,7 +871,18 @@ export class CreateLoginProfileRequest extends $tea.Model {
 }
 
 export class CreateLoginProfileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The logon configurations of the RAM user.
+   */
   loginProfile?: CreateLoginProfileResponseBodyLoginProfile;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -674,8 +929,37 @@ export class CreateLoginProfileResponse extends $tea.Model {
 }
 
 export class CreatePolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * The description must be 1 to 1,024 characters in length.
+   * 
+   * @example
+   * Query ECS instances in a specific region
+   */
   description?: string;
+  /**
+   * @remarks
+   * The document of the policy.
+   * 
+   * The document must be 1 to 6,144 characters in length.
+   * 
+   * For more information about policy elements and sample policies, see [Policy elements](https://help.aliyun.com/document_detail/93738.html) and [Overview of sample policies](https://help.aliyun.com/document_detail/210969.html).
+   * 
+   * @example
+   * {"Statement": [{"Effect": "Allow","Action": "ecs:Describe*","Resource": "acs:ecs:cn-qingdao:*:instance/*"}],"Version": "1"}
+   */
   policyDocument?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * The name must be 1 to 128 characters in length, and can contain letters, digits, and hyphens (-).
+   * 
+   * @example
+   * View-ECS-instances-in-a-specific-region
+   */
   policyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -699,7 +983,18 @@ export class CreatePolicyRequest extends $tea.Model {
 }
 
 export class CreatePolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the policy.
+   */
   policy?: CreatePolicyResponseBodyPolicy;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BA34C54A-C2B1-5A65-B6B0-B5842C1DB4DA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -746,9 +1041,44 @@ export class CreatePolicyResponse extends $tea.Model {
 }
 
 export class CreatePolicyVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The document of the policy. The document can be up to 6,144 bytes in length.
+   * 
+   * @example
+   * {"Statement":[{"Action":["oss:*"],"Effect":"Allow","Resource":["acs:oss:*:*:*"]}],"Version":"1"}
+   */
   policyDocument?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The rotation strategy of the policy. The rotation strategy can be used to delete an early policy version.
+   * 
+   * Valid values:
+   * 
+   * *   `None`: disables the rotation strategy.
+   * *   `DeleteOldestNonDefaultVersionWhenLimitExceeded`: deletes the earliest non-active version if the number of versions exceeds the limit.
+   * 
+   * Default value: `None`.
+   * 
+   * @example
+   * None
+   */
   rotateStrategy?: string;
+  /**
+   * @remarks
+   * Specifies whether to set this policy as the default policy. Default value: `false`.
+   * 
+   * @example
+   * false
+   */
   setAsDefault?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -774,7 +1104,18 @@ export class CreatePolicyVersionRequest extends $tea.Model {
 }
 
 export class CreatePolicyVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the policy version.
+   */
   policyVersion?: CreatePolicyVersionResponseBodyPolicyVersion;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -821,9 +1162,47 @@ export class CreatePolicyVersionResponse extends $tea.Model {
 }
 
 export class CreateRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The trust policy that specifies one or more trusted entities to assume the RAM role. The trusted entities can be Alibaba Cloud accounts, Alibaba Cloud services, or identity providers (IdPs).
+   * 
+   * >  RAM users cannot assume the RAM roles of trusted Alibaba Cloud services.
+   * 
+   * @example
+   * {"Statement":[{"Action":"sts:AssumeRole","Effect":"Allow","Principal":{"RAM":"acs:ram::123456789012****:root"}}],"Version":"1"}
+   */
   assumeRolePolicyDocument?: string;
+  /**
+   * @remarks
+   * The description of the RAM role.
+   * 
+   * The description must be 1 to 1,024 characters in length.
+   * 
+   * @example
+   * ECS administrator
+   */
   description?: string;
+  /**
+   * @remarks
+   * The maximum session duration of the RAM role.
+   * 
+   * Valid values: 3600 to 43200. Unit: seconds. Default value: 3600.
+   * 
+   * If you do not specify this parameter, the default value is used.
+   * 
+   * @example
+   * 3600
+   */
   maxSessionDuration?: number;
+  /**
+   * @remarks
+   * The name of the RAM role.
+   * 
+   * The name must be 1 to 64 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+   * 
+   * @example
+   * ECSAdmin
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -849,7 +1228,18 @@ export class CreateRoleRequest extends $tea.Model {
 }
 
 export class CreateRoleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information of the RAM role.
+   */
   role?: CreateRoleResponseBodyRole;
   static names(): { [key: string]: string } {
     return {
@@ -896,10 +1286,57 @@ export class CreateRoleResponse extends $tea.Model {
 }
 
 export class CreateUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the RAM user.
+   * 
+   * The description must be 1 to 128 characters in length.
+   * 
+   * @example
+   * This is a cloud computing engineer.
+   */
   comments?: string;
+  /**
+   * @remarks
+   * The display name of the RAM user.
+   * 
+   * The display name must be 1 to 128 characters in length.
+   * 
+   * @example
+   * alice
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The email address of the RAM user.
+   * 
+   * >  This parameter applies only to the China site (aliyun.com).
+   * 
+   * @example
+   * alice@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the RAM user.
+   * 
+   * Format: Country code-Mobile phone number.
+   * 
+   * >  This parameter applies only to the China site (aliyun.com).
+   * 
+   * @example
+   * 86-1868888****
+   */
   mobilePhone?: string;
+  /**
+   * @remarks
+   * The username of the RAM user.
+   * 
+   * The username must be 1 to 64 characters in length, and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
+   * 
+   * @example
+   * alice
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -927,7 +1364,18 @@ export class CreateUserRequest extends $tea.Model {
 }
 
 export class CreateUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the RAM user.
+   */
   user?: CreateUserResponseBodyUser;
   static names(): { [key: string]: string } {
     return {
@@ -974,6 +1422,15 @@ export class CreateUserResponse extends $tea.Model {
 }
 
 export class CreateVirtualMFADeviceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the MFA device.
+   * 
+   * The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
+   * 
+   * @example
+   * device001
+   */
   virtualMFADeviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -993,7 +1450,18 @@ export class CreateVirtualMFADeviceRequest extends $tea.Model {
 }
 
 export class CreateVirtualMFADeviceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information of the MFA device.
+   */
   virtualMFADevice?: CreateVirtualMFADeviceResponseBodyVirtualMFADevice;
   static names(): { [key: string]: string } {
     return {
@@ -1040,6 +1508,13 @@ export class CreateVirtualMFADeviceResponse extends $tea.Model {
 }
 
 export class DecodeDiagnosticMessageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The encoded diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+   * 
+   * @example
+   * AQEAAAAAZBgxr0U1MjA1NTM1LUM4BBktMzE5RS1CODgxLUU1QTI0RDNFQTM1****
+   */
   encodedDiagnosticMessage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1059,7 +1534,18 @@ export class DecodeDiagnosticMessageRequest extends $tea.Model {
 }
 
 export class DecodeDiagnosticMessageResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The decoded diagnostic information.
+   */
   decodedDiagnosticMessage?: DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessage;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D2331703-AADF-5564-BA9B-26CD51A33BA0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1106,7 +1592,21 @@ export class DecodeDiagnosticMessageResponse extends $tea.Model {
 }
 
 export class DeleteAccessKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID in the AccessKey pair that you want to delete.
+   * 
+   * @example
+   * 0wNEpMMlzy7s****
+   */
   userAccessKeyId?: string;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1128,6 +1628,13 @@ export class DeleteAccessKeyRequest extends $tea.Model {
 }
 
 export class DeleteAccessKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1172,6 +1679,15 @@ export class DeleteAccessKeyResponse extends $tea.Model {
 }
 
 export class DeleteGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * If you want to query the name of a RAM user group, call the [ListGroups](https://help.aliyun.com/document_detail/28703.html) operation.
+   * 
+   * @example
+   * Dev-Team
+   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1191,6 +1707,13 @@ export class DeleteGroupRequest extends $tea.Model {
 }
 
 export class DeleteGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * FCF40AB5-881C-A0F9-334C-B0AD423AA69D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1235,6 +1758,13 @@ export class DeleteGroupResponse extends $tea.Model {
 }
 
 export class DeleteLoginProfileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1254,6 +1784,13 @@ export class DeleteLoginProfileRequest extends $tea.Model {
 }
 
 export class DeleteLoginProfileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1C488B66-B819-4D14-8711-C4EAAA13AC01
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1298,15 +1835,25 @@ export class DeleteLoginProfileResponse extends $tea.Model {
 }
 
 export class DeletePolicyRequest extends $tea.Model {
+  cascadingDelete?: boolean;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
   static names(): { [key: string]: string } {
     return {
+      cascadingDelete: 'CascadingDelete',
       policyName: 'PolicyName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cascadingDelete: 'boolean',
       policyName: 'string',
     };
   }
@@ -1317,6 +1864,13 @@ export class DeletePolicyRequest extends $tea.Model {
 }
 
 export class DeletePolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 898FAB24-7509-43EE-A287-086FE4C44394
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1361,7 +1915,21 @@ export class DeletePolicyResponse extends $tea.Model {
 }
 
 export class DeletePolicyVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The ID of the policy version.
+   * 
+   * @example
+   * v3
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1383,6 +1951,13 @@ export class DeletePolicyVersionRequest extends $tea.Model {
 }
 
 export class DeletePolicyVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1427,6 +2002,13 @@ export class DeletePolicyVersionResponse extends $tea.Model {
 }
 
 export class DeleteRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM role.
+   * 
+   * @example
+   * ECSAdmin
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1446,6 +2028,13 @@ export class DeleteRoleRequest extends $tea.Model {
 }
 
 export class DeleteRoleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 898FAB24-7509-43EE-A287-086FE4C44394
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1490,6 +2079,15 @@ export class DeleteRoleResponse extends $tea.Model {
 }
 
 export class DeleteUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * The name must be 1 to 64 characters in length, and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1509,6 +2107,13 @@ export class DeleteUserRequest extends $tea.Model {
 }
 
 export class DeleteUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1C488B66-B819-4D14-8711-C4EAAA13AC01
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1553,6 +2158,13 @@ export class DeleteUserResponse extends $tea.Model {
 }
 
 export class DeleteVirtualMFADeviceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The serial number of the MFA device.
+   * 
+   * @example
+   * acs:ram::123456789012****:mfa/device002
+   */
   serialNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1572,6 +2184,13 @@ export class DeleteVirtualMFADeviceRequest extends $tea.Model {
 }
 
 export class DeleteVirtualMFADeviceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1616,8 +2235,29 @@ export class DeleteVirtualMFADeviceResponse extends $tea.Model {
 }
 
 export class DetachPolicyFromGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * dev
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values: `System` and `Custom`.
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1641,6 +2281,13 @@ export class DetachPolicyFromGroupRequest extends $tea.Model {
 }
 
 export class DetachPolicyFromGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 697852FB-50D7-44D9-9774-530C31EAC572
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1685,8 +2332,29 @@ export class DetachPolicyFromGroupResponse extends $tea.Model {
 }
 
 export class DetachPolicyFromRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values: `System` and `Custom`.
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
+  /**
+   * @remarks
+   * The name of the RAM role.
+   * 
+   * @example
+   * OSSAdminRole
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1710,6 +2378,13 @@ export class DetachPolicyFromRoleRequest extends $tea.Model {
 }
 
 export class DetachPolicyFromRoleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 697852FB-50D7-44D9-9774-530C31EAC572
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1754,8 +2429,29 @@ export class DetachPolicyFromRoleResponse extends $tea.Model {
 }
 
 export class DetachPolicyFromUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values: `System` and `Custom`.
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1779,6 +2475,13 @@ export class DetachPolicyFromUserRequest extends $tea.Model {
 }
 
 export class DetachPolicyFromUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 697852FB-50D7-44D9-9774-530C31EAC572
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1823,7 +2526,15 @@ export class DetachPolicyFromUserResponse extends $tea.Model {
 }
 
 export class GetAccessKeyLastUsedRequest extends $tea.Model {
+  /**
+   * @example
+   * LTAI4GFTgcR8m8cZQDTH****
+   */
   userAccessKeyId?: string;
+  /**
+   * @example
+   * test
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1846,6 +2557,10 @@ export class GetAccessKeyLastUsedRequest extends $tea.Model {
 
 export class GetAccessKeyLastUsedResponseBody extends $tea.Model {
   accessKeyLastUsed?: GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed;
+  /**
+   * @example
+   * 5CCE804C-6450-49A7-B1DB-2460F7A97416
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1892,7 +2607,21 @@ export class GetAccessKeyLastUsedResponse extends $tea.Model {
 }
 
 export class GetAccountAliasResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The alias of the Alibaba Cloud account.
+   * 
+   * @example
+   * myalias
+   */
   accountAlias?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1939,6 +2668,13 @@ export class GetAccountAliasResponse extends $tea.Model {
 }
 
 export class GetGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1958,7 +2694,18 @@ export class GetGroupRequest extends $tea.Model {
 }
 
 export class GetGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information of the RAM user group.
+   */
   group?: GetGroupResponseBodyGroup;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * D4065824-E422-3ED6-68B1-1AF7D5C7804C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2005,6 +2752,13 @@ export class GetGroupResponse extends $tea.Model {
 }
 
 export class GetLoginProfileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2024,7 +2778,18 @@ export class GetLoginProfileRequest extends $tea.Model {
 }
 
 export class GetLoginProfileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The logon configurations of the RAM user.
+   */
   loginProfile?: GetLoginProfileResponseBodyLoginProfile;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2071,7 +2836,18 @@ export class GetLoginProfileResponse extends $tea.Model {
 }
 
 export class GetPasswordPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The policy to manage passwords.
+   */
   passwordPolicy?: GetPasswordPolicyResponseBodyPasswordPolicy;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2118,7 +2894,21 @@ export class GetPasswordPolicyResponse extends $tea.Model {
 }
 
 export class GetPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values: `System` and `Custom`.
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2140,8 +2930,23 @@ export class GetPolicyRequest extends $tea.Model {
 }
 
 export class GetPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information of the default policy version.
+   */
   defaultPolicyVersion?: GetPolicyResponseBodyDefaultPolicyVersion;
+  /**
+   * @remarks
+   * The basic information of the policy.
+   */
   policy?: GetPolicyResponseBodyPolicy;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 697852FB-50D7-44D9-9774-530C31EAC572
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2190,8 +2995,29 @@ export class GetPolicyResponse extends $tea.Model {
 }
 
 export class GetPolicyVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values: `System` and `Custom`.
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
+  /**
+   * @remarks
+   * The ID of the policy version.
+   * 
+   * @example
+   * v3
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2215,7 +3041,18 @@ export class GetPolicyVersionRequest extends $tea.Model {
 }
 
 export class GetPolicyVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information of the policy version.
+   */
   policyVersion?: GetPolicyVersionResponseBodyPolicyVersion;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2262,6 +3099,15 @@ export class GetPolicyVersionResponse extends $tea.Model {
 }
 
 export class GetRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM role.
+   * 
+   * The name must be 1 to 64 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+   * 
+   * @example
+   * ECSAdmin
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2281,7 +3127,18 @@ export class GetRoleRequest extends $tea.Model {
 }
 
 export class GetRoleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information of the RAM role.
+   */
   role?: GetRoleResponseBodyRole;
   static names(): { [key: string]: string } {
     return {
@@ -2328,7 +3185,18 @@ export class GetRoleResponse extends $tea.Model {
 }
 
 export class GetSecurityPreferenceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DC1213F1-A9D5-4A01-A996-44983689126C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The security preferences.
+   */
   securityPreference?: GetSecurityPreferenceResponseBodySecurityPreference;
   static names(): { [key: string]: string } {
     return {
@@ -2375,6 +3243,15 @@ export class GetSecurityPreferenceResponse extends $tea.Model {
 }
 
 export class GetUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The username of the RAM user.
+   * 
+   * The username must be 1 to 64 characters in length, and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
+   * 
+   * @example
+   * alice
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2394,7 +3271,18 @@ export class GetUserRequest extends $tea.Model {
 }
 
 export class GetUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2D69A58F-345C-4FDE-88E4-BF5189484043
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the RAM user.
+   */
   user?: GetUserResponseBodyUser;
   static names(): { [key: string]: string } {
     return {
@@ -2441,6 +3329,13 @@ export class GetUserResponse extends $tea.Model {
 }
 
 export class GetUserMFAInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The username of the RAM user.
+   * 
+   * @example
+   * test
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2460,7 +3355,18 @@ export class GetUserMFAInfoRequest extends $tea.Model {
 }
 
 export class GetUserMFAInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the MFA device that is attached to the RAM user.
+   */
   MFADevice?: GetUserMFAInfoResponseBodyMFADevice;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2507,6 +3413,13 @@ export class GetUserMFAInfoResponse extends $tea.Model {
 }
 
 export class ListAccessKeysRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user. If a RAM user calls this operation and does not specify this parameter, the AccessKey pairs of the RAM user are returned.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2526,7 +3439,18 @@ export class ListAccessKeysRequest extends $tea.Model {
 }
 
 export class ListAccessKeysResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of AccessKey pairs that belong to the RAM user.
+   */
   accessKeys?: ListAccessKeysResponseBodyAccessKeys;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2573,7 +3497,21 @@ export class ListAccessKeysResponse extends $tea.Model {
 }
 
 export class ListEntitiesForPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values: `System` and `Custom`.
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2595,9 +3533,28 @@ export class ListEntitiesForPolicyRequest extends $tea.Model {
 }
 
 export class ListEntitiesForPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of the RAM user groups.
+   */
   groups?: ListEntitiesForPolicyResponseBodyGroups;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information of RAM roles.
+   */
   roles?: ListEntitiesForPolicyResponseBodyRoles;
+  /**
+   * @remarks
+   * The list of the RAM users to which the policy is attached.
+   */
   users?: ListEntitiesForPolicyResponseBodyUsers;
   static names(): { [key: string]: string } {
     return {
@@ -2648,7 +3605,23 @@ export class ListEntitiesForPolicyResponse extends $tea.Model {
 }
 
 export class ListGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` is `true`.
+   * 
+   * Valid values: 1 to 1000. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   maxItems?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2670,9 +3643,34 @@ export class ListGroupsRequest extends $tea.Model {
 }
 
 export class ListGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of the RAM user groups.
+   */
   groups?: ListGroupsResponseBodyGroups;
+  /**
+   * @remarks
+   * Indicates whether the response is truncated.
+   * 
+   * @example
+   * true
+   */
   isTruncated?: boolean;
+  /**
+   * @remarks
+   * The marker. This parameter is returned only if the value of `IsTruncated` is `true`. If `true` is returned, you can call this operation again and set the `Marker` parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 065527AA-2F2E-AD7C-7484-F2626CFE4934
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2723,6 +3721,13 @@ export class ListGroupsResponse extends $tea.Model {
 }
 
 export class ListGroupsForUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The username of the RAM user.
+   * 
+   * @example
+   * Alice
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2742,7 +3747,18 @@ export class ListGroupsForUserRequest extends $tea.Model {
 }
 
 export class ListGroupsForUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of the RAM user groups.
+   */
   groups?: ListGroupsForUserResponseBodyGroups;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DA772B52-BF9F-54CA-AC77-AA7A2DA89D46
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2789,8 +3805,31 @@ export class ListGroupsForUserResponse extends $tea.Model {
 }
 
 export class ListPoliciesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The `Marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
+   * 
+   * Valid values: 1 to 1000. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   maxItems?: number;
+  /**
+   * @remarks
+   * The type of the `Policy`. Valid values: `System` and `Custom`. If you do not specify the parameter, all policies are returned.
+   * 
+   * @example
+   * System
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2814,9 +3853,34 @@ export class ListPoliciesRequest extends $tea.Model {
 }
 
 export class ListPoliciesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the response is truncated.
+   * 
+   * @example
+   * true
+   */
   isTruncated?: boolean;
+  /**
+   * @remarks
+   * The marker. This parameter is returned only if the value of `IsTruncated` is `true`. If the value of IsTruncated is `true`, you can call this operation again and set `Marker` to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The list of policies.
+   */
   policies?: ListPoliciesResponseBodyPolicies;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2867,6 +3931,13 @@ export class ListPoliciesResponse extends $tea.Model {
 }
 
 export class ListPoliciesForGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * dev
+   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2886,7 +3957,18 @@ export class ListPoliciesForGroupRequest extends $tea.Model {
 }
 
 export class ListPoliciesForGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of the policies that are attached to the RAM user group.
+   */
   policies?: ListPoliciesForGroupResponseBodyPolicies;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2933,6 +4015,13 @@ export class ListPoliciesForGroupResponse extends $tea.Model {
 }
 
 export class ListPoliciesForRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM role.
+   * 
+   * @example
+   * AdminRole
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2952,7 +4041,18 @@ export class ListPoliciesForRoleRequest extends $tea.Model {
 }
 
 export class ListPoliciesForRoleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of the policies that are attached to the RAM role.
+   */
   policies?: ListPoliciesForRoleResponseBodyPolicies;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2999,6 +4099,13 @@ export class ListPoliciesForRoleResponse extends $tea.Model {
 }
 
 export class ListPoliciesForUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3018,7 +4125,18 @@ export class ListPoliciesForUserRequest extends $tea.Model {
 }
 
 export class ListPoliciesForUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the policy.
+   */
   policies?: ListPoliciesForUserResponseBodyPolicies;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3065,7 +4183,21 @@ export class ListPoliciesForUserResponse extends $tea.Model {
 }
 
 export class ListPolicyVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values: `System` and `Custom`.
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3087,7 +4219,18 @@ export class ListPolicyVersionsRequest extends $tea.Model {
 }
 
 export class ListPolicyVersionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of the policy versions.
+   */
   policyVersions?: ListPolicyVersionsResponseBodyPolicyVersions;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3134,7 +4277,23 @@ export class ListPolicyVersionsResponse extends $tea.Model {
 }
 
 export class ListRolesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
+   * 
+   * Valid values: 1 to 1000. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   maxItems?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3156,9 +4315,34 @@ export class ListRolesRequest extends $tea.Model {
 }
 
 export class ListRolesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the response is truncated.
+   * 
+   * @example
+   * true
+   */
   isTruncated?: boolean;
+  /**
+   * @remarks
+   * The marker. This parameter is returned only if the value of `IsTruncated` is `true`. If the value is `true`, you can call this operation again and set the `Marker` parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information of RAM roles.
+   */
   roles?: ListRolesResponseBodyRoles;
   static names(): { [key: string]: string } {
     return {
@@ -3209,7 +4393,23 @@ export class ListRolesResponse extends $tea.Model {
 }
 
 export class ListUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The number of entries per page. If a response is truncated because it reaches the value of MaxItems, the value of `IsTruncatedg` will be `true`.
+   * 
+   * Valid values: 1 to 1000. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   maxItems?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3231,9 +4431,34 @@ export class ListUsersRequest extends $tea.Model {
 }
 
 export class ListUsersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the response is truncated.
+   * 
+   * @example
+   * true
+   */
   isTruncated?: boolean;
+  /**
+   * @remarks
+   * The marker. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set `Marker` to obtain the truncated part.``
+   * 
+   * @example
+   * EXAMPLE
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The RAM users.
+   */
   users?: ListUsersResponseBodyUsers;
   static names(): { [key: string]: string } {
     return {
@@ -3284,8 +4509,31 @@ export class ListUsersResponse extends $tea.Model {
 }
 
 export class ListUsersForGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
+   * 
+   * Valid values: 1 to 1000. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   maxItems?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3309,9 +4557,34 @@ export class ListUsersForGroupRequest extends $tea.Model {
 }
 
 export class ListUsersForGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the response is truncated.
+   * 
+   * @example
+   * true
+   */
   isTruncated?: boolean;
+  /**
+   * @remarks
+   * The marker. This parameter is returned only if the value of `IsTruncated` is `true`. If the value of IsTruncated is `true`, you can call this operation again and set `marker` to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of the RAM users.
+   */
   users?: ListUsersForGroupResponseBodyUsers;
   static names(): { [key: string]: string } {
     return {
@@ -3362,7 +4635,18 @@ export class ListUsersForGroupResponse extends $tea.Model {
 }
 
 export class ListVirtualMFADevicesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of MFA devices.
+   */
   virtualMFADevices?: ListVirtualMFADevicesResponseBodyVirtualMFADevices;
   static names(): { [key: string]: string } {
     return {
@@ -3409,7 +4693,21 @@ export class ListVirtualMFADevicesResponse extends $tea.Model {
 }
 
 export class RemoveUserFromGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3431,6 +4729,13 @@ export class RemoveUserFromGroupRequest extends $tea.Model {
 }
 
 export class RemoveUserFromGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A07EF215-B9B3-8CB2-2899-3F9575C6E320
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3475,6 +4780,17 @@ export class RemoveUserFromGroupResponse extends $tea.Model {
 }
 
 export class SetAccountAliasRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The alias of the Alibaba Cloud account.
+   * 
+   * The alias must be 3 to 32 characters in length, and can contain lowercase letters, digits, and hyphens (-).
+   * 
+   * > It cannot start or end with a hyphen (-), and cannot contain consecutive hyphens (-).
+   * 
+   * @example
+   * myalias
+   */
   accountAlias?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3494,6 +4810,13 @@ export class SetAccountAliasRequest extends $tea.Model {
 }
 
 export class SetAccountAliasResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3538,7 +4861,21 @@ export class SetAccountAliasResponse extends $tea.Model {
 }
 
 export class SetDefaultPolicyVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The ID of the policy version that you want to set as the default version.
+   * 
+   * @example
+   * v2
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3560,6 +4897,13 @@ export class SetDefaultPolicyVersionRequest extends $tea.Model {
 }
 
 export class SetDefaultPolicyVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3604,14 +4948,84 @@ export class SetDefaultPolicyVersionResponse extends $tea.Model {
 }
 
 export class SetPasswordPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether a password will expire.
+   * 
+   * Valid values: `true` and `false`. Default value: `false`. If you leave this parameter unspecified, the default value false is used.
+   * 
+   * *   If you set this parameter to `true`, the Alibaba Cloud account to which the RAM users belong must reset the passwords before the RAM users can log on to the Alibaba Cloud Management Console.
+   * *   If you set this parameter to `false`, the RAM users can change the passwords after the passwords expire and then log on to the Alibaba Cloud Management Console.
+   * 
+   * @example
+   * false
+   */
   hardExpiry?: boolean;
+  /**
+   * @remarks
+   * The maximum number of permitted logon attempts within one hour. The number of logon attempts is reset to zero if a RAM user changes the password.
+   * 
+   * @example
+   * 5
+   */
   maxLoginAttemps?: number;
+  /**
+   * @remarks
+   * The number of days for which a password is valid. Default value: 0. The default value indicates that the password never expires.
+   * 
+   * @example
+   * 0
+   */
   maxPasswordAge?: number;
+  /**
+   * @remarks
+   * The minimum required number of characters in a password.
+   * 
+   * Valid values: 8 to 32. Default value: 8.
+   * 
+   * @example
+   * 12
+   */
   minimumPasswordLength?: number;
+  /**
+   * @remarks
+   * The number of previous passwords that a RAM user is prevented from reusing. Default value: 0. The default value indicates that the RAM user can reuse previous passwords.
+   * 
+   * @example
+   * 0
+   */
   passwordReusePrevention?: number;
+  /**
+   * @remarks
+   * Specifies whether a password must contain one or more lowercase letters.
+   * 
+   * @example
+   * true
+   */
   requireLowercaseCharacters?: boolean;
+  /**
+   * @remarks
+   * Specifies whether a password must contain one or more digits.
+   * 
+   * @example
+   * true
+   */
   requireNumbers?: boolean;
+  /**
+   * @remarks
+   * Specifies whether a password must contain one or more special characters.
+   * 
+   * @example
+   * true
+   */
   requireSymbols?: boolean;
+  /**
+   * @remarks
+   * Specifies whether a password must contain one or more uppercase letters.
+   * 
+   * @example
+   * true
+   */
   requireUppercaseCharacters?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3647,7 +5061,18 @@ export class SetPasswordPolicyRequest extends $tea.Model {
 }
 
 export class SetPasswordPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The password policy.
+   */
   passwordPolicy?: SetPasswordPolicyResponseBodyPasswordPolicy;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3694,12 +5119,87 @@ export class SetPasswordPolicyResponse extends $tea.Model {
 }
 
 export class SetSecurityPreferenceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether RAM users can change their passwords. Valid values:
+   * 
+   * *   true: RAM users can change their passwords. This is the default value.
+   * *   false: RAM users cannot change their passwords.
+   * 
+   * @example
+   * true
+   */
   allowUserToChangePassword?: boolean;
+  /**
+   * @remarks
+   * Specifies whether RAM users can manage their AccessKey pairs. Valid values:
+   * 
+   * *   true: RAM users can manage their AccessKey pairs.
+   * *   false: RAM users cannot manage their AccessKey pairs. This is the default value.
+   * 
+   * @example
+   * false
+   */
   allowUserToManageAccessKeys?: boolean;
+  /**
+   * @remarks
+   * Specifies whether RAM users can manage their MFA devices. Valid values:
+   * 
+   * *   true: RAM users can manage their MFA devices. This is the default value.
+   * *   false: RAM users cannot manage their MFA devices.
+   * 
+   * @example
+   * true
+   */
   allowUserToManageMFADevices?: boolean;
+  /**
+   * @remarks
+   * Specifies whether RAM users can manage their public keys. Valid values:
+   * 
+   * *   true: RAM users can manage their public keys.
+   * *   false: RAM users cannot manage their public keys. This is the default value.
+   * 
+   * >  This parameter is valid only for the Japan site.
+   * 
+   * @example
+   * false
+   */
   allowUserToManagePublicKeys?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to remember the multi-factor authentication (MFA) devices of Resource Access Management (RAM) users for seven days. Valid values:
+   * 
+   * *   true: remembers the MFA devices of RAM users for seven days.
+   * *   false: does not remember the MFA devices of RAM users for seven days.
+   * 
+   * @example
+   * true
+   */
   enableSaveMFATicket?: boolean;
+  /**
+   * @remarks
+   * The subnet mask that specifies the IP addresses from which you can log on to the Alibaba Cloud Management Console. This parameter takes effect on password-based logon and single sign-on (SSO). However, this parameter does not take effect on API calls that are authenticated by using AccessKey pairs.
+   * 
+   * *   If you specify a subnet mask, RAM users can use only the IP addresses in the subnet mask to log on to the Alibaba Cloud Management Console.
+   * *   If you do not specify a subnet mask, RAM users can use all IP addresses to log on to the Alibaba Cloud Management Console.
+   * 
+   * If you need to specify multiple subnet masks, separate the subnet masks with semicolons (;). Example: 192.168.0.0/16;10.0.0.0/8.
+   * 
+   * You can specify up to 40 subnet masks. The total length of the subnet masks can be a maximum of 512 characters.
+   * 
+   * @example
+   * 10.0.0.0/8
+   */
   loginNetworkMasks?: string;
+  /**
+   * @remarks
+   * The validity period of the logon session of RAM users.
+   * 
+   * Valid values: 1 to 24. Default value: 6. Unit: hours.
+   * 
+   * @example
+   * 6
+   */
   loginSessionDuration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3731,7 +5231,18 @@ export class SetSecurityPreferenceRequest extends $tea.Model {
 }
 
 export class SetSecurityPreferenceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A978915D-F279-4CA0-A89B-9A71219FFB3E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The security preferences.
+   */
   securityPreference?: SetSecurityPreferenceResponseBodySecurityPreference;
   static names(): { [key: string]: string } {
     return {
@@ -3844,8 +5355,29 @@ export class UnbindMFADeviceResponse extends $tea.Model {
 }
 
 export class UpdateAccessKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the AccessKey pair. Valid values: `Active` and `Inactive`.
+   * 
+   * @example
+   * Inactive
+   */
   status?: string;
+  /**
+   * @remarks
+   * The AccessKey ID in the AccessKey pair whose status you want to change.
+   * 
+   * @example
+   * 0wNEpMMlzy7s****
+   */
   userAccessKeyId?: string;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3869,6 +5401,13 @@ export class UpdateAccessKeyRequest extends $tea.Model {
 }
 
 export class UpdateAccessKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3913,8 +5452,33 @@ export class UpdateAccessKeyResponse extends $tea.Model {
 }
 
 export class UpdateGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The new description of the RAM user group.
+   * 
+   * The comments must be 1 to 128 characters in length.
+   * 
+   * @example
+   * NewDev-Team
+   */
   newComments?: string;
+  /**
+   * @remarks
+   * The new name of the RAM user group.
+   * 
+   * The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
+   * 
+   * @example
+   * NewDev-Team
+   */
   newGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3938,7 +5502,18 @@ export class UpdateGroupRequest extends $tea.Model {
 }
 
 export class UpdateGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information of the RAM user group.
+   */
   group?: UpdateGroupResponseBodyGroup;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC6647CC-0A36-EC7A-BA72-CC81BF3DE182
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3985,9 +5560,37 @@ export class UpdateGroupResponse extends $tea.Model {
 }
 
 export class UpdateLoginProfileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether an MFA device must be attached to the RAM user upon logon.
+   * 
+   * @example
+   * true
+   */
   MFABindRequired?: boolean;
+  /**
+   * @remarks
+   * The logon password of the RAM user. The password must meet the password strength requirements.
+   * 
+   * @example
+   * mypassword
+   */
   password?: string;
+  /**
+   * @remarks
+   * Specifies whether the RAM user must change the password upon logon.
+   * 
+   * @example
+   * true
+   */
   passwordResetRequired?: boolean;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4013,6 +5616,13 @@ export class UpdateLoginProfileRequest extends $tea.Model {
 }
 
 export class UpdateLoginProfileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4057,7 +5667,23 @@ export class UpdateLoginProfileResponse extends $tea.Model {
 }
 
 export class UpdatePolicyDescriptionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * The value of the parameter must be 1 to 1,024 characters in length.
+   * 
+   * @example
+   * This is a test policy.
+   */
   newDescription?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * TestPolicy
+   */
   policyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4079,7 +5705,18 @@ export class UpdatePolicyDescriptionRequest extends $tea.Model {
 }
 
 export class UpdatePolicyDescriptionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the policy.
+   */
   policy?: UpdatePolicyDescriptionResponseBodyPolicy;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7572DEBD-0ECE-518E-8682-D8CB82F8FE8E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4126,9 +5763,45 @@ export class UpdatePolicyDescriptionResponse extends $tea.Model {
 }
 
 export class UpdateRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The policy that specifies the trusted entity to assume the RAM role.
+   * 
+   * @example
+   * { "Statement": [ { "Action": "sts:AssumeRole", "Effect": "Allow", "Principal": { "RAM": "acs:ram::12345678901234****:root" } } ], "Version": "1" }
+   */
   newAssumeRolePolicyDocument?: string;
+  /**
+   * @remarks
+   * The new description of the RAM role.
+   * 
+   * The value must be 1 to 1,024 characters in length.
+   * 
+   * @example
+   * ECS administrator
+   */
   newDescription?: string;
+  /**
+   * @remarks
+   * The maximum session duration of the RAM role.
+   * 
+   * Valid values: 3600 to 43200. Unit: seconds.Default value: 3600.
+   * 
+   * If you do not specify this parameter, the default value is used.
+   * 
+   * @example
+   * 3600
+   */
   newMaxSessionDuration?: number;
+  /**
+   * @remarks
+   * The name of the RAM role.
+   * 
+   * The name must be 1 to 64 characters in length and can contain letters, digits, periods (.),and hyphens (-).
+   * 
+   * @example
+   * ECSAdmin
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4154,7 +5827,18 @@ export class UpdateRoleRequest extends $tea.Model {
 }
 
 export class UpdateRoleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information of the RAM role.
+   */
   role?: UpdateRoleResponseBodyRole;
   static names(): { [key: string]: string } {
     return {
@@ -4201,11 +5885,65 @@ export class UpdateRoleResponse extends $tea.Model {
 }
 
 export class UpdateUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new description of the RAM user.
+   * 
+   * The description must be 1 to 128 characters in length.
+   * 
+   * @example
+   * This is a cloud computing engineer.
+   */
   newComments?: string;
+  /**
+   * @remarks
+   * The new display name of the RAM user.
+   * 
+   * The name must be 1 to 128 characters in length.
+   * 
+   * @example
+   * xiaoq****
+   */
   newDisplayName?: string;
+  /**
+   * @remarks
+   * The new email address of the RAM user.
+   * 
+   * >  This parameter can be returned only on the China site (aliyun.com).
+   * 
+   * @example
+   * xiaoq****@example.com
+   */
   newEmail?: string;
+  /**
+   * @remarks
+   * The new mobile phone number of the RAM user.
+   * 
+   * Format: \\<Country code>-\\<Mobile phone number>.
+   * 
+   * >  This parameter can be returned only on the China site (aliyun.com).
+   * 
+   * @example
+   * 86-1860000****
+   */
   newMobilePhone?: string;
+  /**
+   * @remarks
+   * The new username of the RAM user.
+   * 
+   * The username must be 1 to 64 characters in length, and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
+   * 
+   * @example
+   * xiaoq****
+   */
   newUserName?: string;
+  /**
+   * @remarks
+   * The username of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4235,7 +5973,18 @@ export class UpdateUserRequest extends $tea.Model {
 }
 
 export class UpdateUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the RAM user.
+   */
   user?: UpdateUserResponseBodyUser;
   static names(): { [key: string]: string } {
     return {
@@ -4282,9 +6031,37 @@ export class UpdateUserResponse extends $tea.Model {
 }
 
 export class CreateAccessKeyResponseBodyAccessKey extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID.
+   * 
+   * @example
+   * 0wNEpMMlzy7s****
+   */
   accessKeyId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret.
+   * 
+   * @example
+   * PupkTg8jdmau1cXxYacgE736PJ****
+   */
   accessKeySecret?: string;
+  /**
+   * @remarks
+   * The time when the AccessKey pair was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The status of the AccessKey pair. Valid values: Active and Inactive.
+   * 
+   * @example
+   * Active
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4310,9 +6087,37 @@ export class CreateAccessKeyResponseBodyAccessKey extends $tea.Model {
 }
 
 export class CreateGroupResponseBodyGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * Dev-Team
+   */
   comments?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The ID of the user group.
+   * 
+   * @example
+   * g-FpMEHiMysofp****
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the user group.
+   * 
+   * @example
+   * Dev-Team
+   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4338,9 +6143,37 @@ export class CreateGroupResponseBodyGroup extends $tea.Model {
 }
 
 export class CreateLoginProfileResponseBodyLoginProfile extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the logon configurations were created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * Indicates whether an MFA device must be attached to the RAM user upon logon.
+   * 
+   * @example
+   * false
+   */
   MFABindRequired?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the RAM user must change the password upon logon.
+   * 
+   * @example
+   * false
+   */
   passwordResetRequired?: boolean;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4366,10 +6199,48 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $tea.Model {
 }
 
 export class CreatePolicyResponseBodyPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the policy was created.
+   * 
+   * @example
+   * 2021-10-13T02:46:57Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The version of the policy. Default value: v1.
+   * 
+   * @example
+   * v1
+   */
   defaultVersion?: string;
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * @example
+   * Query ECS instances in a specific region
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * View-ECS-instances-in-a-specific-region
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values:
+   * 
+   * *   Custom: custom policy
+   * *   System: system policy
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4397,9 +6268,37 @@ export class CreatePolicyResponseBodyPolicy extends $tea.Model {
 }
 
 export class CreatePolicyVersionResponseBodyPolicyVersion extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the policy version was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * Indicates whether the policy version is the default version.
+   * 
+   * @example
+   * false
+   */
   isDefaultVersion?: boolean;
+  /**
+   * @remarks
+   * The document of the policy.
+   * 
+   * @example
+   * { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
+   */
   policyDocument?: string;
+  /**
+   * @remarks
+   * The ID of the policy version.
+   * 
+   * @example
+   * v3
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4425,12 +6324,61 @@ export class CreatePolicyVersionResponseBodyPolicyVersion extends $tea.Model {
 }
 
 export class CreateRoleResponseBodyRole extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the role.
+   * 
+   * @example
+   * acs:ram::123456789012****:role/ECSAdmin
+   */
   arn?: string;
+  /**
+   * @remarks
+   * The trust policy that specifies the trusted entity to assume the RAM role.
+   * 
+   * @example
+   * { "Statement": [ { "Action": "sts:AssumeRole", "Effect": "Allow", "Principal": { "RAM": "acs:ram::123456789012****:root" } } ], "Version": "1" }
+   */
   assumeRolePolicyDocument?: string;
+  /**
+   * @remarks
+   * The time when the RAM user was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The description of the RAM role.
+   * 
+   * @example
+   * ECS administrator
+   */
   description?: string;
+  /**
+   * @remarks
+   * The maximum session duration of the RAM role.
+   * 
+   * @example
+   * 3600
+   */
   maxSessionDuration?: number;
+  /**
+   * @remarks
+   * The ID of the RAM role.
+   * 
+   * @example
+   * 901234567890****
+   */
   roleId?: string;
+  /**
+   * @remarks
+   * The name of the RAM role.
+   * 
+   * @example
+   * ECSAdmin
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4462,12 +6410,65 @@ export class CreateRoleResponseBodyRole extends $tea.Model {
 }
 
 export class CreateUserResponseBodyUser extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the RAM user.
+   * 
+   * @example
+   * This is a cloud computing engineer.
+   */
   comments?: string;
+  /**
+   * @remarks
+   * The point in time when the RAM user was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The display name of the RAM user.
+   * 
+   * @example
+   * alice
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The email address of the RAM user.
+   * 
+   * >  This parameter can be returned only on the China site (aliyun.com).
+   * 
+   * @example
+   * alice@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the RAM user.
+   * 
+   * >  This parameter can be returned only on the China site (aliyun.com).
+   * 
+   * @example
+   * 86-1868888****
+   */
   mobilePhone?: string;
+  /**
+   * @remarks
+   * The ID of the RAM user.
+   * 
+   * @example
+   * 122748924538****
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The username of the RAM user.
+   * 
+   * @example
+   * alice
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4499,8 +6500,29 @@ export class CreateUserResponseBodyUser extends $tea.Model {
 }
 
 export class CreateVirtualMFADeviceResponseBodyVirtualMFADevice extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the MFA device.
+   * 
+   * @example
+   * DSF98HAD982KJA9SDFNAS9D8FU839B8ADHBGS****
+   */
   base32StringSeed?: string;
+  /**
+   * @remarks
+   * The Base64-encoded QR code, in the PNG format.
+   * 
+   * @example
+   * YXNkZmFzZDlmeW5hc2Q5OGZoODd4bXJmcThhaGU5aSBmYXNkZiBzYWRmIGFGIDRxd2VjIGEgdHEz****
+   */
   QRCodePNG?: string;
+  /**
+   * @remarks
+   * The serial number of the MFA device.
+   * 
+   * @example
+   * acs:ram::123456789012****:mfa/device001
+   */
   serialNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4524,7 +6546,18 @@ export class CreateVirtualMFADeviceResponseBodyVirtualMFADevice extends $tea.Mod
 }
 
 export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthConditions extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the condition.
+   * 
+   * @example
+   * acs:SourceIp
+   */
   conditionKey?: string;
+  /**
+   * @remarks
+   * The values that correspond to the key.
+   */
   conditionValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4546,8 +6579,39 @@ export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthCond
 }
 
 export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthPrincipal extends $tea.Model {
+  /**
+   * @remarks
+   * The identity.
+   * 
+   * *   If the operator is a RAM user, the ID of the user is displayed.
+   * *   If the operator is a RAM role, the name and session name of the role are displayed. Example: RoleName:RoleSessionName.
+   * *   If the operator is an SSO federated identity, the type and name of the identity provider (IdP) are displayed. Example: saml-provider/AzureAD.
+   * 
+   * @example
+   * 28877424437521****
+   */
   authPrincipalDisplayName?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the identity belongs.
+   * 
+   * @example
+   * 196813200012****
+   */
   authPrincipalOwnerId?: string;
+  /**
+   * @remarks
+   * The identity type that is used for authentication in the request.
+   * 
+   * Valid values:
+   * 
+   * *   SubUser: RAM user
+   * *   AssumedRoleUser: RAM role
+   * *   Federated: SSO federated identity
+   * 
+   * @example
+   * SubUser
+   */
   authPrincipalType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4571,11 +6635,93 @@ export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthPrin
 }
 
 export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageMatchedPolicies extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the entity to which the policy is attached.
+   * 
+   * Valid values:
+   * 
+   * *   RamUser: RAM user
+   * *   RamRole: RAM role
+   * *   ResourceDirectoryTarget: entity in a resource directory
+   * *   RamGroup: RAM user group
+   * 
+   * @example
+   * RamUser
+   */
   attachedEntityType?: string;
+  /**
+   * @remarks
+   * The authorization scope of the policy.
+   * 
+   * Valid values:
+   * 
+   * *   Account: Alibaba Cloud account
+   * *   Folder: folder in the resource directory
+   * *   ResourceGroup: resource group
+   * 
+   * @example
+   * Account
+   */
   attachedScope?: string;
+  /**
+   * @remarks
+   * The effect of the policy.
+   * 
+   * Valid values:
+   * 
+   * *   Deny
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Allow
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Deny
+   */
   effect?: string;
+  /**
+   * @remarks
+   * The identifier of the policy.
+   * 
+   * *   Control policy: the ID of the control policy
+   * *   RAM policy: the name of the policy
+   * 
+   * @example
+   * MyPolicyName
+   */
   policyIdentifier?: string;
+  /**
+   * @remarks
+   * The type of the policy.
+   * 
+   * Valid values:
+   * *   Custom: custom policy
+   * *   System: system policy
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
+  /**
+   * @remarks
+   * The version number of the policy.
+   * 
+   * > Only custom policies have version numbers.
+   * 
+   * @example
+   * v1
+   */
   policyVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4605,12 +6751,78 @@ export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageMatchedP
 }
 
 export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessage extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that is used for authentication in the request.
+   * 
+   * @example
+   * ram:DecodeDiagnosticMessage
+   */
   authAction?: string;
+  /**
+   * @remarks
+   * The conditions that are used for authentication in the request.
+   */
   authConditions?: DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthConditions[];
+  /**
+   * @remarks
+   * The operator that is used for authentication in the request.
+   */
   authPrincipal?: DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthPrincipal;
+  /**
+   * @remarks
+   * The resource that is used for authentication in the request.
+   * 
+   * @example
+   * *
+   */
   authResource?: string;
+  /**
+   * @remarks
+   * Indicates whether the access denied error is caused by an explicit deny.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   false
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * true
+   */
   explicitDeny?: boolean;
+  /**
+   * @remarks
+   * The policies that are matched.
+   */
   matchedPolicies?: DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageMatchedPolicies[];
+  /**
+   * @remarks
+   * The type of the policy that causes the access denied error.
+   * 
+   * Valid values:
+   * 
+   * *   AssumeRolePolicy: role-specific trust policy
+   * *   ControlPolicy: control policy
+   * *   AccountLevelIdentityBasedPolicy: identity-based policy at the account level
+   * *   ResourceGroupLevelIdentityBasedPolicy: identity-based policy at the resource group level
+   * *   SessionPolicy: session policy
+   * 
+   * @example
+   * AccountLevelIdentityBasedPolicy
+   */
   noPermissionPolicyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4642,6 +6854,10 @@ export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessage extends
 }
 
 export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $tea.Model {
+  /**
+   * @example
+   * 2020-10-21T06:37:40Z
+   */
   lastUsedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4661,10 +6877,45 @@ export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $tea.Mode
 }
 
 export class GetGroupResponseBodyGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
   comments?: string;
+  /**
+   * @remarks
+   * The time when the RAM user group was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The ID of the RAM user group.
+   * 
+   * @example
+   * g-FpMEHiMysofp****
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The time when the information of the RAM user group was updated.
+   * 
+   * @example
+   * 2015-02-11T03:15:21Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4692,9 +6943,37 @@ export class GetGroupResponseBodyGroup extends $tea.Model {
 }
 
 export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the logon configurations were created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * Indicates whether an MFA device must be attached to the RAM user upon logon.
+   * 
+   * @example
+   * true
+   */
   MFABindRequired?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the RAM user must change the password upon logon.
+   * 
+   * @example
+   * true
+   */
   passwordResetRequired?: boolean;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4720,14 +6999,82 @@ export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
 }
 
 export class GetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the password has expired.
+   * 
+   * Valid values: `true` and `false`. Default value: `false`.
+   * 
+   * *   If the value of this parameter is `true`, the parent Alibaba Cloud account must reset the password before the RAM user can log on to the console.
+   * *   If the value of this parameter is `false`, the RAM user can change the password and then log on to the console.
+   * 
+   * @example
+   * false
+   */
   hardExpiry?: boolean;
+  /**
+   * @remarks
+   * The maximum number of permitted logon attempts within one hour. The number of logon attempts is reset to zero if a RAM user changes the password.
+   * 
+   * @example
+   * 5
+   */
   maxLoginAttemps?: number;
+  /**
+   * @remarks
+   * The number of days for which a password is valid. Default value: 0. The default value indicates that the password never expires.
+   * 
+   * @example
+   * 0
+   */
   maxPasswordAge?: number;
+  /**
+   * @remarks
+   * The minimum required number of characters in a password.
+   * 
+   * @example
+   * 12
+   */
   minimumPasswordLength?: number;
+  /**
+   * @remarks
+   * The number of previous passwords that the user is prevented from reusing. Default value: 0. The default value indicates that the RAM user is not prevented from reusing previous passwords
+   * 
+   * @example
+   * 0
+   */
   passwordReusePrevention?: number;
+  /**
+   * @remarks
+   * Indicates whether a password must contain one or more lowercase letters.
+   * 
+   * @example
+   * true
+   */
   requireLowercaseCharacters?: boolean;
+  /**
+   * @remarks
+   * Indicates whether a password must contain one or more digits.
+   * 
+   * @example
+   * true
+   */
   requireNumbers?: boolean;
+  /**
+   * @remarks
+   * Indicates whether a password must contain one or more special characters.
+   * 
+   * @example
+   * true
+   */
   requireSymbols?: boolean;
+  /**
+   * @remarks
+   * Indicates whether a password must contain one or more uppercase letters.
+   * 
+   * @example
+   * true
+   */
   requireUppercaseCharacters?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4763,9 +7110,37 @@ export class GetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
 }
 
 export class GetPolicyResponseBodyDefaultPolicyVersion extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the default policy version was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * An attribute in the `DefaultPolicyVersion` parameter. The value of the `IsDefaultVersion` parameter is `true`.
+   * 
+   * @example
+   * true
+   */
   isDefaultVersion?: boolean;
+  /**
+   * @remarks
+   * The script of the default policy version.
+   * 
+   * @example
+   * { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
+   */
   policyDocument?: string;
+  /**
+   * @remarks
+   * The ID of the default policy version.
+   * 
+   * @example
+   * v1
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4791,13 +7166,69 @@ export class GetPolicyResponseBodyDefaultPolicyVersion extends $tea.Model {
 }
 
 export class GetPolicyResponseBodyPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * The number of references to the policy.
+   * 
+   * @example
+   * 0
+   */
   attachmentCount?: number;
+  /**
+   * @remarks
+   * The time when the policy was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The default version ID of the policy.
+   * 
+   * @example
+   * v1
+   */
   defaultVersion?: string;
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * @example
+   * OSS administrator
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * N/A
+   */
   policyDocument?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy.
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
+  /**
+   * @remarks
+   * The time when the policy was modified.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4831,9 +7262,37 @@ export class GetPolicyResponseBodyPolicy extends $tea.Model {
 }
 
 export class GetPolicyVersionResponseBodyPolicyVersion extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the version was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * Indicates whether the version is the default version.
+   * 
+   * @example
+   * false
+   */
   isDefaultVersion?: boolean;
+  /**
+   * @remarks
+   * The script of the policy.
+   * 
+   * @example
+   * { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
+   */
   policyDocument?: string;
+  /**
+   * @remarks
+   * The ID of the version.
+   * 
+   * @example
+   * v3
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4859,13 +7318,69 @@ export class GetPolicyVersionResponseBodyPolicyVersion extends $tea.Model {
 }
 
 export class GetRoleResponseBodyRole extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the RAM role.
+   * 
+   * @example
+   * acs:ram::123456789012****:role/ECSAdmin
+   */
   arn?: string;
+  /**
+   * @remarks
+   * The content of the policy that specifies one or more entities entrusted to assume the RAM role.
+   * 
+   * @example
+   * { "Statement": [ { "Action": "sts:AssumeRole", "Effect": "Allow", "Principal": { "RAM": "acs:ram::123456789012****:root" } } ], "Version": "1" }
+   */
   assumeRolePolicyDocument?: string;
+  /**
+   * @remarks
+   * The time when the RAM role was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The description of the RAM role.
+   * 
+   * @example
+   * ECS administrator
+   */
   description?: string;
+  /**
+   * @remarks
+   * The maximum session duration of the RAM role.
+   * 
+   * @example
+   * 3600
+   */
   maxSessionDuration?: number;
+  /**
+   * @remarks
+   * The ID of the RAM role.
+   * 
+   * @example
+   * 901234567890****
+   */
   roleId?: string;
+  /**
+   * @remarks
+   * The name of the RAM role.
+   * 
+   * @example
+   * ECSAdmin
+   */
   roleName?: string;
+  /**
+   * @remarks
+   * The time when the RAM role was modified.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4899,6 +7414,16 @@ export class GetRoleResponseBodyRole extends $tea.Model {
 }
 
 export class GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether RAM users can manage their AccessKey pairs. Valid values:
+   * 
+   * *   true: RAM users can manage their AccessKey pairs.
+   * *   false: RAM users cannot manage their AccessKey pairs.
+   * 
+   * @example
+   * false
+   */
   allowUserToManageAccessKeys?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4918,9 +7443,48 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPrefere
 }
 
 export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether RAM users can change their passwords. Valid values:
+   * 
+   * *   true: RAM users can change their passwords.
+   * *   false: RAM users cannot change their passwords.
+   * 
+   * @example
+   * true
+   */
   allowUserToChangePassword?: boolean;
+  /**
+   * @remarks
+   * Indicates whether RAM users can save security codes for multi-factor authentication (MFA) during logon. Each security code is valid for seven days. Valid values:
+   * 
+   * *   true: RAM users can save MFA security codes during logon.
+   * *   false: RAM users cannot save MFA security codes during logon.
+   * 
+   * @example
+   * false
+   */
   enableSaveMFATicket?: boolean;
+  /**
+   * @remarks
+   * The subnet mask that indicates the IP addresses from which logon to the Alibaba Cloud Management Console is allowed. This parameter applies to password-based logon and single sign-on (SSO). However, this parameter does not apply to API calls that are authenticated based on AccessKey pairs.
+   * 
+   * *   If a subnet mask is specified, RAM users can log on to the Alibaba Cloud Management Console only by using the IP addresses in the subnetwork.
+   * *   If no subnet mask is specified, RAM users can log on to the Alibaba Cloud Management Console by using all IP addresses.
+   * 
+   * If more than one subnet mask is specified, the masks are separated with semicolons (;), for example, 192.168.0.0/16;10.0.0.0/8.
+   * 
+   * @example
+   * 10.0.0.0/8
+   */
   loginNetworkMasks?: string;
+  /**
+   * @remarks
+   * The validity period of a logon session of a RAM user. Unit: hours.
+   * 
+   * @example
+   * 6
+   */
   loginSessionDuration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4946,6 +7510,16 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
 }
 
 export class GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether RAM users can manage their MFA devices. Valid values:
+   * 
+   * *   true: RAM users can manage their MFA devices.
+   * *   false: RAM users cannot manage their MFA devices.
+   * 
+   * @example
+   * true
+   */
   allowUserToManageMFADevices?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4965,6 +7539,16 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
 }
 
 export class GetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPreference extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether RAM users can manage their public keys. Valid values:
+   * 
+   * *   true: RAM users can manage their public keys.
+   * *   false: RAM users cannot manage their public keys.
+   * 
+   * @example
+   * false
+   */
   allowUserToManagePublicKeys?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4984,9 +7568,27 @@ export class GetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPrefere
 }
 
 export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey pair preference.
+   */
   accessKeyPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference;
+  /**
+   * @remarks
+   * The logon preferences.
+   */
   loginProfilePreference?: GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference;
+  /**
+   * @remarks
+   * The MFA preference.
+   */
   MFAPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
+  /**
+   * @remarks
+   * The public key preference.
+   * 
+   * >  The public key preference is valid only for the Japan site.
+   */
   publicKeyPreference?: GetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPreference;
   static names(): { [key: string]: string } {
     return {
@@ -5012,14 +7614,81 @@ export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
 }
 
 export class GetUserResponseBodyUser extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the RAM user.
+   * 
+   * @example
+   * Cloud computing engineer
+   */
   comments?: string;
+  /**
+   * @remarks
+   * The point in time when the RAM user was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The display name of the RAM user.
+   * 
+   * @example
+   * alice
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The email address of the RAM user.
+   * 
+   * >  This parameter can be returned only on the China site (aliyun.com).
+   * 
+   * @example
+   * alice@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The point in time when the RAM user last logged on to the Alibaba Cloud Management Console by using the password. The time is displayed in UTC.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   lastLoginDate?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the RAM user.
+   * 
+   * >  This parameter can be returned only on the China site (aliyun.com).
+   * 
+   * @example
+   * 86-1860000****
+   */
   mobilePhone?: string;
+  /**
+   * @remarks
+   * The point in time when the information about the RAM user was last modified. The time is displayed in UTC.
+   * 
+   * @example
+   * 2015-02-11T03:15:21Z
+   */
   updateDate?: string;
+  /**
+   * @remarks
+   * The ID of the RAM user.
+   * 
+   * @example
+   * 222748924538****
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The username of the RAM user.
+   * 
+   * @example
+   * alice
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5055,7 +7724,24 @@ export class GetUserResponseBodyUser extends $tea.Model {
 }
 
 export class GetUserMFAInfoResponseBodyMFADevice extends $tea.Model {
+  /**
+   * @remarks
+   * The serial number of the MFA device.
+   * 
+   * @example
+   * acs:ram::177242285274****:mfa/test
+   */
   serialNumber?: string;
+  /**
+   * @remarks
+   * The type of the MFA device. Valid values:
+   * 
+   * *   VMFA: virtual MFA device
+   * *   U2F: Universal 2nd Factor (U2F) security key
+   * 
+   * @example
+   * VMFA
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5077,8 +7763,29 @@ export class GetUserMFAInfoResponseBodyMFADevice extends $tea.Model {
 }
 
 export class ListAccessKeysResponseBodyAccessKeysAccessKey extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID.
+   * 
+   * @example
+   * 0wNEpMMlzy7s****
+   */
   accessKeyId?: string;
+  /**
+   * @remarks
+   * The time when the AccessKey pair was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The status of the AccessKey pair. Valid values: Active and Inactive.
+   * 
+   * @example
+   * Active
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5121,8 +7828,29 @@ export class ListAccessKeysResponseBodyAccessKeys extends $tea.Model {
 }
 
 export class ListEntitiesForPolicyResponseBodyGroupsGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the policy was attached to the RAM user group.
+   * 
+   * @example
+   * 2015-02-18T17:22:08Z
+   */
   attachDate?: string;
+  /**
+   * @remarks
+   * The description of the RAM user group.
+   * 
+   * @example
+   * Test team
+   */
   comments?: string;
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * QA-Team
+   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5165,10 +7893,45 @@ export class ListEntitiesForPolicyResponseBodyGroups extends $tea.Model {
 }
 
 export class ListEntitiesForPolicyResponseBodyRolesRole extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the RAM role.
+   * 
+   * @example
+   * acs:ram::123456789012****:role/ECSAdmin
+   */
   arn?: string;
+  /**
+   * @remarks
+   * The time when the policy was attached to the RAM user.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   attachDate?: string;
+  /**
+   * @remarks
+   * The description of the RAM role.
+   * 
+   * @example
+   * ECS administrator
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the RAM role.
+   * 
+   * @example
+   * 122748924538****
+   */
   roleId?: string;
+  /**
+   * @remarks
+   * The name of the RAM role.
+   * 
+   * @example
+   * ECSAdmin
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5215,9 +7978,37 @@ export class ListEntitiesForPolicyResponseBodyRoles extends $tea.Model {
 }
 
 export class ListEntitiesForPolicyResponseBodyUsersUser extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the policy was attached to the RAM user.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   attachDate?: string;
+  /**
+   * @remarks
+   * The display name of the RAM user.
+   * 
+   * @example
+   * Zhang*
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The unique ID of the RAM user.
+   * 
+   * @example
+   * 122748924538****
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5262,10 +8053,45 @@ export class ListEntitiesForPolicyResponseBodyUsers extends $tea.Model {
 }
 
 export class ListGroupsResponseBodyGroupsGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
   comments?: string;
+  /**
+   * @remarks
+   * The time when the RAM user group was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The ID of the RAM user group.
+   * 
+   * @example
+   * g-FpMEHiMysofp****
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The time when the information of the RAM user group was updated.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5312,9 +8138,37 @@ export class ListGroupsResponseBodyGroups extends $tea.Model {
 }
 
 export class ListGroupsForUserResponseBodyGroupsGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
   comments?: string;
+  /**
+   * @remarks
+   * The ID of the RAM user group.
+   * 
+   * @example
+   * g-zYtroLrgbZR1****
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The time when the RAM user joined the RAM user group.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   joinDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5359,12 +8213,61 @@ export class ListGroupsForUserResponseBodyGroups extends $tea.Model {
 }
 
 export class ListPoliciesResponseBodyPoliciesPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * The number of references to the policy.
+   * 
+   * @example
+   * 3
+   */
   attachmentCount?: number;
+  /**
+   * @remarks
+   * The time when the policy was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The default version of the policy.
+   * 
+   * @example
+   * v1
+   */
   defaultVersion?: string;
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * @example
+   * OSS administrator
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy.
+   * 
+   * @example
+   * System
+   */
   policyType?: string;
+  /**
+   * @remarks
+   * The time when the policy was modified.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5415,10 +8318,45 @@ export class ListPoliciesResponseBodyPolicies extends $tea.Model {
 }
 
 export class ListPoliciesForGroupResponseBodyPoliciesPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the policy was attached to the RAM user group.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   attachDate?: string;
+  /**
+   * @remarks
+   * The default version of the policy.
+   * 
+   * @example
+   * v1
+   */
   defaultVersion?: string;
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * @example
+   * OSS administrator
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy.
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5465,10 +8403,45 @@ export class ListPoliciesForGroupResponseBodyPolicies extends $tea.Model {
 }
 
 export class ListPoliciesForRoleResponseBodyPoliciesPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the policy was attached to the RAM role.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   attachDate?: string;
+  /**
+   * @remarks
+   * The default version of the policy.
+   * 
+   * @example
+   * v1
+   */
   defaultVersion?: string;
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * @example
+   * OSS administrator
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy.
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5515,10 +8488,48 @@ export class ListPoliciesForRoleResponseBodyPolicies extends $tea.Model {
 }
 
 export class ListPoliciesForUserResponseBodyPoliciesPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * The time at which the policy is attached to the RAM user. The time is displayed in UTC.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   attachDate?: string;
+  /**
+   * @remarks
+   * The current version.
+   * 
+   * @example
+   * v1
+   */
   defaultVersion?: string;
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * @example
+   * OSS administrator
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * OSS-Administrator
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values:
+   * 
+   * *   System: system policy
+   * *   Custom: custom policy
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5565,9 +8576,37 @@ export class ListPoliciesForUserResponseBodyPolicies extends $tea.Model {
 }
 
 export class ListPolicyVersionsResponseBodyPolicyVersionsPolicyVersion extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the version was created.
+   * 
+   * @example
+   * 2015-02-26T01:25:52Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * Indicates whether the version is the default version.
+   * 
+   * @example
+   * false
+   */
   isDefaultVersion?: boolean;
+  /**
+   * @remarks
+   * The script of the policy.
+   * 
+   * @example
+   * { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
+   */
   policyDocument?: string;
+  /**
+   * @remarks
+   * The ID of the version.
+   * 
+   * @example
+   * v3
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5612,12 +8651,61 @@ export class ListPolicyVersionsResponseBodyPolicyVersions extends $tea.Model {
 }
 
 export class ListRolesResponseBodyRolesRole extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the RAM role.
+   * 
+   * @example
+   * acs:ram::123456789012****:role/ECSAdmin
+   */
   arn?: string;
+  /**
+   * @remarks
+   * The time when the RAM role was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The description of the RAM role.
+   * 
+   * @example
+   * ECS administrator
+   */
   description?: string;
+  /**
+   * @remarks
+   * The maximum session duration of the RAM role.
+   * 
+   * @example
+   * 3600
+   */
   maxSessionDuration?: number;
+  /**
+   * @remarks
+   * The ID of the RAM role.
+   * 
+   * @example
+   * 901234567890****
+   */
   roleId?: string;
+  /**
+   * @remarks
+   * The name of the RAM role.
+   * 
+   * @example
+   * ECSAdmin
+   */
   roleName?: string;
+  /**
+   * @remarks
+   * The time when the RAM role was modified.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5668,13 +8756,73 @@ export class ListRolesResponseBodyRoles extends $tea.Model {
 }
 
 export class ListUsersResponseBodyUsersUser extends $tea.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * Cloud computing engineer
+   */
   comments?: string;
+  /**
+   * @remarks
+   * The time when the RAM user was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The display name of the RAM user.
+   * 
+   * @example
+   * Zhangq****
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The email address of the RAM user.
+   * 
+   * > This parameter is unavailable.
+   * 
+   * @example
+   * zhangq****@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the RAM user.
+   * 
+   * > This parameter is unavailable.
+   * 
+   * @example
+   * 86-1860000****
+   */
   mobilePhone?: string;
+  /**
+   * @remarks
+   * The point in time when the information about the RAM user was last modified. The time is displayed in UTC.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   updateDate?: string;
+  /**
+   * @remarks
+   * The ID of the RAM user.
+   * 
+   * @example
+   * 122748924538****
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5727,8 +8875,29 @@ export class ListUsersResponseBodyUsers extends $tea.Model {
 }
 
 export class ListUsersForGroupResponseBodyUsersUser extends $tea.Model {
+  /**
+   * @remarks
+   * The display name of the RAM user.
+   * 
+   * @example
+   * Alice
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The time when the RAM user joined the RAM user group.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   joinDate?: string;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangqiang
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5771,8 +8940,29 @@ export class ListUsersForGroupResponseBodyUsers extends $tea.Model {
 }
 
 export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser extends $tea.Model {
+  /**
+   * @remarks
+   * The display name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The unique ID of the RAM user.
+   * 
+   * @example
+   * 122748924538****
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The name of the RAM user.
+   * 
+   * @example
+   * zhangq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5796,8 +8986,26 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceU
 }
 
 export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADevice extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the MFA device was enabled.
+   * 
+   * @example
+   * 2015-02-18T17:22:08Z
+   */
   activateDate?: string;
+  /**
+   * @remarks
+   * The serial number of the MFA device.
+   * 
+   * @example
+   * acs:ram::123456789012****:mfa/device002
+   */
   serialNumber?: string;
+  /**
+   * @remarks
+   * The basic information of the RAM user to which the MFA device is attached.
+   */
   user?: ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser;
   static names(): { [key: string]: string } {
     return {
@@ -5840,14 +9048,82 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevices extends $tea.Mod
 }
 
 export class SetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether a password expires.
+   * 
+   * Valid values: `true` and `false`. Default value: `false`. If the parameter is unspecified, the default value false is returned.
+   * 
+   * *   If this parameter is set to `true`, the Alibaba Cloud account to which the RAM users belong must reset the password before the RAM users can log on to the Alibaba Cloud Management Console.
+   * *   If this parameter is set to `false`, the RAM users can change the passwords after the passwords expire and then log on to the Alibaba Cloud Management Console.
+   * 
+   * @example
+   * false
+   */
   hardExpiry?: boolean;
+  /**
+   * @remarks
+   * The maximum number of permitted logon attempts within one hour. The number of logon attempts is reset to zero if a RAM user changes the password.
+   * 
+   * @example
+   * 5
+   */
   maxLoginAttemps?: number;
+  /**
+   * @remarks
+   * The number of days for which a password is valid. Default value: 0. The default value indicates that the password never expires.
+   * 
+   * @example
+   * 0
+   */
   maxPasswordAge?: number;
+  /**
+   * @remarks
+   * The minimum required number of characters in a password.
+   * 
+   * @example
+   * 12
+   */
   minimumPasswordLength?: number;
+  /**
+   * @remarks
+   * The number of previous passwords that a RAM user is prevented from reusing. Default value: 0. The default value indicates that the RAM user can reuse previous passwords.
+   * 
+   * @example
+   * 0
+   */
   passwordReusePrevention?: number;
+  /**
+   * @remarks
+   * Indicates whether a password must contain one or more lowercase letters.
+   * 
+   * @example
+   * true
+   */
   requireLowercaseCharacters?: boolean;
+  /**
+   * @remarks
+   * Indicates whether a password must contain one or more digits.
+   * 
+   * @example
+   * true
+   */
   requireNumbers?: boolean;
+  /**
+   * @remarks
+   * Indicates whether a password must contain one or more special characters.
+   * 
+   * @example
+   * true
+   */
   requireSymbols?: boolean;
+  /**
+   * @remarks
+   * Indicates whether a password must contain one or more uppercase letters.
+   * 
+   * @example
+   * true
+   */
   requireUppercaseCharacters?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5883,6 +9159,13 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
 }
 
 export class SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether RAM users can manage their AccessKey pairs.
+   * 
+   * @example
+   * false
+   */
   allowUserToManageAccessKeys?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5902,9 +9185,37 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPrefere
 }
 
 export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether RAM users can change their passwords.
+   * 
+   * @example
+   * true
+   */
   allowUserToChangePassword?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the MFA devices of RAM users are remembered.
+   * 
+   * @example
+   * false
+   */
   enableSaveMFATicket?: boolean;
+  /**
+   * @remarks
+   * The subnet mask.
+   * 
+   * @example
+   * 10.0.0.0/8
+   */
   loginNetworkMasks?: string;
+  /**
+   * @remarks
+   * The validity period of the logon session of RAM users.
+   * 
+   * @example
+   * 6
+   */
   loginSessionDuration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5930,6 +9241,13 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
 }
 
 export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether RAM users can manage their MFA devices.
+   * 
+   * @example
+   * false
+   */
   allowUserToManageMFADevices?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5949,6 +9267,13 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
 }
 
 export class SetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPreference extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether RAM users can manage their public keys.
+   * 
+   * @example
+   * false
+   */
   allowUserToManagePublicKeys?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5968,9 +9293,27 @@ export class SetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPrefere
 }
 
 export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey pair preference.
+   */
   accessKeyPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference;
+  /**
+   * @remarks
+   * The logon preference.
+   */
   loginProfilePreference?: SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference;
+  /**
+   * @remarks
+   * The MFA preference.
+   */
   MFAPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
+  /**
+   * @remarks
+   * The public key preference.
+   * 
+   * >  This parameter is valid only for the Japan site.
+   */
   publicKeyPreference?: SetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPreference;
   static names(): { [key: string]: string } {
     return {
@@ -6015,10 +9358,45 @@ export class UnbindMFADeviceResponseBodyMFADevice extends $tea.Model {
 }
 
 export class UpdateGroupResponseBodyGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the RAM user group.
+   * 
+   * @example
+   * NewDev-Team
+   */
   comments?: string;
+  /**
+   * @remarks
+   * The time when the RAM user group was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The ID of the RAM user group.
+   * 
+   * @example
+   * g-FpMEHiMysofp****
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The new name of the RAM user group.
+   * 
+   * @example
+   * NewDev-Team
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The time when the information of the RAM user group was updated.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6046,11 +9424,56 @@ export class UpdateGroupResponseBodyGroup extends $tea.Model {
 }
 
 export class UpdatePolicyDescriptionResponseBodyPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the policy was created.
+   * 
+   * @example
+   * 2022-02-28T07:04:15Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The version of the policy. Default value: v1.
+   * 
+   * @example
+   * v1
+   */
   defaultVersion?: string;
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * @example
+   * This is a test policy.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * TestPolicy
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values:
+   * 
+   * *   Custom: custom policy
+   * *   System: system policy
+   * 
+   * @example
+   * Custom
+   */
   policyType?: string;
+  /**
+   * @remarks
+   * The time when the policy was modified.
+   * 
+   * @example
+   * 2022-02-28T07:05:37Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6080,13 +9503,69 @@ export class UpdatePolicyDescriptionResponseBodyPolicy extends $tea.Model {
 }
 
 export class UpdateRoleResponseBodyRole extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the role.
+   * 
+   * @example
+   * acs:ram::123456789012****:role/ECSAdmin
+   */
   arn?: string;
+  /**
+   * @remarks
+   * The policy that specifies the trusted entity to assume the RAM role.
+   * 
+   * @example
+   * { "Statement": [ { "Action": "sts:AssumeRole", "Effect": "Allow", "Principal": { "RAM": "acs:ram::123456789012****:root" } } ], "Version": "1" }
+   */
   assumeRolePolicyDocument?: string;
+  /**
+   * @remarks
+   * The time when the RAM role was created.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The description of the RAM role.
+   * 
+   * @example
+   * ECS administrator
+   */
   description?: string;
+  /**
+   * @remarks
+   * The maximum session duration of the RAM role.
+   * 
+   * @example
+   * 3600
+   */
   maxSessionDuration?: number;
+  /**
+   * @remarks
+   * The ID of the RAM role.
+   * 
+   * @example
+   * 901234567890****
+   */
   roleId?: string;
+  /**
+   * @remarks
+   * The name of the RAM role.
+   * 
+   * @example
+   * ECSAdmin
+   */
   roleName?: string;
+  /**
+   * @remarks
+   * The time when the description of the RAM role was changed.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6120,13 +9599,73 @@ export class UpdateRoleResponseBodyRole extends $tea.Model {
 }
 
 export class UpdateUserResponseBodyUser extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the RAM user.
+   * 
+   * @example
+   * This is a cloud computing engineer.
+   */
   comments?: string;
+  /**
+   * @remarks
+   * The point in time when the RAM user was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2015-01-23T12:33:18Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The display name of the RAM user.
+   * 
+   * @example
+   * xiaoq****
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The email address of the RAM user.
+   * 
+   * >  This parameter can be returned only on the China site (aliyun.com).
+   * 
+   * @example
+   * xiaoq****@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the RAM user.
+   * 
+   * >  This parameter can be returned only on the China site (aliyun.com).
+   * 
+   * @example
+   * 86-1860000****
+   */
   mobilePhone?: string;
+  /**
+   * @remarks
+   * The point in time when the information about the RAM user was last modified. The time is displayed in UTC.
+   * 
+   * @example
+   * 2015-02-11T03:15:21Z
+   */
   updateDate?: string;
+  /**
+   * @remarks
+   * The ID of the RAM user.
+   * 
+   * @example
+   * 122748924538****
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The username of the RAM user.
+   * 
+   * @example
+   * xiaoq****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6183,11 +9722,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a RAM user to a RAM user group.
-   *
-   * @param request AddUserToGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddUserToGroupResponse
+   * Adds a RAM user to a RAM user group.
+   * 
+   * @param request - AddUserToGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddUserToGroupResponse
    */
   async addUserToGroupWithOptions(request: AddUserToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToGroupResponse> {
     Util.validateModel(request);
@@ -6218,10 +9757,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a RAM user to a RAM user group.
-   *
-   * @param request AddUserToGroupRequest
-   * @return AddUserToGroupResponse
+   * Adds a RAM user to a RAM user group.
+   * 
+   * @param request - AddUserToGroupRequest
+   * @returns AddUserToGroupResponse
    */
   async addUserToGroup(request: AddUserToGroupRequest): Promise<AddUserToGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6229,11 +9768,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Attaches a policy to a RAM user group.
-   *
-   * @param request AttachPolicyToGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AttachPolicyToGroupResponse
+   * Attaches a policy to a RAM user group.
+   * 
+   * @param request - AttachPolicyToGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachPolicyToGroupResponse
    */
   async attachPolicyToGroupWithOptions(request: AttachPolicyToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AttachPolicyToGroupResponse> {
     Util.validateModel(request);
@@ -6268,10 +9807,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Attaches a policy to a RAM user group.
-   *
-   * @param request AttachPolicyToGroupRequest
-   * @return AttachPolicyToGroupResponse
+   * Attaches a policy to a RAM user group.
+   * 
+   * @param request - AttachPolicyToGroupRequest
+   * @returns AttachPolicyToGroupResponse
    */
   async attachPolicyToGroup(request: AttachPolicyToGroupRequest): Promise<AttachPolicyToGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6279,11 +9818,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Attaches a policy to a RAM role.
-   *
-   * @param request AttachPolicyToRoleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AttachPolicyToRoleResponse
+   * Attaches a policy to a RAM role.
+   * 
+   * @param request - AttachPolicyToRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachPolicyToRoleResponse
    */
   async attachPolicyToRoleWithOptions(request: AttachPolicyToRoleRequest, runtime: $Util.RuntimeOptions): Promise<AttachPolicyToRoleResponse> {
     Util.validateModel(request);
@@ -6318,10 +9857,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Attaches a policy to a RAM role.
-   *
-   * @param request AttachPolicyToRoleRequest
-   * @return AttachPolicyToRoleResponse
+   * Attaches a policy to a RAM role.
+   * 
+   * @param request - AttachPolicyToRoleRequest
+   * @returns AttachPolicyToRoleResponse
    */
   async attachPolicyToRole(request: AttachPolicyToRoleRequest): Promise<AttachPolicyToRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6329,11 +9868,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Attaches a policy to a RAM user.
-   *
-   * @param request AttachPolicyToUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AttachPolicyToUserResponse
+   * Attaches a policy to a RAM user.
+   * 
+   * @param request - AttachPolicyToUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachPolicyToUserResponse
    */
   async attachPolicyToUserWithOptions(request: AttachPolicyToUserRequest, runtime: $Util.RuntimeOptions): Promise<AttachPolicyToUserResponse> {
     Util.validateModel(request);
@@ -6368,10 +9907,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Attaches a policy to a RAM user.
-   *
-   * @param request AttachPolicyToUserRequest
-   * @return AttachPolicyToUserResponse
+   * Attaches a policy to a RAM user.
+   * 
+   * @param request - AttachPolicyToUserRequest
+   * @returns AttachPolicyToUserResponse
    */
   async attachPolicyToUser(request: AttachPolicyToUserRequest): Promise<AttachPolicyToUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6379,9 +9918,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BindMFADeviceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BindMFADeviceResponse
+   * @param request - BindMFADeviceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindMFADeviceResponse
    */
   async bindMFADeviceWithOptions(request: BindMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<BindMFADeviceResponse> {
     Util.validateModel(request);
@@ -6420,8 +9959,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BindMFADeviceRequest
-   * @return BindMFADeviceResponse
+   * @param request - BindMFADeviceRequest
+   * @returns BindMFADeviceResponse
    */
   async bindMFADevice(request: BindMFADeviceRequest): Promise<BindMFADeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6429,11 +9968,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
-   *
-   * @param request ChangePasswordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangePasswordResponse
+   * @remarks
+   * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
+   * 
+   * @param request - ChangePasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangePasswordResponse
    */
   async changePasswordWithOptions(request: ChangePasswordRequest, runtime: $Util.RuntimeOptions): Promise<ChangePasswordResponse> {
     Util.validateModel(request);
@@ -6464,10 +10004,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
-   *
-   * @param request ChangePasswordRequest
-   * @return ChangePasswordResponse
+   * @remarks
+   * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
+   * 
+   * @param request - ChangePasswordRequest
+   * @returns ChangePasswordResponse
    */
   async changePassword(request: ChangePasswordRequest): Promise<ChangePasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6475,9 +10016,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ClearAccountAliasRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ClearAccountAliasResponse
+   * @param request - ClearAccountAliasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClearAccountAliasResponse
    */
   async clearAccountAliasWithOptions(runtime: $Util.RuntimeOptions): Promise<ClearAccountAliasResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -6496,7 +10037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return ClearAccountAliasResponse
+   * @returns ClearAccountAliasResponse
    */
   async clearAccountAlias(): Promise<ClearAccountAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6504,9 +10045,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateAccessKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAccessKeyResponse
+   * @param request - CreateAccessKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAccessKeyResponse
    */
   async createAccessKeyWithOptions(request: CreateAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessKeyResponse> {
     Util.validateModel(request);
@@ -6533,8 +10074,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateAccessKeyRequest
-   * @return CreateAccessKeyResponse
+   * @param request - CreateAccessKeyRequest
+   * @returns CreateAccessKeyResponse
    */
   async createAccessKey(request: CreateAccessKeyRequest): Promise<CreateAccessKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6542,11 +10083,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a RAM user group.
-   *
-   * @param request CreateGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateGroupResponse
+   * Creates a RAM user group.
+   * 
+   * @param request - CreateGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGroupResponse
    */
   async createGroupWithOptions(request: CreateGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
     Util.validateModel(request);
@@ -6577,10 +10118,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a RAM user group.
-   *
-   * @param request CreateGroupRequest
-   * @return CreateGroupResponse
+   * Creates a RAM user group.
+   * 
+   * @param request - CreateGroupRequest
+   * @returns CreateGroupResponse
    */
   async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6588,11 +10129,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables console logon for a RAM user.
-   *
-   * @param request CreateLoginProfileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLoginProfileResponse
+   * Enables console logon for a RAM user.
+   * 
+   * @param request - CreateLoginProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLoginProfileResponse
    */
   async createLoginProfileWithOptions(request: CreateLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoginProfileResponse> {
     Util.validateModel(request);
@@ -6631,10 +10172,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables console logon for a RAM user.
-   *
-   * @param request CreateLoginProfileRequest
-   * @return CreateLoginProfileResponse
+   * Enables console logon for a RAM user.
+   * 
+   * @param request - CreateLoginProfileRequest
+   * @returns CreateLoginProfileResponse
    */
   async createLoginProfile(request: CreateLoginProfileRequest): Promise<CreateLoginProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6642,14 +10183,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a custom policy.
-   *
-   * @description For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
+   * Creates a custom policy.
+   * 
+   * @remarks
+   * For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
    * This topic provides an example on how to create a custom policy to query Elastic Compute Service (ECS) instances in a specific region.
-   *
-   * @param request CreatePolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePolicyResponse
+   * 
+   * @param request - CreatePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePolicyResponse
    */
   async createPolicyWithOptions(request: CreatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyResponse> {
     Util.validateModel(request);
@@ -6684,13 +10226,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a custom policy.
-   *
-   * @description For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
+   * Creates a custom policy.
+   * 
+   * @remarks
+   * For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
    * This topic provides an example on how to create a custom policy to query Elastic Compute Service (ECS) instances in a specific region.
-   *
-   * @param request CreatePolicyRequest
-   * @return CreatePolicyResponse
+   * 
+   * @param request - CreatePolicyRequest
+   * @returns CreatePolicyResponse
    */
   async createPolicy(request: CreatePolicyRequest): Promise<CreatePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6698,9 +10241,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreatePolicyVersionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePolicyVersionResponse
+   * @param request - CreatePolicyVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePolicyVersionResponse
    */
   async createPolicyVersionWithOptions(request: CreatePolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyVersionResponse> {
     Util.validateModel(request);
@@ -6739,8 +10282,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreatePolicyVersionRequest
-   * @return CreatePolicyVersionResponse
+   * @param request - CreatePolicyVersionRequest
+   * @returns CreatePolicyVersionResponse
    */
   async createPolicyVersion(request: CreatePolicyVersionRequest): Promise<CreatePolicyVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6748,14 +10291,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a RAM role.
-   *
-   * @description ## Description
+   * Creates a RAM role.
+   * 
+   * @remarks
+   * ## Description
    * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
-   *
-   * @param request CreateRoleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateRoleResponse
+   * 
+   * @param request - CreateRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRoleResponse
    */
   async createRoleWithOptions(request: CreateRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRoleResponse> {
     Util.validateModel(request);
@@ -6794,13 +10338,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a RAM role.
-   *
-   * @description ## Description
+   * Creates a RAM role.
+   * 
+   * @remarks
+   * ## Description
    * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
-   *
-   * @param request CreateRoleRequest
-   * @return CreateRoleResponse
+   * 
+   * @param request - CreateRoleRequest
+   * @returns CreateRoleResponse
    */
   async createRole(request: CreateRoleRequest): Promise<CreateRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6808,13 +10353,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a Resource Access Management (RAM) user.
-   *
-   * @description This topic provides an example on how to create a RAM user named `alice`.
-   *
-   * @param request CreateUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateUserResponse
+   * Creates a Resource Access Management (RAM) user.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a RAM user named `alice`.
+   * 
+   * @param request - CreateUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserResponse
    */
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
@@ -6857,12 +10403,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a Resource Access Management (RAM) user.
-   *
-   * @description This topic provides an example on how to create a RAM user named `alice`.
-   *
-   * @param request CreateUserRequest
-   * @return CreateUserResponse
+   * Creates a Resource Access Management (RAM) user.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a RAM user named `alice`.
+   * 
+   * @param request - CreateUserRequest
+   * @returns CreateUserResponse
    */
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6870,9 +10417,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateVirtualMFADeviceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateVirtualMFADeviceResponse
+   * @param request - CreateVirtualMFADeviceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVirtualMFADeviceResponse
    */
   async createVirtualMFADeviceWithOptions(request: CreateVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualMFADeviceResponse> {
     Util.validateModel(request);
@@ -6899,8 +10446,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateVirtualMFADeviceRequest
-   * @return CreateVirtualMFADeviceResponse
+   * @param request - CreateVirtualMFADeviceRequest
+   * @returns CreateVirtualMFADeviceResponse
    */
   async createVirtualMFADevice(request: CreateVirtualMFADeviceRequest): Promise<CreateVirtualMFADeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6908,11 +10455,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
-   *
-   * @param request DecodeDiagnosticMessageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DecodeDiagnosticMessageResponse
+   * Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+   * 
+   * @param request - DecodeDiagnosticMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DecodeDiagnosticMessageResponse
    */
   async decodeDiagnosticMessageWithOptions(request: DecodeDiagnosticMessageRequest, runtime: $Util.RuntimeOptions): Promise<DecodeDiagnosticMessageResponse> {
     Util.validateModel(request);
@@ -6939,10 +10486,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
-   *
-   * @param request DecodeDiagnosticMessageRequest
-   * @return DecodeDiagnosticMessageResponse
+   * Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+   * 
+   * @param request - DecodeDiagnosticMessageRequest
+   * @returns DecodeDiagnosticMessageResponse
    */
   async decodeDiagnosticMessage(request: DecodeDiagnosticMessageRequest): Promise<DecodeDiagnosticMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6950,9 +10497,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteAccessKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAccessKeyResponse
+   * @param request - DeleteAccessKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAccessKeyResponse
    */
   async deleteAccessKeyWithOptions(request: DeleteAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessKeyResponse> {
     Util.validateModel(request);
@@ -6983,8 +10530,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteAccessKeyRequest
-   * @return DeleteAccessKeyResponse
+   * @param request - DeleteAccessKeyRequest
+   * @returns DeleteAccessKeyResponse
    */
   async deleteAccessKey(request: DeleteAccessKeyRequest): Promise<DeleteAccessKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6992,11 +10539,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
-   *
-   * @param request DeleteGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteGroupResponse
+   * @remarks
+   * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+   * 
+   * @param request - DeleteGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGroupResponse
    */
   async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
     Util.validateModel(request);
@@ -7023,10 +10571,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
-   *
-   * @param request DeleteGroupRequest
-   * @return DeleteGroupResponse
+   * @remarks
+   * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+   * 
+   * @param request - DeleteGroupRequest
+   * @returns DeleteGroupResponse
    */
   async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7034,9 +10583,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteLoginProfileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLoginProfileResponse
+   * @param request - DeleteLoginProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLoginProfileResponse
    */
   async deleteLoginProfileWithOptions(request: DeleteLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoginProfileResponse> {
     Util.validateModel(request);
@@ -7063,8 +10612,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteLoginProfileRequest
-   * @return DeleteLoginProfileResponse
+   * @param request - DeleteLoginProfileRequest
+   * @returns DeleteLoginProfileResponse
    */
   async deleteLoginProfile(request: DeleteLoginProfileRequest): Promise<DeleteLoginProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7072,13 +10621,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeletePolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePolicyResponse
+   * @param request - DeletePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePolicyResponse
    */
   async deletePolicyWithOptions(request: DeletePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.cascadingDelete)) {
+      query["CascadingDelete"] = request.cascadingDelete;
+    }
+
     if (!Util.isUnset(request.policyName)) {
       query["PolicyName"] = request.policyName;
     }
@@ -7101,8 +10654,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeletePolicyRequest
-   * @return DeletePolicyResponse
+   * @param request - DeletePolicyRequest
+   * @returns DeletePolicyResponse
    */
   async deletePolicy(request: DeletePolicyRequest): Promise<DeletePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7110,9 +10663,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeletePolicyVersionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePolicyVersionResponse
+   * @param request - DeletePolicyVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePolicyVersionResponse
    */
   async deletePolicyVersionWithOptions(request: DeletePolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyVersionResponse> {
     Util.validateModel(request);
@@ -7143,8 +10696,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeletePolicyVersionRequest
-   * @return DeletePolicyVersionResponse
+   * @param request - DeletePolicyVersionRequest
+   * @returns DeletePolicyVersionResponse
    */
   async deletePolicyVersion(request: DeletePolicyVersionRequest): Promise<DeletePolicyVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7152,9 +10705,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteRoleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteRoleResponse
+   * @param request - DeleteRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRoleResponse
    */
   async deleteRoleWithOptions(request: DeleteRoleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoleResponse> {
     Util.validateModel(request);
@@ -7181,8 +10734,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteRoleRequest
-   * @return DeleteRoleResponse
+   * @param request - DeleteRoleRequest
+   * @returns DeleteRoleResponse
    */
   async deleteRole(request: DeleteRoleRequest): Promise<DeleteRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7190,11 +10743,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
-   *
-   * @param request DeleteUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteUserResponse
+   * @remarks
+   * Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
+   * 
+   * @param request - DeleteUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserResponse
    */
   async deleteUserWithOptions(request: DeleteUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     Util.validateModel(request);
@@ -7221,10 +10775,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
-   *
-   * @param request DeleteUserRequest
-   * @return DeleteUserResponse
+   * @remarks
+   * Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
+   * 
+   * @param request - DeleteUserRequest
+   * @returns DeleteUserResponse
    */
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7232,9 +10787,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteVirtualMFADeviceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteVirtualMFADeviceResponse
+   * @param request - DeleteVirtualMFADeviceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVirtualMFADeviceResponse
    */
   async deleteVirtualMFADeviceWithOptions(request: DeleteVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualMFADeviceResponse> {
     Util.validateModel(request);
@@ -7261,8 +10816,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteVirtualMFADeviceRequest
-   * @return DeleteVirtualMFADeviceResponse
+   * @param request - DeleteVirtualMFADeviceRequest
+   * @returns DeleteVirtualMFADeviceResponse
    */
   async deleteVirtualMFADevice(request: DeleteVirtualMFADeviceRequest): Promise<DeleteVirtualMFADeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7270,11 +10825,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Detaches a policy from a RAM user group.
-   *
-   * @param request DetachPolicyFromGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetachPolicyFromGroupResponse
+   * Detaches a policy from a RAM user group.
+   * 
+   * @param request - DetachPolicyFromGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachPolicyFromGroupResponse
    */
   async detachPolicyFromGroupWithOptions(request: DetachPolicyFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<DetachPolicyFromGroupResponse> {
     Util.validateModel(request);
@@ -7309,10 +10864,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Detaches a policy from a RAM user group.
-   *
-   * @param request DetachPolicyFromGroupRequest
-   * @return DetachPolicyFromGroupResponse
+   * Detaches a policy from a RAM user group.
+   * 
+   * @param request - DetachPolicyFromGroupRequest
+   * @returns DetachPolicyFromGroupResponse
    */
   async detachPolicyFromGroup(request: DetachPolicyFromGroupRequest): Promise<DetachPolicyFromGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7320,11 +10875,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Detaches a policy from a RAM role.
-   *
-   * @param request DetachPolicyFromRoleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetachPolicyFromRoleResponse
+   * Detaches a policy from a RAM role.
+   * 
+   * @param request - DetachPolicyFromRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachPolicyFromRoleResponse
    */
   async detachPolicyFromRoleWithOptions(request: DetachPolicyFromRoleRequest, runtime: $Util.RuntimeOptions): Promise<DetachPolicyFromRoleResponse> {
     Util.validateModel(request);
@@ -7359,10 +10914,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Detaches a policy from a RAM role.
-   *
-   * @param request DetachPolicyFromRoleRequest
-   * @return DetachPolicyFromRoleResponse
+   * Detaches a policy from a RAM role.
+   * 
+   * @param request - DetachPolicyFromRoleRequest
+   * @returns DetachPolicyFromRoleResponse
    */
   async detachPolicyFromRole(request: DetachPolicyFromRoleRequest): Promise<DetachPolicyFromRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7370,11 +10925,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Detaches a policy from a RAM user.
-   *
-   * @param request DetachPolicyFromUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetachPolicyFromUserResponse
+   * Detaches a policy from a RAM user.
+   * 
+   * @param request - DetachPolicyFromUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachPolicyFromUserResponse
    */
   async detachPolicyFromUserWithOptions(request: DetachPolicyFromUserRequest, runtime: $Util.RuntimeOptions): Promise<DetachPolicyFromUserResponse> {
     Util.validateModel(request);
@@ -7409,10 +10964,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Detaches a policy from a RAM user.
-   *
-   * @param request DetachPolicyFromUserRequest
-   * @return DetachPolicyFromUserResponse
+   * Detaches a policy from a RAM user.
+   * 
+   * @param request - DetachPolicyFromUserRequest
+   * @returns DetachPolicyFromUserResponse
    */
   async detachPolicyFromUser(request: DetachPolicyFromUserRequest): Promise<DetachPolicyFromUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7420,9 +10975,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetAccessKeyLastUsedRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAccessKeyLastUsedResponse
+   * @param request - GetAccessKeyLastUsedRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccessKeyLastUsedResponse
    */
   async getAccessKeyLastUsedWithOptions(request: GetAccessKeyLastUsedRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedResponse> {
     Util.validateModel(request);
@@ -7453,8 +11008,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetAccessKeyLastUsedRequest
-   * @return GetAccessKeyLastUsedResponse
+   * @param request - GetAccessKeyLastUsedRequest
+   * @returns GetAccessKeyLastUsedResponse
    */
   async getAccessKeyLastUsed(request: GetAccessKeyLastUsedRequest): Promise<GetAccessKeyLastUsedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7462,9 +11017,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetAccountAliasRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAccountAliasResponse
+   * @param request - GetAccountAliasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccountAliasResponse
    */
   async getAccountAliasWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAccountAliasResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -7483,7 +11038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return GetAccountAliasResponse
+   * @returns GetAccountAliasResponse
    */
   async getAccountAlias(): Promise<GetAccountAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7491,11 +11046,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of a RAM user group.
-   *
-   * @param request GetGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetGroupResponse
+   * Queries the information of a RAM user group.
+   * 
+   * @param request - GetGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGroupResponse
    */
   async getGroupWithOptions(request: GetGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
     Util.validateModel(request);
@@ -7522,10 +11077,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of a RAM user group.
-   *
-   * @param request GetGroupRequest
-   * @return GetGroupResponse
+   * Queries the information of a RAM user group.
+   * 
+   * @param request - GetGroupRequest
+   * @returns GetGroupResponse
    */
   async getGroup(request: GetGroupRequest): Promise<GetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7533,9 +11088,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetLoginProfileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLoginProfileResponse
+   * @param request - GetLoginProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLoginProfileResponse
    */
   async getLoginProfileWithOptions(request: GetLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginProfileResponse> {
     Util.validateModel(request);
@@ -7562,8 +11117,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetLoginProfileRequest
-   * @return GetLoginProfileResponse
+   * @param request - GetLoginProfileRequest
+   * @returns GetLoginProfileResponse
    */
   async getLoginProfile(request: GetLoginProfileRequest): Promise<GetLoginProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7571,9 +11126,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetPasswordPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPasswordPolicyResponse
+   * @param request - GetPasswordPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPasswordPolicyResponse
    */
   async getPasswordPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<GetPasswordPolicyResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -7592,7 +11147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return GetPasswordPolicyResponse
+   * @returns GetPasswordPolicyResponse
    */
   async getPasswordPolicy(): Promise<GetPasswordPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7600,11 +11155,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of a policy.
-   *
-   * @param request GetPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPolicyResponse
+   * Queries the information of a policy.
+   * 
+   * @param request - GetPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPolicyResponse
    */
   async getPolicyWithOptions(request: GetPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyResponse> {
     Util.validateModel(request);
@@ -7635,10 +11190,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of a policy.
-   *
-   * @param request GetPolicyRequest
-   * @return GetPolicyResponse
+   * Queries the information of a policy.
+   * 
+   * @param request - GetPolicyRequest
+   * @returns GetPolicyResponse
    */
   async getPolicy(request: GetPolicyRequest): Promise<GetPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7646,11 +11201,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of a policy version.
-   *
-   * @param request GetPolicyVersionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPolicyVersionResponse
+   * Queries the information of a policy version.
+   * 
+   * @param request - GetPolicyVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPolicyVersionResponse
    */
   async getPolicyVersionWithOptions(request: GetPolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyVersionResponse> {
     Util.validateModel(request);
@@ -7685,10 +11240,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of a policy version.
-   *
-   * @param request GetPolicyVersionRequest
-   * @return GetPolicyVersionResponse
+   * Queries the information of a policy version.
+   * 
+   * @param request - GetPolicyVersionRequest
+   * @returns GetPolicyVersionResponse
    */
   async getPolicyVersion(request: GetPolicyVersionRequest): Promise<GetPolicyVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7696,11 +11251,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information of a RAM role.
-   *
-   * @param request GetRoleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetRoleResponse
+   * Queries information of a RAM role.
+   * 
+   * @param request - GetRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRoleResponse
    */
   async getRoleWithOptions(request: GetRoleRequest, runtime: $Util.RuntimeOptions): Promise<GetRoleResponse> {
     Util.validateModel(request);
@@ -7727,10 +11282,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information of a RAM role.
-   *
-   * @param request GetRoleRequest
-   * @return GetRoleResponse
+   * Queries information of a RAM role.
+   * 
+   * @param request - GetRoleRequest
+   * @returns GetRoleResponse
    */
   async getRole(request: GetRoleRequest): Promise<GetRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7738,9 +11293,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetSecurityPreferenceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSecurityPreferenceResponse
+   * @param request - GetSecurityPreferenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecurityPreferenceResponse
    */
   async getSecurityPreferenceWithOptions(runtime: $Util.RuntimeOptions): Promise<GetSecurityPreferenceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -7759,7 +11314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return GetSecurityPreferenceResponse
+   * @returns GetSecurityPreferenceResponse
    */
   async getSecurityPreference(): Promise<GetSecurityPreferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7767,13 +11322,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a RAM user.
-   *
-   * @description This topic provides an example on how to query the information about the RAM user `alice`.
-   *
-   * @param request GetUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserResponse
+   * Queries the information about a RAM user.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the information about the RAM user `alice`.
+   * 
+   * @param request - GetUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserResponse
    */
   async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
@@ -7800,12 +11356,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a RAM user.
-   *
-   * @description This topic provides an example on how to query the information about the RAM user `alice`.
-   *
-   * @param request GetUserRequest
-   * @return GetUserResponse
+   * Queries the information about a RAM user.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the information about the RAM user `alice`.
+   * 
+   * @param request - GetUserRequest
+   * @returns GetUserResponse
    */
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7813,9 +11370,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetUserMFAInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserMFAInfoResponse
+   * @param request - GetUserMFAInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserMFAInfoResponse
    */
   async getUserMFAInfoWithOptions(request: GetUserMFAInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetUserMFAInfoResponse> {
     Util.validateModel(request);
@@ -7842,8 +11399,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetUserMFAInfoRequest
-   * @return GetUserMFAInfoResponse
+   * @param request - GetUserMFAInfoRequest
+   * @returns GetUserMFAInfoResponse
    */
   async getUserMFAInfo(request: GetUserMFAInfoRequest): Promise<GetUserMFAInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7851,11 +11408,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the list of all AccessKey pairs that belong to a RAM user.
-   *
-   * @param request ListAccessKeysRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAccessKeysResponse
+   * Queries the list of all AccessKey pairs that belong to a RAM user.
+   * 
+   * @param request - ListAccessKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAccessKeysResponse
    */
   async listAccessKeysWithOptions(request: ListAccessKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessKeysResponse> {
     Util.validateModel(request);
@@ -7882,10 +11439,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the list of all AccessKey pairs that belong to a RAM user.
-   *
-   * @param request ListAccessKeysRequest
-   * @return ListAccessKeysResponse
+   * Queries the list of all AccessKey pairs that belong to a RAM user.
+   * 
+   * @param request - ListAccessKeysRequest
+   * @returns ListAccessKeysResponse
    */
   async listAccessKeys(request: ListAccessKeysRequest): Promise<ListAccessKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7893,11 +11450,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the entities to which a policy is attached.
-   *
-   * @param request ListEntitiesForPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListEntitiesForPolicyResponse
+   * Queries the entities to which a policy is attached.
+   * 
+   * @param request - ListEntitiesForPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEntitiesForPolicyResponse
    */
   async listEntitiesForPolicyWithOptions(request: ListEntitiesForPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListEntitiesForPolicyResponse> {
     Util.validateModel(request);
@@ -7928,10 +11485,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the entities to which a policy is attached.
-   *
-   * @param request ListEntitiesForPolicyRequest
-   * @return ListEntitiesForPolicyResponse
+   * Queries the entities to which a policy is attached.
+   * 
+   * @param request - ListEntitiesForPolicyRequest
+   * @returns ListEntitiesForPolicyResponse
    */
   async listEntitiesForPolicy(request: ListEntitiesForPolicyRequest): Promise<ListEntitiesForPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7939,11 +11496,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries RAM user groups.
-   *
-   * @param request ListGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGroupsResponse
+   * Queries RAM user groups.
+   * 
+   * @param request - ListGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGroupsResponse
    */
   async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
     Util.validateModel(request);
@@ -7974,10 +11531,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries RAM user groups.
-   *
-   * @param request ListGroupsRequest
-   * @return ListGroupsResponse
+   * Queries RAM user groups.
+   * 
+   * @param request - ListGroupsRequest
+   * @returns ListGroupsResponse
    */
   async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7985,13 +11542,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
-   *
-   * @description This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
-   *
-   * @param request ListGroupsForUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGroupsForUserResponse
+   * Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+   * 
+   * @param request - ListGroupsForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGroupsForUserResponse
    */
   async listGroupsForUserWithOptions(request: ListGroupsForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsForUserResponse> {
     Util.validateModel(request);
@@ -8018,12 +11576,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
-   *
-   * @description This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
-   *
-   * @param request ListGroupsForUserRequest
-   * @return ListGroupsForUserResponse
+   * Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+   * 
+   * @param request - ListGroupsForUserRequest
+   * @returns ListGroupsForUserResponse
    */
   async listGroupsForUser(request: ListGroupsForUserRequest): Promise<ListGroupsForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8031,11 +11590,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of policies.
-   *
-   * @param request ListPoliciesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPoliciesResponse
+   * Queries a list of policies.
+   * 
+   * @param request - ListPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPoliciesResponse
    */
   async listPoliciesWithOptions(request: ListPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesResponse> {
     Util.validateModel(request);
@@ -8070,10 +11629,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of policies.
-   *
-   * @param request ListPoliciesRequest
-   * @return ListPoliciesResponse
+   * Queries a list of policies.
+   * 
+   * @param request - ListPoliciesRequest
+   * @returns ListPoliciesResponse
    */
   async listPolicies(request: ListPoliciesRequest): Promise<ListPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8081,11 +11640,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the policies that are attached to a RAM user group.
-   *
-   * @param request ListPoliciesForGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPoliciesForGroupResponse
+   * Queries the policies that are attached to a RAM user group.
+   * 
+   * @param request - ListPoliciesForGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPoliciesForGroupResponse
    */
   async listPoliciesForGroupWithOptions(request: ListPoliciesForGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesForGroupResponse> {
     Util.validateModel(request);
@@ -8112,10 +11671,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the policies that are attached to a RAM user group.
-   *
-   * @param request ListPoliciesForGroupRequest
-   * @return ListPoliciesForGroupResponse
+   * Queries the policies that are attached to a RAM user group.
+   * 
+   * @param request - ListPoliciesForGroupRequest
+   * @returns ListPoliciesForGroupResponse
    */
   async listPoliciesForGroup(request: ListPoliciesForGroupRequest): Promise<ListPoliciesForGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8123,11 +11682,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the policies that are attached to a RAM role.
-   *
-   * @param request ListPoliciesForRoleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPoliciesForRoleResponse
+   * Queries the policies that are attached to a RAM role.
+   * 
+   * @param request - ListPoliciesForRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPoliciesForRoleResponse
    */
   async listPoliciesForRoleWithOptions(request: ListPoliciesForRoleRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesForRoleResponse> {
     Util.validateModel(request);
@@ -8154,10 +11713,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the policies that are attached to a RAM role.
-   *
-   * @param request ListPoliciesForRoleRequest
-   * @return ListPoliciesForRoleResponse
+   * Queries the policies that are attached to a RAM role.
+   * 
+   * @param request - ListPoliciesForRoleRequest
+   * @returns ListPoliciesForRoleResponse
    */
   async listPoliciesForRole(request: ListPoliciesForRoleRequest): Promise<ListPoliciesForRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8165,13 +11724,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the policies that are attached to a RAM user.
-   *
-   * @description > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
-   *
-   * @param request ListPoliciesForUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPoliciesForUserResponse
+   * Queries the policies that are attached to a RAM user.
+   * 
+   * @remarks
+   * > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
+   * 
+   * @param request - ListPoliciesForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPoliciesForUserResponse
    */
   async listPoliciesForUserWithOptions(request: ListPoliciesForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesForUserResponse> {
     Util.validateModel(request);
@@ -8198,12 +11758,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the policies that are attached to a RAM user.
-   *
-   * @description > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
-   *
-   * @param request ListPoliciesForUserRequest
-   * @return ListPoliciesForUserResponse
+   * Queries the policies that are attached to a RAM user.
+   * 
+   * @remarks
+   * > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
+   * 
+   * @param request - ListPoliciesForUserRequest
+   * @returns ListPoliciesForUserResponse
    */
   async listPoliciesForUser(request: ListPoliciesForUserRequest): Promise<ListPoliciesForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8211,11 +11772,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the versions of a policy.
-   *
-   * @param request ListPolicyVersionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPolicyVersionsResponse
+   * Queries the versions of a policy.
+   * 
+   * @param request - ListPolicyVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPolicyVersionsResponse
    */
   async listPolicyVersionsWithOptions(request: ListPolicyVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicyVersionsResponse> {
     Util.validateModel(request);
@@ -8246,10 +11807,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the versions of a policy.
-   *
-   * @param request ListPolicyVersionsRequest
-   * @return ListPolicyVersionsResponse
+   * Queries the versions of a policy.
+   * 
+   * @param request - ListPolicyVersionsRequest
+   * @returns ListPolicyVersionsResponse
    */
   async listPolicyVersions(request: ListPolicyVersionsRequest): Promise<ListPolicyVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8257,11 +11818,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the list of all RAM roles.
-   *
-   * @param request ListRolesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRolesResponse
+   * Queries the list of all RAM roles.
+   * 
+   * @param request - ListRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRolesResponse
    */
   async listRolesWithOptions(request: ListRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListRolesResponse> {
     Util.validateModel(request);
@@ -8292,10 +11853,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the list of all RAM roles.
-   *
-   * @param request ListRolesRequest
-   * @return ListRolesResponse
+   * Queries the list of all RAM roles.
+   * 
+   * @param request - ListRolesRequest
+   * @returns ListRolesResponse
    */
   async listRoles(request: ListRolesRequest): Promise<ListRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8303,11 +11864,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about all RAM users.
-   *
-   * @param request ListUsersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUsersResponse
+   * Queries the information about all RAM users.
+   * 
+   * @param request - ListUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUsersResponse
    */
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
@@ -8338,10 +11899,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about all RAM users.
-   *
-   * @param request ListUsersRequest
-   * @return ListUsersResponse
+   * Queries the information about all RAM users.
+   * 
+   * @param request - ListUsersRequest
+   * @returns ListUsersResponse
    */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8349,9 +11910,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUsersForGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUsersForGroupResponse
+   * @param request - ListUsersForGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUsersForGroupResponse
    */
   async listUsersForGroupWithOptions(request: ListUsersForGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersForGroupResponse> {
     Util.validateModel(request);
@@ -8386,8 +11947,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUsersForGroupRequest
-   * @return ListUsersForGroupResponse
+   * @param request - ListUsersForGroupRequest
+   * @returns ListUsersForGroupResponse
    */
   async listUsersForGroup(request: ListUsersForGroupRequest): Promise<ListUsersForGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8395,11 +11956,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the list of all multi-factor authentication (MFA) devices.
-   *
-   * @param request ListVirtualMFADevicesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListVirtualMFADevicesResponse
+   * Queries the list of all multi-factor authentication (MFA) devices.
+   * 
+   * @param request - ListVirtualMFADevicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVirtualMFADevicesResponse
    */
   async listVirtualMFADevicesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListVirtualMFADevicesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -8418,9 +11979,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the list of all multi-factor authentication (MFA) devices.
-   *
-   * @return ListVirtualMFADevicesResponse
+   * Queries the list of all multi-factor authentication (MFA) devices.
+   * @returns ListVirtualMFADevicesResponse
    */
   async listVirtualMFADevices(): Promise<ListVirtualMFADevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8428,9 +11988,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveUserFromGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveUserFromGroupResponse
+   * @param request - RemoveUserFromGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveUserFromGroupResponse
    */
   async removeUserFromGroupWithOptions(request: RemoveUserFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromGroupResponse> {
     Util.validateModel(request);
@@ -8461,8 +12021,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveUserFromGroupRequest
-   * @return RemoveUserFromGroupResponse
+   * @param request - RemoveUserFromGroupRequest
+   * @returns RemoveUserFromGroupResponse
    */
   async removeUserFromGroup(request: RemoveUserFromGroupRequest): Promise<RemoveUserFromGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8470,11 +12030,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to specify an alias for an Alibaba Cloud account.
-   *
-   * @param request SetAccountAliasRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetAccountAliasResponse
+   * You can call this operation to specify an alias for an Alibaba Cloud account.
+   * 
+   * @param request - SetAccountAliasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetAccountAliasResponse
    */
   async setAccountAliasWithOptions(request: SetAccountAliasRequest, runtime: $Util.RuntimeOptions): Promise<SetAccountAliasResponse> {
     Util.validateModel(request);
@@ -8501,10 +12061,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to specify an alias for an Alibaba Cloud account.
-   *
-   * @param request SetAccountAliasRequest
-   * @return SetAccountAliasResponse
+   * You can call this operation to specify an alias for an Alibaba Cloud account.
+   * 
+   * @param request - SetAccountAliasRequest
+   * @returns SetAccountAliasResponse
    */
   async setAccountAlias(request: SetAccountAliasRequest): Promise<SetAccountAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8512,11 +12072,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sets the default version of a policy.
-   *
-   * @param request SetDefaultPolicyVersionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetDefaultPolicyVersionResponse
+   * Sets the default version of a policy.
+   * 
+   * @param request - SetDefaultPolicyVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetDefaultPolicyVersionResponse
    */
   async setDefaultPolicyVersionWithOptions(request: SetDefaultPolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultPolicyVersionResponse> {
     Util.validateModel(request);
@@ -8547,10 +12107,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sets the default version of a policy.
-   *
-   * @param request SetDefaultPolicyVersionRequest
-   * @return SetDefaultPolicyVersionResponse
+   * Sets the default version of a policy.
+   * 
+   * @param request - SetDefaultPolicyVersionRequest
+   * @returns SetDefaultPolicyVersionResponse
    */
   async setDefaultPolicyVersion(request: SetDefaultPolicyVersionRequest): Promise<SetDefaultPolicyVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8558,9 +12118,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetPasswordPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetPasswordPolicyResponse
+   * @param request - SetPasswordPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetPasswordPolicyResponse
    */
   async setPasswordPolicyWithOptions(request: SetPasswordPolicyRequest, runtime: $Util.RuntimeOptions): Promise<SetPasswordPolicyResponse> {
     Util.validateModel(request);
@@ -8619,8 +12179,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetPasswordPolicyRequest
-   * @return SetPasswordPolicyResponse
+   * @param request - SetPasswordPolicyRequest
+   * @returns SetPasswordPolicyResponse
    */
   async setPasswordPolicy(request: SetPasswordPolicyRequest): Promise<SetPasswordPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8628,9 +12188,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetSecurityPreferenceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetSecurityPreferenceResponse
+   * Configures the security preferences.
+   * 
+   * @param request - SetSecurityPreferenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetSecurityPreferenceResponse
    */
   async setSecurityPreferenceWithOptions(request: SetSecurityPreferenceRequest, runtime: $Util.RuntimeOptions): Promise<SetSecurityPreferenceResponse> {
     Util.validateModel(request);
@@ -8681,8 +12243,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetSecurityPreferenceRequest
-   * @return SetSecurityPreferenceResponse
+   * Configures the security preferences.
+   * 
+   * @param request - SetSecurityPreferenceRequest
+   * @returns SetSecurityPreferenceResponse
    */
   async setSecurityPreference(request: SetSecurityPreferenceRequest): Promise<SetSecurityPreferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8690,9 +12254,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UnbindMFADeviceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnbindMFADeviceResponse
+   * Detaches a multi-factor authentication (MFA) device from a RAM user.
+   * 
+   * @param request - UnbindMFADeviceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindMFADeviceResponse
    */
   async unbindMFADeviceWithOptions(request: UnbindMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnbindMFADeviceResponse> {
     Util.validateModel(request);
@@ -8719,8 +12285,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UnbindMFADeviceRequest
-   * @return UnbindMFADeviceResponse
+   * Detaches a multi-factor authentication (MFA) device from a RAM user.
+   * 
+   * @param request - UnbindMFADeviceRequest
+   * @returns UnbindMFADeviceResponse
    */
   async unbindMFADevice(request: UnbindMFADeviceRequest): Promise<UnbindMFADeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8728,9 +12296,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateAccessKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAccessKeyResponse
+   * @param request - UpdateAccessKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAccessKeyResponse
    */
   async updateAccessKeyWithOptions(request: UpdateAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccessKeyResponse> {
     Util.validateModel(request);
@@ -8765,8 +12333,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateAccessKeyRequest
-   * @return UpdateAccessKeyResponse
+   * @param request - UpdateAccessKeyRequest
+   * @returns UpdateAccessKeyResponse
    */
   async updateAccessKey(request: UpdateAccessKeyRequest): Promise<UpdateAccessKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8774,11 +12342,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a RAM user group.
-   *
-   * @param request UpdateGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateGroupResponse
+   * Modifies a RAM user group.
+   * 
+   * @param request - UpdateGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGroupResponse
    */
   async updateGroupWithOptions(request: UpdateGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupResponse> {
     Util.validateModel(request);
@@ -8813,10 +12381,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a RAM user group.
-   *
-   * @param request UpdateGroupRequest
-   * @return UpdateGroupResponse
+   * Modifies a RAM user group.
+   * 
+   * @param request - UpdateGroupRequest
+   * @returns UpdateGroupResponse
    */
   async updateGroup(request: UpdateGroupRequest): Promise<UpdateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8824,9 +12392,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateLoginProfileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLoginProfileResponse
+   * @param request - UpdateLoginProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLoginProfileResponse
    */
   async updateLoginProfileWithOptions(request: UpdateLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoginProfileResponse> {
     Util.validateModel(request);
@@ -8865,8 +12433,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateLoginProfileRequest
-   * @return UpdateLoginProfileResponse
+   * @param request - UpdateLoginProfileRequest
+   * @returns UpdateLoginProfileResponse
    */
   async updateLoginProfile(request: UpdateLoginProfileRequest): Promise<UpdateLoginProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8874,13 +12442,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the description of a custom policy.
-   *
-   * @description You can call this operation to modify only the description of a custom policy. You cannot modify the description of a system policy.
-   *
-   * @param request UpdatePolicyDescriptionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdatePolicyDescriptionResponse
+   * Modifies the description of a custom policy.
+   * 
+   * @remarks
+   * You can call this operation to modify only the description of a custom policy. You cannot modify the description of a system policy.
+   * 
+   * @param request - UpdatePolicyDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePolicyDescriptionResponse
    */
   async updatePolicyDescriptionWithOptions(request: UpdatePolicyDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePolicyDescriptionResponse> {
     Util.validateModel(request);
@@ -8911,12 +12480,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the description of a custom policy.
-   *
-   * @description You can call this operation to modify only the description of a custom policy. You cannot modify the description of a system policy.
-   *
-   * @param request UpdatePolicyDescriptionRequest
-   * @return UpdatePolicyDescriptionResponse
+   * Modifies the description of a custom policy.
+   * 
+   * @remarks
+   * You can call this operation to modify only the description of a custom policy. You cannot modify the description of a system policy.
+   * 
+   * @param request - UpdatePolicyDescriptionRequest
+   * @returns UpdatePolicyDescriptionResponse
    */
   async updatePolicyDescription(request: UpdatePolicyDescriptionRequest): Promise<UpdatePolicyDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8924,13 +12494,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the description of a RAM role.
-   *
-   * @description This topic provides an example to show how to change the description of ECSAdmin to ECS administrator.
-   *
-   * @param request UpdateRoleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateRoleResponse
+   * Changes the description of a RAM role.
+   * 
+   * @remarks
+   * This topic provides an example to show how to change the description of ECSAdmin to ECS administrator.
+   * 
+   * @param request - UpdateRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRoleResponse
    */
   async updateRoleWithOptions(request: UpdateRoleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRoleResponse> {
     Util.validateModel(request);
@@ -8969,12 +12540,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the description of a RAM role.
-   *
-   * @description This topic provides an example to show how to change the description of ECSAdmin to ECS administrator.
-   *
-   * @param request UpdateRoleRequest
-   * @return UpdateRoleResponse
+   * Changes the description of a RAM role.
+   * 
+   * @remarks
+   * This topic provides an example to show how to change the description of ECSAdmin to ECS administrator.
+   * 
+   * @param request - UpdateRoleRequest
+   * @returns UpdateRoleResponse
    */
   async updateRole(request: UpdateRoleRequest): Promise<UpdateRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8982,11 +12554,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description This topic provides an example on how to change the name of a RAM user from `zhangq****` to `xiaoq****`.
-   *
-   * @param request UpdateUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateUserResponse
+   * @remarks
+   * This topic provides an example on how to change the name of a RAM user from `zhangq****` to `xiaoq****`.
+   * 
+   * @param request - UpdateUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUserResponse
    */
   async updateUserWithOptions(request: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
@@ -9033,10 +12606,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description This topic provides an example on how to change the name of a RAM user from `zhangq****` to `xiaoq****`.
-   *
-   * @param request UpdateUserRequest
-   * @return UpdateUserResponse
+   * @remarks
+   * This topic provides an example on how to change the name of a RAM user from `zhangq****` to `xiaoq****`.
+   * 
+   * @param request - UpdateUserRequest
+   * @returns UpdateUserResponse
    */
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
