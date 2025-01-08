@@ -5787,6 +5787,8 @@ export class DescribeDefaultIPSConfigResponseBody extends $tea.Model {
    * 0
    */
   ctiRules?: number;
+  freeTrailStatus?: string;
+  maxSdl?: number;
   /**
    * @remarks
    * Indicates whether virtual patching is enabled. Valid values:
@@ -5833,6 +5835,8 @@ export class DescribeDefaultIPSConfigResponseBody extends $tea.Model {
     return {
       basicRules: 'BasicRules',
       ctiRules: 'CtiRules',
+      freeTrailStatus: 'FreeTrailStatus',
+      maxSdl: 'MaxSdl',
       patchRules: 'PatchRules',
       requestId: 'RequestId',
       ruleClass: 'RuleClass',
@@ -5844,6 +5848,8 @@ export class DescribeDefaultIPSConfigResponseBody extends $tea.Model {
     return {
       basicRules: 'number',
       ctiRules: 'number',
+      freeTrailStatus: 'string',
+      maxSdl: 'number',
       patchRules: 'number',
       requestId: 'string',
       ruleClass: 'number',
@@ -11209,6 +11215,7 @@ export class DescribeUserBuyVersionResponseBody extends $tea.Model {
    * normal
    */
   instanceStatus?: string;
+  internetBandwidth?: number;
   /**
    * @remarks
    * The number of public IP addresses that can be protected.
@@ -11253,6 +11260,7 @@ export class DescribeUserBuyVersionResponseBody extends $tea.Model {
    * 0
    */
   maxOverflow?: number;
+  natBandwidth?: number;
   /**
    * @remarks
    * The request ID.
@@ -11295,6 +11303,7 @@ export class DescribeUserBuyVersionResponseBody extends $tea.Model {
    * 2
    */
   version?: number;
+  vpcBandwidth?: number;
   /**
    * @remarks
    * The number of virtual private clouds (VPCs) that can be protected.
@@ -11311,14 +11320,17 @@ export class DescribeUserBuyVersionResponseBody extends $tea.Model {
       expire: 'Expire',
       instanceId: 'InstanceId',
       instanceStatus: 'InstanceStatus',
+      internetBandwidth: 'InternetBandwidth',
       ipNumber: 'IpNumber',
       logStatus: 'LogStatus',
       logStorage: 'LogStorage',
       maxOverflow: 'MaxOverflow',
+      natBandwidth: 'NatBandwidth',
       requestId: 'RequestId',
       startTime: 'StartTime',
       userStatus: 'UserStatus',
       version: 'Version',
+      vpcBandwidth: 'VpcBandwidth',
       vpcNumber: 'VpcNumber',
     };
   }
@@ -11329,14 +11341,17 @@ export class DescribeUserBuyVersionResponseBody extends $tea.Model {
       expire: 'number',
       instanceId: 'string',
       instanceStatus: 'string',
+      internetBandwidth: 'number',
       ipNumber: 'number',
       logStatus: 'boolean',
       logStorage: 'number',
       maxOverflow: 'number',
+      natBandwidth: 'number',
       requestId: 'string',
       startTime: 'number',
       userStatus: 'boolean',
       version: 'number',
+      vpcBandwidth: 'number',
       vpcNumber: 'number',
     };
   }
@@ -14327,6 +14342,7 @@ export class ModifyDefaultIPSConfigRequest extends $tea.Model {
    * zh
    */
   lang?: string;
+  maxSdl?: number;
   /**
    * @remarks
    * Specifies whether to enable virtual patching. Valid values:
@@ -14368,6 +14384,7 @@ export class ModifyDefaultIPSConfigRequest extends $tea.Model {
       basicRules: 'BasicRules',
       ctiRules: 'CtiRules',
       lang: 'Lang',
+      maxSdl: 'MaxSdl',
       patchRules: 'PatchRules',
       ruleClass: 'RuleClass',
       runMode: 'RunMode',
@@ -14379,6 +14396,7 @@ export class ModifyDefaultIPSConfigRequest extends $tea.Model {
       basicRules: 'string',
       ctiRules: 'string',
       lang: 'string',
+      maxSdl: 'number',
       patchRules: 'string',
       ruleClass: 'string',
       runMode: 'string',
@@ -32112,6 +32130,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.maxSdl)) {
+      query["MaxSdl"] = request.maxSdl;
     }
 
     if (!Util.isUnset(request.patchRules)) {
