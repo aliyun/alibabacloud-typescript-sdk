@@ -15508,6 +15508,109 @@ export class SetResellerUserStatusResponse extends $tea.Model {
   }
 }
 
+export class SetSavingPlanUserDeductRuleRequest extends $tea.Model {
+  ecIdAccountIds?: SetSavingPlanUserDeductRuleRequestEcIdAccountIds[];
+  nbid?: string;
+  spnInstanceCode?: string;
+  userDeductRules?: SetSavingPlanUserDeductRuleRequestUserDeductRules[];
+  static names(): { [key: string]: string } {
+    return {
+      ecIdAccountIds: 'EcIdAccountIds',
+      nbid: 'Nbid',
+      spnInstanceCode: 'SpnInstanceCode',
+      userDeductRules: 'UserDeductRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecIdAccountIds: { 'type': 'array', 'itemType': SetSavingPlanUserDeductRuleRequestEcIdAccountIds },
+      nbid: 'string',
+      spnInstanceCode: 'string',
+      userDeductRules: { 'type': 'array', 'itemType': SetSavingPlanUserDeductRuleRequestUserDeductRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSavingPlanUserDeductRuleShrinkRequest extends $tea.Model {
+  ecIdAccountIdsShrink?: string;
+  nbid?: string;
+  spnInstanceCode?: string;
+  userDeductRulesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ecIdAccountIdsShrink: 'EcIdAccountIds',
+      nbid: 'Nbid',
+      spnInstanceCode: 'SpnInstanceCode',
+      userDeductRulesShrink: 'UserDeductRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecIdAccountIdsShrink: 'string',
+      nbid: 'string',
+      spnInstanceCode: 'string',
+      userDeductRulesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSavingPlanUserDeductRuleResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSavingPlanUserDeductRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetSavingPlanUserDeductRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetSavingPlanUserDeductRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubscribeBillToOSSRequest extends $tea.Model {
   /**
    * @remarks
@@ -18636,6 +18739,7 @@ export class DescribeInstanceBillResponseBodyDataItems extends $tea.Model {
    * 0
    */
   adjustAmount?: number;
+  afterDiscountAmount?: string;
   /**
    * @remarks
    * The ID of the account to which the bill belongs.
@@ -19011,6 +19115,7 @@ export class DescribeInstanceBillResponseBodyDataItems extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       adjustAmount: 'AdjustAmount',
+      afterDiscountAmount: 'AfterDiscountAmount',
       billAccountID: 'BillAccountID',
       billAccountName: 'BillAccountName',
       billingDate: 'BillingDate',
@@ -19062,6 +19167,7 @@ export class DescribeInstanceBillResponseBodyDataItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       adjustAmount: 'number',
+      afterDiscountAmount: 'string',
       billAccountID: 'string',
       billAccountName: 'string',
       billingDate: 'string',
@@ -22570,6 +22676,7 @@ export class DescribeSplitItemBillResponseBodyDataItems extends $tea.Model {
    * 0
    */
   adjustAmount?: number;
+  afterDiscountAmount?: string;
   /**
    * @remarks
    * The ID of the account to which the bill belongs.
@@ -22997,6 +23104,7 @@ export class DescribeSplitItemBillResponseBodyDataItems extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       adjustAmount: 'AdjustAmount',
+      afterDiscountAmount: 'AfterDiscountAmount',
       billAccountID: 'BillAccountID',
       billAccountName: 'BillAccountName',
       billingDate: 'BillingDate',
@@ -23056,6 +23164,7 @@ export class DescribeSplitItemBillResponseBodyDataItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       adjustAmount: 'number',
+      afterDiscountAmount: 'string',
       billAccountID: 'string',
       billAccountName: 'string',
       billingDate: 'string',
@@ -33869,6 +33978,53 @@ export class RenewResourcePackageResponseBodyData extends $tea.Model {
   }
 }
 
+export class SetSavingPlanUserDeductRuleRequestEcIdAccountIds extends $tea.Model {
+  accountIds?: number[];
+  ecId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      ecId: 'EcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'number' },
+      ecId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSavingPlanUserDeductRuleRequestUserDeductRules extends $tea.Model {
+  commodityCode?: string;
+  moduleCode?: string;
+  skipDeduct?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      moduleCode: 'ModuleCode',
+      skipDeduct: 'SkipDeduct',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      moduleCode: 'string',
+      skipDeduct: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   /**
    * @remarks
@@ -39914,6 +40070,72 @@ export default class Client extends OpenApi {
   async setResellerUserStatus(request: SetResellerUserStatusRequest): Promise<SetResellerUserStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setResellerUserStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置节省计划用户级抵扣规则
+   * 
+   * @param tmpReq - SetSavingPlanUserDeductRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetSavingPlanUserDeductRuleResponse
+   */
+  async setSavingPlanUserDeductRuleWithOptions(tmpReq: SetSavingPlanUserDeductRuleRequest, runtime: $Util.RuntimeOptions): Promise<SetSavingPlanUserDeductRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SetSavingPlanUserDeductRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.userDeductRules)) {
+      request.userDeductRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userDeductRules, "UserDeductRules", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!Util.isUnset(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spnInstanceCode)) {
+      body["SpnInstanceCode"] = request.spnInstanceCode;
+    }
+
+    if (!Util.isUnset(request.userDeductRulesShrink)) {
+      body["UserDeductRules"] = request.userDeductRulesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetSavingPlanUserDeductRule",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetSavingPlanUserDeductRuleResponse>(await this.callApi(params, req, runtime), new SetSavingPlanUserDeductRuleResponse({}));
+  }
+
+  /**
+   * 设置节省计划用户级抵扣规则
+   * 
+   * @param request - SetSavingPlanUserDeductRuleRequest
+   * @returns SetSavingPlanUserDeductRuleResponse
+   */
+  async setSavingPlanUserDeductRule(request: SetSavingPlanUserDeductRuleRequest): Promise<SetSavingPlanUserDeductRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setSavingPlanUserDeductRuleWithOptions(request, runtime);
   }
 
   /**
