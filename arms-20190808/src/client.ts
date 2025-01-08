@@ -8230,6 +8230,10 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
    * grafana-bp1*****
    */
   grafanaInstanceId?: string;
+  /**
+   * @remarks
+   * The billing mode. Valid values: POSTPAY: charges fees based on the amount of reported metric data. POSTPAY_GB: charges fees based on the amount of written metric data. Empty value: The user-defined default billing mode is used. If no such a billing mode is available, you are charged based on the amount of reported metric data.
+   */
   paymentType?: string;
   /**
    * @remarks
@@ -16956,10 +16960,12 @@ export class DoInsightsActionRequest extends $tea.Model {
    * QueryTopo
    */
   module?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       module: 'Module',
+      regionId: 'RegionId',
     };
   }
 
@@ -16967,6 +16973,7 @@ export class DoInsightsActionRequest extends $tea.Model {
     return {
       data: 'string',
       module: 'string',
+      regionId: 'string',
     };
   }
 
@@ -19676,7 +19683,7 @@ export class GetPrometheusInstanceResponseBody extends $tea.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response parameters.
    */
   data?: GetPrometheusInstanceResponseBodyData;
   /**
@@ -26189,12 +26196,17 @@ export class ListEnvironmentAddonsResponse extends $tea.Model {
 
 export class ListEnvironmentAlertRulesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The name of the add-on. You must specify AddonName or Scene.
+   * 
    * @example
    * mysql
    */
   addonName?: string;
   /**
    * @remarks
+   * The environment ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26202,11 +26214,17 @@ export class ListEnvironmentAlertRulesRequest extends $tea.Model {
    */
   environmentId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The scenario of the add-on. You must specify AddonName or Scene.
+   * 
    * @example
    * database
    */
@@ -26236,25 +26254,41 @@ export class ListEnvironmentAlertRulesRequest extends $tea.Model {
 
 export class ListEnvironmentAlertRulesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The struct returned.
+   */
   data?: ListEnvironmentAlertRulesResponseBodyData;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * message
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 4C518054-852F-4023-ABC1-4AF95FF7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -26605,6 +26639,8 @@ export class ListEnvironmentFeaturesResponse extends $tea.Model {
 export class ListEnvironmentKubeResourcesRequest extends $tea.Model {
   /**
    * @remarks
+   * The environment ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26613,19 +26649,31 @@ export class ListEnvironmentKubeResourcesRequest extends $tea.Model {
   environmentId?: string;
   /**
    * @remarks
+   * The resource type. Valid values: Pod, Deployment, and Service.
+   * 
    * This parameter is required.
    * 
    * @example
    * Pod
    */
   kind?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   labelSelectors?: { [key: string]: string };
   /**
+   * @remarks
+   * The namespace.
+   * 
    * @example
    * default
    */
   namespace?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -26658,6 +26706,8 @@ export class ListEnvironmentKubeResourcesRequest extends $tea.Model {
 export class ListEnvironmentKubeResourcesShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The environment ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26666,19 +26716,31 @@ export class ListEnvironmentKubeResourcesShrinkRequest extends $tea.Model {
   environmentId?: string;
   /**
    * @remarks
+   * The resource type. Valid values: Pod, Deployment, and Service.
+   * 
    * This parameter is required.
    * 
    * @example
    * Pod
    */
   kind?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   labelSelectorsShrink?: string;
   /**
+   * @remarks
+   * The namespace.
+   * 
    * @example
    * default
    */
   namespace?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -26710,25 +26772,41 @@ export class ListEnvironmentKubeResourcesShrinkRequest extends $tea.Model {
 
 export class ListEnvironmentKubeResourcesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The returned struct.
+   */
   data?: ListEnvironmentKubeResourcesResponseBodyData[];
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * message
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * C21AB7CF-B7AF-410F-BD61-82D1567F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   `true`
+   * *   `false`
+   * 
    * @example
    * true
    */
@@ -26786,6 +26864,8 @@ export class ListEnvironmentKubeResourcesResponse extends $tea.Model {
 export class ListEnvironmentMetricTargetsRequest extends $tea.Model {
   /**
    * @remarks
+   * The environment ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26793,11 +26873,17 @@ export class ListEnvironmentMetricTargetsRequest extends $tea.Model {
    */
   environmentId?: string;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * blackbox
    */
   jobName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -26825,25 +26911,41 @@ export class ListEnvironmentMetricTargetsRequest extends $tea.Model {
 
 export class ListEnvironmentMetricTargetsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The struct returned.
+   */
   data?: ListEnvironmentMetricTargetsResponseBodyData;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 16AF921B-8187-489F-9913-43C808B4****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   `true`
+   * *   `false`
+   * 
    * @example
    * true
    */
@@ -31767,7 +31869,7 @@ export class QueryMetricByPageRequest extends $tea.Model {
   order?: string;
   /**
    * @remarks
-   * The dimension from which metrics are sorted. You can set this parameter to a supported dimension.
+   * The dimension for arranging metrics in sequence. For more information, see the supplementary metrics.
    * 
    * @example
    * pid
@@ -38275,6 +38377,10 @@ export class UpdatePrometheusInstanceRequest extends $tea.Model {
    * true
    */
   enableAuthToken?: boolean;
+  /**
+   * @remarks
+   * The billing mode. Valid values: POSTPAY: charges fees based on the amount of reported metric data. POSTPAY_GB: charges fees based on the amount of written metric data.
+   */
   paymentType?: string;
   /**
    * @remarks
@@ -41387,7 +41493,7 @@ export class CreateOrUpdateAlertRuleResponseBodyAlertRule extends $tea.Model {
   alertGroup?: number;
   /**
    * @remarks
-   * The ID of the alert rule.
+   * The alert rule ID.
    * 
    * @example
    * 5510445
@@ -50965,6 +51071,10 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
    * PREPAY
    */
   paymentType?: string;
+  /**
+   * @remarks
+   * The time when the billing method was modified.
+   */
   paymentTypeUpdateTime?: string;
   /**
    * @remarks
@@ -60551,6 +60661,10 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsDashboards extends $tea.
 }
 
 export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsDependencies extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster type.
+   */
   clusterTypes?: string[];
   /**
    * @remarks
@@ -60584,6 +60698,10 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsDependencies
 }
 
 export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPoliciesMetricCheckRule extends $tea.Model {
+  /**
+   * @remarks
+   * The PromQL statements.
+   */
   promQL?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -60675,8 +60793,26 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPolicies ext
    * false
    */
   defaultInstall?: boolean;
+  /**
+   * @remarks
+   * Indicates whether a service account is enabled.
+   * 
+   * @example
+   * true
+   */
   enableServiceAccount?: boolean;
+  /**
+   * @remarks
+   * The metric check rule.
+   */
   metricCheckRule?: ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPoliciesMetricCheckRule;
+  /**
+   * @remarks
+   * Indicates whether a restart is required after the installation.
+   * 
+   * @example
+   * true
+   */
   needRestartAfterIntegration?: boolean;
   /**
    * @remarks
@@ -60957,11 +61093,17 @@ export class ListEnvironmentAddonsResponseBodyData extends $tea.Model {
 
 export class ListEnvironmentAlertRulesResponseBodyDataRules extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the alert rule.
+   * 
    * @example
    * 9502571
    */
   alertId?: number;
   /**
+   * @remarks
+   * The name of the alert rule.
+   * 
    * @example
    * mysql-CS-MySQLInnoDBLogWaits_lu
    */
@@ -60986,9 +61128,20 @@ export class ListEnvironmentAlertRulesResponseBodyDataRules extends $tea.Model {
 }
 
 export class ListEnvironmentAlertRulesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The queried alert groups.
+   */
   groups?: string[];
+  /**
+   * @remarks
+   * The queried rules.
+   */
   rules?: ListEnvironmentAlertRulesResponseBodyDataRules[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 26
    */
@@ -61254,14 +61407,28 @@ export class ListEnvironmentFeaturesResponseBodyData extends $tea.Model {
 }
 
 export class ListEnvironmentKubeResourcesResponseBodyDataMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The annotations.
+   */
   annotations?: { [key: string]: string };
+  /**
+   * @remarks
+   * The tags.
+   */
   labels?: { [key: string]: string };
   /**
+   * @remarks
+   * The resource name.
+   * 
    * @example
    * arms-prometheus-ack-arms-prometheus-c577b6cc8-mvdwd
    */
   name?: string;
   /**
+   * @remarks
+   * The namespace.
+   * 
    * @example
    * arms-prom
    */
@@ -61291,17 +61458,30 @@ export class ListEnvironmentKubeResourcesResponseBodyDataMetadata extends $tea.M
 
 export class ListEnvironmentKubeResourcesResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The version number of the API.
+   * 
    * @example
    * v1
    */
   apiVersion?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * Pod
    */
   kind?: string;
+  /**
+   * @remarks
+   * The metadata.
+   */
   metadata?: ListEnvironmentKubeResourcesResponseBodyDataMetadata;
   /**
+   * @remarks
+   * The resource specifications.
+   * 
    * @example
    * {
    *         "dnsPolicy": "ClusterFirst",
@@ -61320,6 +61500,9 @@ export class ListEnvironmentKubeResourcesResponseBodyData extends $tea.Model {
    */
   spec?: any;
   /**
+   * @remarks
+   * The status of the resource.
+   * 
    * @example
    * run
    */
@@ -61350,44 +61533,76 @@ export class ListEnvironmentKubeResourcesResponseBodyData extends $tea.Model {
 }
 
 export class ListEnvironmentMetricTargetsResponseBodyDataActiveTargets extends $tea.Model {
+  /**
+   * @remarks
+   * The tags used for service discovery.
+   */
   discoveredLabels?: { [key: string]: string };
   /**
+   * @remarks
+   * The URL of the target.
+   * 
    * @example
    * http://xxx
    */
   globalUrl?: string;
   /**
+   * @remarks
+   * The health status.
+   * 
    * @example
    * up
    */
   health?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   labels?: { [key: string]: string };
   /**
+   * @remarks
+   * The last error message.
+   * 
    * @example
    * Get \\"http://172.16.0.86:9104/metrics\\": dial tcp 172.16.0.86:9104: connect: connection refused
    */
   lastError?: string;
   /**
+   * @remarks
+   * The last collection time.
+   * 
    * @example
    * 2023-10-12T07:15:47.306691514Z
    */
   lastScrape?: string;
   /**
+   * @remarks
+   * The duration of the last collection.
+   * 
    * @example
    * 0.00127593
    */
   lastScrapeDuration?: number;
   /**
+   * @remarks
+   * The amount of metrics in the last collection.
+   * 
    * @example
    * 122
    */
   lastScrapeSeries?: number;
   /**
+   * @remarks
+   * The name of the collection.
+   * 
    * @example
    * arms-prom/mysql-exporter-mysql-1694429267986-sm/0"
    */
   scrapePool?: string;
   /**
+   * @remarks
+   * The URL of the collection.
+   * 
    * @example
    * http://xxxx
    */
@@ -61428,44 +61643,76 @@ export class ListEnvironmentMetricTargetsResponseBodyDataActiveTargets extends $
 }
 
 export class ListEnvironmentMetricTargetsResponseBodyDataDroppedTargets extends $tea.Model {
+  /**
+   * @remarks
+   * The tags used for service discovery.
+   */
   discoveredLabels?: { [key: string]: string };
   /**
+   * @remarks
+   * The URL of the target.
+   * 
    * @example
    * http://xxx
    */
   globalUrl?: string;
   /**
+   * @remarks
+   * The health status.
+   * 
    * @example
    * up
    */
   health?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   labels?: { [key: string]: string };
   /**
+   * @remarks
+   * The last error message.
+   * 
    * @example
    * Get \\"http://172.16.0.86:9104/metrics\\": dial tcp 172.16.0.86:9104: connect: connection refused
    */
   lastError?: string;
   /**
+   * @remarks
+   * The last collection time.
+   * 
    * @example
    * 2023-10-12T07:15:47.306691514Z
    */
   lastScrape?: string;
   /**
+   * @remarks
+   * The duration of the last collection.
+   * 
    * @example
    * 0.00127593
    */
   lastScrapeDuration?: number;
   /**
+   * @remarks
+   * The amount of metrics in the last collection.
+   * 
    * @example
    * 122
    */
   lastScrapeSeries?: number;
   /**
+   * @remarks
+   * The name of the collection.
+   * 
    * @example
    * arms-prom/mysql-exporter-mysql-1694429267986-sm/0"
    */
   scrapePool?: string;
   /**
+   * @remarks
+   * The URL of the collection.
+   * 
    * @example
    * http://xxxx
    */
@@ -61506,7 +61753,15 @@ export class ListEnvironmentMetricTargetsResponseBodyDataDroppedTargets extends 
 }
 
 export class ListEnvironmentMetricTargetsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The active targets.
+   */
   activeTargets?: ListEnvironmentMetricTargetsResponseBodyDataActiveTargets[];
+  /**
+   * @remarks
+   * The deleted targets.
+   */
   droppedTargets?: ListEnvironmentMetricTargetsResponseBodyDataDroppedTargets[];
   static names(): { [key: string]: string } {
     return {
@@ -76704,6 +76959,11 @@ export default class Client extends OpenApi {
    */
   async doInsightsActionWithOptions(request: DoInsightsActionRequest, runtime: $Util.RuntimeOptions): Promise<DoInsightsActionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.data)) {
       body["Data"] = request.data;
@@ -76714,6 +76974,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -80208,7 +80469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 环境的告警组列表
+   * Queries the alert groups of an environment instance.
    * 
    * @param request - ListEnvironmentAlertRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -80251,7 +80512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 环境的告警组列表
+   * Queries the alert groups of an environment instance.
    * 
    * @param request - ListEnvironmentAlertRulesRequest
    * @returns ListEnvironmentAlertRulesResponse
@@ -80366,7 +80627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 环境中的kube资源列表
+   * Queries the Kubernetes resources of an environment.
    * 
    * @param tmpReq - ListEnvironmentKubeResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -80419,7 +80680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 环境中的kube资源列表
+   * Queries the Kubernetes resources of an environment.
    * 
    * @param request - ListEnvironmentKubeResourcesRequest
    * @returns ListEnvironmentKubeResourcesResponse
@@ -80430,7 +80691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 环境指标target列表
+   * Queries the targets of an environment.
    * 
    * @param request - ListEnvironmentMetricTargetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -80469,7 +80730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 环境指标target列表
+   * Queries the targets of an environment.
    * 
    * @param request - ListEnvironmentMetricTargetsRequest
    * @returns ListEnvironmentMetricTargetsResponse
