@@ -4415,6 +4415,134 @@ export class DescribeEventsResponse extends $tea.Model {
   }
 }
 
+export class DescribeGdnInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * gdn_id、
+   * polarx_id
+   */
+  filterType?: string;
+  /**
+   * @example
+   * gdn-***、
+   * pxc-***
+   */
+  filterValue?: string;
+  /**
+   * @remarks
+   * GDN ID。
+   * 
+   * @example
+   * gdn-***
+   */
+  GDNId?: string;
+  /**
+   * @example
+   * 50
+   */
+  pageNum?: string;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterType: 'FilterType',
+      filterValue: 'FilterValue',
+      GDNId: 'GDNId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterType: 'string',
+      filterValue: 'string',
+      GDNId: 'string',
+      pageNum: 'string',
+      pageSize: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGdnInstancesResponseBody extends $tea.Model {
+  data?: DescribeGdnInstancesResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 7B044BD1-6402-5DE9-9AED-63D15A994E37
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeGdnInstancesResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGdnInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeGdnInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeGdnInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeOpenBackupSetRequest extends $tea.Model {
   /**
    * @remarks
@@ -7604,6 +7732,117 @@ export class SwitchDBInstanceHAResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SwitchDBInstanceHAResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchGdnMemberRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  switchMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      switchMode: 'SwitchMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+      switchMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchGdnMemberRoleResponseBody extends $tea.Model {
+  data?: SwitchGdnMemberRoleResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SwitchGdnMemberRoleResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchGdnMemberRoleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SwitchGdnMemberRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SwitchGdnMemberRoleResponseBody,
     };
   }
 
@@ -11536,6 +11775,250 @@ export class DescribeEventsResponseBodyEventItems extends $tea.Model {
   }
 }
 
+export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList extends $tea.Model {
+  /**
+   * @example
+   * polarx.x4.medium.2e
+   */
+  classCode?: string;
+  /**
+   * @example
+   * polarx.x4.medium.2e
+   */
+  cnNodeClassCode?: string;
+  /**
+   * @example
+   * 2
+   */
+  cnNodeCount?: string;
+  /**
+   * @example
+   * drds_polarxpre_public_cn
+   */
+  commodityCode?: string;
+  /**
+   * @example
+   * mysql.n4.medium.25
+   */
+  dnNodeClassCode?: string;
+  /**
+   * @example
+   * 2
+   */
+  dnNodeCount?: string;
+  /**
+   * @example
+   * 2025-01-02T13:11:10.000+0000
+   */
+  expireTime?: string;
+  /**
+   * @example
+   * 2025-01-02T13:11:10.000+0000
+   */
+  gmtCreated?: string;
+  /**
+   * @example
+   * pxc-***
+   */
+  memberName?: string;
+  /**
+   * @example
+   * Prepaid
+   */
+  payType?: string;
+  /**
+   * @example
+   * cn-zhangjiakou-a
+   */
+  primaryZone?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * primary、
+   * standby
+   */
+  role?: string;
+  /**
+   * @example
+   * cn-zhangjiakou-a
+   */
+  secondaryZone?: string;
+  /**
+   * @example
+   * 1s
+   */
+  secondsBehindMaster?: string;
+  /**
+   * @example
+   * Creating
+   */
+  status?: string;
+  /**
+   * @example
+   * cn-zhangjiakou-a
+   */
+  tertiaryZone?: string;
+  /**
+   * @example
+   * cn-zhangjiakou-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      classCode: 'ClassCode',
+      cnNodeClassCode: 'CnNodeClassCode',
+      cnNodeCount: 'CnNodeCount',
+      commodityCode: 'CommodityCode',
+      dnNodeClassCode: 'DnNodeClassCode',
+      dnNodeCount: 'DnNodeCount',
+      expireTime: 'ExpireTime',
+      gmtCreated: 'GmtCreated',
+      memberName: 'MemberName',
+      payType: 'PayType',
+      primaryZone: 'PrimaryZone',
+      regionId: 'RegionId',
+      role: 'Role',
+      secondaryZone: 'SecondaryZone',
+      secondsBehindMaster: 'SecondsBehindMaster',
+      status: 'Status',
+      tertiaryZone: 'TertiaryZone',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classCode: 'string',
+      cnNodeClassCode: 'string',
+      cnNodeCount: 'string',
+      commodityCode: 'string',
+      dnNodeClassCode: 'string',
+      dnNodeCount: 'string',
+      expireTime: 'string',
+      gmtCreated: 'string',
+      memberName: 'string',
+      payType: 'string',
+      primaryZone: 'string',
+      regionId: 'string',
+      role: 'string',
+      secondaryZone: 'string',
+      secondsBehindMaster: 'string',
+      status: 'string',
+      tertiaryZone: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * gdn-***
+   */
+  gdnInstanceName?: string;
+  /**
+   * @example
+   * 2025-01-02T13:11:10.000+0000
+   */
+  gmtCreated?: string;
+  memberList?: DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList[];
+  /**
+   * @example
+   * 5.7
+   */
+  mysqlVersion?: string;
+  /**
+   * @example
+   * Creating
+   */
+  status?: string;
+  /**
+   * @example
+   * ""
+   */
+  switchHistory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      gdnInstanceName: 'GdnInstanceName',
+      gmtCreated: 'GmtCreated',
+      memberList: 'MemberList',
+      mysqlVersion: 'MysqlVersion',
+      status: 'Status',
+      switchHistory: 'SwitchHistory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      gdnInstanceName: 'string',
+      gmtCreated: 'string',
+      memberList: { 'type': 'array', 'itemType': DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList },
+      mysqlVersion: 'string',
+      status: 'string',
+      switchHistory: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGdnInstancesResponseBodyData extends $tea.Model {
+  gdnInstanceList?: DescribeGdnInstancesResponseBodyDataGdnInstanceList[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * 130
+   */
+  totalNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gdnInstanceList: 'GdnInstanceList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalNumber: 'TotalNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gdnInstanceList: { 'type': 'array', 'itemType': DescribeGdnInstancesResponseBodyDataGdnInstanceList },
+      pageNumber: 'string',
+      pageSize: 'string',
+      totalNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeParameterTemplatesResponseBodyDataParameters extends $tea.Model {
   /**
    * @example
@@ -12368,6 +12851,29 @@ export class ModifyDBInstanceConnectionStringResponseBodyData extends $tea.Model
       DBInstanceName: 'string',
       DBInstanceNetType: 'string',
       port: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchGdnMemberRoleResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2209883
+   */
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'number',
     };
   }
 
@@ -14532,6 +15038,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取GDN实例列表
+   * 
+   * @param request - DescribeGdnInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGdnInstancesResponse
+   */
+  async describeGdnInstancesWithOptions(request: DescribeGdnInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGdnInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filterType)) {
+      query["FilterType"] = request.filterType;
+    }
+
+    if (!Util.isUnset(request.filterValue)) {
+      query["FilterValue"] = request.filterValue;
+    }
+
+    if (!Util.isUnset(request.GDNId)) {
+      query["GDNId"] = request.GDNId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeGdnInstances",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGdnInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGdnInstancesResponse({}));
+  }
+
+  /**
+   * 获取GDN实例列表
+   * 
+   * @param request - DescribeGdnInstancesRequest
+   * @returns DescribeGdnInstancesResponse
+   */
+  async describeGdnInstances(request: DescribeGdnInstancesRequest): Promise<DescribeGdnInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeGdnInstancesWithOptions(request, runtime);
+  }
+
+  /**
    * 开放商业备份集
    * 
    * @param request - DescribeOpenBackupSetRequest
@@ -16074,6 +16642,56 @@ export default class Client extends OpenApi {
   async switchDBInstanceHA(request: SwitchDBInstanceHARequest): Promise<SwitchDBInstanceHAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchDBInstanceHAWithOptions(request, runtime);
+  }
+
+  /**
+   * GDN主备切换
+   * 
+   * @param request - SwitchGdnMemberRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchGdnMemberRoleResponse
+   */
+  async switchGdnMemberRoleWithOptions(request: SwitchGdnMemberRoleRequest, runtime: $Util.RuntimeOptions): Promise<SwitchGdnMemberRoleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.switchMode)) {
+      query["SwitchMode"] = request.switchMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SwitchGdnMemberRole",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SwitchGdnMemberRoleResponse>(await this.callApi(params, req, runtime), new SwitchGdnMemberRoleResponse({}));
+  }
+
+  /**
+   * GDN主备切换
+   * 
+   * @param request - SwitchGdnMemberRoleRequest
+   * @returns SwitchGdnMemberRoleResponse
+   */
+  async switchGdnMemberRole(request: SwitchGdnMemberRoleRequest): Promise<SwitchGdnMemberRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.switchGdnMemberRoleWithOptions(request, runtime);
   }
 
   /**
