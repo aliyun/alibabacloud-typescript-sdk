@@ -6036,6 +6036,7 @@ export class SetSecurityPreferenceRequest extends $tea.Model {
    * true
    */
   allowUserToChangePassword?: boolean;
+  allowUserToLoginWithPasskey?: boolean;
   /**
    * @remarks
    * Specifies whether RAM users can manage their AccessKey pairs. Valid values:
@@ -6138,6 +6139,7 @@ export class SetSecurityPreferenceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       allowUserToChangePassword: 'AllowUserToChangePassword',
+      allowUserToLoginWithPasskey: 'AllowUserToLoginWithPasskey',
       allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
       allowUserToManageMFADevices: 'AllowUserToManageMFADevices',
       allowUserToManagePersonalDingTalk: 'AllowUserToManagePersonalDingTalk',
@@ -6153,6 +6155,7 @@ export class SetSecurityPreferenceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       allowUserToChangePassword: 'boolean',
+      allowUserToLoginWithPasskey: 'boolean',
       allowUserToManageAccessKeys: 'boolean',
       allowUserToManageMFADevices: 'boolean',
       allowUserToManagePersonalDingTalk: 'boolean',
@@ -6182,6 +6185,7 @@ export class SetSecurityPreferenceShrinkRequest extends $tea.Model {
    * true
    */
   allowUserToChangePassword?: boolean;
+  allowUserToLoginWithPasskey?: boolean;
   /**
    * @remarks
    * Specifies whether RAM users can manage their AccessKey pairs. Valid values:
@@ -6284,6 +6288,7 @@ export class SetSecurityPreferenceShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       allowUserToChangePassword: 'AllowUserToChangePassword',
+      allowUserToLoginWithPasskey: 'AllowUserToLoginWithPasskey',
       allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
       allowUserToManageMFADevices: 'AllowUserToManageMFADevices',
       allowUserToManagePersonalDingTalk: 'AllowUserToManagePersonalDingTalk',
@@ -6299,6 +6304,7 @@ export class SetSecurityPreferenceShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       allowUserToChangePassword: 'boolean',
+      allowUserToLoginWithPasskey: 'boolean',
       allowUserToManageAccessKeys: 'boolean',
       allowUserToManageMFADevices: 'boolean',
       allowUserToManagePersonalDingTalk: 'boolean',
@@ -10251,6 +10257,7 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
    * true
    */
   allowUserToChangePassword?: boolean;
+  allowUserToLoginWithPasskey?: boolean;
   /**
    * @remarks
    * Indicates whether RAM users can remember the multi-factor authentication (MFA) devices for seven days. Valid values:
@@ -10304,6 +10311,7 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
   static names(): { [key: string]: string } {
     return {
       allowUserToChangePassword: 'AllowUserToChangePassword',
+      allowUserToLoginWithPasskey: 'AllowUserToLoginWithPasskey',
       enableSaveMFATicket: 'EnableSaveMFATicket',
       loginNetworkMasks: 'LoginNetworkMasks',
       loginSessionDuration: 'LoginSessionDuration',
@@ -10315,6 +10323,7 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
   static types(): { [key: string]: any } {
     return {
       allowUserToChangePassword: 'boolean',
+      allowUserToLoginWithPasskey: 'boolean',
       enableSaveMFATicket: 'boolean',
       loginNetworkMasks: 'string',
       loginSessionDuration: 'number',
@@ -12778,6 +12787,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
    * true
    */
   allowUserToChangePassword?: boolean;
+  allowUserToLoginWithPasskey?: boolean;
   /**
    * @remarks
    * Indicates whether RAM users can remember the MFA devices for seven days.
@@ -12821,6 +12831,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
   static names(): { [key: string]: string } {
     return {
       allowUserToChangePassword: 'AllowUserToChangePassword',
+      allowUserToLoginWithPasskey: 'AllowUserToLoginWithPasskey',
       enableSaveMFATicket: 'EnableSaveMFATicket',
       loginNetworkMasks: 'LoginNetworkMasks',
       loginSessionDuration: 'LoginSessionDuration',
@@ -12832,6 +12843,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
   static types(): { [key: string]: any } {
     return {
       allowUserToChangePassword: 'boolean',
+      allowUserToLoginWithPasskey: 'boolean',
       enableSaveMFATicket: 'boolean',
       loginNetworkMasks: 'string',
       loginSessionDuration: 'number',
@@ -16771,6 +16783,10 @@ export default class Client extends OpenApi {
       query["AllowUserToChangePassword"] = request.allowUserToChangePassword;
     }
 
+    if (!Util.isUnset(request.allowUserToLoginWithPasskey)) {
+      query["AllowUserToLoginWithPasskey"] = request.allowUserToLoginWithPasskey;
+    }
+
     if (!Util.isUnset(request.allowUserToManageAccessKeys)) {
       query["AllowUserToManageAccessKeys"] = request.allowUserToManageAccessKeys;
     }
@@ -16840,6 +16856,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置用户SSO身份提供商信息
+   * 
    * @param request - SetUserSsoSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetUserSsoSettingsResponse
@@ -16881,6 +16899,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置用户SSO身份提供商信息
+   * 
    * @param request - SetUserSsoSettingsRequest
    * @returns SetUserSsoSettingsResponse
    */
