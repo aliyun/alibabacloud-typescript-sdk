@@ -23612,6 +23612,103 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo extends $tea.
   }
 }
 
+export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $tea.Model {
+  bitDepth?: number;
+  bitrate?: string;
+  codecName?: string;
+  creationTime?: string;
+  definition?: string;
+  duration?: string;
+  encrypt?: number;
+  encryptMode?: string;
+  encryptType?: string;
+  format?: string;
+  fps?: string;
+  HDRType?: string;
+  height?: number;
+  jobExt?: string;
+  jobId?: string;
+  jobType?: number;
+  modificationTime?: string;
+  narrowBandType?: string;
+  playURL?: string;
+  size?: number;
+  specification?: string;
+  status?: string;
+  streamType?: string;
+  templateGroupId?: string;
+  templateId?: string;
+  watermarkId?: string;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bitDepth: 'BitDepth',
+      bitrate: 'Bitrate',
+      codecName: 'CodecName',
+      creationTime: 'CreationTime',
+      definition: 'Definition',
+      duration: 'Duration',
+      encrypt: 'Encrypt',
+      encryptMode: 'EncryptMode',
+      encryptType: 'EncryptType',
+      format: 'Format',
+      fps: 'Fps',
+      HDRType: 'HDRType',
+      height: 'Height',
+      jobExt: 'JobExt',
+      jobId: 'JobId',
+      jobType: 'JobType',
+      modificationTime: 'ModificationTime',
+      narrowBandType: 'NarrowBandType',
+      playURL: 'PlayURL',
+      size: 'Size',
+      specification: 'Specification',
+      status: 'Status',
+      streamType: 'StreamType',
+      templateGroupId: 'TemplateGroupId',
+      templateId: 'TemplateId',
+      watermarkId: 'WatermarkId',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitDepth: 'number',
+      bitrate: 'string',
+      codecName: 'string',
+      creationTime: 'string',
+      definition: 'string',
+      duration: 'string',
+      encrypt: 'number',
+      encryptMode: 'string',
+      encryptType: 'string',
+      format: 'string',
+      fps: 'string',
+      HDRType: 'string',
+      height: 'number',
+      jobExt: 'string',
+      jobId: 'string',
+      jobType: 'number',
+      modificationTime: 'string',
+      narrowBandType: 'string',
+      playURL: 'string',
+      size: 'number',
+      specification: 'string',
+      status: 'string',
+      streamType: 'string',
+      templateGroupId: 'string',
+      templateId: 'string',
+      watermarkId: 'string',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchGetMediaInfosResponseBodyMediaInfos extends $tea.Model {
   /**
    * @example
@@ -23620,11 +23717,13 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $tea.Model {
   mediaId?: string;
   mediaInfo?: BatchGetMediaInfosResponseBodyMediaInfosMediaInfo;
   mezzanineInfo?: BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo;
+  playInfoList?: BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList[];
   static names(): { [key: string]: string } {
     return {
       mediaId: 'MediaId',
       mediaInfo: 'MediaInfo',
       mezzanineInfo: 'MezzanineInfo',
+      playInfoList: 'PlayInfoList',
     };
   }
 
@@ -23633,6 +23732,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $tea.Model {
       mediaId: 'string',
       mediaInfo: BatchGetMediaInfosResponseBodyMediaInfosMediaInfo,
       mezzanineInfo: BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo,
+      playInfoList: { 'type': 'array', 'itemType': BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList },
     };
   }
 
