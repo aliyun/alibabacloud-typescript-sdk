@@ -17131,6 +17131,7 @@ export class DescribeCostBudgetsSummaryResponseBodyData extends $tea.Model {
 }
 
 export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyDataItems extends $tea.Model {
+  afterDiscountAmount?: number;
   /**
    * @remarks
    * The allocation month. Format: YYYYMM.
@@ -17214,6 +17215,7 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyDataIt
    * 1234
    */
   costUnitCode?: string;
+  currentAmortizationAfterDiscountAmount?: number;
   /**
    * @remarks
    * The amount deducted by using vouchers and allocated to the current allocation month.
@@ -17358,6 +17360,7 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyDataIt
    * 0
    */
   pretaxGrossAmount?: number;
+  previouslyAmortizedAfterDiscountAmount?: number;
   /**
    * @remarks
    * The amount deducted by using vouchers and allocated before the current allocation month.
@@ -17462,6 +17465,7 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyDataIt
    * China (Hangzhou)
    */
   region?: string;
+  remainingAmortizationAfterDiscountAmount?: number;
   /**
    * @remarks
    * The amount deducted by using vouchers and to be allocated to one or more future allocation months.
@@ -17603,6 +17607,7 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyDataIt
   zone?: string;
   static names(): { [key: string]: string } {
     return {
+      afterDiscountAmount: 'AfterDiscountAmount',
       amortizationPeriod: 'AmortizationPeriod',
       amortizationStatus: 'AmortizationStatus',
       billAccountID: 'BillAccountID',
@@ -17613,6 +17618,7 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyDataIt
       consumePeriod: 'ConsumePeriod',
       costUnit: 'CostUnit',
       costUnitCode: 'CostUnitCode',
+      currentAmortizationAfterDiscountAmount: 'CurrentAmortizationAfterDiscountAmount',
       currentAmortizationDeductedByCashCoupons: 'CurrentAmortizationDeductedByCashCoupons',
       currentAmortizationDeductedByCoupons: 'CurrentAmortizationDeductedByCoupons',
       currentAmortizationDeductedByPrepaidCard: 'CurrentAmortizationDeductedByPrepaidCard',
@@ -17631,6 +17637,7 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyDataIt
       invoiceDiscount: 'InvoiceDiscount',
       pretaxAmount: 'PretaxAmount',
       pretaxGrossAmount: 'PretaxGrossAmount',
+      previouslyAmortizedAfterDiscountAmount: 'PreviouslyAmortizedAfterDiscountAmount',
       previouslyAmortizedDeductedByCashCoupons: 'PreviouslyAmortizedDeductedByCashCoupons',
       previouslyAmortizedDeductedByCoupons: 'PreviouslyAmortizedDeductedByCoupons',
       previouslyAmortizedDeductedByPrepaidCard: 'PreviouslyAmortizedDeductedByPrepaidCard',
@@ -17644,6 +17651,7 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyDataIt
       productDetailCode: 'ProductDetailCode',
       productName: 'ProductName',
       region: 'Region',
+      remainingAmortizationAfterDiscountAmount: 'RemainingAmortizationAfterDiscountAmount',
       remainingAmortizationDeductedByCashCoupons: 'RemainingAmortizationDeductedByCashCoupons',
       remainingAmortizationDeductedByCoupons: 'RemainingAmortizationDeductedByCoupons',
       remainingAmortizationDeductedByPrepaidCard: 'RemainingAmortizationDeductedByPrepaidCard',
@@ -17666,6 +17674,7 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyDataIt
 
   static types(): { [key: string]: any } {
     return {
+      afterDiscountAmount: 'number',
       amortizationPeriod: 'string',
       amortizationStatus: 'string',
       billAccountID: 'number',
@@ -17676,6 +17685,7 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyDataIt
       consumePeriod: 'string',
       costUnit: 'string',
       costUnitCode: 'string',
+      currentAmortizationAfterDiscountAmount: 'number',
       currentAmortizationDeductedByCashCoupons: 'number',
       currentAmortizationDeductedByCoupons: 'number',
       currentAmortizationDeductedByPrepaidCard: 'number',
@@ -17694,6 +17704,7 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyDataIt
       invoiceDiscount: 'number',
       pretaxAmount: 'number',
       pretaxGrossAmount: 'number',
+      previouslyAmortizedAfterDiscountAmount: 'number',
       previouslyAmortizedDeductedByCashCoupons: 'number',
       previouslyAmortizedDeductedByCoupons: 'number',
       previouslyAmortizedDeductedByPrepaidCard: 'number',
@@ -17707,6 +17718,7 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyDataIt
       productDetailCode: 'string',
       productName: 'string',
       region: 'string',
+      remainingAmortizationAfterDiscountAmount: 'number',
       remainingAmortizationDeductedByCashCoupons: 'number',
       remainingAmortizationDeductedByCoupons: 'number',
       remainingAmortizationDeductedByPrepaidCard: 'number',
@@ -18279,6 +18291,7 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodDateResponseBodyDa
 }
 
 export class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems extends $tea.Model {
+  afterDiscountAmount?: number;
   /**
    * @example
    * 202210
@@ -18325,6 +18338,7 @@ export class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems e
    * 1234
    */
   costUnitCode?: string;
+  currentAmortizationAfterDiscountAmount?: number;
   /**
    * @example
    * 0
@@ -18415,6 +18429,7 @@ export class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems e
    * 0
    */
   pretaxGrossAmount?: number;
+  previouslyAmortizedAfterDiscountAmount?: number;
   /**
    * @example
    * 0
@@ -18468,6 +18483,7 @@ export class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems e
   productDetailCode?: string;
   productName?: string;
   region?: string;
+  remainingAmortizationAfterDiscountAmount?: number;
   /**
    * @example
    * 0
@@ -18547,6 +18563,7 @@ export class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems e
   zone?: string;
   static names(): { [key: string]: string } {
     return {
+      afterDiscountAmount: 'AfterDiscountAmount',
       amortizationPeriod: 'AmortizationPeriod',
       amortizationStatus: 'AmortizationStatus',
       billAccountID: 'BillAccountID',
@@ -18557,6 +18574,7 @@ export class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems e
       consumePeriod: 'ConsumePeriod',
       costUnit: 'CostUnit',
       costUnitCode: 'CostUnitCode',
+      currentAmortizationAfterDiscountAmount: 'CurrentAmortizationAfterDiscountAmount',
       currentAmortizationDeductedByCashCoupons: 'CurrentAmortizationDeductedByCashCoupons',
       currentAmortizationDeductedByCoupons: 'CurrentAmortizationDeductedByCoupons',
       currentAmortizationDeductedByPrepaidCard: 'CurrentAmortizationDeductedByPrepaidCard',
@@ -18575,6 +18593,7 @@ export class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems e
       invoiceDiscount: 'InvoiceDiscount',
       pretaxAmount: 'PretaxAmount',
       pretaxGrossAmount: 'PretaxGrossAmount',
+      previouslyAmortizedAfterDiscountAmount: 'PreviouslyAmortizedAfterDiscountAmount',
       previouslyAmortizedDeductedByCashCoupons: 'PreviouslyAmortizedDeductedByCashCoupons',
       previouslyAmortizedDeductedByCoupons: 'PreviouslyAmortizedDeductedByCoupons',
       previouslyAmortizedDeductedByPrepaidCard: 'PreviouslyAmortizedDeductedByPrepaidCard',
@@ -18588,6 +18607,7 @@ export class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems e
       productDetailCode: 'ProductDetailCode',
       productName: 'ProductName',
       region: 'Region',
+      remainingAmortizationAfterDiscountAmount: 'RemainingAmortizationAfterDiscountAmount',
       remainingAmortizationDeductedByCashCoupons: 'RemainingAmortizationDeductedByCashCoupons',
       remainingAmortizationDeductedByCoupons: 'RemainingAmortizationDeductedByCoupons',
       remainingAmortizationDeductedByPrepaidCard: 'RemainingAmortizationDeductedByPrepaidCard',
@@ -18610,6 +18630,7 @@ export class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems e
 
   static types(): { [key: string]: any } {
     return {
+      afterDiscountAmount: 'number',
       amortizationPeriod: 'string',
       amortizationStatus: 'string',
       billAccountID: 'number',
@@ -18620,6 +18641,7 @@ export class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems e
       consumePeriod: 'string',
       costUnit: 'string',
       costUnitCode: 'string',
+      currentAmortizationAfterDiscountAmount: 'number',
       currentAmortizationDeductedByCashCoupons: 'number',
       currentAmortizationDeductedByCoupons: 'number',
       currentAmortizationDeductedByPrepaidCard: 'number',
@@ -18638,6 +18660,7 @@ export class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems e
       invoiceDiscount: 'number',
       pretaxAmount: 'number',
       pretaxGrossAmount: 'number',
+      previouslyAmortizedAfterDiscountAmount: 'number',
       previouslyAmortizedDeductedByCashCoupons: 'number',
       previouslyAmortizedDeductedByCoupons: 'number',
       previouslyAmortizedDeductedByPrepaidCard: 'number',
@@ -18651,6 +18674,7 @@ export class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems e
       productDetailCode: 'string',
       productName: 'string',
       region: 'string',
+      remainingAmortizationAfterDiscountAmount: 'number',
       remainingAmortizationDeductedByCashCoupons: 'number',
       remainingAmortizationDeductedByCoupons: 'number',
       remainingAmortizationDeductedByPrepaidCard: 'number',
@@ -19959,6 +19983,7 @@ export class DescribePricingModuleResponseBodyData extends $tea.Model {
 }
 
 export class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyDataItems extends $tea.Model {
+  afterDiscountAmount?: number;
   /**
    * @remarks
    * The allocation month. Format: YYYYMM.
@@ -20026,6 +20051,7 @@ export class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyDataIte
    * 202210
    */
   consumePeriod?: string;
+  currentAmortizationAfterDiscountAmount?: number;
   /**
    * @remarks
    * The amount deducted by using vouchers and allocated to the current allocation month.
@@ -20146,6 +20172,7 @@ export class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyDataIte
    * 0
    */
   pretaxGrossAmount?: number;
+  previouslyAmortizedAfterDiscountAmount?: number;
   /**
    * @remarks
    * The amount deducted by using vouchers and allocated before the current allocation month.
@@ -20242,6 +20269,7 @@ export class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyDataIte
    * ApsaraDB RDS
    */
   productName?: string;
+  remainingAmortizationAfterDiscountAmount?: number;
   /**
    * @remarks
    * The amount deducted by using vouchers and to be allocated to one or more future allocation months.
@@ -20327,6 +20355,7 @@ export class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyDataIte
   subscriptionType?: string;
   static names(): { [key: string]: string } {
     return {
+      afterDiscountAmount: 'AfterDiscountAmount',
       amortizationPeriod: 'AmortizationPeriod',
       amortizationStatus: 'AmortizationStatus',
       billAccountID: 'BillAccountID',
@@ -20335,6 +20364,7 @@ export class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyDataIte
       billOwnerName: 'BillOwnerName',
       bizType: 'BizType',
       consumePeriod: 'ConsumePeriod',
+      currentAmortizationAfterDiscountAmount: 'CurrentAmortizationAfterDiscountAmount',
       currentAmortizationDeductedByCashCoupons: 'CurrentAmortizationDeductedByCashCoupons',
       currentAmortizationDeductedByCoupons: 'CurrentAmortizationDeductedByCoupons',
       currentAmortizationDeductedByPrepaidCard: 'CurrentAmortizationDeductedByPrepaidCard',
@@ -20350,6 +20380,7 @@ export class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyDataIte
       invoiceDiscount: 'InvoiceDiscount',
       pretaxAmount: 'PretaxAmount',
       pretaxGrossAmount: 'PretaxGrossAmount',
+      previouslyAmortizedAfterDiscountAmount: 'PreviouslyAmortizedAfterDiscountAmount',
       previouslyAmortizedDeductedByCashCoupons: 'PreviouslyAmortizedDeductedByCashCoupons',
       previouslyAmortizedDeductedByCoupons: 'PreviouslyAmortizedDeductedByCoupons',
       previouslyAmortizedDeductedByPrepaidCard: 'PreviouslyAmortizedDeductedByPrepaidCard',
@@ -20362,6 +20393,7 @@ export class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyDataIte
       productDetail: 'ProductDetail',
       productDetailCode: 'ProductDetailCode',
       productName: 'ProductName',
+      remainingAmortizationAfterDiscountAmount: 'RemainingAmortizationAfterDiscountAmount',
       remainingAmortizationDeductedByCashCoupons: 'RemainingAmortizationDeductedByCashCoupons',
       remainingAmortizationDeductedByCoupons: 'RemainingAmortizationDeductedByCoupons',
       remainingAmortizationDeductedByPrepaidCard: 'RemainingAmortizationDeductedByPrepaidCard',
@@ -20377,6 +20409,7 @@ export class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyDataIte
 
   static types(): { [key: string]: any } {
     return {
+      afterDiscountAmount: 'number',
       amortizationPeriod: 'string',
       amortizationStatus: 'string',
       billAccountID: 'number',
@@ -20385,6 +20418,7 @@ export class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyDataIte
       billOwnerName: 'string',
       bizType: 'string',
       consumePeriod: 'string',
+      currentAmortizationAfterDiscountAmount: 'number',
       currentAmortizationDeductedByCashCoupons: 'number',
       currentAmortizationDeductedByCoupons: 'number',
       currentAmortizationDeductedByPrepaidCard: 'number',
@@ -20400,6 +20434,7 @@ export class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyDataIte
       invoiceDiscount: 'number',
       pretaxAmount: 'number',
       pretaxGrossAmount: 'number',
+      previouslyAmortizedAfterDiscountAmount: 'number',
       previouslyAmortizedDeductedByCashCoupons: 'number',
       previouslyAmortizedDeductedByCoupons: 'number',
       previouslyAmortizedDeductedByPrepaidCard: 'number',
@@ -20412,6 +20447,7 @@ export class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyDataIte
       productDetail: 'string',
       productDetailCode: 'string',
       productName: 'string',
+      remainingAmortizationAfterDiscountAmount: 'number',
       remainingAmortizationDeductedByCashCoupons: 'number',
       remainingAmortizationDeductedByCoupons: 'number',
       remainingAmortizationDeductedByPrepaidCard: 'number',
@@ -20504,6 +20540,7 @@ export class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyData ex
 }
 
 export class DescribeProductAmortizedCostByConsumePeriodResponseBodyDataItems extends $tea.Model {
+  afterDiscountAmount?: number;
   /**
    * @example
    * 202210
@@ -20544,6 +20581,7 @@ export class DescribeProductAmortizedCostByConsumePeriodResponseBodyDataItems ex
    * 202210
    */
   consumePeriod?: string;
+  currentAmortizationAfterDiscountAmount?: number;
   /**
    * @example
    * 0
@@ -20619,6 +20657,7 @@ export class DescribeProductAmortizedCostByConsumePeriodResponseBodyDataItems ex
    * 0
    */
   pretaxGrossAmount?: number;
+  previouslyAmortizedAfterDiscountAmount?: number;
   /**
    * @example
    * 0
@@ -20671,6 +20710,7 @@ export class DescribeProductAmortizedCostByConsumePeriodResponseBodyDataItems ex
    */
   productDetailCode?: string;
   productName?: string;
+  remainingAmortizationAfterDiscountAmount?: number;
   /**
    * @example
    * 0
@@ -20723,6 +20763,7 @@ export class DescribeProductAmortizedCostByConsumePeriodResponseBodyDataItems ex
   subscriptionType?: string;
   static names(): { [key: string]: string } {
     return {
+      afterDiscountAmount: 'AfterDiscountAmount',
       amortizationPeriod: 'AmortizationPeriod',
       amortizationStatus: 'AmortizationStatus',
       billAccountID: 'BillAccountID',
@@ -20731,6 +20772,7 @@ export class DescribeProductAmortizedCostByConsumePeriodResponseBodyDataItems ex
       billOwnerName: 'BillOwnerName',
       bizType: 'BizType',
       consumePeriod: 'ConsumePeriod',
+      currentAmortizationAfterDiscountAmount: 'CurrentAmortizationAfterDiscountAmount',
       currentAmortizationDeductedByCashCoupons: 'CurrentAmortizationDeductedByCashCoupons',
       currentAmortizationDeductedByCoupons: 'CurrentAmortizationDeductedByCoupons',
       currentAmortizationDeductedByPrepaidCard: 'CurrentAmortizationDeductedByPrepaidCard',
@@ -20746,6 +20788,7 @@ export class DescribeProductAmortizedCostByConsumePeriodResponseBodyDataItems ex
       invoiceDiscount: 'InvoiceDiscount',
       pretaxAmount: 'PretaxAmount',
       pretaxGrossAmount: 'PretaxGrossAmount',
+      previouslyAmortizedAfterDiscountAmount: 'PreviouslyAmortizedAfterDiscountAmount',
       previouslyAmortizedDeductedByCashCoupons: 'PreviouslyAmortizedDeductedByCashCoupons',
       previouslyAmortizedDeductedByCoupons: 'PreviouslyAmortizedDeductedByCoupons',
       previouslyAmortizedDeductedByPrepaidCard: 'PreviouslyAmortizedDeductedByPrepaidCard',
@@ -20758,6 +20801,7 @@ export class DescribeProductAmortizedCostByConsumePeriodResponseBodyDataItems ex
       productDetail: 'ProductDetail',
       productDetailCode: 'ProductDetailCode',
       productName: 'ProductName',
+      remainingAmortizationAfterDiscountAmount: 'RemainingAmortizationAfterDiscountAmount',
       remainingAmortizationDeductedByCashCoupons: 'RemainingAmortizationDeductedByCashCoupons',
       remainingAmortizationDeductedByCoupons: 'RemainingAmortizationDeductedByCoupons',
       remainingAmortizationDeductedByPrepaidCard: 'RemainingAmortizationDeductedByPrepaidCard',
@@ -20773,6 +20817,7 @@ export class DescribeProductAmortizedCostByConsumePeriodResponseBodyDataItems ex
 
   static types(): { [key: string]: any } {
     return {
+      afterDiscountAmount: 'number',
       amortizationPeriod: 'string',
       amortizationStatus: 'string',
       billAccountID: 'number',
@@ -20781,6 +20826,7 @@ export class DescribeProductAmortizedCostByConsumePeriodResponseBodyDataItems ex
       billOwnerName: 'string',
       bizType: 'string',
       consumePeriod: 'string',
+      currentAmortizationAfterDiscountAmount: 'number',
       currentAmortizationDeductedByCashCoupons: 'number',
       currentAmortizationDeductedByCoupons: 'number',
       currentAmortizationDeductedByPrepaidCard: 'number',
@@ -20796,6 +20842,7 @@ export class DescribeProductAmortizedCostByConsumePeriodResponseBodyDataItems ex
       invoiceDiscount: 'number',
       pretaxAmount: 'number',
       pretaxGrossAmount: 'number',
+      previouslyAmortizedAfterDiscountAmount: 'number',
       previouslyAmortizedDeductedByCashCoupons: 'number',
       previouslyAmortizedDeductedByCoupons: 'number',
       previouslyAmortizedDeductedByPrepaidCard: 'number',
@@ -20808,6 +20855,7 @@ export class DescribeProductAmortizedCostByConsumePeriodResponseBodyDataItems ex
       productDetail: 'string',
       productDetailCode: 'string',
       productName: 'string',
+      remainingAmortizationAfterDiscountAmount: 'number',
       remainingAmortizationDeductedByCashCoupons: 'number',
       remainingAmortizationDeductedByCoupons: 'number',
       remainingAmortizationDeductedByPrepaidCard: 'number',
