@@ -656,16 +656,27 @@ export class AllocateReadWriteSplittingConnectionResponse extends $tea.Model {
 
 export class AssociateEipAddressWithRCInstanceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The EIP ID.
+   * 
+   * >  If no EIP is available, create an EIP. For more information, see [Create an EIP](https://help.aliyun.com/document_detail/292841.html).
+   * 
    * @example
    * eip-bp166out2x4bpcf******
    */
   allocationId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rc-i322y2t562oh7o******
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -693,6 +704,9 @@ export class AssociateEipAddressWithRCInstanceRequest extends $tea.Model {
 
 export class AssociateEipAddressWithRCInstanceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EFFC7565-B3CF-5CFA-9E1F-164DD1E1F498
    */
@@ -34018,6 +34032,7 @@ export class DescribeRCImageListRequest extends $tea.Model {
   architecture?: string;
   imageId?: string;
   imageName?: string;
+  instanceType?: string;
   /**
    * @remarks
    * The page number.
@@ -34057,6 +34072,7 @@ export class DescribeRCImageListRequest extends $tea.Model {
       architecture: 'Architecture',
       imageId: 'ImageId',
       imageName: 'ImageName',
+      instanceType: 'InstanceType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -34069,6 +34085,7 @@ export class DescribeRCImageListRequest extends $tea.Model {
       architecture: 'string',
       imageId: 'string',
       imageName: 'string',
+      instanceType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
@@ -34514,6 +34531,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
    * Not-applicable
    */
   stoppedMode?: string;
+  systemDisk?: DescribeRCInstanceAttributeResponseBodySystemDisk;
   tags?: DescribeRCInstanceAttributeResponseBodyTags;
   /**
    * @remarks
@@ -34582,6 +34600,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       spotStrategy: 'SpotStrategy',
       status: 'Status',
       stoppedMode: 'StoppedMode',
+      systemDisk: 'SystemDisk',
       tags: 'Tags',
       vlanId: 'VlanId',
       vpcAttributes: 'VpcAttributes',
@@ -34630,6 +34649,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       spotStrategy: 'string',
       status: 'string',
       stoppedMode: 'string',
+      systemDisk: DescribeRCInstanceAttributeResponseBodySystemDisk,
       tags: DescribeRCInstanceAttributeResponseBodyTags,
       vlanId: 'string',
       vpcAttributes: DescribeRCInstanceAttributeResponseBodyVpcAttributes,
@@ -36540,6 +36560,7 @@ export class DescribeResourceUsageResponseBody extends $tea.Model {
    * 94324736
    */
   backupDataSize?: number;
+  backupEcsSnapshotSize?: string;
   /**
    * @remarks
    * The storage that is occupied by log backup files, excluding archived backup files, on the instance. Unit: bytes.
@@ -36648,6 +36669,7 @@ export class DescribeResourceUsageResponseBody extends $tea.Model {
     return {
       archiveBackupSize: 'ArchiveBackupSize',
       backupDataSize: 'BackupDataSize',
+      backupEcsSnapshotSize: 'BackupEcsSnapshotSize',
       backupLogSize: 'BackupLogSize',
       backupOssDataSize: 'BackupOssDataSize',
       backupOssLogSize: 'BackupOssLogSize',
@@ -36668,6 +36690,7 @@ export class DescribeResourceUsageResponseBody extends $tea.Model {
     return {
       archiveBackupSize: 'number',
       backupDataSize: 'number',
+      backupEcsSnapshotSize: 'string',
       backupLogSize: 'number',
       backupOssDataSize: 'number',
       backupOssLogSize: 'number',
@@ -46373,6 +46396,8 @@ export class ModifyDBInstancePayTypeResponse extends $tea.Model {
 export class ModifyDBInstanceReplicationSwitchRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46381,6 +46406,8 @@ export class ModifyDBInstanceReplicationSwitchRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * Specifies whether to enable native replication mode. Valid values: ON and OFF.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46389,6 +46416,8 @@ export class ModifyDBInstanceReplicationSwitchRequest extends $tea.Model {
   externalReplication?: string;
   /**
    * @remarks
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46396,6 +46425,9 @@ export class ModifyDBInstanceReplicationSwitchRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID. You can leave this parameter empty.
+   * 
    * @example
    * rg-acfmy****
    */
@@ -62038,10 +62070,12 @@ export class CreateRCNodePoolRequestDataDisk extends $tea.Model {
 
 export class CreateRCNodePoolRequestSystemDisk extends $tea.Model {
   category?: string;
+  performanceLevel?: string;
   size?: number;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
+      performanceLevel: 'PerformanceLevel',
       size: 'Size',
     };
   }
@@ -62049,6 +62083,7 @@ export class CreateRCNodePoolRequestSystemDisk extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      performanceLevel: 'string',
       size: 'number',
     };
   }
@@ -77632,6 +77667,7 @@ export class DescribeRCImageListResponseBodyImages extends $tea.Model {
    * linux
    */
   OSType?: string;
+  platform?: string;
   /**
    * @remarks
    * The image size. Unit: GiB.
@@ -77677,6 +77713,7 @@ export class DescribeRCImageListResponseBodyImages extends $tea.Model {
       OSName: 'OSName',
       OSNameEn: 'OSNameEn',
       OSType: 'OSType',
+      platform: 'Platform',
       size: 'Size',
       status: 'Status',
       usage: 'Usage',
@@ -77696,6 +77733,7 @@ export class DescribeRCImageListResponseBodyImages extends $tea.Model {
       OSName: 'string',
       OSNameEn: 'string',
       OSType: 'string',
+      platform: 'string',
       size: 'number',
       status: 'string',
       usage: 'string',
@@ -77995,6 +78033,37 @@ export class DescribeRCInstanceAttributeResponseBodySecurityGroupIds extends $te
   static types(): { [key: string]: any } {
     return {
       securityGroupId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodySystemDisk extends $tea.Model {
+  deleteWithInstance?: boolean;
+  encrypted?: string;
+  systemDiskCategory?: string;
+  systemDiskPerformanceLevel?: string;
+  systemDiskSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deleteWithInstance: 'DeleteWithInstance',
+      encrypted: 'Encrypted',
+      systemDiskCategory: 'SystemDiskCategory',
+      systemDiskPerformanceLevel: 'SystemDiskPerformanceLevel',
+      systemDiskSize: 'SystemDiskSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteWithInstance: 'boolean',
+      encrypted: 'string',
+      systemDiskCategory: 'string',
+      systemDiskPerformanceLevel: 'string',
+      systemDiskSize: 'number',
     };
   }
 
@@ -78353,10 +78422,12 @@ export class DescribeRCNodePoolResponseBodyNodePoolListDataDisk extends $tea.Mod
 
 export class DescribeRCNodePoolResponseBodyNodePoolListSystemDisk extends $tea.Model {
   category?: string;
+  performanceLevel?: string;
   size?: number;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
+      performanceLevel: 'PerformanceLevel',
       size: 'Size',
     };
   }
@@ -78364,6 +78435,7 @@ export class DescribeRCNodePoolResponseBodyNodePoolListSystemDisk extends $tea.M
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      performanceLevel: 'string',
       size: 'number',
     };
   }
@@ -78633,7 +78705,7 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $tea.Model {
   sourceDiskType?: string;
   /**
    * @remarks
-   * The type of the original disk.
+   * The type of the source disk.
    * 
    * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
    * 
@@ -84414,7 +84486,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定弹性网卡到RDS Custom实例
+   * Associates an elastic IP address (EIP) with an RDS Custom for SQL Server instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * SQL Server
+   * ### [](#)References
+   * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
+   * ### [](#)Precautions
+   * If the RDS Custom instance uses a public IP address, the public IP address is automatically released after you associate an EIP with the instance.
    * 
    * @param request - AssociateEipAddressWithRCInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -84453,7 +84533,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定弹性网卡到RDS Custom实例
+   * Associates an elastic IP address (EIP) with an RDS Custom for SQL Server instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * SQL Server
+   * ### [](#)References
+   * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
+   * ### [](#)Precautions
+   * If the RDS Custom instance uses a public IP address, the public IP address is automatically released after you associate an EIP with the instance.
    * 
    * @param request - AssociateEipAddressWithRCInstanceRequest
    * @returns AssociateEipAddressWithRCInstanceResponse
@@ -105518,7 +105606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改数据库复制
+   * Enables or disables native replication mode for ApsaraDB RDS.
    * 
    * @param request - ModifyDBInstanceReplicationSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -105565,7 +105653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改数据库复制
+   * Enables or disables native replication mode for ApsaraDB RDS.
    * 
    * @param request - ModifyDBInstanceReplicationSwitchRequest
    * @returns ModifyDBInstanceReplicationSwitchResponse
