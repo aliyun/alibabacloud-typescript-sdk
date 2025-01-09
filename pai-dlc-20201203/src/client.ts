@@ -1537,7 +1537,7 @@ export class JobItem extends $tea.Model {
    * @example
    * vpc-1
    */
-  userVpc?: string;
+  userVpc?: JobItemUserVpc;
   /**
    * @example
    * pai-dlc-role
@@ -1672,7 +1672,7 @@ export class JobItem extends $tea.Model {
       userCommand: 'string',
       userId: 'string',
       userScript: 'string',
-      userVpc: 'string',
+      userVpc: JobItemUserVpc,
       username: 'string',
       workingDir: 'string',
       workspaceId: 'string',
@@ -1841,6 +1841,8 @@ export class JobSpec extends $tea.Model {
   /**
    * @example
    * false
+   * 
+   * @deprecated
    */
   useSpotInstance?: boolean;
   static names(): { [key: string]: string } {
@@ -2562,10 +2564,12 @@ export class SmartCache extends $tea.Model {
 
 export class SpotSpec extends $tea.Model {
   spotDiscountLimit?: number;
+  spotPriceLimit?: number;
   spotStrategy?: string;
   static names(): { [key: string]: string } {
     return {
       spotDiscountLimit: 'SpotDiscountLimit',
+      spotPriceLimit: 'SpotPriceLimit',
       spotStrategy: 'SpotStrategy',
     };
   }
@@ -2573,6 +2577,7 @@ export class SpotSpec extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       spotDiscountLimit: 'number',
+      spotPriceLimit: 'number',
       spotStrategy: 'string',
     };
   }
@@ -3649,6 +3654,7 @@ export class GetJobResponseBody extends $tea.Model {
    * 12*********
    */
   userId?: string;
+  userVpc?: GetJobResponseBodyUserVpc;
   /**
    * @example
    * 268
@@ -3699,6 +3705,7 @@ export class GetJobResponseBody extends $tea.Model {
       thirdpartyLibs: 'ThirdpartyLibs',
       userCommand: 'UserCommand',
       userId: 'UserId',
+      userVpc: 'UserVpc',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
     };
@@ -3744,6 +3751,7 @@ export class GetJobResponseBody extends $tea.Model {
       thirdpartyLibs: { 'type': 'array', 'itemType': 'string' },
       userCommand: 'string',
       userId: 'string',
+      userVpc: GetJobResponseBodyUserVpc,
       workspaceId: 'string',
       workspaceName: 'string',
     };
@@ -4883,6 +4891,7 @@ export class ListJobsRequest extends $tea.Model {
    * 50
    */
   pageSize?: number;
+  paymentType?: string;
   /**
    * @example
    * flow-*******
@@ -4936,6 +4945,7 @@ export class ListJobsRequest extends $tea.Model {
       oversoldInfo: 'OversoldInfo',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      paymentType: 'PaymentType',
       pipelineId: 'PipelineId',
       resourceId: 'ResourceId',
       resourceQuotaName: 'ResourceQuotaName',
@@ -4964,6 +4974,7 @@ export class ListJobsRequest extends $tea.Model {
       oversoldInfo: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      paymentType: 'string',
       pipelineId: 'string',
       resourceId: 'string',
       resourceQuotaName: 'string',
@@ -5036,6 +5047,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
    * 50
    */
   pageSize?: number;
+  paymentType?: string;
   /**
    * @example
    * flow-*******
@@ -5089,6 +5101,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       oversoldInfo: 'OversoldInfo',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      paymentType: 'PaymentType',
       pipelineId: 'PipelineId',
       resourceId: 'ResourceId',
       resourceQuotaName: 'ResourceQuotaName',
@@ -5117,6 +5130,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       oversoldInfo: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      paymentType: 'string',
       pipelineId: 'string',
       resourceId: 'string',
       resourceQuotaName: 'string',
@@ -5841,6 +5855,37 @@ export class JobItemDataSources extends $tea.Model {
   }
 }
 
+export class JobItemUserVpc extends $tea.Model {
+  defaultRoute?: string;
+  extendedCidrs?: string[];
+  securityGroupId?: string;
+  switchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultRoute: 'DefaultRoute',
+      extendedCidrs: 'ExtendedCidrs',
+      securityGroupId: 'SecurityGroupId',
+      switchId: 'SwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultRoute: 'string',
+      extendedCidrs: { 'type': 'array', 'itemType': 'string' },
+      securityGroupId: 'string',
+      switchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LifecyclePostStartExec extends $tea.Model {
   command?: string[];
   static names(): { [key: string]: string } {
@@ -5967,6 +6012,7 @@ export class CreateJobRequestDataSources extends $tea.Model {
    * d-cn9dl*******
    */
   dataSourceId?: string;
+  dataSourceVersion?: string;
   /**
    * @example
    * /root/data
@@ -5981,6 +6027,7 @@ export class CreateJobRequestDataSources extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       dataSourceId: 'DataSourceId',
+      dataSourceVersion: 'DataSourceVersion',
       mountPath: 'MountPath',
       options: 'Options',
       uri: 'Uri',
@@ -5990,6 +6037,7 @@ export class CreateJobRequestDataSources extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dataSourceId: 'string',
+      dataSourceVersion: 'string',
       mountPath: 'string',
       options: 'string',
       uri: 'string',
@@ -6292,6 +6340,49 @@ export class GetJobResponseBodyPods extends $tea.Model {
       status: 'string',
       subStatus: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyUserVpc extends $tea.Model {
+  defaultRoute?: string;
+  extendedCidrs?: string[];
+  /**
+   * @example
+   * sg-abcdef****
+   */
+  securityGroupId?: string;
+  /**
+   * @example
+   * vs-abcdef****
+   */
+  switchId?: string;
+  /**
+   * @example
+   * vpc-abcdef****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultRoute: 'DefaultRoute',
+      extendedCidrs: 'ExtendedCidrs',
+      securityGroupId: 'SecurityGroupId',
+      switchId: 'SwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultRoute: 'string',
+      extendedCidrs: { 'type': 'array', 'itemType': 'string' },
+      securityGroupId: 'string',
+      switchId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -7407,6 +7498,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.paymentType)) {
+      query["PaymentType"] = request.paymentType;
     }
 
     if (!Util.isUnset(request.pipelineId)) {
