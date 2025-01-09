@@ -8124,6 +8124,7 @@ export class DescribeApiGroupVpcWhitelistResponse extends $tea.Model {
 }
 
 export class DescribeApiGroupsRequest extends $tea.Model {
+  basePath?: string;
   /**
    * @remarks
    * Specifies whether to enable tag verification.
@@ -8191,6 +8192,7 @@ export class DescribeApiGroupsRequest extends $tea.Model {
   tag?: DescribeApiGroupsRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      basePath: 'BasePath',
       enableTagAuth: 'EnableTagAuth',
       groupId: 'GroupId',
       groupName: 'GroupName',
@@ -8205,6 +8207,7 @@ export class DescribeApiGroupsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      basePath: 'string',
       enableTagAuth: 'boolean',
       groupId: 'string',
       groupName: 'string',
@@ -24229,6 +24232,139 @@ export class ModifyInstanceSpecResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyInstanceSpecResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceVpcAttributeForConsoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Whether delete instance client VPC.
+   * - FALSE: set or modify instance client VPC
+   * - TRUE: delete instance client VPC
+   * 
+   * @example
+   * false
+   */
+  deleteVpcAccess?: boolean;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * apigateway-bj-f28baxxxxb51
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The token of the request.
+   * 
+   * @example
+   * 505959c38776d9324945dbff709582
+   */
+  token?: string;
+  /**
+   * @remarks
+   * The ID of the VPC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-8vbnnd66xxxx2xb5oig4f
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the VPC belongs.
+   * 
+   * @example
+   * 1121011712128923
+   */
+  vpcOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-bj9e2i8w3wz7shkvnuj9a
+   */
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteVpcAccess: 'DeleteVpcAccess',
+      instanceId: 'InstanceId',
+      token: 'Token',
+      vpcId: 'VpcId',
+      vpcOwnerId: 'VpcOwnerId',
+      vswitchId: 'VswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteVpcAccess: 'boolean',
+      instanceId: 'string',
+      token: 'string',
+      vpcId: 'string',
+      vpcOwnerId: 'number',
+      vswitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceVpcAttributeForConsoleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D08741CF-BE59-5DA6-B06F-BB65173110C0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceVpcAttributeForConsoleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceVpcAttributeForConsoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyInstanceVpcAttributeForConsoleResponseBody,
     };
   }
 
@@ -51450,6 +51586,10 @@ export default class Client extends OpenApi {
   async describeApiGroupsWithOptions(request: DescribeApiGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiGroupsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.basePath)) {
+      query["BasePath"] = request.basePath;
+    }
+
     if (!Util.isUnset(request.enableTagAuth)) {
       query["EnableTagAuth"] = request.enableTagAuth;
     }
@@ -58051,6 +58191,68 @@ export default class Client extends OpenApi {
   async modifyInstanceSpec(request: ModifyInstanceSpecRequest): Promise<ModifyInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceSpecWithOptions(request, runtime);
+  }
+
+  /**
+   * Modify instance client VPC config.
+   * 
+   * @param request - ModifyInstanceVpcAttributeForConsoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceVpcAttributeForConsoleResponse
+   */
+  async modifyInstanceVpcAttributeForConsoleWithOptions(request: ModifyInstanceVpcAttributeForConsoleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceVpcAttributeForConsoleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deleteVpcAccess)) {
+      query["DeleteVpcAccess"] = request.deleteVpcAccess;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.vpcOwnerId)) {
+      query["VpcOwnerId"] = request.vpcOwnerId;
+    }
+
+    if (!Util.isUnset(request.vswitchId)) {
+      query["VswitchId"] = request.vswitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyInstanceVpcAttributeForConsole",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInstanceVpcAttributeForConsoleResponse>(await this.callApi(params, req, runtime), new ModifyInstanceVpcAttributeForConsoleResponse({}));
+  }
+
+  /**
+   * Modify instance client VPC config.
+   * 
+   * @param request - ModifyInstanceVpcAttributeForConsoleRequest
+   * @returns ModifyInstanceVpcAttributeForConsoleResponse
+   */
+  async modifyInstanceVpcAttributeForConsole(request: ModifyInstanceVpcAttributeForConsoleRequest): Promise<ModifyInstanceVpcAttributeForConsoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyInstanceVpcAttributeForConsoleWithOptions(request, runtime);
   }
 
   /**
