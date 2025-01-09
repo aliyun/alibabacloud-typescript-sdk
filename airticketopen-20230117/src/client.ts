@@ -14760,10 +14760,16 @@ export class SearchRequestSearchControlOptions extends $tea.Model {
    * preferred airlines list
    */
   airlinePreferList?: string[];
+  /**
+   * @example
+   * A1
+   */
+  serviceQuality?: string;
   static names(): { [key: string]: string } {
     return {
       airlineExcludedList: 'airline_excluded_list',
       airlinePreferList: 'airline_prefer_list',
+      serviceQuality: 'service_quality',
     };
   }
 
@@ -14771,6 +14777,7 @@ export class SearchRequestSearchControlOptions extends $tea.Model {
     return {
       airlineExcludedList: { 'type': 'array', 'itemType': 'string' },
       airlinePreferList: { 'type': 'array', 'itemType': 'string' },
+      serviceQuality: 'string',
     };
   }
 
