@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,7 +8,15 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CancelSpecReviewTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1B64F3E0-25D5-5043-B5C8-4FF22BB12CCD
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -56,9 +63,27 @@ export class CancelSpecReviewTaskResponse extends $tea.Model {
 }
 
 export class CreateAppRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 应用名
+   * 
+   * This parameter is required.
+   */
   appName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   authentication?: CreateAppRequestAuthentication;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * 应用备注
+   */
   description?: string;
   network?: CreateAppRequestNetwork[];
   privateNetwork?: CreateAppRequestPrivateNetwork[];
@@ -105,6 +130,10 @@ export class CreateAppRequest extends $tea.Model {
 }
 
 export class CreateAppResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2C5DAA30-****-5181-9B87-9D6181016197
+   */
   requestId?: string;
   result?: CreateAppResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -152,9 +181,28 @@ export class CreateAppResponse extends $tea.Model {
 }
 
 export class CreateEndpointRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   endpointZones?: CreateEndpointRequestEndpointZones[];
+  /**
+   * @example
+   * testendpoint
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-uf664nyle5khp5***
+   */
   vpcId?: string;
+  /**
+   * @example
+   * VPC
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -180,6 +228,13 @@ export class CreateEndpointRequest extends $tea.Model {
 }
 
 export class CreateEndpointResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2C5DAA30-****-5181-9B87-9D6181016197
+   */
   requestId?: string;
   result?: CreateEndpointResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -227,8 +282,26 @@ export class CreateEndpointResponse extends $tea.Model {
 }
 
 export class CreateSnapshotRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * product_info
+   */
   indices?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qingning
+   */
   snapshot?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -252,7 +325,15 @@ export class CreateSnapshotRequest extends $tea.Model {
 }
 
 export class CreateSnapshotResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 03761BE5-D12F-55B4-9C93-0255C11DE44A
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -299,6 +380,10 @@ export class CreateSnapshotResponse extends $tea.Model {
 }
 
 export class DeleteAppResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2C5DAA30-****-5181-9B87-9D6181016197
+   */
   requestId?: string;
   result?: DeleteAppResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -346,7 +431,21 @@ export class DeleteAppResponse extends $tea.Model {
 }
 
 export class DeleteDictRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a.dic
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MAIN
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -368,7 +467,15 @@ export class DeleteDictRequest extends $tea.Model {
 }
 
 export class DeleteDictResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2BF6B57E-5AAD-5389-80CD-E200BBF91FF9
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -415,7 +522,15 @@ export class DeleteDictResponse extends $tea.Model {
 }
 
 export class DeleteEndpointResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1305A3E0-A291-54BA-A3B2-7D1C12EC4112
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -462,7 +577,15 @@ export class DeleteEndpointResponse extends $tea.Model {
 }
 
 export class DeleteSnapshotResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16484F36-A2A3-5A05-B242-0BF2BF6AA326
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -509,6 +632,10 @@ export class DeleteSnapshotResponse extends $tea.Model {
 }
 
 export class GetAppRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   detailed?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -528,6 +655,10 @@ export class GetAppRequest extends $tea.Model {
 }
 
 export class GetAppResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2C5DAA30-****-5181-9B87-9D6181016197
+   */
   requestId?: string;
   result?: GetAppResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -575,6 +706,10 @@ export class GetAppResponse extends $tea.Model {
 }
 
 export class GetAppQuotaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2C5DAA30-****-5181-9B87-9D6181016197
+   */
   requestId?: string;
   result?: GetAppQuotaResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -622,6 +757,10 @@ export class GetAppQuotaResponse extends $tea.Model {
 }
 
 export class GetMonitorDataRequest extends $tea.Model {
+  /**
+   * @example
+   * {"start":1689245180581,"end":1689246950582,"queries":[{"metric":"aliyunes.elasticsearch.index.docs.count","aggregator":"sum","downsample":"avg","tags":{"resource":"{appName}"},"filters":[],"granularity":"auto"}]}
+   */
   body?: string;
   static names(): { [key: string]: string } {
     return {
@@ -641,10 +780,26 @@ export class GetMonitorDataRequest extends $tea.Model {
 }
 
 export class GetMonitorDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InternalServerError
+   */
   code?: string;
+  /**
+   * @example
+   * internal server error
+   */
   message?: string;
+  /**
+   * @example
+   * 2C5DAA30-****-5181-9B87-9D6181016197
+   */
   requestId?: string;
   result?: GetMonitorDataResponseBodyResult[];
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -697,6 +852,10 @@ export class GetMonitorDataResponse extends $tea.Model {
 }
 
 export class GetSnapshotSettingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7B6CE6E1-5BA0-56DA-BFFD-8D90692F1EFC
+   */
   requestId?: string;
   result?: GetSnapshotSettingResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -744,6 +903,10 @@ export class GetSnapshotSettingResponse extends $tea.Model {
 }
 
 export class GetSpecReviewTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E310AC54-957A-5FD5-B85B-E972B2BDA8DE
+   */
   requestId?: string;
   result?: GetSpecReviewTaskResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -791,12 +954,40 @@ export class GetSpecReviewTaskResponse extends $tea.Model {
 }
 
 export class ListAppsRequest extends $tea.Model {
+  /**
+   * @example
+   * es-severless-test-app
+   */
   appName?: string;
+  /**
+   * @example
+   * 2023-08-29T02:37:22Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * metrics-logs-online
+   */
   description?: string;
+  /**
+   * @example
+   * desc
+   */
   orderType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ACTIVE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -828,8 +1019,19 @@ export class ListAppsRequest extends $tea.Model {
 }
 
 export class ListAppsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2C5DAA30-****-5181-9B87-9D6181016197
+   */
   requestId?: string;
   result?: ListAppsResponseBodyResult[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -878,7 +1080,15 @@ export class ListAppsResponse extends $tea.Model {
 }
 
 export class ListDictsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -900,8 +1110,16 @@ export class ListDictsRequest extends $tea.Model {
 }
 
 export class ListDictsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E92BCBB9-3CFE-58DD-8D8C-56DF46AB3BF3
+   */
   requestId?: string;
   result?: ListDictsResponseBodyResult[];
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -950,10 +1168,33 @@ export class ListDictsResponse extends $tea.Model {
 }
 
 export class ListEndpointsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ep-bp1id41dd116e52e****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * VPC
+   */
   type?: string;
+  /**
+   * @example
+   * vpc-bp1212sb7cj2j4e6x****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -981,8 +1222,16 @@ export class ListEndpointsRequest extends $tea.Model {
 }
 
 export class ListEndpointsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * D6030CE6-9FEB-5B2F-84AC-3ADE3CBA89E5
+   */
   requestId?: string;
   result?: ListEndpointsResponseBodyResult[];
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1031,6 +1280,13 @@ export class ListEndpointsResponse extends $tea.Model {
 }
 
 export class ListIndicesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8C85CCB3-C0C9-521C-B599-F903E14A8793
+   */
   requestId?: string;
   result?: any[];
   static names(): { [key: string]: string } {
@@ -1078,6 +1334,10 @@ export class ListIndicesResponse extends $tea.Model {
 }
 
 export class ListSnapshotRepositoriesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 56E0591D-7D62-56A2-993E-952FB2026C69
+   */
   requestId?: string;
   result?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -1125,9 +1385,25 @@ export class ListSnapshotRepositoriesResponse extends $tea.Model {
 }
 
 export class ListSnapshotsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * aliyun_auto_snapshot
+   */
   repository?: string;
+  /**
+   * @example
+   * qingning
+   */
   snapshot?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1153,9 +1429,21 @@ export class ListSnapshotsRequest extends $tea.Model {
 }
 
 export class ListSnapshotsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ODgyObrnP3
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 22E9EE78-F567-550A-8F7C-20E9CD3DE489
+   */
   requestId?: string;
   result?: { [key: string]: any }[];
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1206,12 +1494,28 @@ export class ListSnapshotsResponse extends $tea.Model {
 }
 
 export class ListSpecReviewTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   page?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @example
+   * QUOTA
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
       page: 'page',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
       size: 'size',
       type: 'type',
     };
@@ -1220,6 +1524,8 @@ export class ListSpecReviewTasksRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       page: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
       size: 'number',
       type: 'string',
     };
@@ -1231,8 +1537,19 @@ export class ListSpecReviewTasksRequest extends $tea.Model {
 }
 
 export class ListSpecReviewTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 55F7B3FE-05D8-5F0F-BD55-A18967D447DC
+   */
   requestId?: string;
   result?: ListSpecReviewTasksResponseBodyResult[];
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1284,6 +1601,10 @@ export class UpdateAppRequest extends $tea.Model {
   applyReason?: string;
   authentication?: UpdateAppRequestAuthentication;
   contactInfo?: string;
+  /**
+   * @remarks
+   * 应用备注
+   */
   description?: string;
   limiterInfo?: UpdateAppRequestLimiterInfo;
   network?: UpdateAppRequestNetwork[];
@@ -1318,6 +1639,10 @@ export class UpdateAppRequest extends $tea.Model {
 }
 
 export class UpdateAppResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2C5DAA30-****-5181-9B87-9D6181016197
+   */
   requestId?: string;
   result?: UpdateAppResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -1365,10 +1690,30 @@ export class UpdateAppResponse extends $tea.Model {
 }
 
 export class UpdateDictRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   allowCover?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   files?: UpdateDictRequestFiles[];
+  /**
+   * @example
+   * OSS
+   */
   sourceType?: string;
+  /**
+   * @example
+   * MAIN
+   */
   type?: string;
+  /**
+   * @example
+   * true
+   */
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1396,7 +1741,15 @@ export class UpdateDictRequest extends $tea.Model {
 }
 
 export class UpdateDictResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 12797BCC-E0B5-5A47-B4B9-A14DDF0B0200
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1443,7 +1796,15 @@ export class UpdateDictResponse extends $tea.Model {
 }
 
 export class UpdateEndpointRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   endpointZones?: UpdateEndpointRequestEndpointZones[];
+  /**
+   * @example
+   * test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1465,6 +1826,10 @@ export class UpdateEndpointRequest extends $tea.Model {
 }
 
 export class UpdateEndpointResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FBAD8493-87FA-583E-8A4C-D487F2DE90FC
+   */
   requestId?: string;
   result?: UpdateEndpointResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -1512,7 +1877,21 @@ export class UpdateEndpointResponse extends $tea.Model {
 }
 
 export class UpdateSnapshotSettingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 0 01 ? * * *
+   */
   quartzRegex?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1534,7 +1913,18 @@ export class UpdateSnapshotSettingRequest extends $tea.Model {
 }
 
 export class UpdateSnapshotSettingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * A7B03723-AA73-5A5F-B71C-270792614DD8
+   */
   requestId?: string;
+  /**
+   * @example
+   * {
+   *     "quartzRegex": "0 0 01 ? * * *",
+   *     "enable": true
+   *   }
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1753,6 +2143,10 @@ export class CreateAppRequestQuotaInfo extends $tea.Model {
 }
 
 export class CreateAppResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * es-serverless-cn-xxx
+   */
   instaneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1772,7 +2166,15 @@ export class CreateAppResponseBodyResult extends $tea.Model {
 }
 
 export class CreateEndpointRequestEndpointZones extends $tea.Model {
+  /**
+   * @example
+   * vsw-uf6qmfkqdcw*****
+   */
   vswitchId?: string;
+  /**
+   * @example
+   * cn-hangzhou-h
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1794,6 +2196,10 @@ export class CreateEndpointRequestEndpointZones extends $tea.Model {
 }
 
 export class CreateEndpointResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * essep-abd***dks
+   */
   endpointId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1944,18 +2350,50 @@ export class GetAppResponseBodyResultPrivateNetwork extends $tea.Model {
 }
 
 export class GetAppResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * test-app-abc
+   */
   appId?: string;
+  /**
+   * @example
+   * es-severless-test-app
+   */
   appName?: string;
   appType?: string;
+  /**
+   * @example
+   * 2022-08-15T11:20:52.370Z
+   */
   createTime?: string;
   description?: string;
   instanceId?: string;
+  /**
+   * @example
+   * 2022-08-15T11:21:50.000Z
+   */
   modifiedTime?: string;
   network?: GetAppResponseBodyResultNetwork[];
+  /**
+   * @example
+   * *******7595
+   */
   ownerId?: string;
   privateNetwork?: GetAppResponseBodyResultPrivateNetwork[];
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * ACTIVE
+   */
   status?: string;
+  /**
+   * @example
+   * 7.10
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1999,9 +2437,25 @@ export class GetAppResponseBodyResult extends $tea.Model {
 }
 
 export class GetAppQuotaResponseBodyResultLimiterInfoLimiters extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   immutable?: boolean;
+  /**
+   * @example
+   * 10
+   */
   maxValue?: number;
+  /**
+   * @example
+   * 1
+   */
   minValue?: number;
+  /**
+   * @example
+   * INDEX_NUMBER_OF_SHARDS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2068,11 +2522,39 @@ export class GetAppQuotaResponseBodyResult extends $tea.Model {
 }
 
 export class GetMonitorDataResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * {
+   *     "1689480600":28676235.104761902
+   * }
+   */
   dps?: { [key: string]: any };
+  /**
+   * @example
+   * 1
+   */
   integrity?: number;
+  /**
+   * @example
+   * 1689566839447
+   */
   messageWatermark?: number;
+  /**
+   * @example
+   * elasticsearch-server.logic_cpu.cpu
+   */
   metric?: string;
+  /**
+   * @example
+   * 172455913.18935508
+   */
   summary?: number;
+  /**
+   * @example
+   * {
+   *                 "indexName":"test"
+   *             }
+   */
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -2102,7 +2584,15 @@ export class GetMonitorDataResponseBodyResult extends $tea.Model {
 }
 
 export class GetSnapshotSettingResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @example
+   * 0 0 01 ? * * *
+   */
   quartzRegex?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2124,19 +2614,110 @@ export class GetSnapshotSettingResponseBodyResult extends $tea.Model {
 }
 
 export class GetSpecReviewTaskResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * @example
+   * 339
+   */
   id?: string;
+  /**
+   * @example
+   * test
+   */
   appName?: string;
+  /**
+   * @example
+   * {
+   *                "limiters": [
+   *                     {
+   *                          "type": "INDEX_QUOTA",
+   *                          "maxValue": 500,
+   *                          "immutable": false
+   *                     }
+   *                ]
+   *           }
+   */
   applyLimiter?: { [key: string]: any };
+  /**
+   * @example
+   * {
+   *                "appType": "TRIAL",
+   *                "cu": 4,
+   *                "storage": 100
+   *           }
+   */
   applyQuota?: { [key: string]: any };
   applyReason?: string;
+  /**
+   * @example
+   * {
+   *                "limiters": [
+   *                     {
+   *                          "type": "INDEX_QUOTA",
+   *                          "maxValue": 500,
+   *                          "immutable": false
+   *                     }
+   *                ]
+   *           }
+   */
   effectiveLimiter?: { [key: string]: any };
+  /**
+   * @example
+   * {
+   *                "appType": "TRIAL",
+   *                "cu": 4,
+   *                "storage": 100
+   *           }
+   */
   effectiveQuota?: { [key: string]: any };
+  /**
+   * @example
+   * 2024-05-30T06:28:07.000Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2024-05-30T06:28:07.000Z
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * {
+   *                "limiters": [
+   *                     {
+   *                          "type": "INDEX_QUOTA",
+   *                          "maxValue": 500,
+   *                          "immutable": false
+   *                     }
+   *                ]
+   *           }
+   */
   oldLimiter?: { [key: string]: any };
+  /**
+   * @example
+   * {
+   *                "appType": "TRIAL",
+   *                "cu": 2,
+   *                "storage": 1
+   *           }
+   */
   oldQuota?: { [key: string]: any };
+  /**
+   * @example
+   * USER
+   */
   source?: string;
+  /**
+   * @example
+   * Pending
+   */
   status?: string;
+  /**
+   * @example
+   * QUOTA
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2182,16 +2763,67 @@ export class GetSpecReviewTaskResponseBodyResult extends $tea.Model {
 }
 
 export class ListAppsResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * test-abc
+   */
   appId?: string;
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * @example
+   * es-severless-test-app
+   */
   appName?: string;
   appType?: string;
+  /**
+   * @remarks
+   * 代表创建时间的资源属性字段
+   * 
+   * @example
+   * 2022-12-27T07:09:11.000Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * 应用备注
+   */
   description?: string;
   instanceId?: string;
+  /**
+   * @example
+   * 2022-12-27T07:09:11.000Z
+   */
   modifiedTime?: string;
+  /**
+   * @remarks
+   * OwnerID账号ID
+   * 
+   * @example
+   * *********7595
+   */
   ownerId?: string;
+  /**
+   * @remarks
+   * 代表region的资源属性字段
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * 代表资源状态的资源属性字段
+   * 
+   * @example
+   * ACTIVE
+   */
   status?: string;
+  /**
+   * @example
+   * 7.10
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2231,9 +2863,25 @@ export class ListAppsResponseBodyResult extends $tea.Model {
 }
 
 export class ListDictsResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * http://es-serverless-****.oss-cn-hangzhou.aliyuncs.com/app/es7**190/0/config/analysis-ik/stopword.dic?Expires=1705923089&OSSAccessKeyId=STS.NV18q****UkVp6LNj&Signat
+   */
   downloadUrl?: string;
+  /**
+   * @example
+   * a.dic
+   */
   name?: string;
+  /**
+   * @example
+   * OSS
+   */
   sourceType?: string;
+  /**
+   * @example
+   * MAIN
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2259,7 +2907,15 @@ export class ListDictsResponseBodyResult extends $tea.Model {
 }
 
 export class ListEndpointsResponseBodyResultEndpointZones extends $tea.Model {
+  /**
+   * @example
+   * vsw-bp194pz9iez****
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * cn-hangzhou-k
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2281,17 +2937,57 @@ export class ListEndpointsResponseBodyResultEndpointZones extends $tea.Model {
 }
 
 export class ListEndpointsResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * Pending
+   */
   connectionStatus?: string;
+  /**
+   * @example
+   * 1701259721
+   */
   created?: number;
+  /**
+   * @example
+   * ep-bp1i522d****a3.epsrv-bp1f****gei.cn-hangzhou.privatelink.aliyuncs.com
+   */
   domain?: string;
+  /**
+   * @example
+   * essep-2f46b743f60****
+   */
   endpointId?: string;
   endpointZones?: ListEndpointsResponseBodyResultEndpointZones[];
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * ep-bp1id41dd116e52e****
+   */
   resourceId?: string;
   securityGroupIds?: string[];
+  /**
+   * @example
+   * Active
+   */
   status?: string;
+  /**
+   * @example
+   * VPC
+   */
   type?: string;
+  /**
+   * @example
+   * 1701259721
+   */
   updated?: number;
+  /**
+   * @example
+   * vpc-uf6gykvwcirp886ef****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2333,12 +3029,39 @@ export class ListEndpointsResponseBodyResult extends $tea.Model {
 }
 
 export class ListSpecReviewTasksResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * @example
+   * 339
+   */
   id?: string;
+  /**
+   * @example
+   * test
+   */
   appName?: string;
   applyReason?: string;
+  /**
+   * @example
+   * 2024-05-27T10:13:22.000Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * USER
+   */
   source?: string;
+  /**
+   * @example
+   * Pending
+   */
   status?: string;
+  /**
+   * @example
+   * QUOTA
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2583,7 +3306,15 @@ export class UpdateAppResponseBodyResult extends $tea.Model {
 }
 
 export class UpdateDictRequestFilesOssObject extends $tea.Model {
+  /**
+   * @example
+   * bucket1
+   */
   bucketName?: string;
+  /**
+   * @example
+   * oss/dic_0.dic
+   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2605,6 +3336,10 @@ export class UpdateDictRequestFilesOssObject extends $tea.Model {
 }
 
 export class UpdateDictRequestFiles extends $tea.Model {
+  /**
+   * @example
+   * dic_0.dic
+   */
   name?: string;
   ossObject?: UpdateDictRequestFilesOssObject;
   static names(): { [key: string]: string } {
@@ -2627,7 +3362,15 @@ export class UpdateDictRequestFiles extends $tea.Model {
 }
 
 export class UpdateEndpointRequestEndpointZones extends $tea.Model {
+  /**
+   * @example
+   * vsw-bp18r8uwnukv3rvi9****
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * cn-hangzhou-h
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2649,6 +3392,10 @@ export class UpdateEndpointRequestEndpointZones extends $tea.Model {
 }
 
 export class UpdateEndpointResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * ep-bp1i98bcbb1540d0****
+   */
   endpointId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2691,11 +3438,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 撤销规格审批
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelSpecReviewTaskResponse
+   * 撤销规格审批
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelSpecReviewTaskResponse
    */
   async cancelSpecReviewTaskWithOptions(appName: string, taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelSpecReviewTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -2716,9 +3463,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 撤销规格审批
-   *
-   * @return CancelSpecReviewTaskResponse
+   * 撤销规格审批
+   * @returns CancelSpecReviewTaskResponse
    */
   async cancelSpecReviewTask(appName: string, taskId: string): Promise<CancelSpecReviewTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2727,12 +3473,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建Serverless应用
-   *
-   * @param request CreateAppRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAppResponse
+   * 创建Serverless应用
+   * 
+   * @param request - CreateAppRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppResponse
    */
   async createAppWithOptions(request: CreateAppRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
     Util.validateModel(request);
@@ -2802,10 +3548,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建Serverless应用
-   *
-   * @param request CreateAppRequest
-   * @return CreateAppResponse
+   * 创建Serverless应用
+   * 
+   * @param request - CreateAppRequest
+   * @returns CreateAppResponse
    */
   async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2814,12 +3560,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建端点
-   *
-   * @param request CreateEndpointRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateEndpointResponse
+   * 创建端点
+   * 
+   * @param request - CreateEndpointRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEndpointResponse
    */
   async createEndpointWithOptions(request: CreateEndpointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateEndpointResponse> {
     Util.validateModel(request);
@@ -2861,10 +3607,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建端点
-   *
-   * @param request CreateEndpointRequest
-   * @return CreateEndpointResponse
+   * 创建端点
+   * 
+   * @param request - CreateEndpointRequest
+   * @returns CreateEndpointResponse
    */
   async createEndpoint(request: CreateEndpointRequest): Promise<CreateEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2873,12 +3619,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建快照
-   *
-   * @param request CreateSnapshotRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSnapshotResponse
+   * 创建快照
+   * 
+   * @param request - CreateSnapshotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSnapshotResponse
    */
   async createSnapshotWithOptions(appName: string, repository: string, request: CreateSnapshotRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotResponse> {
     Util.validateModel(request);
@@ -2916,10 +3662,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建快照
-   *
-   * @param request CreateSnapshotRequest
-   * @return CreateSnapshotResponse
+   * 创建快照
+   * 
+   * @param request - CreateSnapshotRequest
+   * @returns CreateSnapshotResponse
    */
   async createSnapshot(appName: string, repository: string, request: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2928,11 +3674,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除Serverless应用。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAppResponse
+   * 删除Serverless应用。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppResponse
    */
   async deleteAppWithOptions(appName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -2953,9 +3699,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除Serverless应用。
-   *
-   * @return DeleteAppResponse
+   * 删除Serverless应用。
+   * @returns DeleteAppResponse
    */
   async deleteApp(appName: string): Promise<DeleteAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2964,12 +3709,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除词典
-   *
-   * @param request DeleteDictRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDictResponse
+   * 删除词典
+   * 
+   * @param request - DeleteDictRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDictResponse
    */
   async deleteDictWithOptions(appName: string, request: DeleteDictRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDictResponse> {
     Util.validateModel(request);
@@ -3001,10 +3746,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除词典
-   *
-   * @param request DeleteDictRequest
-   * @return DeleteDictResponse
+   * 删除词典
+   * 
+   * @param request - DeleteDictRequest
+   * @returns DeleteDictResponse
    */
   async deleteDict(appName: string, request: DeleteDictRequest): Promise<DeleteDictResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3013,11 +3758,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除端点
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteEndpointResponse
+   * 删除端点
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEndpointResponse
    */
   async deleteEndpointWithOptions(endpointId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteEndpointResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3038,9 +3783,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除端点
-   *
-   * @return DeleteEndpointResponse
+   * 删除端点
+   * @returns DeleteEndpointResponse
    */
   async deleteEndpoint(endpointId: string): Promise<DeleteEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3049,11 +3793,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除快照
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSnapshotResponse
+   * 删除快照
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSnapshotResponse
    */
   async deleteSnapshotWithOptions(appName: string, repository: string, snapshot: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3074,9 +3818,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除快照
-   *
-   * @return DeleteSnapshotResponse
+   * 删除快照
+   * @returns DeleteSnapshotResponse
    */
   async deleteSnapshot(appName: string, repository: string, snapshot: string): Promise<DeleteSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3085,12 +3828,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Serverless应用详情
-   *
-   * @param request GetAppRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAppResponse
+   * 获取Serverless应用详情
+   * 
+   * @param request - GetAppRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppResponse
    */
   async getAppWithOptions(appName: string, request: GetAppRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAppResponse> {
     Util.validateModel(request);
@@ -3118,10 +3861,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Serverless应用详情
-   *
-   * @param request GetAppRequest
-   * @return GetAppResponse
+   * 获取Serverless应用详情
+   * 
+   * @param request - GetAppRequest
+   * @returns GetAppResponse
    */
   async getApp(appName: string, request: GetAppRequest): Promise<GetAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3130,11 +3873,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Serverless应用配额详情
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAppQuotaResponse
+   * 获取Serverless应用配额详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppQuotaResponse
    */
   async getAppQuotaWithOptions(appName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAppQuotaResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3155,9 +3898,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Serverless应用配额详情
-   *
-   * @return GetAppQuotaResponse
+   * 获取Serverless应用配额详情
+   * @returns GetAppQuotaResponse
    */
   async getAppQuota(appName: string): Promise<GetAppQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3166,12 +3908,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取监控数据
-   *
-   * @param request GetMonitorDataRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMonitorDataResponse
+   * 获取监控数据
+   * 
+   * @param request - GetMonitorDataRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMonitorDataResponse
    */
   async getMonitorDataWithOptions(request: GetMonitorDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMonitorDataResponse> {
     Util.validateModel(request);
@@ -3194,10 +3936,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取监控数据
-   *
-   * @param request GetMonitorDataRequest
-   * @return GetMonitorDataResponse
+   * 获取监控数据
+   * 
+   * @param request - GetMonitorDataRequest
+   * @returns GetMonitorDataResponse
    */
   async getMonitorData(request: GetMonitorDataRequest): Promise<GetMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3206,11 +3948,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取自动备份配置
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSnapshotSettingResponse
+   * 获取自动备份配置
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSnapshotSettingResponse
    */
   async getSnapshotSettingWithOptions(appName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSnapshotSettingResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3231,9 +3973,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取自动备份配置
-   *
-   * @return GetSnapshotSettingResponse
+   * 获取自动备份配置
+   * @returns GetSnapshotSettingResponse
    */
   async getSnapshotSetting(appName: string): Promise<GetSnapshotSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3242,11 +3983,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取配额审批详情
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSpecReviewTaskResponse
+   * 获取配额审批详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSpecReviewTaskResponse
    */
   async getSpecReviewTaskWithOptions(appName: string, taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSpecReviewTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3267,9 +4008,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取配额审批详情
-   *
-   * @return GetSpecReviewTaskResponse
+   * 获取配额审批详情
+   * @returns GetSpecReviewTaskResponse
    */
   async getSpecReviewTask(appName: string, taskId: string): Promise<GetSpecReviewTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3278,12 +4018,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看Serverless应用列表
-   *
-   * @param request ListAppsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAppsResponse
+   * 查看Serverless应用列表
+   * 
+   * @param request - ListAppsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppsResponse
    */
   async listAppsWithOptions(request: ListAppsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAppsResponse> {
     Util.validateModel(request);
@@ -3335,10 +4075,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看Serverless应用列表
-   *
-   * @param request ListAppsRequest
-   * @return ListAppsResponse
+   * 查看Serverless应用列表
+   * 
+   * @param request - ListAppsRequest
+   * @returns ListAppsResponse
    */
   async listApps(request: ListAppsRequest): Promise<ListAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3347,12 +4087,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取词典列表
-   *
-   * @param request ListDictsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDictsResponse
+   * 获取词典列表
+   * 
+   * @param request - ListDictsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDictsResponse
    */
   async listDictsWithOptions(appName: string, request: ListDictsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDictsResponse> {
     Util.validateModel(request);
@@ -3384,10 +4124,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取词典列表
-   *
-   * @param request ListDictsRequest
-   * @return ListDictsResponse
+   * 获取词典列表
+   * 
+   * @param request - ListDictsRequest
+   * @returns ListDictsResponse
    */
   async listDicts(appName: string, request: ListDictsRequest): Promise<ListDictsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3396,12 +4136,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取端点信息列表
-   *
-   * @param request ListEndpointsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListEndpointsResponse
+   * 获取端点信息列表
+   * 
+   * @param request - ListEndpointsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEndpointsResponse
    */
   async listEndpointsWithOptions(request: ListEndpointsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEndpointsResponse> {
     Util.validateModel(request);
@@ -3445,10 +4185,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取端点信息列表
-   *
-   * @param request ListEndpointsRequest
-   * @return ListEndpointsResponse
+   * 获取端点信息列表
+   * 
+   * @param request - ListEndpointsRequest
+   * @returns ListEndpointsResponse
    */
   async listEndpoints(request: ListEndpointsRequest): Promise<ListEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3457,11 +4197,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看索引列表
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIndicesResponse
+   * 查看索引列表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIndicesResponse
    */
   async listIndicesWithOptions(appName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndicesResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3482,9 +4222,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看索引列表
-   *
-   * @return ListIndicesResponse
+   * 查看索引列表
+   * @returns ListIndicesResponse
    */
   async listIndices(appName: string): Promise<ListIndicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3493,11 +4232,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取快照仓库列表
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSnapshotRepositoriesResponse
+   * 获取快照仓库列表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSnapshotRepositoriesResponse
    */
   async listSnapshotRepositoriesWithOptions(appName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSnapshotRepositoriesResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3518,9 +4257,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取快照仓库列表
-   *
-   * @return ListSnapshotRepositoriesResponse
+   * 获取快照仓库列表
+   * @returns ListSnapshotRepositoriesResponse
    */
   async listSnapshotRepositories(appName: string): Promise<ListSnapshotRepositoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3529,12 +4267,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取仓库的快照列表
-   *
-   * @param request ListSnapshotsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSnapshotsResponse
+   * 获取仓库的快照列表
+   * 
+   * @param request - ListSnapshotsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSnapshotsResponse
    */
   async listSnapshotsWithOptions(appName: string, request: ListSnapshotsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSnapshotsResponse> {
     Util.validateModel(request);
@@ -3574,10 +4312,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取仓库的快照列表
-   *
-   * @param request ListSnapshotsRequest
-   * @return ListSnapshotsResponse
+   * 获取仓库的快照列表
+   * 
+   * @param request - ListSnapshotsRequest
+   * @returns ListSnapshotsResponse
    */
   async listSnapshots(appName: string, request: ListSnapshotsRequest): Promise<ListSnapshotsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3586,18 +4324,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取规格审批列表
-   *
-   * @param request ListSpecReviewTasksRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSpecReviewTasksResponse
+   * 获取规格审批列表
+   * 
+   * @param request - ListSpecReviewTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSpecReviewTasksResponse
    */
   async listSpecReviewTasksWithOptions(appName: string, request: ListSpecReviewTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSpecReviewTasksResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.page)) {
       query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.size)) {
@@ -3627,10 +4373,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取规格审批列表
-   *
-   * @param request ListSpecReviewTasksRequest
-   * @return ListSpecReviewTasksResponse
+   * 获取规格审批列表
+   * 
+   * @param request - ListSpecReviewTasksRequest
+   * @returns ListSpecReviewTasksResponse
    */
   async listSpecReviewTasks(appName: string, request: ListSpecReviewTasksRequest): Promise<ListSpecReviewTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3639,12 +4385,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑Serverless应用
-   *
-   * @param request UpdateAppRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAppResponse
+   * 编辑Serverless应用
+   * 
+   * @param request - UpdateAppRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAppResponse
    */
   async updateAppWithOptions(appName: string, request: UpdateAppRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAppResponse> {
     Util.validateModel(request);
@@ -3696,10 +4442,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑Serverless应用
-   *
-   * @param request UpdateAppRequest
-   * @return UpdateAppResponse
+   * 编辑Serverless应用
+   * 
+   * @param request - UpdateAppRequest
+   * @returns UpdateAppResponse
    */
   async updateApp(appName: string, request: UpdateAppRequest): Promise<UpdateAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3708,12 +4454,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建或更新词典
-   *
-   * @param request UpdateDictRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDictResponse
+   * 创建或更新词典
+   * 
+   * @param request - UpdateDictRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDictResponse
    */
   async updateDictWithOptions(appName: string, request: UpdateDictRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDictResponse> {
     Util.validateModel(request);
@@ -3759,10 +4505,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建或更新词典
-   *
-   * @param request UpdateDictRequest
-   * @return UpdateDictResponse
+   * 创建或更新词典
+   * 
+   * @param request - UpdateDictRequest
+   * @returns UpdateDictResponse
    */
   async updateDict(appName: string, request: UpdateDictRequest): Promise<UpdateDictResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3771,12 +4517,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改端点信息
-   *
-   * @param request UpdateEndpointRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateEndpointResponse
+   * 修改端点信息
+   * 
+   * @param request - UpdateEndpointRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateEndpointResponse
    */
   async updateEndpointWithOptions(endpointId: string, request: UpdateEndpointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointResponse> {
     Util.validateModel(request);
@@ -3808,10 +4554,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改端点信息
-   *
-   * @param request UpdateEndpointRequest
-   * @return UpdateEndpointResponse
+   * 修改端点信息
+   * 
+   * @param request - UpdateEndpointRequest
+   * @returns UpdateEndpointResponse
    */
   async updateEndpoint(endpointId: string, request: UpdateEndpointRequest): Promise<UpdateEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3820,12 +4566,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改自动备份配置
-   *
-   * @param request UpdateSnapshotSettingRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSnapshotSettingResponse
+   * 修改自动备份配置
+   * 
+   * @param request - UpdateSnapshotSettingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSnapshotSettingResponse
    */
   async updateSnapshotSettingWithOptions(appName: string, request: UpdateSnapshotSettingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSnapshotSettingResponse> {
     Util.validateModel(request);
@@ -3857,10 +4603,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改自动备份配置
-   *
-   * @param request UpdateSnapshotSettingRequest
-   * @return UpdateSnapshotSettingResponse
+   * 修改自动备份配置
+   * 
+   * @param request - UpdateSnapshotSettingRequest
+   * @returns UpdateSnapshotSettingResponse
    */
   async updateSnapshotSetting(appName: string, request: UpdateSnapshotSettingRequest): Promise<UpdateSnapshotSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
