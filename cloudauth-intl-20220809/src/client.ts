@@ -1140,6 +1140,168 @@ export class FraudResultCallBackResponse extends $tea.Model {
   }
 }
 
+export class Id2MetaPeriodVerifyIntlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  docName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 411xxxxxxxxxxx0001
+   */
+  docNo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ​00000001
+   */
+  docType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e0c34a77f5ac40a5aa5e6ed20c35****
+   */
+  merchantBizId?: string;
+  /**
+   * @example
+   * 1234567890
+   */
+  merchantUserId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eKYC_Date_MIN
+   */
+  productCode?: string;
+  /**
+   * @example
+   * 1234567890
+   */
+  sceneCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20301001
+   */
+  validityEndDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20201001
+   */
+  validityStartDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docName: 'DocName',
+      docNo: 'DocNo',
+      docType: 'DocType',
+      merchantBizId: 'MerchantBizId',
+      merchantUserId: 'MerchantUserId',
+      productCode: 'ProductCode',
+      sceneCode: 'SceneCode',
+      validityEndDate: 'ValidityEndDate',
+      validityStartDate: 'ValidityStartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docName: 'string',
+      docNo: 'string',
+      docType: 'string',
+      merchantBizId: 'string',
+      merchantUserId: 'string',
+      productCode: 'string',
+      sceneCode: 'string',
+      validityEndDate: 'string',
+      validityStartDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Id2MetaPeriodVerifyIntlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 7B97D932-7FF5-517D-BF39-7CA1BEE3CDD9
+   */
+  requestId?: string;
+  result?: Id2MetaPeriodVerifyIntlResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: Id2MetaPeriodVerifyIntlResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Id2MetaPeriodVerifyIntlResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Id2MetaPeriodVerifyIntlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Id2MetaPeriodVerifyIntlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Id2MetaVerifyIntlRequest extends $tea.Model {
   /**
    * @example
@@ -1968,6 +2130,36 @@ export class FaceLivenessResponseBodyResult extends $tea.Model {
   }
 }
 
+export class Id2MetaPeriodVerifyIntlResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * Y
+   */
+  passed?: string;
+  /**
+   * @example
+   * 200
+   */
+  subCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passed: 'Passed',
+      subCode: 'SubCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passed: 'string',
+      subCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Id2MetaVerifyIntlResponseBodyResult extends $tea.Model {
   /**
    * @example
@@ -2692,6 +2884,80 @@ export default class Client extends OpenApi {
   async fraudResultCallBack(request: FraudResultCallBackRequest): Promise<FraudResultCallBackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fraudResultCallBackWithOptions(request, runtime);
+  }
+
+  /**
+   * 身份二要素有效期核验
+   * 
+   * @param request - Id2MetaPeriodVerifyIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns Id2MetaPeriodVerifyIntlResponse
+   */
+  async id2MetaPeriodVerifyIntlWithOptions(request: Id2MetaPeriodVerifyIntlRequest, runtime: $Util.RuntimeOptions): Promise<Id2MetaPeriodVerifyIntlResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.docName)) {
+      body["DocName"] = request.docName;
+    }
+
+    if (!Util.isUnset(request.docNo)) {
+      body["DocNo"] = request.docNo;
+    }
+
+    if (!Util.isUnset(request.docType)) {
+      body["DocType"] = request.docType;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      body["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!Util.isUnset(request.merchantUserId)) {
+      body["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.sceneCode)) {
+      body["SceneCode"] = request.sceneCode;
+    }
+
+    if (!Util.isUnset(request.validityEndDate)) {
+      body["ValidityEndDate"] = request.validityEndDate;
+    }
+
+    if (!Util.isUnset(request.validityStartDate)) {
+      body["ValidityStartDate"] = request.validityStartDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "Id2MetaPeriodVerifyIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<Id2MetaPeriodVerifyIntlResponse>(await this.callApi(params, req, runtime), new Id2MetaPeriodVerifyIntlResponse({}));
+  }
+
+  /**
+   * 身份二要素有效期核验
+   * 
+   * @param request - Id2MetaPeriodVerifyIntlRequest
+   * @returns Id2MetaPeriodVerifyIntlResponse
+   */
+  async id2MetaPeriodVerifyIntl(request: Id2MetaPeriodVerifyIntlRequest): Promise<Id2MetaPeriodVerifyIntlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.id2MetaPeriodVerifyIntlWithOptions(request, runtime);
   }
 
   /**
