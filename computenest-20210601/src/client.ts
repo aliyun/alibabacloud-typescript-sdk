@@ -8,6 +8,10 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CommodityValue extends $tea.Model {
+  /**
+   * @remarks
+   * Result模型。
+   */
   result?: CommodityValueResult;
   static names(): { [key: string]: string } {
     return {
@@ -28,17 +32,27 @@ export class CommodityValue extends $tea.Model {
 
 export class CancelServiceUsageRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to delete the application.
+   * 
+   * >  After you delete the application, you must re-enter the application information the next time you submit an application.
+   * 
    * @example
    * true
    */
   needDelete?: boolean;
   /**
    * @remarks
+   * The service ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -68,6 +82,9 @@ export class CancelServiceUsageRequest extends $tea.Model {
 
 export class CancelServiceUsageResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
    */
@@ -228,22 +245,33 @@ export class ChangeResourceGroupResponse extends $tea.Model {
 
 export class CheckServiceDeployableRequest extends $tea.Model {
   /**
+   * @remarks
+   * Total amount of postpaid.
+   * 
    * @example
    * 1.29
    */
   postPaidAmount?: string;
   /**
+   * @remarks
+   * Total amount of prepayment.
+   * 
    * @example
    * 0.0
    */
   prePaidAmount?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The service ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -251,11 +279,20 @@ export class CheckServiceDeployableRequest extends $tea.Model {
    */
   serviceId?: string;
   /**
+   * @remarks
+   * The service version.
+   * 
    * @example
    * 1
    */
   serviceVersion?: string;
   /**
+   * @remarks
+   * The trial type of the service instance. Valid values:
+   * 
+   * *   **Trial**: Trials are supported.
+   * *   **NotTrial**: Trials are not supported.
+   * 
    * @example
    * NotTrial
    */
@@ -288,6 +325,10 @@ export class CheckServiceDeployableRequest extends $tea.Model {
 }
 
 export class CheckServiceDeployableResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Inspection result.
+   */
   checkResults?: CheckServiceDeployableResponseBodyCheckResults[];
   /**
    * @remarks
@@ -1033,18 +1074,27 @@ export class CreateServiceInstanceResponse extends $tea.Model {
 
 export class CreateServiceUsageRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
    * @remarks
+   * The service ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * service-d6fc5f949a9246xxxxxx
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * The application information.
+   */
   userInformation?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -1069,18 +1119,27 @@ export class CreateServiceUsageRequest extends $tea.Model {
 
 export class CreateServiceUsageShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
    * @remarks
+   * The service ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * service-d6fc5f949a9246xxxxxx
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * The application information.
+   */
   userInformationShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1105,6 +1164,9 @@ export class CreateServiceUsageShrinkRequest extends $tea.Model {
 
 export class CreateServiceUsageResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
    */
@@ -1241,6 +1303,90 @@ export class DeleteServiceInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteServiceInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The available regions.
+   */
+  regions?: DescribeRegionsResponseBodyRegions[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06BF8F22-02DC-4750-83DF-3FFC11C065EA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRegionsResponseBody,
     };
   }
 
@@ -1486,7 +1632,7 @@ export class GetServiceResponseBody extends $tea.Model {
    * >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
    * 
    * @example
-   * { "TemplateUrl": "http://template.file.url", // 应用分组级别告警元数据 "ApplicationGroups": [ { "Name": "applicationGroup1", "TemplateUrl": "url1" }, { "Name": "applicationGroup2", "TemplateUrl": "url2" } ] }
+   * { "TemplateUrl": "http://template.file.url", "ApplicationGroups": [ { "Name": "applicationGroup1", "TemplateUrl": "url1" }, { "Name": "applicationGroup2", "TemplateUrl": "url2" } ] }
    */
   alarmMetadata?: string;
   /**
@@ -1564,7 +1710,7 @@ export class GetServiceResponseBody extends $tea.Model {
    * The license metadata.
    * 
    * @example
-   * {\\"PayType\\":\\"CustomFixTime\\",\\"DefaultLicenseDays\\":7,\\"CustomMetadata\\":[{\\"TemplateName\\":\\"模板1\\",\\"SpecificationName\\":\\"bandwith-0\\",\\"CustomData\\":\\"1\\"}]}
+   * {\\"PayType\\":\\"CustomFixTime\\",\\"DefaultLicenseDays\\":7,\\"CustomMetadata\\":[{\\"TemplateName\\":\\"ECS\\",\\"SpecificationName\\":\\"bandwith-0\\",\\"CustomData\\":\\"1\\"}]}
    */
   licenseMetadata?: string;
   /**
@@ -1896,22 +2042,20 @@ export class GetServiceEstimateCostRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The commodity details.
+   * The information about the subscription duration.
    */
   commodity?: GetServiceEstimateCostRequestCommodity;
   /**
    * @remarks
-   * The name of the configuration update operation.
+   * The name of the configuration change operation.
    * 
    * @example
-   * 修改游戏参数
+   * Parameter change
    */
   operationName?: string;
   /**
    * @remarks
-   * The parameters that are specified for service instance deployment.
-   * 
-   * >  If you want to specify the region in which the service instance is deployed, you must specify the information in Parameters.
+   * The parameters that are specified to deploy the service instance.
    * 
    * @example
    * { \\"RegionId\\": \\"cn-hangzhou\\", \\"InstanceType\\": \\"ecs.g5.large\\"}
@@ -1953,21 +2097,18 @@ export class GetServiceEstimateCostRequest extends $tea.Model {
   serviceVersion?: string;
   /**
    * @remarks
-   * The package name.
+   * The name of the package specification.
    * 
    * @example
-   * 自定义套餐
+   * Package 1
    */
   specificationName?: string;
   /**
    * @remarks
-   * The name of the template. This parameter is returned only if you specify TemplateId.
-   * 
-   * > -   If you specify TemplateVersion, the name of the template whose version is specified by TemplateVersion is returned.
-   * > -  If you not specify TemplateVersion, the name of the template whose version is the default version is returned.
+   * The template name.
    * 
    * @example
-   * 模板1
+   * Template 1
    */
   templateName?: string;
   /**
@@ -2029,22 +2170,20 @@ export class GetServiceEstimateCostShrinkRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The commodity details.
+   * The information about the subscription duration.
    */
   commodityShrink?: string;
   /**
    * @remarks
-   * The name of the configuration update operation.
+   * The name of the configuration change operation.
    * 
    * @example
-   * 修改游戏参数
+   * Parameter change
    */
   operationName?: string;
   /**
    * @remarks
-   * The parameters that are specified for service instance deployment.
-   * 
-   * >  If you want to specify the region in which the service instance is deployed, you must specify the information in Parameters.
+   * The parameters that are specified to deploy the service instance.
    * 
    * @example
    * { \\"RegionId\\": \\"cn-hangzhou\\", \\"InstanceType\\": \\"ecs.g5.large\\"}
@@ -2086,21 +2225,18 @@ export class GetServiceEstimateCostShrinkRequest extends $tea.Model {
   serviceVersion?: string;
   /**
    * @remarks
-   * The package name.
+   * The name of the package specification.
    * 
    * @example
-   * 自定义套餐
+   * Package 1
    */
   specificationName?: string;
   /**
    * @remarks
-   * The name of the template. This parameter is returned only if you specify TemplateId.
-   * 
-   * > -   If you specify TemplateVersion, the name of the template whose version is specified by TemplateVersion is returned.
-   * > -  If you not specify TemplateVersion, the name of the template whose version is the default version is returned.
+   * The template name.
    * 
    * @example
-   * 模板1
+   * Template 1
    */
   templateName?: string;
   /**
@@ -2154,7 +2290,7 @@ export class GetServiceEstimateCostShrinkRequest extends $tea.Model {
 export class GetServiceEstimateCostResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Estimated commodity cost.
+   * The estimated price.
    * 
    * @example
    * {\\"cmgj00059839\\": {\\"Result\\": {\\"InquiryType\\": \\"Buy\\", \\"Order\\": {\\"Currency\\": \\"CNY\\", \\"DiscountAmount\\": \\"0.0\\", \\"TradeAmount\\": \\"0.01\\", \\"OriginalAmount\\": \\"0.01\\"}}}}
@@ -2170,74 +2306,10 @@ export class GetServiceEstimateCostResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Estimated resource cost.
+   * The resources.
    * 
    * @example
-   * {
-   *     "EcsInstance" : {
-   *       "Type" : "ALIYUN::ECS::Instance",
-   *       "Success" : true,
-   *       "Result" : {
-   *         "Order" : {
-   *           "Currency" : "CNY",
-   *           "RuleIds" : [ "102111101338****" ],
-   *           "DetailInfos" : {
-   *             "ResourcePriceModel" : [ {
-   *               "OriginalPrice" : 0,
-   *               "DiscountPrice" : 0,
-   *               "SubRules" : {
-   *                 "Rule" : [ ]
-   *               },
-   *               "Resource" : "bandwidth",
-   *               "TradePrice" : 0
-   *             }, {
-   *               "OriginalPrice" : 0,
-   *               "DiscountPrice" : 0,
-   *               "SubRules" : {
-   *                 "Rule" : [ ]
-   *               },
-   *               "Resource" : "image",
-   *               "TradePrice" : 0
-   *             }, {
-   *               "OriginalPrice" : 0.366666,
-   *               "DiscountPrice" : 0.249012,
-   *               "SubRules" : {
-   *                 "Rule" : [ ]
-   *               },
-   *               "Resource" : "instanceType",
-   *               "TradePrice" : 0.117654
-   *             }, {
-   *               "OriginalPrice" : 0.055555,
-   *               "DiscountPrice" : 0.037729,
-   *               "SubRules" : {
-   *                 "Rule" : [ ]
-   *               },
-   *               "Resource" : "systemDisk",
-   *               "TradePrice" : 0.017826
-   *             } ]
-   *           },
-   *           "TradeAmount" : 0.135,
-   *           "OriginalAmount" : 0.422,
-   *           "Coupons" : {
-   *             "Coupon" : [ ]
-   *           },
-   *           "DiscountAmount" : 0.287
-   *         },
-   *         "OrderSupplement" : {
-   *           "PriceUnit" : "/Hour",
-   *           "ChargeType" : "PostPaid",
-   *           "Quantity" : 1,
-   *           "PriceType" : "Total"
-   *         },
-   *         "Rules" : {
-   *           "Rule" : [ {
-   *             "RuleDescId" : "102111101338****",
-   *             "Name" : "合同优惠_多计费项优惠_3.208750折"
-   *           } ]
-   *         }
-   *       }
-   *     }
-   *   }
+   * { "EcsInstance" : { "Type" : "ALIYUN::ECS::Instance", "Success" : true, "Result" : { "Order" : { "Currency" : "CNY", "RuleIds" : [ "102111101338\\*\\*\\*\\*" ], "DetailInfos" : { "ResourcePriceModel" : [ { "OriginalPrice" : 0, "DiscountPrice" : 0, "SubRules" : { "Rule" : [ ] }, "Resource" : "bandwidth", "TradePrice" : 0 }, { "OriginalPrice" : 0, "DiscountPrice" : 0, "SubRules" : { "Rule" : [ ] }, "Resource" : "image", "TradePrice" : 0 }, { "OriginalPrice" : 0.366666, "DiscountPrice" : 0.249012, "SubRules" : { "Rule" : [ ] }, "Resource" : "instanceType", "TradePrice" : 0.117654 }, { "OriginalPrice" : 0.055555, "DiscountPrice" : 0.037729, "SubRules" : { "Rule" : [ ] }, "Resource" : "systemDisk", "TradePrice" : 0.017826 } ] }, "TradeAmount" : 0.135, "OriginalAmount" : 0.422, "Coupons" : { "Coupon" : [ ] }, "DiscountAmount" : 0.287 }, "OrderSupplement" : { "PriceUnit" : "/Hour", "ChargeType" : "PostPaid", "Quantity" : 1, "PriceType" : "Total" }, "Rules" : { "Rule" : [ { "RuleDescId" : "102111101338\\*\\*\\*\\*", "Name" : "contract discount_multi-billing item discount_3.208750 discount" } ] } } } }
    */
   resources?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -3169,6 +3241,8 @@ export class GetServiceTemplateParameterConstraintsResponse extends $tea.Model {
 export class GetUserInformationRequest extends $tea.Model {
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3193,8 +3267,15 @@ export class GetUserInformationRequest extends $tea.Model {
 }
 
 export class GetUserInformationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The delivery settings.
+   */
   deliverySettings?: GetUserInformationResponseBodyDeliverySettings;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 52EBAF16-22F6-53DB-AE1E-44764FC62AF0
    */
@@ -3701,17 +3782,25 @@ export class ListServiceInstanceResourcesResponse extends $tea.Model {
 
 export class ListServiceInstanceUpgradeHistoryRequest extends $tea.Model {
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * BBBAAfu+XtuBE55iRLHEYYuojI4=
    */
   nextToken?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3720,6 +3809,8 @@ export class ListServiceInstanceUpgradeHistoryRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the service instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3751,25 +3842,41 @@ export class ListServiceInstanceUpgradeHistoryRequest extends $tea.Model {
 
 export class ListServiceInstanceUpgradeHistoryResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI41
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EE3EDF4E-B3B1-19B6-BD01-30D4D00F6E5D
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 2
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The upgrade history.
+   */
   upgradeHistory?: ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory[];
   static names(): { [key: string]: string } {
     return {
@@ -3982,13 +4089,23 @@ export class ListServiceInstancesResponse extends $tea.Model {
 }
 
 export class ListServiceUsagesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The filters.
+   */
   filter?: ListServiceUsagesRequestFilter[];
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * AAAAAWns8w4MmhzeptXVRG0PUEU=
    */
@@ -4016,20 +4133,33 @@ export class ListServiceUsagesRequest extends $tea.Model {
 
 export class ListServiceUsagesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * @example
    * AAAAAYChudnQUoBH+mGWFpb6oP0=
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 18AD0960-A9FE-1AC8-ADF8-22131Fxxxxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The service applications.
+   */
   serviceUsages?: ListServiceUsagesResponseBodyServiceUsages[];
   static names(): { [key: string]: string } {
     return {
@@ -4402,27 +4532,46 @@ export class ListTagKeysResponse extends $tea.Model {
 
 export class ListTagResourcesRequest extends $tea.Model {
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI4=
    */
   nextToken?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource IDs. You can specify up to 50 resource IDs.
+   */
   resourceId?: string[];
   /**
    * @remarks
+   * The resource type. Valid values:
+   * 
+   * *   service: service
+   * *   serviceinstance: service instance
+   * *   artifact: artifact
+   * 
    * This parameter is required.
    * 
    * @example
    * service
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -4451,15 +4600,25 @@ export class ListTagResourcesRequest extends $tea.Model {
 
 export class ListTagResourcesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * @example
    * AAAAAVz7BQqj2xtiNSC3d3RAD38=
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 06BF8F22-02DC-4750-83DF-3FFC11C065EA
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of resources that have tags.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {
     return {
@@ -4749,16 +4908,25 @@ export class RestartServiceInstanceResponse extends $tea.Model {
 
 export class RollbackServiceInstanceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The service instance ID.
+   * 
    * @example
    * si-d6ab3a63ccbb4bxxxxxx
    */
@@ -4786,6 +4954,9 @@ export class RollbackServiceInstanceRequest extends $tea.Model {
 
 export class RollbackServiceInstanceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
    */
@@ -5283,12 +5454,17 @@ export class UnTagResourcesResponse extends $tea.Model {
 
 export class UpdateServiceInstanceAttributesRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to authorize the service provider to perform O\\&M operations on the service instance.
+   * 
    * @example
    * true
    */
   enableOperation?: boolean;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5297,6 +5473,10 @@ export class UpdateServiceInstanceAttributesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the service instance.
+   * 
+   * You can call the [ListServiceInstances](https://help.aliyun.com/document_detail/396200.html) operation to obtain the ID of the service instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5326,6 +5506,9 @@ export class UpdateServiceInstanceAttributesRequest extends $tea.Model {
 
 export class UpdateServiceInstanceAttributesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 06BF8F22-02DC-4750-83DF-3FFC11C065EA
    */
@@ -5388,10 +5571,12 @@ export class UpdateServiceInstanceSpecRequest extends $tea.Model {
   commodity?: UpdateServiceInstanceSpecRequestCommodity;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+   * Specifies whether to perform only a dry run, without performing the actual request. A dry run includes checks on the permissions and instance state.
    * 
-   * *   **true: performs a dry run for the request, but does not create a service instance.**
-   * *   **false: performs a dry run for the request, and creates a service instance if the request passes the dry run.**
+   * Valid values:
+   * 
+   * *   true: performs a dry run but does not create a service instance.
+   * *   false: performs a dry run and creates a service instance if the request passes the dry run.
    * 
    * @example
    * true
@@ -5399,10 +5584,13 @@ export class UpdateServiceInstanceSpecRequest extends $tea.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable Prometheus on the customer side. Valid values:
+   * Specifies whether to enable Prometheus monitoring on the user side.
    * 
-   * *   **true**
-   * *   **false**
+   * Valid values:
+   * 
+   * true
+   * 
+   * false
    * 
    * @example
    * true
@@ -5410,7 +5598,9 @@ export class UpdateServiceInstanceSpecRequest extends $tea.Model {
   enableUserPrometheus?: boolean;
   /**
    * @remarks
-   * The name of the configuration update operation.
+   * The name of the configuration change operation.
+   * 
+   * To obtain the names and content of the configuration change operations of the service, you can call the [GetService](https://help.aliyun.com/document_detail/2340828.html) operation. In the response, check the value of **ModifyParametersConfig** in the value of **OperationMetadata**.
    * 
    * @example
    * package modify
@@ -5418,7 +5608,17 @@ export class UpdateServiceInstanceSpecRequest extends $tea.Model {
   operationName?: string;
   /**
    * @remarks
-   * The configuration parameters of the service instance.
+   * The configuration parameter.
+   * 
+   * This parameter is available if the service provider set **Method** to **Change Parameter** when configuring configuration change operations.
+   * 
+   * > 
+   * 
+   * *   To obtain the parameters of the service that support configuration change, you can call the [GetService](https://help.aliyun.com/document_detail/2340828.html) operation. In the response, check the value of **ModifyParametersConfig** in the value of **OperationMetadata**.
+   * 
+   * *   You can also view the parameters of the service that support configuration change in the **configuration change** dialog box in the [Compute Nest console](https://computenest.console.aliyun.com/service/instance/cn-hangzhou).
+   * 
+   * For example, if the service supports Elastic Compute Service (ECS) instance type upgrade, you must specify an instance type that has higher specifications than the current one.
    * 
    * @example
    * {
@@ -5428,7 +5628,11 @@ export class UpdateServiceInstanceSpecRequest extends $tea.Model {
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the specification package.
+   * The name of the configuration plan.
+   * 
+   * This parameter is available if the service provider set **Method** to **Change Plan** when configuring configuration change operations.
+   * 
+   * To obtain the configuration plan names of the service, you can call the [GetService](https://help.aliyun.com/document_detail/2340828.html) operation. In the response, check the value of **PredefinedParameters** in the value of **DeployMetadata**.
    * 
    * @example
    * package One
@@ -5436,7 +5640,9 @@ export class UpdateServiceInstanceSpecRequest extends $tea.Model {
   predefinedParametersName?: string;
   /**
    * @remarks
-   * The service instance ID.
+   * The ID of the service instance.
+   * 
+   * You can call the [ListServiceInstances](https://help.aliyun.com/document_detail/396200.html) operation to obtain the ID of the service instance.
    * 
    * This parameter is required.
    * 
@@ -5491,10 +5697,12 @@ export class UpdateServiceInstanceSpecShrinkRequest extends $tea.Model {
   commodity?: UpdateServiceInstanceSpecShrinkRequestCommodity;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+   * Specifies whether to perform only a dry run, without performing the actual request. A dry run includes checks on the permissions and instance state.
    * 
-   * *   **true: performs a dry run for the request, but does not create a service instance.**
-   * *   **false: performs a dry run for the request, and creates a service instance if the request passes the dry run.**
+   * Valid values:
+   * 
+   * *   true: performs a dry run but does not create a service instance.
+   * *   false: performs a dry run and creates a service instance if the request passes the dry run.
    * 
    * @example
    * true
@@ -5502,10 +5710,13 @@ export class UpdateServiceInstanceSpecShrinkRequest extends $tea.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable Prometheus on the customer side. Valid values:
+   * Specifies whether to enable Prometheus monitoring on the user side.
    * 
-   * *   **true**
-   * *   **false**
+   * Valid values:
+   * 
+   * true
+   * 
+   * false
    * 
    * @example
    * true
@@ -5513,7 +5724,9 @@ export class UpdateServiceInstanceSpecShrinkRequest extends $tea.Model {
   enableUserPrometheus?: boolean;
   /**
    * @remarks
-   * The name of the configuration update operation.
+   * The name of the configuration change operation.
+   * 
+   * To obtain the names and content of the configuration change operations of the service, you can call the [GetService](https://help.aliyun.com/document_detail/2340828.html) operation. In the response, check the value of **ModifyParametersConfig** in the value of **OperationMetadata**.
    * 
    * @example
    * package modify
@@ -5521,7 +5734,17 @@ export class UpdateServiceInstanceSpecShrinkRequest extends $tea.Model {
   operationName?: string;
   /**
    * @remarks
-   * The configuration parameters of the service instance.
+   * The configuration parameter.
+   * 
+   * This parameter is available if the service provider set **Method** to **Change Parameter** when configuring configuration change operations.
+   * 
+   * > 
+   * 
+   * *   To obtain the parameters of the service that support configuration change, you can call the [GetService](https://help.aliyun.com/document_detail/2340828.html) operation. In the response, check the value of **ModifyParametersConfig** in the value of **OperationMetadata**.
+   * 
+   * *   You can also view the parameters of the service that support configuration change in the **configuration change** dialog box in the [Compute Nest console](https://computenest.console.aliyun.com/service/instance/cn-hangzhou).
+   * 
+   * For example, if the service supports Elastic Compute Service (ECS) instance type upgrade, you must specify an instance type that has higher specifications than the current one.
    * 
    * @example
    * {
@@ -5531,7 +5754,11 @@ export class UpdateServiceInstanceSpecShrinkRequest extends $tea.Model {
   parametersShrink?: string;
   /**
    * @remarks
-   * The name of the specification package.
+   * The name of the configuration plan.
+   * 
+   * This parameter is available if the service provider set **Method** to **Change Plan** when configuring configuration change operations.
+   * 
+   * To obtain the configuration plan names of the service, you can call the [GetService](https://help.aliyun.com/document_detail/2340828.html) operation. In the response, check the value of **PredefinedParameters** in the value of **DeployMetadata**.
    * 
    * @example
    * package One
@@ -5539,7 +5766,9 @@ export class UpdateServiceInstanceSpecShrinkRequest extends $tea.Model {
   predefinedParametersName?: string;
   /**
    * @remarks
-   * The service instance ID.
+   * The ID of the service instance.
+   * 
+   * You can call the [ListServiceInstances](https://help.aliyun.com/document_detail/396200.html) operation to obtain the ID of the service instance.
    * 
    * This parameter is required.
    * 
@@ -5641,18 +5870,27 @@ export class UpdateServiceInstanceSpecResponse extends $tea.Model {
 
 export class UpdateServiceUsageRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * AAAAAYChudnQUoBH+mGWFpb6oP0=
    */
   clientToken?: string;
   /**
    * @remarks
+   * The service ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * service-39f4f251e94843xxxxxx
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * The information about the applicant.
+   */
   userInformation?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -5677,18 +5915,27 @@ export class UpdateServiceUsageRequest extends $tea.Model {
 
 export class UpdateServiceUsageShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * AAAAAYChudnQUoBH+mGWFpb6oP0=
    */
   clientToken?: string;
   /**
    * @remarks
+   * The service ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * service-39f4f251e94843xxxxxx
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * The information about the applicant.
+   */
   userInformationShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5713,6 +5960,9 @@ export class UpdateServiceUsageShrinkRequest extends $tea.Model {
 
 export class UpdateServiceUsageResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
    */
@@ -5760,9 +6010,15 @@ export class UpdateServiceUsageResponse extends $tea.Model {
 }
 
 export class UpdateUserInformationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The modified delivery settings.
+   */
   deliverySettings?: UpdateUserInformationRequestDeliverySettings;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5790,6 +6046,9 @@ export class UpdateUserInformationRequest extends $tea.Model {
 
 export class UpdateUserInformationResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 51945B04-6AA6-410D-93BA-236E0248B104
    */
@@ -5838,31 +6097,52 @@ export class UpdateUserInformationResponse extends $tea.Model {
 
 export class UpgradeServiceInstanceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+   * 
+   * *   **true**: performs a dry run for the request, but does not upgrade service instance.
+   * *   **false**: performs a dry run for the request, and upgrade service instance if the request passes the dry run.
+   * 
    * @example
    * true
    */
   dryRun?: string;
   /**
+   * @remarks
+   * The parameters required for the upgrade. This parameter is required if the destination version of the service has new parameters.
+   * 
    * @example
    * { \\"RegionId\\": \\"cn-hangzhou\\", \\"InstanceType\\": \\"ecs.g5.large\\"}
    */
   parameters?: { [key: string]: any };
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the service instance.
+   * 
    * @example
    * si-d6ab3a63ccbb4bxxxxxx
    */
   serviceInstanceId?: string;
   /**
+   * @remarks
+   * The destination version.
+   * 
    * @example
    * 2
    */
@@ -5896,31 +6176,52 @@ export class UpgradeServiceInstanceRequest extends $tea.Model {
 
 export class UpgradeServiceInstanceShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+   * 
+   * *   **true**: performs a dry run for the request, but does not upgrade service instance.
+   * *   **false**: performs a dry run for the request, and upgrade service instance if the request passes the dry run.
+   * 
    * @example
    * true
    */
   dryRun?: string;
   /**
+   * @remarks
+   * The parameters required for the upgrade. This parameter is required if the destination version of the service has new parameters.
+   * 
    * @example
    * { \\"RegionId\\": \\"cn-hangzhou\\", \\"InstanceType\\": \\"ecs.g5.large\\"}
    */
   parametersShrink?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the service instance.
+   * 
    * @example
    * si-d6ab3a63ccbb4bxxxxxx
    */
   serviceInstanceId?: string;
   /**
+   * @remarks
+   * The destination version.
+   * 
    * @example
    * 2
    */
@@ -5954,10 +6255,17 @@ export class UpgradeServiceInstanceShrinkRequest extends $tea.Model {
 
 export class UpgradeServiceInstanceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The parameters required for the upgrade. This parameter is returned only if DryRun is set to true in the request. You can specify the required parameters based on the returned value when you perform an actual request.
+   */
   upgradeRequiredParameters?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6004,9 +6312,37 @@ export class UpgradeServiceInstanceResponse extends $tea.Model {
 }
 
 export class CommodityValueResultOrder extends $tea.Model {
+  /**
+   * @remarks
+   * 货币代码。
+   * 
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @remarks
+   * 优惠后。
+   * 
+   * @example
+   * 9.99
+   */
   tradeAmount?: string;
+  /**
+   * @remarks
+   * 抵扣金额。
+   * 
+   * @example
+   * 1.99
+   */
   discountAmount?: string;
+  /**
+   * @remarks
+   * 优惠前。
+   * 
+   * @example
+   * 11.98
+   */
   originalAmount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6032,10 +6368,50 @@ export class CommodityValueResultOrder extends $tea.Model {
 }
 
 export class CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs extends $tea.Model {
+  /**
+   * @remarks
+   * 属性类型，可选值：
+   * 
+   * 1. 1：商品属性 
+   * 2. 2：规格属性 
+   * 3. 3：模块属性 
+   * 4. 4：外部参数（备用）
+   * 
+   * @example
+   * 3
+   */
   type?: number;
+  /**
+   * @remarks
+   * Name
+   * 
+   * @example
+   * 20GB
+   */
   name?: string;
+  /**
+   * @remarks
+   * Module attr code
+   * 
+   * @example
+   * rds_storage
+   */
   code?: string;
+  /**
+   * @remarks
+   * Value
+   * 
+   * @example
+   * 20
+   */
   value?: string;
+  /**
+   * @remarks
+   * Unit
+   * 
+   * @example
+   * GB
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6063,16 +6439,90 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs exte
 }
 
 export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $tea.Model {
+  /**
+   * @remarks
+   * 模块ID。
+   * 
+   * @example
+   * 1234
+   */
   moduleId?: number;
+  /**
+   * @remarks
+   * 模块名称。
+   * 
+   * @example
+   * Rds
+   */
   moduleName?: string;
+  /**
+   * @remarks
+   * 模块代码。
+   * 
+   * @example
+   * rds_dbtype
+   */
   moduleCode?: string;
+  /**
+   * @remarks
+   * 产品原价（元）。
+   * 
+   * @example
+   * 10.00
+   */
   totalProductFee?: number;
+  /**
+   * @remarks
+   * 折扣费用（元）。
+   * 
+   * @example
+   * 1.99
+   */
   discountFee?: number;
+  /**
+   * @remarks
+   * 实付金额（元）。
+   * 
+   * @example
+   * 8.01
+   */
   payFee?: number;
+  /**
+   * @remarks
+   * 价格单位。
+   * 
+   * @example
+   * 元/GB/小时
+   */
   priceUnit?: string;
+  /**
+   * @remarks
+   * 是否计价项。
+   * 
+   * @example
+   * true
+   */
   isPricingModule?: boolean;
+  /**
+   * @remarks
+   * 在订单中是否需要支付。
+   * 
+   * @example
+   * true
+   */
   needOrderPay?: boolean;
+  /**
+   * @remarks
+   * 定价类型。
+   * 
+   * @example
+   * hourPrice
+   */
   priceType?: string;
+  /**
+   * @remarks
+   * 模块属性。
+   */
   moduleAttrs?: CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs[];
   static names(): { [key: string]: string } {
     return {
@@ -6112,6 +6562,10 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $tea.Mo
 }
 
 export class CommodityValueResultSubOrdersSubOrder extends $tea.Model {
+  /**
+   * @remarks
+   * 模块（实例）信息。
+   */
   moduleInstance?: CommodityValueResultSubOrdersSubOrderModuleInstance[];
   static names(): { [key: string]: string } {
     return {
@@ -6131,6 +6585,10 @@ export class CommodityValueResultSubOrdersSubOrder extends $tea.Model {
 }
 
 export class CommodityValueResultSubOrders extends $tea.Model {
+  /**
+   * @remarks
+   * 订单子项。
+   */
   subOrder?: CommodityValueResultSubOrdersSubOrder[];
   static names(): { [key: string]: string } {
     return {
@@ -6150,10 +6608,45 @@ export class CommodityValueResultSubOrders extends $tea.Model {
 }
 
 export class CommodityValueResultCoupons extends $tea.Model {
+  /**
+   * @remarks
+   * 可支付金额。
+   * 
+   * @example
+   * 9.99
+   */
   canPromFee?: number;
+  /**
+   * @remarks
+   * Coupon Description
+   * 
+   * @example
+   * 10元优惠券（有效期至2024年9月8日）
+   */
   couponDesc?: string;
+  /**
+   * @remarks
+   * Coupon Name
+   * 
+   * @example
+   * 10元优惠券
+   */
   couponName?: string;
+  /**
+   * @remarks
+   * Coupon OptionNo
+   * 
+   * @example
+   * 50008800000xxxx
+   */
   couponOptionNo?: string;
+  /**
+   * @remarks
+   * 是否选中。
+   * 
+   * @example
+   * true
+   */
   selected?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6181,9 +6674,30 @@ export class CommodityValueResultCoupons extends $tea.Model {
 }
 
 export class CommodityValueResult extends $tea.Model {
+  /**
+   * @remarks
+   * 订单信息。
+   */
   order?: CommodityValueResultOrder;
+  /**
+   * @remarks
+   * 询价类型，可选值：
+   * 1. Buy：新购询价。
+   * 2. ModificationBuy：变配询价。
+   * 
+   * @example
+   * Buy
+   */
   inquiryType?: string;
+  /**
+   * @remarks
+   * 订单子项。
+   */
   subOrders?: CommodityValueResultSubOrders;
+  /**
+   * @remarks
+   * 优惠券。
+   */
   coupons?: CommodityValueResultCoupons[];
   static names(): { [key: string]: string } {
     return {
@@ -6210,16 +6724,29 @@ export class CommodityValueResult extends $tea.Model {
 
 export class CheckServiceDeployableResponseBodyCheckResults extends $tea.Model {
   /**
+   * @remarks
+   * Returns a hint message for the result.
+   * 
    * @example
    * ""
    */
   message?: string;
   /**
+   * @remarks
+   * Check type, invalid values:
+   * 
+   * - Balance ：Account balance.
+   * 
+   * - Quota:  Account quota.
+   * 
    * @example
    * Balance
    */
   type?: string;
   /**
+   * @remarks
+   * Inspection result.
+   * 
    * @example
    * true
    */
@@ -6658,6 +7185,42 @@ export class CreateServiceInstanceShrinkRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+  /**
+   * @remarks
+   * The region endpoint.
+   * 
+   * @example
+   * computenest.cn-hangzhou.aliyuncs.com
+   */
+  regionEndpoint?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionEndpoint: 'RegionEndpoint',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionEndpoint: 'string',
+      regionId: 'string',
     };
   }
 
@@ -7261,6 +7824,13 @@ export class GetServiceResponseBodyTags extends $tea.Model {
 }
 
 export class GetServiceEstimateCostRequestCommodity extends $tea.Model {
+  /**
+   * @remarks
+   * 优惠券ID
+   * 
+   * @example
+   * 302070970220
+   */
   couponId?: string;
   /**
    * @remarks
@@ -8357,26 +8927,47 @@ export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstrai
 
 export class GetUserInformationResponseBodyDeliverySettings extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether screencast delivery to OSS is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   actiontrailDeliveryToOssEnabled?: boolean;
   /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
    * @example
    * 0101data
    */
   ossBucketName?: string;
   /**
+   * @remarks
+   * Indicates whether screencast delivery to Object Storage Service (OSS) is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   ossEnabled?: boolean;
   /**
+   * @remarks
+   * The number of days for which the screencasts are saved.
+   * 
    * @example
    * 7
    */
   ossExpirationDays?: number;
   /**
+   * @remarks
+   * The OSS path.
+   * 
    * @example
    * /test
    */
@@ -8781,41 +9372,69 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $tea.Mode
 
 export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends $tea.Model {
   /**
+   * @remarks
+   * The time when the update ended.
+   * 
    * @example
    * 2022-04-26T09:09:51Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The version before the upgrade.
+   * 
    * @example
    * 1
    */
   fromVersion?: string;
   /**
+   * @remarks
+   * The upgrade result.
+   * 
    * @example
    * {\\"PreUpgradeExecutionId\\":\\"exec-123\\"}
    */
   results?: string;
   /**
+   * @remarks
+   * The time when the update started.
+   * 
    * @example
    * 2022-04-26T08:09:51Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The state of the update. Valid values:
+   * 
+   * *   upgrading: The service instance is being upgraded.
+   * *   UpgradeSuccessful: The service instance is upgraded.
+   * *   UpgradeFailed: The service instance failed to be upgraded.
+   * 
    * @example
    * UpgradeFailed
    */
   status?: string;
   /**
+   * @remarks
+   * The version after the upgrade.
+   * 
    * @example
    * 3
    */
   toVersion?: string;
   /**
+   * @remarks
+   * The update type.
+   * 
    * @example
    * Upgrade
    */
   type?: string;
   /**
+   * @remarks
+   * The ID of the upgrade record.
+   * 
    * @example
    * exec-123
    */
@@ -9480,10 +10099,22 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $tea.Model
 
 export class ListServiceUsagesRequestFilter extends $tea.Model {
   /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * 
+   * *   ServiceId: the ID of the service.
+   * *   ServiceName: the service name.
+   * *   Status: the state of the service.
+   * *   SupplierName: the name of the service provider.
+   * 
    * @example
    * ServiceId
    */
   name?: string;
+  /**
+   * @remarks
+   * The parameter values of the filter.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -9505,34 +10136,79 @@ export class ListServiceUsagesRequestFilter extends $tea.Model {
 }
 
 export class ListServiceUsagesResponseBodyServiceUsages extends $tea.Model {
+  /**
+   * @remarks
+   * The review comment.
+   * 
+   * @example
+   * Approved
+   */
   comments?: string;
   /**
+   * @remarks
+   * The time when the application was created.
+   * 
    * @example
    * 2022-05-25T02:02:02Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The service ID.
+   * 
    * @example
    * service-c9f36ec6d19b4exxxxxx
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * LobeChat社区版
+   */
   serviceName?: string;
   /**
+   * @remarks
+   * The state of the service application. Valid values:
+   * 
+   * *   Submitted: The application is submitted for review.
+   * *   Approved: The application is approved.
+   * *   Rejected: The application is rejected.
+   * *   Canceled: The application is canceled.
+   * 
    * @example
    * Submitted
    */
   status?: string;
+  /**
+   * @remarks
+   * The name of the service provider.
+   * 
+   * @example
+   * TestSupplier
+   */
   supplierName?: string;
   /**
+   * @remarks
+   * The time when the application was updated.
+   * 
    * @example
    * 2022-05-25T02:02:02Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
    * @example
    * 127383705958xxxx
    */
   userAliUid?: number;
+  /**
+   * @remarks
+   * The information about the applicant.
+   */
   userInformation?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -10042,11 +10718,17 @@ export class ListServicesResponseBodyServices extends $tea.Model {
 
 export class ListTagResourcesRequestTag extends $tea.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value1
    */
@@ -10072,21 +10754,37 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 
 export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * si-44b9923be2d048eb8f5f
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * *   service: service
+   * *   serviceinstance: service instance
+   * *   artifact: artifact
+   * 
    * @example
    * serviceinstance
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The key of the tag.
+   * 
    * @example
    * test
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The values of the tags.
+   * 
    * @example
    * major
    */
@@ -10153,10 +10851,12 @@ export class TagResourcesRequestTag extends $tea.Model {
 export class UpdateServiceInstanceSpecRequestCommodity extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to automatically complete the payment. Valid values:
+   * Specifies whether to enable automatic payment.
    * 
-   * *   **true**
-   * *   **false**
+   * Valid values:
+   * 
+   * *   **true (default)**: automatically completes the payment. You must make sure that your account balance is sufficient.
+   * *   **false**: does not automatically complete the payment. An unpaid order is generated. If your account balance is insufficient, you can set AutoPay to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.[](https://rdsnext.console.aliyun.com/dashboard/cn-beijing)
    * 
    * @example
    * true
@@ -10182,10 +10882,12 @@ export class UpdateServiceInstanceSpecRequestCommodity extends $tea.Model {
 export class UpdateServiceInstanceSpecShrinkRequestCommodity extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to automatically complete the payment. Valid values:
+   * Specifies whether to enable automatic payment.
    * 
-   * *   **true**
-   * *   **false**
+   * Valid values:
+   * 
+   * *   **true (default)**: automatically completes the payment. You must make sure that your account balance is sufficient.
+   * *   **false**: does not automatically complete the payment. An unpaid order is generated. If your account balance is insufficient, you can set AutoPay to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.[](https://rdsnext.console.aliyun.com/dashboard/cn-beijing)
    * 
    * @example
    * true
@@ -10210,26 +10912,47 @@ export class UpdateServiceInstanceSpecShrinkRequestCommodity extends $tea.Model 
 
 export class UpdateUserInformationRequestDeliverySettings extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to enable screencast delivery to OSS. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   actiontrailDeliveryToOssEnabled?: boolean;
   /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
    * @example
    * "mybucket"
    */
   ossBucketName?: string;
   /**
+   * @remarks
+   * Specifies whether to enable screencast delivery to Object Storage Service (OSS). Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   ossEnabled?: boolean;
   /**
+   * @remarks
+   * The number of days for which the screencasts are saved.
+   * 
    * @example
    * 7
    */
   ossExpirationDays?: number;
   /**
+   * @remarks
+   * The OSS path.
+   * 
    * @example
    * "path1/path2/"
    */
@@ -10283,7 +11006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户取消服务使用请求
+   * Cancels the application for using a service.
    * 
    * @param request - CancelServiceUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10322,7 +11045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户取消服务使用请求
+   * Cancels the application for using a service.
    * 
    * @param request - CancelServiceUsageRequest
    * @returns CancelServiceUsageResponse
@@ -10637,7 +11360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户创建服务使用请求
+   * Creates an application for using a service.
    * 
    * @param tmpReq - CreateServiceUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10682,7 +11405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户创建服务使用请求
+   * Creates an application for using a service.
    * 
    * @param request - CreateServiceUsageRequest
    * @returns CreateServiceUsageResponse
@@ -10740,6 +11463,48 @@ export default class Client extends OpenApi {
   async deleteServiceInstances(request: DeleteServiceInstancesRequest): Promise<DeleteServiceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteServiceInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * List available regions.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+  }
+
+  /**
+   * List available regions.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRegionsWithOptions(request, runtime);
   }
 
   /**
@@ -10867,7 +11632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 计算巢服务部署询价
+   * Queries the estimated price for creating a service instance.
    * 
    * @param tmpReq - GetServiceEstimateCostRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10948,7 +11713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 计算巢服务部署询价
+   * Queries the estimated price for creating a service instance.
    * 
    * @param request - GetServiceEstimateCostRequest
    * @returns GetServiceEstimateCostResponse
@@ -11159,9 +11924,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a customer.
    * 
-   *  * @param request GetUserInformationRequest
-   * 
+   * @param request - GetUserInformationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserInformationResponse
    */
@@ -11190,8 +11955,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a customer.
    * 
-   *  * @param request GetUserInformationRequest
+   * @param request - GetUserInformationRequest
    * @returns GetUserInformationResponse
    */
   async getUserInformation(request: GetUserInformationRequest): Promise<GetUserInformationResponse> {
@@ -11380,7 +12146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看服务实例升级历史
+   * Queries the upgrade history of a service instance.
    * 
    * @param request - ListServiceInstanceUpgradeHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11423,7 +12189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看服务实例升级历史
+   * Queries the upgrade history of a service instance.
    * 
    * @param request - ListServiceInstanceUpgradeHistoryRequest
    * @returns ListServiceInstanceUpgradeHistoryResponse
@@ -11496,7 +12262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户查询服务使用申请接口
+   * Queries the applications for using a service.
    * 
    * @param request - ListServiceUsagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11535,7 +12301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户查询服务使用申请接口
+   * Queries the applications for using a service.
    * 
    * @param request - ListServiceUsagesRequest
    * @returns ListServiceUsagesResponse
@@ -11620,6 +12386,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询标签键列表
+   * 
    * @param request - ListTagKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagKeysResponse
@@ -11657,6 +12425,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询标签键列表
+   * 
    * @param request - ListTagKeysRequest
    * @returns ListTagKeysResponse
    */
@@ -11666,6 +12436,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询标签资源列表
+   * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
@@ -11711,6 +12483,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询标签资源列表
+   * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
    */
@@ -11720,6 +12494,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询标签值列表
+   * 
    * @param request - ListTagValuesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagValuesResponse
@@ -11761,6 +12537,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询标签值列表
+   * 
    * @param request - ListTagValuesRequest
    * @returns ListTagValuesResponse
    */
@@ -11820,7 +12598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 回滚服务实例
+   * Rolls back an upgraded service instance to the previous version.
    * 
    * @param request - RollbackServiceInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11859,7 +12637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 回滚服务实例
+   * Rolls back an upgraded service instance to the previous version.
    * 
    * @param request - RollbackServiceInstanceRequest
    * @returns RollbackServiceInstanceResponse
@@ -11970,6 +12748,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 给资源打标签
+   * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
@@ -12011,6 +12791,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 给资源打标签
+   * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
    */
@@ -12020,6 +12802,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 给资源解除标签
+   * 
    * @param request - UnTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnTagResourcesResponse
@@ -12065,6 +12849,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 给资源解除标签
+   * 
    * @param request - UnTagResourcesRequest
    * @returns UnTagResourcesResponse
    */
@@ -12074,7 +12860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新服务实例属性
+   * Updates the attributes of a service instance.
    * 
    * @param request - UpdateServiceInstanceAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12113,7 +12899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新服务实例属性
+   * Updates the attributes of a service instance.
    * 
    * @param request - UpdateServiceInstanceAttributesRequest
    * @returns UpdateServiceInstanceAttributesResponse
@@ -12124,6 +12910,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Changes the configurations of a service instance.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Configuration change is enabled and the related parameters are configured for the service by the service provider.
+   * 
    * @param tmpReq - UpdateServiceInstanceSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceInstanceSpecResponse
@@ -12187,6 +12979,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Changes the configurations of a service instance.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Configuration change is enabled and the related parameters are configured for the service by the service provider.
+   * 
    * @param request - UpdateServiceInstanceSpecRequest
    * @returns UpdateServiceInstanceSpecResponse
    */
@@ -12196,7 +12994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户更新服务使用请求
+   * Updates the application for using a service.
    * 
    * @param tmpReq - UpdateServiceUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12241,7 +13039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户更新服务使用请求
+   * Updates the application for using a service.
    * 
    * @param request - UpdateServiceUsageRequest
    * @returns UpdateServiceUsageResponse
@@ -12252,7 +13050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新用户全局信息
+   * Updates the information about a customer.
    * 
    * @param request - UpdateUserInformationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12287,7 +13085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新用户全局信息
+   * Updates the information about a customer.
    * 
    * @param request - UpdateUserInformationRequest
    * @returns UpdateUserInformationResponse
@@ -12298,7 +13096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 升级服务实例
+   * Upgrades the version of a service instance.
    * 
    * @param tmpReq - UpgradeServiceInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12355,7 +13153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 升级服务实例
+   * Upgrades the version of a service instance.
    * 
    * @param request - UpgradeServiceInstanceRequest
    * @returns UpgradeServiceInstanceResponse
