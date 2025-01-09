@@ -196,6 +196,7 @@ export class BatchSendMailRequest extends $tea.Model {
    * 0
    */
   clickTrace?: string;
+  headers?: string;
   ownerId?: number;
   /**
    * @remarks
@@ -229,6 +230,7 @@ export class BatchSendMailRequest extends $tea.Model {
       accountName: 'AccountName',
       addressType: 'AddressType',
       clickTrace: 'ClickTrace',
+      headers: 'Headers',
       ownerId: 'OwnerId',
       receiversName: 'ReceiversName',
       replyAddress: 'ReplyAddress',
@@ -247,6 +249,7 @@ export class BatchSendMailRequest extends $tea.Model {
       accountName: 'string',
       addressType: 'number',
       clickTrace: 'string',
+      headers: 'string',
       ownerId: 'number',
       receiversName: 'string',
       replyAddress: 'string',
@@ -908,6 +911,13 @@ export class CreateTagResponse extends $tea.Model {
 }
 
 export class CreateUserSuppressionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Email address or domain name
+   * 
+   * @example
+   * test@example.net
+   */
   address?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -936,7 +946,21 @@ export class CreateUserSuppressionRequest extends $tea.Model {
 }
 
 export class CreateUserSuppressionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 1A846D66-5EC7-551B-9687-5BF1963DCFC1
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Invalid address number
+   * 
+   * @example
+   * 59511
+   */
   suppressionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1600,83 +1624,149 @@ export class DescAccountSummaryRequest extends $tea.Model {
 
 export class DescAccountSummaryResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Daily quota
+   * 
    * @example
    * 2000
    */
   dailyQuota?: number;
+  /**
+   * @remarks
+   * remaining amount of daily free quota
+   * 
+   * @example
+   * 100
+   */
   dailyRemainFreeQuota?: number;
   /**
+   * @remarks
+   * Dayu status (deprecated, retained for compatibility reasons.)
+   * 
    * @example
    * 0
    */
   dayuStatus?: number;
   /**
+   * @remarks
+   * Number of domains
+   * 
    * @example
    * 1
    */
   domains?: number;
   /**
+   * @remarks
+   * Effective time
+   * 
    * @example
    * 0
    */
   enableTimes?: number;
   /**
+   * @remarks
+   * Number of sending addresses
+   * 
    * @example
    * 0
    */
   mailAddresses?: number;
   /**
+   * @remarks
+   * Maximum level
+   * 
    * @example
    * 10
    */
   maxQuotaLevel?: number;
   /**
+   * @remarks
+   * Monthly quota
+   * 
    * @example
    * 60000
    */
   monthQuota?: number;
   /**
+   * @remarks
+   * Credit level
+   * 
    * @example
    * 2
    */
   quotaLevel?: number;
   /**
+   * @remarks
+   * Number of recipients
+   * 
    * @example
    * 0
    */
   receivers?: number;
+  /**
+   * @remarks
+   * Remaining amount of total free quota
+   * 
+   * @example
+   * 1910
+   */
   remainFreeQuota?: number;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 82B295BB-7E69-491F-9896-ECEAFF09E1A4
    */
   requestId?: string;
   /**
+   * @remarks
+   * Deprecated, retained for compatibility reasons.
+   * 
    * @example
    * 0
    */
   smsRecord?: number;
   /**
+   * @remarks
+   * Deprecated, retained for compatibility reasons.
+   * 
    * @example
    * 0
    */
   smsSign?: number;
   /**
+   * @remarks
+   * Deprecated, retained for compatibility reasons.
+   * 
    * @example
    * 0
    */
   smsTemplates?: number;
   /**
+   * @remarks
+   * Number of tags
+   * 
    * @example
    * 0
    */
   tags?: number;
   /**
+   * @remarks
+   * Number of templates
+   * 
    * @example
    * 1
    */
   templates?: number;
   /**
+   * @remarks
+   * User status:
+   * 1 Frozen
+   * 2 In arrears
+   * 4 Restricted from sending
+   * 8 Logically deleted
+   * 
    * @example
    * 0
    */
@@ -1760,6 +1850,8 @@ export class DescAccountSummaryResponse extends $tea.Model {
 export class DescDomainRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1767,6 +1859,13 @@ export class DescDomainRequest extends $tea.Model {
    */
   domainId?: number;
   ownerId?: number;
+  /**
+   * @remarks
+   * Determine whether to perform real-time DNS resolution
+   * 
+   * @example
+   * true
+   */
   requireRealTimeDnsRecords?: boolean;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1797,110 +1896,243 @@ export class DescDomainRequest extends $tea.Model {
 
 export class DescDomainResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Track verification
+   * 
    * @example
    * 1
    */
   cnameAuthStatus?: string;
   /**
+   * @remarks
+   * CName verification flag, success: 0, failure: 1.
+   * 
    * @example
    * 0
    */
   cnameConfirmStatus?: string;
   /**
+   * @remarks
+   * CNAME records
+   * 
    * @example
    * dmtrace
    */
   cnameRecord?: string;
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 2019-09-29T12:49Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Default domain name
+   * 
    * @example
    * 0
    */
   defaultDomain?: string;
+  /**
+   * @remarks
+   * DKIM validation flag, success: 0, failure: 1.
+   * 
+   * @example
+   * 0
+   */
   dkimAuthStatus?: string;
+  /**
+   * @remarks
+   * DKIM public key
+   * 
+   * @example
+   * v=DKIM1; k=rsa; p=MIGfMA0GCSqGSI...
+   */
   dkimPublicKey?: string;
+  /**
+   * @remarks
+   * DKIM HostRecord
+   * 
+   * @example
+   * aliyun-cn-hangzhou._domainkey.hangzhou26
+   */
   dkimRR?: string;
+  /**
+   * @remarks
+   * DMARC validation flag, success: 0, failure: 1.
+   * 
+   * @example
+   * 1
+   */
   dmarcAuthStatus?: number;
+  /**
+   * @remarks
+   * DMARC host record
+   * 
+   * @example
+   * _dmarc.xxx
+   */
   dmarcHostRecord?: string;
+  /**
+   * @remarks
+   * DMARC record
+   * 
+   * @example
+   * v=DMARC1;p=none;rua=mailto:dmarc_report@service.aliyun.com
+   */
   dmarcRecord?: string;
+  /**
+   * @remarks
+   * dmarc record value resolved through public DNS
+   * 
+   * @example
+   * v=DMARC1;p=none;rua=mailto:dmarc_report@service.aliyun.com
+   */
   dnsDmarc?: string;
   /**
+   * @remarks
+   * MX record value resolved through public DNS
+   * 
    * @example
    * abc-com.xxxx.com
    */
   dnsMx?: string;
   /**
+   * @remarks
+   * SPF record value resolved through public DNS
+   * 
    * @example
    * v=xxxx
    */
   dnsSpf?: string;
   /**
+   * @remarks
+   * TXT record value resolved through public DNS.
+   * 
    * @example
    * 121309ohdsa
    */
   dnsTxt?: string;
   /**
+   * @remarks
+   * The ID of the domain name.
+   * 
    * @example
    * 158910
    */
   domainId?: string;
   /**
+   * @remarks
+   * domain
+   * 
    * @example
-   * abc.com
+   * example.net
    */
   domainName?: string;
   /**
+   * @remarks
+   * The status of the domain name. Indicates whether the domain name is verified and available. Valid values:
+   * 
+   * 0: indicates that the domain name is verified and available.
+   * 
+   * 1: indicates that the domain name fails to be verified and is unavailable.
+   * 
+   * 2: indicates that the domain name is available, but not filed or configured with a CNAME record.
+   * 
+   * 3: indicates that the domain name is available but not filed.
+   * 
+   * 4: indicates that the domain name is available but not configured with a CNAME record.
+   * 
    * @example
    * 1
    */
   domainStatus?: string;
   /**
+   * @remarks
+   * TXT records provided by the Direct Mail console.
+   * 
    * @example
    * 0c40d5f125af4e42892a
    */
   domainType?: string;
+  /**
+   * @remarks
+   * host record
+   * 
+   * @example
+   * xxx
+   */
   hostRecord?: string;
   /**
+   * @remarks
+   * Filing status. 1 indicates that it has been filed, and 0 indicates that it has not been filed.
+   * 
    * @example
    * 1
    */
   icpStatus?: string;
   /**
+   * @remarks
+   * MX validation flag, success: 0, failure: 1.
+   * 
    * @example
    * 1
    */
   mxAuthStatus?: string;
   /**
+   * @remarks
+   * MX record
+   * 
    * @example
    * mx01.dm.aliyun.com
    */
   mxRecord?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 51B74264-46B4-43C8-A9A0-6B8E8BC04F34
    */
   requestId?: string;
   /**
+   * @remarks
+   * SPF validation flag, success: 0, failure: 1.
+   * 
    * @example
    * 1
    */
   spfAuthStatus?: string;
   /**
+   * @remarks
+   * Spf record
+   * 
    * @example
    * include:spf1.dm.aliyun.com
    */
   spfRecord?: string;
+  /**
+   * @remarks
+   * SpfRecord
+   * 
+   * @example
+   * v=spf1 include:spf1.dm.aliyun.com -all
+   */
   spfRecordV2?: string;
   /**
+   * @remarks
+   * The primary domain name.
+   * 
    * @example
-   * abc.com
+   * example.net
    */
   tlDomainName?: string;
   /**
+   * @remarks
+   * The CNAME verification record provided by the Direct Mail console.
+   * 
    * @example
    * tracedm.aliyuncs.com
    */
@@ -2571,8 +2803,15 @@ export class GetTrackListByMailFromAndTagNameResponse extends $tea.Model {
 }
 
 export class GetUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Returned Content
+   */
   data?: GetUserResponseBodyData;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 10A1AD70-E48E-476D-98D9-39BD92193837
    */
@@ -2623,27 +2862,42 @@ export class GetUserResponse extends $tea.Model {
 
 export class ListUserSuppressionRequest extends $tea.Model {
   /**
+   * @remarks
+   * Email address or domain name
+   * 
    * @example
    * test@example.net
    */
   address?: string;
   /**
+   * @remarks
+   * End time of the last bounce hit, timestamp, accurate to the second. The span between start and end times cannot exceed 7 days.
+   * 
    * @example
    * 1715669077
    */
   endBounceTime?: number;
   /**
+   * @remarks
+   * End creation time, timestamp, accurate to the second. The span between start and end times cannot exceed 7 days.
+   * 
    * @example
    * 1715669077
    */
   endCreateTime?: number;
   ownerId?: number;
   /**
+   * @remarks
+   * Current page number
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 10
    */
@@ -2651,11 +2905,17 @@ export class ListUserSuppressionRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * Start time of the last bounce hit, timestamp, accurate to the second.
+   * 
    * @example
    * 1715668852
    */
   startBounceTime?: number;
   /**
+   * @remarks
+   * Start creation time, timestamp, accurate to the second.
+   * 
    * @example
    * 1715668852
    */
@@ -2696,23 +2956,39 @@ export class ListUserSuppressionRequest extends $tea.Model {
 }
 
 export class ListUserSuppressionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Returned results.
+   */
   data?: ListUserSuppressionResponseBodyData;
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 1A846D66-5EC7-551B-9687-5BF1963DCFC1
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total count
+   * 
    * @example
    * 2
    */
@@ -3948,6 +4224,10 @@ export class RemoveUserSuppressionRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * 59511
+   */
   suppressionIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3973,6 +4253,10 @@ export class RemoveUserSuppressionRequest extends $tea.Model {
 }
 
 export class RemoveUserSuppressionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1A846D66-5EC7-551B-9687-5BF1963DCFC1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4365,21 +4649,33 @@ export class SenderStatisticsByTagNameAndBatchIDResponse extends $tea.Model {
 
 export class SenderStatisticsDetailByParamRequest extends $tea.Model {
   /**
+   * @remarks
+   * Sending address. Not filled in represents all addresses.
+   * 
    * @example
    * s***@example.net
    */
   accountName?: string;
   /**
+   * @remarks
+   * The end time. The difference between the start time and the end time cannot exceed 30 days. Format: yyyy-MM-dd.
+   * 
    * @example
    * 2021-04-29 00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The number of entries to return in the request. Valid values: 1 to 100.
+   * 
    * @example
    * 5
    */
   length?: number;
   /**
+   * @remarks
+   * The start position of the next page. The offset for the request. If you want to obtain more records, specify the return value of the NextStart parameter for this parameter.
+   * 
    * @example
    * 90f0243616#203#a***@example.net-1658817837#a***@example.net.247475288187
    */
@@ -4388,21 +4684,33 @@ export class SenderStatisticsDetailByParamRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The start time. The start time can be up to 30 days earlier than the current time. Format: yyyy-MM-dd.
+   * 
    * @example
    * 2021-04-28 00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The delivery status. If you leave this parameter empty, all states are included. Valid values: 0: successful, 2 invalid email address, 3: spam, and 4: failed.
+   * 
    * @example
    * 0
    */
   status?: number;
   /**
+   * @remarks
+   * The email tag. If you leave this parameter empty, all email tags are included.
+   * 
    * @example
    * EmailQuestionnaireHelioscam
    */
   tagName?: string;
   /**
+   * @remarks
+   * The recipient address. If you leave this parameter empty, all recipient addresses are included.
+   * 
    * @example
    * b***@example.net
    */
@@ -4446,15 +4754,25 @@ export class SenderStatisticsDetailByParamRequest extends $tea.Model {
 
 export class SenderStatisticsDetailByParamResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The start position of the next page. The return value of the NextStart parameter indicates the start position of the next page. If you want to obtain more records, specify the return value in the next request.
+   * 
    * @example
    * 90f0243616#203#a***@example.net-1658817689#a***@example.net.247141122178
    */
   nextStart?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * B5AB8EBB-EE64-4BB2-B085-B92CC5DEDC41
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   data?: SenderStatisticsDetailByParamResponseBodyData;
   static names(): { [key: string]: string } {
     return {
@@ -4600,6 +4918,7 @@ export class SingleSendMailRequest extends $tea.Model {
    */
   clickTrace?: string;
   fromAlias?: string;
+  headers?: string;
   /**
    * @example
    * body
@@ -4656,6 +4975,7 @@ export class SingleSendMailRequest extends $tea.Model {
       addressType: 'AddressType',
       clickTrace: 'ClickTrace',
       fromAlias: 'FromAlias',
+      headers: 'Headers',
       htmlBody: 'HtmlBody',
       ownerId: 'OwnerId',
       replyAddress: 'ReplyAddress',
@@ -4678,6 +4998,7 @@ export class SingleSendMailRequest extends $tea.Model {
       addressType: 'number',
       clickTrace: 'string',
       fromAlias: 'string',
+      headers: 'string',
       htmlBody: 'string',
       ownerId: 'number',
       replyAddress: 'string',
@@ -4835,6 +5156,10 @@ export class UpdateIpProtectionResponse extends $tea.Model {
 }
 
 export class UpdateUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * User Information
+   */
   user?: UpdateUserRequestUser;
   static names(): { [key: string]: string } {
     return {
@@ -4854,6 +5179,10 @@ export class UpdateUserRequest extends $tea.Model {
 }
 
 export class UpdateUserShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * User Information
+   */
   userShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5187,6 +5516,9 @@ export class GetTrackListByMailFromAndTagNameResponseBodyTrackList extends $tea.
 
 export class GetUserResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Whether EventBridge is enabled
+   * 
    * @example
    * true
    */
@@ -5210,29 +5542,45 @@ export class GetUserResponseBodyData extends $tea.Model {
 
 export class ListUserSuppressionResponseBodyDataUserSuppressions extends $tea.Model {
   /**
+   * @remarks
+   * Email address or domain name
+   * 
    * @example
    * test@example.net
    */
   address?: string;
   /**
+   * @remarks
+   * Creation time, timestamp, accurate to the second.
+   * 
    * @example
    * 1715667435
    */
   createTime?: number;
   /**
+   * @remarks
+   * Last bounce hit time, timestamp, accurate to the second.
+   * 
    * @example
    * 1715667451
    */
   lastBounceTime?: number;
   /**
+   * @remarks
+   * Invalid address ID
+   * 
    * @example
    * 59511
    */
   suppressionId?: number;
   /**
-   * @example
+   * @remarks
+   * Source of entry, invalid address type
    * - system
    * - user
+   * 
+   * @example
+   * user
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -5982,33 +6330,70 @@ export class SenderStatisticsByTagNameAndBatchIDResponseBodyData extends $tea.Mo
 
 export class SenderStatisticsDetailByParamResponseBodyDataMailDetail extends $tea.Model {
   /**
+   * @remarks
+   * The sender address.
+   * 
    * @example
    * s***@example.net
    */
   accountName?: string;
+  /**
+   * @remarks
+   * Detailed classification of error causes:
+   * 
+   * - SendOk
+   * - SmtpNxBox
+   * 
+   * etc.
+   * 
+   * @example
+   * SendOk
+   */
   errorClassification?: string;
   /**
+   * @remarks
+   * The most recent update time.
+   * 
    * @example
    * 2021-04-28T17:11Z
    */
   lastUpdateTime?: string;
   /**
+   * @remarks
+   * The details of the email.
+   * 
    * @example
    * 250 Send Mail OK
    */
   message?: string;
   /**
+   * @remarks
+   * The delivery status. Valid values: 0: successful, 2 invalid email address, 3: spam, and 4: failed.
+   * 
    * @example
    * 0
    */
   status?: number;
+  /**
+   * @remarks
+   * the subject of email.
+   * 
+   * @example
+   * test subject
+   */
   subject?: string;
   /**
+   * @remarks
+   * The recipient address.
+   * 
    * @example
    * b***@example.net
    */
   toAddress?: string;
   /**
+   * @remarks
+   * The most recent update time (timestamp format)
+   * 
    * @example
    * 1619601108
    */
@@ -6065,6 +6450,9 @@ export class SenderStatisticsDetailByParamResponseBodyData extends $tea.Model {
 
 export class UpdateUserRequestUser extends $tea.Model {
   /**
+   * @remarks
+   * Whether EventBridge is enabled
+   * 
    * @example
    * true
    */
@@ -6237,6 +6625,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clickTrace)) {
       query["ClickTrace"] = request.clickTrace;
+    }
+
+    if (!Util.isUnset(request.headers)) {
+      query["Headers"] = request.headers;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -6656,7 +7048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建用户无效地址
+   * Create User\\"s Invalid Address
    * 
    * @param request - CreateUserSuppressionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6699,7 +7091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建用户无效地址
+   * Create User\\"s Invalid Address
    * 
    * @param request - CreateUserSuppressionRequest
    * @returns CreateUserSuppressionResponse
@@ -7096,6 +7488,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieve account information.
+   * 
    * @param request - DescAccountSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescAccountSummaryResponse
@@ -7133,6 +7527,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieve account information.
+   * 
    * @param request - DescAccountSummaryRequest
    * @returns DescAccountSummaryResponse
    */
@@ -7530,7 +7926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取账号详情
+   * Get Account Details
    * 
    * @param request - GetUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7553,7 +7949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取账号详情
+   * Get Account Details
    * @returns GetUserResponse
    */
   async getUser(): Promise<GetUserResponse> {
@@ -7562,7 +7958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出用户无效地址
+   * List User Invalid Addresses.
    * 
    * @param request - ListUserSuppressionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7629,7 +8025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出用户无效地址
+   * List User Invalid Addresses.
    * 
    * @param request - ListUserSuppressionRequest
    * @returns ListUserSuppressionResponse
@@ -8693,6 +9089,10 @@ export default class Client extends OpenApi {
       query["FromAlias"] = request.fromAlias;
     }
 
+    if (!Util.isUnset(request.headers)) {
+      query["Headers"] = request.headers;
+    }
+
     if (!Util.isUnset(request.htmlBody)) {
       query["HtmlBody"] = request.htmlBody;
     }
@@ -8828,7 +9228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新帐号信息
+   * Update account information
    * 
    * @param tmpReq - UpdateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8865,7 +9265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新帐号信息
+   * Update account information
    * 
    * @param request - UpdateUserRequest
    * @returns UpdateUserResponse
