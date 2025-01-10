@@ -1634,6 +1634,7 @@ export class CreateAutoscalingConfigRequest extends $tea.Model {
    * 0
    */
   minReplicaCount?: number;
+  priorities?: { [key: string]: string[] };
   /**
    * @remarks
    * Specifies whether to delete the corresponding Kubernetes node objects after nodes are removed in swift mode. For more information about the swift mode, see [Scaling mode](https://help.aliyun.com/document_detail/119099.html). Default value: false Valid values:
@@ -1728,6 +1729,7 @@ export class CreateAutoscalingConfigRequest extends $tea.Model {
       gpuUtilizationThreshold: 'gpu_utilization_threshold',
       maxGracefulTerminationSec: 'max_graceful_termination_sec',
       minReplicaCount: 'min_replica_count',
+      priorities: 'priorities',
       recycleNodeDeletionEnabled: 'recycle_node_deletion_enabled',
       scaleDownEnabled: 'scale_down_enabled',
       scaleUpFromZero: 'scale_up_from_zero',
@@ -1748,6 +1750,7 @@ export class CreateAutoscalingConfigRequest extends $tea.Model {
       gpuUtilizationThreshold: 'string',
       maxGracefulTerminationSec: 'number',
       minReplicaCount: 'number',
+      priorities: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
       recycleNodeDeletionEnabled: 'boolean',
       scaleDownEnabled: 'boolean',
       scaleUpFromZero: 'boolean',
@@ -9989,7 +9992,7 @@ export class GetClusterCheckResponse extends $tea.Model {
 export class GetClusterDiagnosisCheckItemsRequest extends $tea.Model {
   /**
    * @remarks
-   * 查询语言。
+   * The query language.
    * 
    * @example
    * zh_CN
@@ -10093,7 +10096,7 @@ export class GetClusterDiagnosisCheckItemsResponse extends $tea.Model {
 export class GetClusterDiagnosisResultRequest extends $tea.Model {
   /**
    * @remarks
-   * 查询语言。
+   * The query language.
    * 
    * @example
    * zh_CN
@@ -10541,7 +10544,7 @@ export class InstallClusterAddonsResponseBody extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 48BD70F6-A7E6-543D-9F23-08DEB764C92E
@@ -10549,7 +10552,7 @@ export class InstallClusterAddonsResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the job.
+   * The ID of the task.
    * 
    * @example
    * T-5a54309c80282e39ea00002f
@@ -10993,7 +10996,7 @@ export class ListOperationPlansRequest extends $tea.Model {
 export class ListOperationPlansResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The operation plans.
+   * The list of auto O\\&M execution plans.
    */
   plans?: ListOperationPlansResponseBodyPlans[];
   static names(): { [key: string]: string } {
@@ -13908,17 +13911,26 @@ export class UnInstallClusterAddonsRequest extends $tea.Model {
 export class UnInstallClusterAddonsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 集群ID。
+   * The ID of the cluster.
+   * 
+   * @example
+   * c5b5e80b0b64a4bf6939d2d8fbbc5****
    */
   clusterId?: string;
   /**
    * @remarks
-   * 请求ID。
+   * The ID of the request.
+   * 
+   * @example
+   * 74D1512F-67DA-54E8-99EA-4D50EB4898F4
    */
   requestId?: string;
   /**
    * @remarks
-   * 任务ID。
+   * The ID of the task.
+   * 
+   * @example
+   * T-66e39b39c0fdd001320005c0
    */
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -14163,10 +14175,10 @@ export class UntagResourcesResponse extends $tea.Model {
 export class UpdateClusterAuditLogConfigRequest extends $tea.Model {
   /**
    * @remarks
-   * Enable or disable the audit log feature.
+   * Enable or disable audit logging.
    * 
-   * *   false: enables the audit log feature or updates the audit log configuration.
-   * *   true: disables the audit log feature.
+   * *   false: enables audit logging or updates the audit logging configurations.
+   * *   true: disables audit logging.
    * 
    * @example
    * false
@@ -14174,11 +14186,11 @@ export class UpdateClusterAuditLogConfigRequest extends $tea.Model {
   disable?: boolean;
   /**
    * @remarks
-   * The [SLS project](https://help.aliyun.com/zh/sls/product-overview/project?spm=a2c4g.11186623.0.i3) to which the [Logstore](https://help.aliyun.com/zh/sls/product-overview/logstore?spm=a2c4g.11186623.0.0.48287ce0jAUWWM) belongs.
+   * The [Simple Log Service project](https://help.aliyun.com/document_detail/48873.html) to which the [Logstore](https://help.aliyun.com/document_detail/48873.html) that stores the cluster audit logs belongs.
    * 
    * *   Default value: k8s-log-{clusterid}.
    * *   After the cluster audit log feature is enabled, a Logstore is created in the specified SLS project to store the cluster audit logs.
-   * *   If you want to change the project after the cluster audit log feature is enabled, you can use this parameter to specify another SLS project. You can perform this operation only in ACK managed clusters.
+   * *   If you want to change the project after audit logging is enabled for the cluster, you can use this parameter to specify another project. You can perform this operation only in ACK managed clusters.
    * 
    * @example
    * k8s-log-c82e6987e2961451182edacd74faf****
@@ -26866,6 +26878,13 @@ export class ListOperationPlansResponseBodyPlans extends $tea.Model {
    * cluster
    */
   targetType?: string;
+  /**
+   * @remarks
+   * The ID of the task generated by the execution plan.
+   * 
+   * @example
+   * T-6764d027be846d01310006b1
+   */
   taskId?: string;
   /**
    * @remarks
@@ -29827,6 +29846,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.minReplicaCount)) {
       body["min_replica_count"] = request.minReplicaCount;
+    }
+
+    if (!Util.isUnset(request.priorities)) {
+      body["priorities"] = request.priorities;
     }
 
     if (!Util.isUnset(request.recycleNodeDeletionEnabled)) {
@@ -34172,7 +34195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the auto O\\&M schedules of a cluster.
+   * Queries the automated maintenance schedules of a cluster.
    * 
    * @param request - ListOperationPlansRequest
    * @param headers - map
@@ -34209,7 +34232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the auto O\\&M schedules of a cluster.
+   * Queries the automated maintenance schedules of a cluster.
    * 
    * @param request - ListOperationPlansRequest
    * @returns ListOperationPlansResponse
@@ -36060,7 +36083,7 @@ export default class Client extends OpenApi {
    * You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
    * 
    * @remarks
-   * Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.aliyun.com/price/product#/sls/detail/sls) (SLS).
+   * Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing) (SLS).
    * 
    * @param request - UpdateClusterAuditLogConfigRequest
    * @param headers - map
@@ -36100,7 +36123,7 @@ export default class Client extends OpenApi {
    * You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
    * 
    * @remarks
-   * Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.aliyun.com/price/product#/sls/detail/sls) (SLS).
+   * Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing) (SLS).
    * 
    * @param request - UpdateClusterAuditLogConfigRequest
    * @returns UpdateClusterAuditLogConfigResponse
