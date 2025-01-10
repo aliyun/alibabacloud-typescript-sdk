@@ -1439,6 +1439,87 @@ export class CreateAccountResponse extends $tea.Model {
   }
 }
 
+export class CreateBackupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
+  backupJobId?: number;
+  /**
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupJobId: 'BackupJobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupJobId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBackupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBackupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCollectionRequest extends $tea.Model {
   /**
    * @remarks
@@ -1488,7 +1569,7 @@ export class CreateCollectionRequest extends $tea.Model {
   externalStorage?: number;
   /**
    * @remarks
-   * Fields used for full-text search, separated by commas (,). These fields must be keys defined in Metadata.
+   * The fields used for full-text search. Separate multiple fields with commas (,). These fields must be keys defined in Metadata.
    * 
    * @example
    * title,content
@@ -1554,15 +1635,21 @@ export class CreateCollectionRequest extends $tea.Model {
    * {"title":"text","content":"text","response":"int"}
    */
   metadata?: string;
+  /**
+   * @remarks
+   * The scalar index fields. Separate multiple fields with commas (,). These fields must be keys defined in Metadata.
+   * 
+   * @example
+   * title
+   */
   metadataIndices?: string;
   /**
    * @remarks
-   * Method used when building the vector index.
+   * The method that is used to create vector indexes. Valid values:
    * 
-   * Value description:
-   * - **l2**: Euclidean distance.
-   * - **ip**: Inner product (dot product) distance.
-   * - **cosine** (default): Cosine similarity.
+   * *   l2: Euclidean distance.
+   * *   ip: inner product distance.
+   * *   cosine: cosine similarity.
    * 
    * @example
    * cosine
@@ -1668,7 +1755,7 @@ export class CreateCollectionRequest extends $tea.Model {
 export class CreateCollectionResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Return message.
+   * The returned message.
    * 
    * @example
    * create successfully
@@ -2768,7 +2855,7 @@ export class CreateDBResourceGroupResponse extends $tea.Model {
 export class CreateDocumentCollectionRequest extends $tea.Model {
   /**
    * @remarks
-   * Name of the document library to be created.
+   * The name of the document collection that you want to create.
    * 
    * > The name must comply with PostgreSQL object naming restrictions.
    * 
@@ -2780,7 +2867,7 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
    * 
@@ -2792,23 +2879,37 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Vectorization algorithm.
+   * The vectorization algorithm.
    * 
-   * > Supported algorithms:
-   * > - text-embedding-v1: 1536 dimensions
-   * > - text-embedding-v2: 1536 dimensions
-   * > - text2vec: 1024 dimensions
-   * > - m3e-base: 768 dimensions
-   * > - m3e-small: 512 dimensions
-   * > - clip-vit-b-32: CLIP ViT-B/32 model, 512 dimensions, image vectorization algorithm
-   * > - clip-vit-b-16: CLIP ViT-B/16 model, 512 dimensions, image vectorization algorithm
-   * > - clip-vit-l-14: CLIP ViT-L/14 model, 768 dimensions, image vectorization algorithm
-   * > - clip-vit-l-14-336px: CLIP ViT-L/14@336px model, 768 dimensions, image vectorization algorithm
-   * > - clip-rn50: CLIP RN50 model, 1024 dimensions, image vectorization algorithm
-   * > - clip-rn101: CLIP RN101 model, 512 dimensions, image vectorization algorithm
-   * > - clip-rn50x4: CLIP RN50x4 model, 640 dimensions, image vectorization algorithm
-   * > - clip-rn50x16: CLIP RN50x16 model, 768 dimensions, image vectorization algorithm
-   * > - clip-rn50x64: CLIP RN50x64 model, 1024 dimensions, image vectorization algorithm
+   * >  Supported algorithms:
+   * 
+   * *   text-embedding-v1: the algorithm that produces 1536-dimensional vectors.
+   * 
+   * *   text-embedding-v2: the algorithm that produces 1536-dimensional vectors.
+   * 
+   * *   text2vec: the algorithm that produces 1024-dimensional vectors.
+   * 
+   * *   m3e-base: the algorithm that produces 768-dimensional vectors.
+   * 
+   * *   m3e-small: the algorithm that produces 512-dimensional vectors.
+   * 
+   * *   clip-vit-b-32: the image vectorization algorithm that uses the Contrastive Language-Image Pre-Training (CLIP) ViT-B/32 model and produces 512-dimensional vectors.
+   * 
+   * *   clip-vit-b-16: the image vectorization algorithm that uses the CLIP ViT-B/16 model and produces 512-dimensional vectors.
+   * 
+   * *   clip-vit-l-14: the image vectorization algorithm that uses the CLIP ViT-L/14 model and produces 768-dimensional vectors.
+   * 
+   * *   clip-vit-l-14-336px: the image vectorization algorithm that uses the CLIP ViT-L/14@336px model and produces 768-dimensional vectors.
+   * 
+   * *   clip-rn50: the image vectorization algorithm that uses the CLIP RN50 model and produces 1024-dimensional vectors.
+   * 
+   * *   clip-rn101: the image vectorization algorithm that uses the CLIP RN101 model and produces 512-dimensional vectors.
+   * 
+   * *   clip-rn50x4: the image vectorization algorithm that uses the CLIP RN50x4 model and produces 640-dimensional vectors.
+   * 
+   * *   clip-rn50x16: the image vectorization algorithm that uses the CLIP RN50x16 model and produces 768-dimensional vectors.
+   * 
+   * *   clip-rn50x64: the image vectorization algorithm that uses the CLIP RN50x64 model and produces 1024-dimensional vectors.
    * 
    * @example
    * text-embedding-v1
@@ -2816,11 +2917,13 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   embeddingModel?: string;
   /**
    * @remarks
-   * Whether to use mmap to build HNSW index, default is 0. If the data does not need to be deleted and there are requirements for the speed of uploading data, it is recommended to set this to 1.
+   * Specifies whether to use the memory mapping technology to create HNSW indexes. Valid values: 0 and 1. Default value: 0. We recommend that you set the value to 1 in scenarios that require upload speed but not data deletion.
    * 
    * > 
-   * > - When set to 0, segment-page storage will be used by default to build the index. This mode can use PostgreSQL\\"s shared_buffer as a cache and supports operations such as deletion and updates.
-   * > - When set to 1, the index will be built using mmap. This mode does not support deletion or update operations.
+   * 
+   * *   0: uses segmented paging storage to create indexes. This method uses the shared buffer of PostgreSQL for caching and supports the delete and update operations.
+   * 
+   * *   1: uses the memory mapping technology to create indexes. This method does not support the delete or update operation.
    * 
    * @example
    * 0
@@ -2828,7 +2931,7 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   externalStorage?: number;
   /**
    * @remarks
-   * Fields used for full-text search, separated by commas (,). These fields must be keys defined in Metadata.
+   * The fields used for full-text search. Separate multiple fields with commas (,). These fields must be keys defined in Metadata.
    * 
    * @example
    * title,page
@@ -2836,8 +2939,17 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   fullTextRetrievalFields?: string;
   /**
    * @remarks
-   * The maximum number of neighbors in the HNSW algorithm, ranging from 1 to 1000. The interface will automatically set this value based on the vector dimension, and it generally does not need to be manually configured.
-   * > It is recommended to set according to the vector dimension: >- For dimensions less than or equal to 384: 16 >- For dimensions greater than 384 but less than or equal to 768: 32 >- For dimensions greater than 768 but less than or equal to 1024: 64 >- For dimensions greater than 1024: 128
+   * The maximum number of neighbors for the Hierarchical Navigable Small World (HNSW) algorithm. Valid values: 1 to 1000. In most cases, this parameter is automatically configured based on the value of the Dimension parameter. You do not need to configure this parameter.
+   * 
+   * >  We recommend that you configure this parameter based on the value of the Dimension parameter.
+   * 
+   * *   If you set Dimension to a value less than or equal to 384, set the value of HnswM to 16.
+   * 
+   * *   If you set Dimension to a value greater than 384 and less than or equal to 768, set the value of HnswM to 32.
+   * 
+   * *   If you set Dimension to a value greater than 768 and less than or equal to 1024, set the value of HnswM to 64.
+   * 
+   * *   If you set Dimension to a value greater than 1024, set the value of HnswM to 128.
    * 
    * @example
    * 64
@@ -2845,7 +2957,7 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   hnswM?: number;
   /**
    * @remarks
-   * Name of the management account with rds_superuser permissions.
+   * The name of the manager account that has the rds_superuser permission.
    * 
    * > You can create an account through the console -> Account Management, or by using the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) API.
    * 
@@ -2857,7 +2969,7 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   managerAccount?: string;
   /**
    * @remarks
-   * Management account password.
+   * The password of the management account.
    * 
    * This parameter is required.
    * 
@@ -2867,11 +2979,11 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   managerAccountPassword?: string;
   /**
    * @remarks
-   * Metadata of vector data, in the form of a MAP JSON string. The key represents the field name, and the value represents the data type.
+   * The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
    * 
-   * > Supported data types
-   * > - For a list of data types, see: [Data Types](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/developer-reference/data-types-1/).
-   * > - The money type is not supported at this time.
+   * > Supported data types:
+   * > - For information about data types, see: [Data Types](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/developer-reference/data-types-1/).
+   * > - The money type is not supported.
    * 
    * >Warning: The fields id, vector, doc_name, content, loader_metadata, source, and to_tsvector are reserved and should not be used.
    * 
@@ -2879,15 +2991,20 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
    * {"title":"text","page":"int"}
    */
   metadata?: string;
+  /**
+   * @example
+   * title
+   */
   metadataIndices?: string;
   /**
    * @remarks
-   * Method used when building the vector index.
+   * The method that is used to create vector indexes.
    * 
-   * Value description:
-   * - **l2**: Euclidean distance.
-   * - **ip**: Inner product (dot product) distance.
-   * - **cosine** (default): Cosine similarity.
+   * Valid values:
+   * 
+   * *   **l2**: Euclidean distance.
+   * *   **ip**: inner product distance.
+   * *   **cosine** (default): cosine similarity.
    * 
    * @example
    * cosine
@@ -2895,9 +3012,9 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   metrics?: string;
   /**
    * @remarks
-   * Namespace, default is public.
+   * The name of the namespace. Default value: public.
    * 
-   * > You can create a namespace using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
+   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
    * 
    * @example
    * mynamespace
@@ -2906,7 +3023,7 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Tokenizer used for full-text search, default is zh_cn.
+   * The analyzer that is used for full-text search. Default value: zh_cn.
    * 
    * @example
    * zh_cn
@@ -2914,9 +3031,10 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   parser?: string;
   /**
    * @remarks
-   * Whether to enable PQ (Product Quantization) algorithm for index acceleration. It is recommended to enable this when the data volume exceeds 500,000. Value description:
-   * - 0: Disabled.
-   * - 1: Enabled (default).
+   * Specifies whether to enable the product quantization (PQ) feature for index acceleration. We recommend that you enable this feature for more than 500,000 rows of data. Valid values:
+   * 
+   * *   0: no.
+   * *   1 (default): yes.
    * 
    * @example
    * 1
@@ -2924,7 +3042,7 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   pqEnable?: number;
   /**
    * @remarks
-   * ID of the region where the instance is located.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -2982,7 +3100,7 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
 export class CreateDocumentCollectionResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Return message.
+   * The returned message.
    * 
    * @example
    * Successful
@@ -2990,7 +3108,7 @@ export class CreateDocumentCollectionResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -2998,9 +3116,9 @@ export class CreateDocumentCollectionResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * API execution status, with the following values:
-   * - **success**: Execution succeeded.
-   * - **fail**: Execution failed.
+   * The status of the operation. Valid values:
+   * - **success**
+   * - **fail**
    * 
    * @example
    * successs
@@ -5910,6 +6028,90 @@ export class DeleteAccountResponse extends $tea.Model {
   }
 }
 
+export class DeleteBackupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1111111111
+   */
+  backupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupId: 'BackupId',
+      DBInstanceId: 'DBInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupId: 'string',
+      DBInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBackupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBackupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBackupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBackupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteCollectionRequest extends $tea.Model {
   /**
    * @remarks
@@ -8677,6 +8879,132 @@ export class DescribeAvailableResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAvailableResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
+  backupJobId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupJobId: 'BackupJobId',
+      DBInstanceId: 'DBInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupJobId: 'number',
+      DBInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1111111111
+   */
+  backupId?: string;
+  /**
+   * @example
+   * 123
+   */
+  backupJobId?: string;
+  /**
+   * @example
+   * Automated
+   */
+  backupMode?: string;
+  /**
+   * @example
+   * backup
+   */
+  backupStatus?: string;
+  /**
+   * @example
+   * 50%
+   */
+  process?: string;
+  /**
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2023-01-03T16:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupId: 'BackupId',
+      backupJobId: 'BackupJobId',
+      backupMode: 'BackupMode',
+      backupStatus: 'BackupStatus',
+      process: 'Process',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupId: 'string',
+      backupJobId: 'string',
+      backupMode: 'string',
+      backupStatus: 'string',
+      process: 'string',
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBackupJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeBackupJobResponseBody,
     };
   }
 
@@ -20842,6 +21170,90 @@ export class InitVectorDatabaseResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: InitVectorDatabaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBackupJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * Automated
+   */
+  backupMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupMode: 'BackupMode',
+      DBInstanceId: 'DBInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupMode: 'string',
+      DBInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBackupJobsResponseBody extends $tea.Model {
+  items?: ListBackupJobsResponseBodyItems;
+  /**
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: ListBackupJobsResponseBodyItems,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBackupJobsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBackupJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBackupJobsResponseBody,
     };
   }
 
@@ -40524,6 +40936,76 @@ export class HandleActiveSQLRecordResponseBodyResults extends $tea.Model {
   }
 }
 
+export class ListBackupJobsResponseBodyItemsBackupJob extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
+  backupJobId?: string;
+  /**
+   * @example
+   * Automated
+   */
+  backupMode?: string;
+  /**
+   * @example
+   * Success
+   */
+  backupStatus?: string;
+  /**
+   * @example
+   * 50%
+   */
+  process?: string;
+  /**
+   * @example
+   * 2022-08-11T09:26:43Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupJobId: 'BackupJobId',
+      backupMode: 'BackupMode',
+      backupStatus: 'BackupStatus',
+      process: 'Process',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupJobId: 'string',
+      backupMode: 'string',
+      backupStatus: 'string',
+      process: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBackupJobsResponseBodyItems extends $tea.Model {
+  backupJob?: ListBackupJobsResponseBodyItemsBackupJob[];
+  static names(): { [key: string]: string } {
+    return {
+      backupJob: 'BackupJob',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupJob: { 'type': 'array', 'itemType': ListBackupJobsResponseBodyItemsBackupJob },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCollectionsResponseBodyCollections extends $tea.Model {
   collection?: string[];
   static names(): { [key: string]: string } {
@@ -43467,6 +43949,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建备份
+   * 
+   * @param request - CreateBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBackupResponse
+   */
+  async createBackupWithOptions(request: CreateBackupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBackup",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBackupResponse>(await this.callApi(params, req, runtime), new CreateBackupResponse({}));
+  }
+
+  /**
+   * 创建备份
+   * 
+   * @param request - CreateBackupRequest
+   * @returns CreateBackupResponse
+   */
+  async createBackup(request: CreateBackupRequest): Promise<CreateBackupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBackupWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a vector collection.
    * 
    * @param request - CreateCollectionRequest
@@ -43927,7 +44451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Knowledge Base
+   * Creates a document collection.
    * 
    * @param request - CreateDocumentCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44018,7 +44542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Knowledge Base
+   * Creates a document collection.
    * 
    * @param request - CreateDocumentCollectionRequest
    * @returns CreateDocumentCollectionResponse
@@ -45016,6 +45540,52 @@ export default class Client extends OpenApi {
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除备份
+   * 
+   * @param request - DeleteBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBackupResponse
+   */
+  async deleteBackupWithOptions(request: DeleteBackupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBackup",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBackupResponse>(await this.callApi(params, req, runtime), new DeleteBackupResponse({}));
+  }
+
+  /**
+   * 删除备份
+   * 
+   * @param request - DeleteBackupRequest
+   * @returns DeleteBackupResponse
+   */
+  async deleteBackup(request: DeleteBackupRequest): Promise<DeleteBackupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBackupWithOptions(request, runtime);
   }
 
   /**
@@ -46244,6 +46814,52 @@ export default class Client extends OpenApi {
   async describeAvailableResources(request: DescribeAvailableResourcesRequest): Promise<DescribeAvailableResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取备份任务详情
+   * 
+   * @param request - DescribeBackupJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupJobResponse
+   */
+  async describeBackupJobWithOptions(request: DescribeBackupJobRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupJobId)) {
+      query["BackupJobId"] = request.backupJobId;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupJob",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupJobResponse>(await this.callApi(params, req, runtime), new DescribeBackupJobResponse({}));
+  }
+
+  /**
+   * 获取备份任务详情
+   * 
+   * @param request - DescribeBackupJobRequest
+   * @returns DescribeBackupJobResponse
+   */
+  async describeBackupJob(request: DescribeBackupJobRequest): Promise<DescribeBackupJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeBackupJobWithOptions(request, runtime);
   }
 
   /**
@@ -50778,6 +51394,52 @@ export default class Client extends OpenApi {
   async initVectorDatabase(request: InitVectorDatabaseRequest): Promise<InitVectorDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.initVectorDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取备份任务列表
+   * 
+   * @param request - ListBackupJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBackupJobsResponse
+   */
+  async listBackupJobsWithOptions(request: ListBackupJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListBackupJobsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupMode)) {
+      query["BackupMode"] = request.backupMode;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListBackupJobs",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBackupJobsResponse>(await this.callApi(params, req, runtime), new ListBackupJobsResponse({}));
+  }
+
+  /**
+   * 获取备份任务列表
+   * 
+   * @param request - ListBackupJobsRequest
+   * @returns ListBackupJobsResponse
+   */
+  async listBackupJobs(request: ListBackupJobsRequest): Promise<ListBackupJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBackupJobsWithOptions(request, runtime);
   }
 
   /**
