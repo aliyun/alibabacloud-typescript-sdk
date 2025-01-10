@@ -8181,6 +8181,7 @@ export class CreateGreyTagRouteResponse extends $tea.Model {
 }
 
 export class CreateIngressRequest extends $tea.Model {
+  addressType?: string;
   /**
    * @remarks
    * The ID of the certificate that is associated with the **CLB** instance.
@@ -8270,6 +8271,7 @@ export class CreateIngressRequest extends $tea.Model {
    * clb
    */
   loadBalanceType?: string;
+  loadBalancerEdition?: string;
   /**
    * @remarks
    * The ID of the namespace where the application is located. Currently, cross-namespace applications are not supported.
@@ -8322,14 +8324,14 @@ export class CreateIngressRequest extends $tea.Model {
    * 
    * >  The SLB instance can be a Classic Load Balancer (CLB) instance or an Application Load Balancer (ALB) instance.
    * 
-   * This parameter is required.
-   * 
    * @example
    * lb-uf6hucc7inlqrtcq5****
    */
   slbId?: string;
+  zoneMappings?: string;
   static names(): { [key: string]: string } {
     return {
+      addressType: 'AddressType',
       certId: 'CertId',
       certIds: 'CertIds',
       defaultRule: 'DefaultRule',
@@ -8343,16 +8345,19 @@ export class CreateIngressRequest extends $tea.Model {
       listenerPort: 'ListenerPort',
       listenerProtocol: 'ListenerProtocol',
       loadBalanceType: 'LoadBalanceType',
+      loadBalancerEdition: 'LoadBalancerEdition',
       namespaceId: 'NamespaceId',
       requestTimeout: 'RequestTimeout',
       rules: 'Rules',
       securityPolicyId: 'SecurityPolicyId',
       slbId: 'SlbId',
+      zoneMappings: 'ZoneMappings',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      addressType: 'string',
       certId: 'string',
       certIds: 'string',
       defaultRule: 'string',
@@ -8366,11 +8371,13 @@ export class CreateIngressRequest extends $tea.Model {
       listenerPort: 'number',
       listenerProtocol: 'string',
       loadBalanceType: 'string',
+      loadBalancerEdition: 'string',
       namespaceId: 'string',
       requestTimeout: 'number',
       rules: 'string',
       securityPolicyId: 'string',
       slbId: 'string',
+      zoneMappings: 'string',
     };
   }
 
@@ -34991,6 +34998,7 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
    * 87***35-cn-hangzhou,812***3-cn-hangzhou
    */
   certIds?: string;
+  createdBySae?: boolean;
   /**
    * @remarks
    * The forwarding rules.
@@ -35105,6 +35113,7 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
     return {
       certId: 'CertId',
       certIds: 'CertIds',
+      createdBySae: 'CreatedBySae',
       defaultRule: 'DefaultRule',
       description: 'Description',
       enableXForwardedFor: 'EnableXForwardedFor',
@@ -35131,6 +35140,7 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
     return {
       certId: 'string',
       certIds: 'string',
+      createdBySae: 'boolean',
       defaultRule: DescribeIngressResponseBodyDataDefaultRule,
       description: 'string',
       enableXForwardedFor: 'boolean',
@@ -42721,6 +42731,10 @@ export default class Client extends OpenApi {
   async createIngressWithOptions(request: CreateIngressRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIngressResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
     if (!Util.isUnset(request.certId)) {
       query["CertId"] = request.certId;
     }
@@ -42773,6 +42787,10 @@ export default class Client extends OpenApi {
       query["LoadBalanceType"] = request.loadBalanceType;
     }
 
+    if (!Util.isUnset(request.loadBalancerEdition)) {
+      query["LoadBalancerEdition"] = request.loadBalancerEdition;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -42787,6 +42805,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.slbId)) {
       query["SlbId"] = request.slbId;
+    }
+
+    if (!Util.isUnset(request.zoneMappings)) {
+      query["ZoneMappings"] = request.zoneMappings;
     }
 
     let body : {[key: string ]: any} = { };
