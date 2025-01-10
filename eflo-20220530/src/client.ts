@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -8,18 +7,1447 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class CreateSubnetRequest extends $tea.Model {
-  cidr?: string;
-  name?: string;
+export class AssignLeniPrivateIpAddressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The idempotent identifier.
+   * 
+   * @example
+   * 3fd79d62-ab1d-11ec-9a53-0242ac110004
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the response code.
+   * 
+   * @example
+   * wuhuaiyu
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private network IP (automatically assigned by default).
+   * 
+   * @example
+   * 10.0.****
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
-  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      privateIpAddress: 'PrivateIpAddress',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      elasticNetworkInterfaceId: 'string',
+      privateIpAddress: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignLeniPrivateIpAddressResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: AssignLeniPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: AssignLeniPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignLeniPrivateIpAddressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssignLeniPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssignLeniPrivateIpAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignPrivateIpAddressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to assign a mac address.
+   * 
+   * @example
+   * true
+   */
+  assignMac?: boolean;
+  /**
+   * @remarks
+   * By default, popApi is not ignored and idempotent
+   * 
+   * @example
+   * 3fd79d62-ab1d-11ec-9a53-0242ac110004
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the variable.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The ID of the network interface controller.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-bp18exxqa2rvfn45e5pz
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The secondary private IP address.
+   * 
+   * @example
+   * 10.0.6.194
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The default value is false. If you set the value to true, the secondary private IP address application process can be accelerated.
+   * 
+   * >  For more information, submit a ticket.
+   * 
+   * @example
+   * false
+   */
+  skipConfig?: boolean;
+  /**
+   * @remarks
+   * It belongs to the Lingjun subnet.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-f3zfzmnc
+   */
+  subnetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignMac: 'AssignMac',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      networkInterfaceId: 'NetworkInterfaceId',
+      privateIpAddress: 'PrivateIpAddress',
+      regionId: 'RegionId',
+      skipConfig: 'SkipConfig',
+      subnetId: 'SubnetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignMac: 'boolean',
+      clientToken: 'string',
+      description: 'string',
+      networkInterfaceId: 'string',
+      privateIpAddress: 'string',
+      regionId: 'string',
+      skipConfig: 'boolean',
+      subnetId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignPrivateIpAddressResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: AssignPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: AssignPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignPrivateIpAddressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssignPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssignPrivateIpAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateVpdCidrBlockRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The additional CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 172.16.0.0/12
+   */
+  secondaryCidrBlock?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-omqutbff
+   */
   vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      secondaryCidrBlock: 'SecondaryCidrBlock',
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      secondaryCidrBlock: 'string',
+      vpdId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateVpdCidrBlockResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: AssociateVpdCidrBlockResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: AssociateVpdCidrBlockResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateVpdCidrBlockResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateVpdCidrBlockResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssociateVpdCidrBlockResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachElasticNetworkInterfaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ENI.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * e01-cn-lbj3aej****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The region ID of the disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      nodeId: 'NodeId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      nodeId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachElasticNetworkInterfaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * []
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The message returned.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachElasticNetworkInterfaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachElasticNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachElasticNetworkInterfaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateElasticNetworkInterfaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The POP API is not ignored by default and is used for idempotence.
+   * 
+   * @example
+   * 3fd79d62-ab1d-11ec-9a53-0242ac110004
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the response code.
+   * 
+   * @example
+   * Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Whether to enable the jumbo frame capability
+   * 
+   * @example
+   * True
+   */
+  enableJumboFrame?: boolean;
+  /**
+   * @remarks
+   * The ID of the Lingjun node.
+   * 
+   * @example
+   * e01-cn-lbj3aej****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-wz9fj2s3o21nw2****
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-t4nahb0pxck****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC.
+   * 
+   * >  If the NodeId parameter is empty, the VpcId parameter is required. If the NodeId parameter is not empty, the VpcId parameter is optional.
+   * 
+   * @example
+   * vpc-uf6aa4ddo97fr****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      enableJumboFrame: 'EnableJumboFrame',
+      nodeId: 'NodeId',
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      enableJumboFrame: 'boolean',
+      nodeId: 'string',
+      regionId: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateElasticNetworkInterfaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: CreateElasticNetworkInterfaceResponseBodyContent;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateElasticNetworkInterfaceResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateElasticNetworkInterfaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateElasticNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateElasticNetworkInterfaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the document.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-wulanchabu-main
+   */
+  erName?: string;
+  /**
+   * @remarks
+   * Primary Zone
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  masterZoneId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmyuzlx2iihcy
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      erName: 'ErName',
+      masterZoneId: 'MasterZoneId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      erName: 'string',
+      masterZoneId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: CreateErResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateErResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateErResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateErResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErAttachmentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether to automatically receive all routes from all instances under the Lingjun HUB. Valid values:
+   * 
+   * *   **true**: received automatically.
+   * *   **false**: Not received.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  autoReceiveAllRoute?: boolean;
+  /**
+   * @remarks
+   * The name of the network instance connection.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-attachemnt-vpd-xksd2obl
+   */
+  erAttachmentName?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The ID of the network instance. Valid values: **VPD** and **VCC**.
+   * 
+   * For more information, see [What is Lingjun?](https://help.aliyun.com/document_detail/444430.html)
+   * 
+   * You can query **Lingjun CIDR Block** and **Lingjun Connection** by [ListVpds](https://help.aliyun.com/document_detail/2331077.html) and [ListVccs](https://help.aliyun.com/document_detail/2399526.html?) respectively.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-xksd2obl
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The category of the instance. Valid values:
+   * 
+   * *   **VPD**: indicates the Lingjun CIDR block.
+   * *   **VCC**: indicates a Lingjun connection.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * VPD
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant to which the resource belongs. This parameter is required for cross-account resources.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  resourceTenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoReceiveAllRoute: 'AutoReceiveAllRoute',
+      erAttachmentName: 'ErAttachmentName',
+      erId: 'ErId',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      regionId: 'RegionId',
+      resourceTenantId: 'ResourceTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoReceiveAllRoute: 'boolean',
+      erAttachmentName: 'string',
+      erId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      regionId: 'string',
+      resourceTenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErAttachmentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: CreateErAttachmentResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is displayed.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DBAD15D6-3F47-5B36-8A92-57C2919D13D0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateErAttachmentResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErAttachmentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateErAttachmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateErAttachmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErRouteMapRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Policy description
+   * 
+   * @example
+   * terraform-example
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Destination CIDR Block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-aueyxxsy
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The ID of the destination instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-xlhsvdvt
+   */
+  receptionInstanceId?: string;
+  /**
+   * @remarks
+   * The tenant to which the route receiving instance belongs.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  receptionInstanceOwner?: string;
+  /**
+   * @remarks
+   * The type of the destination instance. Valid values:
+   * 
+   * *   **VPD**: Lingjun network segment.
+   * *   **VCC**: Lingjun Connection.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * VPD
+   */
+  receptionInstanceType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Policy behavior; optional values:
+   * 
+   * *   **permit**: Allow
+   * *   **deny**: Rejected
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * permit
+   */
+  routeMapAction?: string;
+  /**
+   * @remarks
+   * The ID of the policy.
+   * 
+   * A smaller sequence number indicates a lower priority. When a route is matched, a policy with a higher priority is preferentially matched.
+   * 
+   * **Valid values: 1001 to 2000**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1001
+   */
+  routeMapNum?: number;
+  /**
+   * @remarks
+   * The ID of the source instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-xlsjsdvt
+   */
+  transmissionInstanceId?: string;
+  /**
+   * @remarks
+   * The tenant to which the route publish instance belongs
+   * 
+   * @example
+   * 1620939556166277
+   */
+  transmissionInstanceOwner?: string;
+  /**
+   * @remarks
+   * The type of the source instance. Valid values:
+   * 
+   * *   **VPD**: Lingjun network segment.
+   * *   **VCC**: Lingjun Connection.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * VPD
+   */
+  transmissionInstanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destinationCidrBlock: 'DestinationCidrBlock',
+      erId: 'ErId',
+      receptionInstanceId: 'ReceptionInstanceId',
+      receptionInstanceOwner: 'ReceptionInstanceOwner',
+      receptionInstanceType: 'ReceptionInstanceType',
+      regionId: 'RegionId',
+      routeMapAction: 'RouteMapAction',
+      routeMapNum: 'RouteMapNum',
+      transmissionInstanceId: 'TransmissionInstanceId',
+      transmissionInstanceOwner: 'TransmissionInstanceOwner',
+      transmissionInstanceType: 'TransmissionInstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destinationCidrBlock: 'string',
+      erId: 'string',
+      receptionInstanceId: 'string',
+      receptionInstanceOwner: 'string',
+      receptionInstanceType: 'string',
+      regionId: 'string',
+      routeMapAction: 'string',
+      routeMapNum: 'number',
+      transmissionInstanceId: 'string',
+      transmissionInstanceOwner: 'string',
+      transmissionInstanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErRouteMapResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: CreateErRouteMapResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateErRouteMapResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErRouteMapResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateErRouteMapResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateErRouteMapResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSubnetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The CIDR block of the Subnet.
+   * 
+   * *   The network segment of the subnet must be a proper subset of the network segment of Lingjun to which it belongs, and the mask must be between 16 bits and 29 bits, which can provide 8 to 65536 addresses. For example, the CIDR block of the Lingjun CIDR block is 192.168.0.0/16, and the CIDR blocks of the subnets under the Lingjun CIDR block are 192.168.0.0/17 to 192.168.0.0/29.
+   * *   The first and last three IP addresses of each subnet segment are reserved by the system. For example, the CIDR blocks of the subnet are 192.168.1.0/24,192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10.0.0.0/16
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Lingjun subnet instance name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-1
+   */
+  subnetName?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tag?: CreateSubnetRequestTag[];
+  /**
+   * @remarks
+   * Lingjun Subnet Usage Type; optional; optional. Valid values:
+   * 
+   * *   **If you do not set this field for a common type**
+   * *   **OOB** :OOB type
+   * *   **LB**: LB type
+   * 
+   * @example
+   * OOB
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-xcuhjyrj
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       cidr: 'Cidr',
-      name: 'Name',
       regionId: 'RegionId',
+      subnetName: 'SubnetName',
+      tag: 'Tag',
       type: 'Type',
       vpdId: 'VpdId',
       zoneId: 'ZoneId',
@@ -29,8 +1457,9 @@ export class CreateSubnetRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cidr: 'string',
-      name: 'string',
       regionId: 'string',
+      subnetName: 'string',
+      tag: { 'type': 'array', 'itemType': CreateSubnetRequestTag },
       type: 'string',
       vpdId: 'string',
       zoneId: 'string',
@@ -43,9 +1472,34 @@ export class CreateSubnetRequest extends $tea.Model {
 }
 
 export class CreateSubnetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   content?: CreateSubnetResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -71,9 +1525,9 @@ export class CreateSubnetResponseBody extends $tea.Model {
 }
 
 export class CreateSubnetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSubnetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSubnetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -96,40 +1550,196 @@ export class CreateSubnetResponse extends $tea.Model {
 }
 
 export class CreateVccRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Enabled access to cloud services. Optional values:
+   * 
+   * *   **true**: Enable access to cloud services
+   * *   **false**: Do not enable access to cloud services
+   * 
+   * @example
+   * true
+   */
   accessCouldService?: boolean;
+  /**
+   * @remarks
+   * The bandwidth. Unit: Mbit /s. The minimum value is 1000, representing 1Gbps bandwidth; the maximum value is 400000, representing 400Gbps bandwidth.
+   * 
+   * >  1Gbps = 1000Mbps
+   * 
+   * @example
+   * 1000
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
+   * bgp as number
+   * 
+   * @example
+   * bgpAsn
+   */
+  bgpAsn?: number;
+  /**
+   * @remarks
+   * Internet segment, on-premises input, off-premises default
+   * 
+   * @example
+   * 10.0.0.0/24
+   */
   bgpCidr?: string;
+  /**
+   * @remarks
+   * CEN Instance ID
+   * 
+   * @example
+   * cen-bkiw0x1347roekr7f2
+   */
   cenId?: string;
+  /**
+   * @remarks
+   * Account to which cen belongs
+   * 
+   * @example
+   * 1511928242963727
+   */
+  cenOwnerId?: string;
+  /**
+   * @remarks
+   * The connection mode. Valid values:
+   * 
+   * *   **VPC**
+   * *   **CEN (CENTR)**
+   * 
+   * @example
+   * CENTR
+   */
+  connectionType?: string;
+  /**
+   * @remarks
+   * The description of the document.
+   * 
+   * @example
+   * Description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aeky5f3qx6ceapq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tag?: CreateVccRequestTag[];
+  /**
+   * @remarks
+   * The ID of the vSwitch. [Virtual Private Cloud VSwitch](https://help.aliyun.com/document_detail/100380.html).
+   * 
+   * You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query created vSwitches.
+   * 
+   * @example
+   * vsw-t4nahb0pxckgktx1kot8q
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
   vccId?: string;
+  /**
+   * @remarks
+   * Lingjun Connection Name
+   * 
+   * @example
+   * test
+   */
+  vccName?: string;
+  /**
+   * @remarks
+   * Virtual Private Cloud IDs; [What is Virtual Private Cloud](https://help.aliyun.com/document_detail/34217.html)
+   * 
+   * You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html#demo-0) operation to query the specified VPC.
+   * 
+   * @example
+   * vpc-uf6aa4ddo97frj22tgp52
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * @example
+   * vpd-t2jseldp
+   */
   vpdId?: string;
+  /**
+   * @remarks
+   * The zone ID of the disk.
+   * 
+   * @example
+   * cn-wulanchabu-a
+   */
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       accessCouldService: 'AccessCouldService',
+      bandwidth: 'Bandwidth',
+      bgpAsn: 'BgpAsn',
       bgpCidr: 'BgpCidr',
       cenId: 'CenId',
+      cenOwnerId: 'CenOwnerId',
+      connectionType: 'ConnectionType',
       description: 'Description',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
       vSwitchId: 'VSwitchId',
       vccId: 'VccId',
+      vccName: 'VccName',
       vpcId: 'VpcId',
       vpdId: 'VpdId',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accessCouldService: 'boolean',
+      bandwidth: 'number',
+      bgpAsn: 'number',
       bgpCidr: 'string',
       cenId: 'string',
+      cenOwnerId: 'string',
+      connectionType: 'string',
       description: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateVccRequestTag },
       vSwitchId: 'string',
       vccId: 'string',
+      vccName: 'string',
       vpcId: 'string',
       vpdId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -139,9 +1749,34 @@ export class CreateVccRequest extends $tea.Model {
 }
 
 export class CreateVccResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   content?: CreateVccResponseBodyContent;
+  /**
+   * @remarks
+   * response message, if the success request is
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -167,9 +1802,9 @@ export class CreateVccResponseBody extends $tea.Model {
 }
 
 export class CreateVccResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVccResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVccResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -191,26 +1826,348 @@ export class CreateVccResponse extends $tea.Model {
   }
 }
 
-export class CreateVpdRequest extends $tea.Model {
-  cidr?: string;
-  name?: string;
+export class CreateVccGrantRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vcc-8rgvqazb
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccGrantRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   * 
+   * @example
+   * {}
+   */
+  content?: CreateVccGrantRuleResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateVccGrantRuleResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccGrantRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVccGrantRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVccGrantRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccRouteEntryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Destination CIDR block
+   * 
+   * @example
+   * 192.168.98.112/28
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      regionId: 'RegionId',
+      vccId: 'VccId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      regionId: 'string',
+      vccId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccRouteEntryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  content?: CreateVccRouteEntryResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateVccRouteEntryResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccRouteEntryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVccRouteEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVccRouteEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The CIDR block of the VPD.
+   * 
+   * *   We recommend that you use an RFC private endpoint as the Lingjun CIDR block, such as 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16. In scenarios where the Doringjun CIDR block is connected to each other or where the Lingjun CIDR block is connected to a VPC, make sure that the addresses do not conflict with each other.
+   * *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 and their subnets as the primary IPv4 CIDR block of the VPD.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10.0.0.0/8
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The region ID of the disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Lingjun subnet information list
+   */
   subnets?: CreateVpdRequestSubnets[];
+  /**
+   * @remarks
+   * A tag.
+   */
+  tag?: CreateVpdRequestTag[];
+  /**
+   * @remarks
+   * Lingjun CIDR block instance name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-1
+   */
+  vpdName?: string;
   static names(): { [key: string]: string } {
     return {
       cidr: 'Cidr',
-      name: 'Name',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subnets: 'Subnets',
+      tag: 'Tag',
+      vpdName: 'VpdName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cidr: 'string',
-      name: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       subnets: { 'type': 'array', 'itemType': CreateVpdRequestSubnets },
+      tag: { 'type': 'array', 'itemType': CreateVpdRequestTag },
+      vpdName: 'string',
     };
   }
 
@@ -220,9 +2177,34 @@ export class CreateVpdRequest extends $tea.Model {
 }
 
 export class CreateVpdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   content?: CreateVpdResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * SUCCESS
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DBAD15D6-3F47-5B36-8A92-57C2919D13D0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -248,9 +2230,9 @@ export class CreateVpdResponseBody extends $tea.Model {
 }
 
 export class CreateVpdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVpdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVpdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -272,10 +2254,724 @@ export class CreateVpdResponse extends $tea.Model {
   }
 }
 
-export class DeleteSubnetRequest extends $tea.Model {
+export class CreateVpdGrantRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1013666993027780
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-8rgvqazb
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpdGrantRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   * 
+   * @example
+   * {}
+   */
+  content?: CreateVpdGrantRuleResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * DBAD15D6-3F47-5B36-8A92-57C2919D13D0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateVpdGrantRuleResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpdGrantRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVpdGrantRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVpdGrantRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteElasticNetworkInterfaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * By default, popApi is not ignored and idempotent
+   * 
+   * @example
+   * 141cccd6-dfbd-11ec-b8e8-0242ac110003
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      elasticNetworkInterfaceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteElasticNetworkInterfaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: DeleteElasticNetworkInterfaceResponseBodyContent;
+  /**
+   * @remarks
+   * The return message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-645C88B9009C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: DeleteElasticNetworkInterfaceResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteElasticNetworkInterfaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteElasticNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteElasticNetworkInterfaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteErResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteErResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErAttachmentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the network connection instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-attachment-5n3nsmvl
+   */
+  erAttachmentId?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-opy1wrfv
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erAttachmentId: 'ErAttachmentId',
+      erId: 'ErId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erAttachmentId: 'string',
+      erId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErAttachmentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response content. If a resource has dependent resources, the existing dependent resources are returned.
+   * 
+   * @example
+   * {
+   *     "ER_RMAP": [
+   *         {
+   *             "erId": "er-opy1wrfv",
+   *             "destinationCidrBlock": "0.0.0.0/0",
+   *             "regionId": "cn-wulanchabu",
+   *             "routeMapNum": 3000,
+   *             "erRouteMapId": "er-rmap-v5lfhmvm",
+   *             "action": "permit",
+   *             "status": "Available"
+   *         },
+   *         {
+   *             "erId": "er-opy1wrfv",
+   *             "destinationCidrBlock": "0.0.0.0/0",
+   *             "regionId": "cn-wulanchabu",
+   *             "routeMapNum": 3000,
+   *             "erRouteMapId": "er-rmap-of3r0ndh",
+   *             "action": "permit",
+   *             "status": "Available"
+   *         }
+   *     ]
+   * }
+   */
+  content?: any;
+  /**
+   * @remarks
+   * response message, if the success request is
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErAttachmentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteErAttachmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteErAttachmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErRouteMapRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * routing policy Instance ID List
+   * 
+   * This parameter is required.
+   */
+  erRouteMapIds?: string[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      erRouteMapIds: 'ErRouteMapIds',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      erRouteMapIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErRouteMapResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErRouteMapResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteErRouteMapResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteErRouteMapResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSubnetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID of the disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Lingjun subnet ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-f3zfzmnc
+   */
   subnetId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-iv2zm1qf
+   */
   vpdId?: string;
+  /**
+   * @remarks
+   * Zone
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -301,9 +2997,41 @@ export class DeleteSubnetRequest extends $tea.Model {
 }
 
 export class DeleteSubnetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * Response content (if the resource has dependent resources, the existing dependent resources will be returned)
+   * 
+   * @example
+   * {
+   *       "nc": [
+   *             {}
+   *       ]
+   * }
+   */
   content?: any;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * A56F7D3C-8850-5AF4-A342-2D71C9A9D1CC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -329,9 +3057,9 @@ export class DeleteSubnetResponseBody extends $tea.Model {
 }
 
 export class DeleteSubnetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSubnetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSubnetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -353,8 +3081,304 @@ export class DeleteSubnetResponse extends $tea.Model {
   }
 }
 
-export class DeleteVpdRequest extends $tea.Model {
+export class DeleteVccGrantRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorization Entry ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * grant-rule-jaj34d75h01
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * @example
+   * vcc-cn-jaj34d75h01
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      grantRuleId: 'GrantRuleId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      grantRuleId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVccGrantRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-645C88B9009C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVccGrantRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVccGrantRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVccGrantRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVccRouteEntryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Destination CIDR block
+   * 
+   * @example
+   * 172.16.199.128/25
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry.
+   * 
+   * @example
+   * vcc-rte-5cey1sap
+   */
+  vccRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      regionId: 'RegionId',
+      vccId: 'VccId',
+      vccRouteEntryId: 'VccRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      regionId: 'string',
+      vccId: 'string',
+      vccRouteEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVccRouteEntryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVccRouteEntryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVccRouteEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVccRouteEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVpdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the region in which the instance resides.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-zr0farea
+   */
   vpdId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -376,9 +3400,51 @@ export class DeleteVpdRequest extends $tea.Model {
 }
 
 export class DeleteVpdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The response parameters. (If a dependent resource exists, the existing dependent resource is returned.)
+   * 
+   * @example
+   * {
+   *       "subnet": [
+   *             {
+   *                   "tenantId": "1620939556166277",
+   *                   "regionId": "cn-wulanchabu",
+   *                   "zoneId": "cn",
+   *                   "type": null,
+   *                   "subnetId": "subnet-zqebaxa0",
+   *                   "name": "lql_testVPD"
+   *             }
+   *       ],
+   *       "nc": [
+   *             {}
+   *       ]
+   * }
+   */
   content?: any;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * SUCCESS
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-645C88B9009C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -404,9 +3470,9 @@ export class DeleteVpdResponseBody extends $tea.Model {
 }
 
 export class DeleteVpdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVpdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVpdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -428,16 +3494,1579 @@ export class DeleteVpdResponse extends $tea.Model {
   }
 }
 
-export class GetSubnetRequest extends $tea.Model {
+export class DeleteVpdGrantRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorization Entry ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * grant-rule-9rgxqazb
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * @example
+   * 1013666993027780
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * @example
+   * vpd-8rgvqazb
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVpdGrantRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVpdGrantRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVpdGrantRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVpdGrantRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlrRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the RAM instance belongs.
+   * 
+   * @example
+   * rg-aeky5f3qx6ceapq
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlrResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  content?: DescribeSlrResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: DescribeSlrResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlrResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSlrResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSlrResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachElasticNetworkInterfaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ENI.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * e01-cn-zxu2zp3****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The region ID of the disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      nodeId: 'NodeId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      nodeId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachElasticNetworkInterfaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response
+   * 
+   * @example
+   * You don\\"t have the permission to do this operation.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF8****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachElasticNetworkInterfaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachElasticNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachElasticNetworkInterfaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDestinationCidrBlockRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-xxxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Region ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDestinationCidrBlockResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response content
+   */
+  content?: GetDestinationCidrBlockResponseBodyContent;
+  /**
+   * @remarks
+   * Error message. (Indicates the reason for the anomaly when the instance status is abnormal.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * ID of this request
+   * 
+   * @example
+   * D349EE86-AF3F-5F6C-87E2-2A08D3618350
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetDestinationCidrBlockResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDestinationCidrBlockResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDestinationCidrBlockResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDestinationCidrBlockResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetElasticNetworkInterfaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetElasticNetworkInterfaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetElasticNetworkInterfaceResponseBodyContent;
+  /**
+   * @remarks
+   * The return message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetElasticNetworkInterfaceResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetElasticNetworkInterfaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetElasticNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetElasticNetworkInterfaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetErResponseBodyContent;
+  /**
+   * @remarks
+   * Information returned when the call fails
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 308DE9D2-03A6-5B44-A369-67B75D1EE091
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetErResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetErResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetErResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErAttachmentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Lingjun HUB network connection instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-attachment-i1ioibyf
+   */
+  erAttachmentId?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erAttachmentId: 'ErAttachmentId',
+      erId: 'ErId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erAttachmentId: 'string',
+      erId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErAttachmentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: GetErAttachmentResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is displayed.)
+   * 
+   * @example
+   * You don\\"t have the permission to do this operation.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7F0D9440-1F97-5613-87CD-D3047172A93C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetErAttachmentResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErAttachmentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetErAttachmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetErAttachmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteEntryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-rte-4q0jbylz
+   */
+  erRouteEntryId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      erRouteEntryId: 'ErRouteEntryId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      erRouteEntryId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteEntryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  content?: GetErRouteEntryResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * code: 400, Request was denied due to request throttling. request id: 7D177459-C1CF-5690-BB23-321D208B37D5
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 1F38A2E6-CB47-5369-95D2-96D0C287B4A5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetErRouteEntryResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteEntryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetErRouteEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetErRouteEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteMapRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * routing policy ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-rmap-uwglhzom
+   */
+  erRouteMapId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      erRouteMapId: 'ErRouteMapId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      erRouteMapId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteMapResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  content?: GetErRouteMapResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetErRouteMapResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteMapResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetErRouteMapResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetErRouteMapResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFabricTopologyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * i-169263721924****
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID List
+   */
+  lniIds?: string[];
+  /**
+   * @remarks
+   * Node ID list
+   */
+  nodeIds?: string[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-k8i0g9fk68t7u0u2w****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block ID
+   * 
+   * @example
+   * vpd-aof7****
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      lniIds: 'LniIds',
+      nodeIds: 'NodeIds',
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      lniIds: { 'type': 'array', 'itemType': 'string' },
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      vpcId: 'string',
+      vpdId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFabricTopologyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetFabricTopologyResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetFabricTopologyResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFabricTopologyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFabricTopologyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFabricTopologyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLeniPrivateIpAddressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP unique identifier.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sip-8ylg****
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      ipName: 'IpName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      ipName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLeniPrivateIpAddressResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: GetLeniPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetLeniPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLeniPrivateIpAddressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLeniPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLeniPrivateIpAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLniPrivateIpAddressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * IP unique identifier
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sip-xxxxx
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-bp18exxqa2rvfn45e5pz
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipName: 'IpName',
+      networkInterfaceId: 'NetworkInterfaceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipName: 'string',
+      networkInterfaceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLniPrivateIpAddressResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetLniPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * You don\\"t have the permission of this operation, action=eflo:GetLniPrivateIpAddress, arn=acs:eflo:cn-wulanchabu:1382782317087063:networkinterface/00
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * DBAD15D6-3F47-5B36-8A92-57C2919D13D0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetLniPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLniPrivateIpAddressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLniPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLniPrivateIpAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkInterfaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun network interface controller ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-bp18exxqa2rvfn45e5pz
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Subnet of Lingjun
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-f3zfzmnc
+   */
   subnetId?: string;
   static names(): { [key: string]: string } {
     return {
+      networkInterfaceId: 'NetworkInterfaceId',
+      regionId: 'RegionId',
       subnetId: 'SubnetId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      networkInterfaceId: 'string',
+      regionId: 'string',
       subnetId: 'string',
     };
   }
@@ -447,10 +5076,279 @@ export class GetSubnetRequest extends $tea.Model {
   }
 }
 
-export class GetSubnetResponseBody extends $tea.Model {
+export class GetNetworkInterfaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
-  content?: GetSubnetResponseBodyContent;
+  /**
+   * @remarks
+   * The response data. (If a resource has dependent resources, the existing dependent resources are returned.)
+   */
+  content?: GetNetworkInterfaceResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetNetworkInterfaceResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkInterfaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetNetworkInterfaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeInfoForPodRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the node for this operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * node-be70****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeInfoForPodResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetNodeInfoForPodResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * You don\\"t have the permission of this operation, action=eflo:GetNodeInfoForPod, arn=acs:eflo:cn-wulanchabu:1111156667137893:networkinterface/*, resourceGroup=null
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetNodeInfoForPodResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeInfoForPodResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNodeInfoForPodResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetNodeInfoForPodResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubnetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID of the data center.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun subnet instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-2avf0itf
+   */
+  subnetId?: string;
+  /**
+   * @remarks
+   * The ID of the CIDR block to which Lingjun belongs.
+   * 
+   * @example
+   * vpd-cxcmdk1m
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      subnetId: 'SubnetId',
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      subnetId: 'string',
+      vpdId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubnetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: GetSubnetResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -476,9 +5374,9 @@ export class GetSubnetResponseBody extends $tea.Model {
 }
 
 export class GetSubnetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSubnetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSubnetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -501,10 +5399,62 @@ export class GetSubnetResponse extends $tea.Model {
 }
 
 export class GetVccRequest extends $tea.Model {
+  /**
+   * @remarks
+   * By default, popApi is not ignored and idempotent
+   * 
+   * @example
+   * c5e3130a-d02f-11ec-a7d3-0242ac110005
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Paging Parameters: The current parameters are obsolete.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Paging Parameters: The current parameters are obsolete.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Paging Parameters: The current parameters are obsolete.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
   vccId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      enablePage: 'EnablePage',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       regionId: 'RegionId',
       vccId: 'VccId',
     };
@@ -512,6 +5462,10 @@ export class GetVccRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      enablePage: 'boolean',
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
       vccId: 'string',
     };
@@ -523,9 +5477,34 @@ export class GetVccRequest extends $tea.Model {
 }
 
 export class GetVccResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   content?: GetVccResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * CAD09E47-B651-5206-B2DC-3AB78C8EB446
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -551,9 +5530,9 @@ export class GetVccResponseBody extends $tea.Model {
 }
 
 export class GetVccResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVccResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVccResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -575,16 +5554,315 @@ export class GetVccResponse extends $tea.Model {
   }
 }
 
+export class GetVccGrantRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * @example
+   * er-aueyxxsy
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorized Resource Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * grant-rule-jaj34d75h01
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * @example
+   * 1620939556166277
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Authorized Instance ID
+   * 
+   * @example
+   * vcc-cn-jaj34d75h01
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the region. This parameter is required.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccGrantRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  content?: GetVccGrantRuleResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetVccGrantRuleResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccGrantRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVccGrantRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVccGrantRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccRouteEntryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Lingjun Connection ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vcc-rte-31ocvdhq
+   */
+  vccRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vccId: 'VccId',
+      vccRouteEntryId: 'VccRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vccId: 'string',
+      vccRouteEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccRouteEntryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetVccRouteEntryResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-645C88B9009C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetVccRouteEntryResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccRouteEntryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVccRouteEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVccRouteEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetVpdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the VPD instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-ze3na0wf
+   */
   vpdId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       vpdId: 'VpdId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       vpdId: 'string',
     };
   }
@@ -595,9 +5873,34 @@ export class GetVpdRequest extends $tea.Model {
 }
 
 export class GetVpdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
   content?: GetVpdResponseBodyContent;
+  /**
+   * @remarks
+   * The additional information that is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -623,9 +5926,9 @@ export class GetVpdResponseBody extends $tea.Model {
 }
 
 export class GetVpdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVpdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVpdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -647,10 +5950,341 @@ export class GetVpdResponse extends $tea.Model {
   }
 }
 
-export class InitializeVccResponseBody extends $tea.Model {
+export class GetVpdGrantRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun HUB Instance Id
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorized Resource Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * grant-rule-xrgvqazb
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * @example
+   * 1620939556166277
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Authorized Instance ID
+   * 
+   * @example
+   * vpd-xxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the region. This parameter is required.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdGrantRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
-  content?: InitializeVccResponseBodyContent;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetVpdGrantRuleResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetVpdGrantRuleResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdGrantRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVpdGrantRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVpdGrantRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdRouteEntryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-iv2zm1qf
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-rte-toekyqel
+   */
+  vpdRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vpdId: 'VpdId',
+      vpdRouteEntryId: 'VpdRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vpdId: 'string',
+      vpdRouteEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdRouteEntryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetVpdRouteEntryResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetVpdRouteEntryResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdRouteEntryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVpdRouteEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVpdRouteEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitializeVccRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-acfmxhucx5ewuwy
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitializeVccResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: InitializeVccResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E30DA7CB-03D0-51EB-8F18-856B99987E18
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -676,9 +6310,9 @@ export class InitializeVccResponseBody extends $tea.Model {
 }
 
 export class InitializeVccResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InitializeVccResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InitializeVccResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -700,26 +6334,2117 @@ export class InitializeVccResponse extends $tea.Model {
   }
 }
 
-export class ListSubnetsRequest extends $tea.Model {
-  enablePage?: boolean;
-  name?: string;
+export class ListElasticNetworkInterfacesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The IP address of the BE cluster.
+   * 
+   * @example
+   * 10.0.0.1
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The network type.
+   * 
+   * Valid value:
+   * 
+   * *   Tenant: Tenant.
+   * *   VPC
+   * 
+   * @example
+   * tenant
+   */
+  networkType?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * @example
+   * e01-cn-lbj3aej****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 20.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The status of the enterprise-level snapshot policy.
+   * 
+   * Valid value:
+   * 
+   * *   Create Failed: the creation failure.
+   * *   Delete Failed: the that failed to be deleted.
+   * *   Executing
+   * *   Available: The template is available.
+   * *   Deleting
+   * 
+   * @example
+   * Available
+   */
   status?: string;
-  subnetId?: string;
+  /**
+   * @remarks
+   * The type of the variable.
+   * 
+   * Valid value:
+   * 
+   * *   CUSTOM: custom type.
+   * *   DEFAULT: system type.
+   * 
+   * @example
+   * DEFAULT
+   */
   type?: string;
-  vpdId?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-uf6u8473r84e9****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-uf6aa4ddo97fr****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      enablePage: 'EnablePage',
-      name: 'Name',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      ip: 'Ip',
+      networkType: 'NetworkType',
+      nodeId: 'NodeId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
       status: 'Status',
+      type: 'Type',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      ip: 'string',
+      networkType: 'string',
+      nodeId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      status: 'string',
+      type: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListElasticNetworkInterfacesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListElasticNetworkInterfacesResponseBodyContent;
+  /**
+   * @remarks
+   * The return message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListElasticNetworkInterfacesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListElasticNetworkInterfacesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListElasticNetworkInterfacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListElasticNetworkInterfacesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErAttachmentsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Whether to automatically receive all routes from all instances under this Lingjun HUB. Valid values:
+   * 
+   * *   **true**: received automatically.
+   * *   **false**: Not received.
+   * 
+   * @example
+   * true
+   */
+  autoReceiveAllRoute?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable paged query. Valid values:
+   * 
+   * *   **true**: enables paged query.
+   * *   **false**: Paged query is not enabled.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * The ID of the network instance connection
+   * 
+   * @example
+   * er-attachment-i1ioibyf
+   */
+  erAttachmentId?: string;
+  /**
+   * @remarks
+   * The name of the network instance connection.
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  erAttachmentName?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun HUB instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The ID of the network instance. Valid values: **VPD** and **VCC**.
+   * 
+   * For more information, see [What is Lingjun?](https://help.aliyun.com/document_detail/444430.html)
+   * 
+   * You can query **Lingjun CIDR blocks** and **Lingjun connections** by [ListVpds](https://help.aliyun.com/document_detail/2331077.html) and [ListVccs](https://help.aliyun.com/document_detail/2399526.html?) respectively.
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The mitigation plan of the instance. Valid values:
+   * 
+   * *   **VPD**: indicates the Lingjun CIDR block.
+   * *   **VCC**: indicates a Lingjun connection.
+   * 
+   * @example
+   * VCC
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The page number to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aekzb3n5lgk2ieq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant to which the instance belongs.
+   * 
+   * @example
+   * 1111156667137893
+   */
+  resourceTenantId?: string;
+  /**
+   * @remarks
+   * The status of the CLB instance. Valid values:
+   * 
+   * *   **Available**: Normal.
+   * *   **Not Available**: Not available.
+   * *   **Executing**: The task is being executed.
+   * *   **Deleting**: The account is being deleted
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoReceiveAllRoute: 'AutoReceiveAllRoute',
+      enablePage: 'EnablePage',
+      erAttachmentId: 'ErAttachmentId',
+      erAttachmentName: 'ErAttachmentName',
+      erId: 'ErId',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceTenantId: 'ResourceTenantId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoReceiveAllRoute: 'boolean',
+      enablePage: 'boolean',
+      erAttachmentId: 'string',
+      erAttachmentName: 'string',
+      erId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceTenantId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErAttachmentsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  content?: ListErAttachmentsResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is displayed.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3D9D6E7B-365B-5200-BFA6-9B79E269058C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListErAttachmentsResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErAttachmentsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListErAttachmentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListErAttachmentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteEntriesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Destination CIDR Block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable pagination query.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Filter 32 detailed CIDR blocks. Default value: true
+   * 
+   * @example
+   * true
+   */
+  ignoreDetailedRouteEntry?: boolean;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Next Hop Instance
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * Next Hop Instance Type
+   * 
+   * @example
+   * VCC
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmyuzlx2iihcy
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Route type
+   * 
+   * @example
+   * VCC
+   */
+  routeType?: string;
+  /**
+   * @remarks
+   * The status of the enterprise-level snapshot policy.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      enablePage: 'EnablePage',
+      erId: 'ErId',
+      ignoreDetailedRouteEntry: 'IgnoreDetailedRouteEntry',
+      instanceId: 'InstanceId',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeType: 'RouteType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      enablePage: 'boolean',
+      erId: 'string',
+      ignoreDetailedRouteEntry: 'boolean',
+      instanceId: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeType: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteEntriesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListErRouteEntriesResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListErRouteEntriesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteEntriesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListErRouteEntriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListErRouteEntriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteMapsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Destination CIDR Block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable paged query.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Elastic Router ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * routing policy ID
+   * 
+   * @example
+   * er-rmap-uwglhzom
+   */
+  erRouteMapId?: string;
+  /**
+   * @remarks
+   * Policy number (default for automatic creation is 3000; The value range of the policy number manually created by the user is 1001-2000)
+   * 
+   * @example
+   * 1001
+   */
+  erRouteMapNum?: number;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Receive Instance ID
+   * 
+   * @example
+   * vpd-x2lohgpv
+   */
+  receptionInstanceId?: string;
+  /**
+   * @remarks
+   * Receive Instance Name
+   * 
+   * @example
+   * vpd2
+   */
+  receptionInstanceName?: string;
+  /**
+   * @remarks
+   * The type of the received instance. Optional values:
+   * 
+   * *   **VPD**: Lingjun network segment.
+   * *   **VCC**: Lingjun Connection.
+   * 
+   * @example
+   * VPD
+   */
+  receptionInstanceType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmzaq3ypaqkdy
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Policy behavior; optional values:
+   * 
+   * *   **permit**: Allow
+   * *   **deny**: Rejected
+   * 
+   * @example
+   * deny
+   */
+  routeMapAction?: string;
+  /**
+   * @remarks
+   * Release Instance ID
+   * 
+   * @example
+   * vpd-xsdlg2xb
+   */
+  transmissionInstanceId?: string;
+  /**
+   * @remarks
+   * Release Instance Name
+   * 
+   * @example
+   * vpd1
+   */
+  transmissionInstanceName?: string;
+  /**
+   * @remarks
+   * The type of the published instance. Optional values:
+   * 
+   * *   **VPD**: Lingjun network segment.
+   * *   **VCC**: Lingjun Connection.
+   * 
+   * @example
+   * VPD
+   */
+  transmissionInstanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      enablePage: 'EnablePage',
+      erId: 'ErId',
+      erRouteMapId: 'ErRouteMapId',
+      erRouteMapNum: 'ErRouteMapNum',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      receptionInstanceId: 'ReceptionInstanceId',
+      receptionInstanceName: 'ReceptionInstanceName',
+      receptionInstanceType: 'ReceptionInstanceType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeMapAction: 'RouteMapAction',
+      transmissionInstanceId: 'TransmissionInstanceId',
+      transmissionInstanceName: 'TransmissionInstanceName',
+      transmissionInstanceType: 'TransmissionInstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      enablePage: 'boolean',
+      erId: 'string',
+      erRouteMapId: 'string',
+      erRouteMapNum: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      receptionInstanceId: 'string',
+      receptionInstanceName: 'string',
+      receptionInstanceType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeMapAction: 'string',
+      transmissionInstanceId: 'string',
+      transmissionInstanceName: 'string',
+      transmissionInstanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteMapsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListErRouteMapsResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListErRouteMapsResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteMapsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListErRouteMapsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListErRouteMapsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable paged query. Valid values:
+   * 
+   * *   true: enables paged query.
+   * *   false: Paged query is disabled.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * The ID of the Lingjun HUB instance.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Lingjun HUB name.
+   * 
+   * @example
+   * er-heyuan-main
+   */
+  erName?: string;
+  /**
+   * @remarks
+   * The ID of the network instance.
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The type of the attached network instance. Valid values:
+   * 
+   * *   **VPD**
+   * *   **VCC**
+   * 
+   * @example
+   * VCC
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The primary zone.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  masterZoneId?: string;
+  /**
+   * @remarks
+   * The page number to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmwfm33rlt6zi
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablePage: 'EnablePage',
+      erId: 'ErId',
+      erName: 'ErName',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      masterZoneId: 'MasterZoneId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablePage: 'boolean',
+      erId: 'string',
+      erName: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      masterZoneId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: ListErsResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is displayed.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListErsResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListErsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListErsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesByNcdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-1234****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The parameter that specifies the instance type.
+   * 
+   * Valid value:
+   * 
+   * *   node: Lingjun node.
+   * *   lni: lingjun network interface controller.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * Maximum network communication distance
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  maxNcd?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      maxNcd: 'MaxNcd',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceType: 'string',
+      maxNcd: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesByNcdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListInstancesByNcdResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * You don\\"t have the permission of this operation, action=eflo:ListInstancesByNcd, arn=acs:eflo:cn-heyuan:1263399219805497:networkinterface/*, resourceGroup=null
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListInstancesByNcdResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesByNcdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesByNcdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstancesByNcdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLeniPrivateIpAddressesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP unique identifier.
+   * 
+   * @example
+   * sip-8ylg****
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The page number returned.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP.
+   * 
+   * @example
+   * 10.0.****
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The status of the image build command risk.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      ipName: 'IpName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      privateIpAddress: 'PrivateIpAddress',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      ipName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      privateIpAddress: 'string',
+      regionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLeniPrivateIpAddressesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: ListLeniPrivateIpAddressesResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListLeniPrivateIpAddressesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLeniPrivateIpAddressesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLeniPrivateIpAddressesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLeniPrivateIpAddressesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLniPrivateIpAddressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the variable.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Whether pagination is required
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * network interface controller IP address
+   * 
+   * @example
+   * 10.0.98.10
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * IP unique identifier
+   * 
+   * @example
+   * sip-tynhdh2s
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID
+   * 
+   * @example
+   * lni-2ze4uww7n6hsfzrwq77y
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Obtain the index number of the current mouse click for an animation
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      enablePage: 'EnablePage',
+      ip: 'Ip',
+      ipName: 'IpName',
+      networkInterfaceId: 'NetworkInterfaceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      enablePage: 'boolean',
+      ip: 'string',
+      ipName: 'string',
+      networkInterfaceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLniPrivateIpAddressResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListLniPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * You don\\"t have the permission to do this operation.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListLniPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLniPrivateIpAddressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLniPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLniPrivateIpAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkInterfacesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether pagination is required.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * network interface controller the IP address.
+   * 
+   * @example
+   * 203.107.46.227
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID.
+   * 
+   * @example
+   * lni-bp18exxqa2rvfn45e5pz
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The ID of the machine to which the instance belongs.
+   * 
+   * @example
+   * r-2ze121o4uhr4np3r5t-db-5
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The current number of pages.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the Lingjun subnet belongs.
+   * 
+   * @example
+   * subnet-anhtskts
+   */
+  subnetId?: string;
+  /**
+   * @remarks
+   * The ID of the VPD.
+   * 
+   * @example
+   * vpd-iv2zm1qf
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablePage: 'EnablePage',
+      ip: 'Ip',
+      networkInterfaceId: 'NetworkInterfaceId',
+      nodeId: 'NodeId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
       subnetId: 'SubnetId',
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablePage: 'boolean',
+      ip: 'string',
+      networkInterfaceId: 'string',
+      nodeId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      subnetId: 'string',
+      vpdId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkInterfacesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: ListNetworkInterfacesResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListNetworkInterfacesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkInterfacesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNetworkInterfacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNetworkInterfacesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeInfosForPodRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * cluster-***
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the node for this operation.
+   * 
+   * @example
+   * node-be70****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      nodeId: 'NodeId',
+      regionId: 'RegionId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      nodeId: 'string',
+      regionId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeInfosForPodResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   */
+  content?: ListNodeInfosForPodResponseBodyContent[];
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * You don\\"t have the permission of this operation.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: { 'type': 'array', 'itemType': ListNodeInfosForPodResponseBodyContent },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeInfosForPodResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNodeInfosForPodResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNodeInfosForPodResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubnetsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to query by page. Optional values:
+   * 
+   * *   **true**: Enable pagination query
+   * *   **false**: Pagination query is disabled
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * The number of the page to return. The value must be greater than 0. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aeky5f3qx6ceapq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The status of the CLB instance. Valid values:
+   * 
+   * *   **Available**: Normal
+   * *   **Not Available**: Unavailable
+   * *   **Executing**: Executing
+   * *   **Deleting**: The node is being deleted.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Lingjun subnet instance ID
+   * 
+   * @example
+   * subnet-anhtskts
+   */
+  subnetId?: string;
+  /**
+   * @remarks
+   * Lingjun subnet instance name
+   * 
+   * @example
+   * subnet-1
+   */
+  subnetName?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tag?: ListSubnetsRequestTag[];
+  /**
+   * @remarks
+   * Lingjun Subnet Usage Type; optional; optional. Valid values:
+   * 
+   * *   **If you do not set this field for a common type**
+   * *   **OOB** :OOB type
+   * *   **LB**: LB type
+   * 
+   * @example
+   * Null
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * @example
+   * vpd-fuliephf
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The zone ID of the disk.
+   * 
+   * @example
+   * cn-wulanchabu-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablePage: 'EnablePage',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      subnetId: 'SubnetId',
+      subnetName: 'SubnetName',
+      tag: 'Tag',
       type: 'Type',
       vpdId: 'VpdId',
       zoneId: 'ZoneId',
@@ -729,12 +8454,14 @@ export class ListSubnetsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       enablePage: 'boolean',
-      name: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
       subnetId: 'string',
+      subnetName: 'string',
+      tag: { 'type': 'array', 'itemType': ListSubnetsRequestTag },
       type: 'string',
       vpdId: 'string',
       zoneId: 'string',
@@ -747,9 +8474,34 @@ export class ListSubnetsRequest extends $tea.Model {
 }
 
 export class ListSubnetsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   content?: ListSubnetsResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * SUCCESS
+   */
   message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 7F9082CC-3D94-560F-A575-8E8EF6CE2CB8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -775,9 +8527,9 @@ export class ListSubnetsResponseBody extends $tea.Model {
 }
 
 export class ListSubnetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSubnetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSubnetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -799,17 +8551,731 @@ export class ListSubnetsResponse extends $tea.Model {
   }
 }
 
-export class ListVccsRequest extends $tea.Model {
-  bandwidth?: number;
-  cenId?: string;
-  enablePage?: boolean;
-  exStatus?: string;
-  pageNumber?: number;
-  pageSize?: number;
+export class ListVccFlowInfosRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Direction
+   * 
+   * Valid value:
+   * 
+   * *   IN: inbound.
+   * *   OUT: the outbound.
+   * 
+   * @example
+   * OUT
+   */
+  direction?: string;
+  /**
+   * @remarks
+   * The start time. The default value is 5 minutes ago.
+   * 
+   * @example
+   * 1667727514000
+   */
+  from?: number;
+  /**
+   * @remarks
+   * Metric
+   * 
+   * Valid value:
+   * 
+   * *   totalPacketsRate: Total Packet Rate.
+   * *   dropBytesRate: the of the stream drop rate.
+   * *   dropPacketsRate: Dropped Packet Rate.
+   * *   totalBytesRate: the total streaming rate.
+   * *   passBytesRate: by stream rate.
+   * *   passPacketsRate: by packet rate.
+   * 
+   * @example
+   * passBytesRate
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
-  status?: string;
+  /**
+   * @remarks
+   * The end time. The default time is the current time.
+   * 
+   * @example
+   * 1689749749000
+   */
+  to?: number;
+  /**
+   * @remarks
+   * Lingjun Connection ID
+   * 
+   * @example
+   * vcc-cn-zvp2******
+   */
   vccId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'Direction',
+      from: 'From',
+      metricName: 'MetricName',
+      regionId: 'RegionId',
+      to: 'To',
+      vccId: 'VccId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'string',
+      from: 'number',
+      metricName: 'string',
+      regionId: 'string',
+      to: 'number',
+      vccId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccFlowInfosResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  content?: ListVccFlowInfosResponseBodyContent;
+  /**
+   * @remarks
+   * Response
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-************
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListVccFlowInfosResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccFlowInfosResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVccFlowInfosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVccFlowInfosResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccGrantRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable paged query. Optional values:
+   * 
+   * *   **true**: Enable pagination query
+   * *   **false**: Pagination query is disabled
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Use the drop-down box
+   * 
+   * @example
+   * true
+   */
+  forSelect?: boolean;
+  /**
+   * @remarks
+   * Authorization Entry ID
+   * 
+   * @example
+   * grant-rule-jaj33d1b804
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * @example
+   * 1620939556166277
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * @example
+   * vcc-cn-jaj33d1b804
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Instance name
+   * 
+   * @example
+   * vcc-1
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aekzb3n5lgk2ieq
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablePage: 'EnablePage',
+      erId: 'ErId',
+      forSelect: 'ForSelect',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablePage: 'boolean',
+      erId: 'string',
+      forSelect: 'boolean',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccGrantRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListVccGrantRulesResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A56F7D3C-8850-5AF4-A342-2D71C9A9D1CC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListVccGrantRulesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccGrantRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVccGrantRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVccGrantRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccRouteEntriesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Destination CIDR block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable pagination query.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Filter 32 detailed CIDR blocks. Default value: true
+   * 
+   * @example
+   * true
+   */
+  ignoreDetailedRouteEntry?: boolean;
+  /**
+   * @remarks
+   * Next Hop Instance
+   * 
+   * @example
+   * vcc-cn-jaj34d75h01
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * Next Hop Instance Type
+   * 
+   * @example
+   * VCC
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Route type
+   * 
+   * @example
+   * BGP
+   */
+  routeType?: string;
+  /**
+   * @remarks
+   * The status of the enterprise-level snapshot policy.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block route entry instance ID
+   * 
+   * @example
+   * vpd-rte-toekyqel
+   */
+  vpdRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      enablePage: 'EnablePage',
+      ignoreDetailedRouteEntry: 'IgnoreDetailedRouteEntry',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeType: 'RouteType',
+      status: 'Status',
+      vccId: 'VccId',
+      vpdRouteEntryId: 'VpdRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      enablePage: 'boolean',
+      ignoreDetailedRouteEntry: 'boolean',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeType: 'string',
+      status: 'string',
+      vccId: 'string',
+      vpdRouteEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccRouteEntriesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListVccRouteEntriesResponseBodyContent;
+  /**
+   * @remarks
+   * response message, if the success request is
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListVccRouteEntriesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccRouteEntriesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVccRouteEntriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVccRouteEntriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The peak bandwidth of the Lingjun connection instance. Unit: Mbit/s. Valid values: 1000 to 400000
+   * 
+   * @example
+   * 5000
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
+   * The ID of the CEN instance; [What is the CEN?](https://help.aliyun.com/document_detail/181681.html)
+   * 
+   * You can call the [DescribeCens](https://help.aliyun.com/document_detail/468215.htm) to query the information of CEN instances under the current Alibaba Cloud account.
+   * 
+   * @example
+   * cen-95iwtpyvj3kk1v0ao0
+   */
+  cenId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable paged query. Optional values:
+   * 
+   * *   **true**: Enable pagination query
+   * *   **false**: Pagination query is disabled
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Excludes all data in the specified status. If the status parameter exists, ExStatus does not take effect.
+   * 
+   * @example
+   * Prepaid
+   */
+  exStatus?: string;
+  /**
+   * @remarks
+   * Filter queries by Lingjun HUB instance ID
+   * 
+   * @example
+   * er-a7rqv1rq
+   */
+  filterErId?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aeky5f3qx6ceapq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The instance status.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tag?: ListVccsRequestTag[];
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  /**
+   * @remarks
+   * Virtual Private Cloud IDs; [What is Virtual Private Cloud](https://help.aliyun.com/document_detail/34217.html)
+   * 
+   * You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html#demo-0) operation to query the specified VPC.
+   * 
+   * @example
+   * vpc-bp1nrtkmamy329u6a1z0i
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * @example
+   * vpd-omqutbff
+   */
   vpdId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -817,10 +9283,13 @@ export class ListVccsRequest extends $tea.Model {
       cenId: 'CenId',
       enablePage: 'EnablePage',
       exStatus: 'ExStatus',
+      filterErId: 'FilterErId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tag: 'Tag',
       vccId: 'VccId',
       vpcId: 'VpcId',
       vpdId: 'VpdId',
@@ -833,10 +9302,13 @@ export class ListVccsRequest extends $tea.Model {
       cenId: 'string',
       enablePage: 'boolean',
       exStatus: 'string',
+      filterErId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
+      tag: { 'type': 'array', 'itemType': ListVccsRequestTag },
       vccId: 'string',
       vpcId: 'string',
       vpdId: 'string',
@@ -849,9 +9321,34 @@ export class ListVccsRequest extends $tea.Model {
 }
 
 export class ListVccsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   content?: ListVccsResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 28451248-7038-5184-B5D3-80F104654BE8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -877,9 +9374,9 @@ export class ListVccsResponseBody extends $tea.Model {
 }
 
 export class ListVccsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVccsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVccsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -901,29 +9398,578 @@ export class ListVccsResponse extends $tea.Model {
   }
 }
 
-export class ListVpdsRequest extends $tea.Model {
+export class ListVpdGrantRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable pagination query.
+   * 
+   * @example
+   * false
+   */
   enablePage?: boolean;
-  filterErId?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Use the drop-down box
+   * 
+   * @example
+   * true
+   */
   forSelect?: boolean;
-  name?: string;
+  /**
+   * @remarks
+   * Authorization Entry ID
+   * 
+   * @example
+   * grant-rule-8rgvqazb
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * @example
+   * 1620939556166279
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * The ID of the network instance that you want to query.
+   * 
+   * @example
+   * vpd-8rgvqazb
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Instance name
+   * 
+   * @example
+   * vpd-1
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablePage: 'EnablePage',
+      erId: 'ErId',
+      forSelect: 'ForSelect',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablePage: 'boolean',
+      erId: 'string',
+      forSelect: 'boolean',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdGrantRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListVpdGrantRulesResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A56F7D3C-8850-5AF4-A342-2D71C9A9D1CC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListVpdGrantRulesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdGrantRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpdGrantRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVpdGrantRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdRouteEntriesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Destination CIDR block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable paged query. Optional values:
+   * 
+   * *   **true**: Enable pagination query
+   * *   **false**: Pagination query is disabled
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Filter 32 detailed CIDR blocks. Default value: true
+   * 
+   * @example
+   * true
+   */
+  ignoreDetailedRouteEntry?: boolean;
+  /**
+   * @remarks
+   * Next Hop Instance
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * Next Hop Instance Type
+   * 
+   * @example
+   * VCC
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfm4mlwqjalz7a
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Route type
+   * 
+   * @example
+   * BGP
+   */
+  routeType?: string;
+  /**
+   * @remarks
+   * The status of the enterprise-level snapshot policy.
+   * 
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-fuliephf
+   */
   vpdId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block route entry instance ID
+   * 
+   * @example
+   * vpd-rte-4r1zbhoh
+   */
+  vpdRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      enablePage: 'EnablePage',
+      ignoreDetailedRouteEntry: 'IgnoreDetailedRouteEntry',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeType: 'RouteType',
+      status: 'Status',
+      vpdId: 'VpdId',
+      vpdRouteEntryId: 'VpdRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      enablePage: 'boolean',
+      ignoreDetailedRouteEntry: 'boolean',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeType: 'string',
+      status: 'string',
+      vpdId: 'string',
+      vpdRouteEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdRouteEntriesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListVpdRouteEntriesResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListVpdRouteEntriesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdRouteEntriesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpdRouteEntriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVpdRouteEntriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable paged query.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Queries the network segments of Lingjun that are not bound to a specified Lingjun HUB.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  filterErId?: string;
+  /**
+   * @remarks
+   * If you select a drop-down list, only the basic information (including the instance ID and instance name) is returned. Possible values:
+   * 
+   * *   **true**: Select Query Use from the drop-down list.
+   * *   **false**: Normal queries are used.
+   * 
+   * @example
+   * true
+   */
+  forSelect?: boolean;
+  /**
+   * @remarks
+   * The page number of the page to return. Start value: 1 Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aeky5f3qx6ceapq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The status of the CLB instance. Valid values:
+   * 
+   * *   **Available**: Normal.
+   * *   **Not Available**: Not available.
+   * *   **Executing**: The task is being executed.
+   * *   **Deleting**: The account is being deleted
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tag?: ListVpdsRequestTag[];
+  /**
+   * @remarks
+   * The ID of the VPD instance.
+   * 
+   * @example
+   * vpd-fuliephf
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The name of the VPD instance.
+   * 
+   * @example
+   * vpd-1
+   */
+  vpdName?: string;
+  /**
+   * @remarks
+   * Specifies whether to include the dependent resource information. We recommend that you do not query the dependent resource information when you query by page. You can query the dependent resource information separately when you delete it. Possible values:
+   * 
+   * *   **true**: with dependency information.
+   * *   **false**: does not include dependency information.
+   * 
+   * @example
+   * false
+   */
   withDependence?: boolean;
+  /**
+   * @remarks
+   * Queries the information about a Lingjun CIDR block that is not bound to a Lingjun connection. Possible values:
+   * 
+   * *   **true**: filters out VPDs that have been bound to VCC
+   * *   **false**: does not filter VPD that has been bound to VCC
+   * 
+   * @example
+   * true
+   */
   withoutVcc?: boolean;
   static names(): { [key: string]: string } {
     return {
       enablePage: 'EnablePage',
       filterErId: 'FilterErId',
       forSelect: 'ForSelect',
-      name: 'Name',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tag: 'Tag',
       vpdId: 'VpdId',
+      vpdName: 'VpdName',
       withDependence: 'WithDependence',
       withoutVcc: 'WithoutVcc',
     };
@@ -934,12 +9980,14 @@ export class ListVpdsRequest extends $tea.Model {
       enablePage: 'boolean',
       filterErId: 'string',
       forSelect: 'boolean',
-      name: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
+      tag: { 'type': 'array', 'itemType': ListVpdsRequestTag },
       vpdId: 'string',
+      vpdName: 'string',
       withDependence: 'boolean',
       withoutVcc: 'boolean',
     };
@@ -951,9 +9999,34 @@ export class ListVpdsRequest extends $tea.Model {
 }
 
 export class ListVpdsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
   content?: ListVpdsResponseBodyContent;
+  /**
+   * @remarks
+   * The additional information that is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -979,9 +10052,9 @@ export class ListVpdsResponseBody extends $tea.Model {
 }
 
 export class ListVpdsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVpdsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpdsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1003,19 +10076,1593 @@ export class ListVpdsResponse extends $tea.Model {
   }
 }
 
-export class UpdateSubnetRequest extends $tea.Model {
-  description?: string;
-  name?: string;
+export class QueryInstanceNcdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Instance 1ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-1235****
+   */
+  instanceId1?: string;
+  /**
+   * @remarks
+   * Instance 2ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-1234****
+   */
+  instanceId2?: string;
+  /**
+   * @remarks
+   * The parameter that specifies the instance type.
+   * 
+   * Valid value:
+   * 
+   * *   node: Lingjun node.
+   * *   lni: lingjun network interface controller.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId1: 'InstanceId1',
+      instanceId2: 'InstanceId2',
+      instanceType: 'InstanceType',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId1: 'string',
+      instanceId2: 'string',
+      instanceType: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceNcdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: QueryInstanceNcdResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * You don\\"t have the permission of this operation, action=eflo:QueryInstanceNcd, arn=acs:eflo:cn-shenzhen:1263399219805497:networkinterface/*, resourceGroup=null
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-645C88B9009C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: QueryInstanceNcdResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceNcdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryInstanceNcdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryInstanceNcdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefundVccRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Region
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Lingjun Connection ID
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vccId: 'VccId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vccId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefundVccResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response content
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * Response message, which is \\"success\\" if the request succeeds
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefundVccResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefundVccResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RefundVccResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryVccRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Lingjun Connection ID
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vccId: 'VccId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vccId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryVccResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 7F9082CC-3D94-560F-A575-8E8EF6CE2CB8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryVccResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RetryVccResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RetryVccResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssignPrivateIpAddressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * By default, popApi is not ignored and idempotent
+   * 
+   * @example
+   * 141cccd6-dfbd-11ec-b8e8-0242ac110003
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * IP unique identifier
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sip-xxxx
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-bp18exxqa2rvfn45e5pz
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The private IP address of the instance.
+   * 
+   * @example
+   * 10.209.75.242
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * Region
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Subnet
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-f3zfzmnc
+   */
   subnetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ipName: 'IpName',
+      networkInterfaceId: 'NetworkInterfaceId',
+      privateIpAddress: 'PrivateIpAddress',
+      regionId: 'RegionId',
+      subnetId: 'SubnetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ipName: 'string',
+      networkInterfaceId: 'string',
+      privateIpAddress: 'string',
+      regionId: 'string',
+      subnetId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssignPrivateIpAddressResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: UnAssignPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * You don\\"t have the permission to do this operation.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: UnAssignPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssignPrivateIpAddressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnAssignPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnAssignPrivateIpAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssociateVpdCidrBlockRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The additional CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 192.168.0.0/16
+   */
+  secondaryCidrBlock?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-aof7dat1
+   */
   vpdId?: string;
-  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      secondaryCidrBlock: 'SecondaryCidrBlock',
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      secondaryCidrBlock: 'string',
+      vpdId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssociateVpdCidrBlockResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: UnAssociateVpdCidrBlockResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: UnAssociateVpdCidrBlockResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssociateVpdCidrBlockResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnAssociateVpdCidrBlockResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnAssociateVpdCidrBlockResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassignLeniPrivateIpAddressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The idempotent identifier.
+   * 
+   * @example
+   * 967e77a2-b61d-11ec-a147-0242c0a80504
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP unique identifier.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sip-8ylg****
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      ipName: 'IpName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      elasticNetworkInterfaceId: 'string',
+      ipName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassignLeniPrivateIpAddressResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   * 
+   * @example
+   * {}
+   */
+  content?: UnassignLeniPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: UnassignLeniPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassignLeniPrivateIpAddressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnassignLeniPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnassignLeniPrivateIpAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateElasticNetworkInterfaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * 3fd79d62-ab1d-11ec-9a53-0242ac110004
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the variable.
+   * 
+   * @example
+   * LHICDOSEExternaluserinquiryP
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-wz9fj2s3o21nw2****
+   */
+  securityGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      elasticNetworkInterfaceId: 'string',
+      regionId: 'string',
+      securityGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateElasticNetworkInterfaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: UpdateElasticNetworkInterfaceResponseBodyContent;
+  /**
+   * @remarks
+   * The return message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: UpdateElasticNetworkInterfaceResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateElasticNetworkInterfaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateElasticNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateElasticNetworkInterfaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the document.
+   * 
+   * @example
+   * description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Parameter
+   * 
+   * @example
+   * er-wulanchabu-main
+   */
+  erName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
-      name: 'Name',
+      erId: 'ErId',
+      erName: 'ErName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      erId: 'string',
+      erName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
+  content?: { [key: string]: any };
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 3D9D6E7B-365B-5200-BFA6-9B79E269058C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateErResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateErResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErAttachmentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The connection ID of the Lingjun HUB network instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-attachment-i1ioibyf
+   */
+  erAttachmentId?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Network Instance Connection Name
+   * 
+   * @example
+   * er-attachment-wulanchabu-main
+   */
+  erAttachmentName?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erAttachmentId: 'ErAttachmentId',
+      erAttachmentName: 'ErAttachmentName',
+      erId: 'ErId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erAttachmentId: 'string',
+      erAttachmentName: 'string',
+      erId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErAttachmentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   * 
+   * @example
+   * {}
+   */
+  content?: { [key: string]: any };
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 7F9082CC-3D94-560F-A575-8E8EF6CE2CB8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErAttachmentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateErAttachmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateErAttachmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErRouteMapRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the document.
+   * 
+   * @example
+   * test-example
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * routing policy ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-rmap-uwglhzom
+   */
+  erRouteMapId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      erId: 'ErId',
+      erRouteMapId: 'ErRouteMapId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      erId: 'string',
+      erRouteMapId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErRouteMapResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   * 
+   * @example
+   * {}
+   */
+  content?: { [key: string]: any };
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-645C88B9009C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErRouteMapResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateErRouteMapResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateErRouteMapResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLeniPrivateIpAddressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the ECS instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP unique identifier.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sip-8ylg****
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      ipName: 'IpName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      elasticNetworkInterfaceId: 'string',
+      ipName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLeniPrivateIpAddressResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: UpdateLeniPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: UpdateLeniPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLeniPrivateIpAddressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLeniPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateLeniPrivateIpAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSubnetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The subnet instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-f3zfzmnc
+   */
+  subnetId?: string;
+  /**
+   * @remarks
+   * The new name for the subnet instance.
+   * 
+   * @example
+   * subnet-1
+   */
+  subnetName?: string;
+  /**
+   * @remarks
+   * The ID of the VPD to which the subnet belongs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-aof7dat1
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
       regionId: 'RegionId',
       subnetId: 'SubnetId',
+      subnetName: 'SubnetName',
       vpdId: 'VpdId',
       zoneId: 'ZoneId',
     };
@@ -1023,10 +11670,9 @@ export class UpdateSubnetRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      name: 'string',
       regionId: 'string',
       subnetId: 'string',
+      subnetName: 'string',
       vpdId: 'string',
       zoneId: 'string',
     };
@@ -1038,9 +11684,34 @@ export class UpdateSubnetRequest extends $tea.Model {
 }
 
 export class UpdateSubnetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The response content.
+   */
   content?: UpdateSubnetResponseBodyContent;
+  /**
+   * @remarks
+   * The message that is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3D9D6E7B-365B-5200-BFA6-9B79E269058C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1066,9 +11737,9 @@ export class UpdateSubnetResponseBody extends $tea.Model {
 }
 
 export class UpdateSubnetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSubnetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSubnetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1091,10 +11762,47 @@ export class UpdateSubnetResponse extends $tea.Model {
 }
 
 export class UpdateVccRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The peak bandwidth of the Lingjun connection instance. Unit: Mbit/s. Valid values: 1000 to 400000
+   * 
+   * @example
+   * 1000
+   */
   bandwidth?: number;
+  /**
+   * @remarks
+   * The ID of the order placed on the instance.
+   * 
+   * @example
+   * 20006627643
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
   vccId?: string;
+  /**
+   * @remarks
+   * The name of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-heyuan-backup
+   */
   vccName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1122,9 +11830,34 @@ export class UpdateVccRequest extends $tea.Model {
 }
 
 export class UpdateVccResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   content?: UpdateVccResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F906C4D3-7444-58E2-9819-E3D8563571A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1150,9 +11883,9 @@ export class UpdateVccResponseBody extends $tea.Model {
 }
 
 export class UpdateVccResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateVccResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVccResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1175,25 +11908,47 @@ export class UpdateVccResponse extends $tea.Model {
 }
 
 export class UpdateVpdRequest extends $tea.Model {
-  description?: string;
-  name?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the VPD instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-omqutbff
+   */
   vpdId?: string;
+  /**
+   * @remarks
+   * The name of the VPD instance.
+   * 
+   * @example
+   * vpd-lingjun
+   */
+  vpdName?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      name: 'Name',
       regionId: 'RegionId',
       vpdId: 'VpdId',
+      vpdName: 'VpdName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      name: 'string',
       regionId: 'string',
       vpdId: 'string',
+      vpdName: 'string',
     };
   }
 
@@ -1203,9 +11958,34 @@ export class UpdateVpdRequest extends $tea.Model {
 }
 
 export class UpdateVpdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
   content?: UpdateVpdResponseBodyContent;
+  /**
+   * @remarks
+   * The additional information that is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1231,9 +12011,9 @@ export class UpdateVpdResponseBody extends $tea.Model {
 }
 
 export class UpdateVpdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateVpdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVpdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1255,7 +12035,270 @@ export class UpdateVpdResponse extends $tea.Model {
   }
 }
 
+export class AssignLeniPrivateIpAddressResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP unique identifier.
+   * 
+   * @example
+   * sip-lzwx****
+   */
+  ipName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      ipName: 'IpName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      ipName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignPrivateIpAddressResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The unique IP identifier.
+   * 
+   * @example
+   * sip-8exxqa2r
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID.
+   * 
+   * @example
+   * lni-bp18exxqa2rvfn45e5pz
+   */
+  networkInterfaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipName: 'IpName',
+      networkInterfaceId: 'NetworkInterfaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipName: 'string',
+      networkInterfaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateVpdCidrBlockResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * @example
+   * vpd-eoiy88ju
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpdId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateElasticNetworkInterfaceResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * @example
+   * leni-1fejojjo****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun node.
+   * 
+   * @example
+   * e01-cn-lbj3aej****
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * @example
+   * er-aueyxxsy
+   */
+  erId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErAttachmentResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the network connection instance.
+   * 
+   * @example
+   * er-attachment-ggjbfhqv
+   */
+  erAttachmentId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erAttachmentId: 'ErAttachmentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erAttachmentId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErRouteMapResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * routing policy ID
+   * 
+   * @example
+   * er-rmap-uwglhzom
+   */
+  erRouteMapId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erRouteMapId: 'ErRouteMapId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erRouteMapId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSubnetRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key of the VPN attachment.
+   * 
+   * You cannot specify an empty string as a tag key. It can be up to 64 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * tag-subnet
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the VPN connection.
+   * 
+   * The tag value can be empty or a string of up to 128 characters. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * 
+   * Each key-value pair must be unique. You can specify values for at most 20 tag keys in each call.
+   * 
+   * @example
+   * subnet-tag-1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSubnetResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun subnet instance ID
+   * 
+   * @example
+   * subnet-yuvn29bn
+   */
   subnetId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1274,7 +12317,58 @@ export class CreateSubnetResponseBodyContent extends $tea.Model {
   }
 }
 
+export class CreateVccRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key of the VPN attachment.
+   * 
+   * You cannot specify an empty string as a tag key. It can be up to 64 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * tag-vcc
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the VPN connection.
+   * 
+   * The tag value can be empty or a string of up to 128 characters. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * 
+   * Each key-value pair must be unique. You can specify values for at most 20 tag keys in each call.
+   * 
+   * @example
+   * vcc-group-1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVccResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
   vccId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1293,17 +12387,111 @@ export class CreateVccResponseBodyContent extends $tea.Model {
   }
 }
 
+export class CreateVccGrantRuleResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Authorized resource primary key ID
+   * 
+   * @example
+   * grant-rule-8rgvqazb
+   */
+  grantRuleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grantRuleId: 'GrantRuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grantRuleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccRouteEntryResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the route entry.
+   * 
+   * @example
+   * vcc-rte-5cey1sap
+   */
+  vccRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vccRouteEntryId: 'VccRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vccRouteEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVpdRequestSubnets extends $tea.Model {
+  /**
+   * @remarks
+   * The CIDR block of the Subnet.
+   * 
+   * *   The network segment of the subnet must be a proper subset of the network segment of Lingjun to which it belongs, and the mask must be between 16 bits and 29 bits, which can provide 8 to 65536 addresses. For example, the CIDR block of the Lingjun CIDR block is 192.168.0.0/16, and the CIDR blocks of the subnets under the Lingjun CIDR block are 192.168.0.0/17 to 192.168.0.0/29.
+   * *   The first and last three IP addresses of each subnet segment are reserved by the system. For example, the CIDR blocks of the subnet are 192.168.1.0/24,192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+   * 
+   * @example
+   * 10.1.0.0/16
+   */
   cidr?: string;
-  name?: string;
+  /**
+   * @remarks
+   * The region in which the instance resides.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * Lingjun subnet instance name
+   * 
+   * @example
+   * subnet-1
+   */
+  subnetName?: string;
+  /**
+   * @remarks
+   * Lingjun Subnet Usage Type; optional; optional. Valid values:
+   * 
+   * *   **Generic type is not specified**.
+   * *   **OOB** :OOB type
+   * *   **LB**: LB type
+   * 
+   * @example
+   * OOB
+   */
   type?: string;
+  /**
+   * @remarks
+   * The zone ID of the disk.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       cidr: 'Cidr',
-      name: 'Name',
       regionId: 'RegionId',
+      subnetName: 'SubnetName',
       type: 'Type',
       zoneId: 'ZoneId',
     };
@@ -1312,8 +12500,8 @@ export class CreateVpdRequestSubnets extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cidr: 'string',
-      name: 'string',
       regionId: 'string',
+      subnetName: 'string',
       type: 'string',
       zoneId: 'string',
     };
@@ -1324,8 +12512,63 @@ export class CreateVpdRequestSubnets extends $tea.Model {
   }
 }
 
+export class CreateVpdRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key of the VPN attachment.
+   * 
+   * You cannot specify an empty string as a tag key. It can be up to 64 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * vpd-wulanchabu
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the VPN connection.
+   * 
+   * The tag value can be empty or a string of up to 128 characters. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * 
+   * Each tag key corresponds to a tag value. You can enter a maximum of 20 tag values at a time.
+   * 
+   * @example
+   * wulanchabu-a
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVpdResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun subnet ID list
+   */
   subnetIds?: string[];
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * @example
+   * vpd-eoiy88ju
+   */
   vpdId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1346,25 +12589,1936 @@ export class CreateVpdResponseBodyContent extends $tea.Model {
   }
 }
 
-export class GetSubnetResponseBodyContentVpdBaseInfo extends $tea.Model {
-  cidr?: string;
+export class CreateVpdGrantRuleResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Authorized resource primary key ID
+   * 
+   * @example
+   * grant-rule-hnevjkmw
+   */
+  grantRuleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grantRuleId: 'GrantRuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grantRuleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteElasticNetworkInterfaceResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Node ID
+   * 
+   * @example
+   * e01-cn-lbj3aej****
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlrResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Whether the role exists
+   * 
+   * @example
+   * true
+   */
+  hasRole?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      hasRole: 'HasRole',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasRole: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDestinationCidrBlockResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * List of destination CIDR block information for the current network instance
+   */
+  destinationCidrBlock?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetElasticNetworkInterfaceResponseBodyContentIpv6Addresses extends $tea.Model {
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1585816811000
+   */
   gmtCreate?: string;
-  name?: string;
+  /**
+   * @remarks
+   * The time when the cluster was updated.
+   * 
+   * @example
+   * 1549012834000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * IPV6 unique identifier
+   * 
+   * @example
+   * sip-sg3xabeq
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * IPV6 address
+   * 
+   * @example
+   * 2408:4005:3aa:1000:470d:66fb:56a5:****
+   */
+  ipv6Address?: string;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      ipName: 'IpName',
+      ipv6Address: 'Ipv6Address',
+      message: 'Message',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      elasticNetworkInterfaceId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      ipName: 'string',
+      ipv6Address: 'string',
+      message: 'string',
+      regionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetElasticNetworkInterfaceResponseBodyContentPrivateIpAddresses extends $tea.Model {
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1672971789000
+   */
+  gmtCreate?: string;
+  /**
+   * @remarks
+   * The time when the cluster was updated.
+   * 
+   * @example
+   * 1672971789000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface Secondary Private IP Unique Identifier
+   * 
+   * @example
+   * sip-ywz****
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP address
+   * 
+   * @example
+   * 172.16.****
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      ipName: 'IpName',
+      message: 'Message',
+      privateIpAddress: 'PrivateIpAddress',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      elasticNetworkInterfaceId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      ipName: 'string',
+      message: 'string',
+      privateIpAddress: 'string',
+      regionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetElasticNetworkInterfaceResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 2022-01-13 12:51:41
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * terraform-example
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Whether to enable the jumboFrame capability
+   * 
+   * @example
+   * True
+   */
+  enableJumboFrame?: boolean;
+  /**
+   * @remarks
+   * vswitch gateway address
+   * 
+   * @example
+   * 172.16.****
+   */
+  gateway?: string;
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 2022-01-13 12:51:41
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * Elastic Network Interface IP
+   * 
+   * @example
+   * 203.107.****
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * IPV6 address
+   */
+  ipv6Addresses?: GetElasticNetworkInterfaceResponseBodyContentIpv6Addresses[];
+  /**
+   * @remarks
+   * mac address
+   * 
+   * @example
+   * 00:22:6D:97:**:**
+   */
+  mac?: string;
+  /**
+   * @remarks
+   * vswitch mask bits
+   * 
+   * @example
+   * 24
+   */
+  mask?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Lingjun Node ID
+   * 
+   * @example
+   * e01-cn-lbj3aej****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * Secondary private IP address
+   */
+  privateIpAddresses?: GetElasticNetworkInterfaceResponseBodyContentPrivateIpAddresses[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-0jl5s4p4laalruk7****
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The state of the private gateway.
+   * 
+   * Valid value:
+   * 
+   * *   Create Failed: the creation failure.
+   * *   Delete Failed: the that failed to be deleted.
+   * *   Executing
+   * *   Available
+   * *   Deleting
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * NIC Type
+   * 
+   * Valid value:
+   * 
+   * *   CUSTOM: custom type.
+   * *   DEFAULT: system type.
+   * 
+   * @example
+   * DEFAULT
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-uf6u8473r84e9****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * VPC ID
+   * 
+   * @example
+   * vpc-j6ctp4n75306****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      enableJumboFrame: 'EnableJumboFrame',
+      gateway: 'Gateway',
+      gmtModified: 'GmtModified',
+      ip: 'Ip',
+      ipv6Addresses: 'Ipv6Addresses',
+      mac: 'Mac',
+      mask: 'Mask',
+      message: 'Message',
+      nodeId: 'NodeId',
+      privateIpAddresses: 'PrivateIpAddresses',
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+      status: 'Status',
+      type: 'Type',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      elasticNetworkInterfaceId: 'string',
+      enableJumboFrame: 'boolean',
+      gateway: 'string',
+      gmtModified: 'string',
+      ip: 'string',
+      ipv6Addresses: { 'type': 'array', 'itemType': GetElasticNetworkInterfaceResponseBodyContentIpv6Addresses },
+      mac: 'string',
+      mask: 'string',
+      message: 'string',
+      nodeId: 'string',
+      privateIpAddresses: { 'type': 'array', 'itemType': GetElasticNetworkInterfaceResponseBodyContentPrivateIpAddresses },
+      regionId: 'string',
+      securityGroupId: 'string',
+      status: 'string',
+      type: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErResponseBodyContentErAttachments extends $tea.Model {
+  /**
+   * @remarks
+   * Cross-account
+   * 
+   * @example
+   * false
+   */
+  across?: boolean;
+  /**
+   * @remarks
+   * Receive all routes automatically
+   * 
+   * @example
+   * true
+   */
+  autoReceiveAllRoute?: boolean;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1644283112720
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The connection ID of the Lingjun HUB network instance.
+   * 
+   * @example
+   * er-attachment-f32hxfsu
+   */
+  erAttachmentId?: string;
+  /**
+   * @remarks
+   * Network Instance Name
+   * 
+   * @example
+   * fudan-egpu
+   */
+  erAttachmentName?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 1649303733000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * vpd-kkopgtne
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The name of the ECU.
+   * 
+   * @example
+   * zhijiao
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * Instance type: VPD and VCC
+   * 
+   * Valid value:
+   * 
+   * *   VCC: Lingjun Connection.
+   * *   VPD: Lingjun network segment.
+   * 
+   * @example
+   * VPD
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The synchronized region where the ECS instances are deployed.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmzzka6bnjvbi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant to which the resource belongs.
+   * 
+   * @example
+   * xxxxxxxx
+   */
+  resourceTenantId?: string;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      across: 'Across',
+      autoReceiveAllRoute: 'AutoReceiveAllRoute',
+      createTime: 'CreateTime',
+      erAttachmentId: 'ErAttachmentId',
+      erAttachmentName: 'ErAttachmentName',
+      erId: 'ErId',
+      gmtModified: 'GmtModified',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      message: 'Message',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceTenantId: 'ResourceTenantId',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      across: 'boolean',
+      autoReceiveAllRoute: 'boolean',
+      createTime: 'string',
+      erAttachmentId: 'string',
+      erAttachmentName: 'string',
+      erId: 'string',
+      gmtModified: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      message: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceTenantId: 'string',
+      status: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErResponseBodyContentErRouteEntrys extends $tea.Model {
+  /**
+   * @remarks
+   * Destination CIDR Block
+   * 
+   * @example
+   * 10.0.0.0/9
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry.
+   * 
+   * @example
+   * er-rte-xnmsd2kl
+   */
+  erRouteEntryId?: string;
+  /**
+   * @remarks
+   * The time when the cluster was updated.
+   * 
+   * @example
+   * 1623317089000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * Next Hop Instance
+   * 
+   * @example
+   * vcc-xxkmggkw
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * Next Hop Instance Type
+   * 
+   * @example
+   * VCC
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmyoj5mg3w54y
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant to which the resource belongs.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  resourceTenantId?: string;
+  /**
+   * @remarks
+   * Route type
+   * 
+   * @example
+   * System
+   */
+  routeType?: string;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      erId: 'ErId',
+      erRouteEntryId: 'ErRouteEntryId',
+      gmtModified: 'GmtModified',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceTenantId: 'ResourceTenantId',
+      routeType: 'RouteType',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      erId: 'string',
+      erRouteEntryId: 'string',
+      gmtModified: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceTenantId: 'string',
+      routeType: 'string',
+      status: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErResponseBodyContentErRouteMaps extends $tea.Model {
+  /**
+   * @remarks
+   * Policy behavior
+   * 
+   * Valid value:
+   * 
+   * *   deny: rejects the.
+   * *   permit: The allows.
+   * 
+   * @example
+   * permit
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1645766599809
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Policy description
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Destination CIDR Block
+   * 
+   * @example
+   * 10.0.0.0/8
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * routing policy ID
+   * 
+   * @example
+   * er-rmap-xkslnmsr
+   */
+  erRouteMapId?: string;
+  /**
+   * @remarks
+   * The name of the routing policy.
+   * 
+   * @example
+   * route-map-name
+   */
+  erRouteMapName?: string;
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 1623899444000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The message that is returned.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the destination instance.
+   * 
+   * @example
+   * vpd-sdkd2gkx
+   */
+  receptionInstanceId?: string;
+  /**
+   * @remarks
+   * The name of the destination instance.
+   * 
+   * @example
+   * Reception-name
+   */
+  receptionInstanceName?: string;
+  /**
+   * @remarks
+   * The tenant to which the destination instance belongs.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  receptionInstanceOwner?: string;
+  /**
+   * @remarks
+   * The type of the destination instance.
+   * 
+   * @example
+   * VPD
+   */
+  receptionInstanceType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmzaq3ypaqkdy
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Policy sequence number (1001-2000)
+   * 
+   * @example
+   * 1001
+   */
+  routeMapNum?: number;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * XXQGPROD-zh_CN
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * The ID of the source instance.
+   * 
+   * @example
+   * vpd-xmglsymg
+   */
+  transmissionInstanceId?: string;
+  /**
+   * @remarks
+   * Source instance name
+   * 
+   * @example
+   * test-transmission
+   */
+  transmissionInstanceName?: string;
+  /**
+   * @remarks
+   * The tenant to which the source instance belongs.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  transmissionInstanceOwner?: string;
+  /**
+   * @remarks
+   * The type of the source instance.
+   * 
+   * @example
+   * VPD
+   */
+  transmissionInstanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      createTime: 'CreateTime',
+      description: 'Description',
+      destinationCidrBlock: 'DestinationCidrBlock',
+      erId: 'ErId',
+      erRouteMapId: 'ErRouteMapId',
+      erRouteMapName: 'ErRouteMapName',
+      gmtModified: 'GmtModified',
+      message: 'Message',
+      receptionInstanceId: 'ReceptionInstanceId',
+      receptionInstanceName: 'ReceptionInstanceName',
+      receptionInstanceOwner: 'ReceptionInstanceOwner',
+      receptionInstanceType: 'ReceptionInstanceType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeMapNum: 'RouteMapNum',
+      status: 'Status',
+      tenantId: 'TenantId',
+      transmissionInstanceId: 'TransmissionInstanceId',
+      transmissionInstanceName: 'TransmissionInstanceName',
+      transmissionInstanceOwner: 'TransmissionInstanceOwner',
+      transmissionInstanceType: 'TransmissionInstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      createTime: 'string',
+      description: 'string',
+      destinationCidrBlock: 'string',
+      erId: 'string',
+      erRouteMapId: 'string',
+      erRouteMapName: 'string',
+      gmtModified: 'string',
+      message: 'string',
+      receptionInstanceId: 'string',
+      receptionInstanceName: 'string',
+      receptionInstanceOwner: 'string',
+      receptionInstanceType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeMapNum: 'number',
+      status: 'string',
+      tenantId: 'string',
+      transmissionInstanceId: 'string',
+      transmissionInstanceName: 'string',
+      transmissionInstanceOwner: 'string',
+      transmissionInstanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1644283112720
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Description
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Network instance information list
+   */
+  erAttachments?: GetErResponseBodyContentErAttachments[];
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * @example
+   * er-aueyxxsy
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Instance Name
+   * 
+   * @example
+   * er-heyuan-main
+   */
+  erName?: string;
+  /**
+   * @remarks
+   * The list of route entry information.
+   */
+  erRouteEntrys?: GetErResponseBodyContentErRouteEntrys[];
+  /**
+   * @remarks
+   * routing policy information list
+   */
+  erRouteMaps?: GetErResponseBodyContentErRouteMaps[];
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 1627545952000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * Primary Zone
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  masterZoneId?: string;
+  /**
+   * @remarks
+   * The message that is returned.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aekzlki4ehfse4y
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      erAttachments: 'ErAttachments',
+      erId: 'ErId',
+      erName: 'ErName',
+      erRouteEntrys: 'ErRouteEntrys',
+      erRouteMaps: 'ErRouteMaps',
+      gmtModified: 'GmtModified',
+      masterZoneId: 'MasterZoneId',
+      message: 'Message',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      erAttachments: { 'type': 'array', 'itemType': GetErResponseBodyContentErAttachments },
+      erId: 'string',
+      erName: 'string',
+      erRouteEntrys: { 'type': 'array', 'itemType': GetErResponseBodyContentErRouteEntrys },
+      erRouteMaps: { 'type': 'array', 'itemType': GetErResponseBodyContentErRouteMaps },
+      gmtModified: 'string',
+      masterZoneId: 'string',
+      message: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErAttachmentResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Whether cross-account. Valid values:
+   * 
+   * *   **true**: The network instance is a cross-account resource.
+   * *   **false**: The current network instance is a resource of the current account.
+   * 
+   * @example
+   * fasle
+   */
+  across?: boolean;
+  /**
+   * @remarks
+   * Indicates whether to automatically receive all routes from all instances under the Lingjun HUB. Valid values:
+   * 
+   * *   **true**: received automatically.
+   * *   **false**: Not received.
+   * 
+   * @example
+   * true
+   */
+  autoReceiveAllRoute?: boolean;
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 1648085472000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun HUB network instance.
+   * 
+   * @example
+   * er-attachment-i1ioibyf
+   */
+  erAttachmentId?: string;
+  /**
+   * @remarks
+   * The name of the Lingjun HUB network instance.
+   * 
+   * @example
+   * vpd-lxnsj2cx
+   */
+  erAttachmentName?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun HUB instance.
+   * 
+   * @example
+   * er-aueyxxsy
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M task was modified.
+   * 
+   * @example
+   * 1648085472000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The ID of the network instance. Valid values: **VPD** and **VCC**.
+   * 
+   * For more information, see [What is Lingjun?](https://help.aliyun.com/document_detail/444430.html)
+   * 
+   * You can query **Lingjun CIDR blocks** and **Lingjun connections** by [ListVpds](https://help.aliyun.com/document_detail/2331077.html) and [ListVccs](https://help.aliyun.com/document_detail/2399526.html?) respectively.
+   * 
+   * @example
+   * vpd-lxnsj2cx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * vpd-wulanchabu-main
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The database type. Valid values:
+   * 
+   * *   **VPD**: indicates the Lingjun CIDR block.
+   * *   **VCC**: indicates a Lingjun connection.
+   * 
+   * @example
+   * VPD
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * test
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aekzb3n5lgk2ieq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant to which the resource belongs.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  resourceTenantId?: string;
+  /**
+   * @remarks
+   * The status of the cache reserve instance. Valid values:
+   * 
+   * *   **Available**: Normal.
+   * *   **Not Available**: Not available.
+   * *   **Executing**: The task is being executed.
+   * *   **Deleting**: The account is being deleted
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      across: 'Across',
+      autoReceiveAllRoute: 'AutoReceiveAllRoute',
+      createTime: 'CreateTime',
+      erAttachmentId: 'ErAttachmentId',
+      erAttachmentName: 'ErAttachmentName',
+      erId: 'ErId',
+      gmtModified: 'GmtModified',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      message: 'Message',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceTenantId: 'ResourceTenantId',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      across: 'boolean',
+      autoReceiveAllRoute: 'boolean',
+      createTime: 'string',
+      erAttachmentId: 'string',
+      erAttachmentName: 'string',
+      erId: 'string',
+      gmtModified: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      message: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceTenantId: 'string',
+      status: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteEntryResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Destination CIDR Block
+   * 
+   * @example
+   * 11.0.0.0/16
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * @example
+   * er-aueyxxsy
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry.
+   * 
+   * @example
+   * er-rte-4q0jbylz
+   */
+  erRouteEntryId?: string;
+  /**
+   * @remarks
+   * The time when the cluster was updated.
+   * 
+   * @example
+   * 1666677783000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * Next Hop Instance
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * Next Hop Instance Type
+   * 
+   * @example
+   * VCC
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aekzb3n5lgk2ieq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Route type
+   * 
+   * @example
+   * System
+   */
+  routeType?: string;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      erId: 'ErId',
+      erRouteEntryId: 'ErRouteEntryId',
+      gmtModified: 'GmtModified',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeType: 'RouteType',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      erId: 'string',
+      erRouteEntryId: 'string',
+      gmtModified: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeType: 'string',
+      status: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteMapResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Policy behavior; optional values:
+   * 
+   * *   **permit**: Allow
+   * *   **deny**: Rejected
+   * 
+   * @example
+   * permit
+   */
+  action?: string;
+  /**
+   * @remarks
+   * Policy description
+   * 
+   * @example
+   * ssss
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Destination CIDR block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Lingjun HUB routing policy ID
+   * 
+   * @example
+   * er-rmap-uwglhzom
+   */
+  erRouteMapId?: string;
+  /**
+   * @remarks
+   * Lingjun HUB routing policy Name
+   * 
+   * @example
+   * er-rmap-wulanchabu
+   */
+  erRouteMapName?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1648085472000
+   */
+  gmtCreate?: string;
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 1648085472000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The message that is returned.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Receive Instance ID
+   * 
+   * @example
+   * vpd-x25vxrb2
+   */
+  receptionInstanceId?: string;
+  /**
+   * @remarks
+   * Receive Instance Name
+   * 
+   * @example
+   * vpd-receprion
+   */
+  receptionInstanceName?: string;
+  /**
+   * @remarks
+   * The tenant to which the receiving instance belongs
+   * 
+   * @example
+   * 1620939556166277
+   */
+  receptionInstanceOwner?: string;
+  /**
+   * @remarks
+   * The type of the received instance. Optional values:
+   * 
+   * *   **VPD**: Lingjun network segment.
+   * *   **VCC**: Lingjun Connection.
+   * 
+   * @example
+   * VPD
+   */
+  receptionInstanceType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aekzlki4ehfse4y
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the policy.
+   * 
+   * A smaller sequence number indicates a lower priority. When a route is matched, a policy with a higher priority is preferentially matched.
+   * 
+   * **Valid values: 1001 to 2000**
+   * 
+   * @example
+   * 1001
+   */
+  routeMapNum?: number;
+  /**
+   * @remarks
+   * The status of the cache reserve instance. Valid values:
+   * 
+   * *   **Available**
+   * *   **Not Available**: Unavailable
+   * *   **Executing**: Executing
+   * *   **Deleting**: The node is being deleted.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * Release Instance ID
+   * 
+   * @example
+   * vpd-xgkb2kl
+   */
+  transmissionInstanceId?: string;
+  /**
+   * @remarks
+   * Release Instance Name
+   * 
+   * @example
+   * vpd-transimit
+   */
+  transmissionInstanceName?: string;
+  /**
+   * @remarks
+   * The tenant to which the published instance belongs
+   * 
+   * @example
+   * 1620939556166277
+   */
+  transmissionInstanceOwner?: string;
+  /**
+   * @remarks
+   * Publish instance type; optional values:
+   * 
+   * *   **VPD**: Lingjun network segment.
+   * *   **VCC**: Lingjun Connection.
+   * 
+   * @example
+   * VPD
+   */
+  transmissionInstanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      description: 'Description',
+      destinationCidrBlock: 'DestinationCidrBlock',
+      erId: 'ErId',
+      erRouteMapId: 'ErRouteMapId',
+      erRouteMapName: 'ErRouteMapName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      message: 'Message',
+      receptionInstanceId: 'ReceptionInstanceId',
+      receptionInstanceName: 'ReceptionInstanceName',
+      receptionInstanceOwner: 'ReceptionInstanceOwner',
+      receptionInstanceType: 'ReceptionInstanceType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeMapNum: 'RouteMapNum',
+      status: 'Status',
+      tenantId: 'TenantId',
+      transmissionInstanceId: 'TransmissionInstanceId',
+      transmissionInstanceName: 'TransmissionInstanceName',
+      transmissionInstanceOwner: 'TransmissionInstanceOwner',
+      transmissionInstanceType: 'TransmissionInstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      description: 'string',
+      destinationCidrBlock: 'string',
+      erId: 'string',
+      erRouteMapId: 'string',
+      erRouteMapName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      message: 'string',
+      receptionInstanceId: 'string',
+      receptionInstanceName: 'string',
+      receptionInstanceOwner: 'string',
+      receptionInstanceType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeMapNum: 'number',
+      status: 'string',
+      tenantId: 'string',
+      transmissionInstanceId: 'string',
+      transmissionInstanceName: 'string',
+      transmissionInstanceOwner: 'string',
+      transmissionInstanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFabricTopologyResponseBodyContentTopoInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * core-1
+   */
+  layerName?: string;
+  /**
+   * @remarks
+   * Hierarchical resource types
+   * 
+   * Valid value:
+   * 
+   * *   core: core layer.
+   * *   node: Lingjun node.
+   * *   lni: lingjun network interface controller.
+   * *   spine: backbone layer.
+   * *   leaf: access layer
+   * 
+   * @example
+   * core
+   */
+  layerType?: string;
+  /**
+   * @remarks
+   * Next Level
+   */
+  nextLayer?: any[];
+  static names(): { [key: string]: string } {
+    return {
+      layerName: 'LayerName',
+      layerType: 'LayerType',
+      nextLayer: 'NextLayer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      layerName: 'string',
+      layerType: 'string',
+      nextLayer: { 'type': 'array', 'itemType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFabricTopologyResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * cluster-****
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * network interface controller Topology Information
+   */
+  topoInfo?: GetFabricTopologyResponseBodyContentTopoInfo[];
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-j6ctp4n75306****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block ID
+   * 
+   * @example
+   * vpd-fuli****
+   */
   vpdId?: string;
   static names(): { [key: string]: string } {
     return {
-      cidr: 'Cidr',
-      gmtCreate: 'GmtCreate',
-      name: 'Name',
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+      topoInfo: 'TopoInfo',
+      vpcId: 'VpcId',
       vpdId: 'VpdId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cidr: 'string',
-      gmtCreate: 'string',
-      name: 'string',
+      clusterId: 'string',
+      regionId: 'string',
+      topoInfo: { 'type': 'array', 'itemType': GetFabricTopologyResponseBodyContentTopoInfo },
+      vpcId: 'string',
       vpdId: 'string',
     };
   }
@@ -1374,38 +14528,993 @@ export class GetSubnetResponseBodyContentVpdBaseInfo extends $tea.Model {
   }
 }
 
-export class GetSubnetResponseBodyContent extends $tea.Model {
-  cidr?: string;
+export class GetLeniPrivateIpAddressResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * zhenyuan wdl workflow
+   */
   description?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 1663722356000
+   */
   gmtCreate?: string;
+  /**
+   * @remarks
+   * The time when the certificate was updated.
+   * 
+   * @example
+   * 1635231890000
+   */
   gmtModified?: string;
-  id?: number;
-  lbCount?: number;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP unique identifier.
+   * 
+   * @example
+   * sip-8ylg****
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * message
+   */
   message?: string;
-  name?: string;
-  ncCount?: number;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP address.
+   * 
+   * @example
+   * 10.42.****
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * @example
+   * Available
+   */
   status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      ipName: 'IpName',
+      message: 'Message',
+      privateIpAddress: 'PrivateIpAddress',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      elasticNetworkInterfaceId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      ipName: 'string',
+      message: 'string',
+      privateIpAddress: 'string',
+      regionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLniPrivateIpAddressResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 2022-12-26 20:16:36
+   */
+  gmtCreate?: string;
+  /**
+   * @remarks
+   * MAC address of the secondary private network
+   * 
+   * @example
+   * 00-ff-84-15-ba-67
+   */
+  ipAddressMac?: string;
+  /**
+   * @remarks
+   * IP unique identifier
+   * 
+   * @example
+   * sip-xxxxx
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * You don\\"t have the permission of this operation, action=eflo:ListVpdRouteEntries, arn=acs:eflo:cn-wulanchabu:1263399219805497:vpd_rte/*, resourceGroup=null
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID
+   * 
+   * @example
+   * lni-2ze4uww7n6hsfzrwq77y
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The secondary private IP address of the Lingjun network interface controller.
+   * 
+   * @example
+   * 10.42.5.92
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The state of the rule.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      gmtCreate: 'GmtCreate',
+      ipAddressMac: 'IpAddressMac',
+      ipName: 'IpName',
+      message: 'Message',
+      networkInterfaceId: 'NetworkInterfaceId',
+      privateIpAddress: 'PrivateIpAddress',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      gmtCreate: 'string',
+      ipAddressMac: 'string',
+      ipName: 'string',
+      message: 'string',
+      networkInterfaceId: 'string',
+      privateIpAddress: 'string',
+      regionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkInterfaceResponseBodyContentPrivateIpAddressMacGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Secondary private MAC address
+   * 
+   * @example
+   * 01-00-5e-00-00-16
+   */
+  ipAddressMac?: string;
+  /**
+   * @remarks
+   * IP unique identifier
+   * 
+   * @example
+   * sip-xxxx
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Secondary private IP address
+   * 
+   * @example
+   * 172.23.161.57
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The state of the rule.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      ipAddressMac: 'IpAddressMac',
+      ipName: 'IpName',
+      message: 'Message',
+      privateIpAddress: 'PrivateIpAddress',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      ipAddressMac: 'string',
+      ipName: 'string',
+      message: 'string',
+      privateIpAddress: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkInterfaceResponseBodyContentSubnetBaseInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Network address segment
+   * 
+   * @example
+   * 116.233.21.57/32
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1678273219000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the Subnet instance.
+   * 
+   * @example
+   * subnet-urb01blo
+   */
   subnetId?: string;
-  tenantId?: string;
-  type?: string;
-  vpdBaseInfo?: GetSubnetResponseBodyContentVpdBaseInfo;
-  vpdId?: string;
-  zoneId?: string;
+  /**
+   * @remarks
+   * The name of the Subnet instance.
+   * 
+   * @example
+   * subnet-1
+   */
+  subnetName?: string;
   static names(): { [key: string]: string } {
     return {
       cidr: 'Cidr',
-      description: 'Description',
-      gmtCreate: 'GmtCreate',
+      createTime: 'CreateTime',
+      subnetId: 'SubnetId',
+      subnetName: 'SubnetName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      createTime: 'string',
+      subnetId: 'string',
+      subnetName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkInterfaceResponseBodyContentVpdBaseInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The network segment of the Lingjun subnet.
+   * 
+   * *   The network segment of the subnet must be a proper subset of the network segment of Lingjun to which it belongs, and the mask must be between 16 bits and 29 bits, which can provide 8 to 65536 addresses. For example, the CIDR block of the Lingjun CIDR block is 192.168.0.0/16, and the CIDR blocks of the subnets under the Lingjun CIDR block are 192.168.0.0/17 to 192.168.0.0/29.
+   * *   The first and last three IP addresses of each subnet segment are reserved by the system. For example, the CIDR blocks of the subnet are 192.168.1.0/24,192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+   * 
+   * For more information about CIDR blocks, see the [What is CIDR?](https://www.alibabacloud.com/help/doc-detail/40637.htm#title-gu4-uzk-12r) section in the "Network FAQ" topic.
+   * 
+   * This parameter is left empty by default.
+   * 
+   * @example
+   * 172.18.0.0/24
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1678273219000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the VPD instance.
+   * 
+   * @example
+   * vpd-ppdunxzc
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The name of the VPD instance.
+   * 
+   * @example
+   * vpd-1
+   */
+  vpdName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      createTime: 'CreateTime',
+      vpdId: 'VpdId',
+      vpdName: 'VpdName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      createTime: 'string',
+      vpdId: 'string',
+      vpdName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkInterfaceResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1678273219000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Port
+   */
+  ethernet?: string[];
+  /**
+   * @remarks
+   * Gateway
+   * 
+   * @example
+   * 172.24.20.254
+   */
+  gateway?: string;
+  /**
+   * @remarks
+   * The IP address of the BE cluster.
+   * 
+   * @example
+   * 203.107.60.69
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * NC Type
+   * 
+   * Valid value:
+   * 
+   * *   CUSTOM_LNI_INTEGRATION: two-network one-in-one architecture Lingjun hosting network interface controller.
+   * *   CPU: CPU machine.
+   * *   ELASTIC_6.2: Machine
+   * *   GPU: GPU machine.
+   * *   DEFAULT: the old CPU machine.
+   * *   CUSTOM_LNI: two network separation architecture Lingjun hosting network interface controller.
+   * 
+   * @example
+   * DEFAULT
+   */
+  ncType?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID
+   * 
+   * @example
+   * lni-f8z4scmfh0u4ewv6vdd8
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * ENI Name
+   * 
+   * @example
+   * bond0
+   */
+  networkInterfaceName?: string;
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * masterintranett2fdth5fkoocg
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * Secondary Private IP\\&MAC Address Collection
+   */
+  privateIpAddressMacGroup?: GetNetworkInterfaceResponseBodyContentPrivateIpAddressMacGroup[];
+  /**
+   * @remarks
+   * network interface controller private secondary IP limit
+   * 
+   * @example
+   * 0
+   */
+  quota?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Service network interface controller address
+   * 
+   * @example
+   * 01-00-5e-00-00-16
+   */
+  serviceMac?: string;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Lingjun subnet (Subnet) basic information
+   */
+  subnetBaseInfo?: GetNetworkInterfaceResponseBodyContentSubnetBaseInfo;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * Basic information of Lingjun network segment (VPD)
+   */
+  vpdBaseInfo?: GetNetworkInterfaceResponseBodyContentVpdBaseInfo;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      ethernet: 'Ethernet',
+      gateway: 'Gateway',
+      ip: 'Ip',
+      ncType: 'NcType',
+      networkInterfaceId: 'NetworkInterfaceId',
+      networkInterfaceName: 'NetworkInterfaceName',
+      nodeId: 'NodeId',
+      privateIpAddressMacGroup: 'PrivateIpAddressMacGroup',
+      quota: 'Quota',
+      regionId: 'RegionId',
+      serviceMac: 'ServiceMac',
+      status: 'Status',
+      subnetBaseInfo: 'SubnetBaseInfo',
+      tenantId: 'TenantId',
+      vpdBaseInfo: 'VpdBaseInfo',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      ethernet: { 'type': 'array', 'itemType': 'string' },
+      gateway: 'string',
+      ip: 'string',
+      ncType: 'string',
+      networkInterfaceId: 'string',
+      networkInterfaceName: 'string',
+      nodeId: 'string',
+      privateIpAddressMacGroup: { 'type': 'array', 'itemType': GetNetworkInterfaceResponseBodyContentPrivateIpAddressMacGroup },
+      quota: 'number',
+      regionId: 'string',
+      serviceMac: 'string',
+      status: 'string',
+      subnetBaseInfo: GetNetworkInterfaceResponseBodyContentSubnetBaseInfo,
+      tenantId: 'string',
+      vpdBaseInfo: GetNetworkInterfaceResponseBodyContentVpdBaseInfo,
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeInfoForPodResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * cluster-****
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Lingjun Gaomi network interface controller quota
+   * 
+   * @example
+   * 10
+   */
+  hdeniQuota?: number;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface quota, including system type
+   * 
+   * @example
+   * 10
+   */
+  leniQuota?: number;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface Secondary Private IP Quota
+   * 
+   * @example
+   * 10
+   */
+  leniSipQuota?: number;
+  /**
+   * @remarks
+   * Lingjun network interface controller Secondary Private IP Quota
+   * 
+   * @example
+   * 10
+   */
+  lniSipQuota?: number;
+  /**
+   * @remarks
+   * The ID of the node for this operation.
+   * 
+   * @example
+   * node-be70****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * List of VSwitches that can apply for IP addresses on this node
+   */
+  vSwitches?: string[];
+  /**
+   * @remarks
+   * The ID of the Virtual Private Cloud to which the current node belongs.
+   * 
+   * @example
+   * vpc-j6ctp4n75306****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      hdeniQuota: 'HdeniQuota',
+      leniQuota: 'LeniQuota',
+      leniSipQuota: 'LeniSipQuota',
+      lniSipQuota: 'LniSipQuota',
+      nodeId: 'NodeId',
+      regionId: 'RegionId',
+      vSwitches: 'VSwitches',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      hdeniQuota: 'number',
+      leniQuota: 'number',
+      leniSipQuota: 'number',
+      lniSipQuota: 'number',
+      nodeId: 'string',
+      regionId: 'string',
+      vSwitches: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubnetResponseBodyContentTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * You cannot specify an empty string as a tag key. It can be up to 64 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * tag-subnet
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the resource.
+   * 
+   * The tag value can be empty or a string of up to 128 characters. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * 
+   * Each key-value pair must be unique. You can specify values for at most 20 tag keys in each call.
+   * 
+   * @example
+   * subnet-group-1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubnetResponseBodyContentVpdBaseInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The CIDR block of the VPD.
+   * 
+   * *   We recommend that you use an RFC private endpoint as the Lingjun CIDR block, such as 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16. In scenarios where the Doringjun CIDR block is connected to each other or where the Lingjun CIDR block is connected to a VPC, make sure that the addresses do not conflict with each other.
+   * *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 and their subnets as the primary IPv4 CIDR block of the VPD.
+   * 
+   * @example
+   * 10.0.0.0/8
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 1678273219000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * @example
+   * vpd-iv2zm1qf
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The name of the Lingjun CIDR block.
+   * 
+   * @example
+   * vpd-1
+   */
+  vpdName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      createTime: 'CreateTime',
+      vpdId: 'VpdId',
+      vpdName: 'VpdName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      createTime: 'string',
+      vpdId: 'string',
+      vpdName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubnetResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The number of available IP addresses.
+   * 
+   * @example
+   * 1024
+   */
+  availableIps?: number;
+  /**
+   * @remarks
+   * The CIDR block of the Subnet.
+   * 
+   * *   The network segment of the subnet must be a proper subset of the network segment of Lingjun to which it belongs, and the mask must be between 16 bits and 29 bits, which can provide 8 to 65536 addresses. For example, the CIDR block of the Lingjun CIDR block is 192.168.0.0/16, and the CIDR blocks of the subnets under the Lingjun CIDR block are 192.168.0.0/17 to 192.168.0.0/29.
+   * *   The first and last three IP addresses of each subnet segment are reserved by the system. For example, the CIDR blocks of the subnet are 192.168.1.0/24,192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+   * 
+   * @example
+   * 10.10.10.0/24
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 1648085472000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M task was modified.
+   * 
+   * @example
+   * 1678273219000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The number of SLB.
+   * 
+   * @example
+   * 0
+   */
+  lbCount?: number;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * test example
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The number of NCs.
+   * 
+   * @example
+   * 16
+   */
+  ncCount?: number;
+  /**
+   * @remarks
+   * Number of Lingjun network interface controller
+   * 
+   * @example
+   * 4
+   */
+  networkInterfaceCount?: number;
+  /**
+   * @remarks
+   * The total number of secondary private IP addresses.
+   * 
+   * @example
+   * 20
+   */
+  privateIpCount?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of your Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The status of the cache reserve instance.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun subnet instance.
+   * 
+   * @example
+   * subnet-aj93mko8
+   */
+  subnetId?: string;
+  /**
+   * @remarks
+   * The name of the Lingjun subnet instance.
+   * 
+   * @example
+   * subnet-1
+   */
+  subnetName?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tags?: GetSubnetResponseBodyContentTags[];
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * Lingjun Subnet Usage Type; optional; optional. Valid values:
+   * 
+   * *   **Empty for common data types**
+   * *   **OOB** :OOB type
+   * *   **LB**: LB type
+   * 
+   * @example
+   * OOB
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The information about the network segment of Lingjun.
+   */
+  vpdBaseInfo?: GetSubnetResponseBodyContentVpdBaseInfo;
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * @example
+   * vpd-ze3na0wf
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableIps: 'AvailableIps',
+      cidr: 'Cidr',
+      createTime: 'CreateTime',
       gmtModified: 'GmtModified',
-      id: 'Id',
       lbCount: 'LbCount',
       message: 'Message',
-      name: 'Name',
       ncCount: 'NcCount',
+      networkInterfaceCount: 'NetworkInterfaceCount',
+      privateIpCount: 'PrivateIpCount',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
       subnetId: 'SubnetId',
+      subnetName: 'SubnetName',
+      tags: 'Tags',
       tenantId: 'TenantId',
       type: 'Type',
       vpdBaseInfo: 'VpdBaseInfo',
@@ -1416,18 +15525,21 @@ export class GetSubnetResponseBodyContent extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      availableIps: 'number',
       cidr: 'string',
-      description: 'string',
-      gmtCreate: 'string',
+      createTime: 'string',
       gmtModified: 'string',
-      id: 'number',
       lbCount: 'number',
       message: 'string',
-      name: 'string',
       ncCount: 'number',
+      networkInterfaceCount: 'number',
+      privateIpCount: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
       subnetId: 'string',
+      subnetName: 'string',
+      tags: { 'type': 'array', 'itemType': GetSubnetResponseBodyContentTags },
       tenantId: 'string',
       type: 'string',
       vpdBaseInfo: GetSubnetResponseBodyContentVpdBaseInfo,
@@ -1442,11 +15554,53 @@ export class GetSubnetResponseBodyContent extends $tea.Model {
 }
 
 export class GetVccResponseBodyContentAliyunRouterInfo extends $tea.Model {
+  /**
+   * @remarks
+   * IPv4 address of Alibaba Cloud-side interconnection
+   * 
+   * @example
+   * 169.254.248.30
+   */
   localGatewayIp?: string;
+  /**
+   * @remarks
+   * Masking
+   * 
+   * @example
+   * 255.255.255.248
+   */
   mask?: string;
+  /**
+   * @remarks
+   * Express Connect circuit ID
+   * 
+   * @example
+   * pc-0jlof4bphlsnxbdztkvad
+   */
   pcId?: string;
+  /**
+   * @remarks
+   * Lingjun Side Interconnection IPv4 Address
+   * 
+   * @example
+   * 169.254.248.28
+   */
   peerGatewayIp?: string;
+  /**
+   * @remarks
+   * The ID of the VBR.
+   * 
+   * @example
+   * vbr-2ze4i85p6vb9nwcan5xt0
+   */
   vbrId?: string;
+  /**
+   * @remarks
+   * VLAN ID of the VBR
+   * 
+   * @example
+   * 1042
+   */
   vlanId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1476,11 +15630,53 @@ export class GetVccResponseBodyContentAliyunRouterInfo extends $tea.Model {
 }
 
 export class GetVccResponseBodyContentCisRouterInfoCcInfos extends $tea.Model {
+  /**
+   * @remarks
+   * Leased Line ID
+   * 
+   * @example
+   * cc-73aeex5o
+   */
   ccId?: string;
+  /**
+   * @remarks
+   * Lingjun Side Interconnection IPv4 Address
+   * 
+   * @example
+   * 169.254.248.26
+   */
   localGatewayIp?: string;
+  /**
+   * @remarks
+   * Lingjun Side Interconnection IPv4 Address
+   * 
+   * @example
+   * 169.254.248.30
+   */
   remoteGatewayIp?: string;
+  /**
+   * @remarks
+   * The state of the rule.
+   * 
+   * @example
+   * Established
+   */
   status?: string;
+  /**
+   * @remarks
+   * Subnet mask
+   * 
+   * @example
+   * 255.255.255.248
+   */
   subnetMask?: string;
+  /**
+   * @remarks
+   * Vlan ID of the leased line
+   * 
+   * @example
+   * Ethernet1042
+   */
   vlanId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1510,7 +15706,18 @@ export class GetVccResponseBodyContentCisRouterInfoCcInfos extends $tea.Model {
 }
 
 export class GetVccResponseBodyContentCisRouterInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Leased Line Information List
+   */
   ccInfos?: GetVccResponseBodyContentCisRouterInfoCcInfos[];
+  /**
+   * @remarks
+   * The ID of the on-cloud router instance.
+   * 
+   * @example
+   * ccr-1ms84am0
+   */
   ccrId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1531,26 +15738,388 @@ export class GetVccResponseBodyContentCisRouterInfo extends $tea.Model {
   }
 }
 
-export class GetVccResponseBodyContentVpdBaseInfo extends $tea.Model {
-  cidr?: string;
+export class GetVccResponseBodyContentErInfos extends $tea.Model {
+  /**
+   * @remarks
+   * Connections
+   * 
+   * @example
+   * 2
+   */
+  connections?: number;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1678379917000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Description
+   * 
+   * @example
+   * this is test.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * @example
+   * er-p68b0jwn
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Instance Name
+   * 
+   * @example
+   * er-1
+   */
+  erName?: string;
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 1678379917000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * Primary Zone
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  masterZoneId?: string;
+  /**
+   * @remarks
+   * The message that is returned.
+   * 
+   * @example
+   * test message
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Region Information
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Number of routing policy
+   * 
+   * @example
+   * 2
+   */
+  routeMaps?: number;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connections: 'Connections',
+      createTime: 'CreateTime',
+      description: 'Description',
+      erId: 'ErId',
+      erName: 'ErName',
+      gmtModified: 'GmtModified',
+      masterZoneId: 'MasterZoneId',
+      message: 'Message',
+      regionId: 'RegionId',
+      routeMaps: 'RouteMaps',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connections: 'number',
+      createTime: 'string',
+      description: 'string',
+      erId: 'string',
+      erName: 'string',
+      gmtModified: 'string',
+      masterZoneId: 'string',
+      message: 'string',
+      regionId: 'string',
+      routeMaps: 'number',
+      status: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccResponseBodyContentTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * You cannot specify an empty string as a tag key. It can be up to 64 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * tag-vcc
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the resource.
+   * 
+   * The tag value can be empty or a string of up to 128 characters. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * 
+   * Each key-value pair must be unique. You can specify values for at most 20 tag keys in each call.
+   * 
+   * @example
+   * vcc-group-1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccResponseBodyContentVbrInfosVbrBgpPeers extends $tea.Model {
+  /**
+   * @remarks
+   * BGP Group ID
+   * 
+   * @example
+   * bgpg-2ze2sit2vakrkapvy****
+   */
+  bgpGroupId?: string;
+  /**
+   * @remarks
+   * BGP peer ID
+   * 
+   * @example
+   * bgp-uf6heugif9enu48rj****
+   */
+  bgpPeerId?: string;
+  /**
+   * @remarks
+   * Peer AS No.
+   * 
+   * @example
+   * 98765****
+   */
+  peerAsn?: string;
+  /**
+   * @remarks
+   * BGP peer IP address
+   * 
+   * @example
+   * 169.254.****
+   */
+  peerIpAddress?: string;
+  /**
+   * @remarks
+   * The status of the BGP peer. Valid values:
+   * 
+   * *   Pending: pending
+   * *   Available: The route is available.
+   * *   Modifying: being modified
+   * *   Deleting: The IPv4 gateway is being deleted.
+   * *   Deleted
+   * *   Not Available
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bgpGroupId: 'BgpGroupId',
+      bgpPeerId: 'BgpPeerId',
+      peerAsn: 'PeerAsn',
+      peerIpAddress: 'PeerIpAddress',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bgpGroupId: 'string',
+      bgpPeerId: 'string',
+      peerAsn: 'string',
+      peerIpAddress: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccResponseBodyContentVbrInfos extends $tea.Model {
+  /**
+   * @remarks
+   * CEN ID
+   * 
+   * @example
+   * cen-cx0qua8q6cm4z9****
+   */
+  cenId?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1683250981000
+   */
   gmtCreate?: string;
-  name?: string;
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 1673578603000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The status of the VBR. Valid values:
+   * 
+   * *   unconfirmed
+   * *   active: The VPN gateway is in a normal state.
+   * *   terminating: The connection is being terminated.
+   * *   terminated: The connection is terminated.
+   * *   recovering: The task is being recovered.
+   * *   deleting: The GDN is being deleted.
+   * *   Available: The service is available.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * BGP neighbor information list
+   */
+  vbrBgpPeers?: GetVccResponseBodyContentVbrInfosVbrBgpPeers[];
+  /**
+   * @remarks
+   * The ID of the border router.
+   * 
+   * @example
+   * vbr-wz96agu9h3d50z****
+   */
+  vbrId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cenId: 'CenId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      status: 'Status',
+      vbrBgpPeers: 'VbrBgpPeers',
+      vbrId: 'VbrId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cenId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      status: 'string',
+      vbrBgpPeers: { 'type': 'array', 'itemType': GetVccResponseBodyContentVbrInfosVbrBgpPeers },
+      vbrId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccResponseBodyContentVpdBaseInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Network address segment
+   * 
+   * @example
+   * 172.18.0.0/24
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1678379917000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * @example
+   * vpd-ppdunxzc
+   */
   vpdId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance name
+   * 
+   * @example
+   * yzp-rg-test3
+   */
+  vpdName?: string;
   static names(): { [key: string]: string } {
     return {
       cidr: 'Cidr',
-      gmtCreate: 'GmtCreate',
-      name: 'Name',
+      createTime: 'CreateTime',
       vpdId: 'VpdId',
+      vpdName: 'VpdName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cidr: 'string',
-      gmtCreate: 'string',
-      name: 'string',
+      createTime: 'string',
       vpdId: 'string',
+      vpdName: 'string',
     };
   }
 
@@ -1560,45 +16129,341 @@ export class GetVccResponseBodyContentVpdBaseInfo extends $tea.Model {
 }
 
 export class GetVccResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Express Connect circuit access point ID:
+   * 
+   * *   **ap-cn-wulanchabu-jn-ts-A**: Ulanqab-Jining-A
+   * *   **ap-cn-heyuan-yc-ts-SA127**: Heyuan-Yuancheng-A
+   * 
+   * @example
+   * ap-cn-wulanchabu-jn-ts-A
+   */
   accessPointId?: string;
+  /**
+   * @remarks
+   * Alibaba Cloud route information list
+   */
   aliyunRouterInfo?: GetVccResponseBodyContentAliyunRouterInfo[];
+  /**
+   * @remarks
+   * Whether Lingjun HUB has been bound to a network instance
+   * 
+   * *   **true**: Bound
+   * *   **false**: unbound
+   * 
+   * @example
+   * true
+   */
+  attachErStatus?: boolean;
+  /**
+   * @remarks
+   * The bandwidth of the port.
+   * 
+   * @example
+   * 1G
+   */
   bandwidthStr?: string;
+  /**
+   * @remarks
+   * BGP AS number
+   * 
+   * @example
+   * 45644
+   */
+  bgpAsn?: string;
+  /**
+   * @remarks
+   * BGP CIDR block
+   * 
+   * @example
+   * 10.4.0.0/24
+   */
   bgpCidr?: string;
+  /**
+   * @remarks
+   * The ID of the CEN instance; [What is the CEN?](https://help.aliyun.com/document_detail/181681.html)
+   * 
+   * You can call the [DescribeCens](https://help.aliyun.com/document_detail/468215.htm) to query the information of CEN instances under the current Alibaba Cloud account.
+   * 
+   * @example
+   * cen-m2iskbojlvda5w65fp
+   */
   cenId?: string;
+  /**
+   * @remarks
+   * Account to which the CEN belongs
+   * 
+   * @example
+   * 1620939556166279
+   */
+  cenOwnerId?: string;
+  /**
+   * @remarks
+   * Lingjun Network Routing Information List
+   */
   cisRouterInfo?: GetVccResponseBodyContentCisRouterInfo[];
+  /**
+   * @remarks
+   * Commodity code
+   * 
+   * @example
+   * bccluster_cloudconnectionpre_public_cn
+   */
   commodityCode?: string;
+  /**
+   * @remarks
+   * The connection mode. Valid values:
+   * 
+   * *   **VPC**
+   * *   **CENTR**
+   * 
+   * @example
+   * CENTR
+   */
+  connectionType?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1648085472000
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * Current Node
+   * 
+   * @example
+   * task-xxx-node-x
+   */
   currentNode?: string;
+  /**
+   * @remarks
+   * Cycle
+   * 
+   * @example
+   * 1
+   */
   duration?: string;
+  /**
+   * @remarks
+   * List of bound Lingjun HUB information
+   */
+  erInfos?: GetVccResponseBodyContentErInfos[];
+  /**
+   * @remarks
+   * The time when the application expired.
+   * 
+   * @example
+   * 1678379917000
+   */
+  expirationDate?: string;
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 1648085472000
+   */
   gmtModified?: string;
+  /**
+   * @remarks
+   * The billing method for network usage.
+   * 
+   * *   **PayByTraffic**: pay-by-traffic
+   * *   **PayByBandwidth**: pay-by-bandwidth
+   * 
+   * @example
+   * PayByBandwidth
+   */
   internetChargeType?: string;
+  /**
+   * @remarks
+   * The connectivity provider of the Express Connect circuit. Valid values:
+   * 
+   * *   **CO**: other connectivity providers in the Chinese mainland
+   * 
+   * @example
+   * CO
+   */
   lineOperator?: string;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * You don\\"t have the permission of this operation, action=eflo:GetVcc, arn=acs:eflo:cn-heyuan:1263399219805497:vcc/vcc-cn-fhh3yxjwe01, resourceGroup=null
+   */
   message?: string;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   **PREPAY**: subscription
+   * *   **POSTPAY**: pay-as-you-go
+   * 
+   * @example
+   * PrePay
+   */
   payType?: string;
+  /**
+   * @remarks
+   * The port type of the Express Connect circuit. Valid values:
+   * 
+   * *   **100GBase-LR**: 100,000 megabytes of single-mode optical port (10 km)
+   * 
+   * @example
+   * 100GBase-LR
+   */
   portType?: string;
+  /**
+   * @remarks
+   * The billing cycle. Valid values:
+   * 
+   * *   **Month**: Billed on a monthly basis
+   * *   **Year**: Billed on an annual basis
+   * 
+   * @example
+   * Month
+   */
   pricingCycle?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of your Alibaba Cloud resource group.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm).
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Specification; value:
+   * 
+   * *   **Large**: Large
+   * 
+   * @example
+   * Large
+   */
   spec?: string;
+  /**
+   * @remarks
+   * The status of the cache reserve instance. Valid values:
+   * 
+   * *   **Available**: Normal.
+   * *   **Not Available**: Not available.
+   * *   **Executing**: The task is being executed.
+   * *   **Deleting**: The account is being deleted
+   * 
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tags?: GetVccResponseBodyContentTags[];
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1620939556166279
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch. [Virtual Private Cloud VSwitch](https://help.aliyun.com/document_detail/100380.html).
+   * 
+   * You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query created vSwitches.
+   * 
+   * @example
+   * vsw-uf6u8473r84e6n1n19he5
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * Information list of border routers
+   */
+  vbrInfos?: GetVccResponseBodyContentVbrInfos[];
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-cqf2xh40101
+   */
   vccId?: string;
+  /**
+   * @remarks
+   * The name of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-heyuan-backup
+   */
   vccName?: string;
+  /**
+   * @remarks
+   * Virtual Private Cloud IDs; [What is Virtual Private Cloud](https://help.aliyun.com/document_detail/34217.html)
+   * 
+   * You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html#demo-0) operation to query the specified VPC.
+   * 
+   * @example
+   * vpc-j6ctp4n75306phv5tmpsm
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * Lingjun network segment information (applicable to the scene where the old version of Lingjun connection is directly bound to Lingjun network segment)
+   */
   vpdBaseInfo?: GetVccResponseBodyContentVpdBaseInfo;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * @example
+   * vpd-d3isyds4
+   */
   vpdId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       accessPointId: 'AccessPointId',
       aliyunRouterInfo: 'AliyunRouterInfo',
+      attachErStatus: 'AttachErStatus',
       bandwidthStr: 'BandwidthStr',
+      bgpAsn: 'BgpAsn',
       bgpCidr: 'BgpCidr',
       cenId: 'CenId',
+      cenOwnerId: 'CenOwnerId',
       cisRouterInfo: 'CisRouterInfo',
       commodityCode: 'CommodityCode',
+      connectionType: 'ConnectionType',
       createTime: 'CreateTime',
       currentNode: 'CurrentNode',
       duration: 'Duration',
+      erInfos: 'ErInfos',
+      expirationDate: 'ExpirationDate',
       gmtModified: 'GmtModified',
       internetChargeType: 'InternetChargeType',
       lineOperator: 'LineOperator',
@@ -1607,15 +16472,19 @@ export class GetVccResponseBodyContent extends $tea.Model {
       portType: 'PortType',
       pricingCycle: 'PricingCycle',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       status: 'Status',
+      tags: 'Tags',
       tenantId: 'TenantId',
       vSwitchId: 'VSwitchId',
+      vbrInfos: 'VbrInfos',
       vccId: 'VccId',
       vccName: 'VccName',
       vpcId: 'VpcId',
       vpdBaseInfo: 'VpdBaseInfo',
       vpdId: 'VpdId',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -1623,14 +16492,20 @@ export class GetVccResponseBodyContent extends $tea.Model {
     return {
       accessPointId: 'string',
       aliyunRouterInfo: { 'type': 'array', 'itemType': GetVccResponseBodyContentAliyunRouterInfo },
+      attachErStatus: 'boolean',
       bandwidthStr: 'string',
+      bgpAsn: 'string',
       bgpCidr: 'string',
       cenId: 'string',
+      cenOwnerId: 'string',
       cisRouterInfo: { 'type': 'array', 'itemType': GetVccResponseBodyContentCisRouterInfo },
       commodityCode: 'string',
+      connectionType: 'string',
       createTime: 'string',
       currentNode: 'string',
       duration: 'string',
+      erInfos: { 'type': 'array', 'itemType': GetVccResponseBodyContentErInfos },
+      expirationDate: 'string',
       gmtModified: 'string',
       internetChargeType: 'string',
       lineOperator: 'string',
@@ -1639,15 +16514,467 @@ export class GetVccResponseBodyContent extends $tea.Model {
       portType: 'string',
       pricingCycle: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       spec: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': GetVccResponseBodyContentTags },
       tenantId: 'string',
       vSwitchId: 'string',
+      vbrInfos: { 'type': 'array', 'itemType': GetVccResponseBodyContentVbrInfos },
       vccId: 'string',
       vccName: 'string',
       vpcId: 'string',
       vpdBaseInfo: GetVccResponseBodyContentVpdBaseInfo,
       vpdId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccGrantRuleResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1648085472000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * @example
+   * er-aueyxxsy
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorized Resource ID
+   * 
+   * @example
+   * grant-rule-jaj34d75h01
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * @example
+   * 1620939556166277
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * @example
+   * vcc-cn-jaj34d75h01
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Network Instance Name
+   * 
+   * @example
+   * vcc-1
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * Network Product Code:
+   * 
+   * *   **VPD**: Lingjun CIDR block
+   * *   **VCC**: Lingjun Connection
+   * 
+   * @example
+   * VCC
+   */
+  product?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1620939556166279
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * Whether the current authorization information has been used; optional values:
+   * 
+   * *   **true**: Used
+   * *   **false**: Not used
+   * 
+   * @example
+   * false
+   */
+  used?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      erId: 'ErId',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      product: 'Product',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tenantId: 'TenantId',
+      used: 'Used',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      erId: 'string',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      product: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tenantId: 'string',
+      used: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccRouteEntryResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Destination CIDR Block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 1648085472000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The message that is returned.
+   * 
+   * @example
+   * Successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Next Hop Instance
+   * 
+   * @example
+   * local
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * Next Hop Type
+   * 
+   * @example
+   * VCC
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aek2l4sq6l7u***
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Route type
+   * 
+   * @example
+   * System
+   */
+  routeType?: string;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry.
+   * 
+   * @example
+   * vcc-rte-31ocvdhq
+   */
+  vccRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      gmtModified: 'GmtModified',
+      message: 'Message',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeType: 'RouteType',
+      status: 'Status',
+      tenantId: 'TenantId',
+      vccId: 'VccId',
+      vccRouteEntryId: 'VccRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      gmtModified: 'string',
+      message: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeType: 'string',
+      status: 'string',
+      tenantId: 'string',
+      vccId: 'string',
+      vccRouteEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdResponseBodyContentErInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The number of connections.
+   * 
+   * @example
+   * 2
+   */
+  connections?: number;
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 1678273219000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The description of the synchronization task.
+   * 
+   * @example
+   * Restore verifying
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The ID of the Elastic Router (ER) instance.
+   * 
+   * @example
+   * er-a7rqv1rq
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Elastic Router (ER) Instance Name
+   * 
+   * @example
+   * er-1
+   */
+  erName?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M task was modified.
+   * 
+   * @example
+   * 1678273219000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The primary zone.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  masterZoneId?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the region to which the Elastic Router (ER) belongs.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The number of routing policy.
+   * 
+   * @example
+   * 2
+   */
+  routeMaps?: number;
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * t464p4fql1bog
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connections: 'Connections',
+      createTime: 'CreateTime',
+      description: 'Description',
+      erId: 'ErId',
+      erName: 'ErName',
+      gmtModified: 'GmtModified',
+      masterZoneId: 'MasterZoneId',
+      message: 'Message',
+      regionId: 'RegionId',
+      routeMaps: 'RouteMaps',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connections: 'number',
+      createTime: 'string',
+      description: 'string',
+      erId: 'string',
+      erName: 'string',
+      gmtModified: 'string',
+      masterZoneId: 'string',
+      message: 'string',
+      regionId: 'string',
+      routeMaps: 'number',
+      status: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdResponseBodyContentTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * You cannot specify an empty string as a tag key. It can be up to 64 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * tag-subent-region
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the resource.
+   * 
+   * The tag value can be empty or a string of up to 128 characters. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * 
+   * Each key-value pair must be unique. You can specify values for at most 20 tag keys in each call.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -1657,58 +16984,473 @@ export class GetVccResponseBodyContent extends $tea.Model {
 }
 
 export class GetVpdResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Whether the Lingjun HUB(ER) has been bound.
+   * 
+   * *   **true**: ER is bound.
+   * *   **false**: No ER is bound.
+   * 
+   * @example
+   * true
+   */
+  attachErStatus?: boolean;
+  /**
+   * @remarks
+   * The CIDR block.
+   * 
+   * @example
+   * 10.0.0.0/8
+   */
   cidr?: string;
-  description?: string;
-  gmtCreate?: string;
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 1678273219000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The information of the bound Lingjun HUB(ER).
+   */
+  erInfos?: GetVpdResponseBodyContentErInfos[];
+  /**
+   * @remarks
+   * The time when the O\\&M task was modified.
+   * 
+   * @example
+   * 2023-10-25 15:57:16
+   */
   gmtModified?: string;
-  lbCount?: number;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
   message?: string;
-  name?: string;
+  /**
+   * @remarks
+   * The number of NCs.
+   * 
+   * @example
+   * 16
+   */
   ncCount?: number;
+  /**
+   * @remarks
+   * Number of Lingjun network interface controller.
+   * 
+   * @example
+   * 1
+   */
+  networkInterfaceCount?: number;
+  /**
+   * @remarks
+   * The total number of secondary private IP addresses.
+   * 
+   * @example
+   * 10
+   */
+  privateIpCount?: number;
+  /**
+   * @remarks
+   * The total quota information.
+   * 
+   * @example
+   * 10
+   */
+  quota?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
-  route?: number;
+  /**
+   * @remarks
+   * The ID of your Alibaba Cloud resource group.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The list of additional CIDR blocks.
+   */
+  secondaryCidrBlocks?: string[];
+  /**
+   * @remarks
+   * Internal Service CIDR block.
+   * 
+   * @example
+   * 169.254.252.0/23
+   */
   serviceCidr?: string;
+  /**
+   * @remarks
+   * The current state of the instance.
+   * 
+   * Valid value:
+   * 
+   * *   Not Available: Not Available.
+   * *   Available: Normal: Available: Normal.
+   * *   Deleting: Deleting: Deleting: Deleting.
+   * *   Executing: executing: Executing: executing.
+   * 
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @remarks
+   * The number of subnets.
+   * 
+   * @example
+   * 1
+   */
   subnetCount?: number;
-  vccCount?: number;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tags?: GetVpdResponseBodyContentTags[];
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * 1620939556166279
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * The ID of the VPD instance.
+   * 
+   * @example
+   * vpd-fuliephf
+   */
   vpdId?: string;
+  /**
+   * @remarks
+   * The name of the Lingjun CIDR block.
+   * 
+   * @example
+   * vpd-1
+   */
+  vpdName?: string;
   static names(): { [key: string]: string } {
     return {
+      attachErStatus: 'AttachErStatus',
       cidr: 'Cidr',
-      description: 'Description',
-      gmtCreate: 'GmtCreate',
+      createTime: 'CreateTime',
+      erInfos: 'ErInfos',
       gmtModified: 'GmtModified',
-      lbCount: 'LbCount',
       message: 'Message',
-      name: 'Name',
       ncCount: 'NcCount',
+      networkInterfaceCount: 'NetworkInterfaceCount',
+      privateIpCount: 'PrivateIpCount',
+      quota: 'Quota',
       regionId: 'RegionId',
-      route: 'Route',
+      resourceGroupId: 'ResourceGroupId',
+      secondaryCidrBlocks: 'SecondaryCidrBlocks',
       serviceCidr: 'ServiceCidr',
       status: 'Status',
       subnetCount: 'SubnetCount',
-      vccCount: 'VccCount',
+      tags: 'Tags',
+      tenantId: 'TenantId',
       vpdId: 'VpdId',
+      vpdName: 'VpdName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      attachErStatus: 'boolean',
       cidr: 'string',
-      description: 'string',
-      gmtCreate: 'string',
+      createTime: 'string',
+      erInfos: { 'type': 'array', 'itemType': GetVpdResponseBodyContentErInfos },
       gmtModified: 'string',
-      lbCount: 'number',
       message: 'string',
-      name: 'string',
       ncCount: 'number',
+      networkInterfaceCount: 'number',
+      privateIpCount: 'number',
+      quota: 'number',
       regionId: 'string',
-      route: 'number',
+      resourceGroupId: 'string',
+      secondaryCidrBlocks: { 'type': 'array', 'itemType': 'string' },
       serviceCidr: 'string',
       status: 'string',
       subnetCount: 'number',
-      vccCount: 'number',
+      tags: { 'type': 'array', 'itemType': GetVpdResponseBodyContentTags },
+      tenantId: 'string',
       vpdId: 'string',
+      vpdName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdGrantRuleResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1648085472000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorized Resource ID
+   * 
+   * @example
+   * grant-rule-xxxxxx
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * @example
+   * 1620939556166277
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * @example
+   * vpd-xxxxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Network Instance Name
+   * 
+   * @example
+   * vpd-lingjun
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * Network Product Code:
+   * 
+   * *   **VPD**: Lingjun CIDR block
+   * *   **VCC**: Lingjun Connection
+   * 
+   * @example
+   * VPD
+   */
+  product?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aek2l4sq6l7u***
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * Whether the current authorization information has been used; default is false
+   * 
+   * @example
+   * 0
+   */
+  used?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      erId: 'ErId',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      product: 'Product',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tenantId: 'TenantId',
+      used: 'Used',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      erId: 'string',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      product: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tenantId: 'string',
+      used: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdRouteEntryResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Destination CIDR block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 1678273219000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * Next Hop Instance
+   * 
+   * @example
+   * er-bmlqiym1
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * Next Hop Instance Type
+   * 
+   * @example
+   * ER
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmv7mcq63uyhq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Route type
+   * 
+   * @example
+   * BGP
+   */
+  routeType?: string;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * @example
+   * vpd-ze3na0wf
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block route entry ID
+   * 
+   * @example
+   * vpd-rte-toekyqel
+   */
+  vpdRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      gmtModified: 'GmtModified',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeType: 'RouteType',
+      status: 'Status',
+      tenantId: 'TenantId',
+      vpdId: 'VpdId',
+      vpdRouteEntryId: 'VpdRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      gmtModified: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeType: 'string',
+      status: 'string',
+      tenantId: 'string',
+      vpdId: 'string',
+      vpdRouteEntryId: 'string',
     };
   }
 
@@ -1718,7 +17460,21 @@ export class GetVpdResponseBodyContent extends $tea.Model {
 }
 
 export class InitializeVccResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E30DA7CB-03D0-51EB-8F18-856B99987E18
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Linked Role of Lingjun Connection Instance (AliyunServiceRoleForEfloVcc)
+   * 
+   * @example
+   * CloudConnectionOperationRole
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1739,26 +17495,2123 @@ export class InitializeVccResponseBodyContent extends $tea.Model {
   }
 }
 
-export class ListSubnetsResponseBodyContentDataVpdBaseInfo extends $tea.Model {
-  cidr?: string;
+export class ListElasticNetworkInterfacesResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1601176751000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * No description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * vswitch gateway address
+   * 
+   * @example
+   * 172.16.****
+   */
+  gateway?: string;
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 1640187007000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The IP address of the BE cluster.
+   * 
+   * @example
+   * 10.0.0.13
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * mac address
+   * 
+   * @example
+   * E0:01:A6:4A:6A:D0
+   */
+  mac?: string;
+  /**
+   * @remarks
+   * vswitch mask bits
+   * 
+   * @example
+   * 24
+   */
+  mask?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * @example
+   * e01-cn-uax37m1****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-f8z4wr1b41x3qsc9****
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * network interface controller type, the default type DEFAULT cannot be manually released
+   * 
+   * Valid value:
+   * 
+   * *   CUSTOM: custom type.
+   * *   DEFAULT: system type.
+   * 
+   * @example
+   * DEFAULT
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-uf6u8473r84e9****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-f8ziirfl9k25h2qn7****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      gateway: 'Gateway',
+      gmtModified: 'GmtModified',
+      ip: 'Ip',
+      mac: 'Mac',
+      mask: 'Mask',
+      message: 'Message',
+      nodeId: 'NodeId',
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+      status: 'Status',
+      type: 'Type',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      elasticNetworkInterfaceId: 'string',
+      gateway: 'string',
+      gmtModified: 'string',
+      ip: 'string',
+      mac: 'string',
+      mask: 'string',
+      message: 'string',
+      nodeId: 'string',
+      regionId: 'string',
+      securityGroupId: 'string',
+      status: 'string',
+      type: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListElasticNetworkInterfacesResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * lingjun Elastic Network Interface information list
+   */
+  data?: ListElasticNetworkInterfacesResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 100
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListElasticNetworkInterfacesResponseBodyContentData },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErAttachmentsResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * Whether to cross accounts. Valid values:
+   * 
+   * *   **true**: The network instance is a cross-account resource.
+   * *   **false**: The current network instance is a resource of the current account.
+   * 
+   * @example
+   * false
+   */
+  across?: boolean;
+  /**
+   * @remarks
+   * Whether to automatically receive all routes from all instances under this Lingjun HUB. Valid values:
+   * 
+   * *   **true**: received automatically.
+   * *   **false**: Not received.
+   * 
+   * @example
+   * true
+   */
+  autoReceiveAllRoute?: boolean;
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 1669734207000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun HUB network instance.
+   * 
+   * @example
+   * er-attachment-i1ioibyf
+   */
+  erAttachmentId?: string;
+  /**
+   * @remarks
+   * The name of the Lingjun HUB network instance.
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  erAttachmentName?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun HUB instance.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M task was modified.
+   * 
+   * @example
+   * 1640187007000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The ID of the network instance. Valid values: **VPD** and **VCC**.
+   * 
+   * For more information, see [What is Lingjun?](https://help.aliyun.com/document_detail/444430.html)
+   * 
+   * You can query **Lingjun CIDR blocks** and **Lingjun connections** by [ListVpds](https://help.aliyun.com/document_detail/2331077.html) and [ListVccs](https://help.aliyun.com/document_detail/2399526.html) respectively.
+   * 
+   * @example
+   * vcc-cn-209300qha02
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * vcc-wulanchabu-main
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The database type. Valid values:
+   * 
+   * *   **VPD**: indicates the Lingjun CIDR block.
+   * *   **VCC**: indicates a Lingjun connection.
+   * 
+   * @example
+   * VCC
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * test
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Lingjun HUB region information.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aekzlki4ehfse4y
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant to which the resource belongs.
+   * 
+   * @example
+   * 1111156667137893
+   */
+  resourceTenantId?: string;
+  /**
+   * @remarks
+   * The status of the cache reserve instance. Valid values:
+   * 
+   * *   **Available**: Normal.
+   * *   **Not Available**: Not available.
+   * *   **Executing**: The task is being executed.
+   * *   **Deleting**: The account is being deleted
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      across: 'Across',
+      autoReceiveAllRoute: 'AutoReceiveAllRoute',
+      createTime: 'CreateTime',
+      erAttachmentId: 'ErAttachmentId',
+      erAttachmentName: 'ErAttachmentName',
+      erId: 'ErId',
+      gmtModified: 'GmtModified',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      message: 'Message',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceTenantId: 'ResourceTenantId',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      across: 'boolean',
+      autoReceiveAllRoute: 'boolean',
+      createTime: 'string',
+      erAttachmentId: 'string',
+      erAttachmentName: 'string',
+      erId: 'string',
+      gmtModified: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      message: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceTenantId: 'string',
+      status: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErAttachmentsResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The list of Lingjun HUB network instances.
+   */
+  data?: ListErAttachmentsResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries that are returned.
+   * 
+   * @example
+   * 0
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListErAttachmentsResponseBodyContentData },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteEntriesResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * Destination CIDR Block
+   * 
+   * @example
+   * 100.64.1.100/32
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry.
+   * 
+   * @example
+   * er-rte-maysfadg
+   */
+  erRouteEntryId?: string;
+  /**
+   * @remarks
+   * The time when the cluster was updated.
+   * 
+   * @example
+   * 1640930901000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * Next Hop Instance
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * Next Hop Instance Type
+   * 
+   * @example
+   * VCC
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aekzb3n5lgk2ieq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant to which the resource belongs.
+   * 
+   * @example
+   * 1111156667137893
+   */
+  resourceTenantId?: string;
+  /**
+   * @remarks
+   * Route type
+   * 
+   * @example
+   * VCC
+   */
+  routeType?: string;
+  /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * *   Synchronizing
+   * *   Available
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1111156667137893
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      erId: 'ErId',
+      erRouteEntryId: 'ErRouteEntryId',
+      gmtModified: 'GmtModified',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceTenantId: 'ResourceTenantId',
+      routeType: 'RouteType',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      erId: 'string',
+      erRouteEntryId: 'string',
+      gmtModified: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceTenantId: 'string',
+      routeType: 'string',
+      status: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteEntriesResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun HUB Route Entry Information List
+   */
+  data?: ListErRouteEntriesResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 0
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListErRouteEntriesResponseBodyContentData },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteMapsResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * Policy behavior; optional values:
+   * 
+   * *   **permit**: Allow
+   * *   **deny**: Prohibited
+   * 
+   * @example
+   * permit
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1601176751000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Policy description
+   * 
+   * @example
+   * No description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Destination CIDR Block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * routing policy ID
+   * 
+   * @example
+   * er-rmap-uwglhzom
+   */
+  erRouteMapId?: string;
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 1601176751000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The message that is returned.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Receive Instance ID
+   * 
+   * @example
+   * vpd-9rgxqazc
+   */
+  receptionInstanceId?: string;
+  /**
+   * @remarks
+   * Receive Instance Name
+   * 
+   * @example
+   * vpd-reception
+   */
+  receptionInstanceName?: string;
+  /**
+   * @remarks
+   * The tenant to which the receiving instance belongs
+   * 
+   * @example
+   * 1620939556166277
+   */
+  receptionInstanceOwner?: string;
+  /**
+   * @remarks
+   * The type of the received instance. Possible values:
+   * 
+   * *   **VPD**: Lingjun network segment.
+   * *   **VCC**: Lingjun Connection.
+   * 
+   * @example
+   * VPD
+   */
+  receptionInstanceType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the policy.
+   * 
+   * A smaller sequence number indicates a lower priority. When a route is matched, a policy with a higher priority is preferentially matched.
+   * 
+   * **Valid values: 1001 to 2000**
+   * 
+   * @example
+   * 1001
+   */
+  routeMapNum?: number;
+  /**
+   * @remarks
+   * Status The status of the instance. Valid values:
+   * 
+   * *   **Available**
+   * *   **Not Available**: Unavailable
+   * *   **Executing**: Executing
+   * *   **Deleting**: The node is being deleted.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * Release Instance ID
+   * 
+   * @example
+   * vpd-8rgvqazb
+   */
+  transmissionInstanceId?: string;
+  /**
+   * @remarks
+   * Release Instance Name
+   * 
+   * @example
+   * vpd-transmit
+   */
+  transmissionInstanceName?: string;
+  /**
+   * @remarks
+   * The tenant to which the published instance belongs
+   * 
+   * @example
+   * 1620939556166277
+   */
+  transmissionInstanceOwner?: string;
+  /**
+   * @remarks
+   * The type of the published instance. Possible values:
+   * 
+   * *   **VPD**: Lingjun network segment.
+   * *   **VCC**: Lingjun Connection.
+   * 
+   * @example
+   * VPD
+   */
+  transmissionInstanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      createTime: 'CreateTime',
+      description: 'Description',
+      destinationCidrBlock: 'DestinationCidrBlock',
+      erId: 'ErId',
+      erRouteMapId: 'ErRouteMapId',
+      gmtModified: 'GmtModified',
+      message: 'Message',
+      receptionInstanceId: 'ReceptionInstanceId',
+      receptionInstanceName: 'ReceptionInstanceName',
+      receptionInstanceOwner: 'ReceptionInstanceOwner',
+      receptionInstanceType: 'ReceptionInstanceType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeMapNum: 'RouteMapNum',
+      status: 'Status',
+      tenantId: 'TenantId',
+      transmissionInstanceId: 'TransmissionInstanceId',
+      transmissionInstanceName: 'TransmissionInstanceName',
+      transmissionInstanceOwner: 'TransmissionInstanceOwner',
+      transmissionInstanceType: 'TransmissionInstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      createTime: 'string',
+      description: 'string',
+      destinationCidrBlock: 'string',
+      erId: 'string',
+      erRouteMapId: 'string',
+      gmtModified: 'string',
+      message: 'string',
+      receptionInstanceId: 'string',
+      receptionInstanceName: 'string',
+      receptionInstanceOwner: 'string',
+      receptionInstanceType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeMapNum: 'number',
+      status: 'string',
+      tenantId: 'string',
+      transmissionInstanceId: 'string',
+      transmissionInstanceName: 'string',
+      transmissionInstanceOwner: 'string',
+      transmissionInstanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteMapsResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * routing policy information list
+   */
+  data?: ListErRouteMapsResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 0
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListErRouteMapsResponseBodyContentData },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErsResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of connections to the Lingjun HUB network instance.
+   * 
+   * @example
+   * 2
+   */
+  connections?: number;
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 1640930671000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The description of the synchronization task.
+   * 
+   * @example
+   * No description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun HUB instance.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The name of the Lingjun HUB instance.
+   * 
+   * @example
+   * er-wulanchabu-main
+   */
+  erName?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M task was modified.
+   * 
+   * @example
+   * 1640930671000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The primary zone.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  masterZoneId?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * test
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmv2m2w43japa
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Number of Lingjun HUB routing policy.
+   * 
+   * @example
+   * 2
+   */
+  routeMaps?: number;
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connections: 'Connections',
+      createTime: 'CreateTime',
+      description: 'Description',
+      erId: 'ErId',
+      erName: 'ErName',
+      gmtModified: 'GmtModified',
+      masterZoneId: 'MasterZoneId',
+      message: 'Message',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeMaps: 'RouteMaps',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connections: 'number',
+      createTime: 'string',
+      description: 'string',
+      erId: 'string',
+      erName: 'string',
+      gmtModified: 'string',
+      masterZoneId: 'string',
+      message: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeMaps: 'number',
+      status: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErsResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * lingjun hub information list.
+   */
+  data?: ListErsResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListErsResponseBodyContentData },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesByNcdResponseBodyContentInstanceInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * lni-1235****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * network communication distance
+   * 
+   * @example
+   * 2
+   */
+  ncd?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ncd: 'Ncd',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ncd: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesByNcdResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * A collection of instances whose network communication distance from the source instance ID does not exceed maxNcd
+   */
+  instanceInfos?: ListInstancesByNcdResponseBodyContentInstanceInfos[];
+  /**
+   * @remarks
+   * Instance Type
+   * 
+   * Valid value:
+   * 
+   * *   node: Lingjun node.
+   * *   lni: lingjun network interface controller.
+   * 
+   * @example
+   * lni
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * Maximum communication distance between nodes
+   * 
+   * @example
+   * 3
+   */
+  maxNcd?: number;
+  /**
+   * @remarks
+   * The ID of the source instance.
+   * 
+   * @example
+   * lni-1234****
+   */
+  sourceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceInfos: 'InstanceInfos',
+      instanceType: 'InstanceType',
+      maxNcd: 'MaxNcd',
+      sourceInstanceId: 'SourceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceInfos: { 'type': 'array', 'itemType': ListInstancesByNcdResponseBodyContentInstanceInfos },
+      instanceType: 'string',
+      maxNcd: 'number',
+      sourceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLeniPrivateIpAddressesResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * test_vpn1_pbr_route_54
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 1675929918000
+   */
   gmtCreate?: string;
-  name?: string;
-  vpdId?: string;
+  /**
+   * @remarks
+   * The time when the certificate was updated.
+   * 
+   * @example
+   * 1675929918000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP unique identifier.
+   * 
+   * @example
+   * sip-8ylg****
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP address.
+   * 
+   * @example
+   * 10.0.****
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      ipName: 'IpName',
+      message: 'Message',
+      privateIpAddress: 'PrivateIpAddress',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      elasticNetworkInterfaceId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      ipName: 'string',
+      message: 'string',
+      privateIpAddress: 'string',
+      regionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLeniPrivateIpAddressesResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  data?: ListLeniPrivateIpAddressesResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListLeniPrivateIpAddressesResponseBodyContentData },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLniPrivateIpAddressResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1651734291000
+   */
+  gmtCreate?: string;
+  /**
+   * @remarks
+   * MAC address of the secondary private network
+   * 
+   * @example
+   * 00-ff-84-15-ba-67
+   */
+  ipAddressMac?: string;
+  /**
+   * @remarks
+   * IP unique identifier
+   * 
+   * @example
+   * sip-1hq1ql7vz
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID
+   * 
+   * @example
+   * lni-bp11hq1ql7vza3k4xz7q
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * Secondary private IP address of Lingjun network interface controller
+   * 
+   * @example
+   * 10.42.5.92
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      gmtCreate: 'GmtCreate',
+      ipAddressMac: 'IpAddressMac',
+      ipName: 'IpName',
+      message: 'Message',
+      networkInterfaceId: 'NetworkInterfaceId',
+      privateIpAddress: 'PrivateIpAddress',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      gmtCreate: 'string',
+      ipAddressMac: 'string',
+      ipName: 'string',
+      message: 'string',
+      networkInterfaceId: 'string',
+      privateIpAddress: 'string',
+      regionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLniPrivateIpAddressResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
+  data?: ListLniPrivateIpAddressResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 0
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListLniPrivateIpAddressResponseBodyContentData },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkInterfacesResponseBodyContentDataPrivateIpAddressMacGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Secondary private MAC address.
+   * 
+   * @example
+   * 00:25:9d:00:20:20
+   */
+  ipAddressMac?: string;
+  /**
+   * @remarks
+   * The unique IP identifier.
+   * 
+   * @example
+   * sip-1asjd3xg
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The secondary private IP address.
+   * 
+   * @example
+   * 10.0.0.14
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The status of the cache reserve instance.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      ipAddressMac: 'IpAddressMac',
+      ipName: 'IpName',
+      message: 'Message',
+      privateIpAddress: 'PrivateIpAddress',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      ipAddressMac: 'string',
+      ipName: 'string',
+      message: 'string',
+      privateIpAddress: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkInterfacesResponseBodyContentDataSubnetBaseInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The network segment of the Subnet.
+   * 
+   * *   The network segment of the subnet must be a proper subset of the network segment of Lingjun to which it belongs, and the mask must be between 16 bits and 29 bits, which can provide 8 to 65536 addresses. For example, the CIDR block of the Lingjun CIDR block is 192.168.0.0/16, and the CIDR blocks of the subnets under the Lingjun CIDR block are 192.168.0.0/17 to 192.168.0.0/29.
+   * *   The first and last three IP addresses of each subnet segment are reserved by the system. For example, the CIDR blocks of the subnet are 192.168.1.0/24,192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+   * 
+   * For more information about CIDR blocks, see the [What is CIDR?](https://www.alibabacloud.com/help/doc-detail/40637.htm#title-gu4-uzk-12r) section in the "Network FAQ" topic.
+   * 
+   * This parameter is left empty by default.
+   * 
+   * @example
+   * 10.0.0.0/24
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 1623656472000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the Subnet instance.
+   * 
+   * @example
+   * subnet-yjnqn5ef
+   */
+  subnetId?: string;
+  /**
+   * @remarks
+   * The name of the Subnet instance.
+   * 
+   * @example
+   * subnet-1
+   */
+  subnetName?: string;
   static names(): { [key: string]: string } {
     return {
       cidr: 'Cidr',
-      gmtCreate: 'GmtCreate',
-      name: 'Name',
-      vpdId: 'VpdId',
+      createTime: 'CreateTime',
+      subnetId: 'SubnetId',
+      subnetName: 'SubnetName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cidr: 'string',
-      gmtCreate: 'string',
-      name: 'string',
+      createTime: 'string',
+      subnetId: 'string',
+      subnetName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkInterfacesResponseBodyContentDataVpdBaseInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The network segment of Lingjun network segment (VPD).
+   * 
+   * *   We recommend that you use an RFC private endpoint as the Lingjun CIDR block, such as 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16. In scenarios where the Doringjun CIDR block is connected to each other or where the Lingjun CIDR block is connected to a VPC, make sure that the addresses do not conflict with each other.
+   * *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 and their subnets as the primary IPv4 CIDR block of the VPD. This parameter is left empty by default.
+   * 
+   * @example
+   * 10.0.0.0/16
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 1668158213000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the VPD instance.
+   * 
+   * @example
+   * vpd-d3isyds4
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The name of the VPD instance.
+   * 
+   * @example
+   * vpd-1
+   */
+  vpdName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      createTime: 'CreateTime',
+      vpdId: 'VpdId',
+      vpdName: 'VpdName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      createTime: 'string',
       vpdId: 'string',
+      vpdName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkInterfacesResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 1669734207000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The port number of the AD server.
+   */
+  ethernet?: string[];
+  /**
+   * @remarks
+   * The gateway.
+   * 
+   * @example
+   * 10.0.0.253
+   */
+  gateway?: string;
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 10.0.0.13
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The NC type.
+   * 
+   * Valid value:
+   * 
+   * *   CUSTOM_LNI_INTEGRATION: two-network one-in-one architecture Lingjun hosting network interface controller.
+   * *   CPU: CPU machine.
+   * *   ELASTIC_6.2: Machine
+   * *   GPU: GPU machine.
+   * *   DEFAULT: the old CPU machine.
+   * *   CUSTOM_LNI: two network separation architecture Lingjun hosting network interface controller.
+   * 
+   * @example
+   * GPU
+   */
+  ncType?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID.
+   * 
+   * @example
+   * lni-2ze50voovmtswn328ogm
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The port name.
+   * 
+   * @example
+   * bond0
+   */
+  networkInterfaceName?: string;
+  /**
+   * @remarks
+   * The ID of the machine to which the instance belongs.
+   * 
+   * @example
+   * 2d53f5c204e7476dae69177e7fa6f19c
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * Secondary Private IP\\&MAC Address Collection
+   */
+  privateIpAddressMacGroup?: ListNetworkInterfacesResponseBodyContentDataPrivateIpAddressMacGroup[];
+  /**
+   * @remarks
+   * network interface controller private secondary IP quota.
+   * 
+   * @example
+   * 6
+   */
+  quota?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The address of the service network interface controller.
+   * 
+   * @example
+   * 00-ff-84-15-ba-67
+   */
+  serviceMac?: string;
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Lingjun subnet (Subnet) basic information.
+   */
+  subnetBaseInfo?: ListNetworkInterfacesResponseBodyContentDataSubnetBaseInfo;
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * 1620939556166279
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * Lingjun network segment (VPD) basic information.
+   */
+  vpdBaseInfo?: ListNetworkInterfacesResponseBodyContentDataVpdBaseInfo;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      ethernet: 'Ethernet',
+      gateway: 'Gateway',
+      ip: 'Ip',
+      ncType: 'NcType',
+      networkInterfaceId: 'NetworkInterfaceId',
+      networkInterfaceName: 'NetworkInterfaceName',
+      nodeId: 'NodeId',
+      privateIpAddressMacGroup: 'PrivateIpAddressMacGroup',
+      quota: 'Quota',
+      regionId: 'RegionId',
+      serviceMac: 'ServiceMac',
+      status: 'Status',
+      subnetBaseInfo: 'SubnetBaseInfo',
+      tenantId: 'TenantId',
+      vpdBaseInfo: 'VpdBaseInfo',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      ethernet: { 'type': 'array', 'itemType': 'string' },
+      gateway: 'string',
+      ip: 'string',
+      ncType: 'string',
+      networkInterfaceId: 'string',
+      networkInterfaceName: 'string',
+      nodeId: 'string',
+      privateIpAddressMacGroup: { 'type': 'array', 'itemType': ListNetworkInterfacesResponseBodyContentDataPrivateIpAddressMacGroup },
+      quota: 'number',
+      regionId: 'string',
+      serviceMac: 'string',
+      status: 'string',
+      subnetBaseInfo: ListNetworkInterfacesResponseBodyContentDataSubnetBaseInfo,
+      tenantId: 'string',
+      vpdBaseInfo: ListNetworkInterfacesResponseBodyContentDataVpdBaseInfo,
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkInterfacesResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  data?: ListNetworkInterfacesResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries that are returned.
+   * 
+   * @example
+   * 0
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListNetworkInterfacesResponseBodyContentData },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeInfosForPodResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * cluster-****
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Lingjun Gaomi network interface controller quota
+   * 
+   * @example
+   * 10
+   */
+  hdeniQuota?: number;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface quota, excluding system type
+   * 
+   * @example
+   * 10
+   */
+  leniQuota?: number;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface Secondary Private IP Quota
+   * 
+   * @example
+   * 10
+   */
+  leniSipQuota?: number;
+  /**
+   * @remarks
+   * Lingjun network interface controller Secondary Private IP Quota
+   * 
+   * @example
+   * 10
+   */
+  lniSipQuota?: number;
+  /**
+   * @remarks
+   * The ID of the node for this operation.
+   * 
+   * @example
+   * node-be70****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * List of VSwitches to which IP addresses can be applied for this node
+   */
+  vSwitches?: string[];
+  /**
+   * @remarks
+   * The ID of the Virtual Private Cloud to which the current node belongs.
+   * 
+   * @example
+   * vpc-j6ctp4n75306****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      hdeniQuota: 'HdeniQuota',
+      leniQuota: 'LeniQuota',
+      leniSipQuota: 'LeniSipQuota',
+      lniSipQuota: 'LniSipQuota',
+      nodeId: 'NodeId',
+      regionId: 'RegionId',
+      vSwitches: 'VSwitches',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      hdeniQuota: 'number',
+      leniQuota: 'number',
+      leniSipQuota: 'number',
+      lniSipQuota: 'number',
+      nodeId: 'string',
+      regionId: 'string',
+      vSwitches: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubnetsRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key of the VPN attachment.
+   * 
+   * You cannot specify an empty string as a tag key. It can be up to 64 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * rg-subnet
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the VPN connection.
+   * 
+   * The tag value can be empty or a string of up to 128 characters. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * 
+   * Each key-value pair must be unique. You can specify values for at most 20 tag keys in each call.
+   * 
+   * @example
+   * subnet-group-1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubnetsResponseBodyContentDataTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * You cannot specify an empty string as a tag key. It can be up to 64 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * tag-subnet
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the resource.
+   * 
+   * The tag value can be empty or a string of up to 128 characters. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * 
+   * Each key-value pair must be unique. You can specify values for at most 20 tag keys in each call.
+   * 
+   * @example
+   * subnet-group-1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubnetsResponseBodyContentDataVpdBaseInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The CIDR block of the VPD.
+   * 
+   * *   We recommend that you use an RFC private endpoint as the Lingjun CIDR block, such as 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16. In scenarios where the Doringjun CIDR block is connected to each other or where the Lingjun CIDR block is connected to a VPC, make sure that the addresses do not conflict with each other.
+   * *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 and their subnets as the primary IPv4 CIDR block of the VPD.
+   * 
+   * @example
+   * 10.0.0.0/8
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1678273219000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * @example
+   * vpd-d3isyds4
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance name
+   * 
+   * @example
+   * yzp-rg-test3
+   */
+  vpdName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      createTime: 'CreateTime',
+      vpdId: 'VpdId',
+      vpdName: 'VpdName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      createTime: 'string',
+      vpdId: 'string',
+      vpdName: 'string',
     };
   }
 
@@ -1768,33 +19621,166 @@ export class ListSubnetsResponseBodyContentDataVpdBaseInfo extends $tea.Model {
 }
 
 export class ListSubnetsResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * The CIDR block of the Subnet.
+   * 
+   * *   The network segment of the subnet must be a proper subset of the network segment of Lingjun to which it belongs, and the mask must be between 16 bits and 29 bits, which can provide 8 to 65536 addresses. For example, the CIDR block of the Lingjun CIDR block is 192.168.0.0/16, and the CIDR blocks of the subnets under the Lingjun CIDR block are 192.168.0.0/17 to 192.168.0.0/29.
+   * *   The first and last three IP addresses of each subnet segment are reserved by the system. For example, the CIDR blocks of the subnet are 192.168.1.0/24,192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+   * 
+   * @example
+   * 172.18.0.0/24
+   */
   cidr?: string;
-  gmtCreate?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1678273219000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 1678273219000
+   */
   gmtModified?: string;
-  id?: number;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * SUCCESS
+   */
   message?: string;
-  name?: string;
+  /**
+   * @remarks
+   * Number of NCs
+   * 
+   * @example
+   * 16
+   */
   ncCount?: number;
+  /**
+   * @remarks
+   * Number of Lingjun network interface controller
+   * 
+   * @example
+   * 1
+   */
+  networkInterfaceCount?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of your Alibaba Cloud resource group.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The status of the cache reserve instance. Valid values:
+   * 
+   * *   **Available**: Normal
+   * *   **Not Available**: Unavailable
+   * *   **Executing**: Executing
+   * *   **Deleting**: The node is being deleted.
+   * 
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @remarks
+   * Lingjun subnet instance ID
+   * 
+   * @example
+   * subnet-c6wci55i
+   */
   subnetId?: string;
+  /**
+   * @remarks
+   * Lingjun subnet instance name
+   * 
+   * @example
+   * yzp-rg-test3
+   */
+  subnetName?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tags?: ListSubnetsResponseBodyContentDataTags[];
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1655449505171
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * Lingjun Subnet Usage Type; optional; optional. Valid values:
+   * 
+   * *   **If you do not set this field for a common type**
+   * *   **OOB** :OOB type
+   * *   **LB**: LB type
+   * 
+   * @example
+   * OOB
+   */
   type?: string;
+  /**
+   * @remarks
+   * vpd basic information
+   */
   vpdBaseInfo?: ListSubnetsResponseBodyContentDataVpdBaseInfo;
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * @example
+   * vpd-ze3na0wf
+   */
   vpdId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       cidr: 'Cidr',
-      gmtCreate: 'GmtCreate',
+      createTime: 'CreateTime',
       gmtModified: 'GmtModified',
-      id: 'Id',
       message: 'Message',
-      name: 'Name',
       ncCount: 'NcCount',
+      networkInterfaceCount: 'NetworkInterfaceCount',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
       subnetId: 'SubnetId',
+      subnetName: 'SubnetName',
+      tags: 'Tags',
       tenantId: 'TenantId',
       type: 'Type',
       vpdBaseInfo: 'VpdBaseInfo',
@@ -1806,15 +19792,17 @@ export class ListSubnetsResponseBodyContentData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cidr: 'string',
-      gmtCreate: 'string',
+      createTime: 'string',
       gmtModified: 'string',
-      id: 'number',
       message: 'string',
-      name: 'string',
       ncCount: 'number',
+      networkInterfaceCount: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
       subnetId: 'string',
+      subnetName: 'string',
+      tags: { 'type': 'array', 'itemType': ListSubnetsResponseBodyContentDataTags },
       tenantId: 'string',
       type: 'string',
       vpdBaseInfo: ListSubnetsResponseBodyContentDataVpdBaseInfo,
@@ -1829,7 +19817,18 @@ export class ListSubnetsResponseBodyContentData extends $tea.Model {
 }
 
 export class ListSubnetsResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun subnet information list
+   */
   data?: ListSubnetsResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1850,26 +19849,734 @@ export class ListSubnetsResponseBodyContent extends $tea.Model {
   }
 }
 
+export class ListVccFlowInfosResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * The direction.
+   * 
+   * @example
+   * OUT
+   */
+  direction?: string;
+  /**
+   * @remarks
+   * The metric. Valid values:
+   * 
+   * @example
+   * passBytesRate
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Time
+   * 
+   * @example
+   * 1689749749000
+   */
+  timestamp?: number;
+  /**
+   * @remarks
+   * Value
+   * 
+   * @example
+   * 123
+   */
+  value?: number;
+  /**
+   * @remarks
+   * Lingjun Connection ID
+   * 
+   * @example
+   * vcc-cn-zvp2w******
+   */
+  vccId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'Direction',
+      metricName: 'MetricName',
+      regionId: 'RegionId',
+      timestamp: 'Timestamp',
+      value: 'Value',
+      vccId: 'VccId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'string',
+      metricName: 'string',
+      regionId: 'string',
+      timestamp: 'number',
+      value: 'number',
+      vccId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccFlowInfosResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun Connection Traffic Information
+   */
+  data?: ListVccFlowInfosResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListVccFlowInfosResponseBodyContentData },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccGrantRulesResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1678273219000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Cross-account authorization information Instance ID
+   * 
+   * @example
+   * grant-rule-jpumgwvp
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * @example
+   * 1013666993027780
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * @example
+   * vcc-cn-jaj33d1kb05
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The name of the ECU.
+   * 
+   * @example
+   * vcc-1
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The type of the authorized product. Valid values:
+   * 
+   * *   **VPD**: indicates a VPD instance of the Lingjun network segment.
+   * *   **VCC**: indicates that Lingjun connects to the VCC instance.
+   * 
+   * @example
+   * VCC
+   */
+  product?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * Whether the current cross-account resource has been bound to the cross-account Lingjun HUB. Valid values:
+   * 
+   * *   **true**: Used
+   * *   **false**: Not used
+   * 
+   * @example
+   * true
+   */
+  used?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      erId: 'ErId',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      product: 'Product',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tenantId: 'TenantId',
+      used: 'Used',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      erId: 'string',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      product: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tenantId: 'string',
+      used: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccGrantRulesResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * List of cross-account authorization information of Lingjun connection
+   */
+  data?: ListVccGrantRulesResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 0
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListVccGrantRulesResponseBodyContentData },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccRouteEntriesResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * Destination CIDR block
+   * 
+   * @example
+   * 10.192.32.0/24
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * The time when the cluster was updated.
+   * 
+   * @example
+   * 1642745758000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Next Hop Instance
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * Next Hop Type
+   * 
+   * @example
+   * VCC
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant to which the resource belongs.
+   * 
+   * @example
+   * 1655449505171
+   */
+  resourceTenantId?: string;
+  /**
+   * @remarks
+   * Route type
+   * 
+   * @example
+   * BGP
+   */
+  routeType?: string;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry.
+   * 
+   * @example
+   * vcc-rte-maysfadg
+   */
+  vccRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      gmtModified: 'GmtModified',
+      message: 'Message',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceTenantId: 'ResourceTenantId',
+      routeType: 'RouteType',
+      status: 'Status',
+      tenantId: 'TenantId',
+      vccId: 'VccId',
+      vccRouteEntryId: 'VccRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      gmtModified: 'string',
+      message: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceTenantId: 'string',
+      routeType: 'string',
+      status: 'string',
+      tenantId: 'string',
+      vccId: 'string',
+      vccRouteEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccRouteEntriesResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * List of Lingjun Connection Route Entries
+   */
+  data?: ListVccRouteEntriesResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 0
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListVccRouteEntriesResponseBodyContentData },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccsRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key of the VPN attachment.
+   * 
+   * You cannot specify an empty string as a tag key. It can be up to 64 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * tag-vcc
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the VPN connection.
+   * 
+   * The tag value can be empty or a string of up to 128 characters. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * 
+   * Each key-value pair must be unique. You can specify values for at most 20 tag keys in each call.
+   * 
+   * @example
+   * vcc-group-1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccsResponseBodyContentDataErInfos extends $tea.Model {
+  /**
+   * @remarks
+   * Connections
+   * 
+   * @example
+   * 2
+   */
+  connections?: number;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1678273219000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Description
+   * 
+   * @example
+   * test_api_coverage
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Elastic Router ID
+   * 
+   * @example
+   * er-a7rqv1rq
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * ER instance name
+   * 
+   * @example
+   * er-1
+   */
+  erName?: string;
+  /**
+   * @remarks
+   * The time when the agent was last modified.
+   * 
+   * @example
+   * 1678273219000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * Primary Zone
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  masterZoneId?: string;
+  /**
+   * @remarks
+   * The message that is returned.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * ER region information
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Number of routing policy
+   * 
+   * @example
+   * 2
+   */
+  routeMaps?: number;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connections: 'Connections',
+      createTime: 'CreateTime',
+      description: 'Description',
+      erId: 'ErId',
+      erName: 'ErName',
+      gmtModified: 'GmtModified',
+      masterZoneId: 'MasterZoneId',
+      message: 'Message',
+      regionId: 'RegionId',
+      routeMaps: 'RouteMaps',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connections: 'number',
+      createTime: 'string',
+      description: 'string',
+      erId: 'string',
+      erName: 'string',
+      gmtModified: 'string',
+      masterZoneId: 'string',
+      message: 'string',
+      regionId: 'string',
+      routeMaps: 'number',
+      status: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccsResponseBodyContentDataTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * You cannot specify an empty string as a tag key. It can be up to 64 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * tag-vcc
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the resource.
+   * 
+   * The tag value can be empty or a string of up to 128 characters. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * 
+   * Each key-value pair must be unique. You can specify values for at most 20 tag keys in each call.
+   * 
+   * @example
+   * vcc-group-1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVccsResponseBodyContentDataVpdBaseInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The CIDR block of the VPD.
+   * 
+   * *   We recommend that you use an RFC private endpoint as the Lingjun CIDR block, such as 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16. In scenarios where the Doringjun CIDR block is connected to each other or where the Lingjun CIDR block is connected to a VPC, make sure that the addresses do not conflict with each other.
+   * *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 and their subnets as the primary IPv4 CIDR block of the VPD.
+   * 
+   * @example
+   * 10.0.0.0/13
+   */
   cidr?: string;
-  gmtCreate?: string;
-  name?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1668158213000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * @example
+   * vpd-9n7ioqrp
+   */
   vpdId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance name
+   * 
+   * @example
+   * yzp-rg-test3
+   */
+  vpdName?: string;
   static names(): { [key: string]: string } {
     return {
       cidr: 'Cidr',
-      gmtCreate: 'GmtCreate',
-      name: 'Name',
+      createTime: 'CreateTime',
       vpdId: 'VpdId',
+      vpdName: 'VpdName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cidr: 'string',
-      gmtCreate: 'string',
-      name: 'string',
+      createTime: 'string',
       vpdId: 'string',
+      vpdName: 'string',
     };
   }
 
@@ -1879,46 +20586,287 @@ export class ListVccsResponseBodyContentDataVpdBaseInfo extends $tea.Model {
 }
 
 export class ListVccsResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * Express Connect circuit access point ID:
+   * 
+   * *   **ap-cn-wulanchabu-jn-ts-A**: Ulanqab-Jining-A
+   * *   **ap-cn-heyuan-yc-ts-SA127**: Heyuan-Yuancheng-A
+   * 
+   * @example
+   * ap-cn-wulanchabu-jn-ts-A
+   */
   accessPointId?: string;
+  /**
+   * @remarks
+   * The bandwidth of the port.
+   * 
+   * @example
+   * 1000
+   */
   bandwidthStr?: string;
+  /**
+   * @remarks
+   * bgp as number
+   * 
+   * @example
+   * bgpAsn
+   */
+  bgpAsn?: string;
+  /**
+   * @remarks
+   * bgp network segment
+   * 
+   * @example
+   * 172.16.128.0/24
+   */
   bgpCidr?: string;
+  /**
+   * @remarks
+   * The ID of the CEN instance; [What is the CEN?](https://help.aliyun.com/document_detail/181681.html)
+   * 
+   * You can call the [DescribeCens](https://help.aliyun.com/document_detail/468215.htm) to query the information of CEN instances under the current Alibaba Cloud account.
+   * 
+   * @example
+   * cen-w15qot0pfvs83pkckj
+   */
   cenId?: string;
+  /**
+   * @remarks
+   * Account to which cen belongs
+   * 
+   * @example
+   * 1238685214107736
+   */
+  cenOwnerId?: string;
+  /**
+   * @remarks
+   * Commodity code
+   * 
+   * @example
+   * bccluster_cloudconnectionpre_public_cn
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * The connection mode. Valid values:
+   * 
+   * *   **VPC**
+   * *   **CENTR**
+   * 
+   * @example
+   * CENTR
+   */
+  connectionType?: string;
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1678273219000
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * Current process node
+   * 
+   * @example
+   * test-xxxx-node-x
+   */
+  currentNode?: string;
+  /**
+   * @remarks
+   * List of bound Lingjun HUB information
+   */
+  erInfos?: ListVccsResponseBodyContentDataErInfos[];
+  /**
+   * @remarks
+   * The time when the application expired.
+   * 
+   * @example
+   * 1678273219000
+   */
+  expirationDate?: string;
+  /**
+   * @remarks
+   * The time when the cluster was updated.
+   * 
+   * @example
+   * 1678273219000
+   */
   gmtModified?: string;
+  /**
+   * @remarks
+   * The connectivity provider of the Express Connect circuit. Valid values:
+   * 
+   * *   **CO**: other connectivity providers in the Chinese mainland
+   * 
+   * @example
+   * CO
+   */
   lineOperator?: string;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * some message
+   */
   message?: string;
+  /**
+   * @remarks
+   * The port type of the Express Connect circuit. Valid values:
+   * 
+   * *   **100GBase-LR**: 100,000 megabytes of single-mode optical port (10 km)
+   * 
+   * @example
+   * 100GBase-LR
+   */
   portType?: string;
+  /**
+   * @remarks
+   * Process progress; value returns 0 to 1; not started is null
+   * 
+   * @example
+   * 1
+   */
   rate?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of your Alibaba Cloud resource group.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The compute specification.
+   * 
+   * @example
+   * Large
+   */
   spec?: string;
+  /**
+   * @remarks
+   * The state of the rule.
+   * 
+   * @example
+   * Init
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tags?: ListVccsResponseBodyContentDataTags[];
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * task-cd544092-ed0a-49e9-83eb-e8c94770dccf
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1620939556166279
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
   vccId?: string;
+  /**
+   * @remarks
+   * The name of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-heyuan-backup
+   */
   vccName?: string;
+  /**
+   * @remarks
+   * Virtual Private Cloud IDs; [What is Virtual Private Cloud](https://help.aliyun.com/document_detail/34217.html)
+   * 
+   * You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html#demo-0) operation to query the specified VPC.
+   * 
+   * @example
+   * vpc-f8ziirfl9k25h2qn7y4f8
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * Lingjun network segment information (applicable to the scene where the old version of Lingjun connection is directly bound to Lingjun network segment)
+   */
   vpdBaseInfo?: ListVccsResponseBodyContentDataVpdBaseInfo;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * @example
+   * vpd-eoiy88ju
+   */
   vpdId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       accessPointId: 'AccessPointId',
       bandwidthStr: 'BandwidthStr',
+      bgpAsn: 'BgpAsn',
       bgpCidr: 'BgpCidr',
       cenId: 'CenId',
+      cenOwnerId: 'CenOwnerId',
+      commodityCode: 'CommodityCode',
+      connectionType: 'ConnectionType',
       createTime: 'CreateTime',
+      currentNode: 'CurrentNode',
+      erInfos: 'ErInfos',
+      expirationDate: 'ExpirationDate',
       gmtModified: 'GmtModified',
       lineOperator: 'LineOperator',
       message: 'Message',
       portType: 'PortType',
       rate: 'Rate',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       status: 'Status',
+      tags: 'Tags',
+      taskId: 'TaskId',
       tenantId: 'TenantId',
       vccId: 'VccId',
       vccName: 'VccName',
       vpcId: 'VpcId',
       vpdBaseInfo: 'VpdBaseInfo',
       vpdId: 'VpdId',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -1926,23 +20874,34 @@ export class ListVccsResponseBodyContentData extends $tea.Model {
     return {
       accessPointId: 'string',
       bandwidthStr: 'string',
+      bgpAsn: 'string',
       bgpCidr: 'string',
       cenId: 'string',
+      cenOwnerId: 'string',
+      commodityCode: 'string',
+      connectionType: 'string',
       createTime: 'string',
+      currentNode: 'string',
+      erInfos: { 'type': 'array', 'itemType': ListVccsResponseBodyContentDataErInfos },
+      expirationDate: 'string',
       gmtModified: 'string',
       lineOperator: 'string',
       message: 'string',
       portType: 'string',
       rate: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       spec: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListVccsResponseBodyContentDataTags },
+      taskId: 'string',
       tenantId: 'string',
       vccId: 'string',
       vccName: 'string',
       vpcId: 'string',
       vpdBaseInfo: ListVccsResponseBodyContentDataVpdBaseInfo,
       vpdId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -1952,7 +20911,18 @@ export class ListVccsResponseBodyContentData extends $tea.Model {
 }
 
 export class ListVccsResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun Connection Information List
+   */
   data?: ListVccsResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 0
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1973,53 +20943,746 @@ export class ListVccsResponseBodyContent extends $tea.Model {
   }
 }
 
-export class ListVpdsResponseBodyContentData extends $tea.Model {
-  cidr?: string;
-  dependence?: { [key: string]: any };
-  gmtCreate?: string;
-  gmtModified?: string;
-  message?: string;
-  name?: string;
-  ncCount?: number;
+export class ListVpdGrantRulesResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the data address was created.
+   * 
+   * @example
+   * 1643013506000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The current network sample is authorized to the specified Lingjun HUB sample ID.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorization Entry ID
+   * 
+   * @example
+   * grant-rule-8rgvqazb
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant to which the current instance is authorized.
+   * 
+   * @example
+   * 1672372231790
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * @example
+   * vpd-8rgvqazb
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The name of the ECU.
+   * 
+   * @example
+   * vpd-1
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The type of the authorized product. Valid values:
+   * 
+   * *   **VPD**: indicates a VPD instance of the Lingjun network segment.
+   * *   **VCC**: indicates that Lingjun connects to the VCC instance.
+   * 
+   * The caller does not need to specify.
+   * 
+   * @example
+   * VPD
+   */
+  product?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
-  route?: number;
-  serviceCidr?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * Whether the current authorized instance has been bound
+   * 
+   * @example
+   * true
+   */
+  used?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      erId: 'ErId',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      product: 'Product',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tenantId: 'TenantId',
+      used: 'Used',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      erId: 'string',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      product: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tenantId: 'string',
+      used: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdGrantRulesResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun CIDR block authorization information list
+   */
+  data?: ListVpdGrantRulesResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 0
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListVpdGrantRulesResponseBodyContentData },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdRouteEntriesResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * Destination CIDR block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * The time when the cluster was updated.
+   * 
+   * @example
+   * 1678273219000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * Next Hop Instance
+   * 
+   * @example
+   * er-bmlqiym1
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * Next Hop Instance Type
+   * 
+   * @example
+   * ER
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmxhucx5ewuwy
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant to which the resource belongs.
+   * 
+   * @example
+   * 1655449505171
+   */
+  resourceTenantId?: string;
+  /**
+   * @remarks
+   * Route type
+   * 
+   * @example
+   * BGP
+   */
+  routeType?: string;
+  /**
+   * @remarks
+   * The status of the intervention entry. Valid value:
+   * 
+   * @example
+   * Available
+   */
   status?: string;
-  subnetCount?: number;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * @example
+   * vpd-eoiy88ju
+   */
   vpdId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry.
+   * 
+   * @example
+   * vpd-rte-toekyqel
+   */
+  vpdRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      gmtModified: 'GmtModified',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceTenantId: 'ResourceTenantId',
+      routeType: 'RouteType',
+      status: 'Status',
+      tenantId: 'TenantId',
+      vpdId: 'VpdId',
+      vpdRouteEntryId: 'VpdRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      gmtModified: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceTenantId: 'string',
+      routeType: 'string',
+      status: 'string',
+      tenantId: 'string',
+      vpdId: 'string',
+      vpdRouteEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdRouteEntriesResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun CIDR block route entry list
+   */
+  data?: ListVpdRouteEntriesResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 0
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListVpdRouteEntriesResponseBodyContentData },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdsRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key of the VPN attachment.
+   * 
+   * You cannot specify an empty string as a tag key. It can be up to 64 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * tag-vpd-region
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the VPN connection.
+   * 
+   * The tag value can be empty or a string of up to 128 characters. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * 
+   * Each key-value pair must be unique. You can specify values for at most 20 tag keys in each call.
+   * 
+   * @example
+   * wulanchabu
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdsResponseBodyContentDataErInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The number of connections.
+   * 
+   * @example
+   * 2
+   */
+  connections?: number;
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 2023-12-26 20:16:36
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The description of the synchronization task.
+   * 
+   * @example
+   * No description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The ID of the Elastic Router (ER) instance.
+   * 
+   * @example
+   * er-63vzm0fw
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The name of the Lingjun HUB(ER) instance.
+   * 
+   * @example
+   * er-1
+   */
+  erName?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M task was modified.
+   * 
+   * @example
+   * 2023-12-26 20:16:36
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The primary zone.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  masterZoneId?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The supported region.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The number of routing policy.
+   * 
+   * @example
+   * 2
+   */
+  routeMaps?: number;
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connections: 'Connections',
+      createTime: 'CreateTime',
+      description: 'Description',
+      erId: 'ErId',
+      erName: 'ErName',
+      gmtModified: 'GmtModified',
+      masterZoneId: 'MasterZoneId',
+      message: 'Message',
+      regionId: 'RegionId',
+      routeMaps: 'RouteMaps',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connections: 'number',
+      createTime: 'string',
+      description: 'string',
+      erId: 'string',
+      erName: 'string',
+      gmtModified: 'string',
+      masterZoneId: 'string',
+      message: 'string',
+      regionId: 'string',
+      routeMaps: 'number',
+      status: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdsResponseBodyContentDataTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * You cannot specify an empty string as a tag key. It can be up to 64 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * tag-vpd-region
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the resource.
+   * 
+   * The tag value can be empty or a string of up to 128 characters. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * 
+   * Each key-value pair must be unique. You can specify values for at most 20 tag keys in each call.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdsResponseBodyContentData extends $tea.Model {
+  /**
+   * @remarks
+   * The CIDR block of the VPD.
+   * 
+   * *   We recommend that you use an RFC private endpoint as the Lingjun CIDR block, such as 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16. In scenarios where the Doringjun CIDR block is connected to each other or where the Lingjun CIDR block is connected to a VPC, make sure that the addresses do not conflict with each other.
+   * *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 and their subnets as the primary IPv4 CIDR block of the VPD.
+   * 
+   * @example
+   * 10.0.0.0/8
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
+   * @example
+   * 1678273219000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Dependencies.
+   */
+  dependence?: { [key: string]: any };
+  /**
+   * @remarks
+   * The information list of the bound Lingjun HUB(ER).
+   */
+  erInfos?: ListVpdsResponseBodyContentDataErInfos[];
+  /**
+   * @remarks
+   * The time when the O\\&M task was modified.
+   * 
+   * @example
+   * 1678273219000
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * nc quantity.
+   * 
+   * @example
+   * 16
+   */
+  ncCount?: number;
+  /**
+   * @remarks
+   * Number of Lingjun network interface controller
+   * 
+   * @example
+   * 1
+   */
+  networkInterfaceCount?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of your Alibaba Cloud resource group.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The list of additional CIDR blocks.
+   */
+  secondaryCidrBlocks?: string[];
+  /**
+   * @remarks
+   * The Service CIDR block.
+   * 
+   * @example
+   * 169.254.252.0/23
+   */
+  serviceCidr?: string;
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The number of subnets.
+   * 
+   * @example
+   * 1
+   */
+  subnetCount?: number;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tags?: ListVpdsResponseBodyContentDataTags[];
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * 1655449505171
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * The ID of the VPD instance.
+   * 
+   * @example
+   * vpd-lg4dppgi
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The name of the VPD.
+   * 
+   * @example
+   * vpd-1
+   */
+  vpdName?: string;
   static names(): { [key: string]: string } {
     return {
       cidr: 'Cidr',
+      createTime: 'CreateTime',
       dependence: 'Dependence',
-      gmtCreate: 'GmtCreate',
+      erInfos: 'ErInfos',
       gmtModified: 'GmtModified',
       message: 'Message',
-      name: 'Name',
       ncCount: 'NcCount',
+      networkInterfaceCount: 'NetworkInterfaceCount',
       regionId: 'RegionId',
-      route: 'Route',
+      resourceGroupId: 'ResourceGroupId',
+      secondaryCidrBlocks: 'SecondaryCidrBlocks',
       serviceCidr: 'ServiceCidr',
       status: 'Status',
       subnetCount: 'SubnetCount',
+      tags: 'Tags',
+      tenantId: 'TenantId',
       vpdId: 'VpdId',
+      vpdName: 'VpdName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cidr: 'string',
+      createTime: 'string',
       dependence: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      gmtCreate: 'string',
+      erInfos: { 'type': 'array', 'itemType': ListVpdsResponseBodyContentDataErInfos },
       gmtModified: 'string',
       message: 'string',
-      name: 'string',
       ncCount: 'number',
+      networkInterfaceCount: 'number',
       regionId: 'string',
-      route: 'number',
+      resourceGroupId: 'string',
+      secondaryCidrBlocks: { 'type': 'array', 'itemType': 'string' },
       serviceCidr: 'string',
       status: 'string',
       subnetCount: 'number',
+      tags: { 'type': 'array', 'itemType': ListVpdsResponseBodyContentDataTags },
+      tenantId: 'string',
       vpdId: 'string',
+      vpdName: 'string',
     };
   }
 
@@ -2029,7 +21692,18 @@ export class ListVpdsResponseBodyContentData extends $tea.Model {
 }
 
 export class ListVpdsResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListVpdsResponseBodyContentData[];
+  /**
+   * @remarks
+   * The total number of entries that are returned.
+   * 
+   * @example
+   * 0
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2050,7 +21724,245 @@ export class ListVpdsResponseBodyContent extends $tea.Model {
   }
 }
 
+export class QueryInstanceNcdResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Instance 1ID
+   * 
+   * @example
+   * lni-1235****
+   */
+  instanceId1?: string;
+  /**
+   * @remarks
+   * Instance 2ID
+   * 
+   * @example
+   * lni-1234****
+   */
+  instanceId2?: string;
+  /**
+   * @remarks
+   * Instance Type
+   * 
+   * Valid value:
+   * 
+   * *   node: Lingjun node.
+   * *   lni: lingjun network interface controller.
+   * 
+   * @example
+   * lni
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * network communication distance between instances
+   * 
+   * @example
+   * 1
+   */
+  ncd?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId1: 'InstanceId1',
+      instanceId2: 'InstanceId2',
+      instanceType: 'InstanceType',
+      ncd: 'Ncd',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId1: 'string',
+      instanceId2: 'string',
+      instanceType: 'string',
+      ncd: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssignPrivateIpAddressResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * IP unique identifier
+   * 
+   * @example
+   * sip-xxxxx
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID
+   * 
+   * @example
+   * lni-bp164jwjpdq4lnsy83s5
+   */
+  networkInterfaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipName: 'IpName',
+      networkInterfaceId: 'NetworkInterfaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipName: 'string',
+      networkInterfaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssociateVpdCidrBlockResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * @example
+   * vpd-ze3na0wf
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpdId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassignLeniPrivateIpAddressResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP unique identifier.
+   * 
+   * @example
+   * sip-dqvs****
+   */
+  ipName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      ipName: 'IpName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      ipName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateElasticNetworkInterfaceResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Node ID
+   * 
+   * @example
+   * e01-cn-lbj3aej****
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLeniPrivateIpAddressResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP unique identifier.
+   * 
+   * @example
+   * sip-8ylg****
+   */
+  ipName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      ipName: 'IpName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      ipName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateSubnetResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The subnet instance ID.
+   * 
+   * @example
+   * subnet-yuvn29bn
+   */
   subnetId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2070,6 +21982,13 @@ export class UpdateSubnetResponseBodyContent extends $tea.Model {
 }
 
 export class UpdateVccResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-2r42v22cn03
+   */
   vccId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2089,6 +22008,13 @@ export class UpdateVccResponseBodyContent extends $tea.Model {
 }
 
 export class UpdateVpdResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the VPD instance.
+   * 
+   * @example
+   * vpd-lg4dppgi
+   */
   vpdId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2130,6 +22056,621 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * Apply for a secondary private IP address for the current Lingjun Elastic Network Interface. You can automatically assign a secondary private IP address.
+   * 
+   * @remarks
+   * Apply for a secondary private IP address for the specified Lingjun Elastic Network Interface.
+   * *   If the PrivateIp field is empty, a secondary private IP address is automatically assigned and the unique identifier of the IP address is returned.
+   * *   You can use the GetLeniPrivateIpAddress or ListLeniPrivateIpAddresses interface to check whether the secondary private IP address is assigned.
+   * 
+   * @param request - AssignLeniPrivateIpAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssignLeniPrivateIpAddressResponse
+   */
+  async assignLeniPrivateIpAddressWithOptions(request: AssignLeniPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<AssignLeniPrivateIpAddressResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+      body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.privateIpAddress)) {
+      body["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AssignLeniPrivateIpAddress",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssignLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new AssignLeniPrivateIpAddressResponse({}));
+  }
+
+  /**
+   * Apply for a secondary private IP address for the current Lingjun Elastic Network Interface. You can automatically assign a secondary private IP address.
+   * 
+   * @remarks
+   * Apply for a secondary private IP address for the specified Lingjun Elastic Network Interface.
+   * *   If the PrivateIp field is empty, a secondary private IP address is automatically assigned and the unique identifier of the IP address is returned.
+   * *   You can use the GetLeniPrivateIpAddress or ListLeniPrivateIpAddresses interface to check whether the secondary private IP address is assigned.
+   * 
+   * @param request - AssignLeniPrivateIpAddressRequest
+   * @returns AssignLeniPrivateIpAddressResponse
+   */
+  async assignLeniPrivateIpAddress(request: AssignLeniPrivateIpAddressRequest): Promise<AssignLeniPrivateIpAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.assignLeniPrivateIpAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * Applies for a private secondary IP address for the current LNI. You can also call this operation to assign a secondary MAC address to the current LNI.
+   * 
+   * @remarks
+   * >  Apply for secondary private IP addresses
+   * *   By default, each network interface controller can apply for three secondary private IP addresses. If the quota is exceeded, contact the administrator.
+   * *   The secondary private IP address is allocated from the Lingjun subnet to which the current network interface controller belongs. The first address and the last two addresses belong to reserved addresses and do not participate in the allocation.
+   * 
+   * @param request - AssignPrivateIpAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssignPrivateIpAddressResponse
+   */
+  async assignPrivateIpAddressWithOptions(request: AssignPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<AssignPrivateIpAddressResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.assignMac)) {
+      body["AssignMac"] = request.assignMac;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.networkInterfaceId)) {
+      body["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.privateIpAddress)) {
+      body["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.skipConfig)) {
+      body["SkipConfig"] = request.skipConfig;
+    }
+
+    if (!Util.isUnset(request.subnetId)) {
+      body["SubnetId"] = request.subnetId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AssignPrivateIpAddress",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssignPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new AssignPrivateIpAddressResponse({}));
+  }
+
+  /**
+   * Applies for a private secondary IP address for the current LNI. You can also call this operation to assign a secondary MAC address to the current LNI.
+   * 
+   * @remarks
+   * >  Apply for secondary private IP addresses
+   * *   By default, each network interface controller can apply for three secondary private IP addresses. If the quota is exceeded, contact the administrator.
+   * *   The secondary private IP address is allocated from the Lingjun subnet to which the current network interface controller belongs. The first address and the last two addresses belong to reserved addresses and do not participate in the allocation.
+   * 
+   * @param request - AssignPrivateIpAddressRequest
+   * @returns AssignPrivateIpAddressResponse
+   */
+  async assignPrivateIpAddress(request: AssignPrivateIpAddressRequest): Promise<AssignPrivateIpAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.assignPrivateIpAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * When the VPD primary network segment address is not enough to allocate, you can choose to create an additional network segment as the additional network segment of the VPD primary network segment.
+   * 
+   * @remarks
+   * >  **Add a CIDR block**
+   * *   The CIDR block cannot start with 0. The subnet mask must be 8 to 28 bits in length.
+   * *   The secondary IPv4 CIDR block must not overlap with the primary IPv4 CIDR block of the Lingjun CIDR block and the added secondary IPv4 CIDR block.
+   * *   You cannot use 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 as the CIDR block of Lingjun. Example: In the Lingjun CIDR block whose primary IPv4 CIDR block is 192.168.0.0/16, you cannot add the following CIDR blocks as additional IPv4 CIDR blocks. The CIDR block that is in the same range as 192.168.0.0/16. A CIDR block that is larger than 192.168.0.0/16. Example: 192.168.0.0/8. A CIDR block that is smaller than 192.168.0.0/16. Example: 192.168.0.0/24.
+   * *   By default, each tenant can create three additional CIDR blocks in each region.
+   * 
+   * @param request - AssociateVpdCidrBlockRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateVpdCidrBlockResponse
+   */
+  async associateVpdCidrBlockWithOptions(request: AssociateVpdCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<AssociateVpdCidrBlockResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.secondaryCidrBlock)) {
+      body["SecondaryCidrBlock"] = request.secondaryCidrBlock;
+    }
+
+    if (!Util.isUnset(request.vpdId)) {
+      body["VpdId"] = request.vpdId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AssociateVpdCidrBlock",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateVpdCidrBlockResponse>(await this.callApi(params, req, runtime), new AssociateVpdCidrBlockResponse({}));
+  }
+
+  /**
+   * When the VPD primary network segment address is not enough to allocate, you can choose to create an additional network segment as the additional network segment of the VPD primary network segment.
+   * 
+   * @remarks
+   * >  **Add a CIDR block**
+   * *   The CIDR block cannot start with 0. The subnet mask must be 8 to 28 bits in length.
+   * *   The secondary IPv4 CIDR block must not overlap with the primary IPv4 CIDR block of the Lingjun CIDR block and the added secondary IPv4 CIDR block.
+   * *   You cannot use 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 as the CIDR block of Lingjun. Example: In the Lingjun CIDR block whose primary IPv4 CIDR block is 192.168.0.0/16, you cannot add the following CIDR blocks as additional IPv4 CIDR blocks. The CIDR block that is in the same range as 192.168.0.0/16. A CIDR block that is larger than 192.168.0.0/16. Example: 192.168.0.0/8. A CIDR block that is smaller than 192.168.0.0/16. Example: 192.168.0.0/24.
+   * *   By default, each tenant can create three additional CIDR blocks in each region.
+   * 
+   * @param request - AssociateVpdCidrBlockRequest
+   * @returns AssociateVpdCidrBlockResponse
+   */
+  async associateVpdCidrBlock(request: AssociateVpdCidrBlockRequest): Promise<AssociateVpdCidrBlockResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.associateVpdCidrBlockWithOptions(request, runtime);
+  }
+
+  /**
+   * Lingjun ENI is bound to NC.
+   * 
+   * @remarks
+   * This interface is an asynchronous interface. You need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the available state.
+   * 
+   * @param request - AttachElasticNetworkInterfaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachElasticNetworkInterfaceResponse
+   */
+  async attachElasticNetworkInterfaceWithOptions(request: AttachElasticNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<AttachElasticNetworkInterfaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+      body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachElasticNetworkInterface",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new AttachElasticNetworkInterfaceResponse({}));
+  }
+
+  /**
+   * Lingjun ENI is bound to NC.
+   * 
+   * @remarks
+   * This interface is an asynchronous interface. You need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the available state.
+   * 
+   * @param request - AttachElasticNetworkInterfaceRequest
+   * @returns AttachElasticNetworkInterfaceResponse
+   */
+  async attachElasticNetworkInterface(request: AttachElasticNetworkInterfaceRequest): Promise<AttachElasticNetworkInterfaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachElasticNetworkInterfaceWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an LENI.
+   * 
+   * @param request - CreateElasticNetworkInterfaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateElasticNetworkInterfaceResponse
+   */
+  async createElasticNetworkInterfaceWithOptions(request: CreateElasticNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateElasticNetworkInterfaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enableJumboFrame)) {
+      body["EnableJumboFrame"] = request.enableJumboFrame;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      body["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      body["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      body["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateElasticNetworkInterface",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new CreateElasticNetworkInterfaceResponse({}));
+  }
+
+  /**
+   * Creates an LENI.
+   * 
+   * @param request - CreateElasticNetworkInterfaceRequest
+   * @returns CreateElasticNetworkInterfaceResponse
+   */
+  async createElasticNetworkInterface(request: CreateElasticNetworkInterfaceRequest): Promise<CreateElasticNetworkInterfaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createElasticNetworkInterfaceWithOptions(request, runtime);
+  }
+
+  /**
+   * Create a Lingjun HUB.
+   * 
+   * @remarks
+   * When you call this operation to create a Lingjun HUB, note that:
+   * *   Make sure that you have sufficient Lingjun HUB quota.
+   * *   This interface is an asynchronous interface. After this interface is called, the system will return the ID of a Lingjun HUB. At this time, the Lingjun HUB instance may not be created yet, and the system background creation task is still in progress. You can call the ListErs or GetEr operation to query the status of the Lingjun HUB.
+   *     *   If the status of the Lingjun HUB is Executing, it indicates that it is being created.
+   *     *   If the status of the Lingjun HUB is Available, the creation is successful.
+   * 
+   * @param request - CreateErRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateErResponse
+   */
+  async createErWithOptions(request: CreateErRequest, runtime: $Util.RuntimeOptions): Promise<CreateErResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.erName)) {
+      body["ErName"] = request.erName;
+    }
+
+    if (!Util.isUnset(request.masterZoneId)) {
+      body["MasterZoneId"] = request.masterZoneId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEr",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateErResponse>(await this.callApi(params, req, runtime), new CreateErResponse({}));
+  }
+
+  /**
+   * Create a Lingjun HUB.
+   * 
+   * @remarks
+   * When you call this operation to create a Lingjun HUB, note that:
+   * *   Make sure that you have sufficient Lingjun HUB quota.
+   * *   This interface is an asynchronous interface. After this interface is called, the system will return the ID of a Lingjun HUB. At this time, the Lingjun HUB instance may not be created yet, and the system background creation task is still in progress. You can call the ListErs or GetEr operation to query the status of the Lingjun HUB.
+   *     *   If the status of the Lingjun HUB is Executing, it indicates that it is being created.
+   *     *   If the status of the Lingjun HUB is Available, the creation is successful.
+   * 
+   * @param request - CreateErRequest
+   * @returns CreateErResponse
+   */
+  async createEr(request: CreateErRequest): Promise<CreateErResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createErWithOptions(request, runtime);
+  }
+
+  /**
+   * Create a network instance connection.
+   * 
+   * @remarks
+   * When you call this operation to create a network instance connection, note that:
+   * *   Make sure that you have created a Lingjun HUB instance.
+   * *   Make sure that you have sufficient quota for network instance connections.
+   * *   This operation is an asynchronous operation. After you call this operation, the system returns the ID of the network instance connection. In this case, the network instance connection may not be created yet, and the system is still creating the network instance in the background. You can query the connection status of a network instance by ListErAttachments or GetErAttachment:
+   *     *   If the connection status of the network instance is Executing, the network instance is being created.
+   *     *   If the connection status of the network instance is Available, the network instance is created.
+   * 
+   * @param request - CreateErAttachmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateErAttachmentResponse
+   */
+  async createErAttachmentWithOptions(request: CreateErAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateErAttachmentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoReceiveAllRoute)) {
+      body["AutoReceiveAllRoute"] = request.autoReceiveAllRoute;
+    }
+
+    if (!Util.isUnset(request.erAttachmentName)) {
+      body["ErAttachmentName"] = request.erAttachmentName;
+    }
+
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      body["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceTenantId)) {
+      body["ResourceTenantId"] = request.resourceTenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateErAttachment",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateErAttachmentResponse>(await this.callApi(params, req, runtime), new CreateErAttachmentResponse({}));
+  }
+
+  /**
+   * Create a network instance connection.
+   * 
+   * @remarks
+   * When you call this operation to create a network instance connection, note that:
+   * *   Make sure that you have created a Lingjun HUB instance.
+   * *   Make sure that you have sufficient quota for network instance connections.
+   * *   This operation is an asynchronous operation. After you call this operation, the system returns the ID of the network instance connection. In this case, the network instance connection may not be created yet, and the system is still creating the network instance in the background. You can query the connection status of a network instance by ListErAttachments or GetErAttachment:
+   *     *   If the connection status of the network instance is Executing, the network instance is being created.
+   *     *   If the connection status of the network instance is Available, the network instance is created.
+   * 
+   * @param request - CreateErAttachmentRequest
+   * @returns CreateErAttachmentResponse
+   */
+  async createErAttachment(request: CreateErAttachmentRequest): Promise<CreateErAttachmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createErAttachmentWithOptions(request, runtime);
+  }
+
+  /**
+   * Users can use this API to create routing policy by specifying the network instance connection under Lingjun HUB.
+   * 
+   * @remarks
+   * When you call this operation to create a routing policy, note that:
+   * *   Make sure that you have created a Lingjun HUB instance.
+   * *   Make sure that you have created a network instance connection.
+   * *   This operation is an asynchronous operation. After you call this operation, the system returns the ID of the routing policy. In this case, the routing policy instance may not be created yet, and the system background creation task is still in progress. You can use ListErRouteMaps or GetErRouteMap to query the status of a routing policy.
+   *     *   If the status of the routing policy is Execute, the system is creating the instance.
+   *     *   If the status of the routing policy is Available, the creation is successful.
+   * 
+   * @param request - CreateErRouteMapRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateErRouteMapResponse
+   */
+  async createErRouteMapWithOptions(request: CreateErRouteMapRequest, runtime: $Util.RuntimeOptions): Promise<CreateErRouteMapResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.destinationCidrBlock)) {
+      body["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.receptionInstanceId)) {
+      body["ReceptionInstanceId"] = request.receptionInstanceId;
+    }
+
+    if (!Util.isUnset(request.receptionInstanceOwner)) {
+      body["ReceptionInstanceOwner"] = request.receptionInstanceOwner;
+    }
+
+    if (!Util.isUnset(request.receptionInstanceType)) {
+      body["ReceptionInstanceType"] = request.receptionInstanceType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.routeMapAction)) {
+      body["RouteMapAction"] = request.routeMapAction;
+    }
+
+    if (!Util.isUnset(request.routeMapNum)) {
+      body["RouteMapNum"] = request.routeMapNum;
+    }
+
+    if (!Util.isUnset(request.transmissionInstanceId)) {
+      body["TransmissionInstanceId"] = request.transmissionInstanceId;
+    }
+
+    if (!Util.isUnset(request.transmissionInstanceOwner)) {
+      body["TransmissionInstanceOwner"] = request.transmissionInstanceOwner;
+    }
+
+    if (!Util.isUnset(request.transmissionInstanceType)) {
+      body["TransmissionInstanceType"] = request.transmissionInstanceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateErRouteMap",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateErRouteMapResponse>(await this.callApi(params, req, runtime), new CreateErRouteMapResponse({}));
+  }
+
+  /**
+   * Users can use this API to create routing policy by specifying the network instance connection under Lingjun HUB.
+   * 
+   * @remarks
+   * When you call this operation to create a routing policy, note that:
+   * *   Make sure that you have created a Lingjun HUB instance.
+   * *   Make sure that you have created a network instance connection.
+   * *   This operation is an asynchronous operation. After you call this operation, the system returns the ID of the routing policy. In this case, the routing policy instance may not be created yet, and the system background creation task is still in progress. You can use ListErRouteMaps or GetErRouteMap to query the status of a routing policy.
+   *     *   If the status of the routing policy is Execute, the system is creating the instance.
+   *     *   If the status of the routing policy is Available, the creation is successful.
+   * 
+   * @param request - CreateErRouteMapRequest
+   * @returns CreateErRouteMapResponse
+   */
+  async createErRouteMap(request: CreateErRouteMapRequest): Promise<CreateErRouteMapResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createErRouteMapWithOptions(request, runtime);
+  }
+
+  /**
+   * Users can use this API to create a Lingjun subnet under the Lingjun network segment.
+   * 
+   * @remarks
+   * When you call this operation to create a Lingjun subnet, note that:
+   * *   You have created a Lingjun CIDR block.
+   * *   Only one network segment can be specified for a Lingjun subnet.
+   * *   The network segment cannot be modified after the Lingjun subnet is created.
+   * *   Make sure that you have sufficient Lingjun subnet quota.
+   * *   This interface is an asynchronous interface. After calling this interface, the system will return the ID of a Lingjun subnet. At this time, the Lingjun network segment may not be created yet, and the system background creation task is still in progress. You can call the ListSubnets or GetSubnet operation to query the status of the CIDR block of Lingjun.
+   *     *   If the status of the Lingjun subnet is Executed, it indicates that it is being created.
+   *     *   If the status of the Lingjun subnet is Available, the creation is successful.
+   * 
+   * @param request - CreateSubnetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSubnetResponse
+   */
   async createSubnetWithOptions(request: CreateSubnetRequest, runtime: $Util.RuntimeOptions): Promise<CreateSubnetResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2137,12 +22678,16 @@ export default class Client extends OpenApi {
       body["Cidr"] = request.cidr;
     }
 
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.subnetName)) {
+      body["SubnetName"] = request.subnetName;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -2174,16 +22719,55 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSubnetResponse>(await this.callApi(params, req, runtime), new CreateSubnetResponse({}));
   }
 
+  /**
+   * Users can use this API to create a Lingjun subnet under the Lingjun network segment.
+   * 
+   * @remarks
+   * When you call this operation to create a Lingjun subnet, note that:
+   * *   You have created a Lingjun CIDR block.
+   * *   Only one network segment can be specified for a Lingjun subnet.
+   * *   The network segment cannot be modified after the Lingjun subnet is created.
+   * *   Make sure that you have sufficient Lingjun subnet quota.
+   * *   This interface is an asynchronous interface. After calling this interface, the system will return the ID of a Lingjun subnet. At this time, the Lingjun network segment may not be created yet, and the system background creation task is still in progress. You can call the ListSubnets or GetSubnet operation to query the status of the CIDR block of Lingjun.
+   *     *   If the status of the Lingjun subnet is Executed, it indicates that it is being created.
+   *     *   If the status of the Lingjun subnet is Available, the creation is successful.
+   * 
+   * @param request - CreateSubnetRequest
+   * @returns CreateSubnetResponse
+   */
   async createSubnet(request: CreateSubnetRequest): Promise<CreateSubnetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSubnetWithOptions(request, runtime);
   }
 
+  /**
+   * You can create a Lingjun connection to connect Lingjun network environment and Alibaba Cloud network environment.
+   * 
+   * @remarks
+   * When you call this operation to create a Lingjun connection, note that:
+   * *   When you specify the vccId parameter, the system will configure the purchased Lingjun connection for you. When the default vccId parameter is set, the system will automatically place an order and configure the Lingjun connection for you.
+   * *   Make sure that you have called the InitializeVcc operation to grant permissions.
+   * *   This interface is an asynchronous interface. After this interface is called, the system will return the Lingjun connection ID, but the Lingjun connection instance may not be created yet, and the system background creation task is still in progress. You can call the ListVccs or GetVcc operation to query the status of the Lingjun connection.
+   *     *   If the status of the Lingjun connection is Executed, the Lingjun connection is being created.
+   *     *   If the status of the Lingjun connection is Available, the Lingjun connection is created.
+   * 
+   * @param request - CreateVccRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVccResponse
+   */
   async createVccWithOptions(request: CreateVccRequest, runtime: $Util.RuntimeOptions): Promise<CreateVccResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessCouldService)) {
       body["AccessCouldService"] = request.accessCouldService;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      body["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.bgpAsn)) {
+      body["BgpAsn"] = request.bgpAsn;
     }
 
     if (!Util.isUnset(request.bgpCidr)) {
@@ -2194,12 +22778,28 @@ export default class Client extends OpenApi {
       body["CenId"] = request.cenId;
     }
 
+    if (!Util.isUnset(request.cenOwnerId)) {
+      body["CenOwnerId"] = request.cenOwnerId;
+    }
+
+    if (!Util.isUnset(request.connectionType)) {
+      body["ConnectionType"] = request.connectionType;
+    }
+
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
     }
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.vSwitchId)) {
@@ -2210,12 +22810,20 @@ export default class Client extends OpenApi {
       body["VccId"] = request.vccId;
     }
 
+    if (!Util.isUnset(request.vccName)) {
+      body["VccName"] = request.vccName;
+    }
+
     if (!Util.isUnset(request.vpcId)) {
       body["VpcId"] = request.vpcId;
     }
 
     if (!Util.isUnset(request.vpdId)) {
       body["VpdId"] = request.vpdId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      body["ZoneId"] = request.zoneId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2235,11 +22843,169 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVccResponse>(await this.callApi(params, req, runtime), new CreateVccResponse({}));
   }
 
+  /**
+   * You can create a Lingjun connection to connect Lingjun network environment and Alibaba Cloud network environment.
+   * 
+   * @remarks
+   * When you call this operation to create a Lingjun connection, note that:
+   * *   When you specify the vccId parameter, the system will configure the purchased Lingjun connection for you. When the default vccId parameter is set, the system will automatically place an order and configure the Lingjun connection for you.
+   * *   Make sure that you have called the InitializeVcc operation to grant permissions.
+   * *   This interface is an asynchronous interface. After this interface is called, the system will return the Lingjun connection ID, but the Lingjun connection instance may not be created yet, and the system background creation task is still in progress. You can call the ListVccs or GetVcc operation to query the status of the Lingjun connection.
+   *     *   If the status of the Lingjun connection is Executed, the Lingjun connection is being created.
+   *     *   If the status of the Lingjun connection is Available, the Lingjun connection is created.
+   * 
+   * @param request - CreateVccRequest
+   * @returns CreateVccResponse
+   */
   async createVcc(request: CreateVccRequest): Promise<CreateVccResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVccWithOptions(request, runtime);
   }
 
+  /**
+   * Users can use this API to connect Lingjun instance to the Lingjun HUB instance of the target account. After authorization, the target account can be associated with your Lingjun connection by using the authorized Lingjun HUB instance.
+   * 
+   * @remarks
+   * When you call this operation to create cross-account authorization for Lingjun HUB, note that:
+   * *   Make sure that the Alibaba Cloud ID and Lingjun HUB instance that you want to authorize are correct.
+   * *   If you authorize the account of the other party, the account of the other party can load your local network instance to its Lingjun HUB, and the other party\\"s network will be connected to your network. Please proceed with caution.
+   * 
+   * @param request - CreateVccGrantRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVccGrantRuleResponse
+   */
+  async createVccGrantRuleWithOptions(request: CreateVccGrantRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateVccGrantRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.grantTenantId)) {
+      body["GrantTenantId"] = request.grantTenantId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateVccGrantRule",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVccGrantRuleResponse>(await this.callApi(params, req, runtime), new CreateVccGrantRuleResponse({}));
+  }
+
+  /**
+   * Users can use this API to connect Lingjun instance to the Lingjun HUB instance of the target account. After authorization, the target account can be associated with your Lingjun connection by using the authorized Lingjun HUB instance.
+   * 
+   * @remarks
+   * When you call this operation to create cross-account authorization for Lingjun HUB, note that:
+   * *   Make sure that the Alibaba Cloud ID and Lingjun HUB instance that you want to authorize are correct.
+   * *   If you authorize the account of the other party, the account of the other party can load your local network instance to its Lingjun HUB, and the other party\\"s network will be connected to your network. Please proceed with caution.
+   * 
+   * @param request - CreateVccGrantRuleRequest
+   * @returns CreateVccGrantRuleResponse
+   */
+  async createVccGrantRule(request: CreateVccGrantRuleRequest): Promise<CreateVccGrantRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createVccGrantRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Create a Lingjun connection route entry.
+   * 
+   * @remarks
+   * When you call this operation to create a VBR route entry, take note of the following items:
+   * *   After you call this operation, static route entries and BGP network announcements are created on the VBR to which the Lingjun connection belongs.
+   * *   This operation is an asynchronous operation. After you call this operation, the VBR static route entry may not be created yet, and the system still creates the static route entry in the background. You can query the status of VBR static route entries by ListVccRouteEntries or GetVccRouteEntry:
+   *     *   If the VBR static route entry is in the Executing state, it indicates that it is being created.
+   *     *   If the status of the VBR static route entry is Available, the VBR is created.
+   * 
+   * @param request - CreateVccRouteEntryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVccRouteEntryResponse
+   */
+  async createVccRouteEntryWithOptions(request: CreateVccRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateVccRouteEntryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationCidrBlock)) {
+      body["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vccId)) {
+      body["VccId"] = request.vccId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateVccRouteEntry",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVccRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateVccRouteEntryResponse({}));
+  }
+
+  /**
+   * Create a Lingjun connection route entry.
+   * 
+   * @remarks
+   * When you call this operation to create a VBR route entry, take note of the following items:
+   * *   After you call this operation, static route entries and BGP network announcements are created on the VBR to which the Lingjun connection belongs.
+   * *   This operation is an asynchronous operation. After you call this operation, the VBR static route entry may not be created yet, and the system still creates the static route entry in the background. You can query the status of VBR static route entries by ListVccRouteEntries or GetVccRouteEntry:
+   *     *   If the VBR static route entry is in the Executing state, it indicates that it is being created.
+   *     *   If the status of the VBR static route entry is Available, the VBR is created.
+   * 
+   * @param request - CreateVccRouteEntryRequest
+   * @returns CreateVccRouteEntryResponse
+   */
+  async createVccRouteEntry(request: CreateVccRouteEntryRequest): Promise<CreateVccRouteEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createVccRouteEntryWithOptions(request, runtime);
+  }
+
+  /**
+   * Create a private Lingjun CIDR block. This CIDR block has an independent network environment.
+   * 
+   * @remarks
+   * When you call this operation to create a CIDR block for Lingjun, take note of the following:
+   * *   A Lingjun network segment can specify an additional network segment in addition to a main network segment.
+   * *   After the Lingjun network segment is created, the network segment cannot be modified.
+   * *   Make sure that you have a sufficient quota of Lingjun CIDR blocks.
+   * *   This interface is an asynchronous interface. After calling this interface, the system will return the ID of a Lingjun network segment. At this time, the Lingjun network segment may not be created yet, and the system background creation task is still in progress. You can call the ListVpds or GetVpd operation to query the status of the CIDR block of Lingjun.
+   *     *   If the status of the Lingjun CIDR block is Executed, the CIDR block is being created.
+   *     *   If the status of the Lingjun CIDR block is Available, the creation is successful.
+   * 
+   * @param request - CreateVpdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVpdResponse
+   */
   async createVpdWithOptions(request: CreateVpdRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2247,16 +23013,24 @@ export default class Client extends OpenApi {
       body["Cidr"] = request.cidr;
     }
 
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.subnets)) {
       body["Subnets"] = request.subnets;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vpdName)) {
+      body["VpdName"] = request.vpdName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2276,11 +23050,346 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpdResponse>(await this.callApi(params, req, runtime), new CreateVpdResponse({}));
   }
 
+  /**
+   * Create a private Lingjun CIDR block. This CIDR block has an independent network environment.
+   * 
+   * @remarks
+   * When you call this operation to create a CIDR block for Lingjun, take note of the following:
+   * *   A Lingjun network segment can specify an additional network segment in addition to a main network segment.
+   * *   After the Lingjun network segment is created, the network segment cannot be modified.
+   * *   Make sure that you have a sufficient quota of Lingjun CIDR blocks.
+   * *   This interface is an asynchronous interface. After calling this interface, the system will return the ID of a Lingjun network segment. At this time, the Lingjun network segment may not be created yet, and the system background creation task is still in progress. You can call the ListVpds or GetVpd operation to query the status of the CIDR block of Lingjun.
+   *     *   If the status of the Lingjun CIDR block is Executed, the CIDR block is being created.
+   *     *   If the status of the Lingjun CIDR block is Available, the creation is successful.
+   * 
+   * @param request - CreateVpdRequest
+   * @returns CreateVpdResponse
+   */
   async createVpd(request: CreateVpdRequest): Promise<CreateVpdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpdWithOptions(request, runtime);
   }
 
+  /**
+   * Users can use this API to authorize Lingjun HUB instances of the target account. After authorization, the target account can be associated with your Lingjun CIDR block by using the authorized Lingjun HUB instance.
+   * 
+   * @remarks
+   * When you call this operation to create cross-account authorization for Lingjun HUB, note that:
+   * *   Make sure that the Alibaba Cloud ID and Lingjun HUB instance that you want to authorize are correct.
+   * *   If you authorize the account of the other party, the account of the other party can load your local network instance to its Lingjun HUB, and the other party\\"s network will be connected to your network. Please proceed with caution.
+   * 
+   * @param request - CreateVpdGrantRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVpdGrantRuleResponse
+   */
+  async createVpdGrantRuleWithOptions(request: CreateVpdGrantRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpdGrantRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.grantTenantId)) {
+      body["GrantTenantId"] = request.grantTenantId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateVpdGrantRule",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new CreateVpdGrantRuleResponse({}));
+  }
+
+  /**
+   * Users can use this API to authorize Lingjun HUB instances of the target account. After authorization, the target account can be associated with your Lingjun CIDR block by using the authorized Lingjun HUB instance.
+   * 
+   * @remarks
+   * When you call this operation to create cross-account authorization for Lingjun HUB, note that:
+   * *   Make sure that the Alibaba Cloud ID and Lingjun HUB instance that you want to authorize are correct.
+   * *   If you authorize the account of the other party, the account of the other party can load your local network instance to its Lingjun HUB, and the other party\\"s network will be connected to your network. Please proceed with caution.
+   * 
+   * @param request - CreateVpdGrantRuleRequest
+   * @returns CreateVpdGrantRuleResponse
+   */
+  async createVpdGrantRule(request: CreateVpdGrantRuleRequest): Promise<CreateVpdGrantRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createVpdGrantRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete Lingjun Elastic Network Interface. After deletion, all relevant data will be lost and cannot be recovered. Please operate with caution.
+   * 
+   * @param request - DeleteElasticNetworkInterfaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteElasticNetworkInterfaceResponse
+   */
+  async deleteElasticNetworkInterfaceWithOptions(request: DeleteElasticNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteElasticNetworkInterfaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+      body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteElasticNetworkInterface",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new DeleteElasticNetworkInterfaceResponse({}));
+  }
+
+  /**
+   * Delete Lingjun Elastic Network Interface. After deletion, all relevant data will be lost and cannot be recovered. Please operate with caution.
+   * 
+   * @param request - DeleteElasticNetworkInterfaceRequest
+   * @returns DeleteElasticNetworkInterfaceResponse
+   */
+  async deleteElasticNetworkInterface(request: DeleteElasticNetworkInterfaceRequest): Promise<DeleteElasticNetworkInterfaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteElasticNetworkInterfaceWithOptions(request, runtime);
+  }
+
+  /**
+   * After you delete a Lingjun HUB instance, the related data is lost and cannot be recovered.
+   * 
+   * @remarks
+   * When you call this operation to delete the Lingjun HUB, note that:
+   * *   Before you delete the instance, make sure that no network instance is connected to the Lingjun HUB instance.
+   * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
+   * *   This interface is an asynchronous interface. After this interface is called, the Lingjun HUB instance may not be deleted, and the system background deletion task is still in progress. You can call the ListErs or GetEr operation to query the deletion status of the Lingjun HUB.
+   *     *   If the status of the Lingjun HUB is Deleting, the Lingjun HUB instance is being deleted.
+   *     *   If no Lingjun HUB instance is recorded, the Lingjun HUB instance has been deleted.
+   * 
+   * @param request - DeleteErRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteErResponse
+   */
+  async deleteErWithOptions(request: DeleteErRequest, runtime: $Util.RuntimeOptions): Promise<DeleteErResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEr",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteErResponse>(await this.callApi(params, req, runtime), new DeleteErResponse({}));
+  }
+
+  /**
+   * After you delete a Lingjun HUB instance, the related data is lost and cannot be recovered.
+   * 
+   * @remarks
+   * When you call this operation to delete the Lingjun HUB, note that:
+   * *   Before you delete the instance, make sure that no network instance is connected to the Lingjun HUB instance.
+   * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
+   * *   This interface is an asynchronous interface. After this interface is called, the Lingjun HUB instance may not be deleted, and the system background deletion task is still in progress. You can call the ListErs or GetEr operation to query the deletion status of the Lingjun HUB.
+   *     *   If the status of the Lingjun HUB is Deleting, the Lingjun HUB instance is being deleted.
+   *     *   If no Lingjun HUB instance is recorded, the Lingjun HUB instance has been deleted.
+   * 
+   * @param request - DeleteErRequest
+   * @returns DeleteErResponse
+   */
+  async deleteEr(request: DeleteErRequest): Promise<DeleteErResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteErWithOptions(request, runtime);
+  }
+
+  /**
+   * If you delete a network instance that is connected to an instance, the related data is lost and cannot be recovered.
+   * 
+   * @remarks
+   * When you call this operation to delete a network instance connection, take note of the following:
+   * *   Before you delete the instance, make sure that no routing policy exists under the network instance connection instance.
+   * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
+   * *   This operation is an asynchronous operation. After you call this operation, the network instance that is connected to the instance may not be deleted. The system still deletes the instance in the background. You can call the ListErAttachments or GetErAttachment to query the deletion status of network instance connections:
+   *     *   If the status of the network instance connection is Deleting, the network instance connection is being deleted.
+   *     *   If there is no connection record for the network instance, the connection to the network instance has been deleted.
+   * 
+   * @param request - DeleteErAttachmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteErAttachmentResponse
+   */
+  async deleteErAttachmentWithOptions(request: DeleteErAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteErAttachmentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erAttachmentId)) {
+      body["ErAttachmentId"] = request.erAttachmentId;
+    }
+
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteErAttachment",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteErAttachmentResponse>(await this.callApi(params, req, runtime), new DeleteErAttachmentResponse({}));
+  }
+
+  /**
+   * If you delete a network instance that is connected to an instance, the related data is lost and cannot be recovered.
+   * 
+   * @remarks
+   * When you call this operation to delete a network instance connection, take note of the following:
+   * *   Before you delete the instance, make sure that no routing policy exists under the network instance connection instance.
+   * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
+   * *   This operation is an asynchronous operation. After you call this operation, the network instance that is connected to the instance may not be deleted. The system still deletes the instance in the background. You can call the ListErAttachments or GetErAttachment to query the deletion status of network instance connections:
+   *     *   If the status of the network instance connection is Deleting, the network instance connection is being deleted.
+   *     *   If there is no connection record for the network instance, the connection to the network instance has been deleted.
+   * 
+   * @param request - DeleteErAttachmentRequest
+   * @returns DeleteErAttachmentResponse
+   */
+  async deleteErAttachment(request: DeleteErAttachmentRequest): Promise<DeleteErAttachmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteErAttachmentWithOptions(request, runtime);
+  }
+
+  /**
+   * If you delete a routing policy instance, the related data is lost and cannot be recovered.
+   * 
+   * @remarks
+   * When you call this operation to delete a routing policy, note that:
+   * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
+   * *   This interface is an asynchronous interface. After this interface is called, the routing policy instance may not be deleted yet, and the system background deletion task is still in progress. You can call the ListErRouteMaps or GetErRouteMap operation to query the deletion status of a routing policy.
+   *     *   If the routing policy is in the Deleting state, the routing policy instance is being deleted.
+   *     *   If no routing policy instance is recorded, the routing policy instance has been deleted.
+   * 
+   * @param request - DeleteErRouteMapRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteErRouteMapResponse
+   */
+  async deleteErRouteMapWithOptions(request: DeleteErRouteMapRequest, runtime: $Util.RuntimeOptions): Promise<DeleteErRouteMapResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.erRouteMapIds)) {
+      body["ErRouteMapIds"] = request.erRouteMapIds;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteErRouteMap",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteErRouteMapResponse>(await this.callApi(params, req, runtime), new DeleteErRouteMapResponse({}));
+  }
+
+  /**
+   * If you delete a routing policy instance, the related data is lost and cannot be recovered.
+   * 
+   * @remarks
+   * When you call this operation to delete a routing policy, note that:
+   * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
+   * *   This interface is an asynchronous interface. After this interface is called, the routing policy instance may not be deleted yet, and the system background deletion task is still in progress. You can call the ListErRouteMaps or GetErRouteMap operation to query the deletion status of a routing policy.
+   *     *   If the routing policy is in the Deleting state, the routing policy instance is being deleted.
+   *     *   If no routing policy instance is recorded, the routing policy instance has been deleted.
+   * 
+   * @param request - DeleteErRouteMapRequest
+   * @returns DeleteErRouteMapResponse
+   */
+  async deleteErRouteMap(request: DeleteErRouteMapRequest): Promise<DeleteErRouteMapResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteErRouteMapWithOptions(request, runtime);
+  }
+
+  /**
+   * If you delete a Lingjun subnet instance, the related data is lost and cannot be recovered.
+   * 
+   * @remarks
+   * When you call this operation to delete a Lingjun subnet, note that:
+   * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
+   * *   This interface is an asynchronous interface. After this interface is called, the Lingjun subnet instance may not be deleted, and the system background deletion task is still in progress. You can call the ListSubnets or GetSubnet operation to query the deletion status of the subnet.
+   *     *   If the status of the Lingjun subnet is Deleting, the Lingjun subnet instance is being deleted.
+   *     *   If there is no record of the Lingjun subnet instance, the Lingjun subnet instance has been deleted.
+   * 
+   * @param request - DeleteSubnetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSubnetResponse
+   */
   async deleteSubnetWithOptions(request: DeleteSubnetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSubnetResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2317,11 +23426,161 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSubnetResponse>(await this.callApi(params, req, runtime), new DeleteSubnetResponse({}));
   }
 
+  /**
+   * If you delete a Lingjun subnet instance, the related data is lost and cannot be recovered.
+   * 
+   * @remarks
+   * When you call this operation to delete a Lingjun subnet, note that:
+   * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
+   * *   This interface is an asynchronous interface. After this interface is called, the Lingjun subnet instance may not be deleted, and the system background deletion task is still in progress. You can call the ListSubnets or GetSubnet operation to query the deletion status of the subnet.
+   *     *   If the status of the Lingjun subnet is Deleting, the Lingjun subnet instance is being deleted.
+   *     *   If there is no record of the Lingjun subnet instance, the Lingjun subnet instance has been deleted.
+   * 
+   * @param request - DeleteSubnetRequest
+   * @returns DeleteSubnetResponse
+   */
   async deleteSubnet(request: DeleteSubnetRequest): Promise<DeleteSubnetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSubnetWithOptions(request, runtime);
   }
 
+  /**
+   * If you delete a Lingjun HUB cross-account authorization that is connected to Lingjun, the related data is lost and cannot be recovered.
+   * 
+   * @param request - DeleteVccGrantRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVccGrantRuleResponse
+   */
+  async deleteVccGrantRuleWithOptions(request: DeleteVccGrantRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVccGrantRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.grantRuleId)) {
+      body["GrantRuleId"] = request.grantRuleId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteVccGrantRule",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVccGrantRuleResponse>(await this.callApi(params, req, runtime), new DeleteVccGrantRuleResponse({}));
+  }
+
+  /**
+   * If you delete a Lingjun HUB cross-account authorization that is connected to Lingjun, the related data is lost and cannot be recovered.
+   * 
+   * @param request - DeleteVccGrantRuleRequest
+   * @returns DeleteVccGrantRuleResponse
+   */
+  async deleteVccGrantRule(request: DeleteVccGrantRuleRequest): Promise<DeleteVccGrantRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteVccGrantRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete a Lingjun connection route entry.
+   * 
+   * @remarks
+   * When you call this operation to delete a VBR static route entry, note that:
+   * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
+   * *   This operation is an asynchronous operation. After you call this operation, the VBR static route entries may not be deleted. The system still deletes the VBR static route entries in the background. You can call the ListVccRouteEntries or GetVccRouteEntry to query the deletion status of VBR static route entries:
+   *     *   If the VBR static route entry is in the Deleting state, the VBR static route entry is being deleted.
+   *     *   If no VBR static route entry instance is recorded, the VBR static route entry instance has been deleted.
+   * 
+   * @param request - DeleteVccRouteEntryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVccRouteEntryResponse
+   */
+  async deleteVccRouteEntryWithOptions(request: DeleteVccRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVccRouteEntryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationCidrBlock)) {
+      body["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vccId)) {
+      body["VccId"] = request.vccId;
+    }
+
+    if (!Util.isUnset(request.vccRouteEntryId)) {
+      body["VccRouteEntryId"] = request.vccRouteEntryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteVccRouteEntry",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVccRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteVccRouteEntryResponse({}));
+  }
+
+  /**
+   * Delete a Lingjun connection route entry.
+   * 
+   * @remarks
+   * When you call this operation to delete a VBR static route entry, note that:
+   * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
+   * *   This operation is an asynchronous operation. After you call this operation, the VBR static route entries may not be deleted. The system still deletes the VBR static route entries in the background. You can call the ListVccRouteEntries or GetVccRouteEntry to query the deletion status of VBR static route entries:
+   *     *   If the VBR static route entry is in the Deleting state, the VBR static route entry is being deleted.
+   *     *   If no VBR static route entry instance is recorded, the VBR static route entry instance has been deleted.
+   * 
+   * @param request - DeleteVccRouteEntryRequest
+   * @returns DeleteVccRouteEntryResponse
+   */
+  async deleteVccRouteEntry(request: DeleteVccRouteEntryRequest): Promise<DeleteVccRouteEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteVccRouteEntryWithOptions(request, runtime);
+  }
+
+  /**
+   * After you delete a Lingjun CIDR block, the related data is lost and cannot be recovered.
+   * 
+   * @remarks
+   * When you call this operation to delete a Lingjun CIDR block, take note of the following items:
+   * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
+   * *   Before deleting, make sure that all Lingjun subnet instances under the Lingjun CIDR block have been deleted.
+   * *   This interface is an asynchronous interface. After this interface is called, the Lingjun network segment instance may not be deleted, and the system background deletion task is still in progress. You can call the ListVpds or GetVpd operation to query the deletion status of the CIDR block.
+   *     *   If the status of the Lingjun CIDR block is Deleting, the Lingjun CIDR block is being deleted.
+   *     *   If there is no record of the Lingjun CIDR block instance, the Lingjun CIDR block instance has been deleted.
+   * 
+   * @param request - DeleteVpdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVpdResponse
+   */
   async deleteVpdWithOptions(request: DeleteVpdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2350,16 +23609,755 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpdResponse>(await this.callApi(params, req, runtime), new DeleteVpdResponse({}));
   }
 
+  /**
+   * After you delete a Lingjun CIDR block, the related data is lost and cannot be recovered.
+   * 
+   * @remarks
+   * When you call this operation to delete a Lingjun CIDR block, take note of the following items:
+   * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
+   * *   Before deleting, make sure that all Lingjun subnet instances under the Lingjun CIDR block have been deleted.
+   * *   This interface is an asynchronous interface. After this interface is called, the Lingjun network segment instance may not be deleted, and the system background deletion task is still in progress. You can call the ListVpds or GetVpd operation to query the deletion status of the CIDR block.
+   *     *   If the status of the Lingjun CIDR block is Deleting, the Lingjun CIDR block is being deleted.
+   *     *   If there is no record of the Lingjun CIDR block instance, the Lingjun CIDR block instance has been deleted.
+   * 
+   * @param request - DeleteVpdRequest
+   * @returns DeleteVpdResponse
+   */
   async deleteVpd(request: DeleteVpdRequest): Promise<DeleteVpdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpdWithOptions(request, runtime);
   }
 
+  /**
+   * Delete the Lingjun HUB cross-account authorization for a Lingjun CIDR block. After the deletion, the related data is lost and cannot be recovered.
+   * 
+   * @param request - DeleteVpdGrantRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVpdGrantRuleResponse
+   */
+  async deleteVpdGrantRuleWithOptions(request: DeleteVpdGrantRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpdGrantRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.grantRuleId)) {
+      body["GrantRuleId"] = request.grantRuleId;
+    }
+
+    if (!Util.isUnset(request.grantTenantId)) {
+      body["GrantTenantId"] = request.grantTenantId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteVpdGrantRule",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new DeleteVpdGrantRuleResponse({}));
+  }
+
+  /**
+   * Delete the Lingjun HUB cross-account authorization for a Lingjun CIDR block. After the deletion, the related data is lost and cannot be recovered.
+   * 
+   * @param request - DeleteVpdGrantRuleRequest
+   * @returns DeleteVpdGrantRuleResponse
+   */
+  async deleteVpdGrantRule(request: DeleteVpdGrantRuleRequest): Promise<DeleteVpdGrantRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteVpdGrantRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Query whether the user has the SLR role-AliyunServiceRoleForEfloVcc required for Lingjun connection.
+   * 
+   * @remarks
+   * You can call this operation to query whether a user account has a **AliyunServiceRoleForEfloVcc** role.
+   * >  If you do not have a **AliyunServiceRoleForEfloVcc** role, you need to use the initializeVcc interface to complete authorization, otherwise users will not be able to use Lingjun to connect to the product.
+   * 
+   * @param request - DescribeSlrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlrResponse
+   */
+  async describeSlrWithOptions(request: DescribeSlrRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlrResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSlr",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSlrResponse>(await this.callApi(params, req, runtime), new DescribeSlrResponse({}));
+  }
+
+  /**
+   * Query whether the user has the SLR role-AliyunServiceRoleForEfloVcc required for Lingjun connection.
+   * 
+   * @remarks
+   * You can call this operation to query whether a user account has a **AliyunServiceRoleForEfloVcc** role.
+   * >  If you do not have a **AliyunServiceRoleForEfloVcc** role, you need to use the initializeVcc interface to complete authorization, otherwise users will not be able to use Lingjun to connect to the product.
+   * 
+   * @param request - DescribeSlrRequest
+   * @returns DescribeSlrResponse
+   */
+  async describeSlr(request: DescribeSlrRequest): Promise<DescribeSlrResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSlrWithOptions(request, runtime);
+  }
+
+  /**
+   * Unbind Lingjun ENI from NC.
+   * 
+   * @remarks
+   * This interface is an asynchronous interface, and you need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the unbound state.
+   * 
+   * @param request - DetachElasticNetworkInterfaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachElasticNetworkInterfaceResponse
+   */
+  async detachElasticNetworkInterfaceWithOptions(request: DetachElasticNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DetachElasticNetworkInterfaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+      body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachElasticNetworkInterface",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new DetachElasticNetworkInterfaceResponse({}));
+  }
+
+  /**
+   * Unbind Lingjun ENI from NC.
+   * 
+   * @remarks
+   * This interface is an asynchronous interface, and you need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the unbound state.
+   * 
+   * @param request - DetachElasticNetworkInterfaceRequest
+   * @returns DetachElasticNetworkInterfaceResponse
+   */
+  async detachElasticNetworkInterface(request: DetachElasticNetworkInterfaceRequest): Promise<DetachElasticNetworkInterfaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachElasticNetworkInterfaceWithOptions(request, runtime);
+  }
+
+  /**
+   * Users can use this API to query the destination CIDR block of the source policy instance when creating a routing strategy.
+   * 
+   * @param request - GetDestinationCidrBlockRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDestinationCidrBlockResponse
+   */
+  async getDestinationCidrBlockWithOptions(request: GetDestinationCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<GetDestinationCidrBlockResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDestinationCidrBlock",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDestinationCidrBlockResponse>(await this.callApi(params, req, runtime), new GetDestinationCidrBlockResponse({}));
+  }
+
+  /**
+   * Users can use this API to query the destination CIDR block of the source policy instance when creating a routing strategy.
+   * 
+   * @param request - GetDestinationCidrBlockRequest
+   * @returns GetDestinationCidrBlockResponse
+   */
+  async getDestinationCidrBlock(request: GetDestinationCidrBlockRequest): Promise<GetDestinationCidrBlockResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDestinationCidrBlockWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of an LENI.
+   * 
+   * @param request - GetElasticNetworkInterfaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetElasticNetworkInterfaceResponse
+   */
+  async getElasticNetworkInterfaceWithOptions(request: GetElasticNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<GetElasticNetworkInterfaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+      body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetElasticNetworkInterface",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new GetElasticNetworkInterfaceResponse({}));
+  }
+
+  /**
+   * Queries the details of an LENI.
+   * 
+   * @param request - GetElasticNetworkInterfaceRequest
+   * @returns GetElasticNetworkInterfaceResponse
+   */
+  async getElasticNetworkInterface(request: GetElasticNetworkInterfaceRequest): Promise<GetElasticNetworkInterfaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getElasticNetworkInterfaceWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the Lingjun HUB.
+   * 
+   * @param request - GetErRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetErResponse
+   */
+  async getErWithOptions(request: GetErRequest, runtime: $Util.RuntimeOptions): Promise<GetErResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEr",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetErResponse>(await this.callApi(params, req, runtime), new GetErResponse({}));
+  }
+
+  /**
+   * Queries the Lingjun HUB.
+   * 
+   * @param request - GetErRequest
+   * @returns GetErResponse
+   */
+  async getEr(request: GetErRequest): Promise<GetErResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getErWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries network instance connections.
+   * 
+   * @param request - GetErAttachmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetErAttachmentResponse
+   */
+  async getErAttachmentWithOptions(request: GetErAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<GetErAttachmentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erAttachmentId)) {
+      body["ErAttachmentId"] = request.erAttachmentId;
+    }
+
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetErAttachment",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetErAttachmentResponse>(await this.callApi(params, req, runtime), new GetErAttachmentResponse({}));
+  }
+
+  /**
+   * Queries network instance connections.
+   * 
+   * @param request - GetErAttachmentRequest
+   * @returns GetErAttachmentResponse
+   */
+  async getErAttachment(request: GetErAttachmentRequest): Promise<GetErAttachmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getErAttachmentWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of Lingjun HUB route entries.
+   * 
+   * @param request - GetErRouteEntryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetErRouteEntryResponse
+   */
+  async getErRouteEntryWithOptions(request: GetErRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<GetErRouteEntryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.erRouteEntryId)) {
+      body["ErRouteEntryId"] = request.erRouteEntryId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetErRouteEntry",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetErRouteEntryResponse>(await this.callApi(params, req, runtime), new GetErRouteEntryResponse({}));
+  }
+
+  /**
+   * Queries the details of Lingjun HUB route entries.
+   * 
+   * @param request - GetErRouteEntryRequest
+   * @returns GetErRouteEntryResponse
+   */
+  async getErRouteEntry(request: GetErRouteEntryRequest): Promise<GetErRouteEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getErRouteEntryWithOptions(request, runtime);
+  }
+
+  /**
+   * query lingjun hub routing policy details.
+   * 
+   * @param request - GetErRouteMapRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetErRouteMapResponse
+   */
+  async getErRouteMapWithOptions(request: GetErRouteMapRequest, runtime: $Util.RuntimeOptions): Promise<GetErRouteMapResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.erRouteMapId)) {
+      body["ErRouteMapId"] = request.erRouteMapId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetErRouteMap",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetErRouteMapResponse>(await this.callApi(params, req, runtime), new GetErRouteMapResponse({}));
+  }
+
+  /**
+   * query lingjun hub routing policy details.
+   * 
+   * @param request - GetErRouteMapRequest
+   * @returns GetErRouteMapResponse
+   */
+  async getErRouteMap(request: GetErRouteMapRequest): Promise<GetErRouteMapResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getErRouteMapWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the physical topology information of Lingjun network interface controller and Lingjun nodes under VPD.
+   * 
+   * @param request - GetFabricTopologyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFabricTopologyResponse
+   */
+  async getFabricTopologyWithOptions(request: GetFabricTopologyRequest, runtime: $Util.RuntimeOptions): Promise<GetFabricTopologyResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.lniIds)) {
+      body["LniIds"] = request.lniIds;
+    }
+
+    if (!Util.isUnset(request.nodeIds)) {
+      body["NodeIds"] = request.nodeIds;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.vpdId)) {
+      body["VpdId"] = request.vpdId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFabricTopology",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFabricTopologyResponse>(await this.callApi(params, req, runtime), new GetFabricTopologyResponse({}));
+  }
+
+  /**
+   * Query the physical topology information of Lingjun network interface controller and Lingjun nodes under VPD.
+   * 
+   * @param request - GetFabricTopologyRequest
+   * @returns GetFabricTopologyResponse
+   */
+  async getFabricTopology(request: GetFabricTopologyRequest): Promise<GetFabricTopologyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFabricTopologyWithOptions(request, runtime);
+  }
+
+  /**
+   * Obtains the details of the secondary private IP address of a specified Lingjun Elastic Network Interface.
+   * 
+   * @param request - GetLeniPrivateIpAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLeniPrivateIpAddressResponse
+   */
+  async getLeniPrivateIpAddressWithOptions(request: GetLeniPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<GetLeniPrivateIpAddressResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+      body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.ipName)) {
+      body["IpName"] = request.ipName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLeniPrivateIpAddress",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new GetLeniPrivateIpAddressResponse({}));
+  }
+
+  /**
+   * Obtains the details of the secondary private IP address of a specified Lingjun Elastic Network Interface.
+   * 
+   * @param request - GetLeniPrivateIpAddressRequest
+   * @returns GetLeniPrivateIpAddressResponse
+   */
+  async getLeniPrivateIpAddress(request: GetLeniPrivateIpAddressRequest): Promise<GetLeniPrivateIpAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLeniPrivateIpAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * Obtains the details about the secondary private IP address.
+   * 
+   * @param request - GetLniPrivateIpAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLniPrivateIpAddressResponse
+   */
+  async getLniPrivateIpAddressWithOptions(request: GetLniPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<GetLniPrivateIpAddressResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ipName)) {
+      body["IpName"] = request.ipName;
+    }
+
+    if (!Util.isUnset(request.networkInterfaceId)) {
+      body["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLniPrivateIpAddress",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new GetLniPrivateIpAddressResponse({}));
+  }
+
+  /**
+   * Obtains the details about the secondary private IP address.
+   * 
+   * @param request - GetLniPrivateIpAddressRequest
+   * @returns GetLniPrivateIpAddressResponse
+   */
+  async getLniPrivateIpAddress(request: GetLniPrivateIpAddressRequest): Promise<GetLniPrivateIpAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLniPrivateIpAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries information about an LNI.
+   * 
+   * @param request - GetNetworkInterfaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNetworkInterfaceResponse
+   */
+  async getNetworkInterfaceWithOptions(request: GetNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<GetNetworkInterfaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.networkInterfaceId)) {
+      body["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.subnetId)) {
+      body["SubnetId"] = request.subnetId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetNetworkInterface",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new GetNetworkInterfaceResponse({}));
+  }
+
+  /**
+   * Queries information about an LNI.
+   * 
+   * @param request - GetNetworkInterfaceRequest
+   * @returns GetNetworkInterfaceResponse
+   */
+  async getNetworkInterface(request: GetNetworkInterfaceRequest): Promise<GetNetworkInterfaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getNetworkInterfaceWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the network information of a node.
+   * 
+   * @param request - GetNodeInfoForPodRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNodeInfoForPodResponse
+   */
+  async getNodeInfoForPodWithOptions(request: GetNodeInfoForPodRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeInfoForPodResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetNodeInfoForPod",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetNodeInfoForPodResponse>(await this.callApi(params, req, runtime), new GetNodeInfoForPodResponse({}));
+  }
+
+  /**
+   * Queries the network information of a node.
+   * 
+   * @param request - GetNodeInfoForPodRequest
+   * @returns GetNodeInfoForPodResponse
+   */
+  async getNodeInfoForPod(request: GetNodeInfoForPodRequest): Promise<GetNodeInfoForPodResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getNodeInfoForPodWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a Lingjun subnet, including the type, CIDR block, instance ID, instance status, and number of NCs.
+   * 
+   * @param request - GetSubnetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSubnetResponse
+   */
   async getSubnetWithOptions(request: GetSubnetRequest, runtime: $Util.RuntimeOptions): Promise<GetSubnetResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.subnetId)) {
       body["SubnetId"] = request.subnetId;
+    }
+
+    if (!Util.isUnset(request.vpdId)) {
+      body["VpdId"] = request.vpdId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2379,14 +24377,43 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSubnetResponse>(await this.callApi(params, req, runtime), new GetSubnetResponse({}));
   }
 
+  /**
+   * Queries the details of a Lingjun subnet, including the type, CIDR block, instance ID, instance status, and number of NCs.
+   * 
+   * @param request - GetSubnetRequest
+   * @returns GetSubnetResponse
+   */
   async getSubnet(request: GetSubnetRequest): Promise<GetSubnetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSubnetWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the details of a Lingjun connection, including the specification, Express Connect circuit access port type, instance status, bandwidth, and BGP CIDR block.
+   * 
+   * @param request - GetVccRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVccResponse
+   */
   async getVccWithOptions(request: GetVccRequest, runtime: $Util.RuntimeOptions): Promise<GetVccResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enablePage)) {
+      body["EnablePage"] = request.enablePage;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
@@ -2412,14 +24439,139 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVccResponse>(await this.callApi(params, req, runtime), new GetVccResponse({}));
   }
 
+  /**
+   * Queries the details of a Lingjun connection, including the specification, Express Connect circuit access port type, instance status, bandwidth, and BGP CIDR block.
+   * 
+   * @param request - GetVccRequest
+   * @returns GetVccResponse
+   */
   async getVcc(request: GetVccRequest): Promise<GetVccResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVccWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the details of cross-account resource authorization for a Lingjun connection, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
+   * 
+   * @param request - GetVccGrantRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVccGrantRuleResponse
+   */
+  async getVccGrantRuleWithOptions(request: GetVccGrantRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetVccGrantRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.grantRuleId)) {
+      body["GrantRuleId"] = request.grantRuleId;
+    }
+
+    if (!Util.isUnset(request.grantTenantId)) {
+      body["GrantTenantId"] = request.grantTenantId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVccGrantRule",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVccGrantRuleResponse>(await this.callApi(params, req, runtime), new GetVccGrantRuleResponse({}));
+  }
+
+  /**
+   * Queries the details of cross-account resource authorization for a Lingjun connection, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
+   * 
+   * @param request - GetVccGrantRuleRequest
+   * @returns GetVccGrantRuleResponse
+   */
+  async getVccGrantRule(request: GetVccGrantRuleRequest): Promise<GetVccGrantRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVccGrantRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries route entries.
+   * 
+   * @param request - GetVccRouteEntryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVccRouteEntryResponse
+   */
+  async getVccRouteEntryWithOptions(request: GetVccRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<GetVccRouteEntryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vccId)) {
+      body["VccId"] = request.vccId;
+    }
+
+    if (!Util.isUnset(request.vccRouteEntryId)) {
+      body["VccRouteEntryId"] = request.vccRouteEntryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVccRouteEntry",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVccRouteEntryResponse>(await this.callApi(params, req, runtime), new GetVccRouteEntryResponse({}));
+  }
+
+  /**
+   * Queries route entries.
+   * 
+   * @param request - GetVccRouteEntryRequest
+   * @returns GetVccRouteEntryResponse
+   */
+  async getVccRouteEntry(request: GetVccRouteEntryRequest): Promise<GetVccRouteEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVccRouteEntryWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a Lingjun CIDR block, including the status of the Lingjun CIDR block, the CIDR block, the number of subnets and NCs.
+   * 
+   * @param request - GetVpdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVpdResponse
+   */
   async getVpdWithOptions(request: GetVpdRequest, runtime: $Util.RuntimeOptions): Promise<GetVpdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
@@ -2441,13 +24593,142 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVpdResponse>(await this.callApi(params, req, runtime), new GetVpdResponse({}));
   }
 
+  /**
+   * Queries the details of a Lingjun CIDR block, including the status of the Lingjun CIDR block, the CIDR block, the number of subnets and NCs.
+   * 
+   * @param request - GetVpdRequest
+   * @returns GetVpdResponse
+   */
   async getVpd(request: GetVpdRequest): Promise<GetVpdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVpdWithOptions(request, runtime);
   }
 
-  async initializeVccWithOptions(runtime: $Util.RuntimeOptions): Promise<InitializeVccResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  /**
+   * Queries the details of cross-account resource authorization for a Lingjun CIDR block, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
+   * 
+   * @param request - GetVpdGrantRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVpdGrantRuleResponse
+   */
+  async getVpdGrantRuleWithOptions(request: GetVpdGrantRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetVpdGrantRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.grantRuleId)) {
+      body["GrantRuleId"] = request.grantRuleId;
+    }
+
+    if (!Util.isUnset(request.grantTenantId)) {
+      body["GrantTenantId"] = request.grantTenantId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVpdGrantRule",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new GetVpdGrantRuleResponse({}));
+  }
+
+  /**
+   * Queries the details of cross-account resource authorization for a Lingjun CIDR block, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
+   * 
+   * @param request - GetVpdGrantRuleRequest
+   * @returns GetVpdGrantRuleResponse
+   */
+  async getVpdGrantRule(request: GetVpdGrantRuleRequest): Promise<GetVpdGrantRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVpdGrantRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries route entries.
+   * 
+   * @param request - GetVpdRouteEntryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVpdRouteEntryResponse
+   */
+  async getVpdRouteEntryWithOptions(request: GetVpdRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<GetVpdRouteEntryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vpdId)) {
+      body["VpdId"] = request.vpdId;
+    }
+
+    if (!Util.isUnset(request.vpdRouteEntryId)) {
+      body["VpdRouteEntryId"] = request.vpdRouteEntryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVpdRouteEntry",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVpdRouteEntryResponse>(await this.callApi(params, req, runtime), new GetVpdRouteEntryResponse({}));
+  }
+
+  /**
+   * Queries route entries.
+   * 
+   * @param request - GetVpdRouteEntryRequest
+   * @returns GetVpdRouteEntryResponse
+   */
+  async getVpdRouteEntry(request: GetVpdRouteEntryRequest): Promise<GetVpdRouteEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVpdRouteEntryWithOptions(request, runtime);
+  }
+
+  /**
+   * Initialize the Lingjun connection and authorize Intelligent Computing Lingjun to create an SLR in your account.
+   * 
+   * @param request - InitializeVccRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitializeVccResponse
+   */
+  async initializeVccWithOptions(request: InitializeVccRequest, runtime: $Util.RuntimeOptions): Promise<InitializeVccResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
     let params = new $OpenApi.Params({
       action: "InitializeVcc",
       version: "2022-05-30",
@@ -2462,20 +24743,41 @@ export default class Client extends OpenApi {
     return $tea.cast<InitializeVccResponse>(await this.callApi(params, req, runtime), new InitializeVccResponse({}));
   }
 
-  async initializeVcc(): Promise<InitializeVccResponse> {
+  /**
+   * Initialize the Lingjun connection and authorize Intelligent Computing Lingjun to create an SLR in your account.
+   * 
+   * @param request - InitializeVccRequest
+   * @returns InitializeVccResponse
+   */
+  async initializeVcc(request: InitializeVccRequest): Promise<InitializeVccResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.initializeVccWithOptions(runtime);
+    return await this.initializeVccWithOptions(request, runtime);
   }
 
-  async listSubnetsWithOptions(request: ListSubnetsRequest, runtime: $Util.RuntimeOptions): Promise<ListSubnetsResponse> {
+  /**
+   * Queries the LENIs that are associated with a Lingjun node.
+   * 
+   * @param request - ListElasticNetworkInterfacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListElasticNetworkInterfacesResponse
+   */
+  async listElasticNetworkInterfacesWithOptions(request: ListElasticNetworkInterfacesRequest, runtime: $Util.RuntimeOptions): Promise<ListElasticNetworkInterfacesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.enablePage)) {
-      body["EnablePage"] = request.enablePage;
+    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+      body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
     }
 
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
+    if (!Util.isUnset(request.ip)) {
+      body["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.networkType)) {
+      body["NetworkType"] = request.networkType;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -2494,8 +24796,772 @@ export default class Client extends OpenApi {
       body["Status"] = request.status;
     }
 
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      body["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      body["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListElasticNetworkInterfaces",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListElasticNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new ListElasticNetworkInterfacesResponse({}));
+  }
+
+  /**
+   * Queries the LENIs that are associated with a Lingjun node.
+   * 
+   * @param request - ListElasticNetworkInterfacesRequest
+   * @returns ListElasticNetworkInterfacesResponse
+   */
+  async listElasticNetworkInterfaces(request: ListElasticNetworkInterfacesRequest): Promise<ListElasticNetworkInterfacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listElasticNetworkInterfacesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries network instance connections.
+   * 
+   * @param request - ListErAttachmentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListErAttachmentsResponse
+   */
+  async listErAttachmentsWithOptions(request: ListErAttachmentsRequest, runtime: $Util.RuntimeOptions): Promise<ListErAttachmentsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoReceiveAllRoute)) {
+      body["AutoReceiveAllRoute"] = request.autoReceiveAllRoute;
+    }
+
+    if (!Util.isUnset(request.enablePage)) {
+      body["EnablePage"] = request.enablePage;
+    }
+
+    if (!Util.isUnset(request.erAttachmentId)) {
+      body["ErAttachmentId"] = request.erAttachmentId;
+    }
+
+    if (!Util.isUnset(request.erAttachmentName)) {
+      body["ErAttachmentName"] = request.erAttachmentName;
+    }
+
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      body["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceTenantId)) {
+      body["ResourceTenantId"] = request.resourceTenantId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListErAttachments",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListErAttachmentsResponse>(await this.callApi(params, req, runtime), new ListErAttachmentsResponse({}));
+  }
+
+  /**
+   * Queries network instance connections.
+   * 
+   * @param request - ListErAttachmentsRequest
+   * @returns ListErAttachmentsResponse
+   */
+  async listErAttachments(request: ListErAttachmentsRequest): Promise<ListErAttachmentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listErAttachmentsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the route entries of the Lingjun HUB.
+   * 
+   * @param request - ListErRouteEntriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListErRouteEntriesResponse
+   */
+  async listErRouteEntriesWithOptions(request: ListErRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListErRouteEntriesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationCidrBlock)) {
+      body["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
+    if (!Util.isUnset(request.enablePage)) {
+      body["EnablePage"] = request.enablePage;
+    }
+
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.ignoreDetailedRouteEntry)) {
+      body["IgnoreDetailedRouteEntry"] = request.ignoreDetailedRouteEntry;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nextHopId)) {
+      body["NextHopId"] = request.nextHopId;
+    }
+
+    if (!Util.isUnset(request.nextHopType)) {
+      body["NextHopType"] = request.nextHopType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.routeType)) {
+      body["RouteType"] = request.routeType;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListErRouteEntries",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListErRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListErRouteEntriesResponse({}));
+  }
+
+  /**
+   * Queries the route entries of the Lingjun HUB.
+   * 
+   * @param request - ListErRouteEntriesRequest
+   * @returns ListErRouteEntriesResponse
+   */
+  async listErRouteEntries(request: ListErRouteEntriesRequest): Promise<ListErRouteEntriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listErRouteEntriesWithOptions(request, runtime);
+  }
+
+  /**
+   * Routing policies are queried.
+   * 
+   * @param request - ListErRouteMapsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListErRouteMapsResponse
+   */
+  async listErRouteMapsWithOptions(request: ListErRouteMapsRequest, runtime: $Util.RuntimeOptions): Promise<ListErRouteMapsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationCidrBlock)) {
+      body["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
+    if (!Util.isUnset(request.enablePage)) {
+      body["EnablePage"] = request.enablePage;
+    }
+
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.erRouteMapId)) {
+      body["ErRouteMapId"] = request.erRouteMapId;
+    }
+
+    if (!Util.isUnset(request.erRouteMapNum)) {
+      body["ErRouteMapNum"] = request.erRouteMapNum;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.receptionInstanceId)) {
+      body["ReceptionInstanceId"] = request.receptionInstanceId;
+    }
+
+    if (!Util.isUnset(request.receptionInstanceName)) {
+      body["ReceptionInstanceName"] = request.receptionInstanceName;
+    }
+
+    if (!Util.isUnset(request.receptionInstanceType)) {
+      body["ReceptionInstanceType"] = request.receptionInstanceType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.routeMapAction)) {
+      body["RouteMapAction"] = request.routeMapAction;
+    }
+
+    if (!Util.isUnset(request.transmissionInstanceId)) {
+      body["TransmissionInstanceId"] = request.transmissionInstanceId;
+    }
+
+    if (!Util.isUnset(request.transmissionInstanceName)) {
+      body["TransmissionInstanceName"] = request.transmissionInstanceName;
+    }
+
+    if (!Util.isUnset(request.transmissionInstanceType)) {
+      body["TransmissionInstanceType"] = request.transmissionInstanceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListErRouteMaps",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListErRouteMapsResponse>(await this.callApi(params, req, runtime), new ListErRouteMapsResponse({}));
+  }
+
+  /**
+   * Routing policies are queried.
+   * 
+   * @param request - ListErRouteMapsRequest
+   * @returns ListErRouteMapsResponse
+   */
+  async listErRouteMaps(request: ListErRouteMapsRequest): Promise<ListErRouteMapsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listErRouteMapsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the Lingjun HUB.
+   * 
+   * @param request - ListErsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListErsResponse
+   */
+  async listErsWithOptions(request: ListErsRequest, runtime: $Util.RuntimeOptions): Promise<ListErsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enablePage)) {
+      body["EnablePage"] = request.enablePage;
+    }
+
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.erName)) {
+      body["ErName"] = request.erName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      body["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.masterZoneId)) {
+      body["MasterZoneId"] = request.masterZoneId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListErs",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListErsResponse>(await this.callApi(params, req, runtime), new ListErsResponse({}));
+  }
+
+  /**
+   * Queries the Lingjun HUB.
+   * 
+   * @param request - ListErsRequest
+   * @returns ListErsResponse
+   */
+  async listErs(request: ListErsRequest): Promise<ListErsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listErsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the GPU node list of a specified GPU node whose communication distance does not exceed the specified NCD.
+   * 
+   * @param request - ListInstancesByNcdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesByNcdResponse
+   */
+  async listInstancesByNcdWithOptions(request: ListInstancesByNcdRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesByNcdResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      body["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.maxNcd)) {
+      body["MaxNcd"] = request.maxNcd;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstancesByNcd",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstancesByNcdResponse>(await this.callApi(params, req, runtime), new ListInstancesByNcdResponse({}));
+  }
+
+  /**
+   * Queries the GPU node list of a specified GPU node whose communication distance does not exceed the specified NCD.
+   * 
+   * @param request - ListInstancesByNcdRequest
+   * @returns ListInstancesByNcdResponse
+   */
+  async listInstancesByNcd(request: ListInstancesByNcdRequest): Promise<ListInstancesByNcdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInstancesByNcdWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of secondary private IP addresses of Lingjun Elastic Network Interface.
+   * 
+   * @param request - ListLeniPrivateIpAddressesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLeniPrivateIpAddressesResponse
+   */
+  async listLeniPrivateIpAddressesWithOptions(request: ListLeniPrivateIpAddressesRequest, runtime: $Util.RuntimeOptions): Promise<ListLeniPrivateIpAddressesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+      body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.ipName)) {
+      body["IpName"] = request.ipName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.privateIpAddress)) {
+      body["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLeniPrivateIpAddresses",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLeniPrivateIpAddressesResponse>(await this.callApi(params, req, runtime), new ListLeniPrivateIpAddressesResponse({}));
+  }
+
+  /**
+   * Queries the list of secondary private IP addresses of Lingjun Elastic Network Interface.
+   * 
+   * @param request - ListLeniPrivateIpAddressesRequest
+   * @returns ListLeniPrivateIpAddressesResponse
+   */
+  async listLeniPrivateIpAddresses(request: ListLeniPrivateIpAddressesRequest): Promise<ListLeniPrivateIpAddressesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listLeniPrivateIpAddressesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of secondary private IP addresses of Lingjun network interface controller.
+   * 
+   * @param request - ListLniPrivateIpAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLniPrivateIpAddressResponse
+   */
+  async listLniPrivateIpAddressWithOptions(request: ListLniPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<ListLniPrivateIpAddressResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enablePage)) {
+      body["EnablePage"] = request.enablePage;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      body["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.ipName)) {
+      body["IpName"] = request.ipName;
+    }
+
+    if (!Util.isUnset(request.networkInterfaceId)) {
+      body["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLniPrivateIpAddress",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new ListLniPrivateIpAddressResponse({}));
+  }
+
+  /**
+   * Queries the list of secondary private IP addresses of Lingjun network interface controller.
+   * 
+   * @param request - ListLniPrivateIpAddressRequest
+   * @returns ListLniPrivateIpAddressResponse
+   */
+  async listLniPrivateIpAddress(request: ListLniPrivateIpAddressRequest): Promise<ListLniPrivateIpAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listLniPrivateIpAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries Lingjun network interfaces (LNIs).
+   * 
+   * @param request - ListNetworkInterfacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNetworkInterfacesResponse
+   */
+  async listNetworkInterfacesWithOptions(request: ListNetworkInterfacesRequest, runtime: $Util.RuntimeOptions): Promise<ListNetworkInterfacesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enablePage)) {
+      body["EnablePage"] = request.enablePage;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      body["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.networkInterfaceId)) {
+      body["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.subnetId)) {
       body["SubnetId"] = request.subnetId;
+    }
+
+    if (!Util.isUnset(request.vpdId)) {
+      body["VpdId"] = request.vpdId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListNetworkInterfaces",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new ListNetworkInterfacesResponse({}));
+  }
+
+  /**
+   * Queries Lingjun network interfaces (LNIs).
+   * 
+   * @param request - ListNetworkInterfacesRequest
+   * @returns ListNetworkInterfacesResponse
+   */
+  async listNetworkInterfaces(request: ListNetworkInterfacesRequest): Promise<ListNetworkInterfacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listNetworkInterfacesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries node network information.
+   * 
+   * @param request - ListNodeInfosForPodRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodeInfosForPodResponse
+   */
+  async listNodeInfosForPodWithOptions(request: ListNodeInfosForPodRequest, runtime: $Util.RuntimeOptions): Promise<ListNodeInfosForPodResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      body["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListNodeInfosForPod",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListNodeInfosForPodResponse>(await this.callApi(params, req, runtime), new ListNodeInfosForPodResponse({}));
+  }
+
+  /**
+   * Queries node network information.
+   * 
+   * @param request - ListNodeInfosForPodRequest
+   * @returns ListNodeInfosForPodResponse
+   */
+  async listNodeInfosForPod(request: ListNodeInfosForPodRequest): Promise<ListNodeInfosForPodResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listNodeInfosForPodWithOptions(request, runtime);
+  }
+
+  /**
+   * You can call this operation to query the details of one or more Lingjun subnets, including the Lingjun subnet type, network address segment, and instance ID of the Lingjun CIDR block.
+   * 
+   * @param request - ListSubnetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSubnetsResponse
+   */
+  async listSubnetsWithOptions(request: ListSubnetsRequest, runtime: $Util.RuntimeOptions): Promise<ListSubnetsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enablePage)) {
+      body["EnablePage"] = request.enablePage;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.subnetId)) {
+      body["SubnetId"] = request.subnetId;
+    }
+
+    if (!Util.isUnset(request.subnetName)) {
+      body["SubnetName"] = request.subnetName;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -2527,11 +25593,258 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSubnetsResponse>(await this.callApi(params, req, runtime), new ListSubnetsResponse({}));
   }
 
+  /**
+   * You can call this operation to query the details of one or more Lingjun subnets, including the Lingjun subnet type, network address segment, and instance ID of the Lingjun CIDR block.
+   * 
+   * @param request - ListSubnetsRequest
+   * @returns ListSubnetsResponse
+   */
   async listSubnets(request: ListSubnetsRequest): Promise<ListSubnetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSubnetsWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the traffic rate of a Lingjun connection.
+   * 
+   * @param request - ListVccFlowInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVccFlowInfosResponse
+   */
+  async listVccFlowInfosWithOptions(request: ListVccFlowInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListVccFlowInfosResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.direction)) {
+      body["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      body["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.metricName)) {
+      body["MetricName"] = request.metricName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      body["To"] = request.to;
+    }
+
+    if (!Util.isUnset(request.vccId)) {
+      body["VccId"] = request.vccId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVccFlowInfos",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVccFlowInfosResponse>(await this.callApi(params, req, runtime), new ListVccFlowInfosResponse({}));
+  }
+
+  /**
+   * Queries the traffic rate of a Lingjun connection.
+   * 
+   * @param request - ListVccFlowInfosRequest
+   * @returns ListVccFlowInfosResponse
+   */
+  async listVccFlowInfos(request: ListVccFlowInfosRequest): Promise<ListVccFlowInfosResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVccFlowInfosWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a Lingjun connection authorization, including the authorized tenant ID, region, and Lingjun HUB instance information.
+   * 
+   * @param request - ListVccGrantRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVccGrantRulesResponse
+   */
+  async listVccGrantRulesWithOptions(request: ListVccGrantRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListVccGrantRulesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enablePage)) {
+      body["EnablePage"] = request.enablePage;
+    }
+
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.forSelect)) {
+      body["ForSelect"] = request.forSelect;
+    }
+
+    if (!Util.isUnset(request.grantRuleId)) {
+      body["GrantRuleId"] = request.grantRuleId;
+    }
+
+    if (!Util.isUnset(request.grantTenantId)) {
+      body["GrantTenantId"] = request.grantTenantId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVccGrantRules",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVccGrantRulesResponse>(await this.callApi(params, req, runtime), new ListVccGrantRulesResponse({}));
+  }
+
+  /**
+   * Queries the details of a Lingjun connection authorization, including the authorized tenant ID, region, and Lingjun HUB instance information.
+   * 
+   * @param request - ListVccGrantRulesRequest
+   * @returns ListVccGrantRulesResponse
+   */
+  async listVccGrantRules(request: ListVccGrantRulesRequest): Promise<ListVccGrantRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVccGrantRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries Lingjun connection route entries.
+   * 
+   * @param request - ListVccRouteEntriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVccRouteEntriesResponse
+   */
+  async listVccRouteEntriesWithOptions(request: ListVccRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListVccRouteEntriesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationCidrBlock)) {
+      body["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
+    if (!Util.isUnset(request.enablePage)) {
+      body["EnablePage"] = request.enablePage;
+    }
+
+    if (!Util.isUnset(request.ignoreDetailedRouteEntry)) {
+      body["IgnoreDetailedRouteEntry"] = request.ignoreDetailedRouteEntry;
+    }
+
+    if (!Util.isUnset(request.nextHopId)) {
+      body["NextHopId"] = request.nextHopId;
+    }
+
+    if (!Util.isUnset(request.nextHopType)) {
+      body["NextHopType"] = request.nextHopType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.routeType)) {
+      body["RouteType"] = request.routeType;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.vccId)) {
+      body["VccId"] = request.vccId;
+    }
+
+    if (!Util.isUnset(request.vpdRouteEntryId)) {
+      body["VpdRouteEntryId"] = request.vpdRouteEntryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVccRouteEntries",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVccRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListVccRouteEntriesResponse({}));
+  }
+
+  /**
+   * Queries Lingjun connection route entries.
+   * 
+   * @param request - ListVccRouteEntriesRequest
+   * @returns ListVccRouteEntriesResponse
+   */
+  async listVccRouteEntries(request: ListVccRouteEntriesRequest): Promise<ListVccRouteEntriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVccRouteEntriesWithOptions(request, runtime);
+  }
+
+  /**
+   * query the details of one or more lingjun connections, including the specification, Express Connect circuit access port type, instance status, bandwidth, and bgp network segment.
+   * 
+   * @param request - ListVccsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVccsResponse
+   */
   async listVccsWithOptions(request: ListVccsRequest, runtime: $Util.RuntimeOptions): Promise<ListVccsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2551,6 +25864,10 @@ export default class Client extends OpenApi {
       body["ExStatus"] = request.exStatus;
     }
 
+    if (!Util.isUnset(request.filterErId)) {
+      body["FilterErId"] = request.filterErId;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
@@ -2563,8 +25880,16 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.status)) {
       body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.vccId)) {
@@ -2596,11 +25921,196 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVccsResponse>(await this.callApi(params, req, runtime), new ListVccsResponse({}));
   }
 
+  /**
+   * query the details of one or more lingjun connections, including the specification, Express Connect circuit access port type, instance status, bandwidth, and bgp network segment.
+   * 
+   * @param request - ListVccsRequest
+   * @returns ListVccsResponse
+   */
   async listVccs(request: ListVccsRequest): Promise<ListVccsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVccsWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the details of one or more route entries in the CIDR block of Lingjun, including the route type, route entry status, destination CIDR block, and instance information of the next route entry.
+   * 
+   * @param request - ListVpdGrantRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVpdGrantRulesResponse
+   */
+  async listVpdGrantRulesWithOptions(request: ListVpdGrantRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpdGrantRulesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enablePage)) {
+      body["EnablePage"] = request.enablePage;
+    }
+
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.forSelect)) {
+      body["ForSelect"] = request.forSelect;
+    }
+
+    if (!Util.isUnset(request.grantRuleId)) {
+      body["GrantRuleId"] = request.grantRuleId;
+    }
+
+    if (!Util.isUnset(request.grantTenantId)) {
+      body["GrantTenantId"] = request.grantTenantId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVpdGrantRules",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVpdGrantRulesResponse>(await this.callApi(params, req, runtime), new ListVpdGrantRulesResponse({}));
+  }
+
+  /**
+   * Queries the details of one or more route entries in the CIDR block of Lingjun, including the route type, route entry status, destination CIDR block, and instance information of the next route entry.
+   * 
+   * @param request - ListVpdGrantRulesRequest
+   * @returns ListVpdGrantRulesResponse
+   */
+  async listVpdGrantRules(request: ListVpdGrantRulesRequest): Promise<ListVpdGrantRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVpdGrantRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the route entries of the Lingjun CIDR block.
+   * 
+   * @param request - ListVpdRouteEntriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVpdRouteEntriesResponse
+   */
+  async listVpdRouteEntriesWithOptions(request: ListVpdRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpdRouteEntriesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationCidrBlock)) {
+      body["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
+    if (!Util.isUnset(request.enablePage)) {
+      body["EnablePage"] = request.enablePage;
+    }
+
+    if (!Util.isUnset(request.ignoreDetailedRouteEntry)) {
+      body["IgnoreDetailedRouteEntry"] = request.ignoreDetailedRouteEntry;
+    }
+
+    if (!Util.isUnset(request.nextHopId)) {
+      body["NextHopId"] = request.nextHopId;
+    }
+
+    if (!Util.isUnset(request.nextHopType)) {
+      body["NextHopType"] = request.nextHopType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.routeType)) {
+      body["RouteType"] = request.routeType;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.vpdId)) {
+      body["VpdId"] = request.vpdId;
+    }
+
+    if (!Util.isUnset(request.vpdRouteEntryId)) {
+      body["VpdRouteEntryId"] = request.vpdRouteEntryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVpdRouteEntries",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVpdRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListVpdRouteEntriesResponse({}));
+  }
+
+  /**
+   * Queries the route entries of the Lingjun CIDR block.
+   * 
+   * @param request - ListVpdRouteEntriesRequest
+   * @returns ListVpdRouteEntriesResponse
+   */
+  async listVpdRouteEntries(request: ListVpdRouteEntriesRequest): Promise<ListVpdRouteEntriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVpdRouteEntriesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of one or more Lingjun CIDR blocks, including the status of Lingjun CIDR blocks, Cidr addresses, service CIDR blocks, and Subnet.
+   * 
+   * @param request - ListVpdsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVpdsResponse
+   */
   async listVpdsWithOptions(request: ListVpdsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpdsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2616,10 +26126,6 @@ export default class Client extends OpenApi {
       body["ForSelect"] = request.forSelect;
     }
 
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
     if (!Util.isUnset(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
@@ -2632,12 +26138,24 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.status)) {
       body["Status"] = request.status;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.vpdId)) {
       body["VpdId"] = request.vpdId;
+    }
+
+    if (!Util.isUnset(request.vpdName)) {
+      body["VpdName"] = request.vpdName;
     }
 
     if (!Util.isUnset(request.withDependence)) {
@@ -2665,20 +26183,199 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpdsResponse>(await this.callApi(params, req, runtime), new ListVpdsResponse({}));
   }
 
+  /**
+   * Queries the details of one or more Lingjun CIDR blocks, including the status of Lingjun CIDR blocks, Cidr addresses, service CIDR blocks, and Subnet.
+   * 
+   * @param request - ListVpdsRequest
+   * @returns ListVpdsResponse
+   */
   async listVpds(request: ListVpdsRequest): Promise<ListVpdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpdsWithOptions(request, runtime);
   }
 
-  async updateSubnetWithOptions(request: UpdateSubnetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSubnetResponse> {
+  /**
+   * Query the network communication distance (Network Communication Distance,NCD) between instances (Lingjun node, Lingjun network interface controller).
+   * 
+   * @param request - QueryInstanceNcdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryInstanceNcdResponse
+   */
+  async queryInstanceNcdWithOptions(request: QueryInstanceNcdRequest, runtime: $Util.RuntimeOptions): Promise<QueryInstanceNcdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
-      body["Description"] = request.description;
+    if (!Util.isUnset(request.instanceId1)) {
+      body["InstanceId1"] = request.instanceId1;
     }
 
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
+    if (!Util.isUnset(request.instanceId2)) {
+      body["InstanceId2"] = request.instanceId2;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      body["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryInstanceNcd",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryInstanceNcdResponse>(await this.callApi(params, req, runtime), new QueryInstanceNcdResponse({}));
+  }
+
+  /**
+   * Query the network communication distance (Network Communication Distance,NCD) between instances (Lingjun node, Lingjun network interface controller).
+   * 
+   * @param request - QueryInstanceNcdRequest
+   * @returns QueryInstanceNcdResponse
+   */
+  async queryInstanceNcd(request: QueryInstanceNcdRequest): Promise<QueryInstanceNcdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryInstanceNcdWithOptions(request, runtime);
+  }
+
+  /**
+   * Unsubscribe inactive Lingjun connection
+   * 
+   * @remarks
+   * Only unsubscribable for Lingjun connections in the prepayment status.
+   * 
+   * @param request - RefundVccRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefundVccResponse
+   */
+  async refundVccWithOptions(request: RefundVccRequest, runtime: $Util.RuntimeOptions): Promise<RefundVccResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vccId)) {
+      body["VccId"] = request.vccId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RefundVcc",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RefundVccResponse>(await this.callApi(params, req, runtime), new RefundVccResponse({}));
+  }
+
+  /**
+   * Unsubscribe inactive Lingjun connection
+   * 
+   * @remarks
+   * Only unsubscribable for Lingjun connections in the prepayment status.
+   * 
+   * @param request - RefundVccRequest
+   * @returns RefundVccResponse
+   */
+  async refundVcc(request: RefundVccRequest): Promise<RefundVccResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refundVccWithOptions(request, runtime);
+  }
+
+  /**
+   * Retry trying to create /delete a Lingjun connection.
+   * 
+   * @remarks
+   * This operation allows the user to retry the operation if the Lingjun connection creation and deletion processes fail. Only the Lingjun connection in the creation failure and deletion failure state can be retried
+   * 
+   * @param request - RetryVccRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetryVccResponse
+   */
+  async retryVccWithOptions(request: RetryVccRequest, runtime: $Util.RuntimeOptions): Promise<RetryVccResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vccId)) {
+      body["VccId"] = request.vccId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RetryVcc",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RetryVccResponse>(await this.callApi(params, req, runtime), new RetryVccResponse({}));
+  }
+
+  /**
+   * Retry trying to create /delete a Lingjun connection.
+   * 
+   * @remarks
+   * This operation allows the user to retry the operation if the Lingjun connection creation and deletion processes fail. Only the Lingjun connection in the creation failure and deletion failure state can be retried
+   * 
+   * @param request - RetryVccRequest
+   * @returns RetryVccResponse
+   */
+  async retryVcc(request: RetryVccRequest): Promise<RetryVccResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.retryVccWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an assigned secondary private IP address.
+   * 
+   * @param request - UnAssignPrivateIpAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnAssignPrivateIpAddressResponse
+   */
+  async unAssignPrivateIpAddressWithOptions(request: UnAssignPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnAssignPrivateIpAddressResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ipName)) {
+      body["IpName"] = request.ipName;
+    }
+
+    if (!Util.isUnset(request.networkInterfaceId)) {
+      body["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.privateIpAddress)) {
+      body["PrivateIpAddress"] = request.privateIpAddress;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -2687,6 +26384,442 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.subnetId)) {
       body["SubnetId"] = request.subnetId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnAssignPrivateIpAddress",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnAssignPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UnAssignPrivateIpAddressResponse({}));
+  }
+
+  /**
+   * Deletes an assigned secondary private IP address.
+   * 
+   * @param request - UnAssignPrivateIpAddressRequest
+   * @returns UnAssignPrivateIpAddressResponse
+   */
+  async unAssignPrivateIpAddress(request: UnAssignPrivateIpAddressRequest): Promise<UnAssignPrivateIpAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unAssignPrivateIpAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * This function can be used to delete the additional network segment of VPD.
+   * 
+   * @remarks
+   * *
+   * **Warning** If the attached CIDR block has Lingjun subnet resources, you must delete the dependent resources before you can delete the attached CIDR block.
+   * 
+   * @param request - UnAssociateVpdCidrBlockRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnAssociateVpdCidrBlockResponse
+   */
+  async unAssociateVpdCidrBlockWithOptions(request: UnAssociateVpdCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<UnAssociateVpdCidrBlockResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.secondaryCidrBlock)) {
+      body["SecondaryCidrBlock"] = request.secondaryCidrBlock;
+    }
+
+    if (!Util.isUnset(request.vpdId)) {
+      body["VpdId"] = request.vpdId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnAssociateVpdCidrBlock",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnAssociateVpdCidrBlockResponse>(await this.callApi(params, req, runtime), new UnAssociateVpdCidrBlockResponse({}));
+  }
+
+  /**
+   * This function can be used to delete the additional network segment of VPD.
+   * 
+   * @remarks
+   * *
+   * **Warning** If the attached CIDR block has Lingjun subnet resources, you must delete the dependent resources before you can delete the attached CIDR block.
+   * 
+   * @param request - UnAssociateVpdCidrBlockRequest
+   * @returns UnAssociateVpdCidrBlockResponse
+   */
+  async unAssociateVpdCidrBlock(request: UnAssociateVpdCidrBlockRequest): Promise<UnAssociateVpdCidrBlockResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unAssociateVpdCidrBlockWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete the assigned secondary private IP address of Lingjun Elastic Network Interface.
+   * 
+   * @param request - UnassignLeniPrivateIpAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnassignLeniPrivateIpAddressResponse
+   */
+  async unassignLeniPrivateIpAddressWithOptions(request: UnassignLeniPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnassignLeniPrivateIpAddressResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+      body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.ipName)) {
+      body["IpName"] = request.ipName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnassignLeniPrivateIpAddress",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnassignLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UnassignLeniPrivateIpAddressResponse({}));
+  }
+
+  /**
+   * Delete the assigned secondary private IP address of Lingjun Elastic Network Interface.
+   * 
+   * @param request - UnassignLeniPrivateIpAddressRequest
+   * @returns UnassignLeniPrivateIpAddressResponse
+   */
+  async unassignLeniPrivateIpAddress(request: UnassignLeniPrivateIpAddressRequest): Promise<UnassignLeniPrivateIpAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unassignLeniPrivateIpAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * Update Lingjun Elastic Network Interface information.
+   * 
+   * @param request - UpdateElasticNetworkInterfaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateElasticNetworkInterfaceResponse
+   */
+  async updateElasticNetworkInterfaceWithOptions(request: UpdateElasticNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateElasticNetworkInterfaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+      body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      body["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateElasticNetworkInterface",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new UpdateElasticNetworkInterfaceResponse({}));
+  }
+
+  /**
+   * Update Lingjun Elastic Network Interface information.
+   * 
+   * @param request - UpdateElasticNetworkInterfaceRequest
+   * @returns UpdateElasticNetworkInterfaceResponse
+   */
+  async updateElasticNetworkInterface(request: UpdateElasticNetworkInterfaceRequest): Promise<UpdateElasticNetworkInterfaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateElasticNetworkInterfaceWithOptions(request, runtime);
+  }
+
+  /**
+   * Updated Lingjun HUB.
+   * 
+   * @param request - UpdateErRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateErResponse
+   */
+  async updateErWithOptions(request: UpdateErRequest, runtime: $Util.RuntimeOptions): Promise<UpdateErResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.erName)) {
+      body["ErName"] = request.erName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEr",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateErResponse>(await this.callApi(params, req, runtime), new UpdateErResponse({}));
+  }
+
+  /**
+   * Updated Lingjun HUB.
+   * 
+   * @param request - UpdateErRequest
+   * @returns UpdateErResponse
+   */
+  async updateEr(request: UpdateErRequest): Promise<UpdateErResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateErWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a network instance connection.
+   * 
+   * @param request - UpdateErAttachmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateErAttachmentResponse
+   */
+  async updateErAttachmentWithOptions(request: UpdateErAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateErAttachmentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.erAttachmentId)) {
+      body["ErAttachmentId"] = request.erAttachmentId;
+    }
+
+    if (!Util.isUnset(request.erAttachmentName)) {
+      body["ErAttachmentName"] = request.erAttachmentName;
+    }
+
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateErAttachment",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateErAttachmentResponse>(await this.callApi(params, req, runtime), new UpdateErAttachmentResponse({}));
+  }
+
+  /**
+   * Updates a network instance connection.
+   * 
+   * @param request - UpdateErAttachmentRequest
+   * @returns UpdateErAttachmentResponse
+   */
+  async updateErAttachment(request: UpdateErAttachmentRequest): Promise<UpdateErAttachmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateErAttachmentWithOptions(request, runtime);
+  }
+
+  /**
+   * Update some information about the routing policy, including the description and name of the routing policy.
+   * 
+   * @param request - UpdateErRouteMapRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateErRouteMapResponse
+   */
+  async updateErRouteMapWithOptions(request: UpdateErRouteMapRequest, runtime: $Util.RuntimeOptions): Promise<UpdateErRouteMapResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.erId)) {
+      body["ErId"] = request.erId;
+    }
+
+    if (!Util.isUnset(request.erRouteMapId)) {
+      body["ErRouteMapId"] = request.erRouteMapId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateErRouteMap",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateErRouteMapResponse>(await this.callApi(params, req, runtime), new UpdateErRouteMapResponse({}));
+  }
+
+  /**
+   * Update some information about the routing policy, including the description and name of the routing policy.
+   * 
+   * @param request - UpdateErRouteMapRequest
+   * @returns UpdateErRouteMapResponse
+   */
+  async updateErRouteMap(request: UpdateErRouteMapRequest): Promise<UpdateErRouteMapResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateErRouteMapWithOptions(request, runtime);
+  }
+
+  /**
+   * Updated the description of the secondary private network assigned by the Lingjun Elastic Network Interface.
+   * 
+   * @param request - UpdateLeniPrivateIpAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLeniPrivateIpAddressResponse
+   */
+  async updateLeniPrivateIpAddressWithOptions(request: UpdateLeniPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLeniPrivateIpAddressResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+      body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.ipName)) {
+      body["IpName"] = request.ipName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateLeniPrivateIpAddress",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UpdateLeniPrivateIpAddressResponse({}));
+  }
+
+  /**
+   * Updated the description of the secondary private network assigned by the Lingjun Elastic Network Interface.
+   * 
+   * @param request - UpdateLeniPrivateIpAddressRequest
+   * @returns UpdateLeniPrivateIpAddressResponse
+   */
+  async updateLeniPrivateIpAddress(request: UpdateLeniPrivateIpAddressRequest): Promise<UpdateLeniPrivateIpAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateLeniPrivateIpAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates some information about a specified subnet instance, including the name of the subnet instance.
+   * 
+   * @param request - UpdateSubnetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSubnetResponse
+   */
+  async updateSubnetWithOptions(request: UpdateSubnetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSubnetResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.subnetId)) {
+      body["SubnetId"] = request.subnetId;
+    }
+
+    if (!Util.isUnset(request.subnetName)) {
+      body["SubnetName"] = request.subnetName;
     }
 
     if (!Util.isUnset(request.vpdId)) {
@@ -2714,11 +26847,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSubnetResponse>(await this.callApi(params, req, runtime), new UpdateSubnetResponse({}));
   }
 
+  /**
+   * Updates some information about a specified subnet instance, including the name of the subnet instance.
+   * 
+   * @param request - UpdateSubnetRequest
+   * @returns UpdateSubnetResponse
+   */
   async updateSubnet(request: UpdateSubnetRequest): Promise<UpdateSubnetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSubnetWithOptions(request, runtime);
   }
 
+  /**
+   * Updates the information about a Lingjun connection instance, including the peak bandwidth and name of the Lingjun connection instance.
+   * 
+   * @param request - UpdateVccRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVccResponse
+   */
   async updateVccWithOptions(request: UpdateVccRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVccResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2759,28 +26905,37 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVccResponse>(await this.callApi(params, req, runtime), new UpdateVccResponse({}));
   }
 
+  /**
+   * Updates the information about a Lingjun connection instance, including the peak bandwidth and name of the Lingjun connection instance.
+   * 
+   * @param request - UpdateVccRequest
+   * @returns UpdateVccResponse
+   */
   async updateVcc(request: UpdateVccRequest): Promise<UpdateVccResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVccWithOptions(request, runtime);
   }
 
+  /**
+   * Updates the information about the Lingjun CIDR block, including the name of the Lingjun CIDR block.
+   * 
+   * @param request - UpdateVpdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVpdResponse
+   */
   async updateVpdWithOptions(request: UpdateVpdRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
-      body["Description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.vpdId)) {
       body["VpdId"] = request.vpdId;
+    }
+
+    if (!Util.isUnset(request.vpdName)) {
+      body["VpdName"] = request.vpdName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2800,6 +26955,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVpdResponse>(await this.callApi(params, req, runtime), new UpdateVpdResponse({}));
   }
 
+  /**
+   * Updates the information about the Lingjun CIDR block, including the name of the Lingjun CIDR block.
+   * 
+   * @param request - UpdateVpdRequest
+   * @returns UpdateVpdResponse
+   */
   async updateVpd(request: UpdateVpdRequest): Promise<UpdateVpdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVpdWithOptions(request, runtime);
