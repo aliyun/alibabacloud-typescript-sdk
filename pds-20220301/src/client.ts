@@ -5112,27 +5112,39 @@ export class VideoPreviewPlayInfo extends $tea.Model {
    * live_transcoding
    */
   category?: string;
+  liveTranscodingSubtitleTaskList?: VideoPreviewSubtitleInfo[];
   liveTranscodingTaskList?: VideoPreviewPlayInfoLiveTranscodingTaskList[];
   masterUrl?: string;
   meta?: VideoPreviewPlayInfoMeta;
   offlineVideoTranscodingList?: VideoPreviewPlayInfoOfflineVideoTranscodingList[];
+  offlineVideoTranscodingSubtitleList?: VideoPreviewSubtitleInfo[];
+  quickVideoList?: VideoPreviewPlayInfoQuickVideoList[];
+  quickVideoSubtitleList?: VideoPreviewSubtitleInfo[];
   static names(): { [key: string]: string } {
     return {
       category: 'category',
+      liveTranscodingSubtitleTaskList: 'live_transcoding_subtitle_task_list',
       liveTranscodingTaskList: 'live_transcoding_task_list',
       masterUrl: 'master_url',
       meta: 'meta',
       offlineVideoTranscodingList: 'offline_video_transcoding_list',
+      offlineVideoTranscodingSubtitleList: 'offline_video_transcoding_subtitle_list',
+      quickVideoList: 'quick_video_list',
+      quickVideoSubtitleList: 'quick_video_subtitle_list',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      liveTranscodingSubtitleTaskList: { 'type': 'array', 'itemType': VideoPreviewSubtitleInfo },
       liveTranscodingTaskList: { 'type': 'array', 'itemType': VideoPreviewPlayInfoLiveTranscodingTaskList },
       masterUrl: 'string',
       meta: VideoPreviewPlayInfoMeta,
       offlineVideoTranscodingList: { 'type': 'array', 'itemType': VideoPreviewPlayInfoOfflineVideoTranscodingList },
+      offlineVideoTranscodingSubtitleList: { 'type': 'array', 'itemType': VideoPreviewSubtitleInfo },
+      quickVideoList: { 'type': 'array', 'itemType': VideoPreviewPlayInfoQuickVideoList },
+      quickVideoSubtitleList: { 'type': 'array', 'itemType': VideoPreviewSubtitleInfo },
     };
   }
 
@@ -5149,11 +5161,15 @@ export class VideoPreviewPlayMeta extends $tea.Model {
   category?: string;
   liveTranscodingTaskList?: VideoPreviewPlayMetaLiveTranscodingTaskList[];
   meta?: VideoPreviewPlayMetaMeta;
+  offlineVideoTranscodingList?: VideoPreviewPlayMetaOfflineVideoTranscodingList[];
+  quickVideoList?: VideoPreviewPlayMetaQuickVideoList[];
   static names(): { [key: string]: string } {
     return {
       category: 'category',
       liveTranscodingTaskList: 'live_transcoding_task_list',
       meta: 'meta',
+      offlineVideoTranscodingList: 'offline_video_transcoding_list',
+      quickVideoList: 'quick_video_list',
     };
   }
 
@@ -5162,6 +5178,33 @@ export class VideoPreviewPlayMeta extends $tea.Model {
       category: 'string',
       liveTranscodingTaskList: { 'type': 'array', 'itemType': VideoPreviewPlayMetaLiveTranscodingTaskList },
       meta: VideoPreviewPlayMetaMeta,
+      offlineVideoTranscodingList: { 'type': 'array', 'itemType': VideoPreviewPlayMetaOfflineVideoTranscodingList },
+      quickVideoList: { 'type': 'array', 'itemType': VideoPreviewPlayMetaQuickVideoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoPreviewSubtitleInfo extends $tea.Model {
+  language?: string;
+  status?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      language: 'language',
+      status: 'status',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      language: 'string',
+      status: 'string',
+      url: 'string',
     };
   }
 
@@ -10420,9 +10463,18 @@ export class GetIdentityToBenefitPkgMappingResponse extends $tea.Model {
 }
 
 export class GetLinkInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The additional information about the unique identifier of the account. For example, if type is set to mobile, set the value of extra to a country code.
+   * 
+   * @example
+   * 1
+   */
   extra?: string;
   /**
    * @remarks
+   * The unique identifier of the account, such as a mobile number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10431,6 +10483,16 @@ export class GetLinkInfoRequest extends $tea.Model {
   identity?: string;
   /**
    * @remarks
+   * The account type. Valid values:
+   * 
+   * *   mobile: a mobile number.
+   * *   email: an email address.
+   * *   ding: a DingTalk account.
+   * *   ram: an Alibaba Cloud Resource Access Management (RAM) user.
+   * *   wechat: a WeCom account.
+   * *   ldap: a Lightweight Directory Access Protocol (LDAP) account.
+   * *   custom: a custom account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18655,8 +18717,41 @@ export class VideoPreviewPlayInfoOfflineVideoTranscodingList extends $tea.Model 
   }
 }
 
+export class VideoPreviewPlayInfoQuickVideoList extends $tea.Model {
+  status?: string;
+  templateId?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      templateId: 'template_id',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      templateId: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoPreviewPlayMetaLiveTranscodingTaskList extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   keepOriginalResolution?: boolean;
+  /**
+   * @example
+   * finished
+   */
   status?: string;
   /**
    * @example
@@ -18713,6 +18808,73 @@ export class VideoPreviewPlayMetaMeta extends $tea.Model {
       duration: 'number',
       height: 'number',
       width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoPreviewPlayMetaOfflineVideoTranscodingList extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  keepOriginalResolution?: string;
+  /**
+   * @example
+   * finished
+   */
+  status?: string;
+  /**
+   * @example
+   * 264_720p
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keepOriginalResolution: 'keep_original_resolution',
+      status: 'status',
+      templateId: 'template_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keepOriginalResolution: 'string',
+      status: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoPreviewPlayMetaQuickVideoList extends $tea.Model {
+  /**
+   * @example
+   * finished
+   */
+  status?: string;
+  /**
+   * @example
+   * 264_720p
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      templateId: 'template_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      templateId: 'string',
     };
   }
 
@@ -22343,7 +22505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户认证方式详情
+   * Queries the information about an account.
    * 
    * @param request - GetLinkInfoRequest
    * @param headers - map
@@ -22384,7 +22546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户认证方式详情
+   * Queries the information about an account.
    * 
    * @param request - GetLinkInfoRequest
    * @returns GetLinkInfoResponse
