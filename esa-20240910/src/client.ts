@@ -18468,10 +18468,12 @@ export class ListPagesRequest extends $tea.Model {
    * 20
    */
   pageSize?: number;
+  queryArgs?: ListPagesRequestQueryArgs;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      queryArgs: 'QueryArgs',
     };
   }
 
@@ -18479,6 +18481,46 @@ export class ListPagesRequest extends $tea.Model {
     return {
       pageNumber: 'number',
       pageSize: 'number',
+      queryArgs: ListPagesRequestQueryArgs,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPagesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Valid values: **1 to 100000**. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  queryArgsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryArgsShrink: 'QueryArgs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryArgsShrink: 'string',
     };
   }
 
@@ -19331,6 +19373,12 @@ export class ListSitesRequest extends $tea.Model {
    */
   onlyEnterprise?: boolean;
   /**
+   * @remarks
+   * null
+   * 
+   * *   null
+   * *   null
+   * 
    * @example
    * visitTime
    */
@@ -19345,7 +19393,7 @@ export class ListSitesRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **500**.
+   * The number of entries per page. Default value: 500.
    * 
    * @example
    * 20
@@ -19386,7 +19434,7 @@ export class ListSitesRequest extends $tea.Model {
    * 
    * *   **prefix**: match by prefix.
    * *   **suffix**: match by suffix.
-   * *   **exact**: exact match.
+   * *   **null**
    * *   **fuzzy**: fuzzy match.
    * 
    * @example
@@ -19478,6 +19526,12 @@ export class ListSitesShrinkRequest extends $tea.Model {
    */
   onlyEnterprise?: boolean;
   /**
+   * @remarks
+   * null
+   * 
+   * *   null
+   * *   null
+   * 
    * @example
    * visitTime
    */
@@ -19492,7 +19546,7 @@ export class ListSitesShrinkRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **500**.
+   * The number of entries per page. Default value: 500.
    * 
    * @example
    * 20
@@ -19533,7 +19587,7 @@ export class ListSitesShrinkRequest extends $tea.Model {
    * 
    * *   **prefix**: match by prefix.
    * *   **suffix**: match by suffix.
-   * *   **exact**: exact match.
+   * *   **null**
    * *   **fuzzy**: fuzzy match.
    * 
    * @example
@@ -19712,7 +19766,7 @@ export class ListTagResourcesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The website information. Valid values of he number of website IDs: **1** to **50**.
+   * The website ID.
    */
   resourceId?: string[];
   /**
@@ -23072,6 +23126,7 @@ export class SetCertificateRequest extends $tea.Model {
 }
 
 export class SetCertificateResponseBody extends $tea.Model {
+  id?: string;
   /**
    * @remarks
    * The request ID.
@@ -23082,12 +23137,14 @@ export class SetCertificateResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      id: 'Id',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      id: 'string',
       requestId: 'string',
     };
   }
@@ -37702,6 +37759,25 @@ export class ListOriginPoolsResponseBodyOriginPools extends $tea.Model {
   }
 }
 
+export class ListPagesRequestQueryArgs extends $tea.Model {
+  nameDescriptionLike?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nameDescriptionLike: 'NameDescriptionLike',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameDescriptionLike: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPagesResponseBodyPages extends $tea.Model {
   /**
    * @remarks
@@ -38775,6 +38851,9 @@ export class ListSitesResponseBodySites extends $tea.Model {
    */
   verifyCode?: string;
   /**
+   * @remarks
+   * null
+   * 
    * @example
    * 2023-12-24T02:01:11Z
    */
@@ -39151,6 +39230,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Mode
    */
   billingMode?: string;
   botInstanceLevel?: string;
+  botRequest?: string;
   /**
    * @remarks
    * The service locations for the websites that can be associated with the plan. Multiple values are separated by commas (,). Valid values:
@@ -39254,6 +39334,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Mode
     return {
       billingMode: 'BillingMode',
       botInstanceLevel: 'BotInstanceLevel',
+      botRequest: 'BotRequest',
       coverages: 'Coverages',
       createTime: 'CreateTime',
       crossborderTraffic: 'CrossborderTraffic',
@@ -39282,6 +39363,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Mode
     return {
       billingMode: 'string',
       botInstanceLevel: 'string',
+      botRequest: 'string',
       coverages: 'string',
       createTime: 'string',
       crossborderTraffic: 'string',
@@ -47269,12 +47351,18 @@ export default class Client extends OpenApi {
   /**
    * Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
    * 
-   * @param request - ListPagesRequest
+   * @param tmpReq - ListPagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPagesResponse
    */
-  async listPagesWithOptions(request: ListPagesRequest, runtime: $Util.RuntimeOptions): Promise<ListPagesResponse> {
-    Util.validateModel(request);
+  async listPagesWithOptions(tmpReq: ListPagesRequest, runtime: $Util.RuntimeOptions): Promise<ListPagesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListPagesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.queryArgs)) {
+      request.queryArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryArgs, "QueryArgs", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
@@ -47282,6 +47370,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryArgsShrink)) {
+      query["QueryArgs"] = request.queryArgsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -49701,9 +49793,9 @@ export default class Client extends OpenApi {
    * Converts the DNS setup option of a website.
    * 
    * @remarks
-   * When you change the DNS setup of a website from NS to CNAME, take note of the following items:
-   * *   Make sure that the website has only proxied A/AAAA and CNAME records.
-   * *   Make sure that ESA proxy is not disabled for the website and custom nameservers are not configured.
+   * When you change the DNS setup of a website from NS to CNAME, note the following prerequisites:
+   * *   The website only has proxied A/AAAA and CNAME records.
+   * *   The DNS passthrough mode and custom nameserver features are not enabled for the website.
    * 
    * @param request - UpdateSiteAccessTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49741,9 +49833,9 @@ export default class Client extends OpenApi {
    * Converts the DNS setup option of a website.
    * 
    * @remarks
-   * When you change the DNS setup of a website from NS to CNAME, take note of the following items:
-   * *   Make sure that the website has only proxied A/AAAA and CNAME records.
-   * *   Make sure that ESA proxy is not disabled for the website and custom nameservers are not configured.
+   * When you change the DNS setup of a website from NS to CNAME, note the following prerequisites:
+   * *   The website only has proxied A/AAAA and CNAME records.
+   * *   The DNS passthrough mode and custom nameserver features are not enabled for the website.
    * 
    * @param request - UpdateSiteAccessTypeRequest
    * @returns UpdateSiteAccessTypeResponse
