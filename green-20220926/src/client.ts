@@ -4931,6 +4931,7 @@ export class GetServiceConfRequest extends $tea.Model {
 }
 
 export class GetServiceConfResponseBody extends $tea.Model {
+  classify?: string;
   /**
    * @example
    * 200
@@ -4986,6 +4987,7 @@ export class GetServiceConfResponseBody extends $tea.Model {
   uid?: string;
   static names(): { [key: string]: string } {
     return {
+      classify: 'Classify',
       code: 'Code',
       customServiceConf: 'CustomServiceConf',
       gmtModified: 'GmtModified',
@@ -5001,6 +5003,7 @@ export class GetServiceConfResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      classify: 'string',
       code: 'number',
       customServiceConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gmtModified: 'string',
@@ -9417,6 +9420,7 @@ export class GetScanResultResponseBodyDataItemsResult extends $tea.Model {
    * 50.0
    */
   confidence?: string;
+  description?: string;
   /**
    * @example
    * politics
@@ -9425,6 +9429,7 @@ export class GetScanResultResponseBodyDataItemsResult extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       confidence: 'Confidence',
+      description: 'Description',
       label: 'Label',
     };
   }
@@ -9432,6 +9437,7 @@ export class GetScanResultResponseBodyDataItemsResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       confidence: 'string',
+      description: 'string',
       label: 'string',
     };
   }
@@ -9521,6 +9527,7 @@ export class GetScanResultResponseBodyDataItems extends $tea.Model {
    */
   requestTime?: string;
   result?: GetScanResultResponseBodyDataItemsResult[];
+  riskLevel?: string;
   riskTips?: string;
   riskWords?: string;
   /**
@@ -9599,6 +9606,7 @@ export class GetScanResultResponseBodyDataItems extends $tea.Model {
       requestId: 'RequestId',
       requestTime: 'RequestTime',
       result: 'Result',
+      riskLevel: 'RiskLevel',
       riskTips: 'RiskTips',
       riskWords: 'RiskWords',
       scanResult: 'ScanResult',
@@ -9636,6 +9644,7 @@ export class GetScanResultResponseBodyDataItems extends $tea.Model {
       requestId: 'string',
       requestTime: 'string',
       result: { 'type': 'array', 'itemType': GetScanResultResponseBodyDataItemsResult },
+      riskLevel: 'string',
       riskTips: 'string',
       riskWords: 'string',
       scanResult: 'string',
@@ -10056,6 +10065,7 @@ export class GetTextScanResultResponseBodyDataItemsResult extends $tea.Model {
    * 25.0
    */
   confidence?: number;
+  description?: string;
   /**
    * @example
    * political_n
@@ -10064,6 +10074,7 @@ export class GetTextScanResultResponseBodyDataItemsResult extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       confidence: 'Confidence',
+      description: 'Description',
       label: 'Label',
     };
   }
@@ -10071,6 +10082,7 @@ export class GetTextScanResultResponseBodyDataItemsResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       confidence: 'number',
+      description: 'string',
       label: 'string',
     };
   }
@@ -10081,6 +10093,7 @@ export class GetTextScanResultResponseBodyDataItemsResult extends $tea.Model {
 }
 
 export class GetTextScanResultResponseBodyDataItems extends $tea.Model {
+  bailianRequestId?: string;
   content?: string;
   /**
    * @example
@@ -10113,6 +10126,7 @@ export class GetTextScanResultResponseBodyDataItems extends $tea.Model {
    */
   requestTime?: string;
   result?: GetTextScanResultResponseBodyDataItemsResult[];
+  riskLevel?: string;
   /**
    * @example
    * {}
@@ -10140,6 +10154,7 @@ export class GetTextScanResultResponseBodyDataItems extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      bailianRequestId: 'BailianRequestId',
       content: 'Content',
       extFeedback: 'ExtFeedback',
       extra: 'Extra',
@@ -10148,6 +10163,7 @@ export class GetTextScanResultResponseBodyDataItems extends $tea.Model {
       requestId: 'RequestId',
       requestTime: 'RequestTime',
       result: 'Result',
+      riskLevel: 'RiskLevel',
       scanResult: 'ScanResult',
       score: 'Score',
       serviceCode: 'ServiceCode',
@@ -10158,6 +10174,7 @@ export class GetTextScanResultResponseBodyDataItems extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bailianRequestId: 'string',
       content: 'string',
       extFeedback: 'string',
       extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -10166,6 +10183,7 @@ export class GetTextScanResultResponseBodyDataItems extends $tea.Model {
       requestId: 'string',
       requestTime: 'string',
       result: { 'type': 'array', 'itemType': GetTextScanResultResponseBodyDataItemsResult },
+      riskLevel: 'string',
       scanResult: 'string',
       score: 'number',
       serviceCode: 'string',
@@ -10238,11 +10256,13 @@ export class GetUserBuyStatusResponseBodyData extends $tea.Model {
    * False
    */
   indebt?: boolean;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       bid: 'Bid',
       buy: 'Buy',
       indebt: 'Indebt',
+      tag: 'Tag',
     };
   }
 
@@ -10251,6 +10271,7 @@ export class GetUserBuyStatusResponseBodyData extends $tea.Model {
       bid: 'number',
       buy: 'boolean',
       indebt: 'boolean',
+      tag: 'string',
     };
   }
 
