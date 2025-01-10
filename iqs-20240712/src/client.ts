@@ -690,6 +690,7 @@ export class NearbySearchNovaRequest extends $tea.Model {
    * 5
    */
   size?: number;
+  sortRule?: string;
   /**
    * @example
    * GAS_STATION|RESTAURANT|HOTEL|ATTRACTION
@@ -704,6 +705,7 @@ export class NearbySearchNovaRequest extends $tea.Model {
       page: 'page',
       radius: 'radius',
       size: 'size',
+      sortRule: 'sortRule',
       types: 'types',
     };
   }
@@ -717,6 +719,7 @@ export class NearbySearchNovaRequest extends $tea.Model {
       page: 'number',
       radius: 'number',
       size: 'number',
+      sortRule: 'string',
       types: 'string',
     };
   }
@@ -4435,6 +4438,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.size)) {
       query["size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.sortRule)) {
+      query["sortRule"] = request.sortRule;
     }
 
     if (!Util.isUnset(request.types)) {
