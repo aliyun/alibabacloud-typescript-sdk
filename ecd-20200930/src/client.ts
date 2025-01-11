@@ -37066,6 +37066,7 @@ export class DescribeClientEventsResponseBodyEvents extends $tea.Model {
    * 1.0.4 202012021700
    */
   clientVersion?: string;
+  description?: string;
   /**
    * @remarks
    * The desktop group ID.
@@ -37223,6 +37224,7 @@ export class DescribeClientEventsResponseBodyEvents extends $tea.Model {
       clientIp: 'ClientIp',
       clientOS: 'ClientOS',
       clientVersion: 'ClientVersion',
+      description: 'Description',
       desktopGroupId: 'DesktopGroupId',
       desktopGroupName: 'DesktopGroupName',
       desktopId: 'DesktopId',
@@ -37250,6 +37252,7 @@ export class DescribeClientEventsResponseBodyEvents extends $tea.Model {
       clientIp: 'string',
       clientOS: 'string',
       clientVersion: 'string',
+      description: 'string',
       desktopGroupId: 'string',
       desktopGroupName: 'string',
       desktopId: 'string',
