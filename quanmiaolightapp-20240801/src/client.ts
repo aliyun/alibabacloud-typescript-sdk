@@ -1,13 +1,4081 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class GenerateBroadcastNewsRequest extends $tea.Model {
+export class GenerateBroadcastNewsResponseBodyDataHotTopicSummariesImages extends $dara.Model {
+  /**
+   * @example
+   * http://xxx.com/xxx.jpeg
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateBroadcastNewsResponseBodyDataHotTopicSummaries extends $dara.Model {
+  category?: string;
+  hotTopic?: string;
+  /**
+   * @example
+   * 2024-09-13_08
+   */
+  hotTopicVersion?: string;
+  /**
+   * @example
+   * 1000000
+   */
+  hotValue?: number;
+  /**
+   * @example
+   * 1458tb3bjo7531kap42a
+   */
+  id?: string;
+  images?: GenerateBroadcastNewsResponseBodyDataHotTopicSummariesImages[];
+  /**
+   * @example
+   * xxx
+   */
+  textSummary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      hotTopic: 'hotTopic',
+      hotTopicVersion: 'hotTopicVersion',
+      hotValue: 'hotValue',
+      id: 'id',
+      images: 'images',
+      textSummary: 'textSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      hotTopic: 'string',
+      hotTopicVersion: 'string',
+      hotValue: 'number',
+      id: 'string',
+      images: { 'type': 'array', 'itemType': GenerateBroadcastNewsResponseBodyDataHotTopicSummariesImages },
+      textSummary: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.images)) {
+      $dara.Model.validateArray(this.images);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateBroadcastNewsResponseBodyDataUsage extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 2
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 3
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateBroadcastNewsResponseBodyData extends $dara.Model {
+  hotTopicSummaries?: GenerateBroadcastNewsResponseBodyDataHotTopicSummaries[];
+  /**
+   * @example
+   * 2bb0ea82dafd48a8817fadc4c90e2b52
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3feb69ed02d9b1a17d0f1a942675d300
+   */
+  taskId?: string;
+  text?: string;
+  usage?: GenerateBroadcastNewsResponseBodyDataUsage;
+  static names(): { [key: string]: string } {
+    return {
+      hotTopicSummaries: 'hotTopicSummaries',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      text: 'text',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotTopicSummaries: { 'type': 'array', 'itemType': GenerateBroadcastNewsResponseBodyDataHotTopicSummaries },
+      sessionId: 'string',
+      taskId: 'string',
+      text: 'string',
+      usage: GenerateBroadcastNewsResponseBodyDataUsage,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hotTopicSummaries)) {
+      $dara.Model.validateArray(this.hotTopicSummaries);
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateOutputFormatRequestTags extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'tagDefinePrompt',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateOutputFormatResponseBodyData extends $dara.Model {
+  outputFormat?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outputFormat: 'outputFormat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputFormat: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisConfigResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  asyncConcurrency?: number;
+  static names(): { [key: string]: string } {
+    return {
+      asyncConcurrency: 'asyncConcurrency',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asyncConcurrency: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataHeader extends $dara.Model {
+  /**
+   * @example
+   * success
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Deduct task already success,Please do not resubmit.token \\"369e8f2c-d283-424a-96c4-c83efe08c89e\\"
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * TIMEOUT_CLOSE_ORDER
+   */
+  event?: string;
+  /**
+   * @example
+   * xxx
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * d5c38cf6-a4bf-4a57-a697-9f449926f0c9
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 6e223291-729b-4e84-9271-c13ada1a776b
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 215045f817272303448235204efdef
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      eventInfo: 'eventInfo',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultUsage extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 0
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 0
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultVideoShotAnalysisResults extends $dara.Model {
+  /**
+   * @example
+   * 1710432000000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 2024-10-05 06:22:00
+   */
+  startTime?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      startTime: 'startTime',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResult extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  /**
+   * @example
+   * xxx
+   */
+  text?: string;
+  usage?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultUsage;
+  videoShotAnalysisResults?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultVideoShotAnalysisResults[];
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'generateFinished',
+      text: 'text',
+      usage: 'usage',
+      videoShotAnalysisResults: 'videoShotAnalysisResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      text: 'string',
+      usage: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultUsage,
+      videoShotAnalysisResults: { 'type': 'array', 'itemType': GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultVideoShotAnalysisResults },
+    };
+  }
+
+  validate() {
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    if(Array.isArray(this.videoShotAnalysisResults)) {
+      $dara.Model.validateArray(this.videoShotAnalysisResults);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResultVideoCaptions extends $dara.Model {
+  /**
+   * @example
+   * 1736129678000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 00:01
+   */
+  endTimeFormat?: string;
+  /**
+   * @example
+   * 00:01
+   */
+  startTime?: number;
+  /**
+   * @example
+   * 2025-01-07 11:52:06
+   */
+  startTimeFormat?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      endTimeFormat: 'endTimeFormat',
+      startTime: 'startTime',
+      startTimeFormat: 'startTimeFormat',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      endTimeFormat: 'string',
+      startTime: 'number',
+      startTimeFormat: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  videoCaptions?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResultVideoCaptions[];
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'generateFinished',
+      videoCaptions: 'videoCaptions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      videoCaptions: { 'type': 'array', 'itemType': GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResultVideoCaptions },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.videoCaptions)) {
+      $dara.Model.validateArray(this.videoCaptions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResultUsage extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResult extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  /**
+   * @example
+   * xxx
+   */
+  text?: string;
+  usage?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResultUsage;
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'generateFinished',
+      text: 'text',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      text: 'string',
+      usage: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResultUsage,
+    };
+  }
+
+  validate() {
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultUsage extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodesChildNodes extends $dara.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodes extends $dara.Model {
+  childNodes?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodesChildNodes[];
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      childNodes: 'childNodes',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      childNodes: { 'type': 'array', 'itemType': GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodesChildNodes },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.childNodes)) {
+      $dara.Model.validateArray(this.childNodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultVideoMindMappings extends $dara.Model {
+  childNodes?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodes[];
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      childNodes: 'childNodes',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      childNodes: { 'type': 'array', 'itemType': GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodes },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.childNodes)) {
+      $dara.Model.validateArray(this.childNodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResult extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  text?: string;
+  usage?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultUsage;
+  videoMindMappings?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultVideoMindMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'generateFinished',
+      text: 'text',
+      usage: 'usage',
+      videoMindMappings: 'videoMindMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      text: 'string',
+      usage: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultUsage,
+      videoMindMappings: { 'type': 'array', 'itemType': GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultVideoMindMappings },
+    };
+  }
+
+  validate() {
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    if(Array.isArray(this.videoMindMappings)) {
+      $dara.Model.validateArray(this.videoMindMappings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResultUsage extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 0
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 0
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResult extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  /**
+   * @example
+   * xxxx
+   */
+  text?: string;
+  usage?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResultUsage;
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'generateFinished',
+      text: 'text',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      text: 'string',
+      usage: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResultUsage,
+    };
+  }
+
+  validate() {
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutput extends $dara.Model {
+  videoAnalysisResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResult;
+  videoCaptionResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult;
+  videoGenerateResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResult;
+  videoMindMappingGenerateResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResult;
+  videoTitleGenerateResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResult;
+  static names(): { [key: string]: string } {
+    return {
+      videoAnalysisResult: 'videoAnalysisResult',
+      videoCaptionResult: 'videoCaptionResult',
+      videoGenerateResult: 'videoGenerateResult',
+      videoMindMappingGenerateResult: 'videoMindMappingGenerateResult',
+      videoTitleGenerateResult: 'videoTitleGenerateResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoAnalysisResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResult,
+      videoCaptionResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult,
+      videoGenerateResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResult,
+      videoMindMappingGenerateResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResult,
+      videoTitleGenerateResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResult,
+    };
+  }
+
+  validate() {
+    if(this.videoAnalysisResult && typeof (this.videoAnalysisResult as any).validate === 'function') {
+      (this.videoAnalysisResult as any).validate();
+    }
+    if(this.videoCaptionResult && typeof (this.videoCaptionResult as any).validate === 'function') {
+      (this.videoCaptionResult as any).validate();
+    }
+    if(this.videoGenerateResult && typeof (this.videoGenerateResult as any).validate === 'function') {
+      (this.videoGenerateResult as any).validate();
+    }
+    if(this.videoMindMappingGenerateResult && typeof (this.videoMindMappingGenerateResult as any).validate === 'function') {
+      (this.videoMindMappingGenerateResult as any).validate();
+    }
+    if(this.videoTitleGenerateResult && typeof (this.videoTitleGenerateResult as any).validate === 'function') {
+      (this.videoTitleGenerateResult as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 0
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 0
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayload extends $dara.Model {
+  output?: GetVideoAnalysisTaskResponseBodyDataPayloadOutput;
+  usage?: GetVideoAnalysisTaskResponseBodyDataPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: GetVideoAnalysisTaskResponseBodyDataPayloadOutput,
+      usage: GetVideoAnalysisTaskResponseBodyDataPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataTaskRunInfo extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  concurrentChargeEnable?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  responseTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      concurrentChargeEnable: 'concurrentChargeEnable',
+      responseTime: 'responseTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      concurrentChargeEnable: 'boolean',
+      responseTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * Access was denied, message: No such namespace namespaces/mjp-test-default.
+   */
+  errorMessage?: string;
+  header?: GetVideoAnalysisTaskResponseBodyDataHeader;
+  payload?: GetVideoAnalysisTaskResponseBodyDataPayload;
+  /**
+   * @example
+   * 3feb69ed02d9b1a17d0f1a942675d300
+   */
+  taskId?: string;
+  taskRunInfo?: GetVideoAnalysisTaskResponseBodyDataTaskRunInfo;
+  /**
+   * @example
+   * SUCCESSED
+   */
+  taskStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'errorMessage',
+      header: 'header',
+      payload: 'payload',
+      taskId: 'taskId',
+      taskRunInfo: 'taskRunInfo',
+      taskStatus: 'taskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      header: GetVideoAnalysisTaskResponseBodyDataHeader,
+      payload: GetVideoAnalysisTaskResponseBodyDataPayload,
+      taskId: 'string',
+      taskRunInfo: GetVideoAnalysisTaskResponseBodyDataTaskRunInfo,
+      taskStatus: 'string',
+    };
+  }
+
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    if(this.taskRunInfo && typeof (this.taskRunInfo as any).validate === 'function') {
+      (this.taskRunInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicSummariesResponseBodyDataNewsComments extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicSummariesResponseBodyDataNews extends $dara.Model {
+  comments?: ListHotTopicSummariesResponseBodyDataNewsComments[];
+  /**
+   * @example
+   * xx
+   */
+  content?: string;
+  /**
+   * @example
+   * 2024-09-10 15:32:00
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @remarks
+   * url
+   * 
+   * @example
+   * http://xxx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comments: 'comments',
+      content: 'content',
+      pubTime: 'pubTime',
+      title: 'title',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comments: { 'type': 'array', 'itemType': ListHotTopicSummariesResponseBodyDataNewsComments },
+      content: 'string',
+      pubTime: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.comments)) {
+      $dara.Model.validateArray(this.comments);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicSummariesResponseBodyDataSummarySummaries extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      summary: 'summary',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      summary: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicSummariesResponseBodyDataSummary extends $dara.Model {
+  summaries?: ListHotTopicSummariesResponseBodyDataSummarySummaries[];
+  static names(): { [key: string]: string } {
+    return {
+      summaries: 'summaries',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      summaries: { 'type': 'array', 'itemType': ListHotTopicSummariesResponseBodyDataSummarySummaries },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.summaries)) {
+      $dara.Model.validateArray(this.summaries);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicSummariesResponseBodyData extends $dara.Model {
+  category?: string;
+  /**
+   * @example
+   * xx
+   */
+  hotTopic?: string;
+  /**
+   * @example
+   * 2024-09-13_12
+   */
+  hotTopicVersion?: string;
+  /**
+   * @example
+   * 1000000
+   */
+  hotValue?: number;
+  /**
+   * @example
+   * db5dc5b3d8954a30b65ba700c9dda3bb
+   */
+  id?: string;
+  news?: ListHotTopicSummariesResponseBodyDataNews[];
+  summary?: ListHotTopicSummariesResponseBodyDataSummary;
+  /**
+   * @example
+   * xx
+   */
+  textSummary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      hotTopic: 'hotTopic',
+      hotTopicVersion: 'hotTopicVersion',
+      hotValue: 'hotValue',
+      id: 'id',
+      news: 'news',
+      summary: 'summary',
+      textSummary: 'textSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      hotTopic: 'string',
+      hotTopicVersion: 'string',
+      hotValue: 'number',
+      id: 'string',
+      news: { 'type': 'array', 'itemType': ListHotTopicSummariesResponseBodyDataNews },
+      summary: ListHotTopicSummariesResponseBodyDataSummary,
+      textSummary: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.news)) {
+      $dara.Model.validateArray(this.news);
+    }
+    if(this.summary && typeof (this.summary as any).validate === 'function') {
+      (this.summary as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatRequestMessages extends $dara.Model {
+  /**
+   * @example
+   * xxx
+   */
+  content?: string;
+  /**
+   * @example
+   * 2024-12-10 18:51:29
+   */
+  createTime?: string;
+  /**
+   * @example
+   * user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      createTime: 'createTime',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      createTime: 'string',
+      role: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights extends $dara.Model {
+  /**
+   * @example
+   * comments
+   */
+  dimension?: string;
+  /**
+   * @example
+   * 1
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dimension: 'dimension',
+      weight: 'weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimension: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatRequestStepForBroadcastContentConfig extends $dara.Model {
+  categories?: string[];
+  customHotValueWeights?: RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights[];
+  /**
+   * @example
+   * 20
+   */
+  topicCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'categories',
+      customHotValueWeights: 'customHotValueWeights',
+      topicCount: 'topicCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      customHotValueWeights: { 'type': 'array', 'itemType': RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights },
+      topicCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    if(Array.isArray(this.customHotValueWeights)) {
+      $dara.Model.validateArray(this.customHotValueWeights);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * InvalidParam
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * xx
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-finished
+   */
+  event?: string;
+  /**
+   * @example
+   * xx
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * xxx
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      eventInfo: 'eventInfo',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayloadOutputArticles extends $dara.Model {
+  /**
+   * @example
+   * xxx
+   */
+  content?: string;
+  /**
+   * @example
+   * 2024-09-22 16:45:06
+   */
+  pubTime?: string;
+  score?: number;
+  searchSourceName?: string;
+  select?: boolean;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * test
+   */
+  title?: string;
+  /**
+   * @example
+   * http://xxx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      pubTime: 'pubTime',
+      score: 'score',
+      searchSourceName: 'searchSourceName',
+      select: 'select',
+      summary: 'summary',
+      title: 'title',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      pubTime: 'string',
+      score: 'number',
+      searchSourceName: 'string',
+      select: 'boolean',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesImages extends $dara.Model {
+  /**
+   * @example
+   * http://xxx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesNews extends $dara.Model {
+  /**
+   * @example
+   * xxx
+   */
+  title?: string;
+  /**
+   * @example
+   * http://xxx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      title: 'title',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries extends $dara.Model {
+  /**
+   * @example
+   * 100000
+   */
+  customHotValue?: number;
+  /**
+   * @example
+   * xxx
+   */
+  customTextSummary?: string;
+  /**
+   * @example
+   * xx
+   */
+  hotTopic?: string;
+  /**
+   * @example
+   * 2024-09-13_08
+   */
+  hotTopicVersion?: string;
+  /**
+   * @example
+   * 100000
+   */
+  hotValue?: number;
+  images?: RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesImages[];
+  news?: RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesNews[];
+  /**
+   * @example
+   * xxx
+   */
+  textSummary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customHotValue: 'customHotValue',
+      customTextSummary: 'customTextSummary',
+      hotTopic: 'hotTopic',
+      hotTopicVersion: 'hotTopicVersion',
+      hotValue: 'hotValue',
+      images: 'images',
+      news: 'news',
+      textSummary: 'textSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customHotValue: 'number',
+      customTextSummary: 'string',
+      hotTopic: 'string',
+      hotTopicVersion: 'string',
+      hotValue: 'number',
+      images: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesImages },
+      news: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesNews },
+      textSummary: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.images)) {
+      $dara.Model.validateArray(this.images);
+    }
+    if(Array.isArray(this.news)) {
+      $dara.Model.validateArray(this.news);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayloadOutputMultimodalMedias extends $dara.Model {
+  /**
+   * @example
+   * http://xxxx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * image
+   */
+  mediaType?: string;
+  sortScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'fileUrl',
+      mediaType: 'mediaType',
+      sortScore: 'sortScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      mediaType: 'string',
+      sortScore: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayloadOutput extends $dara.Model {
+  articles?: RunHotTopicChatResponseBodyPayloadOutputArticles[];
+  hotTopicSummaries?: RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries[];
+  multimodalMedias?: RunHotTopicChatResponseBodyPayloadOutputMultimodalMedias[];
+  recommendQueries?: string[];
+  searchQuery?: string;
+  /**
+   * @example
+   * xx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      articles: 'articles',
+      hotTopicSummaries: 'hotTopicSummaries',
+      multimodalMedias: 'multimodalMedias',
+      recommendQueries: 'recommendQueries',
+      searchQuery: 'searchQuery',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      articles: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputArticles },
+      hotTopicSummaries: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries },
+      multimodalMedias: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputMultimodalMedias },
+      recommendQueries: { 'type': 'array', 'itemType': 'string' },
+      searchQuery: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.articles)) {
+      $dara.Model.validateArray(this.articles);
+    }
+    if(Array.isArray(this.hotTopicSummaries)) {
+      $dara.Model.validateArray(this.hotTopicSummaries);
+    }
+    if(Array.isArray(this.multimodalMedias)) {
+      $dara.Model.validateArray(this.multimodalMedias);
+    }
+    if(Array.isArray(this.recommendQueries)) {
+      $dara.Model.validateArray(this.recommendQueries);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayload extends $dara.Model {
+  output?: RunHotTopicChatResponseBodyPayloadOutput;
+  usage?: RunHotTopicChatResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunHotTopicChatResponseBodyPayloadOutput,
+      usage: RunHotTopicChatResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryRequestStepForCustomSummaryStyleConfig extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  summaryImageCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qwen-max
+   */
+  summaryModel?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  summaryPrompt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      summaryImageCount: 'summaryImageCount',
+      summaryModel: 'summaryModel',
+      summaryPrompt: 'summaryPrompt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      summaryImageCount: 'number',
+      summaryModel: 'string',
+      summaryPrompt: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * AccessForbidden
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-finished
+   */
+  event?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  taskId?: string;
+  /**
+   * @example
+   * xxxxx
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryResponseBodyPayloadOutput extends $dara.Model {
+  text?: string;
+  topicId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+      topicId: 'topicId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      topicId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryResponseBodyPayload extends $dara.Model {
+  output?: RunHotTopicSummaryResponseBodyPayloadOutput;
+  usage?: RunHotTopicSummaryResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunHotTopicSummaryResponseBodyPayloadOutput,
+      usage: RunHotTopicSummaryResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMarketingInformationExtractResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * F08C71C0-9399-548C-838B-1DA01DE211B0
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 121dlsga4o7golrl1hojazg0u9lvytjc17ebgzzj2u4zukgh122tfg7wj1e6a1vcowy1ewzinauxriai9atcr6r323mm9ddbr0bg5m61ij8hxnf8664tstlfkfol6m8luc4shs3gums7l46uauyy0xndqmhdjtdon6coyhb4x17bo762bg9e3tb2geufg2
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 12826092918145
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150432017236011824686132ecdbc
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'event',
+      eventInfo: 'eventInfo',
+      requestId: 'requestId',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: 'string',
+      eventInfo: 'string',
+      requestId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMarketingInformationExtractResponseBodyPayloadOutput extends $dara.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMarketingInformationExtractResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMarketingInformationExtractResponseBodyPayload extends $dara.Model {
+  output?: RunMarketingInformationExtractResponseBodyPayloadOutput;
+  usage?: RunMarketingInformationExtractResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunMarketingInformationExtractResponseBodyPayloadOutput,
+      usage: RunMarketingInformationExtractResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMarketingInformationWritingResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * 436BC5AE-0573-59D8-9803-6B5FDCD3BBA1
+   */
+  requestId?: string;
+  /**
+   * @example
+   * uqubxgqzlnf4exfektij032lgb3yvix678p232n56387aqxdo4uutdt9wstqzovvz6j3ho7wnbgye785u79yn5q3euqmsvzmqdn3nmfq2826oscjvsi43kof8b8uxufpp1x97jjukk6jd3183hy8ni6hqpskuhuascpd
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 13312125943232
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 213e20e517049392478441155e8b2a
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'event',
+      eventInfo: 'eventInfo',
+      requestId: 'requestId',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: 'string',
+      eventInfo: 'string',
+      requestId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMarketingInformationWritingResponseBodyPayloadOutput extends $dara.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMarketingInformationWritingResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMarketingInformationWritingResponseBodyPayload extends $dara.Model {
+  output?: RunMarketingInformationWritingResponseBodyPayloadOutput;
+  usage?: RunMarketingInformationWritingResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunMarketingInformationWritingResponseBodyPayloadOutput,
+      usage: RunMarketingInformationWritingResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptContinueResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * 403
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  /**
+   * @example
+   * 模型生成事件
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * 0EB27AE3-CA53-5FAE-83C6-EE66CA4DF5DF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 3cd10828-0e42-471c-8f1a-931cde20b035
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      eventInfo: 'eventInfo',
+      requestId: 'requestId',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      requestId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptContinueResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @example
+   * 这是测试输出
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptContinueResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptContinueResponseBodyPayload extends $dara.Model {
+  output?: RunScriptContinueResponseBodyPayloadOutput;
+  usage?: RunScriptContinueResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunScriptContinueResponseBodyPayloadOutput,
+      usage: RunScriptContinueResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptPlanningResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * 403
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  /**
+   * @example
+   * 模型生成事件
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * 0EB27AE3-CA53-5FAE-83C6-EE66CA4DF5DF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 3cd10828-0e42-471c-8f1a-931cde20b035
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      eventInfo: 'eventInfo',
+      requestId: 'requestId',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      requestId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptPlanningResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @example
+   * 这是测试输出
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptPlanningResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptPlanningResponseBodyPayload extends $dara.Model {
+  output?: RunScriptPlanningResponseBodyPayloadOutput;
+  usage?: RunScriptPlanningResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunScriptPlanningResponseBodyPayloadOutput,
+      usage: RunScriptPlanningResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleWritingResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * 403
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check log.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-progress-start-generating
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * 0EB27AE3-CA53-5FAE-83C6-EE66CA4DF5DF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 3cd10828-0e42-471c-8f1a-931cde20b035
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      eventInfo: 'eventInfo',
+      requestId: 'requestId',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      requestId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleWritingResponseBodyPayloadOutput extends $dara.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleWritingResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleWritingResponseBodyPayload extends $dara.Model {
+  output?: RunStyleWritingResponseBodyPayloadOutput;
+  /**
+   * @example
+   * {
+   *         "inputTokens": 1816,
+   *         "outputTokens": 96,
+   *         "totalTokens": 1912
+   *     }
+   */
+  usage?: RunStyleWritingResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunStyleWritingResponseBodyPayloadOutput,
+      usage: RunStyleWritingResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTagMiningAnalysisRequestTags extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'tagDefinePrompt',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTagMiningAnalysisResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * AccessForbidden
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-finished
+   */
+  event?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  taskId?: string;
+  /**
+   * @example
+   * xxxxx
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTagMiningAnalysisResponseBodyPayloadOutput extends $dara.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTagMiningAnalysisResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTagMiningAnalysisResponseBodyPayload extends $dara.Model {
+  output?: RunTagMiningAnalysisResponseBodyPayloadOutput;
+  usage?: RunTagMiningAnalysisResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunTagMiningAnalysisResponseBodyPayloadOutput,
+      usage: RunTagMiningAnalysisResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisRequestFrameSampleMethod extends $dara.Model {
+  interval?: number;
+  methodName?: string;
+  pixel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interval: 'interval',
+      methodName: 'methodName',
+      pixel: 'pixel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interval: 'number',
+      methodName: 'string',
+      pixel: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisRequestVideoRoles extends $dara.Model {
+  roleInfo?: string;
+  roleName?: string;
+  urls?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      roleInfo: 'roleInfo',
+      roleName: 'roleName',
+      urls: 'urls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleInfo: 'string',
+      roleName: 'string',
+      urls: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.urls)) {
+      $dara.Model.validateArray(this.urls);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * InvalidParam
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check log.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-progress-start-generating
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * xxx
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * xxx
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150432017236011824686132ecdbc
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      eventInfo: 'eventInfo',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultUsage extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultVideoShotAnalysisResults extends $dara.Model {
+  /**
+   * @example
+   * 10000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  startTime?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      startTime: 'startTime',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  /**
+   * @example
+   * qwen-vl-max
+   */
+  modelId?: string;
+  text?: string;
+  usage?: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultUsage;
+  videoShotAnalysisResults?: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultVideoShotAnalysisResults[];
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'generateFinished',
+      modelId: 'modelId',
+      text: 'text',
+      usage: 'usage',
+      videoShotAnalysisResults: 'videoShotAnalysisResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      modelId: 'string',
+      text: 'string',
+      usage: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultUsage,
+      videoShotAnalysisResults: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultVideoShotAnalysisResults },
+    };
+  }
+
+  validate() {
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    if(Array.isArray(this.videoShotAnalysisResults)) {
+      $dara.Model.validateArray(this.videoShotAnalysisResults);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResultVideoCaptions extends $dara.Model {
+  /**
+   * @example
+   * 1710432000000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 00:01
+   */
+  endTimeFormat?: string;
+  /**
+   * @example
+   * 0
+   */
+  startTime?: number;
+  /**
+   * @example
+   * 00:01
+   */
+  startTimeFormat?: string;
+  /**
+   * @example
+   * xxx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      endTimeFormat: 'endTimeFormat',
+      startTime: 'startTime',
+      startTimeFormat: 'startTimeFormat',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      endTimeFormat: 'string',
+      startTime: 'number',
+      startTimeFormat: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  videoCaptions?: RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResultVideoCaptions[];
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'generateFinished',
+      videoCaptions: 'videoCaptions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      videoCaptions: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResultVideoCaptions },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.videoCaptions)) {
+      $dara.Model.validateArray(this.videoCaptions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResultUsage extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  modelReduce?: boolean;
+  text?: string;
+  usage?: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResultUsage;
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'generateFinished',
+      modelId: 'modelId',
+      modelReduce: 'modelReduce',
+      text: 'text',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      modelId: 'string',
+      modelReduce: 'boolean',
+      text: 'string',
+      usage: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResultUsage,
+    };
+  }
+
+  validate() {
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultUsage extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodesChildNodes extends $dara.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodes extends $dara.Model {
+  childNodes?: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodesChildNodes[];
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      childNodes: 'childNodes',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      childNodes: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodesChildNodes },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.childNodes)) {
+      $dara.Model.validateArray(this.childNodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappings extends $dara.Model {
+  childNodes?: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodes[];
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      childNodes: 'childNodes',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      childNodes: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodes },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.childNodes)) {
+      $dara.Model.validateArray(this.childNodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  /**
+   * @example
+   * true
+   */
+  modelId?: string;
+  modelReduce?: boolean;
+  text?: string;
+  usage?: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultUsage;
+  videoMindMappings?: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'generateFinished',
+      modelId: 'modelId',
+      modelReduce: 'modelReduce',
+      text: 'text',
+      usage: 'usage',
+      videoMindMappings: 'videoMindMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      modelId: 'string',
+      modelReduce: 'boolean',
+      text: 'string',
+      usage: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultUsage,
+      videoMindMappings: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappings },
+    };
+  }
+
+  validate() {
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    if(Array.isArray(this.videoMindMappings)) {
+      $dara.Model.validateArray(this.videoMindMappings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResultVideoShotsVideoSnapshots extends $dara.Model {
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResultVideoShots extends $dara.Model {
+  endTime?: number;
+  endTimeFormat?: string;
+  startTime?: number;
+  startTimeFormat?: string;
+  videoSnapshots?: RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResultVideoShotsVideoSnapshots[];
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      endTimeFormat: 'endTimeFormat',
+      startTime: 'startTime',
+      startTimeFormat: 'startTimeFormat',
+      videoSnapshots: 'videoSnapshots',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      endTimeFormat: 'string',
+      startTime: 'number',
+      startTimeFormat: 'string',
+      videoSnapshots: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResultVideoShotsVideoSnapshots },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.videoSnapshots)) {
+      $dara.Model.validateArray(this.videoSnapshots);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResult extends $dara.Model {
+  videoShots?: RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResultVideoShots[];
+  static names(): { [key: string]: string } {
+    return {
+      videoShots: 'videoShots',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoShots: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResultVideoShots },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.videoShots)) {
+      $dara.Model.validateArray(this.videoShots);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResultUsage extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  modelReduce?: boolean;
+  text?: string;
+  usage?: RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResultUsage;
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'generateFinished',
+      modelId: 'modelId',
+      modelReduce: 'modelReduce',
+      text: 'text',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      modelId: 'string',
+      modelReduce: 'boolean',
+      text: 'string',
+      usage: RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResultUsage,
+    };
+  }
+
+  validate() {
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutput extends $dara.Model {
+  videoAnalysisResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult;
+  videoCaptionResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult;
+  videoGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult;
+  videoMindMappingGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult;
+  videoShotSnapshotResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResult;
+  videoTitleGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult;
+  static names(): { [key: string]: string } {
+    return {
+      videoAnalysisResult: 'videoAnalysisResult',
+      videoCaptionResult: 'videoCaptionResult',
+      videoGenerateResult: 'videoGenerateResult',
+      videoMindMappingGenerateResult: 'videoMindMappingGenerateResult',
+      videoShotSnapshotResult: 'videoShotSnapshotResult',
+      videoTitleGenerateResult: 'videoTitleGenerateResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoAnalysisResult: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult,
+      videoCaptionResult: RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult,
+      videoGenerateResult: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult,
+      videoMindMappingGenerateResult: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult,
+      videoShotSnapshotResult: RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResult,
+      videoTitleGenerateResult: RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult,
+    };
+  }
+
+  validate() {
+    if(this.videoAnalysisResult && typeof (this.videoAnalysisResult as any).validate === 'function') {
+      (this.videoAnalysisResult as any).validate();
+    }
+    if(this.videoCaptionResult && typeof (this.videoCaptionResult as any).validate === 'function') {
+      (this.videoCaptionResult as any).validate();
+    }
+    if(this.videoGenerateResult && typeof (this.videoGenerateResult as any).validate === 'function') {
+      (this.videoGenerateResult as any).validate();
+    }
+    if(this.videoMindMappingGenerateResult && typeof (this.videoMindMappingGenerateResult as any).validate === 'function') {
+      (this.videoMindMappingGenerateResult as any).validate();
+    }
+    if(this.videoShotSnapshotResult && typeof (this.videoShotSnapshotResult as any).validate === 'function') {
+      (this.videoShotSnapshotResult as any).validate();
+    }
+    if(this.videoTitleGenerateResult && typeof (this.videoTitleGenerateResult as any).validate === 'function') {
+      (this.videoTitleGenerateResult as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadUsage extends $dara.Model {
+  inputTokens?: number;
+  outputTokens?: number;
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayload extends $dara.Model {
+  output?: RunVideoAnalysisResponseBodyPayloadOutput;
+  usage?: RunVideoAnalysisResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunVideoAnalysisResponseBodyPayloadOutput,
+      usage: RunVideoAnalysisResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVideoAnalysisTaskRequestFrameSampleMethod extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  interval?: number;
+  /**
+   * @example
+   * standard
+   */
+  methodName?: string;
+  /**
+   * @example
+   * 768
+   */
+  pixel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interval: 'interval',
+      methodName: 'methodName',
+      pixel: 'pixel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interval: 'number',
+      methodName: 'string',
+      pixel: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVideoAnalysisTaskRequestVideoRoles extends $dara.Model {
+  roleInfo?: string;
+  roleName?: string;
+  urls?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      roleInfo: 'roleInfo',
+      roleName: 'roleName',
+      urls: 'urls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleInfo: 'string',
+      roleName: 'string',
+      urls: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.urls)) {
+      $dara.Model.validateArray(this.urls);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVideoAnalysisTaskResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 3feb69ed02d9b1a17d0f1a942675d300
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateBroadcastNewsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -25,12 +4093,16 @@ export class GenerateBroadcastNewsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateBroadcastNewsResponseBody extends $tea.Model {
+export class GenerateBroadcastNewsResponseBody extends $dara.Model {
   /**
    * @example
    * xx
@@ -79,12 +4151,19 @@ export class GenerateBroadcastNewsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateBroadcastNewsResponse extends $tea.Model {
+export class GenerateBroadcastNewsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GenerateBroadcastNewsResponseBody;
@@ -104,12 +4183,22 @@ export class GenerateBroadcastNewsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateOutputFormatRequest extends $tea.Model {
+export class GenerateOutputFormatRequest extends $dara.Model {
   /**
    * @example
    * clueMining
@@ -155,12 +4244,19 @@ export class GenerateOutputFormatRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateOutputFormatShrinkRequest extends $tea.Model {
+export class GenerateOutputFormatShrinkRequest extends $dara.Model {
   /**
    * @example
    * clueMining
@@ -206,12 +4302,16 @@ export class GenerateOutputFormatShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateOutputFormatResponseBody extends $tea.Model {
+export class GenerateOutputFormatResponseBody extends $dara.Model {
   /**
    * @example
    * successful
@@ -263,12 +4363,19 @@ export class GenerateOutputFormatResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateOutputFormatResponse extends $tea.Model {
+export class GenerateOutputFormatResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GenerateOutputFormatResponseBody;
@@ -288,12 +4395,250 @@ export class GenerateOutputFormatResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListHotTopicSummariesRequest extends $tea.Model {
+export class GetVideoAnalysisConfigResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
+  code?: string;
+  data?: GetVideoAnalysisConfigResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 085BE2D2-BB7E-59A6-B688-F2CB32124E7F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetVideoAnalysisConfigResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVideoAnalysisConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVideoAnalysisConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a3d1c2ac-f086-4a21-9069-f5631542f5a2
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * successful
+   */
+  code?: string;
+  data?: GetVideoAnalysisTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 5D0E915E-655D-59A8-894F-93873F73AAE5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetVideoAnalysisTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVideoAnalysisTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVideoAnalysisTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicSummariesRequest extends $dara.Model {
   /**
    * @example
    * xx
@@ -339,12 +4684,16 @@ export class ListHotTopicSummariesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListHotTopicSummariesResponseBody extends $tea.Model {
+export class ListHotTopicSummariesResponseBody extends $dara.Model {
   /**
    * @example
    * xx
@@ -414,12 +4763,19 @@ export class ListHotTopicSummariesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListHotTopicSummariesResponse extends $tea.Model {
+export class ListHotTopicSummariesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListHotTopicSummariesResponseBody;
@@ -439,12 +4795,22 @@ export class ListHotTopicSummariesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunHotTopicChatRequest extends $tea.Model {
+export class RunHotTopicChatRequest extends $dara.Model {
   category?: string;
   generateOptions?: string[];
   /**
@@ -515,12 +4881,28 @@ export class RunHotTopicChatRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.generateOptions)) {
+      $dara.Model.validateArray(this.generateOptions);
+    }
+    if(Array.isArray(this.hotTopics)) {
+      $dara.Model.validateArray(this.hotTopics);
+    }
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
+    }
+    if(this.stepForBroadcastContentConfig && typeof (this.stepForBroadcastContentConfig as any).validate === 'function') {
+      (this.stepForBroadcastContentConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunHotTopicChatShrinkRequest extends $tea.Model {
+export class RunHotTopicChatShrinkRequest extends $dara.Model {
   category?: string;
   generateOptionsShrink?: string;
   /**
@@ -591,12 +4973,16 @@ export class RunHotTopicChatShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunHotTopicChatResponseBody extends $tea.Model {
+export class RunHotTopicChatResponseBody extends $dara.Model {
   header?: RunHotTopicChatResponseBodyHeader;
   payload?: RunHotTopicChatResponseBodyPayload;
   /**
@@ -620,12 +5006,22 @@ export class RunHotTopicChatResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunHotTopicChatResponse extends $tea.Model {
+export class RunHotTopicChatResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunHotTopicChatResponseBody;
@@ -645,12 +5041,22 @@ export class RunHotTopicChatResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunHotTopicSummaryRequest extends $tea.Model {
+export class RunHotTopicSummaryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -688,12 +5094,22 @@ export class RunHotTopicSummaryRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.stepForCustomSummaryStyleConfig && typeof (this.stepForCustomSummaryStyleConfig as any).validate === 'function') {
+      (this.stepForCustomSummaryStyleConfig as any).validate();
+    }
+    if(Array.isArray(this.topicIds)) {
+      $dara.Model.validateArray(this.topicIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunHotTopicSummaryShrinkRequest extends $tea.Model {
+export class RunHotTopicSummaryShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -731,12 +5147,16 @@ export class RunHotTopicSummaryShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunHotTopicSummaryResponseBody extends $tea.Model {
+export class RunHotTopicSummaryResponseBody extends $dara.Model {
   header?: RunHotTopicSummaryResponseBodyHeader;
   payload?: RunHotTopicSummaryResponseBodyPayload;
   /**
@@ -763,12 +5183,22 @@ export class RunHotTopicSummaryResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunHotTopicSummaryResponse extends $tea.Model {
+export class RunHotTopicSummaryResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunHotTopicSummaryResponseBody;
@@ -788,12 +5218,22 @@ export class RunHotTopicSummaryResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunMarketingInformationExtractRequest extends $tea.Model {
+export class RunMarketingInformationExtractRequest extends $dara.Model {
   customPrompt?: string;
   extractType?: string;
   /**
@@ -821,12 +5261,19 @@ export class RunMarketingInformationExtractRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.sourceMaterials)) {
+      $dara.Model.validateArray(this.sourceMaterials);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunMarketingInformationExtractShrinkRequest extends $tea.Model {
+export class RunMarketingInformationExtractShrinkRequest extends $dara.Model {
   customPrompt?: string;
   extractType?: string;
   /**
@@ -854,12 +5301,16 @@ export class RunMarketingInformationExtractShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunMarketingInformationExtractResponseBody extends $tea.Model {
+export class RunMarketingInformationExtractResponseBody extends $dara.Model {
   /**
    * @example
    * {\\"TimeZone\\": \\"Asia/Shanghai\\", \\"DateTime\\": \\"2024-03-07T17:00:09+08:00\\"}
@@ -883,12 +5334,22 @@ export class RunMarketingInformationExtractResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunMarketingInformationExtractResponse extends $tea.Model {
+export class RunMarketingInformationExtractResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunMarketingInformationExtractResponseBody;
@@ -908,12 +5369,22 @@ export class RunMarketingInformationExtractResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunMarketingInformationWritingRequest extends $tea.Model {
+export class RunMarketingInformationWritingRequest extends $dara.Model {
   customLimitation?: string;
   customPrompt?: string;
   inputExample?: string;
@@ -950,12 +5421,16 @@ export class RunMarketingInformationWritingRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunMarketingInformationWritingResponseBody extends $tea.Model {
+export class RunMarketingInformationWritingResponseBody extends $dara.Model {
   /**
    * @example
    * 2024-06-21T10:29:52+08:00
@@ -979,12 +5454,22 @@ export class RunMarketingInformationWritingResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunMarketingInformationWritingResponse extends $tea.Model {
+export class RunMarketingInformationWritingResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunMarketingInformationWritingResponseBody;
@@ -1004,12 +5489,22 @@ export class RunMarketingInformationWritingResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunScriptContinueRequest extends $tea.Model {
+export class RunScriptContinueRequest extends $dara.Model {
   /**
    * @example
    * 一队全副武装的执法人员和消防员闯入了一间明显已被遗弃多日、门窗紧闭并用胶带封死的公寓，面对着屋内令人作呕的恶臭和门厅里的混乱场面，他们似乎在寻找某种隐藏的真相或危险源，而一封日期为16号的信件成为了揭开谜团的关键线索，随着便衣探员深入探索，一系列封闭的房间暗示着这里曾发生过不为人知的秘密事件。
@@ -1044,12 +5539,16 @@ export class RunScriptContinueRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunScriptContinueResponseBody extends $tea.Model {
+export class RunScriptContinueResponseBody extends $dara.Model {
   end?: boolean;
   header?: RunScriptContinueResponseBodyHeader;
   payload?: RunScriptContinueResponseBodyPayload;
@@ -1069,12 +5568,22 @@ export class RunScriptContinueResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunScriptContinueResponse extends $tea.Model {
+export class RunScriptContinueResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunScriptContinueResponseBody;
@@ -1094,12 +5603,22 @@ export class RunScriptContinueResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunScriptPlanningRequest extends $tea.Model {
+export class RunScriptPlanningRequest extends $dara.Model {
   /**
    * @example
    * 故事尽可能狗血
@@ -1154,12 +5673,16 @@ export class RunScriptPlanningRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunScriptPlanningResponseBody extends $tea.Model {
+export class RunScriptPlanningResponseBody extends $dara.Model {
   end?: boolean;
   header?: RunScriptPlanningResponseBodyHeader;
   payload?: RunScriptPlanningResponseBodyPayload;
@@ -1179,12 +5702,22 @@ export class RunScriptPlanningResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunScriptPlanningResponse extends $tea.Model {
+export class RunScriptPlanningResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunScriptPlanningResponseBody;
@@ -1204,12 +5737,22 @@ export class RunScriptPlanningResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunStyleWritingRequest extends $tea.Model {
+export class RunStyleWritingRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1244,12 +5787,22 @@ export class RunStyleWritingRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.learningSamples)) {
+      $dara.Model.validateArray(this.learningSamples);
+    }
+    if(Array.isArray(this.referenceMaterials)) {
+      $dara.Model.validateArray(this.referenceMaterials);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunStyleWritingShrinkRequest extends $tea.Model {
+export class RunStyleWritingShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1284,12 +5837,16 @@ export class RunStyleWritingShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunStyleWritingResponseBody extends $tea.Model {
+export class RunStyleWritingResponseBody extends $dara.Model {
   /**
    * @example
    * true
@@ -1317,12 +5874,22 @@ export class RunStyleWritingResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunStyleWritingResponse extends $tea.Model {
+export class RunStyleWritingResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunStyleWritingResponseBody;
@@ -1342,12 +5909,22 @@ export class RunStyleWritingResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunTagMiningAnalysisRequest extends $tea.Model {
+export class RunTagMiningAnalysisRequest extends $dara.Model {
   /**
    * @example
    * clueMining
@@ -1406,12 +5983,19 @@ export class RunTagMiningAnalysisRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunTagMiningAnalysisShrinkRequest extends $tea.Model {
+export class RunTagMiningAnalysisShrinkRequest extends $dara.Model {
   /**
    * @example
    * clueMining
@@ -1470,12 +6054,16 @@ export class RunTagMiningAnalysisShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunTagMiningAnalysisResponseBody extends $tea.Model {
+export class RunTagMiningAnalysisResponseBody extends $dara.Model {
   header?: RunTagMiningAnalysisResponseBodyHeader;
   payload?: RunTagMiningAnalysisResponseBodyPayload;
   /**
@@ -1502,12 +6090,22 @@ export class RunTagMiningAnalysisResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunTagMiningAnalysisResponse extends $tea.Model {
+export class RunTagMiningAnalysisResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunTagMiningAnalysisResponseBody;
@@ -1527,13 +6125,29 @@ export class RunTagMiningAnalysisResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunVideoAnalysisRequest extends $tea.Model {
+export class RunVideoAnalysisRequest extends $dara.Model {
+  frameSampleMethod?: RunVideoAnalysisRequestFrameSampleMethod;
   generateOptions?: string[];
+  /**
+   * @example
+   * english
+   */
+  language?: string;
   modelCustomPromptTemplate?: string;
   /**
    * @example
@@ -1563,6 +6177,7 @@ export class RunVideoAnalysisRequest extends $tea.Model {
    * qwen-vl-max
    */
   videoModelId?: string;
+  videoRoles?: RunVideoAnalysisRequestVideoRoles[];
   /**
    * @example
    * http://xxxx.mp4
@@ -1570,7 +6185,9 @@ export class RunVideoAnalysisRequest extends $tea.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      frameSampleMethod: 'frameSampleMethod',
       generateOptions: 'generateOptions',
+      language: 'language',
       modelCustomPromptTemplate: 'modelCustomPromptTemplate',
       modelCustomPromptTemplateId: 'modelCustomPromptTemplateId',
       modelId: 'modelId',
@@ -1580,13 +6197,16 @@ export class RunVideoAnalysisRequest extends $tea.Model {
       videoExtraInfo: 'videoExtraInfo',
       videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
       videoModelId: 'videoModelId',
+      videoRoles: 'videoRoles',
       videoUrl: 'videoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      frameSampleMethod: RunVideoAnalysisRequestFrameSampleMethod,
       generateOptions: { 'type': 'array', 'itemType': 'string' },
+      language: 'string',
       modelCustomPromptTemplate: 'string',
       modelCustomPromptTemplateId: 'string',
       modelId: 'string',
@@ -1596,8 +6216,22 @@ export class RunVideoAnalysisRequest extends $tea.Model {
       videoExtraInfo: 'string',
       videoModelCustomPromptTemplate: 'string',
       videoModelId: 'string',
+      videoRoles: { 'type': 'array', 'itemType': RunVideoAnalysisRequestVideoRoles },
       videoUrl: 'string',
     };
+  }
+
+  validate() {
+    if(this.frameSampleMethod && typeof (this.frameSampleMethod as any).validate === 'function') {
+      (this.frameSampleMethod as any).validate();
+    }
+    if(Array.isArray(this.generateOptions)) {
+      $dara.Model.validateArray(this.generateOptions);
+    }
+    if(Array.isArray(this.videoRoles)) {
+      $dara.Model.validateArray(this.videoRoles);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -1605,8 +6239,14 @@ export class RunVideoAnalysisRequest extends $tea.Model {
   }
 }
 
-export class RunVideoAnalysisShrinkRequest extends $tea.Model {
+export class RunVideoAnalysisShrinkRequest extends $dara.Model {
+  frameSampleMethodShrink?: string;
   generateOptionsShrink?: string;
+  /**
+   * @example
+   * english
+   */
+  language?: string;
   modelCustomPromptTemplate?: string;
   /**
    * @example
@@ -1636,6 +6276,7 @@ export class RunVideoAnalysisShrinkRequest extends $tea.Model {
    * qwen-vl-max
    */
   videoModelId?: string;
+  videoRolesShrink?: string;
   /**
    * @example
    * http://xxxx.mp4
@@ -1643,7 +6284,9 @@ export class RunVideoAnalysisShrinkRequest extends $tea.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      frameSampleMethodShrink: 'frameSampleMethod',
       generateOptionsShrink: 'generateOptions',
+      language: 'language',
       modelCustomPromptTemplate: 'modelCustomPromptTemplate',
       modelCustomPromptTemplateId: 'modelCustomPromptTemplateId',
       modelId: 'modelId',
@@ -1653,13 +6296,16 @@ export class RunVideoAnalysisShrinkRequest extends $tea.Model {
       videoExtraInfo: 'videoExtraInfo',
       videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
       videoModelId: 'videoModelId',
+      videoRolesShrink: 'videoRoles',
       videoUrl: 'videoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      frameSampleMethodShrink: 'string',
       generateOptionsShrink: 'string',
+      language: 'string',
       modelCustomPromptTemplate: 'string',
       modelCustomPromptTemplateId: 'string',
       modelId: 'string',
@@ -1669,8 +6315,13 @@ export class RunVideoAnalysisShrinkRequest extends $tea.Model {
       videoExtraInfo: 'string',
       videoModelCustomPromptTemplate: 'string',
       videoModelId: 'string',
+      videoRolesShrink: 'string',
       videoUrl: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -1678,7 +6329,7 @@ export class RunVideoAnalysisShrinkRequest extends $tea.Model {
   }
 }
 
-export class RunVideoAnalysisResponseBody extends $tea.Model {
+export class RunVideoAnalysisResponseBody extends $dara.Model {
   header?: RunVideoAnalysisResponseBodyHeader;
   payload?: RunVideoAnalysisResponseBodyPayload;
   /**
@@ -1702,12 +6353,22 @@ export class RunVideoAnalysisResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunVideoAnalysisResponse extends $tea.Model {
+export class RunVideoAnalysisResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunVideoAnalysisResponseBody;
@@ -1727,27 +6388,14 @@ export class RunVideoAnalysisResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateBroadcastNewsResponseBodyDataHotTopicSummariesImages extends $tea.Model {
-  /**
-   * @example
-   * http://xxx.com/xxx.jpeg
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      url: 'url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      url: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -1755,2402 +6403,174 @@ export class GenerateBroadcastNewsResponseBodyDataHotTopicSummariesImages extend
   }
 }
 
-export class GenerateBroadcastNewsResponseBodyDataHotTopicSummaries extends $tea.Model {
-  category?: string;
-  hotTopic?: string;
+export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
+  frameSampleMethod?: SubmitVideoAnalysisTaskRequestFrameSampleMethod;
+  generateOptions?: string[];
   /**
    * @example
-   * 2024-09-13_08
+   * chinese
    */
-  hotTopicVersion?: string;
+  language?: string;
+  modelCustomPromptTemplate?: string;
   /**
    * @example
-   * 1000000
+   * PlotDetail
    */
-  hotValue?: number;
+  modelCustomPromptTemplateId?: string;
   /**
    * @example
-   * 1458tb3bjo7531kap42a
+   * qwen-max
    */
-  id?: string;
-  images?: GenerateBroadcastNewsResponseBodyDataHotTopicSummariesImages[];
-  /**
-   * @example
-   * xxx
-   */
-  textSummary?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'category',
-      hotTopic: 'hotTopic',
-      hotTopicVersion: 'hotTopicVersion',
-      hotValue: 'hotValue',
-      id: 'id',
-      images: 'images',
-      textSummary: 'textSummary',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      hotTopic: 'string',
-      hotTopicVersion: 'string',
-      hotValue: 'number',
-      id: 'string',
-      images: { 'type': 'array', 'itemType': GenerateBroadcastNewsResponseBodyDataHotTopicSummariesImages },
-      textSummary: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateBroadcastNewsResponseBodyDataUsage extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  inputTokens?: number;
+  modelId?: string;
   /**
    * @example
    * 2
    */
-  outputTokens?: number;
+  snapshotInterval?: number;
+  videoExtraInfo?: string;
+  videoModelCustomPromptTemplate?: string;
   /**
    * @example
-   * 3
+   * qwen-vl-max-latest
    */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateBroadcastNewsResponseBodyData extends $tea.Model {
-  hotTopicSummaries?: GenerateBroadcastNewsResponseBodyDataHotTopicSummaries[];
-  /**
-   * @example
-   * 2bb0ea82dafd48a8817fadc4c90e2b52
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * 3feb69ed02d9b1a17d0f1a942675d300
-   */
-  taskId?: string;
-  text?: string;
-  usage?: GenerateBroadcastNewsResponseBodyDataUsage;
-  static names(): { [key: string]: string } {
-    return {
-      hotTopicSummaries: 'hotTopicSummaries',
-      sessionId: 'sessionId',
-      taskId: 'taskId',
-      text: 'text',
-      usage: 'usage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hotTopicSummaries: { 'type': 'array', 'itemType': GenerateBroadcastNewsResponseBodyDataHotTopicSummaries },
-      sessionId: 'string',
-      taskId: 'string',
-      text: 'string',
-      usage: GenerateBroadcastNewsResponseBodyDataUsage,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateOutputFormatRequestTags extends $tea.Model {
-  /**
-   * @example
-   * xxxx
-   */
-  tagDefinePrompt?: string;
-  /**
-   * @example
-   * xxxx
-   */
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagDefinePrompt: 'tagDefinePrompt',
-      tagName: 'tagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagDefinePrompt: 'string',
-      tagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateOutputFormatResponseBodyData extends $tea.Model {
-  outputFormat?: string;
-  static names(): { [key: string]: string } {
-    return {
-      outputFormat: 'outputFormat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      outputFormat: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHotTopicSummariesResponseBodyDataNewsComments extends $tea.Model {
-  /**
-   * @example
-   * xx
-   */
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHotTopicSummariesResponseBodyDataNews extends $tea.Model {
-  comments?: ListHotTopicSummariesResponseBodyDataNewsComments[];
-  /**
-   * @example
-   * xx
-   */
-  content?: string;
-  /**
-   * @example
-   * 2024-09-10 15:32:00
-   */
-  pubTime?: string;
-  /**
-   * @example
-   * xx
-   */
-  title?: string;
-  /**
-   * @remarks
-   * url
-   * 
-   * @example
-   * http://xxx
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      comments: 'comments',
-      content: 'content',
-      pubTime: 'pubTime',
-      title: 'title',
-      url: 'url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comments: { 'type': 'array', 'itemType': ListHotTopicSummariesResponseBodyDataNewsComments },
-      content: 'string',
-      pubTime: 'string',
-      title: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHotTopicSummariesResponseBodyDataSummarySummaries extends $tea.Model {
-  /**
-   * @example
-   * xx
-   */
-  summary?: string;
-  /**
-   * @example
-   * xx
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      summary: 'summary',
-      title: 'title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      summary: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHotTopicSummariesResponseBodyDataSummary extends $tea.Model {
-  summaries?: ListHotTopicSummariesResponseBodyDataSummarySummaries[];
-  static names(): { [key: string]: string } {
-    return {
-      summaries: 'summaries',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      summaries: { 'type': 'array', 'itemType': ListHotTopicSummariesResponseBodyDataSummarySummaries },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHotTopicSummariesResponseBodyData extends $tea.Model {
-  category?: string;
-  /**
-   * @example
-   * xx
-   */
-  hotTopic?: string;
-  /**
-   * @example
-   * 2024-09-13_12
-   */
-  hotTopicVersion?: string;
-  /**
-   * @example
-   * 1000000
-   */
-  hotValue?: number;
-  /**
-   * @example
-   * db5dc5b3d8954a30b65ba700c9dda3bb
-   */
-  id?: string;
-  news?: ListHotTopicSummariesResponseBodyDataNews[];
-  summary?: ListHotTopicSummariesResponseBodyDataSummary;
-  /**
-   * @example
-   * xx
-   */
-  textSummary?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'category',
-      hotTopic: 'hotTopic',
-      hotTopicVersion: 'hotTopicVersion',
-      hotValue: 'hotValue',
-      id: 'id',
-      news: 'news',
-      summary: 'summary',
-      textSummary: 'textSummary',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      hotTopic: 'string',
-      hotTopicVersion: 'string',
-      hotValue: 'number',
-      id: 'string',
-      news: { 'type': 'array', 'itemType': ListHotTopicSummariesResponseBodyDataNews },
-      summary: ListHotTopicSummariesResponseBodyDataSummary,
-      textSummary: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicChatRequestMessages extends $tea.Model {
-  /**
-   * @example
-   * xxx
-   */
-  content?: string;
-  /**
-   * @example
-   * 2024-12-10 18:51:29
-   */
-  createTime?: string;
-  /**
-   * @example
-   * user
-   */
-  role?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'content',
-      createTime: 'createTime',
-      role: 'role',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      createTime: 'string',
-      role: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights extends $tea.Model {
-  /**
-   * @example
-   * comments
-   */
-  dimension?: string;
-  /**
-   * @example
-   * 1
-   */
-  weight?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dimension: 'dimension',
-      weight: 'weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dimension: 'string',
-      weight: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicChatRequestStepForBroadcastContentConfig extends $tea.Model {
-  categories?: string[];
-  customHotValueWeights?: RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights[];
-  /**
-   * @example
-   * 20
-   */
-  topicCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      categories: 'categories',
-      customHotValueWeights: 'customHotValueWeights',
-      topicCount: 'topicCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categories: { 'type': 'array', 'itemType': 'string' },
-      customHotValueWeights: { 'type': 'array', 'itemType': RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights },
-      topicCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicChatResponseBodyHeader extends $tea.Model {
-  /**
-   * @example
-   * InvalidParam
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * xx
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * task-finished
-   */
-  event?: string;
-  /**
-   * @example
-   * xx
-   */
-  eventInfo?: string;
-  /**
-   * @example
-   * xxx
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
-   */
-  taskId?: string;
-  /**
-   * @example
-   * 2150451a17191950923411783e2927
-   */
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      event: 'event',
-      eventInfo: 'eventInfo',
-      sessionId: 'sessionId',
-      taskId: 'taskId',
-      traceId: 'traceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      event: 'string',
-      eventInfo: 'string',
-      sessionId: 'string',
-      taskId: 'string',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicChatResponseBodyPayloadOutputArticles extends $tea.Model {
-  /**
-   * @example
-   * xxx
-   */
-  content?: string;
-  /**
-   * @example
-   * 2024-09-22 16:45:06
-   */
-  pubTime?: string;
-  score?: number;
-  searchSourceName?: string;
-  select?: boolean;
-  /**
-   * @example
-   * xx
-   */
-  summary?: string;
-  /**
-   * @example
-   * test
-   */
-  title?: string;
-  /**
-   * @example
-   * http://xxx
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'content',
-      pubTime: 'pubTime',
-      score: 'score',
-      searchSourceName: 'searchSourceName',
-      select: 'select',
-      summary: 'summary',
-      title: 'title',
-      url: 'url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      pubTime: 'string',
-      score: 'number',
-      searchSourceName: 'string',
-      select: 'boolean',
-      summary: 'string',
-      title: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesImages extends $tea.Model {
-  /**
-   * @example
-   * http://xxx
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      url: 'url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesNews extends $tea.Model {
-  /**
-   * @example
-   * xxx
-   */
-  title?: string;
-  /**
-   * @example
-   * http://xxx
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      title: 'title',
-      url: 'url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      title: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries extends $tea.Model {
-  /**
-   * @example
-   * 100000
-   */
-  customHotValue?: number;
-  /**
-   * @example
-   * xxx
-   */
-  customTextSummary?: string;
-  /**
-   * @example
-   * xx
-   */
-  hotTopic?: string;
-  /**
-   * @example
-   * 2024-09-13_08
-   */
-  hotTopicVersion?: string;
-  /**
-   * @example
-   * 100000
-   */
-  hotValue?: number;
-  images?: RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesImages[];
-  news?: RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesNews[];
-  /**
-   * @example
-   * xxx
-   */
-  textSummary?: string;
-  static names(): { [key: string]: string } {
-    return {
-      customHotValue: 'customHotValue',
-      customTextSummary: 'customTextSummary',
-      hotTopic: 'hotTopic',
-      hotTopicVersion: 'hotTopicVersion',
-      hotValue: 'hotValue',
-      images: 'images',
-      news: 'news',
-      textSummary: 'textSummary',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customHotValue: 'number',
-      customTextSummary: 'string',
-      hotTopic: 'string',
-      hotTopicVersion: 'string',
-      hotValue: 'number',
-      images: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesImages },
-      news: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesNews },
-      textSummary: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicChatResponseBodyPayloadOutputMultimodalMedias extends $tea.Model {
-  /**
-   * @example
-   * http://xxxx
-   */
-  fileUrl?: string;
-  /**
-   * @example
-   * image
-   */
-  mediaType?: string;
-  sortScore?: number;
-  static names(): { [key: string]: string } {
-    return {
-      fileUrl: 'fileUrl',
-      mediaType: 'mediaType',
-      sortScore: 'sortScore',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileUrl: 'string',
-      mediaType: 'string',
-      sortScore: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicChatResponseBodyPayloadOutput extends $tea.Model {
-  articles?: RunHotTopicChatResponseBodyPayloadOutputArticles[];
-  hotTopicSummaries?: RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries[];
-  multimodalMedias?: RunHotTopicChatResponseBodyPayloadOutputMultimodalMedias[];
-  recommendQueries?: string[];
-  searchQuery?: string;
-  /**
-   * @example
-   * xx
-   */
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      articles: 'articles',
-      hotTopicSummaries: 'hotTopicSummaries',
-      multimodalMedias: 'multimodalMedias',
-      recommendQueries: 'recommendQueries',
-      searchQuery: 'searchQuery',
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      articles: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputArticles },
-      hotTopicSummaries: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries },
-      multimodalMedias: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputMultimodalMedias },
-      recommendQueries: { 'type': 'array', 'itemType': 'string' },
-      searchQuery: 'string',
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicChatResponseBodyPayloadUsage extends $tea.Model {
-  /**
-   * @example
-   * 100
-   */
-  inputTokens?: number;
-  /**
-   * @example
-   * 100
-   */
-  outputTokens?: number;
-  /**
-   * @example
-   * 200
-   */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicChatResponseBodyPayload extends $tea.Model {
-  output?: RunHotTopicChatResponseBodyPayloadOutput;
-  usage?: RunHotTopicChatResponseBodyPayloadUsage;
-  static names(): { [key: string]: string } {
-    return {
-      output: 'output',
-      usage: 'usage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      output: RunHotTopicChatResponseBodyPayloadOutput,
-      usage: RunHotTopicChatResponseBodyPayloadUsage,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicSummaryRequestStepForCustomSummaryStyleConfig extends $tea.Model {
-  /**
-   * @example
-   * 2
-   */
-  summaryImageCount?: number;
+  videoModelId?: string;
+  videoRoles?: SubmitVideoAnalysisTaskRequestVideoRoles[];
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
+   * http://xxxx.mp4
+   */
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      frameSampleMethod: 'frameSampleMethod',
+      generateOptions: 'generateOptions',
+      language: 'language',
+      modelCustomPromptTemplate: 'modelCustomPromptTemplate',
+      modelCustomPromptTemplateId: 'modelCustomPromptTemplateId',
+      modelId: 'modelId',
+      snapshotInterval: 'snapshotInterval',
+      videoExtraInfo: 'videoExtraInfo',
+      videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
+      videoModelId: 'videoModelId',
+      videoRoles: 'videoRoles',
+      videoUrl: 'videoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      frameSampleMethod: SubmitVideoAnalysisTaskRequestFrameSampleMethod,
+      generateOptions: { 'type': 'array', 'itemType': 'string' },
+      language: 'string',
+      modelCustomPromptTemplate: 'string',
+      modelCustomPromptTemplateId: 'string',
+      modelId: 'string',
+      snapshotInterval: 'number',
+      videoExtraInfo: 'string',
+      videoModelCustomPromptTemplate: 'string',
+      videoModelId: 'string',
+      videoRoles: { 'type': 'array', 'itemType': SubmitVideoAnalysisTaskRequestVideoRoles },
+      videoUrl: 'string',
+    };
+  }
+
+  validate() {
+    if(this.frameSampleMethod && typeof (this.frameSampleMethod as any).validate === 'function') {
+      (this.frameSampleMethod as any).validate();
+    }
+    if(Array.isArray(this.generateOptions)) {
+      $dara.Model.validateArray(this.generateOptions);
+    }
+    if(Array.isArray(this.videoRoles)) {
+      $dara.Model.validateArray(this.videoRoles);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
+  frameSampleMethodShrink?: string;
+  generateOptionsShrink?: string;
+  /**
+   * @example
+   * chinese
+   */
+  language?: string;
+  modelCustomPromptTemplate?: string;
+  /**
+   * @example
+   * PlotDetail
+   */
+  modelCustomPromptTemplateId?: string;
+  /**
+   * @example
    * qwen-max
    */
-  summaryModel?: string;
-  /**
-   * @example
-   * xxxx
-   */
-  summaryPrompt?: string;
-  static names(): { [key: string]: string } {
-    return {
-      summaryImageCount: 'summaryImageCount',
-      summaryModel: 'summaryModel',
-      summaryPrompt: 'summaryPrompt',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      summaryImageCount: 'number',
-      summaryModel: 'string',
-      summaryPrompt: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicSummaryResponseBodyHeader extends $tea.Model {
-  /**
-   * @example
-   * AccessForbidden
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * 错误信息
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * task-finished
-   */
-  event?: string;
-  /**
-   * @example
-   * xxxx
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * xxxx
-   */
-  taskId?: string;
-  /**
-   * @example
-   * xxxxx
-   */
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      event: 'event',
-      sessionId: 'sessionId',
-      taskId: 'taskId',
-      traceId: 'traceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      event: 'string',
-      sessionId: 'string',
-      taskId: 'string',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicSummaryResponseBodyPayloadOutput extends $tea.Model {
-  text?: string;
-  topicId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'text',
-      topicId: 'topicId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-      topicId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicSummaryResponseBodyPayloadUsage extends $tea.Model {
-  /**
-   * @example
-   * 100
-   */
-  inputTokens?: number;
-  /**
-   * @example
-   * 100
-   */
-  outputTokens?: number;
-  /**
-   * @example
-   * 200
-   */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunHotTopicSummaryResponseBodyPayload extends $tea.Model {
-  output?: RunHotTopicSummaryResponseBodyPayloadOutput;
-  usage?: RunHotTopicSummaryResponseBodyPayloadUsage;
-  static names(): { [key: string]: string } {
-    return {
-      output: 'output',
-      usage: 'usage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      output: RunHotTopicSummaryResponseBodyPayloadOutput,
-      usage: RunHotTopicSummaryResponseBodyPayloadUsage,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMarketingInformationExtractResponseBodyHeader extends $tea.Model {
-  /**
-   * @example
-   * result-generated
-   */
-  event?: string;
-  eventInfo?: string;
-  /**
-   * @example
-   * F08C71C0-9399-548C-838B-1DA01DE211B0
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 121dlsga4o7golrl1hojazg0u9lvytjc17ebgzzj2u4zukgh122tfg7wj1e6a1vcowy1ewzinauxriai9atcr6r323mm9ddbr0bg5m61ij8hxnf8664tstlfkfol6m8luc4shs3gums7l46uauyy0xndqmhdjtdon6coyhb4x17bo762bg9e3tb2geufg2
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * 12826092918145
-   */
-  taskId?: string;
-  /**
-   * @example
-   * 2150432017236011824686132ecdbc
-   */
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      event: 'event',
-      eventInfo: 'eventInfo',
-      requestId: 'requestId',
-      sessionId: 'sessionId',
-      taskId: 'taskId',
-      traceId: 'traceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      event: 'string',
-      eventInfo: 'string',
-      requestId: 'string',
-      sessionId: 'string',
-      taskId: 'string',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMarketingInformationExtractResponseBodyPayloadOutput extends $tea.Model {
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMarketingInformationExtractResponseBodyPayloadUsage extends $tea.Model {
-  /**
-   * @example
-   * 100
-   */
-  inputTokens?: number;
-  /**
-   * @example
-   * 100
-   */
-  outputTokens?: number;
-  /**
-   * @example
-   * 200
-   */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMarketingInformationExtractResponseBodyPayload extends $tea.Model {
-  output?: RunMarketingInformationExtractResponseBodyPayloadOutput;
-  usage?: RunMarketingInformationExtractResponseBodyPayloadUsage;
-  static names(): { [key: string]: string } {
-    return {
-      output: 'output',
-      usage: 'usage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      output: RunMarketingInformationExtractResponseBodyPayloadOutput,
-      usage: RunMarketingInformationExtractResponseBodyPayloadUsage,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMarketingInformationWritingResponseBodyHeader extends $tea.Model {
-  /**
-   * @example
-   * result-generated
-   */
-  event?: string;
-  eventInfo?: string;
-  /**
-   * @example
-   * 436BC5AE-0573-59D8-9803-6B5FDCD3BBA1
-   */
-  requestId?: string;
-  /**
-   * @example
-   * uqubxgqzlnf4exfektij032lgb3yvix678p232n56387aqxdo4uutdt9wstqzovvz6j3ho7wnbgye785u79yn5q3euqmsvzmqdn3nmfq2826oscjvsi43kof8b8uxufpp1x97jjukk6jd3183hy8ni6hqpskuhuascpd
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * 13312125943232
-   */
-  taskId?: string;
-  /**
-   * @example
-   * 213e20e517049392478441155e8b2a
-   */
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      event: 'event',
-      eventInfo: 'eventInfo',
-      requestId: 'requestId',
-      sessionId: 'sessionId',
-      taskId: 'taskId',
-      traceId: 'traceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      event: 'string',
-      eventInfo: 'string',
-      requestId: 'string',
-      sessionId: 'string',
-      taskId: 'string',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMarketingInformationWritingResponseBodyPayloadOutput extends $tea.Model {
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMarketingInformationWritingResponseBodyPayloadUsage extends $tea.Model {
-  /**
-   * @example
-   * 100
-   */
-  inputTokens?: number;
-  /**
-   * @example
-   * 100
-   */
-  outputTokens?: number;
-  /**
-   * @example
-   * 200
-   */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMarketingInformationWritingResponseBodyPayload extends $tea.Model {
-  output?: RunMarketingInformationWritingResponseBodyPayloadOutput;
-  usage?: RunMarketingInformationWritingResponseBodyPayloadUsage;
-  static names(): { [key: string]: string } {
-    return {
-      output: 'output',
-      usage: 'usage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      output: RunMarketingInformationWritingResponseBodyPayloadOutput,
-      usage: RunMarketingInformationWritingResponseBodyPayloadUsage,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunScriptContinueResponseBodyHeader extends $tea.Model {
-  /**
-   * @example
-   * 403
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * Pop sign mismatch, please check.
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * result-generated
-   */
-  event?: string;
-  /**
-   * @example
-   * 模型生成事件
-   */
-  eventInfo?: string;
-  /**
-   * @example
-   * 0EB27AE3-CA53-5FAE-83C6-EE66CA4DF5DF
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cd10828-0e42-471c-8f1a-931cde20b035
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
-   */
-  taskId?: string;
-  /**
-   * @example
-   * 2150451a17191950923411783e2927
-   */
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      event: 'event',
-      eventInfo: 'eventInfo',
-      requestId: 'requestId',
-      sessionId: 'sessionId',
-      taskId: 'taskId',
-      traceId: 'traceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      event: 'string',
-      eventInfo: 'string',
-      requestId: 'string',
-      sessionId: 'string',
-      taskId: 'string',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunScriptContinueResponseBodyPayloadOutput extends $tea.Model {
-  /**
-   * @example
-   * 这是测试输出
-   */
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunScriptContinueResponseBodyPayloadUsage extends $tea.Model {
-  /**
-   * @example
-   * 100
-   */
-  inputTokens?: number;
-  /**
-   * @example
-   * 100
-   */
-  outputTokens?: number;
-  /**
-   * @example
-   * 200
-   */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunScriptContinueResponseBodyPayload extends $tea.Model {
-  output?: RunScriptContinueResponseBodyPayloadOutput;
-  usage?: RunScriptContinueResponseBodyPayloadUsage;
-  static names(): { [key: string]: string } {
-    return {
-      output: 'output',
-      usage: 'usage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      output: RunScriptContinueResponseBodyPayloadOutput,
-      usage: RunScriptContinueResponseBodyPayloadUsage,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunScriptPlanningResponseBodyHeader extends $tea.Model {
-  /**
-   * @example
-   * 403
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * Pop sign mismatch, please check.
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * result-generated
-   */
-  event?: string;
-  /**
-   * @example
-   * 模型生成事件
-   */
-  eventInfo?: string;
-  /**
-   * @example
-   * 0EB27AE3-CA53-5FAE-83C6-EE66CA4DF5DF
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cd10828-0e42-471c-8f1a-931cde20b035
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
-   */
-  taskId?: string;
-  /**
-   * @example
-   * 2150451a17191950923411783e2927
-   */
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      event: 'event',
-      eventInfo: 'eventInfo',
-      requestId: 'requestId',
-      sessionId: 'sessionId',
-      taskId: 'taskId',
-      traceId: 'traceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      event: 'string',
-      eventInfo: 'string',
-      requestId: 'string',
-      sessionId: 'string',
-      taskId: 'string',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunScriptPlanningResponseBodyPayloadOutput extends $tea.Model {
-  /**
-   * @example
-   * 这是测试输出
-   */
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunScriptPlanningResponseBodyPayloadUsage extends $tea.Model {
-  /**
-   * @example
-   * 100
-   */
-  inputTokens?: number;
-  /**
-   * @example
-   * 100
-   */
-  outputTokens?: number;
-  /**
-   * @example
-   * 200
-   */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunScriptPlanningResponseBodyPayload extends $tea.Model {
-  output?: RunScriptPlanningResponseBodyPayloadOutput;
-  usage?: RunScriptPlanningResponseBodyPayloadUsage;
-  static names(): { [key: string]: string } {
-    return {
-      output: 'output',
-      usage: 'usage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      output: RunScriptPlanningResponseBodyPayloadOutput,
-      usage: RunScriptPlanningResponseBodyPayloadUsage,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunStyleWritingResponseBodyHeader extends $tea.Model {
-  /**
-   * @example
-   * 403
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * Pop sign mismatch, please check log.
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * task-progress-start-generating
-   */
-  event?: string;
-  eventInfo?: string;
-  /**
-   * @example
-   * 0EB27AE3-CA53-5FAE-83C6-EE66CA4DF5DF
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cd10828-0e42-471c-8f1a-931cde20b035
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
-   */
-  taskId?: string;
-  /**
-   * @example
-   * 2150451a17191950923411783e2927
-   */
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      event: 'event',
-      eventInfo: 'eventInfo',
-      requestId: 'requestId',
-      sessionId: 'sessionId',
-      taskId: 'taskId',
-      traceId: 'traceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      event: 'string',
-      eventInfo: 'string',
-      requestId: 'string',
-      sessionId: 'string',
-      taskId: 'string',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunStyleWritingResponseBodyPayloadOutput extends $tea.Model {
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunStyleWritingResponseBodyPayloadUsage extends $tea.Model {
-  /**
-   * @example
-   * 100
-   */
-  inputTokens?: number;
-  /**
-   * @example
-   * 100
-   */
-  outputTokens?: number;
-  /**
-   * @example
-   * 200
-   */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunStyleWritingResponseBodyPayload extends $tea.Model {
-  output?: RunStyleWritingResponseBodyPayloadOutput;
-  /**
-   * @example
-   * {
-   *         "inputTokens": 1816,
-   *         "outputTokens": 96,
-   *         "totalTokens": 1912
-   *     }
-   */
-  usage?: RunStyleWritingResponseBodyPayloadUsage;
-  static names(): { [key: string]: string } {
-    return {
-      output: 'output',
-      usage: 'usage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      output: RunStyleWritingResponseBodyPayloadOutput,
-      usage: RunStyleWritingResponseBodyPayloadUsage,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunTagMiningAnalysisRequestTags extends $tea.Model {
-  /**
-   * @example
-   * xxxx
-   */
-  tagDefinePrompt?: string;
-  /**
-   * @example
-   * xxxx
-   */
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagDefinePrompt: 'tagDefinePrompt',
-      tagName: 'tagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagDefinePrompt: 'string',
-      tagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunTagMiningAnalysisResponseBodyHeader extends $tea.Model {
-  /**
-   * @example
-   * AccessForbidden
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * 错误信息
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * task-finished
-   */
-  event?: string;
-  /**
-   * @example
-   * xxxx
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * xxxx
-   */
-  taskId?: string;
-  /**
-   * @example
-   * xxxxx
-   */
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      event: 'event',
-      sessionId: 'sessionId',
-      taskId: 'taskId',
-      traceId: 'traceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      event: 'string',
-      sessionId: 'string',
-      taskId: 'string',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunTagMiningAnalysisResponseBodyPayloadOutput extends $tea.Model {
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunTagMiningAnalysisResponseBodyPayloadUsage extends $tea.Model {
-  /**
-   * @example
-   * 100
-   */
-  inputTokens?: number;
-  /**
-   * @example
-   * 100
-   */
-  outputTokens?: number;
-  /**
-   * @example
-   * 200
-   */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunTagMiningAnalysisResponseBodyPayload extends $tea.Model {
-  output?: RunTagMiningAnalysisResponseBodyPayloadOutput;
-  usage?: RunTagMiningAnalysisResponseBodyPayloadUsage;
-  static names(): { [key: string]: string } {
-    return {
-      output: 'output',
-      usage: 'usage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      output: RunTagMiningAnalysisResponseBodyPayloadOutput,
-      usage: RunTagMiningAnalysisResponseBodyPayloadUsage,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyHeader extends $tea.Model {
-  /**
-   * @example
-   * InvalidParam
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * Pop sign mismatch, please check log.
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * task-progress-start-generating
-   */
-  event?: string;
-  eventInfo?: string;
-  /**
-   * @example
-   * xxx
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * xxx
-   */
-  taskId?: string;
-  /**
-   * @example
-   * 2150432017236011824686132ecdbc
-   */
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      event: 'event',
-      eventInfo: 'eventInfo',
-      sessionId: 'sessionId',
-      taskId: 'taskId',
-      traceId: 'traceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      event: 'string',
-      eventInfo: 'string',
-      sessionId: 'string',
-      taskId: 'string',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultUsage extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  inputTokens?: number;
-  /**
-   * @example
-   * 1
-   */
-  outputTokens?: number;
-  /**
-   * @example
-   * 1
-   */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultVideoShotAnalysisResults extends $tea.Model {
-  /**
-   * @example
-   * 10000
-   */
-  endTime?: number;
-  /**
-   * @example
-   * 1000
-   */
-  startTime?: number;
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'endTime',
-      startTime: 'startTime',
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'number',
-      startTime: 'number',
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  generateFinished?: boolean;
-  text?: string;
-  usage?: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultUsage;
-  videoShotAnalysisResults?: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultVideoShotAnalysisResults[];
-  static names(): { [key: string]: string } {
-    return {
-      generateFinished: 'generateFinished',
-      text: 'text',
-      usage: 'usage',
-      videoShotAnalysisResults: 'videoShotAnalysisResults',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      generateFinished: 'boolean',
-      text: 'string',
-      usage: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultUsage,
-      videoShotAnalysisResults: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultVideoShotAnalysisResults },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResultVideoCaptions extends $tea.Model {
-  /**
-   * @example
-   * 1710432000000
-   */
-  endTime?: number;
-  /**
-   * @example
-   * 00:01
-   */
-  endTimeFormat?: string;
-  /**
-   * @example
-   * 0
-   */
-  startTime?: number;
-  /**
-   * @example
-   * 00:01
-   */
-  startTimeFormat?: string;
-  /**
-   * @example
-   * xxx
-   */
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'endTime',
-      endTimeFormat: 'endTimeFormat',
-      startTime: 'startTime',
-      startTimeFormat: 'startTimeFormat',
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'number',
-      endTimeFormat: 'string',
-      startTime: 'number',
-      startTimeFormat: 'string',
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  generateFinished?: boolean;
-  videoCaptions?: RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResultVideoCaptions[];
-  static names(): { [key: string]: string } {
-    return {
-      generateFinished: 'generateFinished',
-      videoCaptions: 'videoCaptions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      generateFinished: 'boolean',
-      videoCaptions: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResultVideoCaptions },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResultUsage extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  inputTokens?: number;
-  /**
-   * @example
-   * 1
-   */
-  outputTokens?: number;
-  /**
-   * @example
-   * 1
-   */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  generateFinished?: boolean;
-  text?: string;
-  usage?: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResultUsage;
-  static names(): { [key: string]: string } {
-    return {
-      generateFinished: 'generateFinished',
-      text: 'text',
-      usage: 'usage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      generateFinished: 'boolean',
-      text: 'string',
-      usage: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResultUsage,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultUsage extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  inputTokens?: number;
-  /**
-   * @example
-   * 1
-   */
-  outputTokens?: number;
-  /**
-   * @example
-   * 1
-   */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodesChildNodes extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodes extends $tea.Model {
-  childNodes?: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodesChildNodes[];
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      childNodes: 'childNodes',
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      childNodes: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodesChildNodes },
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappings extends $tea.Model {
-  childNodes?: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodes[];
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      childNodes: 'childNodes',
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      childNodes: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodes },
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  generateFinished?: boolean;
-  text?: string;
-  usage?: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultUsage;
-  videoMindMappings?: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappings[];
-  static names(): { [key: string]: string } {
-    return {
-      generateFinished: 'generateFinished',
-      text: 'text',
-      usage: 'usage',
-      videoMindMappings: 'videoMindMappings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      generateFinished: 'boolean',
-      text: 'string',
-      usage: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultUsage,
-      videoMindMappings: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappings },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResultUsage extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  inputTokens?: number;
-  /**
-   * @example
-   * 1
-   */
-  outputTokens?: number;
+  modelId?: string;
   /**
    * @example
    * 2
    */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult extends $tea.Model {
+  snapshotInterval?: number;
+  videoExtraInfo?: string;
+  videoModelCustomPromptTemplate?: string;
   /**
    * @example
-   * true
+   * qwen-vl-max-latest
    */
-  generateFinished?: boolean;
-  text?: string;
-  usage?: RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResultUsage;
+  videoModelId?: string;
+  videoRolesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * http://xxxx.mp4
+   */
+  videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      generateFinished: 'generateFinished',
-      text: 'text',
-      usage: 'usage',
+      frameSampleMethodShrink: 'frameSampleMethod',
+      generateOptionsShrink: 'generateOptions',
+      language: 'language',
+      modelCustomPromptTemplate: 'modelCustomPromptTemplate',
+      modelCustomPromptTemplateId: 'modelCustomPromptTemplateId',
+      modelId: 'modelId',
+      snapshotInterval: 'snapshotInterval',
+      videoExtraInfo: 'videoExtraInfo',
+      videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
+      videoModelId: 'videoModelId',
+      videoRolesShrink: 'videoRoles',
+      videoUrl: 'videoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      generateFinished: 'boolean',
-      text: 'string',
-      usage: RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResultUsage,
+      frameSampleMethodShrink: 'string',
+      generateOptionsShrink: 'string',
+      language: 'string',
+      modelCustomPromptTemplate: 'string',
+      modelCustomPromptTemplateId: 'string',
+      modelId: 'string',
+      snapshotInterval: 'number',
+      videoExtraInfo: 'string',
+      videoModelCustomPromptTemplate: 'string',
+      videoModelId: 'string',
+      videoRolesShrink: 'string',
+      videoUrl: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -4158,30 +6578,60 @@ export class RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult e
   }
 }
 
-export class RunVideoAnalysisResponseBodyPayloadOutput extends $tea.Model {
-  videoAnalysisResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult;
-  videoCaptionResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult;
-  videoGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult;
-  videoMindMappingGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult;
-  videoTitleGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult;
+export class SubmitVideoAnalysisTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
+  code?: string;
+  data?: SubmitVideoAnalysisTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 085BE2D2-BB7E-59A6-B688-F2CB32124E7F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      videoAnalysisResult: 'videoAnalysisResult',
-      videoCaptionResult: 'videoCaptionResult',
-      videoGenerateResult: 'videoGenerateResult',
-      videoMindMappingGenerateResult: 'videoMindMappingGenerateResult',
-      videoTitleGenerateResult: 'videoTitleGenerateResult',
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoAnalysisResult: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult,
-      videoCaptionResult: RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult,
-      videoGenerateResult: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult,
-      videoMindMappingGenerateResult: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult,
-      videoTitleGenerateResult: RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult,
+      code: 'string',
+      data: SubmitVideoAnalysisTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
     };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -4189,24 +6639,34 @@ export class RunVideoAnalysisResponseBodyPayloadOutput extends $tea.Model {
   }
 }
 
-export class RunVideoAnalysisResponseBodyPayloadUsage extends $tea.Model {
-  inputTokens?: number;
-  outputTokens?: number;
-  totalTokens?: number;
+export class SubmitVideoAnalysisTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitVideoAnalysisTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitVideoAnalysisTaskResponseBody,
     };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -4214,21 +6674,122 @@ export class RunVideoAnalysisResponseBodyPayloadUsage extends $tea.Model {
   }
 }
 
-export class RunVideoAnalysisResponseBodyPayload extends $tea.Model {
-  output?: RunVideoAnalysisResponseBodyPayloadOutput;
-  usage?: RunVideoAnalysisResponseBodyPayloadUsage;
+export class UpdateVideoAnalysisConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  asyncConcurrency?: number;
   static names(): { [key: string]: string } {
     return {
-      output: 'output',
-      usage: 'usage',
+      asyncConcurrency: 'asyncConcurrency',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      output: RunVideoAnalysisResponseBodyPayloadOutput,
-      usage: RunVideoAnalysisResponseBodyPayloadUsage,
+      asyncConcurrency: 'number',
     };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVideoAnalysisConfigResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 5D0E915E-655D-59A8-894F-93873F73AAE5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVideoAnalysisConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVideoAnalysisConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateVideoAnalysisConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -4239,7 +6800,7 @@ export class RunVideoAnalysisResponseBodyPayload extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -4248,15 +6809,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -4267,29 +6828,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateBroadcastNewsResponse
    */
-  async generateBroadcastNewsWithOptions(workspaceId: string, request: GenerateBroadcastNewsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateBroadcastNewsResponse> {
-    Util.validateModel(request);
+  async generateBroadcastNewsWithOptions(workspaceId: string, request: GenerateBroadcastNewsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GenerateBroadcastNewsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.prompt)) {
+    if (!$dara.isNull(request.prompt)) {
       body["prompt"] = request.prompt;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GenerateBroadcastNews",
       version: "2024-08-01",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/GenerateBroadcastNews`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/GenerateBroadcastNews`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateBroadcastNewsResponse>(await this.callApi(params, req, runtime), new GenerateBroadcastNewsResponse({}));
+    return $dara.cast<GenerateBroadcastNewsResponse>(await this.callApi(params, req, runtime), new GenerateBroadcastNewsResponse({}));
   }
 
   /**
@@ -4299,7 +6860,7 @@ export default class Client extends OpenApi {
    * @returns GenerateBroadcastNewsResponse
    */
   async generateBroadcastNews(workspaceId: string, request: GenerateBroadcastNewsRequest): Promise<GenerateBroadcastNewsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.generateBroadcastNewsWithOptions(workspaceId, request, headers, runtime);
   }
@@ -4312,51 +6873,51 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateOutputFormatResponse
    */
-  async generateOutputFormatWithOptions(workspaceId: string, tmpReq: GenerateOutputFormatRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateOutputFormatResponse> {
-    Util.validateModel(tmpReq);
+  async generateOutputFormatWithOptions(workspaceId: string, tmpReq: GenerateOutputFormatRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GenerateOutputFormatResponse> {
+    tmpReq.validate();
     let request = new GenerateOutputFormatShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.tags)) {
+    if (!$dara.isNull(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.businessType)) {
+    if (!$dara.isNull(request.businessType)) {
       body["businessType"] = request.businessType;
     }
 
-    if (!Util.isUnset(request.content)) {
+    if (!$dara.isNull(request.content)) {
       body["content"] = request.content;
     }
 
-    if (!Util.isUnset(request.extraInfo)) {
+    if (!$dara.isNull(request.extraInfo)) {
       body["extraInfo"] = request.extraInfo;
     }
 
-    if (!Util.isUnset(request.tagsShrink)) {
+    if (!$dara.isNull(request.tagsShrink)) {
       body["tags"] = request.tagsShrink;
     }
 
-    if (!Util.isUnset(request.taskDescription)) {
+    if (!$dara.isNull(request.taskDescription)) {
       body["taskDescription"] = request.taskDescription;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GenerateOutputFormat",
       version: "2024-08-01",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/generateOutputFormat`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/generateOutputFormat`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateOutputFormatResponse>(await this.callApi(params, req, runtime), new GenerateOutputFormatResponse({}));
+    return $dara.cast<GenerateOutputFormatResponse>(await this.callApi(params, req, runtime), new GenerateOutputFormatResponse({}));
   }
 
   /**
@@ -4366,9 +6927,89 @@ export default class Client extends OpenApi {
    * @returns GenerateOutputFormatResponse
    */
   async generateOutputFormat(workspaceId: string, request: GenerateOutputFormatRequest): Promise<GenerateOutputFormatResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.generateOutputFormatWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 视频理解-获取配置
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoAnalysisConfigResponse
+   */
+  async getVideoAnalysisConfigWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetVideoAnalysisConfigResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoAnalysisConfig",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/videoAnalysis/getVideoAnalysisConfig`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<GetVideoAnalysisConfigResponse>(await this.callApi(params, req, runtime), new GetVideoAnalysisConfigResponse({}));
+  }
+
+  /**
+   * 视频理解-获取配置
+   * @returns GetVideoAnalysisConfigResponse
+   */
+  async getVideoAnalysisConfig(workspaceId: string): Promise<GetVideoAnalysisConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getVideoAnalysisConfigWithOptions(workspaceId, headers, runtime);
+  }
+
+  /**
+   * 轻应用-获取视频理解异步任务结果
+   * 
+   * @param request - GetVideoAnalysisTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoAnalysisTaskResponse
+   */
+  async getVideoAnalysisTaskWithOptions(workspaceId: string, request: GetVideoAnalysisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetVideoAnalysisTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoAnalysisTask",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/videoAnalysis/getVideoAnalysisTask`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<GetVideoAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetVideoAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 轻应用-获取视频理解异步任务结果
+   * 
+   * @param request - GetVideoAnalysisTaskRequest
+   * @returns GetVideoAnalysisTaskResponse
+   */
+  async getVideoAnalysisTask(workspaceId: string, request: GetVideoAnalysisTaskRequest): Promise<GetVideoAnalysisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getVideoAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -4379,45 +7020,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListHotTopicSummariesResponse
    */
-  async listHotTopicSummariesWithOptions(workspaceId: string, request: ListHotTopicSummariesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListHotTopicSummariesResponse> {
-    Util.validateModel(request);
+  async listHotTopicSummariesWithOptions(workspaceId: string, request: ListHotTopicSummariesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListHotTopicSummariesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.category)) {
+    if (!$dara.isNull(request.category)) {
       body["category"] = request.category;
     }
 
-    if (!Util.isUnset(request.hotTopic)) {
+    if (!$dara.isNull(request.hotTopic)) {
       body["hotTopic"] = request.hotTopic;
     }
 
-    if (!Util.isUnset(request.hotTopicVersion)) {
+    if (!$dara.isNull(request.hotTopicVersion)) {
       body["hotTopicVersion"] = request.hotTopicVersion;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       body["maxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["nextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListHotTopicSummaries",
       version: "2024-08-01",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/listHotTopicSummaries`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/listHotTopicSummaries`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListHotTopicSummariesResponse>(await this.callApi(params, req, runtime), new ListHotTopicSummariesResponse({}));
+    return $dara.cast<ListHotTopicSummariesResponse>(await this.callApi(params, req, runtime), new ListHotTopicSummariesResponse({}));
   }
 
   /**
@@ -4427,7 +7068,7 @@ export default class Client extends OpenApi {
    * @returns ListHotTopicSummariesResponse
    */
   async listHotTopicSummaries(workspaceId: string, request: ListHotTopicSummariesRequest): Promise<ListHotTopicSummariesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listHotTopicSummariesWithOptions(workspaceId, request, headers, runtime);
   }
@@ -4440,91 +7081,91 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunHotTopicChatResponse
    */
-  async runHotTopicChatWithOptions(workspaceId: string, tmpReq: RunHotTopicChatRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunHotTopicChatResponse> {
-    Util.validateModel(tmpReq);
+  async runHotTopicChatWithOptions(workspaceId: string, tmpReq: RunHotTopicChatRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunHotTopicChatResponse> {
+    tmpReq.validate();
     let request = new RunHotTopicChatShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.generateOptions)) {
+    if (!$dara.isNull(tmpReq.generateOptions)) {
       request.generateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.generateOptions, "generateOptions", "json");
     }
 
-    if (!Util.isUnset(tmpReq.hotTopics)) {
+    if (!$dara.isNull(tmpReq.hotTopics)) {
       request.hotTopicsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hotTopics, "hotTopics", "json");
     }
 
-    if (!Util.isUnset(tmpReq.messages)) {
+    if (!$dara.isNull(tmpReq.messages)) {
       request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "messages", "json");
     }
 
-    if (!Util.isUnset(tmpReq.stepForBroadcastContentConfig)) {
+    if (!$dara.isNull(tmpReq.stepForBroadcastContentConfig)) {
       request.stepForBroadcastContentConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stepForBroadcastContentConfig, "stepForBroadcastContentConfig", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.category)) {
+    if (!$dara.isNull(request.category)) {
       body["category"] = request.category;
     }
 
-    if (!Util.isUnset(request.generateOptionsShrink)) {
+    if (!$dara.isNull(request.generateOptionsShrink)) {
       body["generateOptions"] = request.generateOptionsShrink;
     }
 
-    if (!Util.isUnset(request.hotTopicVersion)) {
+    if (!$dara.isNull(request.hotTopicVersion)) {
       body["hotTopicVersion"] = request.hotTopicVersion;
     }
 
-    if (!Util.isUnset(request.hotTopicsShrink)) {
+    if (!$dara.isNull(request.hotTopicsShrink)) {
       body["hotTopics"] = request.hotTopicsShrink;
     }
 
-    if (!Util.isUnset(request.imageCount)) {
+    if (!$dara.isNull(request.imageCount)) {
       body["imageCount"] = request.imageCount;
     }
 
-    if (!Util.isUnset(request.messagesShrink)) {
+    if (!$dara.isNull(request.messagesShrink)) {
       body["messages"] = request.messagesShrink;
     }
 
-    if (!Util.isUnset(request.modelCustomPromptTemplate)) {
+    if (!$dara.isNull(request.modelCustomPromptTemplate)) {
       body["modelCustomPromptTemplate"] = request.modelCustomPromptTemplate;
     }
 
-    if (!Util.isUnset(request.modelId)) {
+    if (!$dara.isNull(request.modelId)) {
       body["modelId"] = request.modelId;
     }
 
-    if (!Util.isUnset(request.originalSessionId)) {
+    if (!$dara.isNull(request.originalSessionId)) {
       body["originalSessionId"] = request.originalSessionId;
     }
 
-    if (!Util.isUnset(request.prompt)) {
+    if (!$dara.isNull(request.prompt)) {
       body["prompt"] = request.prompt;
     }
 
-    if (!Util.isUnset(request.stepForBroadcastContentConfigShrink)) {
+    if (!$dara.isNull(request.stepForBroadcastContentConfigShrink)) {
       body["stepForBroadcastContentConfig"] = request.stepForBroadcastContentConfigShrink;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["taskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunHotTopicChat",
       version: "2024-08-01",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runHotTopicChat`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runHotTopicChat`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunHotTopicChatResponse>(await this.callApi(params, req, runtime), new RunHotTopicChatResponse({}));
+    return $dara.cast<RunHotTopicChatResponse>(await this.callApi(params, req, runtime), new RunHotTopicChatResponse({}));
   }
 
   /**
@@ -4534,7 +7175,7 @@ export default class Client extends OpenApi {
    * @returns RunHotTopicChatResponse
    */
   async runHotTopicChat(workspaceId: string, request: RunHotTopicChatRequest): Promise<RunHotTopicChatResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runHotTopicChatWithOptions(workspaceId, request, headers, runtime);
   }
@@ -4547,47 +7188,47 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunHotTopicSummaryResponse
    */
-  async runHotTopicSummaryWithOptions(workspaceId: string, tmpReq: RunHotTopicSummaryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunHotTopicSummaryResponse> {
-    Util.validateModel(tmpReq);
+  async runHotTopicSummaryWithOptions(workspaceId: string, tmpReq: RunHotTopicSummaryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunHotTopicSummaryResponse> {
+    tmpReq.validate();
     let request = new RunHotTopicSummaryShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.stepForCustomSummaryStyleConfig)) {
+    if (!$dara.isNull(tmpReq.stepForCustomSummaryStyleConfig)) {
       request.stepForCustomSummaryStyleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stepForCustomSummaryStyleConfig, "stepForCustomSummaryStyleConfig", "json");
     }
 
-    if (!Util.isUnset(tmpReq.topicIds)) {
+    if (!$dara.isNull(tmpReq.topicIds)) {
       request.topicIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topicIds, "topicIds", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.hotTopicVersion)) {
+    if (!$dara.isNull(request.hotTopicVersion)) {
       body["hotTopicVersion"] = request.hotTopicVersion;
     }
 
-    if (!Util.isUnset(request.stepForCustomSummaryStyleConfigShrink)) {
+    if (!$dara.isNull(request.stepForCustomSummaryStyleConfigShrink)) {
       body["stepForCustomSummaryStyleConfig"] = request.stepForCustomSummaryStyleConfigShrink;
     }
 
-    if (!Util.isUnset(request.topicIdsShrink)) {
+    if (!$dara.isNull(request.topicIdsShrink)) {
       body["topicIds"] = request.topicIdsShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunHotTopicSummary",
       version: "2024-08-01",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runHotTopicSummary`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runHotTopicSummary`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunHotTopicSummaryResponse>(await this.callApi(params, req, runtime), new RunHotTopicSummaryResponse({}));
+    return $dara.cast<RunHotTopicSummaryResponse>(await this.callApi(params, req, runtime), new RunHotTopicSummaryResponse({}));
   }
 
   /**
@@ -4597,7 +7238,7 @@ export default class Client extends OpenApi {
    * @returns RunHotTopicSummaryResponse
    */
   async runHotTopicSummary(workspaceId: string, request: RunHotTopicSummaryRequest): Promise<RunHotTopicSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runHotTopicSummaryWithOptions(workspaceId, request, headers, runtime);
   }
@@ -4610,47 +7251,47 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunMarketingInformationExtractResponse
    */
-  async runMarketingInformationExtractWithOptions(workspaceId: string, tmpReq: RunMarketingInformationExtractRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunMarketingInformationExtractResponse> {
-    Util.validateModel(tmpReq);
+  async runMarketingInformationExtractWithOptions(workspaceId: string, tmpReq: RunMarketingInformationExtractRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunMarketingInformationExtractResponse> {
+    tmpReq.validate();
     let request = new RunMarketingInformationExtractShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.sourceMaterials)) {
+    if (!$dara.isNull(tmpReq.sourceMaterials)) {
       request.sourceMaterialsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceMaterials, "sourceMaterials", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.customPrompt)) {
+    if (!$dara.isNull(request.customPrompt)) {
       body["customPrompt"] = request.customPrompt;
     }
 
-    if (!Util.isUnset(request.extractType)) {
+    if (!$dara.isNull(request.extractType)) {
       body["extractType"] = request.extractType;
     }
 
-    if (!Util.isUnset(request.modelId)) {
+    if (!$dara.isNull(request.modelId)) {
       body["modelId"] = request.modelId;
     }
 
-    if (!Util.isUnset(request.sourceMaterialsShrink)) {
+    if (!$dara.isNull(request.sourceMaterialsShrink)) {
       body["sourceMaterials"] = request.sourceMaterialsShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunMarketingInformationExtract",
       version: "2024-08-01",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runMarketingInformationExtract`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runMarketingInformationExtract`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunMarketingInformationExtractResponse>(await this.callApi(params, req, runtime), new RunMarketingInformationExtractResponse({}));
+    return $dara.cast<RunMarketingInformationExtractResponse>(await this.callApi(params, req, runtime), new RunMarketingInformationExtractResponse({}));
   }
 
   /**
@@ -4660,7 +7301,7 @@ export default class Client extends OpenApi {
    * @returns RunMarketingInformationExtractResponse
    */
   async runMarketingInformationExtract(workspaceId: string, request: RunMarketingInformationExtractRequest): Promise<RunMarketingInformationExtractResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runMarketingInformationExtractWithOptions(workspaceId, request, headers, runtime);
   }
@@ -4673,53 +7314,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunMarketingInformationWritingResponse
    */
-  async runMarketingInformationWritingWithOptions(workspaceId: string, request: RunMarketingInformationWritingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunMarketingInformationWritingResponse> {
-    Util.validateModel(request);
+  async runMarketingInformationWritingWithOptions(workspaceId: string, request: RunMarketingInformationWritingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunMarketingInformationWritingResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.customLimitation)) {
+    if (!$dara.isNull(request.customLimitation)) {
       body["customLimitation"] = request.customLimitation;
     }
 
-    if (!Util.isUnset(request.customPrompt)) {
+    if (!$dara.isNull(request.customPrompt)) {
       body["customPrompt"] = request.customPrompt;
     }
 
-    if (!Util.isUnset(request.inputExample)) {
+    if (!$dara.isNull(request.inputExample)) {
       body["inputExample"] = request.inputExample;
     }
 
-    if (!Util.isUnset(request.modelId)) {
+    if (!$dara.isNull(request.modelId)) {
       body["modelId"] = request.modelId;
     }
 
-    if (!Util.isUnset(request.outputExample)) {
+    if (!$dara.isNull(request.outputExample)) {
       body["outputExample"] = request.outputExample;
     }
 
-    if (!Util.isUnset(request.sourceMaterial)) {
+    if (!$dara.isNull(request.sourceMaterial)) {
       body["sourceMaterial"] = request.sourceMaterial;
     }
 
-    if (!Util.isUnset(request.writingType)) {
+    if (!$dara.isNull(request.writingType)) {
       body["writingType"] = request.writingType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunMarketingInformationWriting",
       version: "2024-08-01",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runMarketingInformationWriting`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runMarketingInformationWriting`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunMarketingInformationWritingResponse>(await this.callApi(params, req, runtime), new RunMarketingInformationWritingResponse({}));
+    return $dara.cast<RunMarketingInformationWritingResponse>(await this.callApi(params, req, runtime), new RunMarketingInformationWritingResponse({}));
   }
 
   /**
@@ -4729,7 +7370,7 @@ export default class Client extends OpenApi {
    * @returns RunMarketingInformationWritingResponse
    */
   async runMarketingInformationWriting(workspaceId: string, request: RunMarketingInformationWritingRequest): Promise<RunMarketingInformationWritingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runMarketingInformationWritingWithOptions(workspaceId, request, headers, runtime);
   }
@@ -4742,37 +7383,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunScriptContinueResponse
    */
-  async runScriptContinueWithOptions(workspaceId: string, request: RunScriptContinueRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunScriptContinueResponse> {
-    Util.validateModel(request);
+  async runScriptContinueWithOptions(workspaceId: string, request: RunScriptContinueRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunScriptContinueResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.scriptSummary)) {
+    if (!$dara.isNull(request.scriptSummary)) {
       body["scriptSummary"] = request.scriptSummary;
     }
 
-    if (!Util.isUnset(request.scriptTypeKeyword)) {
+    if (!$dara.isNull(request.scriptTypeKeyword)) {
       body["scriptTypeKeyword"] = request.scriptTypeKeyword;
     }
 
-    if (!Util.isUnset(request.userProvidedContent)) {
+    if (!$dara.isNull(request.userProvidedContent)) {
       body["userProvidedContent"] = request.userProvidedContent;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunScriptContinue",
       version: "2024-08-01",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runScriptContinue`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runScriptContinue`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunScriptContinueResponse>(await this.callApi(params, req, runtime), new RunScriptContinueResponse({}));
+    return $dara.cast<RunScriptContinueResponse>(await this.callApi(params, req, runtime), new RunScriptContinueResponse({}));
   }
 
   /**
@@ -4782,7 +7423,7 @@ export default class Client extends OpenApi {
    * @returns RunScriptContinueResponse
    */
   async runScriptContinue(workspaceId: string, request: RunScriptContinueRequest): Promise<RunScriptContinueResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runScriptContinueWithOptions(workspaceId, request, headers, runtime);
   }
@@ -4795,53 +7436,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunScriptPlanningResponse
    */
-  async runScriptPlanningWithOptions(workspaceId: string, request: RunScriptPlanningRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunScriptPlanningResponse> {
-    Util.validateModel(request);
+  async runScriptPlanningWithOptions(workspaceId: string, request: RunScriptPlanningRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunScriptPlanningResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.additionalNote)) {
+    if (!$dara.isNull(request.additionalNote)) {
       body["additionalNote"] = request.additionalNote;
     }
 
-    if (!Util.isUnset(request.dialogueInScene)) {
+    if (!$dara.isNull(request.dialogueInScene)) {
       body["dialogueInScene"] = request.dialogueInScene;
     }
 
-    if (!Util.isUnset(request.plotConflict)) {
+    if (!$dara.isNull(request.plotConflict)) {
       body["plotConflict"] = request.plotConflict;
     }
 
-    if (!Util.isUnset(request.scriptName)) {
+    if (!$dara.isNull(request.scriptName)) {
       body["scriptName"] = request.scriptName;
     }
 
-    if (!Util.isUnset(request.scriptShotCount)) {
+    if (!$dara.isNull(request.scriptShotCount)) {
       body["scriptShotCount"] = request.scriptShotCount;
     }
 
-    if (!Util.isUnset(request.scriptSummary)) {
+    if (!$dara.isNull(request.scriptSummary)) {
       body["scriptSummary"] = request.scriptSummary;
     }
 
-    if (!Util.isUnset(request.scriptTypeKeyword)) {
+    if (!$dara.isNull(request.scriptTypeKeyword)) {
       body["scriptTypeKeyword"] = request.scriptTypeKeyword;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunScriptPlanning",
       version: "2024-08-01",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runScriptPlanning`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runScriptPlanning`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunScriptPlanningResponse>(await this.callApi(params, req, runtime), new RunScriptPlanningResponse({}));
+    return $dara.cast<RunScriptPlanningResponse>(await this.callApi(params, req, runtime), new RunScriptPlanningResponse({}));
   }
 
   /**
@@ -4851,7 +7492,7 @@ export default class Client extends OpenApi {
    * @returns RunScriptPlanningResponse
    */
   async runScriptPlanning(workspaceId: string, request: RunScriptPlanningRequest): Promise<RunScriptPlanningResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runScriptPlanningWithOptions(workspaceId, request, headers, runtime);
   }
@@ -4864,51 +7505,51 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunStyleWritingResponse
    */
-  async runStyleWritingWithOptions(workspaceId: string, tmpReq: RunStyleWritingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunStyleWritingResponse> {
-    Util.validateModel(tmpReq);
+  async runStyleWritingWithOptions(workspaceId: string, tmpReq: RunStyleWritingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunStyleWritingResponse> {
+    tmpReq.validate();
     let request = new RunStyleWritingShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.learningSamples)) {
+    if (!$dara.isNull(tmpReq.learningSamples)) {
       request.learningSamplesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.learningSamples, "learningSamples", "json");
     }
 
-    if (!Util.isUnset(tmpReq.referenceMaterials)) {
+    if (!$dara.isNull(tmpReq.referenceMaterials)) {
       request.referenceMaterialsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.referenceMaterials, "referenceMaterials", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.learningSamplesShrink)) {
+    if (!$dara.isNull(request.learningSamplesShrink)) {
       body["learningSamples"] = request.learningSamplesShrink;
     }
 
-    if (!Util.isUnset(request.referenceMaterialsShrink)) {
+    if (!$dara.isNull(request.referenceMaterialsShrink)) {
       body["referenceMaterials"] = request.referenceMaterialsShrink;
     }
 
-    if (!Util.isUnset(request.styleFeature)) {
+    if (!$dara.isNull(request.styleFeature)) {
       body["styleFeature"] = request.styleFeature;
     }
 
-    if (!Util.isUnset(request.writingTheme)) {
+    if (!$dara.isNull(request.writingTheme)) {
       body["writingTheme"] = request.writingTheme;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunStyleWriting",
       version: "2024-08-01",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runStyleWriting`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runStyleWriting`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunStyleWritingResponse>(await this.callApi(params, req, runtime), new RunStyleWritingResponse({}));
+    return $dara.cast<RunStyleWritingResponse>(await this.callApi(params, req, runtime), new RunStyleWritingResponse({}));
   }
 
   /**
@@ -4918,7 +7559,7 @@ export default class Client extends OpenApi {
    * @returns RunStyleWritingResponse
    */
   async runStyleWriting(workspaceId: string, request: RunStyleWritingRequest): Promise<RunStyleWritingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runStyleWritingWithOptions(workspaceId, request, headers, runtime);
   }
@@ -4931,59 +7572,59 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunTagMiningAnalysisResponse
    */
-  async runTagMiningAnalysisWithOptions(workspaceId: string, tmpReq: RunTagMiningAnalysisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunTagMiningAnalysisResponse> {
-    Util.validateModel(tmpReq);
+  async runTagMiningAnalysisWithOptions(workspaceId: string, tmpReq: RunTagMiningAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunTagMiningAnalysisResponse> {
+    tmpReq.validate();
     let request = new RunTagMiningAnalysisShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.tags)) {
+    if (!$dara.isNull(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.businessType)) {
+    if (!$dara.isNull(request.businessType)) {
       body["businessType"] = request.businessType;
     }
 
-    if (!Util.isUnset(request.content)) {
+    if (!$dara.isNull(request.content)) {
       body["content"] = request.content;
     }
 
-    if (!Util.isUnset(request.extraInfo)) {
+    if (!$dara.isNull(request.extraInfo)) {
       body["extraInfo"] = request.extraInfo;
     }
 
-    if (!Util.isUnset(request.modelId)) {
+    if (!$dara.isNull(request.modelId)) {
       body["modelId"] = request.modelId;
     }
 
-    if (!Util.isUnset(request.outputFormat)) {
+    if (!$dara.isNull(request.outputFormat)) {
       body["outputFormat"] = request.outputFormat;
     }
 
-    if (!Util.isUnset(request.tagsShrink)) {
+    if (!$dara.isNull(request.tagsShrink)) {
       body["tags"] = request.tagsShrink;
     }
 
-    if (!Util.isUnset(request.taskDescription)) {
+    if (!$dara.isNull(request.taskDescription)) {
       body["taskDescription"] = request.taskDescription;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunTagMiningAnalysis",
       version: "2024-08-01",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runTagMiningAnalysis`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runTagMiningAnalysis`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunTagMiningAnalysisResponse>(await this.callApi(params, req, runtime), new RunTagMiningAnalysisResponse({}));
+    return $dara.cast<RunTagMiningAnalysisResponse>(await this.callApi(params, req, runtime), new RunTagMiningAnalysisResponse({}));
   }
 
   /**
@@ -4993,7 +7634,7 @@ export default class Client extends OpenApi {
    * @returns RunTagMiningAnalysisResponse
    */
   async runTagMiningAnalysis(workspaceId: string, request: RunTagMiningAnalysisRequest): Promise<RunTagMiningAnalysisResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runTagMiningAnalysisWithOptions(workspaceId, request, headers, runtime);
   }
@@ -5006,75 +7647,95 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunVideoAnalysisResponse
    */
-  async runVideoAnalysisWithOptions(workspaceId: string, tmpReq: RunVideoAnalysisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunVideoAnalysisResponse> {
-    Util.validateModel(tmpReq);
+  async runVideoAnalysisWithOptions(workspaceId: string, tmpReq: RunVideoAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunVideoAnalysisResponse> {
+    tmpReq.validate();
     let request = new RunVideoAnalysisShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.generateOptions)) {
+    if (!$dara.isNull(tmpReq.frameSampleMethod)) {
+      request.frameSampleMethodShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.frameSampleMethod, "frameSampleMethod", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.generateOptions)) {
       request.generateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.generateOptions, "generateOptions", "json");
     }
 
+    if (!$dara.isNull(tmpReq.videoRoles)) {
+      request.videoRolesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoRoles, "videoRoles", "json");
+    }
+
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.generateOptionsShrink)) {
+    if (!$dara.isNull(request.frameSampleMethodShrink)) {
+      body["frameSampleMethod"] = request.frameSampleMethodShrink;
+    }
+
+    if (!$dara.isNull(request.generateOptionsShrink)) {
       body["generateOptions"] = request.generateOptionsShrink;
     }
 
-    if (!Util.isUnset(request.modelCustomPromptTemplate)) {
+    if (!$dara.isNull(request.language)) {
+      body["language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.modelCustomPromptTemplate)) {
       body["modelCustomPromptTemplate"] = request.modelCustomPromptTemplate;
     }
 
-    if (!Util.isUnset(request.modelCustomPromptTemplateId)) {
+    if (!$dara.isNull(request.modelCustomPromptTemplateId)) {
       body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId;
     }
 
-    if (!Util.isUnset(request.modelId)) {
+    if (!$dara.isNull(request.modelId)) {
       body["modelId"] = request.modelId;
     }
 
-    if (!Util.isUnset(request.originalSessionId)) {
+    if (!$dara.isNull(request.originalSessionId)) {
       body["originalSessionId"] = request.originalSessionId;
     }
 
-    if (!Util.isUnset(request.snapshotInterval)) {
+    if (!$dara.isNull(request.snapshotInterval)) {
       body["snapshotInterval"] = request.snapshotInterval;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["taskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.videoExtraInfo)) {
+    if (!$dara.isNull(request.videoExtraInfo)) {
       body["videoExtraInfo"] = request.videoExtraInfo;
     }
 
-    if (!Util.isUnset(request.videoModelCustomPromptTemplate)) {
+    if (!$dara.isNull(request.videoModelCustomPromptTemplate)) {
       body["videoModelCustomPromptTemplate"] = request.videoModelCustomPromptTemplate;
     }
 
-    if (!Util.isUnset(request.videoModelId)) {
+    if (!$dara.isNull(request.videoModelId)) {
       body["videoModelId"] = request.videoModelId;
     }
 
-    if (!Util.isUnset(request.videoUrl)) {
+    if (!$dara.isNull(request.videoRolesShrink)) {
+      body["videoRoles"] = request.videoRolesShrink;
+    }
+
+    if (!$dara.isNull(request.videoUrl)) {
       body["videoUrl"] = request.videoUrl;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunVideoAnalysis",
       version: "2024-08-01",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runVideoAnalysis`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runVideoAnalysis`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunVideoAnalysisResponse>(await this.callApi(params, req, runtime), new RunVideoAnalysisResponse({}));
+    return $dara.cast<RunVideoAnalysisResponse>(await this.callApi(params, req, runtime), new RunVideoAnalysisResponse({}));
   }
 
   /**
@@ -5084,9 +7745,157 @@ export default class Client extends OpenApi {
    * @returns RunVideoAnalysisResponse
    */
   async runVideoAnalysis(workspaceId: string, request: RunVideoAnalysisRequest): Promise<RunVideoAnalysisResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runVideoAnalysisWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 轻应用-提交视频理解任务
+   * 
+   * @param tmpReq - SubmitVideoAnalysisTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitVideoAnalysisTaskResponse
+   */
+  async submitVideoAnalysisTaskWithOptions(workspaceId: string, tmpReq: SubmitVideoAnalysisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<SubmitVideoAnalysisTaskResponse> {
+    tmpReq.validate();
+    let request = new SubmitVideoAnalysisTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.frameSampleMethod)) {
+      request.frameSampleMethodShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.frameSampleMethod, "frameSampleMethod", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.generateOptions)) {
+      request.generateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.generateOptions, "generateOptions", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.videoRoles)) {
+      request.videoRolesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoRoles, "videoRoles", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.frameSampleMethodShrink)) {
+      body["frameSampleMethod"] = request.frameSampleMethodShrink;
+    }
+
+    if (!$dara.isNull(request.generateOptionsShrink)) {
+      body["generateOptions"] = request.generateOptionsShrink;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.modelCustomPromptTemplate)) {
+      body["modelCustomPromptTemplate"] = request.modelCustomPromptTemplate;
+    }
+
+    if (!$dara.isNull(request.modelCustomPromptTemplateId)) {
+      body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.snapshotInterval)) {
+      body["snapshotInterval"] = request.snapshotInterval;
+    }
+
+    if (!$dara.isNull(request.videoExtraInfo)) {
+      body["videoExtraInfo"] = request.videoExtraInfo;
+    }
+
+    if (!$dara.isNull(request.videoModelCustomPromptTemplate)) {
+      body["videoModelCustomPromptTemplate"] = request.videoModelCustomPromptTemplate;
+    }
+
+    if (!$dara.isNull(request.videoModelId)) {
+      body["videoModelId"] = request.videoModelId;
+    }
+
+    if (!$dara.isNull(request.videoRolesShrink)) {
+      body["videoRoles"] = request.videoRolesShrink;
+    }
+
+    if (!$dara.isNull(request.videoUrl)) {
+      body["videoUrl"] = request.videoUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitVideoAnalysisTask",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/videoAnalysis/submitVideoAnalysisTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<SubmitVideoAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitVideoAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 轻应用-提交视频理解任务
+   * 
+   * @param request - SubmitVideoAnalysisTaskRequest
+   * @returns SubmitVideoAnalysisTaskResponse
+   */
+  async submitVideoAnalysisTask(workspaceId: string, request: SubmitVideoAnalysisTaskRequest): Promise<SubmitVideoAnalysisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitVideoAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 视频理解-更新配置
+   * 
+   * @param request - UpdateVideoAnalysisConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVideoAnalysisConfigResponse
+   */
+  async updateVideoAnalysisConfigWithOptions(workspaceId: string, request: UpdateVideoAnalysisConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateVideoAnalysisConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.asyncConcurrency)) {
+      body["asyncConcurrency"] = request.asyncConcurrency;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVideoAnalysisConfig",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/videoAnalysis/updateVideoAnalysisConfig`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<UpdateVideoAnalysisConfigResponse>(await this.callApi(params, req, runtime), new UpdateVideoAnalysisConfigResponse({}));
+  }
+
+  /**
+   * 视频理解-更新配置
+   * 
+   * @param request - UpdateVideoAnalysisConfigRequest
+   * @returns UpdateVideoAnalysisConfigResponse
+   */
+  async updateVideoAnalysisConfig(workspaceId: string, request: UpdateVideoAnalysisConfigRequest): Promise<UpdateVideoAnalysisConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateVideoAnalysisConfigWithOptions(workspaceId, request, headers, runtime);
   }
 
 }
