@@ -1,7552 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class AcceptHandshakeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the invitation.
-   * 
-   * You can call the [ListHandshakesForAccount](~~ListHandshakesForAccount~~) operation to obtain the ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * h-Ih8IuPfvV0t0****
-   */
-  handshakeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      handshakeId: 'HandshakeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      handshakeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AcceptHandshakeResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the invitation.
-   */
-  handshake?: AcceptHandshakeResponseBodyHandshake;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 5828C836-3286-49A6-9006-15231BB19342
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      handshake: 'Handshake',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      handshake: AcceptHandshakeResponseBodyHandshake,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AcceptHandshakeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AcceptHandshakeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AcceptHandshakeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddMessageContactRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The email address of the contact.
-   * 
-   * After you specify an email address, you need to call [SendEmailVerificationForMessageContact](~~SendEmailVerificationForMessageContact~~) to send verification information to the email address. After the verification is passed, the email address takes effect.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * someone***@example.com
-   */
-  emailAddress?: string;
-  /**
-   * @remarks
-   * The types of messages received by the contact.
-   * 
-   * This parameter is required.
-   */
-  messageTypes?: string[];
-  /**
-   * @remarks
-   * The name of the contact.
-   * 
-   * The name must be unique in your resource directory.
-   * 
-   * The name must be 2 to 12 characters in length and can contain only letters.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * tom
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The mobile phone number of the contact.
-   * 
-   * Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
-   * 
-   * > Only mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are supported.
-   * 
-   * After you specify a mobile phone number, you need to call [SendPhoneVerificationForMessageContact](~~SendPhoneVerificationForMessageContact~~) to send verification information to the mobile phone number. After the verification is passed, the mobile phone number takes effect.
-   * 
-   * @example
-   * 86-139****1234
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The job title of the contact.
-   * 
-   * Valid values:
-   * 
-   * *   FinanceDirector
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   TechnicalDirector
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   MaintenanceDirector
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   CEO
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   ProjectDirector
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Other
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TechnicalDirector
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      emailAddress: 'EmailAddress',
-      messageTypes: 'MessageTypes',
-      name: 'Name',
-      phoneNumber: 'PhoneNumber',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      emailAddress: 'string',
-      messageTypes: { 'type': 'array', 'itemType': 'string' },
-      name: 'string',
-      phoneNumber: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddMessageContactResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the contact.
-   */
-  contact?: AddMessageContactResponseBodyContact;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 2DFCE4C9-04A9-4C83-BB14-FE791275EC53
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contact: 'Contact',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contact: AddMessageContactResponseBodyContact,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddMessageContactResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddMessageContactResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddMessageContactResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssociateMembersRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the contact.
-   * 
-   * @example
-   * c-qL4HqKONzOM7****
-   */
-  contactId?: string;
-  /**
-   * @remarks
-   * The IDs of objects to which you want to bind the contact.
-   */
-  members?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      contactId: 'ContactId',
-      members: 'Members',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactId: 'string',
-      members: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssociateMembersResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the contact was bound to the object.
-   */
-  members?: AssociateMembersResponseBodyMembers[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 95060F1D-6990-4645-8920-A81D1BBFE992
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      members: 'Members',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      members: { 'type': 'array', 'itemType': AssociateMembersResponseBodyMembers },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssociateMembersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AssociateMembersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AssociateMembersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachControlPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the access control policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cp-jExXAqIYkwHN****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The ID of the object to which you want to attach the access control policy. Access control policies can be attached to the following objects:
-   * 
-   * *   Root folder
-   * *   Subfolders of the Root folder
-   * *   Members
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * fd-ZDNPiT****
-   */
-  targetId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyId: 'PolicyId',
-      targetId: 'TargetId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyId: 'string',
-      targetId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachControlPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 95060F1D-6990-4645-8920-A81D1BBFE992
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachControlPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AttachControlPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AttachControlPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindSecureMobilePhoneRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 138660628348****
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The mobile phone number that you want to bind to the member for security purposes.
-   * 
-   * The mobile phone number you specify must be the same as the mobile phone number that you specify when you call the [SendVerificationCodeForBindSecureMobilePhone](~~SendVerificationCodeForBindSecureMobilePhone~~) operation to obtain a verification code.
-   * 
-   * Specify the mobile phone number in the \\<Country code>-\\<Mobile phone number> format.
-   * 
-   * > Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * xx-13900001234
-   */
-  secureMobilePhone?: string;
-  /**
-   * @remarks
-   * The verification code.
-   * 
-   * You can call the [SendVerificationCodeForBindSecureMobilePhone](~~SendVerificationCodeForBindSecureMobilePhone~~) operation to obtain the verification code.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 123456
-   */
-  verificationCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      secureMobilePhone: 'SecureMobilePhone',
-      verificationCode: 'VerificationCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      secureMobilePhone: 'string',
-      verificationCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindSecureMobilePhoneResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 0217AFEB-5318-56D4-B167-1933D83EDF3F
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindSecureMobilePhoneResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BindSecureMobilePhoneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BindSecureMobilePhoneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelChangeAccountEmailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 181761095690****
-   */
-  accountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelChangeAccountEmailResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelChangeAccountEmailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelChangeAccountEmailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelChangeAccountEmailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelHandshakeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the invitation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * h-ycm4rp****
-   */
-  handshakeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      handshakeId: 'HandshakeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      handshakeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelHandshakeResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the invitation.
-   */
-  handshake?: CancelHandshakeResponseBodyHandshake;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      handshake: 'Handshake',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      handshake: CancelHandshakeResponseBodyHandshake,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelHandshakeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelHandshakeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelHandshakeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelMessageContactUpdateRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the contact.
-   * 
-   * @example
-   * c-qL4HqKONzOM7****
-   */
-  contactId?: string;
-  /**
-   * @remarks
-   * The email address of the contact.
-   * 
-   * @example
-   * someone***@example.com
-   */
-  emailAddress?: string;
-  /**
-   * @remarks
-   * The mobile phone number of the contact.
-   * 
-   * Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
-   * 
-   * @example
-   * 86-139****1234
-   */
-  phoneNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contactId: 'ContactId',
-      emailAddress: 'EmailAddress',
-      phoneNumber: 'PhoneNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactId: 'string',
-      emailAddress: 'string',
-      phoneNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelMessageContactUpdateResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelMessageContactUpdateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelMessageContactUpdateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelMessageContactUpdateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeAccountEmailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 181761095690****
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The email address to be bound to the member.
-   * 
-   * > The system automatically sends a verification email to the email address. After the verification is passed, the email address takes effect, and the system changes both the logon email address and secure email address of the member.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * someone@example.com
-   */
-  email?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      email: 'Email',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      email: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeAccountEmailResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeAccountEmailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ChangeAccountEmailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ChangeAccountEmailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckAccountDeleteRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member that you want to delete.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 179855839641****
-   */
-  accountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckAccountDeleteResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7CDDDCEF-CDFD-0825-B7D7-217BE0897B22
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckAccountDeleteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckAccountDeleteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckAccountDeleteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateControlPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the access control policy.
-   * 
-   * The description must be 1 to 1,024 characters in length. The description can contain letters, digits, underscores (_), and hyphens (-) and must start with a letter.
-   * 
-   * @example
-   * ExampleControlPolicy
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The effective scope of the access control policy.
-   * 
-   * The value RAM indicates that the access control policy takes effect only for RAM users and RAM roles.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * RAM
-   */
-  effectScope?: string;
-  /**
-   * @remarks
-   * The document of the access control policy.
-   * 
-   * The document can be a maximum of 4,096 characters in length.
-   * 
-   * For more information about the languages of access control policies, see [Languages of access control policies](https://help.aliyun.com/document_detail/179096.html).
-   * 
-   * For more information about the examples of access control policies, see [Examples of custom access control policies](https://help.aliyun.com/document_detail/181474.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * {"Version":"1","Statement":[{"Effect":"Deny","Action":["ram:UpdateRole","ram:DeleteRole","ram:AttachPolicyToRole","ram:DetachPolicyFromRole"],"Resource":"acs:ram:*:*:role/ResourceDirectoryAccountAccessRole"}]}
-   */
-  policyDocument?: string;
-  /**
-   * @remarks
-   * The name of the access control policy.
-   * 
-   * The name must be 1 to 128 characters in length. The name can contain letters, digits, and hyphens (-) and must start with a letter.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ExampleControlPolicy
-   */
-  policyName?: string;
-  tag?: CreateControlPolicyRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      effectScope: 'EffectScope',
-      policyDocument: 'PolicyDocument',
-      policyName: 'PolicyName',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      effectScope: 'string',
-      policyDocument: 'string',
-      policyName: 'string',
-      tag: { 'type': 'array', 'itemType': CreateControlPolicyRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateControlPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details of the access control policy.
-   */
-  controlPolicy?: CreateControlPolicyResponseBodyControlPolicy;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 776B05B3-A0B0-464B-A191-F4E1119A94B2
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      controlPolicy: 'ControlPolicy',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      controlPolicy: CreateControlPolicyResponseBodyControlPolicy,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateControlPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateControlPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateControlPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFolderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the folder.
-   * 
-   * The name must be 1 to 24 characters in length and can contain letters, digits, underscores (_), periods (.),and hyphens (-).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rdFolder
-   */
-  folderName?: string;
-  /**
-   * @remarks
-   * The ID of the parent folder.
-   * 
-   * @example
-   * r-b1****
-   */
-  parentFolderId?: string;
-  tag?: CreateFolderRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      folderName: 'FolderName',
-      parentFolderId: 'ParentFolderId',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      folderName: 'string',
-      parentFolderId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateFolderRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFolderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the folder.
-   */
-  folder?: CreateFolderResponseBodyFolder;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C2CBCA30-C8DD-423E-B4AD-4FB694C9180C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      folder: 'Folder',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      folder: CreateFolderResponseBodyFolder,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFolderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateFolderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateFolderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateResourceAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The prefix for the Alibaba Cloud account name of the member. If you leave this parameter empty, the system randomly generates a prefix.
-   * 
-   * The prefix must be 2 to 37 characters in length.
-   * 
-   * The prefix can contain letters, digits, and special characters but cannot contain consecutive special characters. The prefix must start with a letter or digit and end with a letter or digit. Valid special characters include underscores (`_`), periods (.), and hyphens (`-`).
-   * 
-   * The complete Alibaba Cloud account name of a member in a resource directory is in the @.aliyunid.com format, such as `alice@rd-3G****.aliyunid.com`.
-   * 
-   * Each name must be unique in the resource directory.
-   * 
-   * @example
-   * alice
-   */
-  accountNamePrefix?: string;
-  /**
-   * @remarks
-   * The display name of the member.
-   * 
-   * The name must be 2 to 50 characters in length.
-   * 
-   * The name can contain letters, digits, underscores (_), periods (.), hyphens (-), and spaces.
-   * 
-   * The name must be unique in the resource directory.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Dev
-   */
-  displayName?: string;
-  /**
-   * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * *   true: performs only a dry run. The system checks whether an identity type can be specified for the member. If the request does not pass the dry run, an error code is returned.
-   * *   false (default): performs a dry run and performs the actual request.
-   * 
-   * @example
-   * false
-   */
-  dryRun?: boolean;
-  /**
-   * @remarks
-   * The ID of the parent folder.
-   * 
-   * @example
-   * fd-r23M55****
-   */
-  parentFolderId?: string;
-  /**
-   * @remarks
-   * The ID of the billing account. If you leave this parameter empty, the newly created member is used as its billing account.
-   * 
-   * @example
-   * 12323344****
-   */
-  payerAccountId?: string;
-  /**
-   * @remarks
-   * The identity type of the member. Valid values:
-   * 
-   * *   resell: The member is an account for a reseller. This is the default value. A relationship is automatically established between the member and the reseller. The management account of the resource directory must be used as the billing account of the member.
-   * *   non_resell: The member is not an account for a reseller. The member is an account that is not associated with a reseller. You can directly use the account to purchase Alibaba Cloud resources. The member is used as its own billing account.
-   * 
-   * > This parameter is available only for resellers at the international site (alibabacloud.com).
-   * 
-   * @example
-   * resell
-   */
-  resellAccountType?: string;
-  /**
-   * @remarks
-   * The tag of the member.
-   */
-  tag?: CreateResourceAccountRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      accountNamePrefix: 'AccountNamePrefix',
-      displayName: 'DisplayName',
-      dryRun: 'DryRun',
-      parentFolderId: 'ParentFolderId',
-      payerAccountId: 'PayerAccountId',
-      resellAccountType: 'ResellAccountType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountNamePrefix: 'string',
-      displayName: 'string',
-      dryRun: 'boolean',
-      parentFolderId: 'string',
-      payerAccountId: 'string',
-      resellAccountType: 'string',
-      tag: { 'type': 'array', 'itemType': CreateResourceAccountRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateResourceAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the member.
-   */
-  account?: CreateResourceAccountResponseBodyAccount;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * B356A415-D860-43E5-865A-E2193D62BBD6
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: CreateResourceAccountResponseBodyAccount,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateResourceAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateResourceAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateResourceAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeclineHandshakeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the invitation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * h-ycm4rp****
-   */
-  handshakeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      handshakeId: 'HandshakeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      handshakeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeclineHandshakeResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the invitation.
-   */
-  handshake?: DeclineHandshakeResponseBodyHandshake;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      handshake: 'Handshake',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      handshake: DeclineHandshakeResponseBodyHandshake,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeclineHandshakeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeclineHandshakeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeclineHandshakeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The IDs of the check items that you can choose to ignore for the member deletion.
-   * 
-   * You can obtain the IDs from the response of the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation.
-   */
-  abandonableCheckId?: string[];
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member that you want to delete.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 169946124551****
-   */
-  accountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      abandonableCheckId: 'AbandonableCheckId',
-      accountId: 'AccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      abandonableCheckId: { 'type': 'array', 'itemType': 'string' },
-      accountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccountShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The IDs of the check items that you can choose to ignore for the member deletion.
-   * 
-   * You can obtain the IDs from the response of the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation.
-   */
-  abandonableCheckIdShrink?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member that you want to delete.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 169946124551****
-   */
-  accountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      abandonableCheckIdShrink: 'AbandonableCheckId',
-      accountId: 'AccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      abandonableCheckIdShrink: 'string',
-      accountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the deletion. Valid values:
-   * 
-   * *   0: direct deletion. If the member does not have pay-as-you-go resources that are purchased within the previous 30 days, the system directly deletes the member.
-   * *   1: deletion with a silence period. If the member has pay-as-you-go resources that are purchased within the previous 30 days, the member enters a silence period. The system starts to delete the member until the silence period ends. For more information about the silence period, see [What is the silence period for member deletion?](https://help.aliyun.com/document_detail/446079.html)
-   * 
-   * @example
-   * 0
-   */
-  deletionType?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 009429F8-C1C0-5872-B674-A6C2333B9647
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deletionType: 'DeletionType',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deletionType: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteControlPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the access control policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cp-SImPt8GCEwiq****
-   */
-  policyId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyId: 'PolicyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteControlPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C8541E06-B207-46BF-92C9-DC8DE4609D75
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteControlPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteControlPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteControlPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFolderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the folder.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * fd-ae1in7****
-   */
-  folderId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      folderId: 'FolderId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      folderId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFolderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFolderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteFolderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteFolderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMessageContactRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the contact.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * c-qL4HqKONzOM7****
-   */
-  contactId?: string;
-  /**
-   * @remarks
-   * Specifies whether to retain the contact for members. Valid values:
-   * 
-   * *   true (default): retains the contact for members. In this case, the contact can still receive messages for the members.
-   * *   false: does not retain the contact for members. In this case, the contact can no longer receive messages for the members. If you set this parameter to false, the response is asynchronously returned. You can call [GetMessageContactDeletionStatus](~~GetMessageContactDeletionStatus~~) to obtain the deletion result.
-   * 
-   * @example
-   * true
-   */
-  retainContactInMembers?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      contactId: 'ContactId',
-      retainContactInMembers: 'RetainContactInMembers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactId: 'string',
-      retainContactInMembers: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMessageContactResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The deletion status of the contact. Valid values:
-   * 
-   * *   Deleting
-   * *   Deleted
-   * 
-   * @example
-   * Deleting
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMessageContactResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMessageContactResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMessageContactResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeregisterDelegatedAdministratorRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 181761095690****
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The identifier of the trusted service.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cloudfw.aliyuncs.com
-   */
-  servicePrincipal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      servicePrincipal: 'ServicePrincipal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      servicePrincipal: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeregisterDelegatedAdministratorResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * DF5D5C52-7BD0-40E7-94C6-23A1505038A2
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeregisterDelegatedAdministratorResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeregisterDelegatedAdministratorResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeregisterDelegatedAdministratorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DestroyResourceDirectoryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DestroyResourceDirectoryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DestroyResourceDirectoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DestroyResourceDirectoryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachControlPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the access control policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cp-jExXAqIYkwHN****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The ID of the object from which you want to detach the access control policy. Access control policies can be attached to the following objects:
-   * 
-   * *   Root folder
-   * *   Subfolders of the Root folder
-   * *   Members
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * fd-ZDNPiT****
-   */
-  targetId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyId: 'PolicyId',
-      targetId: 'TargetId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyId: 'string',
-      targetId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachControlPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9EA4F962-1A2E-4AFE-BE0C-B14736FC46CC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachControlPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetachControlPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetachControlPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableControlPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The status of the Control Policy feature. Valid values:
-   * 
-   * *   Enabled: The feature is enabled.
-   * *   PendingEnable: The feature is being enabled.
-   * *   Disabled: The feature is disabled.
-   * *   PendingDisable: The feature is being disabled.
-   * 
-   * @example
-   * PendingDisable
-   */
-  enablementStatus?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7C709979-451D-4C92-835D-7DDCCAA562E9
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enablementStatus: 'EnablementStatus',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enablementStatus: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableControlPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DisableControlPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DisableControlPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisassociateMembersRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the contact.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * c-qL4HqKONzOM7****
-   */
-  contactId?: string;
-  /**
-   * @remarks
-   * The IDs of objects from which you want to unbind the contact.
-   * 
-   * This parameter is required.
-   */
-  members?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      contactId: 'ContactId',
-      members: 'Members',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactId: 'string',
-      members: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisassociateMembersResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the contact was unbound from the object.
-   */
-  members?: DisassociateMembersResponseBodyMembers[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 95060F1D-6990-4645-8920-A81D1BBFE992
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      members: 'Members',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      members: { 'type': 'array', 'itemType': DisassociateMembersResponseBodyMembers },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisassociateMembersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DisassociateMembersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DisassociateMembersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableControlPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The status of the Control Policy feature. Valid values:
-   * 
-   * *   Enabled: The feature is enabled.
-   * *   PendingEnable: The feature is being enabled.
-   * *   Disabled: The feature is disabled.
-   * *   PendingDisable: The feature is being disabled.
-   * 
-   * @example
-   * PendingEnable
-   */
-  enablementStatus?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 8CE7BD95-EFFA-4911-A1E0-BD4412697FEB
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enablementStatus: 'EnablementStatus',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enablementStatus: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableControlPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: EnableControlPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EnableControlPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableResourceDirectoryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * *   **true**: performs only a dry run.
-   * *   **false** (default): performs a dry run and performs the actual request.
-   * 
-   * @example
-   * false
-   */
-  dryRun?: boolean;
-  /**
-   * @remarks
-   * The mode in which you enable a resource directory. Valid values:
-   * 
-   * *   CurrentAccount: The current account is used to enable a resource directory.
-   * *   NewManagementAccount: A newly created account is used to enable a resource directory. If you select this mode, you must configure the `MAName`, `MASecureMobilePhone`, and `VerificationCode` parameters.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CurrentAccount
-   */
-  enableMode?: string;
-  /**
-   * @remarks
-   * The name of the newly created account.
-   * 
-   * Specify the name in the `<Prefix>@rdadmin.aliyunid.com` format. The prefix can contain letters, digits, and special characters but cannot contain consecutive special characters. The prefix must start and end with a letter or digit. Valid special characters include underscores (`_`), periods (.), and hyphens (-). The prefix must be 2 to 50 characters in length.
-   * 
-   * @example
-   * user01@rdadmin.aliyunid.com
-   */
-  MAName?: string;
-  /**
-   * @remarks
-   * The mobile phone number that is bound to the newly created account.
-   * 
-   * If you leave this parameter empty, the mobile phone number that is bound to the current account is used. The mobile phone number you specify must be the same as the mobile phone number that you specify when you call the [SendVerificationCodeForEnableRD](~~SendVerificationCodeForEnableRD~~) operation to obtain a verification code.
-   * 
-   * Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
-   * 
-   * > Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
-   * 
-   * @example
-   * xx-13900001234
-   */
-  MASecureMobilePhone?: string;
-  /**
-   * @remarks
-   * The verification code.
-   * 
-   * You can call the [SendVerificationCodeForEnableRD](~~SendVerificationCodeForEnableRD~~) operation to obtain the verification code.
-   * 
-   * @example
-   * 123456
-   */
-  verificationCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dryRun: 'DryRun',
-      enableMode: 'EnableMode',
-      MAName: 'MAName',
-      MASecureMobilePhone: 'MASecureMobilePhone',
-      verificationCode: 'VerificationCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dryRun: 'boolean',
-      enableMode: 'string',
-      MAName: 'string',
-      MASecureMobilePhone: 'string',
-      verificationCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableResourceDirectoryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * EC2FE94D-A4A2-51A1-A493-5C273A36C46A
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information about the resource directory.
-   */
-  resourceDirectory?: EnableResourceDirectoryResponseBodyResourceDirectory;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resourceDirectory: 'ResourceDirectory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resourceDirectory: EnableResourceDirectoryResponseBodyResourceDirectory,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableResourceDirectoryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: EnableResourceDirectoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EnableResourceDirectoryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 181761095690****
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * Specifies whether to return the information of tags. Valid values:
-   * 
-   * *   false (default value)
-   * *   true
-   * 
-   * @example
-   * true
-   */
-  includeTags?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      includeTags: 'IncludeTags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      includeTags: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the member.
-   */
-  account?: GetAccountResponseBodyAccount;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: GetAccountResponseBodyAccount,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountDeletionCheckResultRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member that you want to delete.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 179855839641****
-   */
-  accountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountDeletionCheckResultResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The result of the deletion check for the member.
-   */
-  accountDeletionCheckResultInfo?: GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 54AC391D-4F7F-5F08-B8D3-0AECDE6EC5BD
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountDeletionCheckResultInfo: 'AccountDeletionCheckResultInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountDeletionCheckResultInfo: GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountDeletionCheckResultResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAccountDeletionCheckResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccountDeletionCheckResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountDeletionStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 169946124551****
-   */
-  accountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountDeletionStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The deletion status of the member.
-   */
-  rdAccountDeletionStatus?: GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 8AA43293-7C8F-5730-8F2D-7F864EC092C5
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      rdAccountDeletionStatus: 'RdAccountDeletionStatus',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rdAccountDeletionStatus: GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountDeletionStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAccountDeletionStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccountDeletionStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetControlPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The language in which you want to return the description of the access control policy. Valid values:
-   * 
-   * *   zh-CN (default value): Chinese
-   * *   en: English
-   * *   ja: Japanese
-   * 
-   * > This parameter is valid only for system access control policies.
-   * 
-   * @example
-   * zh-CN
-   */
-  language?: string;
-  /**
-   * @remarks
-   * The ID of the access control policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cp-SImPt8GCEwiq****
-   */
-  policyId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      language: 'Language',
-      policyId: 'PolicyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      language: 'string',
-      policyId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetControlPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details of the access control policy.
-   */
-  controlPolicy?: GetControlPolicyResponseBodyControlPolicy;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * AB769936-CDFA-4D52-8CE2-A3581800044A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      controlPolicy: 'ControlPolicy',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      controlPolicy: GetControlPolicyResponseBodyControlPolicy,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetControlPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetControlPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetControlPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetControlPolicyEnablementStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The status of the Control Policy feature. Valid values:
-   * 
-   * *   Enabled: The feature is enabled.
-   * *   PendingEnable: The feature is being enabled.
-   * *   Disabled: The feature is disabled.
-   * *   PendingDisable: The feature is being disabled.
-   * 
-   * @example
-   * Disabled
-   */
-  enablementStatus?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 1DC39A4E-3B52-4EFE-9F93-4897D7FFA0C4
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enablementStatus: 'EnablementStatus',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enablementStatus: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetControlPolicyEnablementStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetControlPolicyEnablementStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetControlPolicyEnablementStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFolderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the folder.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * fd-Jyl5U7****
-   */
-  folderId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      folderId: 'FolderId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      folderId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFolderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the folder.
-   */
-  folder?: GetFolderResponseBodyFolder;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C2CBCA30-C8DD-423E-B4AD-4FB694C9180C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      folder: 'Folder',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      folder: GetFolderResponseBodyFolder,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFolderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFolderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFolderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHandshakeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the invitation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * h-ycm4rp****
-   */
-  handshakeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      handshakeId: 'HandshakeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      handshakeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHandshakeResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the invitation.
-   */
-  handshake?: GetHandshakeResponseBodyHandshake;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      handshake: 'Handshake',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      handshake: GetHandshakeResponseBodyHandshake,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHandshakeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetHandshakeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetHandshakeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMessageContactRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the contact.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * c-qL4HqKONzOM7****
-   */
-  contactId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contactId: 'ContactId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMessageContactResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the contact.
-   */
-  contact?: GetMessageContactResponseBodyContact;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contact: 'Contact',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contact: GetMessageContactResponseBodyContact,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMessageContactResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetMessageContactResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMessageContactResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMessageContactDeletionStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the contact.
-   * 
-   * @example
-   * c-qL4HqKONzOM7****
-   */
-  contactId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contactId: 'ContactId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMessageContactDeletionStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The deletion information of the contact.
-   */
-  contactDeletionStatus?: GetMessageContactDeletionStatusResponseBodyContactDeletionStatus;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 95060F1D-6990-4645-8920-A81D1BBFE992
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contactDeletionStatus: 'ContactDeletionStatus',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactDeletionStatus: GetMessageContactDeletionStatusResponseBodyContactDeletionStatus,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMessageContactDeletionStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetMessageContactDeletionStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMessageContactDeletionStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPayerForAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the billing account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12323344****
-   */
-  accountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPayerForAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the billing account.
-   * 
-   * @example
-   * 172841235500****
-   */
-  payerAccountId?: string;
-  /**
-   * @remarks
-   * The name of the billing account.
-   * 
-   * @example
-   * Alice
-   */
-  payerAccountName?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      payerAccountId: 'PayerAccountId',
-      payerAccountName: 'PayerAccountName',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      payerAccountId: 'string',
-      payerAccountName: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPayerForAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetPayerForAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetPayerForAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceDirectoryResponseBody extends $tea.Model {
-  /**
-   * @example
-   * CD76D376-2517-4924-92C5-DBC52262F93A
-   */
-  requestId?: string;
-  resourceDirectory?: GetResourceDirectoryResponseBodyResourceDirectory;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resourceDirectory: 'ResourceDirectory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resourceDirectory: GetResourceDirectoryResponseBodyResourceDirectory,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceDirectoryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetResourceDirectoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetResourceDirectoryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InviteAccountToResourceDirectoryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the invitation.
-   * 
-   * The description can be up to 1,024 characters in length.
-   * 
-   * @example
-   * Welcome
-   */
-  note?: string;
-  /**
-   * @remarks
-   * The ID of the parent folder.
-   * 
-   * @example
-   * r-b1****
-   */
-  parentFolderId?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
-  tag?: InviteAccountToResourceDirectoryRequestTag[];
-  /**
-   * @remarks
-   * The ID or logon email address of the account that you want to invite.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * someone@example.com
-   */
-  targetEntity?: string;
-  /**
-   * @remarks
-   * The type of the invited account. Valid values:
-   * 
-   * *   Account: indicates the ID of the account.
-   * *   Email: indicates the logon email address of the account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Email
-   */
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      note: 'Note',
-      parentFolderId: 'ParentFolderId',
-      tag: 'Tag',
-      targetEntity: 'TargetEntity',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      note: 'string',
-      parentFolderId: 'string',
-      tag: { 'type': 'array', 'itemType': InviteAccountToResourceDirectoryRequestTag },
-      targetEntity: 'string',
-      targetType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InviteAccountToResourceDirectoryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the invitation.
-   */
-  handshake?: InviteAccountToResourceDirectoryResponseBodyHandshake;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      handshake: 'Handshake',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      handshake: InviteAccountToResourceDirectoryResponseBodyHandshake,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InviteAccountToResourceDirectoryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: InviteAccountToResourceDirectoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: InviteAccountToResourceDirectoryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccountsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to return information about tags. Valid values:
-   * 
-   * *   false (default value)
-   * *   true
-   * 
-   * @example
-   * true
-   */
-  includeTags?: boolean;
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The keyword used for the query, such as the display name of a member.
-   * 
-   * Fuzzy match is supported.
-   * 
-   * @example
-   * Advance
-   */
-  queryKeyword?: string;
-  /**
-   * @remarks
-   * The tags. This parameter specifies a filter condition.
-   */
-  tag?: ListAccountsRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      includeTags: 'IncludeTags',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      queryKeyword: 'QueryKeyword',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      includeTags: 'boolean',
-      pageNumber: 'number',
-      pageSize: 'number',
-      queryKeyword: 'string',
-      tag: { 'type': 'array', 'itemType': ListAccountsRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccountsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the members.
-   */
-  accounts?: ListAccountsResponseBodyAccounts;
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 5
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 2
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accounts: 'Accounts',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accounts: ListAccountsResponseBodyAccounts,
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccountsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListAccountsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListAccountsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccountsForParentRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to return information about tags. Valid values:
-   * 
-   * *   false (default value)
-   * *   true
-   * 
-   * @example
-   * true
-   */
-  includeTags?: boolean;
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the folder.
-   * 
-   * @example
-   * fd-bVaRIG****
-   */
-  parentFolderId?: string;
-  /**
-   * @remarks
-   * The keyword used for the query, such as the display name of a member.
-   * 
-   * Fuzzy match is supported.
-   * 
-   * @example
-   * admin
-   */
-  queryKeyword?: string;
-  /**
-   * @remarks
-   * The tags. This parameter specifies a filter condition.
-   */
-  tag?: ListAccountsForParentRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      includeTags: 'IncludeTags',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      parentFolderId: 'ParentFolderId',
-      queryKeyword: 'QueryKeyword',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      includeTags: 'boolean',
-      pageNumber: 'number',
-      pageSize: 'number',
-      parentFolderId: 'string',
-      queryKeyword: 'string',
-      tag: { 'type': 'array', 'itemType': ListAccountsForParentRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccountsForParentResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the members.
-   */
-  accounts?: ListAccountsForParentResponseBodyAccounts;
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 5
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 2
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accounts: 'Accounts',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accounts: ListAccountsForParentResponseBodyAccounts,
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccountsForParentResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListAccountsForParentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListAccountsForParentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAncestorsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the subfolder.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * fd-i1c9nr****
-   */
-  childId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      childId: 'ChildId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      childId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAncestorsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the folders.
-   */
-  folders?: ListAncestorsResponseBodyFolders;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 83AFBEB6-DC03-406E-9686-867461FF6698
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      folders: 'Folders',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      folders: ListAncestorsResponseBodyFolders,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAncestorsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListAncestorsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListAncestorsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListControlPoliciesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The language in which you want to return the descriptions of the access control policies. Valid values:
-   * 
-   * *   zh-CN (default value): Chinese
-   * *   en: English
-   * *   ja: Japanese
-   * 
-   * > This parameter is available only for system access control policies.
-   * 
-   * @example
-   * zh-CN
-   */
-  language?: string;
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The type of the access control policies. Valid values:
-   * 
-   * *   System: system access control policy
-   * *   Custom: custom access control policy
-   * 
-   * @example
-   * System
-   */
-  policyType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      language: 'Language',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      policyType: 'PolicyType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      language: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      policyType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListControlPoliciesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the access control policies.
-   */
-  controlPolicies?: ListControlPoliciesResponseBodyControlPolicies;
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9424A34C-3471-45AD-B6AB-924BBDFE42F9
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The number of access control policies.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      controlPolicies: 'ControlPolicies',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      controlPolicies: ListControlPoliciesResponseBodyControlPolicies,
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListControlPoliciesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListControlPoliciesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListControlPoliciesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListControlPolicyAttachmentsForTargetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The language in which you want to return the descriptions of the access control policies. Valid values:
-   * 
-   * *   zh-CN (default value): Chinese
-   * *   en: English
-   * *   ja: Japanese
-   * 
-   * > This parameter is valid only for system access control policies.
-   * 
-   * @example
-   * zh-CN
-   */
-  language?: string;
-  /**
-   * @remarks
-   * The ID of the object whose access control policies you want to query. Access control policies can be attached to the following objects:
-   * 
-   * *   Root folder
-   * *   Subfolders of the Root folder
-   * *   Members
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * fd-ZDNPiT****
-   */
-  targetId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      language: 'Language',
-      targetId: 'TargetId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      language: 'string',
-      targetId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListControlPolicyAttachmentsForTargetResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the attached access control policies.
-   */
-  controlPolicyAttachments?: ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachments;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C276B600-7B7A-49E8-938C-E16CFA955A82
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      controlPolicyAttachments: 'ControlPolicyAttachments',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      controlPolicyAttachments: ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachments,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListControlPolicyAttachmentsForTargetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListControlPolicyAttachmentsForTargetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListControlPolicyAttachmentsForTargetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDelegatedAdministratorsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The identifier of the trusted service.
-   * 
-   * For more information, see the `Trusted service identifier` column in [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
-   * 
-   * @example
-   * cloudfw.aliyuncs.com
-   */
-  servicePrincipal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      servicePrincipal: 'ServicePrincipal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      servicePrincipal: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDelegatedAdministratorsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the delegated administrator accounts.
-   */
-  accounts?: ListDelegatedAdministratorsResponseBodyAccounts;
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 009C3A02-7D4B-416C-9CE7-548C91508F1E
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 2
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accounts: 'Accounts',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accounts: ListDelegatedAdministratorsResponseBodyAccounts,
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDelegatedAdministratorsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListDelegatedAdministratorsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDelegatedAdministratorsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDelegatedServicesForAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 138660628348****
-   */
-  accountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDelegatedServicesForAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the trusted services.
-   * 
-   * > If the value of this parameter is empty, the member is not specified as a delegated administrator account.
-   */
-  delegatedServices?: ListDelegatedServicesForAccountResponseBodyDelegatedServices;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * D9C03B94-9396-4794-A74B-13DC437556A6
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      delegatedServices: 'DelegatedServices',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      delegatedServices: ListDelegatedServicesForAccountResponseBodyDelegatedServices,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDelegatedServicesForAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListDelegatedServicesForAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDelegatedServicesForAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFoldersForParentRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the parent folder.
-   * 
-   * If you leave this parameter empty, the information of the first-level subfolders of the Root folder is queried.
-   * 
-   * @example
-   * r-b1****
-   */
-  parentFolderId?: string;
-  /**
-   * @remarks
-   * The keyword used for the query, such as a folder name.
-   * 
-   * Fuzzy match is supported.
-   * 
-   * @example
-   * rdFolder
-   */
-  queryKeyword?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      parentFolderId: 'ParentFolderId',
-      queryKeyword: 'QueryKeyword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      parentFolderId: 'string',
-      queryKeyword: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFoldersForParentResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the folders.
-   */
-  folders?: ListFoldersForParentResponseBodyFolders;
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 5
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 2
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      folders: 'Folders',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      folders: ListFoldersForParentResponseBodyFolders,
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFoldersForParentResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListFoldersForParentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListFoldersForParentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHandshakesForAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHandshakesForAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the invitations.
-   */
-  handshakes?: ListHandshakesForAccountResponseBodyHandshakes;
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of invitations.
-   * 
-   * @example
-   * 2
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      handshakes: 'Handshakes',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      handshakes: ListHandshakesForAccountResponseBodyHandshakes,
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHandshakesForAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListHandshakesForAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListHandshakesForAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHandshakesForResourceDirectoryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHandshakesForResourceDirectoryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the invitations.
-   */
-  handshakes?: ListHandshakesForResourceDirectoryResponseBodyHandshakes;
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 2
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      handshakes: 'Handshakes',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      handshakes: ListHandshakesForResourceDirectoryResponseBodyHandshakes,
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHandshakesForResourceDirectoryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListHandshakesForResourceDirectoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListHandshakesForResourceDirectoryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMessageContactVerificationsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the contact.
-   * 
-   * @example
-   * c-qL4HqKONzOM7****
-   */
-  contactId?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      contactId: 'ContactId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMessageContactVerificationsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The record for the contact to be verified.
-   */
-  contactVerifications?: ListMessageContactVerificationsResponseBodyContactVerifications[];
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CD76D376-2517-4924-92C5-DBC52262F93A
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 48
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      contactVerifications: 'ContactVerifications',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactVerifications: { 'type': 'array', 'itemType': ListMessageContactVerificationsResponseBodyContactVerifications },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMessageContactVerificationsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMessageContactVerificationsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMessageContactVerificationsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMessageContactsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the contact.
-   * 
-   * @example
-   * c-qL4HqKONzOM7****
-   */
-  contactId?: string;
-  /**
-   * @remarks
-   * The ID of the object to which the contact is bound. Valid values:
-   * 
-   * *   ID of the resource directory
-   * *   ID of the folder
-   * *   ID of the member
-   * 
-   * @example
-   * fd-ZDNPiT****
-   */
-  member?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      contactId: 'ContactId',
-      member: 'Member',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactId: 'string',
-      member: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMessageContactsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the contact was bound to the objects.
-   */
-  contacts?: ListMessageContactsResponseBodyContacts[];
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 95060F1D-6990-4645-8920-A81D1BBFE992
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 20
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      contacts: 'Contacts',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contacts: { 'type': 'array', 'itemType': ListMessageContactsResponseBodyContacts },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMessageContactsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMessageContactsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMessageContactsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key for a fuzzy query.
-   * 
-   * @example
-   * team
-   */
-  keyFilter?: string;
-  /**
-   * @remarks
-   * The maximum number of entries to return for a single request.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
-   * 
-   * @example
-   * TGlzdFJlc291cm****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * The value Account indicates the members of the resource directory.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Account
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keyFilter: 'KeyFilter',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyFilter: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the next query is required.
-   * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
-   * 
-   * @example
-   * TGlzdFJlc291cm****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * DC09A6AA-2713-4E10-A2E9-E6C5C43A8842
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information about the tag keys.
-   */
-  tags?: ListTagKeysResponseBodyTags[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      tags: { 'type': 'array', 'itemType': ListTagKeysResponseBodyTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagKeysResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagKeysResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The token that is used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud account IDs of the members. This parameter specifies a filter condition for the query.
-   * 
-   * > If you want to query the tags that are added to the members in a resource directory, you must configure both the `ResourceId` and `ResourceType` parameters and set the `ResourceType` parameter to `Account` in your request.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * The type of the objects whose tags you want to query. This parameter specifies a filter condition for the query. Valid values:
-   * 
-   * *   Account: member
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Account
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tags. This parameter specifies a filter condition for the query.
-   * 
-   * You can specify a maximum of 20 tags.
-   */
-  tag?: ListTagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the next query is required.```` Valid values:
-   * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the `next query` is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.````
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 8054B059-6B36-53BF-AA45-B8C9A0ED05AB
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
-  tagResources?: ListTagResourcesResponseBodyTagResources[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      tagResources: 'TagResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagValuesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The maximum number of entries to return for a single request.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
-   * 
-   * @example
-   * TGlzdFJlc291cm****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * The value Account indicates the members of the resource directory.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Account
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tag key. This parameter specifies a filter condition for the query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * k1
-   */
-  tagKey?: string;
-  /**
-   * @remarks
-   * The tag value for a fuzzy query.
-   * 
-   * @example
-   * v1
-   */
-  valueFilter?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-      valueFilter: 'ValueFilter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      resourceType: 'string',
-      tagKey: 'string',
-      valueFilter: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagValuesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the next query is required.
-   * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
-   * 
-   * @example
-   * TGlzdFJlc291cm****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * DC09A6AA-2713-4E10-A2E9-E6C5C43A8842
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information about the tag values.
-   */
-  tags?: ListTagValuesResponseBodyTags[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      tags: { 'type': 'array', 'itemType': ListTagValuesResponseBodyTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagValuesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagValuesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagValuesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTargetAttachmentsForControlPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the access control policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cp-jExXAqIYkwHN****
-   */
-  policyId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      policyId: 'PolicyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      policyId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTargetAttachmentsForControlPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * B32BD3D6-1089-41F3-8E70-E0079BC7D760
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information about the objects to which the access control policy is attached.
-   */
-  targetAttachments?: ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments;
-  /**
-   * @remarks
-   * The total number of objects to which the access control policy is attached.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      targetAttachments: 'TargetAttachments',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      targetAttachments: ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments,
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTargetAttachmentsForControlPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTargetAttachmentsForControlPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTargetAttachmentsForControlPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTrustedServiceStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the management account or delegated administrator account.
-   * 
-   * *   If you set this parameter to the ID of a management account, the trusted services that are enabled within the management account are queried. The default value of this parameter is the ID of an management account.
-   * *   If you set this parameter to the ID of a delegated administrator account, the trusted services that are enabled within the delegated administrator account are queried.
-   * 
-   * For more information about trusted services and delegated administrator accounts, see [Overview of trusted services](https://help.aliyun.com/document_detail/208133.html) and [Delegated administrator accounts](https://help.aliyun.com/document_detail/208117.html).
-   * 
-   * @example
-   * 177242285274****
-   */
-  adminAccountId?: string;
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      adminAccountId: 'AdminAccountId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adminAccountId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTrustedServiceStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the trusted services that are enabled.
-   */
-  enabledServicePrincipals?: ListTrustedServiceStatusResponseBodyEnabledServicePrincipals;
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * CD76D376-2517-4924-92C5-DBC52262F93A
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 2
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      enabledServicePrincipals: 'EnabledServicePrincipals',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enabledServicePrincipals: ListTrustedServiceStatusResponseBodyEnabledServicePrincipals,
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTrustedServiceStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTrustedServiceStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTrustedServiceStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MoveAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member that you want to move.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12323344****
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The ID of the destination folder.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * fd-bVaRIG****
-   */
-  destinationFolderId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      destinationFolderId: 'DestinationFolderId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      destinationFolderId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MoveAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MoveAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: MoveAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: MoveAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PrecheckForConsolidatedBillingAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the management account or member to be used as a main financial account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 111***089
-   */
-  billingAccountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      billingAccountId: 'BillingAccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      billingAccountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PrecheckForConsolidatedBillingAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The cause of the check failure.
-   */
-  reasons?: PrecheckForConsolidatedBillingAccountResponseBodyReasons[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 9E6B6CA8-9E7A-521F-A743-AA582714727E
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the check was successful. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  result?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      reasons: 'Reasons',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      reasons: { 'type': 'array', 'itemType': PrecheckForConsolidatedBillingAccountResponseBodyReasons },
-      requestId: 'string',
-      result: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PrecheckForConsolidatedBillingAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PrecheckForConsolidatedBillingAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PrecheckForConsolidatedBillingAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterDelegatedAdministratorRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 181761095690****
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The identifier of the trusted service.
-   * 
-   * For more information, see the `Trusted service identifier` column in [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cloudfw.aliyuncs.com
-   */
-  servicePrincipal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      servicePrincipal: 'ServicePrincipal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      servicePrincipal: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterDelegatedAdministratorResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 0A45FC8F-54D2-4A65-8338-25E5DEBDA304
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterDelegatedAdministratorResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RegisterDelegatedAdministratorResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RegisterDelegatedAdministratorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveCloudAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 177242285274****
-   */
-  accountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveCloudAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveCloudAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RemoveCloudAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RemoveCloudAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetryChangeAccountEmailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 181761095690****
-   */
-  accountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetryChangeAccountEmailResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetryChangeAccountEmailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RetryChangeAccountEmailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RetryChangeAccountEmailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendEmailVerificationForMessageContactRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the contact.
-   * 
-   * @example
-   * c-5gsZAGt***PGduDF
-   */
-  contactId?: string;
-  /**
-   * @remarks
-   * The email address of the contact.
-   * 
-   * The specified email address must be the one you specify when you call [AddMessageContact](~~AddMessageContact~~).
-   * 
-   * @example
-   * someone***@example.com
-   */
-  emailAddress?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contactId: 'ContactId',
-      emailAddress: 'EmailAddress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactId: 'string',
-      emailAddress: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendEmailVerificationForMessageContactResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendEmailVerificationForMessageContactResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SendEmailVerificationForMessageContactResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SendEmailVerificationForMessageContactResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendPhoneVerificationForMessageContactRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the contact.
-   * 
-   * @example
-   * c-qL4HqKONzOM7****
-   */
-  contactId?: string;
-  /**
-   * @remarks
-   * The mobile phone number of the contact.
-   * 
-   * The value must be in the `<Country code>-<Mobile phone number>` format.
-   * 
-   * The specified mobile phone number must be the one you specify when you call the [AddMessageContact](~~AddMessageContact~~) operation.
-   * 
-   * @example
-   * 86-139****1234
-   */
-  phoneNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contactId: 'ContactId',
-      phoneNumber: 'PhoneNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactId: 'string',
-      phoneNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendPhoneVerificationForMessageContactResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CD76D376-2517-4924-92C5-DBC52262F93A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendPhoneVerificationForMessageContactResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SendPhoneVerificationForMessageContactResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SendPhoneVerificationForMessageContactResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendVerificationCodeForBindSecureMobilePhoneRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 138660628348****
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The mobile phone number that you want to bind to the member for security purposes.
-   * 
-   * Specify the mobile phone number in the \\<Country code>-\\<Mobile phone number> format.
-   * 
-   * > Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * xx-13900001234
-   */
-  secureMobilePhone?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      secureMobilePhone: 'SecureMobilePhone',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      secureMobilePhone: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendVerificationCodeForBindSecureMobilePhoneResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the verification code expires.
-   * 
-   * @example
-   * 2021-12-17T07:38:41.747Z
-   */
-  expirationDate?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * DCD43660-75DD-5D15-B342-1B83FCA5B913
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      expirationDate: 'ExpirationDate',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      expirationDate: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendVerificationCodeForBindSecureMobilePhoneResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SendVerificationCodeForBindSecureMobilePhoneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SendVerificationCodeForBindSecureMobilePhoneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendVerificationCodeForEnableRDRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The mobile phone number that is bound to the newly created account. If you leave this parameter empty, the mobile phone number that is bound to the current account is used.
-   * 
-   * Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
-   * 
-   * > Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
-   * 
-   * @example
-   * xx-13900001234
-   */
-  secureMobilePhone?: string;
-  static names(): { [key: string]: string } {
-    return {
-      secureMobilePhone: 'SecureMobilePhone',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      secureMobilePhone: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendVerificationCodeForEnableRDResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * EC2FE94D-A4A2-51A1-A493-5C273A36C46A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendVerificationCodeForEnableRDResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SendVerificationCodeForEnableRDResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SendVerificationCodeForEnableRDResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetMemberDeletionPermissionRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the member deletion feature. Valid values:
-   * 
-   * *   Enabled: enables the member deletion feature.
-   * *   Disabled: disables the member deletion feature.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Enabled
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetMemberDeletionPermissionResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the management account of the resource directory.
-   * 
-   * @example
-   * 151266687691****
-   */
-  managementAccountId?: string;
-  /**
-   * @remarks
-   * The status of the member deletion feature. Valid values:
-   * 
-   * *   Enabled: The feature is enabled.
-   * *   Disabled: The feature is disabled.
-   * 
-   * @example
-   * Enabled
-   */
-  memberDeletionStatus?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C55A4CAA-9039-1DDF-91CE-FCC134513D29
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the resource directory.
-   * 
-   * @example
-   * rd-3G****
-   */
-  resourceDirectoryId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      managementAccountId: 'ManagementAccountId',
-      memberDeletionStatus: 'MemberDeletionStatus',
-      requestId: 'RequestId',
-      resourceDirectoryId: 'ResourceDirectoryId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      managementAccountId: 'string',
-      memberDeletionStatus: 'string',
-      requestId: 'string',
-      resourceDirectoryId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetMemberDeletionPermissionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetMemberDeletionPermissionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetMemberDeletionPermissionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account IDs of the members.
-   * 
-   * You can specify a maximum of 50 IDs.
-   * 
-   * This parameter is required.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * The type of the objects to which you want to add tags. Valid values:
-   * 
-   * *   Account: member
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Account
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tags.
-   * 
-   * You can specify a maximum of 20 tags.
-   * 
-   * This parameter is required.
-   */
-  tag?: TagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * E7747EDF-EDDC-5B38-9B6A-6392B9C92B1C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to remove all tags from the specified members. Valid values:
-   * 
-   * *   false (default value)
-   * *   true
-   * 
-   * @example
-   * false
-   */
-  all?: boolean;
-  /**
-   * @remarks
-   * The Alibaba Cloud account IDs of the members.
-   * 
-   * You can specify a maximum of 50 IDs.
-   * 
-   * This parameter is required.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * The type of the objects from which you want to remove tags. Valid values:
-   * 
-   * *   Account: member
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Account
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tag keys.
-   * 
-   * You can specify a maximum of 20 tag keys.
-   * 
-   * > If you set the `All` parameter to `true`, you do not need to specify tag keys.
-   */
-  tagKey?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      all: 'All',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tagKey: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * E7747EDF-EDDC-5B38-9B6A-6392B9C92B1C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UntagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12323344****
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * *   true: performs only a dry run. The system checks items such as whether the member status can be modified and whether security information is configured for the member. If the request does not pass the dry run, an error code is returned.
-   * *   false (default): performs a dry run and performs the actual request.
-   * 
-   * @example
-   * false
-   */
-  dryRun?: boolean;
-  /**
-   * @remarks
-   * The new type of the member. Valid values:
-   * 
-   * *   ResourceAccount: resource account
-   * *   CloudAccount: cloud account
-   * 
-   * > You can specify either `NewDisplayName` or `NewAccountType`.
-   * 
-   * @example
-   * ResourceAccount
-   */
-  newAccountType?: string;
-  /**
-   * @remarks
-   * The new display name of the member.
-   * 
-   * > You can specify either `NewDisplayName` or `NewAccountType`.
-   * 
-   * @example
-   * admin
-   */
-  newDisplayName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      dryRun: 'DryRun',
-      newAccountType: 'NewAccountType',
-      newDisplayName: 'NewDisplayName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      dryRun: 'boolean',
-      newAccountType: 'string',
-      newDisplayName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the member.
-   */
-  account?: UpdateAccountResponseBodyAccount;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: UpdateAccountResponseBodyAccount,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateControlPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The new description of the access control policy.
-   * 
-   * The description must be 1 to 1,024 characters in length. The description can contain letters, digits, underscores (_), and hyphens (-) and must start with a letter.
-   * 
-   * @example
-   * ExampleControlPolicy
-   */
-  newDescription?: string;
-  /**
-   * @remarks
-   * The new document of the access control policy.
-   * 
-   * The document can be a maximum of 4,096 characters in length.
-   * 
-   * For more information about the languages of access control policies, see [Languages of access control policies](https://help.aliyun.com/document_detail/179096.html).
-   * 
-   * For more information about the examples of access control policies, see [Examples of custom access control policies](https://help.aliyun.com/document_detail/181474.html).
-   * 
-   * @example
-   * {"Version":"1","Statement":[{"Effect":"Deny","Action":["ram:UpdateRole","ram:DeleteRole","ram:AttachPolicyToRole","ram:DetachPolicyFromRole"],"Resource":"acs:ram:*:*:role/ResourceDirectoryAccountAccessRole"}]}
-   */
-  newPolicyDocument?: string;
-  /**
-   * @remarks
-   * The new name of the access control policy.
-   * 
-   * The name must be 1 to 128 characters in length. The name can contain letters, digits, and hyphens (-) and must start with a letter.
-   * 
-   * @example
-   * NewControlPolicy
-   */
-  newPolicyName?: string;
-  /**
-   * @remarks
-   * The ID of the access control policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cp-jExXAqIYkwHN****
-   */
-  policyId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      newDescription: 'NewDescription',
-      newPolicyDocument: 'NewPolicyDocument',
-      newPolicyName: 'NewPolicyName',
-      policyId: 'PolicyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      newDescription: 'string',
-      newPolicyDocument: 'string',
-      newPolicyName: 'string',
-      policyId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateControlPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details of the access control policy.
-   */
-  controlPolicy?: UpdateControlPolicyResponseBodyControlPolicy;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 2DFCE4C9-04A9-4C83-BB14-FE791275EC53
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      controlPolicy: 'ControlPolicy',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      controlPolicy: UpdateControlPolicyResponseBodyControlPolicy,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateControlPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateControlPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateControlPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFolderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the folder.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * fd-u8B321****
-   */
-  folderId?: string;
-  /**
-   * @remarks
-   * The new name of the folder.
-   * 
-   * The name must be 1 to 24 characters in length and can contain letters, digits, underscores (_), periods (.), and hyphens (-).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rdFolder
-   */
-  newFolderName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      folderId: 'FolderId',
-      newFolderName: 'NewFolderName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      folderId: 'string',
-      newFolderName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFolderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the folder.
-   */
-  folder?: UpdateFolderResponseBodyFolder;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C2CBCA30-C8DD-423E-B4AD-4FB694C9180C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      folder: 'Folder',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      folder: UpdateFolderResponseBodyFolder,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFolderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateFolderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateFolderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMessageContactRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the contact.
-   * 
-   * @example
-   * c-qL4HqKONzOM7****
-   */
-  contactId?: string;
-  /**
-   * @remarks
-   * The email address of the contact.
-   * 
-   * After you specify an email address, you need to call [SendEmailVerificationForMessageContact](~~SendEmailVerificationForMessageContact~~) to send verification information to the email address. After the verification is passed, the email address takes effect.
-   * 
-   * @example
-   * someone***@example.com
-   */
-  emailAddress?: string;
-  /**
-   * @remarks
-   * The types of messages received by the contact.
-   */
-  messageTypes?: string[];
-  /**
-   * @remarks
-   * The name of the contact.
-   * 
-   * @example
-   * tom
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The mobile phone number of the contact.
-   * 
-   * Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
-   * 
-   * After you specify a mobile phone number, you need to call [SendPhoneVerificationForMessageContact](~~SendPhoneVerificationForMessageContact~~) to send verification information to the mobile phone number. After the verification is passed, the mobile phone number takes effect.
-   * 
-   * @example
-   * 86-139****1234
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The job title of the contact.
-   * 
-   * Valid values:
-   * 
-   * *   FinanceDirector
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   TechnicalDirector
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   MaintenanceDirector
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   CEO
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   ProjectDirector
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Other
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * @example
-   * TechnicalDirector
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contactId: 'ContactId',
-      emailAddress: 'EmailAddress',
-      messageTypes: 'MessageTypes',
-      name: 'Name',
-      phoneNumber: 'PhoneNumber',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactId: 'string',
-      emailAddress: 'string',
-      messageTypes: { 'type': 'array', 'itemType': 'string' },
-      name: 'string',
-      phoneNumber: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMessageContactResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMessageContactResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateMessageContactResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateMessageContactResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AcceptHandshakeResponseBodyHandshake extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class AcceptHandshakeResponseBodyHandshake extends $dara.Model {
   /**
    * @remarks
    * The time when the invitation was created. The time is displayed in UTC.
@@ -7676,12 +135,16 @@ export class AcceptHandshakeResponseBodyHandshake extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddMessageContactResponseBodyContact extends $tea.Model {
+export class AddMessageContactResponseBodyContact extends $dara.Model {
   /**
    * @remarks
    * The ID of the contact.
@@ -7712,12 +175,16 @@ export class AddMessageContactResponseBodyContact extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AssociateMembersResponseBodyMembers extends $tea.Model {
+export class AssociateMembersResponseBodyMembers extends $dara.Model {
   /**
    * @remarks
    * The ID of the contact.
@@ -7762,12 +229,16 @@ export class AssociateMembersResponseBodyMembers extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelHandshakeResponseBodyHandshake extends $tea.Model {
+export class CancelHandshakeResponseBodyHandshake extends $dara.Model {
   /**
    * @remarks
    * The time when the invitation was created. The time is displayed in UTC.
@@ -7897,13 +368,31 @@ export class CancelHandshakeResponseBodyHandshake extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateControlPolicyRequestTag extends $tea.Model {
+export class CreateControlPolicyRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * v1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7919,12 +408,16 @@ export class CreateControlPolicyRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateControlPolicyResponseBodyControlPolicy extends $tea.Model {
+export class CreateControlPolicyResponseBodyControlPolicy extends $dara.Model {
   /**
    * @remarks
    * The number of times that the access control policy is referenced.
@@ -8020,13 +513,31 @@ export class CreateControlPolicyResponseBodyControlPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateFolderRequestTag extends $tea.Model {
+export class CreateFolderRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * v1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8042,12 +553,16 @@ export class CreateFolderRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateFolderResponseBodyFolder extends $tea.Model {
+export class CreateFolderResponseBodyFolder extends $dara.Model {
   /**
    * @remarks
    * The time when the folder was created.
@@ -8098,12 +613,16 @@ export class CreateFolderResponseBodyFolder extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateResourceAccountRequestTag extends $tea.Model {
+export class CreateResourceAccountRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag.
@@ -8134,12 +653,16 @@ export class CreateResourceAccountRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateResourceAccountResponseBodyAccount extends $tea.Model {
+export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member.
@@ -8253,12 +776,16 @@ export class CreateResourceAccountResponseBodyAccount extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeclineHandshakeResponseBodyHandshake extends $tea.Model {
+export class DeclineHandshakeResponseBodyHandshake extends $dara.Model {
   /**
    * @remarks
    * The time when the invitation was created.
@@ -8388,12 +915,16 @@ export class DeclineHandshakeResponseBodyHandshake extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DisassociateMembersResponseBodyMembers extends $tea.Model {
+export class DisassociateMembersResponseBodyMembers extends $dara.Model {
   /**
    * @remarks
    * The ID of the contact.
@@ -8438,12 +969,16 @@ export class DisassociateMembersResponseBodyMembers extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EnableResourceDirectoryResponseBodyResourceDirectory extends $tea.Model {
+export class EnableResourceDirectoryResponseBodyResourceDirectory extends $dara.Model {
   /**
    * @remarks
    * The time when the resource directory was enabled.
@@ -8504,12 +1039,16 @@ export class EnableResourceDirectoryResponseBodyResourceDirectory extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccountResponseBodyAccountTags extends $tea.Model {
+export class GetAccountResponseBodyAccountTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -8540,12 +1079,16 @@ export class GetAccountResponseBodyAccountTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccountResponseBodyAccount extends $tea.Model {
+export class GetAccountResponseBodyAccount extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member.
@@ -8729,12 +1272,19 @@ export class GetAccountResponseBodyAccount extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoAbandonableChecks extends $tea.Model {
+export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoAbandonableChecks extends $dara.Model {
   /**
    * @remarks
    * The ID of the check item.
@@ -8775,12 +1325,16 @@ export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResult
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoNotAllowReason extends $tea.Model {
+export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoNotAllowReason extends $dara.Model {
   /**
    * @remarks
    * The ID of the check item.
@@ -8821,12 +1375,16 @@ export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResult
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo extends $tea.Model {
+export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo extends $dara.Model {
   /**
    * @remarks
    * The check items that you can choose to ignore for the member deletion.
@@ -8881,12 +1439,22 @@ export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResult
     };
   }
 
+  validate() {
+    if(Array.isArray(this.abandonableChecks)) {
+      $dara.Model.validateArray(this.abandonableChecks);
+    }
+    if(Array.isArray(this.notAllowReason)) {
+      $dara.Model.validateArray(this.notAllowReason);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReasonList extends $tea.Model {
+export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReasonList extends $dara.Model {
   /**
    * @remarks
    * The description of the check item.
@@ -8917,12 +1485,16 @@ export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReas
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus extends $tea.Model {
+export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member.
@@ -9001,12 +1573,19 @@ export class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus extends
     };
   }
 
+  validate() {
+    if(Array.isArray(this.failReasonList)) {
+      $dara.Model.validateArray(this.failReasonList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetControlPolicyResponseBodyControlPolicy extends $tea.Model {
+export class GetControlPolicyResponseBodyControlPolicy extends $dara.Model {
   /**
    * @remarks
    * The number of times that the access control policy is referenced.
@@ -9113,12 +1692,16 @@ export class GetControlPolicyResponseBodyControlPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFolderResponseBodyFolder extends $tea.Model {
+export class GetFolderResponseBodyFolder extends $dara.Model {
   /**
    * @remarks
    * The time when the folder was created.
@@ -9176,12 +1759,16 @@ export class GetFolderResponseBodyFolder extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHandshakeResponseBodyHandshake extends $tea.Model {
+export class GetHandshakeResponseBodyHandshake extends $dara.Model {
   /**
    * @remarks
    * The time when the invitation was created. The time is displayed in UTC.
@@ -9335,12 +1922,16 @@ export class GetHandshakeResponseBodyHandshake extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMessageContactResponseBodyContact extends $tea.Model {
+export class GetMessageContactResponseBodyContact extends $dara.Model {
   /**
    * @remarks
    * The ID of the contact.
@@ -9439,12 +2030,22 @@ export class GetMessageContactResponseBodyContact extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.members)) {
+      $dara.Model.validateArray(this.members);
+    }
+    if(Array.isArray(this.messageTypes)) {
+      $dara.Model.validateArray(this.messageTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMessageContactDeletionStatusResponseBodyContactDeletionStatusFailReasonList extends $tea.Model {
+export class GetMessageContactDeletionStatusResponseBodyContactDeletionStatusFailReasonList extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member.
@@ -9472,12 +2073,19 @@ export class GetMessageContactDeletionStatusResponseBodyContactDeletionStatusFai
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageTypes)) {
+      $dara.Model.validateArray(this.messageTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMessageContactDeletionStatusResponseBodyContactDeletionStatus extends $tea.Model {
+export class GetMessageContactDeletionStatusResponseBodyContactDeletionStatus extends $dara.Model {
   /**
    * @remarks
    * The ID of the contact.
@@ -9518,12 +2126,19 @@ export class GetMessageContactDeletionStatusResponseBodyContactDeletionStatus ex
     };
   }
 
+  validate() {
+    if(Array.isArray(this.failReasonList)) {
+      $dara.Model.validateArray(this.failReasonList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceDirectoryResponseBodyResourceDirectory extends $tea.Model {
+export class GetResourceDirectoryResponseBodyResourceDirectory extends $dara.Model {
   /**
    * @example
    * Enabled
@@ -9586,12 +2201,16 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InviteAccountToResourceDirectoryRequestTag extends $tea.Model {
+export class InviteAccountToResourceDirectoryRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -9622,12 +2241,16 @@ export class InviteAccountToResourceDirectoryRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $tea.Model {
+export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara.Model {
   /**
    * @remarks
    * The time when the invitation was created. The time is displayed in UTC.
@@ -9757,12 +2380,16 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $tea.
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountsRequestTag extends $tea.Model {
+export class ListAccountsRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -9793,12 +2420,16 @@ export class ListAccountsRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountsResponseBodyAccountsAccountTagsTag extends $tea.Model {
+export class ListAccountsResponseBodyAccountsAccountTagsTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag.
@@ -9829,12 +2460,16 @@ export class ListAccountsResponseBodyAccountsAccountTagsTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountsResponseBodyAccountsAccountTags extends $tea.Model {
+export class ListAccountsResponseBodyAccountsAccountTags extends $dara.Model {
   tag?: ListAccountsResponseBodyAccountsAccountTagsTag[];
   static names(): { [key: string]: string } {
     return {
@@ -9848,12 +2483,19 @@ export class ListAccountsResponseBodyAccountsAccountTags extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountsResponseBodyAccountsAccount extends $tea.Model {
+export class ListAccountsResponseBodyAccountsAccount extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member.
@@ -10009,12 +2651,19 @@ export class ListAccountsResponseBodyAccountsAccount extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountsResponseBodyAccounts extends $tea.Model {
+export class ListAccountsResponseBodyAccounts extends $dara.Model {
   account?: ListAccountsResponseBodyAccountsAccount[];
   static names(): { [key: string]: string } {
     return {
@@ -10028,12 +2677,19 @@ export class ListAccountsResponseBodyAccounts extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.account)) {
+      $dara.Model.validateArray(this.account);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountsForParentRequestTag extends $tea.Model {
+export class ListAccountsForParentRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag.
@@ -10064,12 +2720,16 @@ export class ListAccountsForParentRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountsForParentResponseBodyAccountsAccountTagsTag extends $tea.Model {
+export class ListAccountsForParentResponseBodyAccountsAccountTagsTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag.
@@ -10100,12 +2760,16 @@ export class ListAccountsForParentResponseBodyAccountsAccountTagsTag extends $te
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountsForParentResponseBodyAccountsAccountTags extends $tea.Model {
+export class ListAccountsForParentResponseBodyAccountsAccountTags extends $dara.Model {
   tag?: ListAccountsForParentResponseBodyAccountsAccountTagsTag[];
   static names(): { [key: string]: string } {
     return {
@@ -10119,12 +2783,19 @@ export class ListAccountsForParentResponseBodyAccountsAccountTags extends $tea.M
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountsForParentResponseBodyAccountsAccount extends $tea.Model {
+export class ListAccountsForParentResponseBodyAccountsAccount extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member.
@@ -10273,12 +2944,19 @@ export class ListAccountsForParentResponseBodyAccountsAccount extends $tea.Model
     };
   }
 
+  validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountsForParentResponseBodyAccounts extends $tea.Model {
+export class ListAccountsForParentResponseBodyAccounts extends $dara.Model {
   account?: ListAccountsForParentResponseBodyAccountsAccount[];
   static names(): { [key: string]: string } {
     return {
@@ -10292,12 +2970,19 @@ export class ListAccountsForParentResponseBodyAccounts extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.account)) {
+      $dara.Model.validateArray(this.account);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAncestorsResponseBodyFoldersFolder extends $tea.Model {
+export class ListAncestorsResponseBodyFoldersFolder extends $dara.Model {
   /**
    * @remarks
    * The time when the folder was created.
@@ -10338,12 +3023,16 @@ export class ListAncestorsResponseBodyFoldersFolder extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAncestorsResponseBodyFolders extends $tea.Model {
+export class ListAncestorsResponseBodyFolders extends $dara.Model {
   folder?: ListAncestorsResponseBodyFoldersFolder[];
   static names(): { [key: string]: string } {
     return {
@@ -10357,12 +3046,19 @@ export class ListAncestorsResponseBodyFolders extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.folder)) {
+      $dara.Model.validateArray(this.folder);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListControlPoliciesResponseBodyControlPoliciesControlPolicy extends $tea.Model {
+export class ListControlPoliciesResponseBodyControlPoliciesControlPolicy extends $dara.Model {
   /**
    * @remarks
    * The number of times that the access control policy is referenced.
@@ -10459,12 +3155,16 @@ export class ListControlPoliciesResponseBodyControlPoliciesControlPolicy extends
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListControlPoliciesResponseBodyControlPolicies extends $tea.Model {
+export class ListControlPoliciesResponseBodyControlPolicies extends $dara.Model {
   controlPolicy?: ListControlPoliciesResponseBodyControlPoliciesControlPolicy[];
   static names(): { [key: string]: string } {
     return {
@@ -10478,12 +3178,19 @@ export class ListControlPoliciesResponseBodyControlPolicies extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.controlPolicy)) {
+      $dara.Model.validateArray(this.controlPolicy);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachmentsControlPolicyAttachment extends $tea.Model {
+export class ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachmentsControlPolicyAttachment extends $dara.Model {
   /**
    * @remarks
    * The time when the access control policy was attached.
@@ -10560,12 +3267,16 @@ export class ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttac
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachments extends $tea.Model {
+export class ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachments extends $dara.Model {
   controlPolicyAttachment?: ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachmentsControlPolicyAttachment[];
   static names(): { [key: string]: string } {
     return {
@@ -10579,12 +3290,19 @@ export class ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttac
     };
   }
 
+  validate() {
+    if(Array.isArray(this.controlPolicyAttachment)) {
+      $dara.Model.validateArray(this.controlPolicyAttachment);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDelegatedAdministratorsResponseBodyAccountsAccount extends $tea.Model {
+export class ListDelegatedAdministratorsResponseBodyAccountsAccount extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member.
@@ -10648,12 +3366,16 @@ export class ListDelegatedAdministratorsResponseBodyAccountsAccount extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDelegatedAdministratorsResponseBodyAccounts extends $tea.Model {
+export class ListDelegatedAdministratorsResponseBodyAccounts extends $dara.Model {
   account?: ListDelegatedAdministratorsResponseBodyAccountsAccount[];
   static names(): { [key: string]: string } {
     return {
@@ -10667,12 +3389,19 @@ export class ListDelegatedAdministratorsResponseBodyAccounts extends $tea.Model 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.account)) {
+      $dara.Model.validateArray(this.account);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDelegatedServicesForAccountResponseBodyDelegatedServicesDelegatedService extends $tea.Model {
+export class ListDelegatedServicesForAccountResponseBodyDelegatedServicesDelegatedService extends $dara.Model {
   /**
    * @remarks
    * The time when the member was specified as a delegated administrator account.
@@ -10716,12 +3445,16 @@ export class ListDelegatedServicesForAccountResponseBodyDelegatedServicesDelegat
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDelegatedServicesForAccountResponseBodyDelegatedServices extends $tea.Model {
+export class ListDelegatedServicesForAccountResponseBodyDelegatedServices extends $dara.Model {
   delegatedService?: ListDelegatedServicesForAccountResponseBodyDelegatedServicesDelegatedService[];
   static names(): { [key: string]: string } {
     return {
@@ -10735,12 +3468,125 @@ export class ListDelegatedServicesForAccountResponseBodyDelegatedServices extend
     };
   }
 
+  validate() {
+    if(Array.isArray(this.delegatedService)) {
+      $dara.Model.validateArray(this.delegatedService);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFoldersForParentResponseBodyFoldersFolder extends $tea.Model {
+export class ListFoldersForParentRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * k1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * v1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFoldersForParentResponseBodyFoldersFolderTagsTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * k1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * v1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFoldersForParentResponseBodyFoldersFolderTags extends $dara.Model {
+  tag?: ListFoldersForParentResponseBodyFoldersFolderTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': ListFoldersForParentResponseBodyFoldersFolderTagsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFoldersForParentResponseBodyFoldersFolder extends $dara.Model {
   /**
    * @remarks
    * The time when the folder was created.
@@ -10765,11 +3611,17 @@ export class ListFoldersForParentResponseBodyFoldersFolder extends $tea.Model {
    * project-1
    */
   folderName?: string;
+  /**
+   * @remarks
+   * The tags added to the folder.
+   */
+  tags?: ListFoldersForParentResponseBodyFoldersFolderTags;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
       folderId: 'FolderId',
       folderName: 'FolderName',
+      tags: 'Tags',
     };
   }
 
@@ -10778,7 +3630,15 @@ export class ListFoldersForParentResponseBodyFoldersFolder extends $tea.Model {
       createTime: 'string',
       folderId: 'string',
       folderName: 'string',
+      tags: ListFoldersForParentResponseBodyFoldersFolderTags,
     };
+  }
+
+  validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -10786,7 +3646,7 @@ export class ListFoldersForParentResponseBodyFoldersFolder extends $tea.Model {
   }
 }
 
-export class ListFoldersForParentResponseBodyFolders extends $tea.Model {
+export class ListFoldersForParentResponseBodyFolders extends $dara.Model {
   folder?: ListFoldersForParentResponseBodyFoldersFolder[];
   static names(): { [key: string]: string } {
     return {
@@ -10800,12 +3660,19 @@ export class ListFoldersForParentResponseBodyFolders extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.folder)) {
+      $dara.Model.validateArray(this.folder);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListHandshakesForAccountResponseBodyHandshakesHandshake extends $tea.Model {
+export class ListHandshakesForAccountResponseBodyHandshakesHandshake extends $dara.Model {
   /**
    * @remarks
    * The time when the invitation was created. The time is displayed in UTC.
@@ -10935,12 +3802,16 @@ export class ListHandshakesForAccountResponseBodyHandshakesHandshake extends $te
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListHandshakesForAccountResponseBodyHandshakes extends $tea.Model {
+export class ListHandshakesForAccountResponseBodyHandshakes extends $dara.Model {
   handshake?: ListHandshakesForAccountResponseBodyHandshakesHandshake[];
   static names(): { [key: string]: string } {
     return {
@@ -10954,12 +3825,19 @@ export class ListHandshakesForAccountResponseBodyHandshakes extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.handshake)) {
+      $dara.Model.validateArray(this.handshake);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListHandshakesForResourceDirectoryResponseBodyHandshakesHandshake extends $tea.Model {
+export class ListHandshakesForResourceDirectoryResponseBodyHandshakesHandshake extends $dara.Model {
   /**
    * @remarks
    * The time when the invitation was created. The time is displayed in UTC.
@@ -11089,12 +3967,16 @@ export class ListHandshakesForResourceDirectoryResponseBodyHandshakesHandshake e
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListHandshakesForResourceDirectoryResponseBodyHandshakes extends $tea.Model {
+export class ListHandshakesForResourceDirectoryResponseBodyHandshakes extends $dara.Model {
   handshake?: ListHandshakesForResourceDirectoryResponseBodyHandshakesHandshake[];
   static names(): { [key: string]: string } {
     return {
@@ -11108,12 +3990,19 @@ export class ListHandshakesForResourceDirectoryResponseBodyHandshakes extends $t
     };
   }
 
+  validate() {
+    if(Array.isArray(this.handshake)) {
+      $dara.Model.validateArray(this.handshake);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListMessageContactVerificationsResponseBodyContactVerifications extends $tea.Model {
+export class ListMessageContactVerificationsResponseBodyContactVerifications extends $dara.Model {
   /**
    * @remarks
    * The ID of the contact.
@@ -11147,12 +4036,16 @@ export class ListMessageContactVerificationsResponseBodyContactVerifications ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListMessageContactsResponseBodyContacts extends $tea.Model {
+export class ListMessageContactsResponseBodyContacts extends $dara.Model {
   /**
    * @remarks
    * The time when the contact was bound to the objects.
@@ -11261,12 +4154,22 @@ export class ListMessageContactsResponseBodyContacts extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.members)) {
+      $dara.Model.validateArray(this.members);
+    }
+    if(Array.isArray(this.messageTypes)) {
+      $dara.Model.validateArray(this.messageTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagKeysResponseBodyTags extends $tea.Model {
+export class ListTagKeysResponseBodyTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -11287,12 +4190,16 @@ export class ListTagKeysResponseBodyTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequestTag extends $tea.Model {
+export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag.
@@ -11323,12 +4230,16 @@ export class ListTagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member.
@@ -11381,12 +4292,16 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagValuesResponseBodyTags extends $tea.Model {
+export class ListTagValuesResponseBodyTags extends $dara.Model {
   /**
    * @remarks
    * The tag value.
@@ -11407,12 +4322,16 @@ export class ListTagValuesResponseBodyTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachmentsTargetAttachment extends $tea.Model {
+export class ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachmentsTargetAttachment extends $dara.Model {
   /**
    * @remarks
    * The time when the access control policy was attached to the object.
@@ -11467,12 +4386,16 @@ export class ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachmentsT
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments extends $tea.Model {
+export class ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments extends $dara.Model {
   targetAttachment?: ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachmentsTargetAttachment[];
   static names(): { [key: string]: string } {
     return {
@@ -11486,12 +4409,19 @@ export class ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.targetAttachment)) {
+      $dara.Model.validateArray(this.targetAttachment);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTrustedServiceStatusResponseBodyEnabledServicePrincipalsEnabledServicePrincipal extends $tea.Model {
+export class ListTrustedServiceStatusResponseBodyEnabledServicePrincipalsEnabledServicePrincipal extends $dara.Model {
   /**
    * @remarks
    * The time when the trusted service was enabled.
@@ -11522,12 +4452,16 @@ export class ListTrustedServiceStatusResponseBodyEnabledServicePrincipalsEnabled
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTrustedServiceStatusResponseBodyEnabledServicePrincipals extends $tea.Model {
+export class ListTrustedServiceStatusResponseBodyEnabledServicePrincipals extends $dara.Model {
   enabledServicePrincipal?: ListTrustedServiceStatusResponseBodyEnabledServicePrincipalsEnabledServicePrincipal[];
   static names(): { [key: string]: string } {
     return {
@@ -11541,12 +4475,19 @@ export class ListTrustedServiceStatusResponseBodyEnabledServicePrincipals extend
     };
   }
 
+  validate() {
+    if(Array.isArray(this.enabledServicePrincipal)) {
+      $dara.Model.validateArray(this.enabledServicePrincipal);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PrecheckForConsolidatedBillingAccountResponseBodyReasons extends $tea.Model {
+export class PrecheckForConsolidatedBillingAccountResponseBodyReasons extends $dara.Model {
   /**
    * @remarks
    * The error code.
@@ -11577,12 +4518,16 @@ export class PrecheckForConsolidatedBillingAccountResponseBodyReasons extends $t
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequestTag extends $tea.Model {
+export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag.
@@ -11617,12 +4562,16 @@ export class TagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAccountResponseBodyAccount extends $tea.Model {
+export class UpdateAccountResponseBodyAccount extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member.
@@ -11744,12 +4693,16 @@ export class UpdateAccountResponseBodyAccount extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateControlPolicyResponseBodyControlPolicy extends $tea.Model {
+export class UpdateControlPolicyResponseBodyControlPolicy extends $dara.Model {
   /**
    * @remarks
    * The number of times that the access control policy is referenced.
@@ -11846,12 +4799,16 @@ export class UpdateControlPolicyResponseBodyControlPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateFolderResponseBodyFolder extends $tea.Model {
+export class UpdateFolderResponseBodyFolder extends $dara.Model {
   /**
    * @remarks
    * The time when the folder was created.
@@ -11902,6 +4859,8994 @@ export class UpdateFolderResponseBodyFolder extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AcceptHandshakeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the invitation.
+   * 
+   * You can call the [ListHandshakesForAccount](~~ListHandshakesForAccount~~) operation to obtain the ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * h-Ih8IuPfvV0t0****
+   */
+  handshakeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      handshakeId: 'HandshakeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handshakeId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AcceptHandshakeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the invitation.
+   */
+  handshake?: AcceptHandshakeResponseBodyHandshake;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5828C836-3286-49A6-9006-15231BB19342
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      handshake: 'Handshake',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handshake: AcceptHandshakeResponseBodyHandshake,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.handshake && typeof (this.handshake as any).validate === 'function') {
+      (this.handshake as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AcceptHandshakeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AcceptHandshakeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AcceptHandshakeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMessageContactRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The email address of the contact.
+   * 
+   * After you specify an email address, you need to call [SendEmailVerificationForMessageContact](~~SendEmailVerificationForMessageContact~~) to send verification information to the email address. After the verification is passed, the email address takes effect.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * someone***@example.com
+   */
+  emailAddress?: string;
+  /**
+   * @remarks
+   * The types of messages received by the contact.
+   * 
+   * This parameter is required.
+   */
+  messageTypes?: string[];
+  /**
+   * @remarks
+   * The name of the contact.
+   * 
+   * The name must be unique in your resource directory.
+   * 
+   * The name must be 2 to 12 characters in length and can contain only letters.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tom
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the contact.
+   * 
+   * Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
+   * 
+   * > Only mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are supported.
+   * 
+   * After you specify a mobile phone number, you need to call [SendPhoneVerificationForMessageContact](~~SendPhoneVerificationForMessageContact~~) to send verification information to the mobile phone number. After the verification is passed, the mobile phone number takes effect.
+   * 
+   * @example
+   * 86-139****1234
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The job title of the contact.
+   * 
+   * Valid values:
+   * 
+   * *   FinanceDirector
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   TechnicalDirector
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   MaintenanceDirector
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   CEO
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   ProjectDirector
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Other
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TechnicalDirector
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      emailAddress: 'EmailAddress',
+      messageTypes: 'MessageTypes',
+      name: 'Name',
+      phoneNumber: 'PhoneNumber',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      emailAddress: 'string',
+      messageTypes: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      phoneNumber: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.messageTypes)) {
+      $dara.Model.validateArray(this.messageTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMessageContactResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the contact.
+   */
+  contact?: AddMessageContactResponseBodyContact;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2DFCE4C9-04A9-4C83-BB14-FE791275EC53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contact: 'Contact',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contact: AddMessageContactResponseBodyContact,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.contact && typeof (this.contact as any).validate === 'function') {
+      (this.contact as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMessageContactResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddMessageContactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddMessageContactResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateMembersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the contact.
+   * 
+   * @example
+   * c-qL4HqKONzOM7****
+   */
+  contactId?: string;
+  /**
+   * @remarks
+   * The IDs of objects to which you want to bind the contact.
+   */
+  members?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      members: 'Members',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      members: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.members)) {
+      $dara.Model.validateArray(this.members);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateMembersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the contact was bound to the object.
+   */
+  members?: AssociateMembersResponseBodyMembers[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 95060F1D-6990-4645-8920-A81D1BBFE992
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      members: 'Members',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      members: { 'type': 'array', 'itemType': AssociateMembersResponseBodyMembers },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.members)) {
+      $dara.Model.validateArray(this.members);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateMembersResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssociateMembersResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachControlPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the access control policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-jExXAqIYkwHN****
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * The ID of the object to which you want to attach the access control policy. Access control policies can be attached to the following objects:
+   * 
+   * *   Root folder
+   * *   Subfolders of the Root folder
+   * *   Members
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fd-ZDNPiT****
+   */
+  targetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      targetId: 'TargetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      targetId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachControlPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 95060F1D-6990-4645-8920-A81D1BBFE992
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachControlPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachControlPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindSecureMobilePhoneRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 138660628348****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * The mobile phone number that you want to bind to the member for security purposes.
+   * 
+   * The mobile phone number you specify must be the same as the mobile phone number that you specify when you call the [SendVerificationCodeForBindSecureMobilePhone](~~SendVerificationCodeForBindSecureMobilePhone~~) operation to obtain a verification code.
+   * 
+   * Specify the mobile phone number in the \\<Country code>-\\<Mobile phone number> format.
+   * 
+   * > Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xx-13900001234
+   */
+  secureMobilePhone?: string;
+  /**
+   * @remarks
+   * The verification code.
+   * 
+   * You can call the [SendVerificationCodeForBindSecureMobilePhone](~~SendVerificationCodeForBindSecureMobilePhone~~) operation to obtain the verification code.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
+  verificationCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      secureMobilePhone: 'SecureMobilePhone',
+      verificationCode: 'VerificationCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      secureMobilePhone: 'string',
+      verificationCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindSecureMobilePhoneResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0217AFEB-5318-56D4-B167-1933D83EDF3F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindSecureMobilePhoneResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindSecureMobilePhoneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BindSecureMobilePhoneResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelChangeAccountEmailRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 181761095690****
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelChangeAccountEmailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelChangeAccountEmailResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelChangeAccountEmailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelChangeAccountEmailResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelHandshakeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the invitation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * h-ycm4rp****
+   */
+  handshakeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      handshakeId: 'HandshakeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handshakeId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelHandshakeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the invitation.
+   */
+  handshake?: CancelHandshakeResponseBodyHandshake;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      handshake: 'Handshake',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handshake: CancelHandshakeResponseBodyHandshake,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.handshake && typeof (this.handshake as any).validate === 'function') {
+      (this.handshake as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelHandshakeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelHandshakeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelHandshakeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelMessageContactUpdateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the contact.
+   * 
+   * @example
+   * c-qL4HqKONzOM7****
+   */
+  contactId?: string;
+  /**
+   * @remarks
+   * The email address of the contact.
+   * 
+   * @example
+   * someone***@example.com
+   */
+  emailAddress?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the contact.
+   * 
+   * Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
+   * 
+   * @example
+   * 86-139****1234
+   */
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      emailAddress: 'EmailAddress',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      emailAddress: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelMessageContactUpdateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelMessageContactUpdateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelMessageContactUpdateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelMessageContactUpdateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeAccountEmailRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 181761095690****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * The email address to be bound to the member.
+   * 
+   * > The system automatically sends a verification email to the email address. After the verification is passed, the email address takes effect, and the system changes both the logon email address and secure email address of the member.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * someone@example.com
+   */
+  email?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      email: 'Email',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      email: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeAccountEmailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeAccountEmailResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeAccountEmailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeAccountEmailResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAccountDeleteRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 179855839641****
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAccountDeleteResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7CDDDCEF-CDFD-0825-B7D7-217BE0897B22
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAccountDeleteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckAccountDeleteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckAccountDeleteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateControlPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the access control policy.
+   * 
+   * The description must be 1 to 1,024 characters in length. The description can contain letters, digits, underscores (_), and hyphens (-) and must start with a letter.
+   * 
+   * @example
+   * ExampleControlPolicy
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The effective scope of the access control policy.
+   * 
+   * The value RAM indicates that the access control policy takes effect only for RAM users and RAM roles.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * RAM
+   */
+  effectScope?: string;
+  /**
+   * @remarks
+   * The document of the access control policy.
+   * 
+   * The document can be a maximum of 4,096 characters in length.
+   * 
+   * For more information about the languages of access control policies, see [Languages of access control policies](https://help.aliyun.com/document_detail/179096.html).
+   * 
+   * For more information about the examples of access control policies, see [Examples of custom access control policies](https://help.aliyun.com/document_detail/181474.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"Version":"1","Statement":[{"Effect":"Deny","Action":["ram:UpdateRole","ram:DeleteRole","ram:AttachPolicyToRole","ram:DetachPolicyFromRole"],"Resource":"acs:ram:*:*:role/ResourceDirectoryAccountAccessRole"}]}
+   */
+  policyDocument?: string;
+  /**
+   * @remarks
+   * The name of the access control policy.
+   * 
+   * The name must be 1 to 128 characters in length. The name can contain letters, digits, and hyphens (-) and must start with a letter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ExampleControlPolicy
+   */
+  policyName?: string;
+  /**
+   * @remarks
+   * The tag to add to the access control policy.
+   */
+  tag?: CreateControlPolicyRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      effectScope: 'EffectScope',
+      policyDocument: 'PolicyDocument',
+      policyName: 'PolicyName',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      effectScope: 'string',
+      policyDocument: 'string',
+      policyName: 'string',
+      tag: { 'type': 'array', 'itemType': CreateControlPolicyRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateControlPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access control policy.
+   */
+  controlPolicy?: CreateControlPolicyResponseBodyControlPolicy;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 776B05B3-A0B0-464B-A191-F4E1119A94B2
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      controlPolicy: 'ControlPolicy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      controlPolicy: CreateControlPolicyResponseBodyControlPolicy,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.controlPolicy && typeof (this.controlPolicy as any).validate === 'function') {
+      (this.controlPolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateControlPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateControlPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFolderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the folder.
+   * 
+   * The name must be 1 to 24 characters in length and can contain letters, digits, underscores (_), periods (.),and hyphens (-).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rdFolder
+   */
+  folderName?: string;
+  /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
+   * @example
+   * r-b1****
+   */
+  parentFolderId?: string;
+  /**
+   * @remarks
+   * The tag to add to the folder.
+   */
+  tag?: CreateFolderRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      folderName: 'FolderName',
+      parentFolderId: 'ParentFolderId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      folderName: 'string',
+      parentFolderId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateFolderRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFolderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the folder.
+   */
+  folder?: CreateFolderResponseBodyFolder;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C2CBCA30-C8DD-423E-B4AD-4FB694C9180C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      folder: 'Folder',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      folder: CreateFolderResponseBodyFolder,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.folder && typeof (this.folder as any).validate === 'function') {
+      (this.folder as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFolderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFolderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFolderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The prefix for the Alibaba Cloud account name of the member. If you leave this parameter empty, the system randomly generates a prefix.
+   * 
+   * The prefix must be 2 to 37 characters in length.
+   * 
+   * The prefix can contain letters, digits, and special characters but cannot contain consecutive special characters. The prefix must start with a letter or digit and end with a letter or digit. Valid special characters include underscores (`_`), periods (.), and hyphens (`-`).
+   * 
+   * The complete Alibaba Cloud account name of a member in a resource directory is in the @.aliyunid.com format, such as `alice@rd-3G****.aliyunid.com`.
+   * 
+   * Each name must be unique in the resource directory.
+   * 
+   * @example
+   * alice
+   */
+  accountNamePrefix?: string;
+  /**
+   * @remarks
+   * The display name of the member.
+   * 
+   * The name must be 2 to 50 characters in length.
+   * 
+   * The name can contain letters, digits, underscores (_), periods (.), hyphens (-), and spaces.
+   * 
+   * The name must be unique in the resource directory.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Dev
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   true: performs only a dry run. The system checks whether an identity type can be specified for the member. If the request does not pass the dry run, an error code is returned.
+   * *   false (default): performs a dry run and performs the actual request.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
+   * @example
+   * fd-r23M55****
+   */
+  parentFolderId?: string;
+  /**
+   * @remarks
+   * The ID of the billing account. If you leave this parameter empty, the newly created member is used as its billing account.
+   * 
+   * @example
+   * 12323344****
+   */
+  payerAccountId?: string;
+  /**
+   * @remarks
+   * The identity type of the member. Valid values:
+   * 
+   * *   resell: The member is an account for a reseller. This is the default value. A relationship is automatically established between the member and the reseller. The management account of the resource directory must be used as the billing account of the member.
+   * *   non_resell: The member is not an account for a reseller. The member is an account that is not associated with a reseller. You can directly use the account to purchase Alibaba Cloud resources. The member is used as its own billing account.
+   * 
+   * > This parameter is available only for resellers at the international site (alibabacloud.com).
+   * 
+   * @example
+   * resell
+   */
+  resellAccountType?: string;
+  /**
+   * @remarks
+   * The tag of the member.
+   */
+  tag?: CreateResourceAccountRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      accountNamePrefix: 'AccountNamePrefix',
+      displayName: 'DisplayName',
+      dryRun: 'DryRun',
+      parentFolderId: 'ParentFolderId',
+      payerAccountId: 'PayerAccountId',
+      resellAccountType: 'ResellAccountType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountNamePrefix: 'string',
+      displayName: 'string',
+      dryRun: 'boolean',
+      parentFolderId: 'string',
+      payerAccountId: 'string',
+      resellAccountType: 'string',
+      tag: { 'type': 'array', 'itemType': CreateResourceAccountRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the member.
+   */
+  account?: CreateResourceAccountResponseBodyAccount;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B356A415-D860-43E5-865A-E2193D62BBD6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: CreateResourceAccountResponseBodyAccount,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.account && typeof (this.account as any).validate === 'function') {
+      (this.account as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateResourceAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateResourceAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeclineHandshakeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the invitation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * h-ycm4rp****
+   */
+  handshakeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      handshakeId: 'HandshakeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handshakeId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeclineHandshakeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the invitation.
+   */
+  handshake?: DeclineHandshakeResponseBodyHandshake;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      handshake: 'Handshake',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handshake: DeclineHandshakeResponseBodyHandshake,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.handshake && typeof (this.handshake as any).validate === 'function') {
+      (this.handshake as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeclineHandshakeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeclineHandshakeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeclineHandshakeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the check items that you can choose to ignore for the member deletion.
+   * 
+   * You can obtain the IDs from the response of the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation.
+   */
+  abandonableCheckId?: string[];
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 169946124551****
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abandonableCheckId: 'AbandonableCheckId',
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abandonableCheckId: { 'type': 'array', 'itemType': 'string' },
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.abandonableCheckId)) {
+      $dara.Model.validateArray(this.abandonableCheckId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the check items that you can choose to ignore for the member deletion.
+   * 
+   * You can obtain the IDs from the response of the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation.
+   */
+  abandonableCheckIdShrink?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 169946124551****
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abandonableCheckIdShrink: 'AbandonableCheckId',
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abandonableCheckIdShrink: 'string',
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the deletion. Valid values:
+   * 
+   * *   0: direct deletion. If the member does not have pay-as-you-go resources that are purchased within the previous 30 days, the system directly deletes the member.
+   * *   1: deletion with a silence period. If the member has pay-as-you-go resources that are purchased within the previous 30 days, the member enters a silence period. The system starts to delete the member until the silence period ends. For more information about the silence period, see [What is the silence period for member deletion?](https://help.aliyun.com/document_detail/446079.html)
+   * 
+   * @example
+   * 0
+   */
+  deletionType?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 009429F8-C1C0-5872-B674-A6C2333B9647
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deletionType: 'DeletionType',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deletionType: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteControlPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the access control policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-SImPt8GCEwiq****
+   */
+  policyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteControlPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C8541E06-B207-46BF-92C9-DC8DE4609D75
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteControlPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteControlPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFolderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the folder.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fd-ae1in7****
+   */
+  folderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      folderId: 'FolderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      folderId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFolderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFolderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFolderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFolderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMessageContactRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the contact.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-qL4HqKONzOM7****
+   */
+  contactId?: string;
+  /**
+   * @remarks
+   * Specifies whether to retain the contact for members. Valid values:
+   * 
+   * *   true (default): retains the contact for members. In this case, the contact can still receive messages for the members.
+   * *   false: does not retain the contact for members. In this case, the contact can no longer receive messages for the members. If you set this parameter to false, the response is asynchronously returned. You can call [GetMessageContactDeletionStatus](~~GetMessageContactDeletionStatus~~) to obtain the deletion result.
+   * 
+   * @example
+   * true
+   */
+  retainContactInMembers?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      retainContactInMembers: 'RetainContactInMembers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      retainContactInMembers: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMessageContactResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The deletion status of the contact. Valid values:
+   * 
+   * *   Deleting
+   * *   Deleted
+   * 
+   * @example
+   * Deleting
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMessageContactResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMessageContactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMessageContactResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeregisterDelegatedAdministratorRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member in the resource directory.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 181761095690****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * The identifier of the trusted service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cloudfw.aliyuncs.com
+   */
+  servicePrincipal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      servicePrincipal: 'ServicePrincipal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      servicePrincipal: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeregisterDelegatedAdministratorResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DF5D5C52-7BD0-40E7-94C6-23A1505038A2
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeregisterDelegatedAdministratorResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeregisterDelegatedAdministratorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeregisterDelegatedAdministratorResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DestroyResourceDirectoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DestroyResourceDirectoryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DestroyResourceDirectoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DestroyResourceDirectoryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachControlPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the access control policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-jExXAqIYkwHN****
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * The ID of the object from which you want to detach the access control policy. Access control policies can be attached to the following objects:
+   * 
+   * *   Root folder
+   * *   Subfolders of the Root folder
+   * *   Members
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fd-ZDNPiT****
+   */
+  targetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      targetId: 'TargetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      targetId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachControlPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9EA4F962-1A2E-4AFE-BE0C-B14736FC46CC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachControlPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachControlPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableControlPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The status of the Control Policy feature. Valid values:
+   * 
+   * *   Enabled: The feature is enabled.
+   * *   PendingEnable: The feature is being enabled.
+   * *   Disabled: The feature is disabled.
+   * *   PendingDisable: The feature is being disabled.
+   * 
+   * @example
+   * PendingDisable
+   */
+  enablementStatus?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7C709979-451D-4C92-835D-7DDCCAA562E9
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablementStatus: 'EnablementStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablementStatus: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableControlPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableControlPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisassociateMembersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the contact.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-qL4HqKONzOM7****
+   */
+  contactId?: string;
+  /**
+   * @remarks
+   * The IDs of objects from which you want to unbind the contact.
+   * 
+   * This parameter is required.
+   */
+  members?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      members: 'Members',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      members: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.members)) {
+      $dara.Model.validateArray(this.members);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisassociateMembersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the contact was unbound from the object.
+   */
+  members?: DisassociateMembersResponseBodyMembers[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 95060F1D-6990-4645-8920-A81D1BBFE992
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      members: 'Members',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      members: { 'type': 'array', 'itemType': DisassociateMembersResponseBodyMembers },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.members)) {
+      $dara.Model.validateArray(this.members);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisassociateMembersResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisassociateMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisassociateMembersResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableControlPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The status of the Control Policy feature. Valid values:
+   * 
+   * *   Enabled: The feature is enabled.
+   * *   PendingEnable: The feature is being enabled.
+   * *   Disabled: The feature is disabled.
+   * *   PendingDisable: The feature is being disabled.
+   * 
+   * @example
+   * PendingEnable
+   */
+  enablementStatus?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8CE7BD95-EFFA-4911-A1E0-BD4412697FEB
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablementStatus: 'EnablementStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablementStatus: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableControlPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableControlPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableResourceDirectoryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run.
+   * *   **false** (default): performs a dry run and performs the actual request.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * The mode in which you enable a resource directory. Valid values:
+   * 
+   * *   CurrentAccount: The current account is used to enable a resource directory.
+   * *   NewManagementAccount: A newly created account is used to enable a resource directory. If you select this mode, you must configure the `MAName`, `MASecureMobilePhone`, and `VerificationCode` parameters.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CurrentAccount
+   */
+  enableMode?: string;
+  /**
+   * @remarks
+   * The name of the newly created account.
+   * 
+   * Specify the name in the `<Prefix>@rdadmin.aliyunid.com` format. The prefix can contain letters, digits, and special characters but cannot contain consecutive special characters. The prefix must start and end with a letter or digit. Valid special characters include underscores (`_`), periods (.), and hyphens (-). The prefix must be 2 to 50 characters in length.
+   * 
+   * @example
+   * user01@rdadmin.aliyunid.com
+   */
+  MAName?: string;
+  /**
+   * @remarks
+   * The mobile phone number that is bound to the newly created account.
+   * 
+   * If you leave this parameter empty, the mobile phone number that is bound to the current account is used. The mobile phone number you specify must be the same as the mobile phone number that you specify when you call the [SendVerificationCodeForEnableRD](~~SendVerificationCodeForEnableRD~~) operation to obtain a verification code.
+   * 
+   * Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
+   * 
+   * > Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
+   * 
+   * @example
+   * xx-13900001234
+   */
+  MASecureMobilePhone?: string;
+  /**
+   * @remarks
+   * The verification code.
+   * 
+   * You can call the [SendVerificationCodeForEnableRD](~~SendVerificationCodeForEnableRD~~) operation to obtain the verification code.
+   * 
+   * @example
+   * 123456
+   */
+  verificationCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dryRun: 'DryRun',
+      enableMode: 'EnableMode',
+      MAName: 'MAName',
+      MASecureMobilePhone: 'MASecureMobilePhone',
+      verificationCode: 'VerificationCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dryRun: 'boolean',
+      enableMode: 'string',
+      MAName: 'string',
+      MASecureMobilePhone: 'string',
+      verificationCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableResourceDirectoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC2FE94D-A4A2-51A1-A493-5C273A36C46A
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the resource directory.
+   */
+  resourceDirectory?: EnableResourceDirectoryResponseBodyResourceDirectory;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceDirectory: 'ResourceDirectory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceDirectory: EnableResourceDirectoryResponseBodyResourceDirectory,
+    };
+  }
+
+  validate() {
+    if(this.resourceDirectory && typeof (this.resourceDirectory as any).validate === 'function') {
+      (this.resourceDirectory as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableResourceDirectoryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableResourceDirectoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableResourceDirectoryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 181761095690****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the information of tags. Valid values:
+   * 
+   * *   false (default value)
+   * *   true
+   * 
+   * @example
+   * true
+   */
+  includeTags?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      includeTags: 'IncludeTags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      includeTags: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the member.
+   */
+  account?: GetAccountResponseBodyAccount;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: GetAccountResponseBodyAccount,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.account && typeof (this.account as any).validate === 'function') {
+      (this.account as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountDeletionCheckResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 179855839641****
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountDeletionCheckResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The result of the deletion check for the member.
+   */
+  accountDeletionCheckResultInfo?: GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 54AC391D-4F7F-5F08-B8D3-0AECDE6EC5BD
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountDeletionCheckResultInfo: 'AccountDeletionCheckResultInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountDeletionCheckResultInfo: GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.accountDeletionCheckResultInfo && typeof (this.accountDeletionCheckResultInfo as any).validate === 'function') {
+      (this.accountDeletionCheckResultInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountDeletionCheckResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountDeletionCheckResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccountDeletionCheckResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountDeletionStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 169946124551****
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountDeletionStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The deletion status of the member.
+   */
+  rdAccountDeletionStatus?: GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8AA43293-7C8F-5730-8F2D-7F864EC092C5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rdAccountDeletionStatus: 'RdAccountDeletionStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rdAccountDeletionStatus: GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.rdAccountDeletionStatus && typeof (this.rdAccountDeletionStatus as any).validate === 'function') {
+      (this.rdAccountDeletionStatus as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountDeletionStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountDeletionStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccountDeletionStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetControlPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The language in which you want to return the description of the access control policy. Valid values:
+   * 
+   * *   zh-CN (default value): Chinese
+   * *   en: English
+   * *   ja: Japanese
+   * 
+   * > This parameter is valid only for system access control policies.
+   * 
+   * @example
+   * zh-CN
+   */
+  language?: string;
+  /**
+   * @remarks
+   * The ID of the access control policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-SImPt8GCEwiq****
+   */
+  policyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      language: 'Language',
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      language: 'string',
+      policyId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetControlPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access control policy.
+   */
+  controlPolicy?: GetControlPolicyResponseBodyControlPolicy;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AB769936-CDFA-4D52-8CE2-A3581800044A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      controlPolicy: 'ControlPolicy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      controlPolicy: GetControlPolicyResponseBodyControlPolicy,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.controlPolicy && typeof (this.controlPolicy as any).validate === 'function') {
+      (this.controlPolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetControlPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetControlPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetControlPolicyEnablementStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The status of the Control Policy feature. Valid values:
+   * 
+   * *   Enabled: The feature is enabled.
+   * *   PendingEnable: The feature is being enabled.
+   * *   Disabled: The feature is disabled.
+   * *   PendingDisable: The feature is being disabled.
+   * 
+   * @example
+   * Disabled
+   */
+  enablementStatus?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1DC39A4E-3B52-4EFE-9F93-4897D7FFA0C4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablementStatus: 'EnablementStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablementStatus: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetControlPolicyEnablementStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetControlPolicyEnablementStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetControlPolicyEnablementStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFolderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the folder.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fd-Jyl5U7****
+   */
+  folderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      folderId: 'FolderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      folderId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFolderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the folder.
+   */
+  folder?: GetFolderResponseBodyFolder;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C2CBCA30-C8DD-423E-B4AD-4FB694C9180C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      folder: 'Folder',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      folder: GetFolderResponseBodyFolder,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.folder && typeof (this.folder as any).validate === 'function') {
+      (this.folder as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFolderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFolderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFolderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHandshakeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the invitation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * h-ycm4rp****
+   */
+  handshakeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      handshakeId: 'HandshakeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handshakeId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHandshakeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the invitation.
+   */
+  handshake?: GetHandshakeResponseBodyHandshake;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      handshake: 'Handshake',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handshake: GetHandshakeResponseBodyHandshake,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.handshake && typeof (this.handshake as any).validate === 'function') {
+      (this.handshake as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHandshakeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHandshakeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetHandshakeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the contact.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-qL4HqKONzOM7****
+   */
+  contactId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the contact.
+   */
+  contact?: GetMessageContactResponseBodyContact;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contact: 'Contact',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contact: GetMessageContactResponseBodyContact,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.contact && typeof (this.contact as any).validate === 'function') {
+      (this.contact as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMessageContactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMessageContactResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactDeletionStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the contact.
+   * 
+   * @example
+   * c-qL4HqKONzOM7****
+   */
+  contactId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactDeletionStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The deletion information of the contact.
+   */
+  contactDeletionStatus?: GetMessageContactDeletionStatusResponseBodyContactDeletionStatus;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 95060F1D-6990-4645-8920-A81D1BBFE992
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactDeletionStatus: 'ContactDeletionStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactDeletionStatus: GetMessageContactDeletionStatusResponseBodyContactDeletionStatus,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.contactDeletionStatus && typeof (this.contactDeletionStatus as any).validate === 'function') {
+      (this.contactDeletionStatus as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactDeletionStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMessageContactDeletionStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMessageContactDeletionStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPayerForAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the billing account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12323344****
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPayerForAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the billing account.
+   * 
+   * @example
+   * 172841235500****
+   */
+  payerAccountId?: string;
+  /**
+   * @remarks
+   * The name of the billing account.
+   * 
+   * @example
+   * Alice
+   */
+  payerAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      payerAccountId: 'PayerAccountId',
+      payerAccountName: 'PayerAccountName',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payerAccountId: 'string',
+      payerAccountName: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPayerForAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPayerForAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPayerForAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceDirectoryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * CD76D376-2517-4924-92C5-DBC52262F93A
+   */
+  requestId?: string;
+  resourceDirectory?: GetResourceDirectoryResponseBodyResourceDirectory;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceDirectory: 'ResourceDirectory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceDirectory: GetResourceDirectoryResponseBodyResourceDirectory,
+    };
+  }
+
+  validate() {
+    if(this.resourceDirectory && typeof (this.resourceDirectory as any).validate === 'function') {
+      (this.resourceDirectory as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceDirectoryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourceDirectoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetResourceDirectoryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InviteAccountToResourceDirectoryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the invitation.
+   * 
+   * The description can be up to 1,024 characters in length.
+   * 
+   * @example
+   * Welcome
+   */
+  note?: string;
+  /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
+   * @example
+   * r-b1****
+   */
+  parentFolderId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
+  tag?: InviteAccountToResourceDirectoryRequestTag[];
+  /**
+   * @remarks
+   * The ID or logon email address of the account that you want to invite.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * someone@example.com
+   */
+  targetEntity?: string;
+  /**
+   * @remarks
+   * The type of the invited account. Valid values:
+   * 
+   * *   Account: indicates the ID of the account.
+   * *   Email: indicates the logon email address of the account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Email
+   */
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      note: 'Note',
+      parentFolderId: 'ParentFolderId',
+      tag: 'Tag',
+      targetEntity: 'TargetEntity',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      note: 'string',
+      parentFolderId: 'string',
+      tag: { 'type': 'array', 'itemType': InviteAccountToResourceDirectoryRequestTag },
+      targetEntity: 'string',
+      targetType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InviteAccountToResourceDirectoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the invitation.
+   */
+  handshake?: InviteAccountToResourceDirectoryResponseBodyHandshake;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      handshake: 'Handshake',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handshake: InviteAccountToResourceDirectoryResponseBodyHandshake,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.handshake && typeof (this.handshake as any).validate === 'function') {
+      (this.handshake as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InviteAccountToResourceDirectoryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InviteAccountToResourceDirectoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InviteAccountToResourceDirectoryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to return information about tags. Valid values:
+   * 
+   * *   false (default value)
+   * *   true
+   * 
+   * @example
+   * true
+   */
+  includeTags?: boolean;
+  maxResults?: number;
+  nextToken?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The keyword used for the query, such as the display name of a member.
+   * 
+   * Fuzzy match is supported.
+   * 
+   * @example
+   * Advance
+   */
+  queryKeyword?: string;
+  /**
+   * @remarks
+   * The tags. This parameter specifies a filter condition.
+   */
+  tag?: ListAccountsRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      includeTags: 'IncludeTags',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryKeyword: 'QueryKeyword',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      includeTags: 'boolean',
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryKeyword: 'string',
+      tag: { 'type': 'array', 'itemType': ListAccountsRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the members.
+   */
+  accounts?: ListAccountsResponseBodyAccounts;
+  nextToken?: string;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accounts: 'Accounts',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accounts: ListAccountsResponseBodyAccounts,
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(this.accounts && typeof (this.accounts as any).validate === 'function') {
+      (this.accounts as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAccountsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAccountsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountsForParentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to return information about tags. Valid values:
+   * 
+   * *   false (default value)
+   * *   true
+   * 
+   * @example
+   * true
+   */
+  includeTags?: boolean;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the folder.
+   * 
+   * @example
+   * fd-bVaRIG****
+   */
+  parentFolderId?: string;
+  /**
+   * @remarks
+   * The keyword used for the query, such as the display name of a member.
+   * 
+   * Fuzzy match is supported.
+   * 
+   * @example
+   * admin
+   */
+  queryKeyword?: string;
+  /**
+   * @remarks
+   * The tags. This parameter specifies a filter condition.
+   */
+  tag?: ListAccountsForParentRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      includeTags: 'IncludeTags',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      parentFolderId: 'ParentFolderId',
+      queryKeyword: 'QueryKeyword',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      includeTags: 'boolean',
+      pageNumber: 'number',
+      pageSize: 'number',
+      parentFolderId: 'string',
+      queryKeyword: 'string',
+      tag: { 'type': 'array', 'itemType': ListAccountsForParentRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountsForParentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the members.
+   */
+  accounts?: ListAccountsForParentResponseBodyAccounts;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accounts: 'Accounts',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accounts: ListAccountsForParentResponseBodyAccounts,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(this.accounts && typeof (this.accounts as any).validate === 'function') {
+      (this.accounts as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountsForParentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAccountsForParentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAccountsForParentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAncestorsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the subfolder.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fd-i1c9nr****
+   */
+  childId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      childId: 'ChildId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      childId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAncestorsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the folders.
+   */
+  folders?: ListAncestorsResponseBodyFolders;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 83AFBEB6-DC03-406E-9686-867461FF6698
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      folders: 'Folders',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      folders: ListAncestorsResponseBodyFolders,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.folders && typeof (this.folders as any).validate === 'function') {
+      (this.folders as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAncestorsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAncestorsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAncestorsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPoliciesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The language in which you want to return the descriptions of the access control policies. Valid values:
+   * 
+   * *   zh-CN (default value): Chinese
+   * *   en: English
+   * *   ja: Japanese
+   * 
+   * > This parameter is available only for system access control policies.
+   * 
+   * @example
+   * zh-CN
+   */
+  language?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The type of the access control policies. Valid values:
+   * 
+   * *   System: system access control policy
+   * *   Custom: custom access control policy
+   * 
+   * @example
+   * System
+   */
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      language: 'Language',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      language: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      policyType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPoliciesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the access control policies.
+   */
+  controlPolicies?: ListControlPoliciesResponseBodyControlPolicies;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9424A34C-3471-45AD-B6AB-924BBDFE42F9
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The number of access control policies.
+   * 
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      controlPolicies: 'ControlPolicies',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      controlPolicies: ListControlPoliciesResponseBodyControlPolicies,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(this.controlPolicies && typeof (this.controlPolicies as any).validate === 'function') {
+      (this.controlPolicies as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPoliciesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListControlPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListControlPoliciesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPolicyAttachmentsForTargetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The language in which you want to return the descriptions of the access control policies. Valid values:
+   * 
+   * *   zh-CN (default value): Chinese
+   * *   en: English
+   * *   ja: Japanese
+   * 
+   * > This parameter is valid only for system access control policies.
+   * 
+   * @example
+   * zh-CN
+   */
+  language?: string;
+  /**
+   * @remarks
+   * The ID of the object whose access control policies you want to query. Access control policies can be attached to the following objects:
+   * 
+   * *   Root folder
+   * *   Subfolders of the Root folder
+   * *   Members
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fd-ZDNPiT****
+   */
+  targetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      language: 'Language',
+      targetId: 'TargetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      language: 'string',
+      targetId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPolicyAttachmentsForTargetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the attached access control policies.
+   */
+  controlPolicyAttachments?: ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachments;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C276B600-7B7A-49E8-938C-E16CFA955A82
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      controlPolicyAttachments: 'ControlPolicyAttachments',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      controlPolicyAttachments: ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachments,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.controlPolicyAttachments && typeof (this.controlPolicyAttachments as any).validate === 'function') {
+      (this.controlPolicyAttachments as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPolicyAttachmentsForTargetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListControlPolicyAttachmentsForTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListControlPolicyAttachmentsForTargetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedAdministratorsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The identifier of the trusted service.
+   * 
+   * For more information, see the `Trusted service identifier` column in [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
+   * 
+   * @example
+   * cloudfw.aliyuncs.com
+   */
+  servicePrincipal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      servicePrincipal: 'ServicePrincipal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      servicePrincipal: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedAdministratorsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the delegated administrator accounts.
+   */
+  accounts?: ListDelegatedAdministratorsResponseBodyAccounts;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 009C3A02-7D4B-416C-9CE7-548C91508F1E
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accounts: 'Accounts',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accounts: ListDelegatedAdministratorsResponseBodyAccounts,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(this.accounts && typeof (this.accounts as any).validate === 'function') {
+      (this.accounts as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedAdministratorsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDelegatedAdministratorsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDelegatedAdministratorsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedServicesForAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 138660628348****
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedServicesForAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the trusted services.
+   * 
+   * > If the value of this parameter is empty, the member is not specified as a delegated administrator account.
+   */
+  delegatedServices?: ListDelegatedServicesForAccountResponseBodyDelegatedServices;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * D9C03B94-9396-4794-A74B-13DC437556A6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      delegatedServices: 'DelegatedServices',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      delegatedServices: ListDelegatedServicesForAccountResponseBodyDelegatedServices,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.delegatedServices && typeof (this.delegatedServices as any).validate === 'function') {
+      (this.delegatedServices as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedServicesForAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDelegatedServicesForAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDelegatedServicesForAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFoldersForParentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
+   * If you leave this parameter empty, the information of the first-level subfolders of the Root folder is queried.
+   * 
+   * @example
+   * r-b1****
+   */
+  parentFolderId?: string;
+  /**
+   * @remarks
+   * The keyword used for the query, such as a folder name.
+   * 
+   * Fuzzy match is supported.
+   * 
+   * @example
+   * rdFolder
+   */
+  queryKeyword?: string;
+  /**
+   * @remarks
+   * The tags. This parameter specifies a filter condition.
+   */
+  tag?: ListFoldersForParentRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      parentFolderId: 'ParentFolderId',
+      queryKeyword: 'QueryKeyword',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      parentFolderId: 'string',
+      queryKeyword: 'string',
+      tag: { 'type': 'array', 'itemType': ListFoldersForParentRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFoldersForParentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The folders.
+   */
+  folders?: ListFoldersForParentResponseBodyFolders;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      folders: 'Folders',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      folders: ListFoldersForParentResponseBodyFolders,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(this.folders && typeof (this.folders as any).validate === 'function') {
+      (this.folders as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFoldersForParentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFoldersForParentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListFoldersForParentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHandshakesForAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHandshakesForAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the invitations.
+   */
+  handshakes?: ListHandshakesForAccountResponseBodyHandshakes;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of invitations.
+   * 
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      handshakes: 'Handshakes',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handshakes: ListHandshakesForAccountResponseBodyHandshakes,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(this.handshakes && typeof (this.handshakes as any).validate === 'function') {
+      (this.handshakes as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHandshakesForAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHandshakesForAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListHandshakesForAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHandshakesForResourceDirectoryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHandshakesForResourceDirectoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the invitations.
+   */
+  handshakes?: ListHandshakesForResourceDirectoryResponseBodyHandshakes;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      handshakes: 'Handshakes',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handshakes: ListHandshakesForResourceDirectoryResponseBodyHandshakes,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(this.handshakes && typeof (this.handshakes as any).validate === 'function') {
+      (this.handshakes as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHandshakesForResourceDirectoryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHandshakesForResourceDirectoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListHandshakesForResourceDirectoryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageContactVerificationsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the contact.
+   * 
+   * @example
+   * c-qL4HqKONzOM7****
+   */
+  contactId?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageContactVerificationsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The record for the contact to be verified.
+   */
+  contactVerifications?: ListMessageContactVerificationsResponseBodyContactVerifications[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CD76D376-2517-4924-92C5-DBC52262F93A
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 48
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contactVerifications: 'ContactVerifications',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactVerifications: { 'type': 'array', 'itemType': ListMessageContactVerificationsResponseBodyContactVerifications },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.contactVerifications)) {
+      $dara.Model.validateArray(this.contactVerifications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageContactVerificationsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMessageContactVerificationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMessageContactVerificationsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageContactsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the contact.
+   * 
+   * @example
+   * c-qL4HqKONzOM7****
+   */
+  contactId?: string;
+  /**
+   * @remarks
+   * The ID of the object to which the contact is bound. Valid values:
+   * 
+   * *   ID of the resource directory
+   * *   ID of the folder
+   * *   ID of the member
+   * 
+   * @example
+   * fd-ZDNPiT****
+   */
+  member?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      member: 'Member',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      member: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageContactsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the contact was bound to the objects.
+   */
+  contacts?: ListMessageContactsResponseBodyContacts[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 95060F1D-6990-4645-8920-A81D1BBFE992
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contacts: 'Contacts',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contacts: { 'type': 'array', 'itemType': ListMessageContactsResponseBodyContacts },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.contacts)) {
+      $dara.Model.validateArray(this.contacts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageContactsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMessageContactsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMessageContactsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key for a fuzzy query.
+   * 
+   * @example
+   * team
+   */
+  keyFilter?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * TGlzdFJlc291cm****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * The value Account indicates the members of the resource directory.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Account
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyFilter: 'KeyFilter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyFilter: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the next query is required.
+   * 
+   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
+   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
+   * 
+   * @example
+   * TGlzdFJlc291cm****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DC09A6AA-2713-4E10-A2E9-E6C5C43A8842
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the tag keys.
+   */
+  tags?: ListTagKeysResponseBodyTags[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tags: { 'type': 'array', 'itemType': ListTagKeysResponseBodyTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagKeysResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to start the next query.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account IDs of the members. This parameter specifies a filter condition for the query.
+   * 
+   * > If you want to query the tags that are added to the members in a resource directory, you must configure both the `ResourceId` and `ResourceType` parameters and set the `ResourceType` parameter to `Account` in your request.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the objects whose tags you want to query. This parameter specifies a filter condition for the query. Valid values:
+   * 
+   * *   Account: member
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Account
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tags. This parameter specifies a filter condition for the query.
+   * 
+   * You can specify a maximum of 20 tags.
+   */
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the next query is required.```` Valid values:
+   * 
+   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the `next query` is not required.
+   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.````
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8054B059-6B36-53BF-AA45-B8C9A0ED05AB
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagResources)) {
+      $dara.Model.validateArray(this.tagResources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagValuesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * TGlzdFJlc291cm****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * The value Account indicates the members of the resource directory.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Account
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag key. This parameter specifies a filter condition for the query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * k1
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value for a fuzzy query.
+   * 
+   * @example
+   * v1
+   */
+  valueFilter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      valueFilter: 'ValueFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      valueFilter: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagValuesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the next query is required.
+   * 
+   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
+   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
+   * 
+   * @example
+   * TGlzdFJlc291cm****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DC09A6AA-2713-4E10-A2E9-E6C5C43A8842
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the tag values.
+   */
+  tags?: ListTagValuesResponseBodyTags[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tags: { 'type': 'array', 'itemType': ListTagValuesResponseBodyTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagValuesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagValuesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagValuesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTargetAttachmentsForControlPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the access control policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-jExXAqIYkwHN****
+   */
+  policyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      policyId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTargetAttachmentsForControlPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B32BD3D6-1089-41F3-8E70-E0079BC7D760
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the objects to which the access control policy is attached.
+   */
+  targetAttachments?: ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments;
+  /**
+   * @remarks
+   * The total number of objects to which the access control policy is attached.
+   * 
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      targetAttachments: 'TargetAttachments',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      targetAttachments: ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments,
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(this.targetAttachments && typeof (this.targetAttachments as any).validate === 'function') {
+      (this.targetAttachments as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTargetAttachmentsForControlPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTargetAttachmentsForControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTargetAttachmentsForControlPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTrustedServiceStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the management account or delegated administrator account.
+   * 
+   * *   If you set this parameter to the ID of a management account, the trusted services that are enabled within the management account are queried. The default value of this parameter is the ID of an management account.
+   * *   If you set this parameter to the ID of a delegated administrator account, the trusted services that are enabled within the delegated administrator account are queried.
+   * 
+   * For more information about trusted services and delegated administrator accounts, see [Overview of trusted services](https://help.aliyun.com/document_detail/208133.html) and [Delegated administrator accounts](https://help.aliyun.com/document_detail/208117.html).
+   * 
+   * @example
+   * 177242285274****
+   */
+  adminAccountId?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      adminAccountId: 'AdminAccountId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adminAccountId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTrustedServiceStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the trusted services that are enabled.
+   */
+  enabledServicePrincipals?: ListTrustedServiceStatusResponseBodyEnabledServicePrincipals;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CD76D376-2517-4924-92C5-DBC52262F93A
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabledServicePrincipals: 'EnabledServicePrincipals',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabledServicePrincipals: ListTrustedServiceStatusResponseBodyEnabledServicePrincipals,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(this.enabledServicePrincipals && typeof (this.enabledServicePrincipals as any).validate === 'function') {
+      (this.enabledServicePrincipals as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTrustedServiceStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTrustedServiceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTrustedServiceStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member that you want to move.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12323344****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * The ID of the destination folder.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fd-bVaRIG****
+   */
+  destinationFolderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      destinationFolderId: 'DestinationFolderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      destinationFolderId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MoveAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MoveAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PrecheckForConsolidatedBillingAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the management account or member to be used as a main financial account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 111***089
+   */
+  billingAccountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      billingAccountId: 'BillingAccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billingAccountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PrecheckForConsolidatedBillingAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The cause of the check failure.
+   */
+  reasons?: PrecheckForConsolidatedBillingAccountResponseBodyReasons[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9E6B6CA8-9E7A-521F-A743-AA582714727E
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the check was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      reasons: 'Reasons',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reasons: { 'type': 'array', 'itemType': PrecheckForConsolidatedBillingAccountResponseBodyReasons },
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.reasons)) {
+      $dara.Model.validateArray(this.reasons);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PrecheckForConsolidatedBillingAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PrecheckForConsolidatedBillingAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PrecheckForConsolidatedBillingAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDelegatedAdministratorRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member in the resource directory.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 181761095690****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * The identifier of the trusted service.
+   * 
+   * For more information, see the `Trusted service identifier` column in [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cloudfw.aliyuncs.com
+   */
+  servicePrincipal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      servicePrincipal: 'ServicePrincipal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      servicePrincipal: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDelegatedAdministratorResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0A45FC8F-54D2-4A65-8338-25E5DEBDA304
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDelegatedAdministratorResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RegisterDelegatedAdministratorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RegisterDelegatedAdministratorResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveCloudAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 177242285274****
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveCloudAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveCloudAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveCloudAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveCloudAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryChangeAccountEmailRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 181761095690****
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryChangeAccountEmailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryChangeAccountEmailResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RetryChangeAccountEmailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RetryChangeAccountEmailResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendEmailVerificationForMessageContactRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the contact.
+   * 
+   * @example
+   * c-5gsZAGt***PGduDF
+   */
+  contactId?: string;
+  /**
+   * @remarks
+   * The email address of the contact.
+   * 
+   * The specified email address must be the one you specify when you call [AddMessageContact](~~AddMessageContact~~).
+   * 
+   * @example
+   * someone***@example.com
+   */
+  emailAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      emailAddress: 'EmailAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      emailAddress: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendEmailVerificationForMessageContactResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendEmailVerificationForMessageContactResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendEmailVerificationForMessageContactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendEmailVerificationForMessageContactResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendPhoneVerificationForMessageContactRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the contact.
+   * 
+   * @example
+   * c-qL4HqKONzOM7****
+   */
+  contactId?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the contact.
+   * 
+   * The value must be in the `<Country code>-<Mobile phone number>` format.
+   * 
+   * The specified mobile phone number must be the one you specify when you call the [AddMessageContact](~~AddMessageContact~~) operation.
+   * 
+   * @example
+   * 86-139****1234
+   */
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendPhoneVerificationForMessageContactResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CD76D376-2517-4924-92C5-DBC52262F93A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendPhoneVerificationForMessageContactResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendPhoneVerificationForMessageContactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendPhoneVerificationForMessageContactResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationCodeForBindSecureMobilePhoneRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 138660628348****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * The mobile phone number that you want to bind to the member for security purposes.
+   * 
+   * Specify the mobile phone number in the \\<Country code>-\\<Mobile phone number> format.
+   * 
+   * > Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xx-13900001234
+   */
+  secureMobilePhone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      secureMobilePhone: 'SecureMobilePhone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      secureMobilePhone: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationCodeForBindSecureMobilePhoneResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the verification code expires.
+   * 
+   * @example
+   * 2021-12-17T07:38:41.747Z
+   */
+  expirationDate?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DCD43660-75DD-5D15-B342-1B83FCA5B913
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expirationDate: 'ExpirationDate',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expirationDate: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationCodeForBindSecureMobilePhoneResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendVerificationCodeForBindSecureMobilePhoneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendVerificationCodeForBindSecureMobilePhoneResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationCodeForEnableRDRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The mobile phone number that is bound to the newly created account. If you leave this parameter empty, the mobile phone number that is bound to the current account is used.
+   * 
+   * Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
+   * 
+   * > Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
+   * 
+   * @example
+   * xx-13900001234
+   */
+  secureMobilePhone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      secureMobilePhone: 'SecureMobilePhone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      secureMobilePhone: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationCodeForEnableRDResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC2FE94D-A4A2-51A1-A493-5C273A36C46A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationCodeForEnableRDResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendVerificationCodeForEnableRDResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendVerificationCodeForEnableRDResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetMemberDeletionPermissionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the member deletion feature. Valid values:
+   * 
+   * *   Enabled: enables the member deletion feature.
+   * *   Disabled: disables the member deletion feature.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetMemberDeletionPermissionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the management account of the resource directory.
+   * 
+   * @example
+   * 151266687691****
+   */
+  managementAccountId?: string;
+  /**
+   * @remarks
+   * The status of the member deletion feature. Valid values:
+   * 
+   * *   Enabled: The feature is enabled.
+   * *   Disabled: The feature is disabled.
+   * 
+   * @example
+   * Enabled
+   */
+  memberDeletionStatus?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C55A4CAA-9039-1DDF-91CE-FCC134513D29
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The ID of the resource directory.
+   * 
+   * @example
+   * rd-3G****
+   */
+  resourceDirectoryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      managementAccountId: 'ManagementAccountId',
+      memberDeletionStatus: 'MemberDeletionStatus',
+      requestId: 'RequestId',
+      resourceDirectoryId: 'ResourceDirectoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      managementAccountId: 'string',
+      memberDeletionStatus: 'string',
+      requestId: 'string',
+      resourceDirectoryId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetMemberDeletionPermissionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetMemberDeletionPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetMemberDeletionPermissionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account IDs of the members.
+   * 
+   * You can specify a maximum of 50 IDs.
+   * 
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the objects to which you want to add tags. Valid values:
+   * 
+   * *   Account: member
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Account
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * You can specify a maximum of 20 tags.
+   * 
+   * This parameter is required.
+   */
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E7747EDF-EDDC-5B38-9B6A-6392B9C92B1C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove all tags from the specified members. Valid values:
+   * 
+   * *   false (default value)
+   * *   true
+   * 
+   * @example
+   * false
+   */
+  all?: boolean;
+  /**
+   * @remarks
+   * The Alibaba Cloud account IDs of the members.
+   * 
+   * You can specify a maximum of 50 IDs.
+   * 
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the objects from which you want to remove tags. Valid values:
+   * 
+   * *   Account: member
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Account
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag keys.
+   * 
+   * You can specify a maximum of 20 tag keys.
+   * 
+   * > If you set the `All` parameter to `true`, you do not need to specify tag keys.
+   */
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tagKey)) {
+      $dara.Model.validateArray(this.tagKey);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E7747EDF-EDDC-5B38-9B6A-6392B9C92B1C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12323344****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   true: performs only a dry run. The system checks items such as whether the member status can be modified and whether security information is configured for the member. If the request does not pass the dry run, an error code is returned.
+   * *   false (default): performs a dry run and performs the actual request.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * The new type of the member. Valid values:
+   * 
+   * *   ResourceAccount: resource account
+   * *   CloudAccount: cloud account
+   * 
+   * > You can specify either `NewDisplayName` or `NewAccountType`.
+   * 
+   * @example
+   * ResourceAccount
+   */
+  newAccountType?: string;
+  /**
+   * @remarks
+   * The new display name of the member.
+   * 
+   * > You can specify either `NewDisplayName` or `NewAccountType`.
+   * 
+   * @example
+   * admin
+   */
+  newDisplayName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      dryRun: 'DryRun',
+      newAccountType: 'NewAccountType',
+      newDisplayName: 'NewDisplayName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      dryRun: 'boolean',
+      newAccountType: 'string',
+      newDisplayName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the member.
+   */
+  account?: UpdateAccountResponseBodyAccount;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: UpdateAccountResponseBodyAccount,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.account && typeof (this.account as any).validate === 'function') {
+      (this.account as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateControlPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The new description of the access control policy.
+   * 
+   * The description must be 1 to 1,024 characters in length. The description can contain letters, digits, underscores (_), and hyphens (-) and must start with a letter.
+   * 
+   * @example
+   * ExampleControlPolicy
+   */
+  newDescription?: string;
+  /**
+   * @remarks
+   * The new document of the access control policy.
+   * 
+   * The document can be a maximum of 4,096 characters in length.
+   * 
+   * For more information about the languages of access control policies, see [Languages of access control policies](https://help.aliyun.com/document_detail/179096.html).
+   * 
+   * For more information about the examples of access control policies, see [Examples of custom access control policies](https://help.aliyun.com/document_detail/181474.html).
+   * 
+   * @example
+   * {"Version":"1","Statement":[{"Effect":"Deny","Action":["ram:UpdateRole","ram:DeleteRole","ram:AttachPolicyToRole","ram:DetachPolicyFromRole"],"Resource":"acs:ram:*:*:role/ResourceDirectoryAccountAccessRole"}]}
+   */
+  newPolicyDocument?: string;
+  /**
+   * @remarks
+   * The new name of the access control policy.
+   * 
+   * The name must be 1 to 128 characters in length. The name can contain letters, digits, and hyphens (-) and must start with a letter.
+   * 
+   * @example
+   * NewControlPolicy
+   */
+  newPolicyName?: string;
+  /**
+   * @remarks
+   * The ID of the access control policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-jExXAqIYkwHN****
+   */
+  policyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newDescription: 'NewDescription',
+      newPolicyDocument: 'NewPolicyDocument',
+      newPolicyName: 'NewPolicyName',
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newDescription: 'string',
+      newPolicyDocument: 'string',
+      newPolicyName: 'string',
+      policyId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateControlPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access control policy.
+   */
+  controlPolicy?: UpdateControlPolicyResponseBodyControlPolicy;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2DFCE4C9-04A9-4C83-BB14-FE791275EC53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      controlPolicy: 'ControlPolicy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      controlPolicy: UpdateControlPolicyResponseBodyControlPolicy,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.controlPolicy && typeof (this.controlPolicy as any).validate === 'function') {
+      (this.controlPolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateControlPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateControlPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFolderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the folder.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fd-u8B321****
+   */
+  folderId?: string;
+  /**
+   * @remarks
+   * The new name of the folder.
+   * 
+   * The name must be 1 to 24 characters in length and can contain letters, digits, underscores (_), periods (.), and hyphens (-).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rdFolder
+   */
+  newFolderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      folderId: 'FolderId',
+      newFolderName: 'NewFolderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      folderId: 'string',
+      newFolderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFolderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the folder.
+   */
+  folder?: UpdateFolderResponseBodyFolder;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C2CBCA30-C8DD-423E-B4AD-4FB694C9180C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      folder: 'Folder',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      folder: UpdateFolderResponseBodyFolder,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.folder && typeof (this.folder as any).validate === 'function') {
+      (this.folder as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFolderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateFolderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateFolderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageContactRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the contact.
+   * 
+   * @example
+   * c-qL4HqKONzOM7****
+   */
+  contactId?: string;
+  /**
+   * @remarks
+   * The email address of the contact.
+   * 
+   * After you specify an email address, you need to call [SendEmailVerificationForMessageContact](~~SendEmailVerificationForMessageContact~~) to send verification information to the email address. After the verification is passed, the email address takes effect.
+   * 
+   * @example
+   * someone***@example.com
+   */
+  emailAddress?: string;
+  /**
+   * @remarks
+   * The types of messages received by the contact.
+   */
+  messageTypes?: string[];
+  /**
+   * @remarks
+   * The name of the contact.
+   * 
+   * @example
+   * tom
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the contact.
+   * 
+   * Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
+   * 
+   * After you specify a mobile phone number, you need to call [SendPhoneVerificationForMessageContact](~~SendPhoneVerificationForMessageContact~~) to send verification information to the mobile phone number. After the verification is passed, the mobile phone number takes effect.
+   * 
+   * @example
+   * 86-139****1234
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The job title of the contact.
+   * 
+   * Valid values:
+   * 
+   * *   FinanceDirector
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   TechnicalDirector
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   MaintenanceDirector
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   CEO
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   ProjectDirector
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Other
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * TechnicalDirector
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      emailAddress: 'EmailAddress',
+      messageTypes: 'MessageTypes',
+      name: 'Name',
+      phoneNumber: 'PhoneNumber',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      emailAddress: 'string',
+      messageTypes: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      phoneNumber: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.messageTypes)) {
+      $dara.Model.validateArray(this.messageTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageContactResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageContactResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMessageContactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMessageContactResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -11910,7 +13855,7 @@ export class UpdateFolderResponseBodyFolder extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._signatureAlgorithm = "v2";
     this._endpointRule = "";
@@ -11920,15 +13865,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -11941,17 +13886,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AcceptHandshakeResponse
    */
-  async acceptHandshakeWithOptions(request: AcceptHandshakeRequest, runtime: $Util.RuntimeOptions): Promise<AcceptHandshakeResponse> {
-    Util.validateModel(request);
+  async acceptHandshakeWithOptions(request: AcceptHandshakeRequest, runtime: $dara.RuntimeOptions): Promise<AcceptHandshakeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.handshakeId)) {
+    if (!$dara.isNull(request.handshakeId)) {
       query["HandshakeId"] = request.handshakeId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AcceptHandshake",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -11962,7 +13907,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AcceptHandshakeResponse>(await this.callApi(params, req, runtime), new AcceptHandshakeResponse({}));
+    return $dara.cast<AcceptHandshakeResponse>(await this.callApi(params, req, runtime), new AcceptHandshakeResponse({}));
   }
 
   /**
@@ -11975,7 +13920,7 @@ export default class Client extends OpenApi {
    * @returns AcceptHandshakeResponse
    */
   async acceptHandshake(request: AcceptHandshakeRequest): Promise<AcceptHandshakeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.acceptHandshakeWithOptions(request, runtime);
   }
 
@@ -11986,33 +13931,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddMessageContactResponse
    */
-  async addMessageContactWithOptions(request: AddMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<AddMessageContactResponse> {
-    Util.validateModel(request);
+  async addMessageContactWithOptions(request: AddMessageContactRequest, runtime: $dara.RuntimeOptions): Promise<AddMessageContactResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.emailAddress)) {
+    if (!$dara.isNull(request.emailAddress)) {
       query["EmailAddress"] = request.emailAddress;
     }
 
-    if (!Util.isUnset(request.messageTypes)) {
+    if (!$dara.isNull(request.messageTypes)) {
       query["MessageTypes"] = request.messageTypes;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.title)) {
+    if (!$dara.isNull(request.title)) {
       query["Title"] = request.title;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddMessageContact",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12023,7 +13968,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddMessageContactResponse>(await this.callApi(params, req, runtime), new AddMessageContactResponse({}));
+    return $dara.cast<AddMessageContactResponse>(await this.callApi(params, req, runtime), new AddMessageContactResponse({}));
   }
 
   /**
@@ -12033,7 +13978,7 @@ export default class Client extends OpenApi {
    * @returns AddMessageContactResponse
    */
   async addMessageContact(request: AddMessageContactRequest): Promise<AddMessageContactResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addMessageContactWithOptions(request, runtime);
   }
 
@@ -12044,21 +13989,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AssociateMembersResponse
    */
-  async associateMembersWithOptions(request: AssociateMembersRequest, runtime: $Util.RuntimeOptions): Promise<AssociateMembersResponse> {
-    Util.validateModel(request);
+  async associateMembersWithOptions(request: AssociateMembersRequest, runtime: $dara.RuntimeOptions): Promise<AssociateMembersResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactId)) {
+    if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
 
-    if (!Util.isUnset(request.members)) {
+    if (!$dara.isNull(request.members)) {
       query["Members"] = request.members;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AssociateMembers",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12069,7 +14014,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AssociateMembersResponse>(await this.callApi(params, req, runtime), new AssociateMembersResponse({}));
+    return $dara.cast<AssociateMembersResponse>(await this.callApi(params, req, runtime), new AssociateMembersResponse({}));
   }
 
   /**
@@ -12079,7 +14024,7 @@ export default class Client extends OpenApi {
    * @returns AssociateMembersResponse
    */
   async associateMembers(request: AssociateMembersRequest): Promise<AssociateMembersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.associateMembersWithOptions(request, runtime);
   }
 
@@ -12096,21 +14041,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachControlPolicyResponse
    */
-  async attachControlPolicyWithOptions(request: AttachControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<AttachControlPolicyResponse> {
-    Util.validateModel(request);
+  async attachControlPolicyWithOptions(request: AttachControlPolicyRequest, runtime: $dara.RuntimeOptions): Promise<AttachControlPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.targetId)) {
+    if (!$dara.isNull(request.targetId)) {
       query["TargetId"] = request.targetId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AttachControlPolicy",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12121,7 +14066,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachControlPolicyResponse>(await this.callApi(params, req, runtime), new AttachControlPolicyResponse({}));
+    return $dara.cast<AttachControlPolicyResponse>(await this.callApi(params, req, runtime), new AttachControlPolicyResponse({}));
   }
 
   /**
@@ -12137,7 +14082,7 @@ export default class Client extends OpenApi {
    * @returns AttachControlPolicyResponse
    */
   async attachControlPolicy(request: AttachControlPolicyRequest): Promise<AttachControlPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.attachControlPolicyWithOptions(request, runtime);
   }
 
@@ -12152,25 +14097,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindSecureMobilePhoneResponse
    */
-  async bindSecureMobilePhoneWithOptions(request: BindSecureMobilePhoneRequest, runtime: $Util.RuntimeOptions): Promise<BindSecureMobilePhoneResponse> {
-    Util.validateModel(request);
+  async bindSecureMobilePhoneWithOptions(request: BindSecureMobilePhoneRequest, runtime: $dara.RuntimeOptions): Promise<BindSecureMobilePhoneResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.secureMobilePhone)) {
+    if (!$dara.isNull(request.secureMobilePhone)) {
       query["SecureMobilePhone"] = request.secureMobilePhone;
     }
 
-    if (!Util.isUnset(request.verificationCode)) {
+    if (!$dara.isNull(request.verificationCode)) {
       query["VerificationCode"] = request.verificationCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindSecureMobilePhone",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12181,7 +14126,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindSecureMobilePhoneResponse>(await this.callApi(params, req, runtime), new BindSecureMobilePhoneResponse({}));
+    return $dara.cast<BindSecureMobilePhoneResponse>(await this.callApi(params, req, runtime), new BindSecureMobilePhoneResponse({}));
   }
 
   /**
@@ -12195,7 +14140,7 @@ export default class Client extends OpenApi {
    * @returns BindSecureMobilePhoneResponse
    */
   async bindSecureMobilePhone(request: BindSecureMobilePhoneRequest): Promise<BindSecureMobilePhoneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindSecureMobilePhoneWithOptions(request, runtime);
   }
 
@@ -12206,17 +14151,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelChangeAccountEmailResponse
    */
-  async cancelChangeAccountEmailWithOptions(request: CancelChangeAccountEmailRequest, runtime: $Util.RuntimeOptions): Promise<CancelChangeAccountEmailResponse> {
-    Util.validateModel(request);
+  async cancelChangeAccountEmailWithOptions(request: CancelChangeAccountEmailRequest, runtime: $dara.RuntimeOptions): Promise<CancelChangeAccountEmailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelChangeAccountEmail",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12227,7 +14172,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelChangeAccountEmailResponse>(await this.callApi(params, req, runtime), new CancelChangeAccountEmailResponse({}));
+    return $dara.cast<CancelChangeAccountEmailResponse>(await this.callApi(params, req, runtime), new CancelChangeAccountEmailResponse({}));
   }
 
   /**
@@ -12237,7 +14182,7 @@ export default class Client extends OpenApi {
    * @returns CancelChangeAccountEmailResponse
    */
   async cancelChangeAccountEmail(request: CancelChangeAccountEmailRequest): Promise<CancelChangeAccountEmailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelChangeAccountEmailWithOptions(request, runtime);
   }
 
@@ -12248,17 +14193,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelHandshakeResponse
    */
-  async cancelHandshakeWithOptions(request: CancelHandshakeRequest, runtime: $Util.RuntimeOptions): Promise<CancelHandshakeResponse> {
-    Util.validateModel(request);
+  async cancelHandshakeWithOptions(request: CancelHandshakeRequest, runtime: $dara.RuntimeOptions): Promise<CancelHandshakeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.handshakeId)) {
+    if (!$dara.isNull(request.handshakeId)) {
       query["HandshakeId"] = request.handshakeId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelHandshake",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12269,7 +14214,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelHandshakeResponse>(await this.callApi(params, req, runtime), new CancelHandshakeResponse({}));
+    return $dara.cast<CancelHandshakeResponse>(await this.callApi(params, req, runtime), new CancelHandshakeResponse({}));
   }
 
   /**
@@ -12279,7 +14224,7 @@ export default class Client extends OpenApi {
    * @returns CancelHandshakeResponse
    */
   async cancelHandshake(request: CancelHandshakeRequest): Promise<CancelHandshakeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelHandshakeWithOptions(request, runtime);
   }
 
@@ -12290,25 +14235,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelMessageContactUpdateResponse
    */
-  async cancelMessageContactUpdateWithOptions(request: CancelMessageContactUpdateRequest, runtime: $Util.RuntimeOptions): Promise<CancelMessageContactUpdateResponse> {
-    Util.validateModel(request);
+  async cancelMessageContactUpdateWithOptions(request: CancelMessageContactUpdateRequest, runtime: $dara.RuntimeOptions): Promise<CancelMessageContactUpdateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactId)) {
+    if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
 
-    if (!Util.isUnset(request.emailAddress)) {
+    if (!$dara.isNull(request.emailAddress)) {
       query["EmailAddress"] = request.emailAddress;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelMessageContactUpdate",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12319,7 +14264,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelMessageContactUpdateResponse>(await this.callApi(params, req, runtime), new CancelMessageContactUpdateResponse({}));
+    return $dara.cast<CancelMessageContactUpdateResponse>(await this.callApi(params, req, runtime), new CancelMessageContactUpdateResponse({}));
   }
 
   /**
@@ -12329,7 +14274,7 @@ export default class Client extends OpenApi {
    * @returns CancelMessageContactUpdateResponse
    */
   async cancelMessageContactUpdate(request: CancelMessageContactUpdateRequest): Promise<CancelMessageContactUpdateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelMessageContactUpdateWithOptions(request, runtime);
   }
 
@@ -12340,21 +14285,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeAccountEmailResponse
    */
-  async changeAccountEmailWithOptions(request: ChangeAccountEmailRequest, runtime: $Util.RuntimeOptions): Promise<ChangeAccountEmailResponse> {
-    Util.validateModel(request);
+  async changeAccountEmailWithOptions(request: ChangeAccountEmailRequest, runtime: $dara.RuntimeOptions): Promise<ChangeAccountEmailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChangeAccountEmail",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12365,7 +14310,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangeAccountEmailResponse>(await this.callApi(params, req, runtime), new ChangeAccountEmailResponse({}));
+    return $dara.cast<ChangeAccountEmailResponse>(await this.callApi(params, req, runtime), new ChangeAccountEmailResponse({}));
   }
 
   /**
@@ -12375,7 +14320,7 @@ export default class Client extends OpenApi {
    * @returns ChangeAccountEmailResponse
    */
   async changeAccountEmail(request: ChangeAccountEmailRequest): Promise<ChangeAccountEmailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.changeAccountEmailWithOptions(request, runtime);
   }
 
@@ -12389,17 +14334,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckAccountDeleteResponse
    */
-  async checkAccountDeleteWithOptions(request: CheckAccountDeleteRequest, runtime: $Util.RuntimeOptions): Promise<CheckAccountDeleteResponse> {
-    Util.validateModel(request);
+  async checkAccountDeleteWithOptions(request: CheckAccountDeleteRequest, runtime: $dara.RuntimeOptions): Promise<CheckAccountDeleteResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckAccountDelete",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12410,7 +14355,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckAccountDeleteResponse>(await this.callApi(params, req, runtime), new CheckAccountDeleteResponse({}));
+    return $dara.cast<CheckAccountDeleteResponse>(await this.callApi(params, req, runtime), new CheckAccountDeleteResponse({}));
   }
 
   /**
@@ -12423,7 +14368,7 @@ export default class Client extends OpenApi {
    * @returns CheckAccountDeleteResponse
    */
   async checkAccountDelete(request: CheckAccountDeleteRequest): Promise<CheckAccountDeleteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkAccountDeleteWithOptions(request, runtime);
   }
 
@@ -12434,33 +14379,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateControlPolicyResponse
    */
-  async createControlPolicyWithOptions(request: CreateControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateControlPolicyResponse> {
-    Util.validateModel(request);
+  async createControlPolicyWithOptions(request: CreateControlPolicyRequest, runtime: $dara.RuntimeOptions): Promise<CreateControlPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.effectScope)) {
+    if (!$dara.isNull(request.effectScope)) {
       query["EffectScope"] = request.effectScope;
     }
 
-    if (!Util.isUnset(request.policyDocument)) {
+    if (!$dara.isNull(request.policyDocument)) {
       query["PolicyDocument"] = request.policyDocument;
     }
 
-    if (!Util.isUnset(request.policyName)) {
+    if (!$dara.isNull(request.policyName)) {
       query["PolicyName"] = request.policyName;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateControlPolicy",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12471,7 +14416,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateControlPolicyResponse>(await this.callApi(params, req, runtime), new CreateControlPolicyResponse({}));
+    return $dara.cast<CreateControlPolicyResponse>(await this.callApi(params, req, runtime), new CreateControlPolicyResponse({}));
   }
 
   /**
@@ -12481,7 +14426,7 @@ export default class Client extends OpenApi {
    * @returns CreateControlPolicyResponse
    */
   async createControlPolicy(request: CreateControlPolicyRequest): Promise<CreateControlPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createControlPolicyWithOptions(request, runtime);
   }
 
@@ -12495,25 +14440,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateFolderResponse
    */
-  async createFolderWithOptions(request: CreateFolderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFolderResponse> {
-    Util.validateModel(request);
+  async createFolderWithOptions(request: CreateFolderRequest, runtime: $dara.RuntimeOptions): Promise<CreateFolderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.folderName)) {
+    if (!$dara.isNull(request.folderName)) {
       query["FolderName"] = request.folderName;
     }
 
-    if (!Util.isUnset(request.parentFolderId)) {
+    if (!$dara.isNull(request.parentFolderId)) {
       query["ParentFolderId"] = request.parentFolderId;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateFolder",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12524,7 +14469,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateFolderResponse>(await this.callApi(params, req, runtime), new CreateFolderResponse({}));
+    return $dara.cast<CreateFolderResponse>(await this.callApi(params, req, runtime), new CreateFolderResponse({}));
   }
 
   /**
@@ -12537,7 +14482,7 @@ export default class Client extends OpenApi {
    * @returns CreateFolderResponse
    */
   async createFolder(request: CreateFolderRequest): Promise<CreateFolderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createFolderWithOptions(request, runtime);
   }
 
@@ -12552,41 +14497,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateResourceAccountResponse
    */
-  async createResourceAccountWithOptions(request: CreateResourceAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateResourceAccountResponse> {
-    Util.validateModel(request);
+  async createResourceAccountWithOptions(request: CreateResourceAccountRequest, runtime: $dara.RuntimeOptions): Promise<CreateResourceAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountNamePrefix)) {
+    if (!$dara.isNull(request.accountNamePrefix)) {
       query["AccountNamePrefix"] = request.accountNamePrefix;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       query["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.dryRun)) {
+    if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!Util.isUnset(request.parentFolderId)) {
+    if (!$dara.isNull(request.parentFolderId)) {
       query["ParentFolderId"] = request.parentFolderId;
     }
 
-    if (!Util.isUnset(request.payerAccountId)) {
+    if (!$dara.isNull(request.payerAccountId)) {
       query["PayerAccountId"] = request.payerAccountId;
     }
 
-    if (!Util.isUnset(request.resellAccountType)) {
+    if (!$dara.isNull(request.resellAccountType)) {
       query["ResellAccountType"] = request.resellAccountType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateResourceAccount",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12597,7 +14542,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateResourceAccountResponse>(await this.callApi(params, req, runtime), new CreateResourceAccountResponse({}));
+    return $dara.cast<CreateResourceAccountResponse>(await this.callApi(params, req, runtime), new CreateResourceAccountResponse({}));
   }
 
   /**
@@ -12611,7 +14556,7 @@ export default class Client extends OpenApi {
    * @returns CreateResourceAccountResponse
    */
   async createResourceAccount(request: CreateResourceAccountRequest): Promise<CreateResourceAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createResourceAccountWithOptions(request, runtime);
   }
 
@@ -12622,17 +14567,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeclineHandshakeResponse
    */
-  async declineHandshakeWithOptions(request: DeclineHandshakeRequest, runtime: $Util.RuntimeOptions): Promise<DeclineHandshakeResponse> {
-    Util.validateModel(request);
+  async declineHandshakeWithOptions(request: DeclineHandshakeRequest, runtime: $dara.RuntimeOptions): Promise<DeclineHandshakeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.handshakeId)) {
+    if (!$dara.isNull(request.handshakeId)) {
       query["HandshakeId"] = request.handshakeId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeclineHandshake",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12643,7 +14588,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeclineHandshakeResponse>(await this.callApi(params, req, runtime), new DeclineHandshakeResponse({}));
+    return $dara.cast<DeclineHandshakeResponse>(await this.callApi(params, req, runtime), new DeclineHandshakeResponse({}));
   }
 
   /**
@@ -12653,7 +14598,7 @@ export default class Client extends OpenApi {
    * @returns DeclineHandshakeResponse
    */
   async declineHandshake(request: DeclineHandshakeRequest): Promise<DeclineHandshakeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.declineHandshakeWithOptions(request, runtime);
   }
 
@@ -12668,27 +14613,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAccountResponse
    */
-  async deleteAccountWithOptions(tmpReq: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
-    Util.validateModel(tmpReq);
+  async deleteAccountWithOptions(tmpReq: DeleteAccountRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAccountResponse> {
+    tmpReq.validate();
     let request = new DeleteAccountShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.abandonableCheckId)) {
+    if (!$dara.isNull(tmpReq.abandonableCheckId)) {
       request.abandonableCheckIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.abandonableCheckId, "AbandonableCheckId", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.abandonableCheckIdShrink)) {
+    if (!$dara.isNull(request.abandonableCheckIdShrink)) {
       query["AbandonableCheckId"] = request.abandonableCheckIdShrink;
     }
 
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAccount",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12699,7 +14644,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
+    return $dara.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
   }
 
   /**
@@ -12713,7 +14658,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAccountResponse
    */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
   }
 
@@ -12727,17 +14672,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteControlPolicyResponse
    */
-  async deleteControlPolicyWithOptions(request: DeleteControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteControlPolicyResponse> {
-    Util.validateModel(request);
+  async deleteControlPolicyWithOptions(request: DeleteControlPolicyRequest, runtime: $dara.RuntimeOptions): Promise<DeleteControlPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteControlPolicy",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12748,7 +14693,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteControlPolicyResponse>(await this.callApi(params, req, runtime), new DeleteControlPolicyResponse({}));
+    return $dara.cast<DeleteControlPolicyResponse>(await this.callApi(params, req, runtime), new DeleteControlPolicyResponse({}));
   }
 
   /**
@@ -12761,7 +14706,7 @@ export default class Client extends OpenApi {
    * @returns DeleteControlPolicyResponse
    */
   async deleteControlPolicy(request: DeleteControlPolicyRequest): Promise<DeleteControlPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteControlPolicyWithOptions(request, runtime);
   }
 
@@ -12775,17 +14720,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFolderResponse
    */
-  async deleteFolderWithOptions(request: DeleteFolderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFolderResponse> {
-    Util.validateModel(request);
+  async deleteFolderWithOptions(request: DeleteFolderRequest, runtime: $dara.RuntimeOptions): Promise<DeleteFolderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.folderId)) {
+    if (!$dara.isNull(request.folderId)) {
       query["FolderId"] = request.folderId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteFolder",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12796,7 +14741,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteFolderResponse>(await this.callApi(params, req, runtime), new DeleteFolderResponse({}));
+    return $dara.cast<DeleteFolderResponse>(await this.callApi(params, req, runtime), new DeleteFolderResponse({}));
   }
 
   /**
@@ -12809,7 +14754,7 @@ export default class Client extends OpenApi {
    * @returns DeleteFolderResponse
    */
   async deleteFolder(request: DeleteFolderRequest): Promise<DeleteFolderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteFolderWithOptions(request, runtime);
   }
 
@@ -12820,21 +14765,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteMessageContactResponse
    */
-  async deleteMessageContactWithOptions(request: DeleteMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMessageContactResponse> {
-    Util.validateModel(request);
+  async deleteMessageContactWithOptions(request: DeleteMessageContactRequest, runtime: $dara.RuntimeOptions): Promise<DeleteMessageContactResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactId)) {
+    if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
 
-    if (!Util.isUnset(request.retainContactInMembers)) {
+    if (!$dara.isNull(request.retainContactInMembers)) {
       query["RetainContactInMembers"] = request.retainContactInMembers;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteMessageContact",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12845,7 +14790,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteMessageContactResponse>(await this.callApi(params, req, runtime), new DeleteMessageContactResponse({}));
+    return $dara.cast<DeleteMessageContactResponse>(await this.callApi(params, req, runtime), new DeleteMessageContactResponse({}));
   }
 
   /**
@@ -12855,7 +14800,7 @@ export default class Client extends OpenApi {
    * @returns DeleteMessageContactResponse
    */
   async deleteMessageContact(request: DeleteMessageContactRequest): Promise<DeleteMessageContactResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMessageContactWithOptions(request, runtime);
   }
 
@@ -12869,21 +14814,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeregisterDelegatedAdministratorResponse
    */
-  async deregisterDelegatedAdministratorWithOptions(request: DeregisterDelegatedAdministratorRequest, runtime: $Util.RuntimeOptions): Promise<DeregisterDelegatedAdministratorResponse> {
-    Util.validateModel(request);
+  async deregisterDelegatedAdministratorWithOptions(request: DeregisterDelegatedAdministratorRequest, runtime: $dara.RuntimeOptions): Promise<DeregisterDelegatedAdministratorResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.servicePrincipal)) {
+    if (!$dara.isNull(request.servicePrincipal)) {
       query["ServicePrincipal"] = request.servicePrincipal;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeregisterDelegatedAdministrator",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12894,7 +14839,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeregisterDelegatedAdministratorResponse>(await this.callApi(params, req, runtime), new DeregisterDelegatedAdministratorResponse({}));
+    return $dara.cast<DeregisterDelegatedAdministratorResponse>(await this.callApi(params, req, runtime), new DeregisterDelegatedAdministratorResponse({}));
   }
 
   /**
@@ -12907,7 +14852,7 @@ export default class Client extends OpenApi {
    * @returns DeregisterDelegatedAdministratorResponse
    */
   async deregisterDelegatedAdministrator(request: DeregisterDelegatedAdministratorRequest): Promise<DeregisterDelegatedAdministratorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deregisterDelegatedAdministratorWithOptions(request, runtime);
   }
 
@@ -12923,9 +14868,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DestroyResourceDirectoryResponse
    */
-  async destroyResourceDirectoryWithOptions(runtime: $Util.RuntimeOptions): Promise<DestroyResourceDirectoryResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async destroyResourceDirectoryWithOptions(runtime: $dara.RuntimeOptions): Promise<DestroyResourceDirectoryResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "DestroyResourceDirectory",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12936,7 +14881,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DestroyResourceDirectoryResponse>(await this.callApi(params, req, runtime), new DestroyResourceDirectoryResponse({}));
+    return $dara.cast<DestroyResourceDirectoryResponse>(await this.callApi(params, req, runtime), new DestroyResourceDirectoryResponse({}));
   }
 
   /**
@@ -12949,7 +14894,7 @@ export default class Client extends OpenApi {
    * @returns DestroyResourceDirectoryResponse
    */
   async destroyResourceDirectory(): Promise<DestroyResourceDirectoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.destroyResourceDirectoryWithOptions(runtime);
   }
 
@@ -12964,21 +14909,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachControlPolicyResponse
    */
-  async detachControlPolicyWithOptions(request: DetachControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DetachControlPolicyResponse> {
-    Util.validateModel(request);
+  async detachControlPolicyWithOptions(request: DetachControlPolicyRequest, runtime: $dara.RuntimeOptions): Promise<DetachControlPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.targetId)) {
+    if (!$dara.isNull(request.targetId)) {
       query["TargetId"] = request.targetId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetachControlPolicy",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -12989,7 +14934,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachControlPolicyResponse>(await this.callApi(params, req, runtime), new DetachControlPolicyResponse({}));
+    return $dara.cast<DetachControlPolicyResponse>(await this.callApi(params, req, runtime), new DetachControlPolicyResponse({}));
   }
 
   /**
@@ -13003,7 +14948,7 @@ export default class Client extends OpenApi {
    * @returns DetachControlPolicyResponse
    */
   async detachControlPolicy(request: DetachControlPolicyRequest): Promise<DetachControlPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detachControlPolicyWithOptions(request, runtime);
   }
 
@@ -13018,9 +14963,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableControlPolicyResponse
    */
-  async disableControlPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<DisableControlPolicyResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async disableControlPolicyWithOptions(runtime: $dara.RuntimeOptions): Promise<DisableControlPolicyResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "DisableControlPolicy",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13031,7 +14976,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DisableControlPolicyResponse>(await this.callApi(params, req, runtime), new DisableControlPolicyResponse({}));
+    return $dara.cast<DisableControlPolicyResponse>(await this.callApi(params, req, runtime), new DisableControlPolicyResponse({}));
   }
 
   /**
@@ -13043,7 +14988,7 @@ export default class Client extends OpenApi {
    * @returns DisableControlPolicyResponse
    */
   async disableControlPolicy(): Promise<DisableControlPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.disableControlPolicyWithOptions(runtime);
   }
 
@@ -13054,21 +14999,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisassociateMembersResponse
    */
-  async disassociateMembersWithOptions(request: DisassociateMembersRequest, runtime: $Util.RuntimeOptions): Promise<DisassociateMembersResponse> {
-    Util.validateModel(request);
+  async disassociateMembersWithOptions(request: DisassociateMembersRequest, runtime: $dara.RuntimeOptions): Promise<DisassociateMembersResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactId)) {
+    if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
 
-    if (!Util.isUnset(request.members)) {
+    if (!$dara.isNull(request.members)) {
       query["Members"] = request.members;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DisassociateMembers",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13079,7 +15024,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DisassociateMembersResponse>(await this.callApi(params, req, runtime), new DisassociateMembersResponse({}));
+    return $dara.cast<DisassociateMembersResponse>(await this.callApi(params, req, runtime), new DisassociateMembersResponse({}));
   }
 
   /**
@@ -13089,7 +15034,7 @@ export default class Client extends OpenApi {
    * @returns DisassociateMembersResponse
    */
   async disassociateMembers(request: DisassociateMembersRequest): Promise<DisassociateMembersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.disassociateMembersWithOptions(request, runtime);
   }
 
@@ -13103,9 +15048,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableControlPolicyResponse
    */
-  async enableControlPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<EnableControlPolicyResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async enableControlPolicyWithOptions(runtime: $dara.RuntimeOptions): Promise<EnableControlPolicyResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "EnableControlPolicy",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13116,7 +15061,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EnableControlPolicyResponse>(await this.callApi(params, req, runtime), new EnableControlPolicyResponse({}));
+    return $dara.cast<EnableControlPolicyResponse>(await this.callApi(params, req, runtime), new EnableControlPolicyResponse({}));
   }
 
   /**
@@ -13127,7 +15072,7 @@ export default class Client extends OpenApi {
    * @returns EnableControlPolicyResponse
    */
   async enableControlPolicy(): Promise<EnableControlPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.enableControlPolicyWithOptions(runtime);
   }
 
@@ -13141,33 +15086,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableResourceDirectoryResponse
    */
-  async enableResourceDirectoryWithOptions(request: EnableResourceDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<EnableResourceDirectoryResponse> {
-    Util.validateModel(request);
+  async enableResourceDirectoryWithOptions(request: EnableResourceDirectoryRequest, runtime: $dara.RuntimeOptions): Promise<EnableResourceDirectoryResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dryRun)) {
+    if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!Util.isUnset(request.enableMode)) {
+    if (!$dara.isNull(request.enableMode)) {
       query["EnableMode"] = request.enableMode;
     }
 
-    if (!Util.isUnset(request.MAName)) {
+    if (!$dara.isNull(request.MAName)) {
       query["MAName"] = request.MAName;
     }
 
-    if (!Util.isUnset(request.MASecureMobilePhone)) {
+    if (!$dara.isNull(request.MASecureMobilePhone)) {
       query["MASecureMobilePhone"] = request.MASecureMobilePhone;
     }
 
-    if (!Util.isUnset(request.verificationCode)) {
+    if (!$dara.isNull(request.verificationCode)) {
       query["VerificationCode"] = request.verificationCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "EnableResourceDirectory",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13178,7 +15123,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EnableResourceDirectoryResponse>(await this.callApi(params, req, runtime), new EnableResourceDirectoryResponse({}));
+    return $dara.cast<EnableResourceDirectoryResponse>(await this.callApi(params, req, runtime), new EnableResourceDirectoryResponse({}));
   }
 
   /**
@@ -13191,7 +15136,7 @@ export default class Client extends OpenApi {
    * @returns EnableResourceDirectoryResponse
    */
   async enableResourceDirectory(request: EnableResourceDirectoryRequest): Promise<EnableResourceDirectoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.enableResourceDirectoryWithOptions(request, runtime);
   }
 
@@ -13202,21 +15147,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountResponse
    */
-  async getAccountWithOptions(request: GetAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountResponse> {
-    Util.validateModel(request);
+  async getAccountWithOptions(request: GetAccountRequest, runtime: $dara.RuntimeOptions): Promise<GetAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.includeTags)) {
+    if (!$dara.isNull(request.includeTags)) {
       query["IncludeTags"] = request.includeTags;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccount",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13227,7 +15172,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccountResponse>(await this.callApi(params, req, runtime), new GetAccountResponse({}));
+    return $dara.cast<GetAccountResponse>(await this.callApi(params, req, runtime), new GetAccountResponse({}));
   }
 
   /**
@@ -13237,7 +15182,7 @@ export default class Client extends OpenApi {
    * @returns GetAccountResponse
    */
   async getAccount(request: GetAccountRequest): Promise<GetAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccountWithOptions(request, runtime);
   }
 
@@ -13251,17 +15196,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountDeletionCheckResultResponse
    */
-  async getAccountDeletionCheckResultWithOptions(request: GetAccountDeletionCheckResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountDeletionCheckResultResponse> {
-    Util.validateModel(request);
+  async getAccountDeletionCheckResultWithOptions(request: GetAccountDeletionCheckResultRequest, runtime: $dara.RuntimeOptions): Promise<GetAccountDeletionCheckResultResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccountDeletionCheckResult",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13272,7 +15217,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccountDeletionCheckResultResponse>(await this.callApi(params, req, runtime), new GetAccountDeletionCheckResultResponse({}));
+    return $dara.cast<GetAccountDeletionCheckResultResponse>(await this.callApi(params, req, runtime), new GetAccountDeletionCheckResultResponse({}));
   }
 
   /**
@@ -13285,7 +15230,7 @@ export default class Client extends OpenApi {
    * @returns GetAccountDeletionCheckResultResponse
    */
   async getAccountDeletionCheckResult(request: GetAccountDeletionCheckResultRequest): Promise<GetAccountDeletionCheckResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccountDeletionCheckResultWithOptions(request, runtime);
   }
 
@@ -13296,17 +15241,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountDeletionStatusResponse
    */
-  async getAccountDeletionStatusWithOptions(request: GetAccountDeletionStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountDeletionStatusResponse> {
-    Util.validateModel(request);
+  async getAccountDeletionStatusWithOptions(request: GetAccountDeletionStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetAccountDeletionStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccountDeletionStatus",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13317,7 +15262,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccountDeletionStatusResponse>(await this.callApi(params, req, runtime), new GetAccountDeletionStatusResponse({}));
+    return $dara.cast<GetAccountDeletionStatusResponse>(await this.callApi(params, req, runtime), new GetAccountDeletionStatusResponse({}));
   }
 
   /**
@@ -13327,7 +15272,7 @@ export default class Client extends OpenApi {
    * @returns GetAccountDeletionStatusResponse
    */
   async getAccountDeletionStatus(request: GetAccountDeletionStatusRequest): Promise<GetAccountDeletionStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccountDeletionStatusWithOptions(request, runtime);
   }
 
@@ -13338,21 +15283,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetControlPolicyResponse
    */
-  async getControlPolicyWithOptions(request: GetControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetControlPolicyResponse> {
-    Util.validateModel(request);
+  async getControlPolicyWithOptions(request: GetControlPolicyRequest, runtime: $dara.RuntimeOptions): Promise<GetControlPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetControlPolicy",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13363,7 +15308,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetControlPolicyResponse>(await this.callApi(params, req, runtime), new GetControlPolicyResponse({}));
+    return $dara.cast<GetControlPolicyResponse>(await this.callApi(params, req, runtime), new GetControlPolicyResponse({}));
   }
 
   /**
@@ -13373,7 +15318,7 @@ export default class Client extends OpenApi {
    * @returns GetControlPolicyResponse
    */
   async getControlPolicy(request: GetControlPolicyRequest): Promise<GetControlPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getControlPolicyWithOptions(request, runtime);
   }
 
@@ -13384,9 +15329,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetControlPolicyEnablementStatusResponse
    */
-  async getControlPolicyEnablementStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<GetControlPolicyEnablementStatusResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getControlPolicyEnablementStatusWithOptions(runtime: $dara.RuntimeOptions): Promise<GetControlPolicyEnablementStatusResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetControlPolicyEnablementStatus",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13397,7 +15342,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetControlPolicyEnablementStatusResponse>(await this.callApi(params, req, runtime), new GetControlPolicyEnablementStatusResponse({}));
+    return $dara.cast<GetControlPolicyEnablementStatusResponse>(await this.callApi(params, req, runtime), new GetControlPolicyEnablementStatusResponse({}));
   }
 
   /**
@@ -13405,7 +15350,7 @@ export default class Client extends OpenApi {
    * @returns GetControlPolicyEnablementStatusResponse
    */
   async getControlPolicyEnablementStatus(): Promise<GetControlPolicyEnablementStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getControlPolicyEnablementStatusWithOptions(runtime);
   }
 
@@ -13416,17 +15361,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFolderResponse
    */
-  async getFolderWithOptions(request: GetFolderRequest, runtime: $Util.RuntimeOptions): Promise<GetFolderResponse> {
-    Util.validateModel(request);
+  async getFolderWithOptions(request: GetFolderRequest, runtime: $dara.RuntimeOptions): Promise<GetFolderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.folderId)) {
+    if (!$dara.isNull(request.folderId)) {
       query["FolderId"] = request.folderId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetFolder",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13437,7 +15382,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetFolderResponse>(await this.callApi(params, req, runtime), new GetFolderResponse({}));
+    return $dara.cast<GetFolderResponse>(await this.callApi(params, req, runtime), new GetFolderResponse({}));
   }
 
   /**
@@ -13447,7 +15392,7 @@ export default class Client extends OpenApi {
    * @returns GetFolderResponse
    */
   async getFolder(request: GetFolderRequest): Promise<GetFolderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getFolderWithOptions(request, runtime);
   }
 
@@ -13458,17 +15403,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHandshakeResponse
    */
-  async getHandshakeWithOptions(request: GetHandshakeRequest, runtime: $Util.RuntimeOptions): Promise<GetHandshakeResponse> {
-    Util.validateModel(request);
+  async getHandshakeWithOptions(request: GetHandshakeRequest, runtime: $dara.RuntimeOptions): Promise<GetHandshakeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.handshakeId)) {
+    if (!$dara.isNull(request.handshakeId)) {
       query["HandshakeId"] = request.handshakeId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetHandshake",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13479,7 +15424,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetHandshakeResponse>(await this.callApi(params, req, runtime), new GetHandshakeResponse({}));
+    return $dara.cast<GetHandshakeResponse>(await this.callApi(params, req, runtime), new GetHandshakeResponse({}));
   }
 
   /**
@@ -13489,7 +15434,7 @@ export default class Client extends OpenApi {
    * @returns GetHandshakeResponse
    */
   async getHandshake(request: GetHandshakeRequest): Promise<GetHandshakeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getHandshakeWithOptions(request, runtime);
   }
 
@@ -13500,17 +15445,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMessageContactResponse
    */
-  async getMessageContactWithOptions(request: GetMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<GetMessageContactResponse> {
-    Util.validateModel(request);
+  async getMessageContactWithOptions(request: GetMessageContactRequest, runtime: $dara.RuntimeOptions): Promise<GetMessageContactResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactId)) {
+    if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMessageContact",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13521,7 +15466,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMessageContactResponse>(await this.callApi(params, req, runtime), new GetMessageContactResponse({}));
+    return $dara.cast<GetMessageContactResponse>(await this.callApi(params, req, runtime), new GetMessageContactResponse({}));
   }
 
   /**
@@ -13531,7 +15476,7 @@ export default class Client extends OpenApi {
    * @returns GetMessageContactResponse
    */
   async getMessageContact(request: GetMessageContactRequest): Promise<GetMessageContactResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getMessageContactWithOptions(request, runtime);
   }
 
@@ -13542,17 +15487,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMessageContactDeletionStatusResponse
    */
-  async getMessageContactDeletionStatusWithOptions(request: GetMessageContactDeletionStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetMessageContactDeletionStatusResponse> {
-    Util.validateModel(request);
+  async getMessageContactDeletionStatusWithOptions(request: GetMessageContactDeletionStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetMessageContactDeletionStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactId)) {
+    if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMessageContactDeletionStatus",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13563,7 +15508,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMessageContactDeletionStatusResponse>(await this.callApi(params, req, runtime), new GetMessageContactDeletionStatusResponse({}));
+    return $dara.cast<GetMessageContactDeletionStatusResponse>(await this.callApi(params, req, runtime), new GetMessageContactDeletionStatusResponse({}));
   }
 
   /**
@@ -13573,7 +15518,7 @@ export default class Client extends OpenApi {
    * @returns GetMessageContactDeletionStatusResponse
    */
   async getMessageContactDeletionStatus(request: GetMessageContactDeletionStatusRequest): Promise<GetMessageContactDeletionStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getMessageContactDeletionStatusWithOptions(request, runtime);
   }
 
@@ -13584,17 +15529,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPayerForAccountResponse
    */
-  async getPayerForAccountWithOptions(request: GetPayerForAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetPayerForAccountResponse> {
-    Util.validateModel(request);
+  async getPayerForAccountWithOptions(request: GetPayerForAccountRequest, runtime: $dara.RuntimeOptions): Promise<GetPayerForAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetPayerForAccount",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13605,7 +15550,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetPayerForAccountResponse>(await this.callApi(params, req, runtime), new GetPayerForAccountResponse({}));
+    return $dara.cast<GetPayerForAccountResponse>(await this.callApi(params, req, runtime), new GetPayerForAccountResponse({}));
   }
 
   /**
@@ -13615,7 +15560,7 @@ export default class Client extends OpenApi {
    * @returns GetPayerForAccountResponse
    */
   async getPayerForAccount(request: GetPayerForAccountRequest): Promise<GetPayerForAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getPayerForAccountWithOptions(request, runtime);
   }
 
@@ -13626,9 +15571,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourceDirectoryResponse
    */
-  async getResourceDirectoryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetResourceDirectoryResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getResourceDirectoryWithOptions(runtime: $dara.RuntimeOptions): Promise<GetResourceDirectoryResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetResourceDirectory",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13639,7 +15584,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetResourceDirectoryResponse>(await this.callApi(params, req, runtime), new GetResourceDirectoryResponse({}));
+    return $dara.cast<GetResourceDirectoryResponse>(await this.callApi(params, req, runtime), new GetResourceDirectoryResponse({}));
   }
 
   /**
@@ -13647,7 +15592,7 @@ export default class Client extends OpenApi {
    * @returns GetResourceDirectoryResponse
    */
   async getResourceDirectory(): Promise<GetResourceDirectoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getResourceDirectoryWithOptions(runtime);
   }
 
@@ -13658,33 +15603,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InviteAccountToResourceDirectoryResponse
    */
-  async inviteAccountToResourceDirectoryWithOptions(request: InviteAccountToResourceDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<InviteAccountToResourceDirectoryResponse> {
-    Util.validateModel(request);
+  async inviteAccountToResourceDirectoryWithOptions(request: InviteAccountToResourceDirectoryRequest, runtime: $dara.RuntimeOptions): Promise<InviteAccountToResourceDirectoryResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.note)) {
+    if (!$dara.isNull(request.note)) {
       query["Note"] = request.note;
     }
 
-    if (!Util.isUnset(request.parentFolderId)) {
+    if (!$dara.isNull(request.parentFolderId)) {
       query["ParentFolderId"] = request.parentFolderId;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.targetEntity)) {
+    if (!$dara.isNull(request.targetEntity)) {
       query["TargetEntity"] = request.targetEntity;
     }
 
-    if (!Util.isUnset(request.targetType)) {
+    if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "InviteAccountToResourceDirectory",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13695,7 +15640,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<InviteAccountToResourceDirectoryResponse>(await this.callApi(params, req, runtime), new InviteAccountToResourceDirectoryResponse({}));
+    return $dara.cast<InviteAccountToResourceDirectoryResponse>(await this.callApi(params, req, runtime), new InviteAccountToResourceDirectoryResponse({}));
   }
 
   /**
@@ -13705,7 +15650,7 @@ export default class Client extends OpenApi {
    * @returns InviteAccountToResourceDirectoryResponse
    */
   async inviteAccountToResourceDirectory(request: InviteAccountToResourceDirectoryRequest): Promise<InviteAccountToResourceDirectoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.inviteAccountToResourceDirectoryWithOptions(request, runtime);
   }
 
@@ -13719,33 +15664,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAccountsResponse
    */
-  async listAccountsWithOptions(request: ListAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListAccountsResponse> {
-    Util.validateModel(request);
+  async listAccountsWithOptions(request: ListAccountsRequest, runtime: $dara.RuntimeOptions): Promise<ListAccountsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.includeTags)) {
+    if (!$dara.isNull(request.includeTags)) {
       query["IncludeTags"] = request.includeTags;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.queryKeyword)) {
+    if (!$dara.isNull(request.queryKeyword)) {
       query["QueryKeyword"] = request.queryKeyword;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAccounts",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13756,7 +15709,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAccountsResponse>(await this.callApi(params, req, runtime), new ListAccountsResponse({}));
+    return $dara.cast<ListAccountsResponse>(await this.callApi(params, req, runtime), new ListAccountsResponse({}));
   }
 
   /**
@@ -13769,7 +15722,7 @@ export default class Client extends OpenApi {
    * @returns ListAccountsResponse
    */
   async listAccounts(request: ListAccountsRequest): Promise<ListAccountsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAccountsWithOptions(request, runtime);
   }
 
@@ -13780,37 +15733,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAccountsForParentResponse
    */
-  async listAccountsForParentWithOptions(request: ListAccountsForParentRequest, runtime: $Util.RuntimeOptions): Promise<ListAccountsForParentResponse> {
-    Util.validateModel(request);
+  async listAccountsForParentWithOptions(request: ListAccountsForParentRequest, runtime: $dara.RuntimeOptions): Promise<ListAccountsForParentResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.includeTags)) {
+    if (!$dara.isNull(request.includeTags)) {
       query["IncludeTags"] = request.includeTags;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.parentFolderId)) {
+    if (!$dara.isNull(request.parentFolderId)) {
       query["ParentFolderId"] = request.parentFolderId;
     }
 
-    if (!Util.isUnset(request.queryKeyword)) {
+    if (!$dara.isNull(request.queryKeyword)) {
       query["QueryKeyword"] = request.queryKeyword;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAccountsForParent",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13821,7 +15774,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAccountsForParentResponse>(await this.callApi(params, req, runtime), new ListAccountsForParentResponse({}));
+    return $dara.cast<ListAccountsForParentResponse>(await this.callApi(params, req, runtime), new ListAccountsForParentResponse({}));
   }
 
   /**
@@ -13831,7 +15784,7 @@ export default class Client extends OpenApi {
    * @returns ListAccountsForParentResponse
    */
   async listAccountsForParent(request: ListAccountsForParentRequest): Promise<ListAccountsForParentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAccountsForParentWithOptions(request, runtime);
   }
 
@@ -13842,17 +15795,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAncestorsResponse
    */
-  async listAncestorsWithOptions(request: ListAncestorsRequest, runtime: $Util.RuntimeOptions): Promise<ListAncestorsResponse> {
-    Util.validateModel(request);
+  async listAncestorsWithOptions(request: ListAncestorsRequest, runtime: $dara.RuntimeOptions): Promise<ListAncestorsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.childId)) {
+    if (!$dara.isNull(request.childId)) {
       query["ChildId"] = request.childId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAncestors",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13863,7 +15816,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAncestorsResponse>(await this.callApi(params, req, runtime), new ListAncestorsResponse({}));
+    return $dara.cast<ListAncestorsResponse>(await this.callApi(params, req, runtime), new ListAncestorsResponse({}));
   }
 
   /**
@@ -13873,7 +15826,7 @@ export default class Client extends OpenApi {
    * @returns ListAncestorsResponse
    */
   async listAncestors(request: ListAncestorsRequest): Promise<ListAncestorsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAncestorsWithOptions(request, runtime);
   }
 
@@ -13884,29 +15837,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListControlPoliciesResponse
    */
-  async listControlPoliciesWithOptions(request: ListControlPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListControlPoliciesResponse> {
-    Util.validateModel(request);
+  async listControlPoliciesWithOptions(request: ListControlPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<ListControlPoliciesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.policyType)) {
+    if (!$dara.isNull(request.policyType)) {
       query["PolicyType"] = request.policyType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListControlPolicies",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13917,7 +15870,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListControlPoliciesResponse>(await this.callApi(params, req, runtime), new ListControlPoliciesResponse({}));
+    return $dara.cast<ListControlPoliciesResponse>(await this.callApi(params, req, runtime), new ListControlPoliciesResponse({}));
   }
 
   /**
@@ -13927,7 +15880,7 @@ export default class Client extends OpenApi {
    * @returns ListControlPoliciesResponse
    */
   async listControlPolicies(request: ListControlPoliciesRequest): Promise<ListControlPoliciesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listControlPoliciesWithOptions(request, runtime);
   }
 
@@ -13938,21 +15891,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListControlPolicyAttachmentsForTargetResponse
    */
-  async listControlPolicyAttachmentsForTargetWithOptions(request: ListControlPolicyAttachmentsForTargetRequest, runtime: $Util.RuntimeOptions): Promise<ListControlPolicyAttachmentsForTargetResponse> {
-    Util.validateModel(request);
+  async listControlPolicyAttachmentsForTargetWithOptions(request: ListControlPolicyAttachmentsForTargetRequest, runtime: $dara.RuntimeOptions): Promise<ListControlPolicyAttachmentsForTargetResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.targetId)) {
+    if (!$dara.isNull(request.targetId)) {
       query["TargetId"] = request.targetId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListControlPolicyAttachmentsForTarget",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -13963,7 +15916,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListControlPolicyAttachmentsForTargetResponse>(await this.callApi(params, req, runtime), new ListControlPolicyAttachmentsForTargetResponse({}));
+    return $dara.cast<ListControlPolicyAttachmentsForTargetResponse>(await this.callApi(params, req, runtime), new ListControlPolicyAttachmentsForTargetResponse({}));
   }
 
   /**
@@ -13973,7 +15926,7 @@ export default class Client extends OpenApi {
    * @returns ListControlPolicyAttachmentsForTargetResponse
    */
   async listControlPolicyAttachmentsForTarget(request: ListControlPolicyAttachmentsForTargetRequest): Promise<ListControlPolicyAttachmentsForTargetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listControlPolicyAttachmentsForTargetWithOptions(request, runtime);
   }
 
@@ -13984,25 +15937,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDelegatedAdministratorsResponse
    */
-  async listDelegatedAdministratorsWithOptions(request: ListDelegatedAdministratorsRequest, runtime: $Util.RuntimeOptions): Promise<ListDelegatedAdministratorsResponse> {
-    Util.validateModel(request);
+  async listDelegatedAdministratorsWithOptions(request: ListDelegatedAdministratorsRequest, runtime: $dara.RuntimeOptions): Promise<ListDelegatedAdministratorsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.servicePrincipal)) {
+    if (!$dara.isNull(request.servicePrincipal)) {
       query["ServicePrincipal"] = request.servicePrincipal;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDelegatedAdministrators",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14013,7 +15966,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDelegatedAdministratorsResponse>(await this.callApi(params, req, runtime), new ListDelegatedAdministratorsResponse({}));
+    return $dara.cast<ListDelegatedAdministratorsResponse>(await this.callApi(params, req, runtime), new ListDelegatedAdministratorsResponse({}));
   }
 
   /**
@@ -14023,7 +15976,7 @@ export default class Client extends OpenApi {
    * @returns ListDelegatedAdministratorsResponse
    */
   async listDelegatedAdministrators(request: ListDelegatedAdministratorsRequest): Promise<ListDelegatedAdministratorsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDelegatedAdministratorsWithOptions(request, runtime);
   }
 
@@ -14034,17 +15987,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDelegatedServicesForAccountResponse
    */
-  async listDelegatedServicesForAccountWithOptions(request: ListDelegatedServicesForAccountRequest, runtime: $Util.RuntimeOptions): Promise<ListDelegatedServicesForAccountResponse> {
-    Util.validateModel(request);
+  async listDelegatedServicesForAccountWithOptions(request: ListDelegatedServicesForAccountRequest, runtime: $dara.RuntimeOptions): Promise<ListDelegatedServicesForAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDelegatedServicesForAccount",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14055,7 +16008,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDelegatedServicesForAccountResponse>(await this.callApi(params, req, runtime), new ListDelegatedServicesForAccountResponse({}));
+    return $dara.cast<ListDelegatedServicesForAccountResponse>(await this.callApi(params, req, runtime), new ListDelegatedServicesForAccountResponse({}));
   }
 
   /**
@@ -14065,7 +16018,7 @@ export default class Client extends OpenApi {
    * @returns ListDelegatedServicesForAccountResponse
    */
   async listDelegatedServicesForAccount(request: ListDelegatedServicesForAccountRequest): Promise<ListDelegatedServicesForAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDelegatedServicesForAccountWithOptions(request, runtime);
   }
 
@@ -14079,29 +16032,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFoldersForParentResponse
    */
-  async listFoldersForParentWithOptions(request: ListFoldersForParentRequest, runtime: $Util.RuntimeOptions): Promise<ListFoldersForParentResponse> {
-    Util.validateModel(request);
+  async listFoldersForParentWithOptions(request: ListFoldersForParentRequest, runtime: $dara.RuntimeOptions): Promise<ListFoldersForParentResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.parentFolderId)) {
+    if (!$dara.isNull(request.parentFolderId)) {
       query["ParentFolderId"] = request.parentFolderId;
     }
 
-    if (!Util.isUnset(request.queryKeyword)) {
+    if (!$dara.isNull(request.queryKeyword)) {
       query["QueryKeyword"] = request.queryKeyword;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListFoldersForParent",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14112,7 +16069,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListFoldersForParentResponse>(await this.callApi(params, req, runtime), new ListFoldersForParentResponse({}));
+    return $dara.cast<ListFoldersForParentResponse>(await this.callApi(params, req, runtime), new ListFoldersForParentResponse({}));
   }
 
   /**
@@ -14125,7 +16082,7 @@ export default class Client extends OpenApi {
    * @returns ListFoldersForParentResponse
    */
   async listFoldersForParent(request: ListFoldersForParentRequest): Promise<ListFoldersForParentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listFoldersForParentWithOptions(request, runtime);
   }
 
@@ -14136,21 +16093,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListHandshakesForAccountResponse
    */
-  async listHandshakesForAccountWithOptions(request: ListHandshakesForAccountRequest, runtime: $Util.RuntimeOptions): Promise<ListHandshakesForAccountResponse> {
-    Util.validateModel(request);
+  async listHandshakesForAccountWithOptions(request: ListHandshakesForAccountRequest, runtime: $dara.RuntimeOptions): Promise<ListHandshakesForAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListHandshakesForAccount",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14161,7 +16118,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListHandshakesForAccountResponse>(await this.callApi(params, req, runtime), new ListHandshakesForAccountResponse({}));
+    return $dara.cast<ListHandshakesForAccountResponse>(await this.callApi(params, req, runtime), new ListHandshakesForAccountResponse({}));
   }
 
   /**
@@ -14171,7 +16128,7 @@ export default class Client extends OpenApi {
    * @returns ListHandshakesForAccountResponse
    */
   async listHandshakesForAccount(request: ListHandshakesForAccountRequest): Promise<ListHandshakesForAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listHandshakesForAccountWithOptions(request, runtime);
   }
 
@@ -14182,21 +16139,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListHandshakesForResourceDirectoryResponse
    */
-  async listHandshakesForResourceDirectoryWithOptions(request: ListHandshakesForResourceDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<ListHandshakesForResourceDirectoryResponse> {
-    Util.validateModel(request);
+  async listHandshakesForResourceDirectoryWithOptions(request: ListHandshakesForResourceDirectoryRequest, runtime: $dara.RuntimeOptions): Promise<ListHandshakesForResourceDirectoryResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListHandshakesForResourceDirectory",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14207,7 +16164,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListHandshakesForResourceDirectoryResponse>(await this.callApi(params, req, runtime), new ListHandshakesForResourceDirectoryResponse({}));
+    return $dara.cast<ListHandshakesForResourceDirectoryResponse>(await this.callApi(params, req, runtime), new ListHandshakesForResourceDirectoryResponse({}));
   }
 
   /**
@@ -14217,7 +16174,7 @@ export default class Client extends OpenApi {
    * @returns ListHandshakesForResourceDirectoryResponse
    */
   async listHandshakesForResourceDirectory(request: ListHandshakesForResourceDirectoryRequest): Promise<ListHandshakesForResourceDirectoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listHandshakesForResourceDirectoryWithOptions(request, runtime);
   }
 
@@ -14228,25 +16185,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMessageContactVerificationsResponse
    */
-  async listMessageContactVerificationsWithOptions(request: ListMessageContactVerificationsRequest, runtime: $Util.RuntimeOptions): Promise<ListMessageContactVerificationsResponse> {
-    Util.validateModel(request);
+  async listMessageContactVerificationsWithOptions(request: ListMessageContactVerificationsRequest, runtime: $dara.RuntimeOptions): Promise<ListMessageContactVerificationsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactId)) {
+    if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMessageContactVerifications",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14257,7 +16214,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMessageContactVerificationsResponse>(await this.callApi(params, req, runtime), new ListMessageContactVerificationsResponse({}));
+    return $dara.cast<ListMessageContactVerificationsResponse>(await this.callApi(params, req, runtime), new ListMessageContactVerificationsResponse({}));
   }
 
   /**
@@ -14267,7 +16224,7 @@ export default class Client extends OpenApi {
    * @returns ListMessageContactVerificationsResponse
    */
   async listMessageContactVerifications(request: ListMessageContactVerificationsRequest): Promise<ListMessageContactVerificationsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMessageContactVerificationsWithOptions(request, runtime);
   }
 
@@ -14278,29 +16235,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMessageContactsResponse
    */
-  async listMessageContactsWithOptions(request: ListMessageContactsRequest, runtime: $Util.RuntimeOptions): Promise<ListMessageContactsResponse> {
-    Util.validateModel(request);
+  async listMessageContactsWithOptions(request: ListMessageContactsRequest, runtime: $dara.RuntimeOptions): Promise<ListMessageContactsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactId)) {
+    if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
 
-    if (!Util.isUnset(request.member)) {
+    if (!$dara.isNull(request.member)) {
       query["Member"] = request.member;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMessageContacts",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14311,7 +16268,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMessageContactsResponse>(await this.callApi(params, req, runtime), new ListMessageContactsResponse({}));
+    return $dara.cast<ListMessageContactsResponse>(await this.callApi(params, req, runtime), new ListMessageContactsResponse({}));
   }
 
   /**
@@ -14321,7 +16278,7 @@ export default class Client extends OpenApi {
    * @returns ListMessageContactsResponse
    */
   async listMessageContacts(request: ListMessageContactsRequest): Promise<ListMessageContactsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMessageContactsWithOptions(request, runtime);
   }
 
@@ -14332,29 +16289,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagKeysResponse
    */
-  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
-    Util.validateModel(request);
+  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $dara.RuntimeOptions): Promise<ListTagKeysResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.keyFilter)) {
+    if (!$dara.isNull(request.keyFilter)) {
       query["KeyFilter"] = request.keyFilter;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagKeys",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14365,7 +16322,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+    return $dara.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
   }
 
   /**
@@ -14375,7 +16332,7 @@ export default class Client extends OpenApi {
    * @returns ListTagKeysResponse
    */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
   }
 
@@ -14386,33 +16343,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14423,7 +16380,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   /**
@@ -14433,7 +16390,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
@@ -14444,33 +16401,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagValuesResponse
    */
-  async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
-    Util.validateModel(request);
+  async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagValuesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    if (!Util.isUnset(request.valueFilter)) {
+    if (!$dara.isNull(request.valueFilter)) {
       query["ValueFilter"] = request.valueFilter;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagValues",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14481,7 +16438,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
+    return $dara.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
   }
 
   /**
@@ -14491,7 +16448,7 @@ export default class Client extends OpenApi {
    * @returns ListTagValuesResponse
    */
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
   }
 
@@ -14502,25 +16459,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTargetAttachmentsForControlPolicyResponse
    */
-  async listTargetAttachmentsForControlPolicyWithOptions(request: ListTargetAttachmentsForControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListTargetAttachmentsForControlPolicyResponse> {
-    Util.validateModel(request);
+  async listTargetAttachmentsForControlPolicyWithOptions(request: ListTargetAttachmentsForControlPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ListTargetAttachmentsForControlPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTargetAttachmentsForControlPolicy",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14531,7 +16488,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTargetAttachmentsForControlPolicyResponse>(await this.callApi(params, req, runtime), new ListTargetAttachmentsForControlPolicyResponse({}));
+    return $dara.cast<ListTargetAttachmentsForControlPolicyResponse>(await this.callApi(params, req, runtime), new ListTargetAttachmentsForControlPolicyResponse({}));
   }
 
   /**
@@ -14541,7 +16498,7 @@ export default class Client extends OpenApi {
    * @returns ListTargetAttachmentsForControlPolicyResponse
    */
   async listTargetAttachmentsForControlPolicy(request: ListTargetAttachmentsForControlPolicyRequest): Promise<ListTargetAttachmentsForControlPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTargetAttachmentsForControlPolicyWithOptions(request, runtime);
   }
 
@@ -14555,25 +16512,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTrustedServiceStatusResponse
    */
-  async listTrustedServiceStatusWithOptions(request: ListTrustedServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<ListTrustedServiceStatusResponse> {
-    Util.validateModel(request);
+  async listTrustedServiceStatusWithOptions(request: ListTrustedServiceStatusRequest, runtime: $dara.RuntimeOptions): Promise<ListTrustedServiceStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.adminAccountId)) {
+    if (!$dara.isNull(request.adminAccountId)) {
       query["AdminAccountId"] = request.adminAccountId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTrustedServiceStatus",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14584,7 +16541,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTrustedServiceStatusResponse>(await this.callApi(params, req, runtime), new ListTrustedServiceStatusResponse({}));
+    return $dara.cast<ListTrustedServiceStatusResponse>(await this.callApi(params, req, runtime), new ListTrustedServiceStatusResponse({}));
   }
 
   /**
@@ -14597,7 +16554,7 @@ export default class Client extends OpenApi {
    * @returns ListTrustedServiceStatusResponse
    */
   async listTrustedServiceStatus(request: ListTrustedServiceStatusRequest): Promise<ListTrustedServiceStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTrustedServiceStatusWithOptions(request, runtime);
   }
 
@@ -14608,21 +16565,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns MoveAccountResponse
    */
-  async moveAccountWithOptions(request: MoveAccountRequest, runtime: $Util.RuntimeOptions): Promise<MoveAccountResponse> {
-    Util.validateModel(request);
+  async moveAccountWithOptions(request: MoveAccountRequest, runtime: $dara.RuntimeOptions): Promise<MoveAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.destinationFolderId)) {
+    if (!$dara.isNull(request.destinationFolderId)) {
       query["DestinationFolderId"] = request.destinationFolderId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "MoveAccount",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14633,7 +16590,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<MoveAccountResponse>(await this.callApi(params, req, runtime), new MoveAccountResponse({}));
+    return $dara.cast<MoveAccountResponse>(await this.callApi(params, req, runtime), new MoveAccountResponse({}));
   }
 
   /**
@@ -14643,7 +16600,7 @@ export default class Client extends OpenApi {
    * @returns MoveAccountResponse
    */
   async moveAccount(request: MoveAccountRequest): Promise<MoveAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.moveAccountWithOptions(request, runtime);
   }
 
@@ -14654,17 +16611,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PrecheckForConsolidatedBillingAccountResponse
    */
-  async precheckForConsolidatedBillingAccountWithOptions(request: PrecheckForConsolidatedBillingAccountRequest, runtime: $Util.RuntimeOptions): Promise<PrecheckForConsolidatedBillingAccountResponse> {
-    Util.validateModel(request);
+  async precheckForConsolidatedBillingAccountWithOptions(request: PrecheckForConsolidatedBillingAccountRequest, runtime: $dara.RuntimeOptions): Promise<PrecheckForConsolidatedBillingAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.billingAccountId)) {
+    if (!$dara.isNull(request.billingAccountId)) {
       query["BillingAccountId"] = request.billingAccountId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PrecheckForConsolidatedBillingAccount",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14675,7 +16632,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PrecheckForConsolidatedBillingAccountResponse>(await this.callApi(params, req, runtime), new PrecheckForConsolidatedBillingAccountResponse({}));
+    return $dara.cast<PrecheckForConsolidatedBillingAccountResponse>(await this.callApi(params, req, runtime), new PrecheckForConsolidatedBillingAccountResponse({}));
   }
 
   /**
@@ -14685,7 +16642,7 @@ export default class Client extends OpenApi {
    * @returns PrecheckForConsolidatedBillingAccountResponse
    */
   async precheckForConsolidatedBillingAccount(request: PrecheckForConsolidatedBillingAccountRequest): Promise<PrecheckForConsolidatedBillingAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.precheckForConsolidatedBillingAccountWithOptions(request, runtime);
   }
 
@@ -14702,21 +16659,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RegisterDelegatedAdministratorResponse
    */
-  async registerDelegatedAdministratorWithOptions(request: RegisterDelegatedAdministratorRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDelegatedAdministratorResponse> {
-    Util.validateModel(request);
+  async registerDelegatedAdministratorWithOptions(request: RegisterDelegatedAdministratorRequest, runtime: $dara.RuntimeOptions): Promise<RegisterDelegatedAdministratorResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.servicePrincipal)) {
+    if (!$dara.isNull(request.servicePrincipal)) {
       query["ServicePrincipal"] = request.servicePrincipal;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RegisterDelegatedAdministrator",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14727,7 +16684,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RegisterDelegatedAdministratorResponse>(await this.callApi(params, req, runtime), new RegisterDelegatedAdministratorResponse({}));
+    return $dara.cast<RegisterDelegatedAdministratorResponse>(await this.callApi(params, req, runtime), new RegisterDelegatedAdministratorResponse({}));
   }
 
   /**
@@ -14743,7 +16700,7 @@ export default class Client extends OpenApi {
    * @returns RegisterDelegatedAdministratorResponse
    */
   async registerDelegatedAdministrator(request: RegisterDelegatedAdministratorRequest): Promise<RegisterDelegatedAdministratorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.registerDelegatedAdministratorWithOptions(request, runtime);
   }
 
@@ -14754,17 +16711,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveCloudAccountResponse
    */
-  async removeCloudAccountWithOptions(request: RemoveCloudAccountRequest, runtime: $Util.RuntimeOptions): Promise<RemoveCloudAccountResponse> {
-    Util.validateModel(request);
+  async removeCloudAccountWithOptions(request: RemoveCloudAccountRequest, runtime: $dara.RuntimeOptions): Promise<RemoveCloudAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RemoveCloudAccount",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14775,7 +16732,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RemoveCloudAccountResponse>(await this.callApi(params, req, runtime), new RemoveCloudAccountResponse({}));
+    return $dara.cast<RemoveCloudAccountResponse>(await this.callApi(params, req, runtime), new RemoveCloudAccountResponse({}));
   }
 
   /**
@@ -14785,7 +16742,7 @@ export default class Client extends OpenApi {
    * @returns RemoveCloudAccountResponse
    */
   async removeCloudAccount(request: RemoveCloudAccountRequest): Promise<RemoveCloudAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.removeCloudAccountWithOptions(request, runtime);
   }
 
@@ -14796,17 +16753,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RetryChangeAccountEmailResponse
    */
-  async retryChangeAccountEmailWithOptions(request: RetryChangeAccountEmailRequest, runtime: $Util.RuntimeOptions): Promise<RetryChangeAccountEmailResponse> {
-    Util.validateModel(request);
+  async retryChangeAccountEmailWithOptions(request: RetryChangeAccountEmailRequest, runtime: $dara.RuntimeOptions): Promise<RetryChangeAccountEmailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RetryChangeAccountEmail",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14817,7 +16774,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RetryChangeAccountEmailResponse>(await this.callApi(params, req, runtime), new RetryChangeAccountEmailResponse({}));
+    return $dara.cast<RetryChangeAccountEmailResponse>(await this.callApi(params, req, runtime), new RetryChangeAccountEmailResponse({}));
   }
 
   /**
@@ -14827,7 +16784,7 @@ export default class Client extends OpenApi {
    * @returns RetryChangeAccountEmailResponse
    */
   async retryChangeAccountEmail(request: RetryChangeAccountEmailRequest): Promise<RetryChangeAccountEmailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.retryChangeAccountEmailWithOptions(request, runtime);
   }
 
@@ -14838,21 +16795,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendEmailVerificationForMessageContactResponse
    */
-  async sendEmailVerificationForMessageContactWithOptions(request: SendEmailVerificationForMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<SendEmailVerificationForMessageContactResponse> {
-    Util.validateModel(request);
+  async sendEmailVerificationForMessageContactWithOptions(request: SendEmailVerificationForMessageContactRequest, runtime: $dara.RuntimeOptions): Promise<SendEmailVerificationForMessageContactResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactId)) {
+    if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
 
-    if (!Util.isUnset(request.emailAddress)) {
+    if (!$dara.isNull(request.emailAddress)) {
       query["EmailAddress"] = request.emailAddress;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendEmailVerificationForMessageContact",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14863,7 +16820,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendEmailVerificationForMessageContactResponse>(await this.callApi(params, req, runtime), new SendEmailVerificationForMessageContactResponse({}));
+    return $dara.cast<SendEmailVerificationForMessageContactResponse>(await this.callApi(params, req, runtime), new SendEmailVerificationForMessageContactResponse({}));
   }
 
   /**
@@ -14873,7 +16830,7 @@ export default class Client extends OpenApi {
    * @returns SendEmailVerificationForMessageContactResponse
    */
   async sendEmailVerificationForMessageContact(request: SendEmailVerificationForMessageContactRequest): Promise<SendEmailVerificationForMessageContactResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendEmailVerificationForMessageContactWithOptions(request, runtime);
   }
 
@@ -14884,21 +16841,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendPhoneVerificationForMessageContactResponse
    */
-  async sendPhoneVerificationForMessageContactWithOptions(request: SendPhoneVerificationForMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<SendPhoneVerificationForMessageContactResponse> {
-    Util.validateModel(request);
+  async sendPhoneVerificationForMessageContactWithOptions(request: SendPhoneVerificationForMessageContactRequest, runtime: $dara.RuntimeOptions): Promise<SendPhoneVerificationForMessageContactResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactId)) {
+    if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendPhoneVerificationForMessageContact",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14909,7 +16866,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendPhoneVerificationForMessageContactResponse>(await this.callApi(params, req, runtime), new SendPhoneVerificationForMessageContactResponse({}));
+    return $dara.cast<SendPhoneVerificationForMessageContactResponse>(await this.callApi(params, req, runtime), new SendPhoneVerificationForMessageContactResponse({}));
   }
 
   /**
@@ -14919,7 +16876,7 @@ export default class Client extends OpenApi {
    * @returns SendPhoneVerificationForMessageContactResponse
    */
   async sendPhoneVerificationForMessageContact(request: SendPhoneVerificationForMessageContactRequest): Promise<SendPhoneVerificationForMessageContactResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendPhoneVerificationForMessageContactWithOptions(request, runtime);
   }
 
@@ -14933,21 +16890,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendVerificationCodeForBindSecureMobilePhoneResponse
    */
-  async sendVerificationCodeForBindSecureMobilePhoneWithOptions(request: SendVerificationCodeForBindSecureMobilePhoneRequest, runtime: $Util.RuntimeOptions): Promise<SendVerificationCodeForBindSecureMobilePhoneResponse> {
-    Util.validateModel(request);
+  async sendVerificationCodeForBindSecureMobilePhoneWithOptions(request: SendVerificationCodeForBindSecureMobilePhoneRequest, runtime: $dara.RuntimeOptions): Promise<SendVerificationCodeForBindSecureMobilePhoneResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.secureMobilePhone)) {
+    if (!$dara.isNull(request.secureMobilePhone)) {
       query["SecureMobilePhone"] = request.secureMobilePhone;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendVerificationCodeForBindSecureMobilePhone",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -14958,7 +16915,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendVerificationCodeForBindSecureMobilePhoneResponse>(await this.callApi(params, req, runtime), new SendVerificationCodeForBindSecureMobilePhoneResponse({}));
+    return $dara.cast<SendVerificationCodeForBindSecureMobilePhoneResponse>(await this.callApi(params, req, runtime), new SendVerificationCodeForBindSecureMobilePhoneResponse({}));
   }
 
   /**
@@ -14971,7 +16928,7 @@ export default class Client extends OpenApi {
    * @returns SendVerificationCodeForBindSecureMobilePhoneResponse
    */
   async sendVerificationCodeForBindSecureMobilePhone(request: SendVerificationCodeForBindSecureMobilePhoneRequest): Promise<SendVerificationCodeForBindSecureMobilePhoneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendVerificationCodeForBindSecureMobilePhoneWithOptions(request, runtime);
   }
 
@@ -14985,17 +16942,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendVerificationCodeForEnableRDResponse
    */
-  async sendVerificationCodeForEnableRDWithOptions(request: SendVerificationCodeForEnableRDRequest, runtime: $Util.RuntimeOptions): Promise<SendVerificationCodeForEnableRDResponse> {
-    Util.validateModel(request);
+  async sendVerificationCodeForEnableRDWithOptions(request: SendVerificationCodeForEnableRDRequest, runtime: $dara.RuntimeOptions): Promise<SendVerificationCodeForEnableRDResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.secureMobilePhone)) {
+    if (!$dara.isNull(request.secureMobilePhone)) {
       query["SecureMobilePhone"] = request.secureMobilePhone;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendVerificationCodeForEnableRD",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -15006,7 +16963,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendVerificationCodeForEnableRDResponse>(await this.callApi(params, req, runtime), new SendVerificationCodeForEnableRDResponse({}));
+    return $dara.cast<SendVerificationCodeForEnableRDResponse>(await this.callApi(params, req, runtime), new SendVerificationCodeForEnableRDResponse({}));
   }
 
   /**
@@ -15019,7 +16976,7 @@ export default class Client extends OpenApi {
    * @returns SendVerificationCodeForEnableRDResponse
    */
   async sendVerificationCodeForEnableRD(request: SendVerificationCodeForEnableRDRequest): Promise<SendVerificationCodeForEnableRDResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendVerificationCodeForEnableRDWithOptions(request, runtime);
   }
 
@@ -15033,17 +16990,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetMemberDeletionPermissionResponse
    */
-  async setMemberDeletionPermissionWithOptions(request: SetMemberDeletionPermissionRequest, runtime: $Util.RuntimeOptions): Promise<SetMemberDeletionPermissionResponse> {
-    Util.validateModel(request);
+  async setMemberDeletionPermissionWithOptions(request: SetMemberDeletionPermissionRequest, runtime: $dara.RuntimeOptions): Promise<SetMemberDeletionPermissionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetMemberDeletionPermission",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -15054,7 +17011,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetMemberDeletionPermissionResponse>(await this.callApi(params, req, runtime), new SetMemberDeletionPermissionResponse({}));
+    return $dara.cast<SetMemberDeletionPermissionResponse>(await this.callApi(params, req, runtime), new SetMemberDeletionPermissionResponse({}));
   }
 
   /**
@@ -15067,7 +17024,7 @@ export default class Client extends OpenApi {
    * @returns SetMemberDeletionPermissionResponse
    */
   async setMemberDeletionPermission(request: SetMemberDeletionPermissionRequest): Promise<SetMemberDeletionPermissionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setMemberDeletionPermissionWithOptions(request, runtime);
   }
 
@@ -15078,25 +17035,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -15107,7 +17064,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   /**
@@ -15117,7 +17074,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
@@ -15128,29 +17085,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -15161,7 +17118,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   /**
@@ -15171,7 +17128,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
@@ -15187,29 +17144,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAccountResponse
    */
-  async updateAccountWithOptions(request: UpdateAccountRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccountResponse> {
-    Util.validateModel(request);
+  async updateAccountWithOptions(request: UpdateAccountRequest, runtime: $dara.RuntimeOptions): Promise<UpdateAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.dryRun)) {
+    if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!Util.isUnset(request.newAccountType)) {
+    if (!$dara.isNull(request.newAccountType)) {
       query["NewAccountType"] = request.newAccountType;
     }
 
-    if (!Util.isUnset(request.newDisplayName)) {
+    if (!$dara.isNull(request.newDisplayName)) {
       query["NewDisplayName"] = request.newDisplayName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateAccount",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -15220,7 +17177,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAccountResponse>(await this.callApi(params, req, runtime), new UpdateAccountResponse({}));
+    return $dara.cast<UpdateAccountResponse>(await this.callApi(params, req, runtime), new UpdateAccountResponse({}));
   }
 
   /**
@@ -15235,7 +17192,7 @@ export default class Client extends OpenApi {
    * @returns UpdateAccountResponse
    */
   async updateAccount(request: UpdateAccountRequest): Promise<UpdateAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAccountWithOptions(request, runtime);
   }
 
@@ -15246,29 +17203,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateControlPolicyResponse
    */
-  async updateControlPolicyWithOptions(request: UpdateControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateControlPolicyResponse> {
-    Util.validateModel(request);
+  async updateControlPolicyWithOptions(request: UpdateControlPolicyRequest, runtime: $dara.RuntimeOptions): Promise<UpdateControlPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.newDescription)) {
+    if (!$dara.isNull(request.newDescription)) {
       query["NewDescription"] = request.newDescription;
     }
 
-    if (!Util.isUnset(request.newPolicyDocument)) {
+    if (!$dara.isNull(request.newPolicyDocument)) {
       query["NewPolicyDocument"] = request.newPolicyDocument;
     }
 
-    if (!Util.isUnset(request.newPolicyName)) {
+    if (!$dara.isNull(request.newPolicyName)) {
       query["NewPolicyName"] = request.newPolicyName;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateControlPolicy",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -15279,7 +17236,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateControlPolicyResponse>(await this.callApi(params, req, runtime), new UpdateControlPolicyResponse({}));
+    return $dara.cast<UpdateControlPolicyResponse>(await this.callApi(params, req, runtime), new UpdateControlPolicyResponse({}));
   }
 
   /**
@@ -15289,7 +17246,7 @@ export default class Client extends OpenApi {
    * @returns UpdateControlPolicyResponse
    */
   async updateControlPolicy(request: UpdateControlPolicyRequest): Promise<UpdateControlPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateControlPolicyWithOptions(request, runtime);
   }
 
@@ -15300,21 +17257,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateFolderResponse
    */
-  async updateFolderWithOptions(request: UpdateFolderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFolderResponse> {
-    Util.validateModel(request);
+  async updateFolderWithOptions(request: UpdateFolderRequest, runtime: $dara.RuntimeOptions): Promise<UpdateFolderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.folderId)) {
+    if (!$dara.isNull(request.folderId)) {
       query["FolderId"] = request.folderId;
     }
 
-    if (!Util.isUnset(request.newFolderName)) {
+    if (!$dara.isNull(request.newFolderName)) {
       query["NewFolderName"] = request.newFolderName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateFolder",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -15325,7 +17282,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateFolderResponse>(await this.callApi(params, req, runtime), new UpdateFolderResponse({}));
+    return $dara.cast<UpdateFolderResponse>(await this.callApi(params, req, runtime), new UpdateFolderResponse({}));
   }
 
   /**
@@ -15335,7 +17292,7 @@ export default class Client extends OpenApi {
    * @returns UpdateFolderResponse
    */
   async updateFolder(request: UpdateFolderRequest): Promise<UpdateFolderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateFolderWithOptions(request, runtime);
   }
 
@@ -15346,37 +17303,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateMessageContactResponse
    */
-  async updateMessageContactWithOptions(request: UpdateMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMessageContactResponse> {
-    Util.validateModel(request);
+  async updateMessageContactWithOptions(request: UpdateMessageContactRequest, runtime: $dara.RuntimeOptions): Promise<UpdateMessageContactResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactId)) {
+    if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
 
-    if (!Util.isUnset(request.emailAddress)) {
+    if (!$dara.isNull(request.emailAddress)) {
       query["EmailAddress"] = request.emailAddress;
     }
 
-    if (!Util.isUnset(request.messageTypes)) {
+    if (!$dara.isNull(request.messageTypes)) {
       query["MessageTypes"] = request.messageTypes;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.title)) {
+    if (!$dara.isNull(request.title)) {
       query["Title"] = request.title;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateMessageContact",
       version: "2022-04-19",
       protocol: "HTTPS",
@@ -15387,7 +17344,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateMessageContactResponse>(await this.callApi(params, req, runtime), new UpdateMessageContactResponse({}));
+    return $dara.cast<UpdateMessageContactResponse>(await this.callApi(params, req, runtime), new UpdateMessageContactResponse({}));
   }
 
   /**
@@ -15397,7 +17354,7 @@ export default class Client extends OpenApi {
    * @returns UpdateMessageContactResponse
    */
   async updateMessageContact(request: UpdateMessageContactRequest): Promise<UpdateMessageContactResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateMessageContactWithOptions(request, runtime);
   }
 
