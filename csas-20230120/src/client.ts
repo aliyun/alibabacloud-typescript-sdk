@@ -1,40 +1,72 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class AttachApplication2ConnectorRequest extends $tea.Model {
+export class CreateApprovalProcessRequestMatchSchemas extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   */
-  applicationIds?: string[];
-  /**
-   * @remarks
-   * ConnectorID。
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * connector-94db94e06b98****
+   * approval-schema-090134f1ebff****
    */
-  connectorId?: string;
+  appUninstallSchemaId?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  deviceRegistrationSchemaId?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  dlpSendSchemaId?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  domainBlacklistSchemaId?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  domainWhitelistSchemaId?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  peripheralBlockSchemaId?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  softwareBlockSchemaId?: string;
   static names(): { [key: string]: string } {
     return {
-      applicationIds: 'ApplicationIds',
-      connectorId: 'ConnectorId',
+      appUninstallSchemaId: 'AppUninstallSchemaId',
+      deviceRegistrationSchemaId: 'DeviceRegistrationSchemaId',
+      dlpSendSchemaId: 'DlpSendSchemaId',
+      domainBlacklistSchemaId: 'DomainBlacklistSchemaId',
+      domainWhitelistSchemaId: 'DomainWhitelistSchemaId',
+      peripheralBlockSchemaId: 'PeripheralBlockSchemaId',
+      softwareBlockSchemaId: 'SoftwareBlockSchemaId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      applicationIds: { 'type': 'array', 'itemType': 'string' },
-      connectorId: 'string',
+      appUninstallSchemaId: 'string',
+      deviceRegistrationSchemaId: 'string',
+      dlpSendSchemaId: 'string',
+      domainBlacklistSchemaId: 'string',
+      domainWhitelistSchemaId: 'string',
+      peripheralBlockSchemaId: 'string',
+      softwareBlockSchemaId: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -42,2298 +74,32 @@ export class AttachApplication2ConnectorRequest extends $tea.Model {
   }
 }
 
-export class AttachApplication2ConnectorShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  applicationIdsShrink?: string;
-  /**
-   * @remarks
-   * ConnectorID。
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * connector-94db94e06b98****
-   */
-  connectorId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationIdsShrink: 'ApplicationIds',
-      connectorId: 'ConnectorId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIdsShrink: 'string',
-      connectorId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachApplication2ConnectorResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachApplication2ConnectorResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AttachApplication2ConnectorResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AttachApplication2ConnectorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClientUserRequest extends $tea.Model {
-  /**
-   * @example
-   * 10797
-   */
-  departmentId?: string;
-  description?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * johndoe@example.com
-   */
-  email?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 727
-   */
-  idpConfigId?: string;
-  /**
-   * @example
-   * 13641966835
-   */
-  mobileNumber?: string;
-  /**
-   * @example
-   * kehudiyi
-   */
-  password?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      departmentId: 'DepartmentId',
-      description: 'Description',
-      email: 'Email',
-      idpConfigId: 'IdpConfigId',
-      mobileNumber: 'MobileNumber',
-      password: 'Password',
-      username: 'Username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      departmentId: 'string',
-      description: 'string',
-      email: 'string',
-      idpConfigId: 'string',
-      mobileNumber: 'string',
-      password: 'string',
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClientUserResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 726
-   */
-  data?: string;
-  /**
-   * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClientUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateClientUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateClientUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDynamicRouteRequest extends $tea.Model {
-  applicationIds?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Application
-   */
-  applicationType?: string;
-  description?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * connector
-   */
-  dynamicRouteType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * dynamic_route_name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * connector-8ccb13b6f52c****
-   */
-  nextHop?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 99
-   */
-  priority?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  regionIds?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Disabled
-   */
-  status?: string;
-  tagIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      applicationIds: 'ApplicationIds',
-      applicationType: 'ApplicationType',
-      description: 'Description',
-      dynamicRouteType: 'DynamicRouteType',
-      name: 'Name',
-      nextHop: 'NextHop',
-      priority: 'Priority',
-      regionIds: 'RegionIds',
-      status: 'Status',
-      tagIds: 'TagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIds: { 'type': 'array', 'itemType': 'string' },
-      applicationType: 'string',
-      description: 'string',
-      dynamicRouteType: 'string',
-      name: 'string',
-      nextHop: 'string',
-      priority: 'number',
-      regionIds: { 'type': 'array', 'itemType': 'string' },
-      status: 'string',
-      tagIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDynamicRouteResponseBody extends $tea.Model {
-  /**
-   * @example
-   * dr-ca9fddfac7c6****
-   */
-  dynamicRouteId?: string;
-  /**
-   * @example
-   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dynamicRouteId: 'DynamicRouteId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dynamicRouteId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDynamicRouteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDynamicRouteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDynamicRouteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateIdpDepartmentRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  departmentName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1222
-   */
-  idpConfigId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      departmentName: 'DepartmentName',
-      idpConfigId: 'IdpConfigId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      departmentName: 'string',
-      idpConfigId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateIdpDepartmentResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 726
-   */
-  data?: string;
-  /**
-   * @example
-   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateIdpDepartmentResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateIdpDepartmentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateIdpDepartmentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePrivateAccessApplicationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  addresses?: string[];
-  browserAccessStatus?: string;
-  description?: string;
-  l7ProxyDomainAutomaticPrefix?: string;
-  l7ProxyDomainCustom?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * private_access_application_name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  portRanges?: CreatePrivateAccessApplicationRequestPortRanges[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * All
-   */
-  protocol?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Enabled
-   */
-  status?: string;
-  tagIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      addresses: 'Addresses',
-      browserAccessStatus: 'BrowserAccessStatus',
-      description: 'Description',
-      l7ProxyDomainAutomaticPrefix: 'L7ProxyDomainAutomaticPrefix',
-      l7ProxyDomainCustom: 'L7ProxyDomainCustom',
-      name: 'Name',
-      portRanges: 'PortRanges',
-      protocol: 'Protocol',
-      status: 'Status',
-      tagIds: 'TagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addresses: { 'type': 'array', 'itemType': 'string' },
-      browserAccessStatus: 'string',
-      description: 'string',
-      l7ProxyDomainAutomaticPrefix: 'string',
-      l7ProxyDomainCustom: 'string',
-      name: 'string',
-      portRanges: { 'type': 'array', 'itemType': CreatePrivateAccessApplicationRequestPortRanges },
-      protocol: 'string',
-      status: 'string',
-      tagIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePrivateAccessApplicationResponseBody extends $tea.Model {
-  /**
-   * @example
-   * pa-application-e12860ef6c48****
-   */
-  applicationId?: string;
-  /**
-   * @example
-   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationId: 'ApplicationId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePrivateAccessApplicationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreatePrivateAccessApplicationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreatePrivateAccessApplicationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePrivateAccessPolicyRequest extends $tea.Model {
-  applicationIds?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Application
-   */
-  applicationType?: string;
-  customUserAttributes?: CreatePrivateAccessPolicyRequestCustomUserAttributes[];
-  description?: string;
-  deviceAttributeAction?: string;
-  deviceAttributeId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * private_access_policy_name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Allow
-   */
-  policyAction?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  priority?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Enabled
-   */
-  status?: string;
-  /**
-   * @remarks
-   * 内网访问标签ID集合。最多可输入100个内网访问标签ID。当**ApplicationType**为**Tag时**，必填。和**ApplicationIds**互斥。
-   */
-  tagIds?: string[];
-  userGroupIds?: string[];
-  /**
-   * @remarks
-   * 内网访问策略的用户组类型。取值：
-   * - **Normal**：普通用户组。
-   * - **Custom**：自定义用户组。
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Normal
-   */
-  userGroupMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationIds: 'ApplicationIds',
-      applicationType: 'ApplicationType',
-      customUserAttributes: 'CustomUserAttributes',
-      description: 'Description',
-      deviceAttributeAction: 'DeviceAttributeAction',
-      deviceAttributeId: 'DeviceAttributeId',
-      name: 'Name',
-      policyAction: 'PolicyAction',
-      priority: 'Priority',
-      status: 'Status',
-      tagIds: 'TagIds',
-      userGroupIds: 'UserGroupIds',
-      userGroupMode: 'UserGroupMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIds: { 'type': 'array', 'itemType': 'string' },
-      applicationType: 'string',
-      customUserAttributes: { 'type': 'array', 'itemType': CreatePrivateAccessPolicyRequestCustomUserAttributes },
-      description: 'string',
-      deviceAttributeAction: 'string',
-      deviceAttributeId: 'string',
-      name: 'string',
-      policyAction: 'string',
-      priority: 'number',
-      status: 'string',
-      tagIds: { 'type': 'array', 'itemType': 'string' },
-      userGroupIds: { 'type': 'array', 'itemType': 'string' },
-      userGroupMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePrivateAccessPolicyResponseBody extends $tea.Model {
-  /**
-   * @example
-   * pa-policy-867ef4007c8a****
-   */
-  policyId?: string;
-  /**
-   * @example
-   * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyId: 'PolicyId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePrivateAccessPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreatePrivateAccessPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreatePrivateAccessPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePrivateAccessTagRequest extends $tea.Model {
-  description?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * tag_name
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePrivateAccessTagResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
-   */
-  requestId?: string;
-  /**
-   * @example
-   * tag-d3f64e8bdd4a****
-   */
-  tagId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tagId: 'TagId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tagId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePrivateAccessTagResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreatePrivateAccessTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreatePrivateAccessTagResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRegistrationPolicyRequest extends $tea.Model {
-  companyLimitCount?: CreateRegistrationPolicyRequestCompanyLimitCount;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * LimitAll
-   */
-  companyLimitType?: string;
-  description?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * UserGroupAll
-   */
-  matchMode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * registration_policy_name
-   */
-  name?: string;
-  personalLimitCount?: CreateRegistrationPolicyRequestPersonalLimitCount;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * LimitDiff
-   */
-  personalLimitType?: string;
-  /**
-   * @example
-   * 99
-   */
-  priority?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Enabled
-   */
-  status?: string;
-  userGroupIds?: string[];
-  whitelist?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      companyLimitCount: 'CompanyLimitCount',
-      companyLimitType: 'CompanyLimitType',
-      description: 'Description',
-      matchMode: 'MatchMode',
-      name: 'Name',
-      personalLimitCount: 'PersonalLimitCount',
-      personalLimitType: 'PersonalLimitType',
-      priority: 'Priority',
-      status: 'Status',
-      userGroupIds: 'UserGroupIds',
-      whitelist: 'Whitelist',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      companyLimitCount: CreateRegistrationPolicyRequestCompanyLimitCount,
-      companyLimitType: 'string',
-      description: 'string',
-      matchMode: 'string',
-      name: 'string',
-      personalLimitCount: CreateRegistrationPolicyRequestPersonalLimitCount,
-      personalLimitType: 'string',
-      priority: 'number',
-      status: 'string',
-      userGroupIds: { 'type': 'array', 'itemType': 'string' },
-      whitelist: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRegistrationPolicyShrinkRequest extends $tea.Model {
-  companyLimitCountShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * LimitAll
-   */
-  companyLimitType?: string;
-  description?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * UserGroupAll
-   */
-  matchMode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * registration_policy_name
-   */
-  name?: string;
-  personalLimitCountShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * LimitDiff
-   */
-  personalLimitType?: string;
-  /**
-   * @example
-   * 99
-   */
-  priority?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Enabled
-   */
-  status?: string;
-  userGroupIds?: string[];
-  whitelist?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      companyLimitCountShrink: 'CompanyLimitCount',
-      companyLimitType: 'CompanyLimitType',
-      description: 'Description',
-      matchMode: 'MatchMode',
-      name: 'Name',
-      personalLimitCountShrink: 'PersonalLimitCount',
-      personalLimitType: 'PersonalLimitType',
-      priority: 'Priority',
-      status: 'Status',
-      userGroupIds: 'UserGroupIds',
-      whitelist: 'Whitelist',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      companyLimitCountShrink: 'string',
-      companyLimitType: 'string',
-      description: 'string',
-      matchMode: 'string',
-      name: 'string',
-      personalLimitCountShrink: 'string',
-      personalLimitType: 'string',
-      priority: 'number',
-      status: 'string',
-      userGroupIds: { 'type': 'array', 'itemType': 'string' },
-      whitelist: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRegistrationPolicyResponseBody extends $tea.Model {
-  policy?: CreateRegistrationPolicyResponseBodyPolicy;
-  /**
-   * @example
-   * FEF1144C-95D1-5F7C-81EF-9DB70EA49FCE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policy: 'Policy',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policy: CreateRegistrationPolicyResponseBodyPolicy,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRegistrationPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateRegistrationPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateRegistrationPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  attributes?: CreateUserGroupRequestAttributes[];
-  description?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * user_group_name
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attributes: 'Attributes',
-      description: 'Description',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributes: { 'type': 'array', 'itemType': CreateUserGroupRequestAttributes },
-      description: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserGroupResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
-   */
-  requestId?: string;
-  /**
-   * @example
-   * usergroup-6f1ef2fc56b6****
-   */
-  userGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      userGroupId: 'UserGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      userGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateUserGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateUserGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmBaseImageRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1080
-   */
-  height?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 255
-   */
-  opacity?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  scale?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1920
-   */
-  width?: number;
-  /**
-   * @example
-   * aGVsbG8gc2F*****
-   */
-  wmInfoBytesB64?: string;
-  /**
-   * @example
-   * 32
-   */
-  wmInfoSize?: number;
-  /**
-   * @example
-   * 12*****
-   */
-  wmInfoUint?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PureWebappInvisible
-   */
-  wmType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      opacity: 'Opacity',
-      scale: 'Scale',
-      width: 'Width',
-      wmInfoBytesB64: 'WmInfoBytesB64',
-      wmInfoSize: 'WmInfoSize',
-      wmInfoUint: 'WmInfoUint',
-      wmType: 'WmType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      opacity: 'number',
-      scale: 'number',
-      width: 'number',
-      wmInfoBytesB64: 'string',
-      wmInfoSize: 'number',
-      wmInfoUint: 'string',
-      wmType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmBaseImageResponseBody extends $tea.Model {
-  data?: CreateWmBaseImageResponseBodyData;
-  /**
-   * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateWmBaseImageResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmBaseImageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateWmBaseImageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateWmBaseImageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmEmbedTaskRequest extends $tea.Model {
-  csvControl?: CreateWmEmbedTaskRequestCsvControl;
-  documentControl?: CreateWmEmbedTaskRequestDocumentControl;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * https://example.com/abc****.pdf
-   */
-  fileUrl?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * abc****.pdf
-   */
-  filename?: string;
-  /**
-   * @example
-   * 95
-   */
-  imageEmbedJpegQuality?: number;
-  /**
-   * @example
-   * 2
-   */
-  imageEmbedLevel?: number;
-  /**
-   * @example
-   * 3000k
-   */
-  videoBitrate?: string;
-  /**
-   * @example
-   * false
-   */
-  videoIsLong?: boolean;
-  /**
-   * @example
-   * aGVsbG8gc2F*****
-   */
-  wmInfoBytesB64?: string;
-  /**
-   * @example
-   * 32
-   */
-  wmInfoSize?: number;
-  /**
-   * @example
-   * 123***
-   */
-  wmInfoUint?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PureDocument
-   */
-  wmType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      csvControl: 'CsvControl',
-      documentControl: 'DocumentControl',
-      fileUrl: 'FileUrl',
-      filename: 'Filename',
-      imageEmbedJpegQuality: 'ImageEmbedJpegQuality',
-      imageEmbedLevel: 'ImageEmbedLevel',
-      videoBitrate: 'VideoBitrate',
-      videoIsLong: 'VideoIsLong',
-      wmInfoBytesB64: 'WmInfoBytesB64',
-      wmInfoSize: 'WmInfoSize',
-      wmInfoUint: 'WmInfoUint',
-      wmType: 'WmType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      csvControl: CreateWmEmbedTaskRequestCsvControl,
-      documentControl: CreateWmEmbedTaskRequestDocumentControl,
-      fileUrl: 'string',
-      filename: 'string',
-      imageEmbedJpegQuality: 'number',
-      imageEmbedLevel: 'number',
-      videoBitrate: 'string',
-      videoIsLong: 'boolean',
-      wmInfoBytesB64: 'string',
-      wmInfoSize: 'number',
-      wmInfoUint: 'string',
-      wmType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmEmbedTaskShrinkRequest extends $tea.Model {
-  csvControlShrink?: string;
-  documentControlShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * https://example.com/abc****.pdf
-   */
-  fileUrl?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * abc****.pdf
-   */
-  filename?: string;
-  /**
-   * @example
-   * 95
-   */
-  imageEmbedJpegQuality?: number;
-  /**
-   * @example
-   * 2
-   */
-  imageEmbedLevel?: number;
-  /**
-   * @example
-   * 3000k
-   */
-  videoBitrate?: string;
-  /**
-   * @example
-   * false
-   */
-  videoIsLong?: boolean;
-  /**
-   * @example
-   * aGVsbG8gc2F*****
-   */
-  wmInfoBytesB64?: string;
-  /**
-   * @example
-   * 32
-   */
-  wmInfoSize?: number;
-  /**
-   * @example
-   * 123***
-   */
-  wmInfoUint?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PureDocument
-   */
-  wmType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      csvControlShrink: 'CsvControl',
-      documentControlShrink: 'DocumentControl',
-      fileUrl: 'FileUrl',
-      filename: 'Filename',
-      imageEmbedJpegQuality: 'ImageEmbedJpegQuality',
-      imageEmbedLevel: 'ImageEmbedLevel',
-      videoBitrate: 'VideoBitrate',
-      videoIsLong: 'VideoIsLong',
-      wmInfoBytesB64: 'WmInfoBytesB64',
-      wmInfoSize: 'WmInfoSize',
-      wmInfoUint: 'WmInfoUint',
-      wmType: 'WmType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      csvControlShrink: 'string',
-      documentControlShrink: 'string',
-      fileUrl: 'string',
-      filename: 'string',
-      imageEmbedJpegQuality: 'number',
-      imageEmbedLevel: 'number',
-      videoBitrate: 'string',
-      videoIsLong: 'boolean',
-      wmInfoBytesB64: 'string',
-      wmInfoSize: 'number',
-      wmInfoUint: 'string',
-      wmType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmEmbedTaskResponseBody extends $tea.Model {
-  data?: CreateWmEmbedTaskResponseBodyData;
-  /**
-   * @example
-   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateWmEmbedTaskResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmEmbedTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateWmEmbedTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateWmEmbedTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmExtractTaskRequest extends $tea.Model {
-  csvControl?: CreateWmExtractTaskRequestCsvControl;
-  /**
-   * @example
-   * false
-   */
-  documentIsCapture?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * https://example.com/test-****.pdf
-   */
-  fileUrl?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test-****.pdf
-   */
-  filename?: string;
-  /**
-   * @example
-   * false
-   */
-  videoIsLong?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  videoSpeed?: string;
-  /**
-   * @example
-   * 32
-   */
-  wmInfoSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PureDocument
-   */
-  wmType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      csvControl: 'CsvControl',
-      documentIsCapture: 'DocumentIsCapture',
-      fileUrl: 'FileUrl',
-      filename: 'Filename',
-      videoIsLong: 'VideoIsLong',
-      videoSpeed: 'VideoSpeed',
-      wmInfoSize: 'WmInfoSize',
-      wmType: 'WmType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      csvControl: CreateWmExtractTaskRequestCsvControl,
-      documentIsCapture: 'boolean',
-      fileUrl: 'string',
-      filename: 'string',
-      videoIsLong: 'boolean',
-      videoSpeed: 'string',
-      wmInfoSize: 'number',
-      wmType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmExtractTaskShrinkRequest extends $tea.Model {
-  csvControlShrink?: string;
-  /**
-   * @example
-   * false
-   */
-  documentIsCapture?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * https://example.com/test-****.pdf
-   */
-  fileUrl?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test-****.pdf
-   */
-  filename?: string;
-  /**
-   * @example
-   * false
-   */
-  videoIsLong?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  videoSpeed?: string;
-  /**
-   * @example
-   * 32
-   */
-  wmInfoSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PureDocument
-   */
-  wmType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      csvControlShrink: 'CsvControl',
-      documentIsCapture: 'DocumentIsCapture',
-      fileUrl: 'FileUrl',
-      filename: 'Filename',
-      videoIsLong: 'VideoIsLong',
-      videoSpeed: 'VideoSpeed',
-      wmInfoSize: 'WmInfoSize',
-      wmType: 'WmType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      csvControlShrink: 'string',
-      documentIsCapture: 'boolean',
-      fileUrl: 'string',
-      filename: 'string',
-      videoIsLong: 'boolean',
-      videoSpeed: 'string',
-      wmInfoSize: 'number',
-      wmType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmExtractTaskResponseBody extends $tea.Model {
-  data?: CreateWmExtractTaskResponseBodyData;
-  /**
-   * @example
-   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateWmExtractTaskResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmExtractTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateWmExtractTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateWmExtractTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmInfoMappingRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * aGVsbG8gc2F*****
-   */
-  wmInfoBytesB64?: string;
-  /**
-   * @example
-   * 32
-   */
-  wmInfoSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PureDocument
-   */
-  wmType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      wmInfoBytesB64: 'WmInfoBytesB64',
-      wmInfoSize: 'WmInfoSize',
-      wmType: 'WmType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      wmInfoBytesB64: 'string',
-      wmInfoSize: 'number',
-      wmType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmInfoMappingResponseBody extends $tea.Model {
-  data?: CreateWmInfoMappingResponseBodyData;
-  /**
-   * @example
-   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateWmInfoMappingResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWmInfoMappingResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateWmInfoMappingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateWmInfoMappingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteClientUserRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 27058
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteClientUserResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteClientUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteClientUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteClientUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDynamicRouteRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * dr-ca9fddfac7c6****
-   */
-  dynamicRouteId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dynamicRouteId: 'DynamicRouteId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dynamicRouteId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDynamicRouteResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 748CFDC7-1EB6-5B8B-9405-DA76ED5BB60D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDynamicRouteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDynamicRouteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDynamicRouteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteIdpDepartmentRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10829
-   */
-  departmentId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 507
-   */
-  idpConfigId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      departmentId: 'DepartmentId',
-      idpConfigId: 'IdpConfigId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      departmentId: 'string',
-      idpConfigId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteIdpDepartmentResponseBody extends $tea.Model {
-  /**
-   * @example
-   * FEF1144C-95D1-5F7C-81EF-9DB70EA49FCE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteIdpDepartmentResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteIdpDepartmentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteIdpDepartmentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePrivateAccessApplicationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pa-application-e12860ef6c48****
-   */
-  applicationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationId: 'ApplicationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePrivateAccessApplicationResponseBody extends $tea.Model {
-  /**
-   * @example
-   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePrivateAccessApplicationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeletePrivateAccessApplicationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeletePrivateAccessApplicationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePrivateAccessPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pa-policy-867ef4007c8a****
-   */
-  policyId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyId: 'PolicyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePrivateAccessPolicyResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePrivateAccessPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeletePrivateAccessPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeletePrivateAccessPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePrivateAccessTagRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * tag-d3f64e8bdd4a****
-   */
-  tagId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagId: 'TagId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePrivateAccessTagResponseBody extends $tea.Model {
-  /**
-   * @example
-   * FD724DBC-CD76-5235-BF76-59C51B73296D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePrivateAccessTagResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeletePrivateAccessTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeletePrivateAccessTagResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRegistrationPoliciesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
+export class CreateApprovalProcessResponseBodyProcessAppUninstallPolicies extends $dara.Model {
   policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
   static names(): { [key: string]: string } {
     return {
       policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -2341,22 +107,32 @@ export class DeleteRegistrationPoliciesRequest extends $tea.Model {
   }
 }
 
-export class DeleteRegistrationPoliciesResponseBody extends $tea.Model {
+export class CreateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies extends $dara.Model {
+  policyIds?: string[];
   /**
    * @example
-   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
+   * approval-schema-090134f1ebff****
    */
-  requestId?: string;
+  schemaId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -2364,66 +140,32 @@ export class DeleteRegistrationPoliciesResponseBody extends $tea.Model {
   }
 }
 
-export class DeleteRegistrationPoliciesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteRegistrationPoliciesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteRegistrationPoliciesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUserDevicesRequest extends $tea.Model {
-  deviceTags?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      deviceTags: 'DeviceTags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceTags: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUserDevicesResponseBody extends $tea.Model {
+export class CreateApprovalProcessResponseBodyProcessDlpSendPolicies extends $dara.Model {
+  policyIds?: string[];
   /**
    * @example
-   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
+   * approval-schema-090134f1ebff****
    */
-  requestId?: string;
+  schemaId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -2431,73 +173,32 @@ export class DeleteUserDevicesResponseBody extends $tea.Model {
   }
 }
 
-export class DeleteUserDevicesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteUserDevicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteUserDevicesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUserGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * usergroup-6f1ef2fc56b6****
-   */
-  userGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userGroupId: 'UserGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUserGroupResponseBody extends $tea.Model {
+export class CreateApprovalProcessResponseBodyProcessDomainBlacklistPolicies extends $dara.Model {
+  policyIds?: string[];
   /**
    * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   * approval-schema-090134f1ebff****
    */
-  requestId?: string;
+  schemaId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -2505,24 +206,32 @@ export class DeleteUserGroupResponseBody extends $tea.Model {
   }
 }
 
-export class DeleteUserGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteUserGroupResponseBody;
+export class CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteUserGroupResponseBody,
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -2530,34 +239,32 @@ export class DeleteUserGroupResponse extends $tea.Model {
   }
 }
 
-export class DetachApplication2ConnectorRequest extends $tea.Model {
+export class CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies extends $dara.Model {
+  policyIds?: string[];
   /**
-   * @remarks
-   * This parameter is required.
-   */
-  applicationIds?: string[];
-  /**
-   * @remarks
-   * ConnectorID。
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * connector-94db94e06b98****
+   * approval-schema-090134f1ebff****
    */
-  connectorId?: string;
+  schemaId?: string;
   static names(): { [key: string]: string } {
     return {
-      applicationIds: 'ApplicationIds',
-      connectorId: 'ConnectorId',
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      applicationIds: { 'type': 'array', 'itemType': 'string' },
-      connectorId: 'string',
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -2565,5948 +272,158 @@ export class DetachApplication2ConnectorRequest extends $tea.Model {
   }
 }
 
-export class DetachApplication2ConnectorShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  applicationIdsShrink?: string;
-  /**
-   * @remarks
-   * ConnectorID。
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * connector-94db94e06b98****
-   */
-  connectorId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationIdsShrink: 'ApplicationIds',
-      connectorId: 'ConnectorId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIdsShrink: 'string',
-      connectorId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachApplication2ConnectorResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachApplication2ConnectorResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetachApplication2ConnectorResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetachApplication2ConnectorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportUserDevicesRequest extends $tea.Model {
-  appStatuses?: string[];
-  department?: string;
-  /**
-   * @example
-   * Company
-   */
-  deviceBelong?: string;
-  deviceStatuses?: string[];
-  deviceTags?: string[];
-  deviceTypes?: string[];
-  dlpStatuses?: string[];
-  /**
-   * @example
-   * win10-64bit
-   */
-  hostname?: string;
-  iaStatuses?: string[];
-  /**
-   * @example
-   * 00:16:XX:XX:7c:46
-   */
-  mac?: string;
-  nacStatuses?: string[];
-  paStatuses?: string[];
+export class CreateApprovalProcessResponseBodyProcessProcessNodes extends $dara.Model {
   /**
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
    */
   saseUserId?: string;
-  /**
-   * @example
-   * true
-   */
-  sharingStatus?: boolean;
   username?: string;
   static names(): { [key: string]: string } {
     return {
-      appStatuses: 'AppStatuses',
-      department: 'Department',
-      deviceBelong: 'DeviceBelong',
-      deviceStatuses: 'DeviceStatuses',
-      deviceTags: 'DeviceTags',
-      deviceTypes: 'DeviceTypes',
-      dlpStatuses: 'DlpStatuses',
-      hostname: 'Hostname',
-      iaStatuses: 'IaStatuses',
-      mac: 'Mac',
-      nacStatuses: 'NacStatuses',
-      paStatuses: 'PaStatuses',
       saseUserId: 'SaseUserId',
-      sharingStatus: 'SharingStatus',
       username: 'Username',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appStatuses: { 'type': 'array', 'itemType': 'string' },
-      department: 'string',
-      deviceBelong: 'string',
-      deviceStatuses: { 'type': 'array', 'itemType': 'string' },
-      deviceTags: { 'type': 'array', 'itemType': 'string' },
-      deviceTypes: { 'type': 'array', 'itemType': 'string' },
-      dlpStatuses: { 'type': 'array', 'itemType': 'string' },
-      hostname: 'string',
-      iaStatuses: { 'type': 'array', 'itemType': 'string' },
-      mac: 'string',
-      nacStatuses: { 'type': 'array', 'itemType': 'string' },
-      paStatuses: { 'type': 'array', 'itemType': 'string' },
       saseUserId: 'string',
-      sharingStatus: 'boolean',
       username: 'string',
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExportUserDevicesResponseBody extends $tea.Model {
+export class CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies extends $dara.Model {
+  policyIds?: string[];
   /**
    * @example
-   * 748CFDC7-1EB6-5B8B-9405-DA76ED5BB60D
+   * approval-schema-090134f1ebff****
    */
-  requestId?: string;
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
+  appUninstallPolicies?: CreateApprovalProcessResponseBodyProcessAppUninstallPolicies;
   /**
    * @example
-   * https://sase-export.oss-cn-hangzhou.aliyuncs.com/export%2Fapp-device%2F20240607154831.xlsx?Expires=1717746571&OSSAccessKeyId=********************
-   */
-  signedUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      signedUrl: 'SignedUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      signedUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportUserDevicesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ExportUserDevicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ExportUserDevicesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetActiveIdpConfigResponseBody extends $tea.Model {
-  data?: GetActiveIdpConfigResponseBodyData;
-  /**
-   * @example
-   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetActiveIdpConfigResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetActiveIdpConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetActiveIdpConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetActiveIdpConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClientUserRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 598
-   */
-  idpConfigId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      idpConfigId: 'IdpConfigId',
-      username: 'Username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      idpConfigId: 'string',
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClientUserResponseBody extends $tea.Model {
-  data?: GetClientUserResponseBodyData;
-  /**
-   * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetClientUserResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClientUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetClientUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetClientUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDynamicRouteRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * dr-16ff07c8207d****
-   */
-  dynamicRouteId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dynamicRouteId: 'DynamicRouteId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dynamicRouteId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDynamicRouteResponseBody extends $tea.Model {
-  dynamicRoute?: GetDynamicRouteResponseBodyDynamicRoute;
-  /**
-   * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dynamicRoute: 'DynamicRoute',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dynamicRoute: GetDynamicRouteResponseBodyDynamicRoute,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDynamicRouteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDynamicRouteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDynamicRouteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIdpConfigRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1465
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIdpConfigResponseBody extends $tea.Model {
-  data?: GetIdpConfigResponseBodyData;
-  /**
-   * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetIdpConfigResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIdpConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetIdpConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetIdpConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPrivateAccessApplicationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pa-application-e12860ef6c48****
-   */
-  applicationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationId: 'ApplicationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPrivateAccessApplicationResponseBody extends $tea.Model {
-  application?: GetPrivateAccessApplicationResponseBodyApplication;
-  /**
-   * @example
-   * 3ACC5EDC-2B7D-5032-8C58-D7615D66C1D4
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      application: 'Application',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      application: GetPrivateAccessApplicationResponseBodyApplication,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPrivateAccessApplicationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetPrivateAccessApplicationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetPrivateAccessApplicationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPrivateAccessPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pa-policy-63b2f1844b86****
-   */
-  policyId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyId: 'PolicyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPrivateAccessPolicyResponseBody extends $tea.Model {
-  policy?: GetPrivateAccessPolicyResponseBodyPolicy;
-  /**
-   * @example
-   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policy: 'Policy',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policy: GetPrivateAccessPolicyResponseBodyPolicy,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPrivateAccessPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetPrivateAccessPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetPrivateAccessPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegistrationPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * reg-policy-dcbfd33cb004****
-   */
-  policyId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyId: 'PolicyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegistrationPolicyResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 2023-05-16 17:18:46
+   * 2022-10-25 10:44:09
    */
   createTime?: string;
   description?: string;
-  limitDetail?: GetRegistrationPolicyResponseBodyLimitDetail[];
+  deviceRegistrationPolicies?: CreateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies;
+  dlpSendPolicies?: CreateApprovalProcessResponseBodyProcessDlpSendPolicies;
+  domainBlacklistPolicies?: CreateApprovalProcessResponseBodyProcessDomainBlacklistPolicies;
+  domainWhitelistPolicies?: CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies;
+  peripheralBlockPolicies?: CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies;
   /**
    * @example
-   * UserGroupAll
+   * approval-process-dc61e92ba5c5****
    */
-  matchMode?: string;
-  /**
-   * @example
-   * registration_policy_name
-   */
-  name?: string;
-  /**
-   * @example
-   * reg-policy-dcbfd33cb004****
-   */
-  policyId?: string;
-  /**
-   * @example
-   * 99
-   */
-  priority?: number;
-  /**
-   * @example
-   * 47363C2B-1AAA-5954-8847-0E50FCC54117
-   */
-  requestId?: string;
-  /**
-   * @example
-   * Enabled
-   */
-  status?: string;
-  userGroupIds?: string[];
-  whitelist?: string[];
+  processId?: string;
+  processName?: string;
+  processNodes?: CreateApprovalProcessResponseBodyProcessProcessNodes[][];
+  softwareBlockPolicies?: CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies;
   static names(): { [key: string]: string } {
     return {
+      appUninstallPolicies: 'AppUninstallPolicies',
       createTime: 'CreateTime',
       description: 'Description',
-      limitDetail: 'LimitDetail',
-      matchMode: 'MatchMode',
-      name: 'Name',
-      policyId: 'PolicyId',
-      priority: 'Priority',
-      requestId: 'RequestId',
-      status: 'Status',
-      userGroupIds: 'UserGroupIds',
-      whitelist: 'Whitelist',
+      deviceRegistrationPolicies: 'DeviceRegistrationPolicies',
+      dlpSendPolicies: 'DlpSendPolicies',
+      domainBlacklistPolicies: 'DomainBlacklistPolicies',
+      domainWhitelistPolicies: 'DomainWhitelistPolicies',
+      peripheralBlockPolicies: 'PeripheralBlockPolicies',
+      processId: 'ProcessId',
+      processName: 'ProcessName',
+      processNodes: 'ProcessNodes',
+      softwareBlockPolicies: 'SoftwareBlockPolicies',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appUninstallPolicies: CreateApprovalProcessResponseBodyProcessAppUninstallPolicies,
       createTime: 'string',
       description: 'string',
-      limitDetail: { 'type': 'array', 'itemType': GetRegistrationPolicyResponseBodyLimitDetail },
-      matchMode: 'string',
-      name: 'string',
-      policyId: 'string',
-      priority: 'number',
-      requestId: 'string',
-      status: 'string',
-      userGroupIds: { 'type': 'array', 'itemType': 'string' },
-      whitelist: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegistrationPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetRegistrationPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetRegistrationPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserDeviceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
-   */
-  deviceTag?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceTag: 'DeviceTag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceTag: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserDeviceResponseBody extends $tea.Model {
-  device?: GetUserDeviceResponseBodyDevice;
-  /**
-   * @example
-   * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      device: 'Device',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      device: GetUserDeviceResponseBodyDevice,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserDeviceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetUserDeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetUserDeviceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  userGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userGroupId: 'UserGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserGroupResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1310DBC7-7E1F-55D3-B4B4-E4BE912517FB
-   */
-  requestId?: string;
-  userGroup?: GetUserGroupResponseBodyUserGroup;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      userGroup: 'UserGroup',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      userGroup: GetUserGroupResponseBodyUserGroup,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetUserGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetUserGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWmEmbedTaskRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * job:5GfrJYsoaffmCE7Z5bZtjU********
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWmEmbedTaskResponseBody extends $tea.Model {
-  data?: GetWmEmbedTaskResponseBodyData;
-  /**
-   * @example
-   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetWmEmbedTaskResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWmEmbedTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetWmEmbedTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetWmEmbedTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWmExtractTaskRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * wmt-9648c22d2eb2cb57bb855dcae7898464********
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWmExtractTaskResponseBody extends $tea.Model {
-  data?: GetWmExtractTaskResponseBodyData;
-  /**
-   * @example
-   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetWmExtractTaskResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWmExtractTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetWmExtractTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetWmExtractTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplicationsForPrivateAccessPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  policyIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      policyIds: 'PolicyIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplicationsForPrivateAccessPolicyResponseBody extends $tea.Model {
-  polices?: ListApplicationsForPrivateAccessPolicyResponseBodyPolices[];
-  /**
-   * @example
-   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      polices: 'Polices',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      polices: { 'type': 'array', 'itemType': ListApplicationsForPrivateAccessPolicyResponseBodyPolices },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplicationsForPrivateAccessPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListApplicationsForPrivateAccessPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListApplicationsForPrivateAccessPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplicationsForPrivateAccessTagRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  tagIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      tagIds: 'TagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplicationsForPrivateAccessTagResponseBody extends $tea.Model {
-  /**
-   * @example
-   * B608C6AE-623D-55C4-9454-601B88AE937E
-   */
-  requestId?: string;
-  tags?: ListApplicationsForPrivateAccessTagResponseBodyTags[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tags: { 'type': 'array', 'itemType': ListApplicationsForPrivateAccessTagResponseBodyTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplicationsForPrivateAccessTagResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListApplicationsForPrivateAccessTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListApplicationsForPrivateAccessTagResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClientUsersRequest extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * 10785
-   */
-  departmentId?: string;
-  /**
-   * @example
-   * johndoe@example.com
-   */
-  email?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1071
-   */
-  idpConfigId?: string;
-  /**
-   * @example
-   * 18980976559
-   */
-  mobileNumber?: string;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * Enabled
-   */
-  status?: string;
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      departmentId: 'DepartmentId',
-      email: 'Email',
-      idpConfigId: 'IdpConfigId',
-      mobileNumber: 'MobileNumber',
-      pageSize: 'PageSize',
-      status: 'Status',
-      username: 'Username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      departmentId: 'string',
-      email: 'string',
-      idpConfigId: 'string',
-      mobileNumber: 'string',
-      pageSize: 'number',
-      status: 'string',
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClientUsersResponseBody extends $tea.Model {
-  data?: ListClientUsersResponseBodyData;
-  /**
-   * @example
-   * FEF1144C-95D1-5F7C-81EF-9DB70EA49FCE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ListClientUsersResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClientUsersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListClientUsersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListClientUsersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConnectorsRequest extends $tea.Model {
-  connectorIds?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * connector_name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  status?: string;
-  switchStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      connectorIds: 'ConnectorIds',
-      currentPage: 'CurrentPage',
-      name: 'Name',
-      pageSize: 'PageSize',
-      status: 'Status',
-      switchStatus: 'SwitchStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectorIds: { 'type': 'array', 'itemType': 'string' },
-      currentPage: 'number',
-      name: 'string',
-      pageSize: 'number',
-      status: 'string',
-      switchStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConnectorsResponseBody extends $tea.Model {
-  connectors?: ListConnectorsResponseBodyConnectors[];
-  /**
-   * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      connectors: 'Connectors',
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectors: { 'type': 'array', 'itemType': ListConnectorsResponseBodyConnectors },
-      requestId: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConnectorsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListConnectorsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListConnectorsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDynamicRouteRegionsResponseBody extends $tea.Model {
-  regions?: string[];
-  /**
-   * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: { 'type': 'array', 'itemType': 'string' },
-      requestId: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDynamicRouteRegionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListDynamicRouteRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDynamicRouteRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDynamicRoutesRequest extends $tea.Model {
-  /**
-   * @example
-   * pa-application-e12860ef6c48****
-   */
-  applicationId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  dynamicRouteIds?: string[];
-  /**
-   * @example
-   * dynamic_route_name
-   */
-  name?: string;
-  /**
-   * @example
-   * connector-8ccb13b6f52c****
-   */
-  nextHop?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  regionIds?: string[];
-  /**
-   * @example
-   * Enabled
-   */
-  status?: string;
-  /**
-   * @example
-   * tag-d3f64e8bdd4a****
-   */
-  tagId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationId: 'ApplicationId',
-      currentPage: 'CurrentPage',
-      dynamicRouteIds: 'DynamicRouteIds',
-      name: 'Name',
-      nextHop: 'NextHop',
-      pageSize: 'PageSize',
-      regionIds: 'RegionIds',
-      status: 'Status',
-      tagId: 'TagId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationId: 'string',
-      currentPage: 'number',
-      dynamicRouteIds: { 'type': 'array', 'itemType': 'string' },
-      name: 'string',
-      nextHop: 'string',
-      pageSize: 'number',
-      regionIds: { 'type': 'array', 'itemType': 'string' },
-      status: 'string',
-      tagId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDynamicRoutesResponseBody extends $tea.Model {
-  dynamicRoutes?: ListDynamicRoutesResponseBodyDynamicRoutes[];
-  /**
-   * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dynamicRoutes: 'DynamicRoutes',
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dynamicRoutes: { 'type': 'array', 'itemType': ListDynamicRoutesResponseBodyDynamicRoutes },
-      requestId: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDynamicRoutesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListDynamicRoutesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDynamicRoutesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListExcessiveDeviceRegistrationApplicationsRequest extends $tea.Model {
-  applicationIds?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  department?: string;
-  /**
-   * @example
-   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
-   */
-  deviceTag?: string;
-  /**
-   * @example
-   * win10-64bit
-   */
-  hostname?: string;
-  /**
-   * @example
-   * 00:16:XX:XX:7c:46
-   */
-  mac?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
-   */
-  saseUserId?: string;
-  statuses?: string[];
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationIds: 'ApplicationIds',
-      currentPage: 'CurrentPage',
-      department: 'Department',
-      deviceTag: 'DeviceTag',
-      hostname: 'Hostname',
-      mac: 'Mac',
-      pageSize: 'PageSize',
-      saseUserId: 'SaseUserId',
-      statuses: 'Statuses',
-      username: 'Username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIds: { 'type': 'array', 'itemType': 'string' },
-      currentPage: 'number',
-      department: 'string',
-      deviceTag: 'string',
-      hostname: 'string',
-      mac: 'string',
-      pageSize: 'number',
-      saseUserId: 'string',
-      statuses: { 'type': 'array', 'itemType': 'string' },
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListExcessiveDeviceRegistrationApplicationsResponseBody extends $tea.Model {
-  applications?: ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications[];
-  /**
-   * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      applications: 'Applications',
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applications: { 'type': 'array', 'itemType': ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications },
-      requestId: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListExcessiveDeviceRegistrationApplicationsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListExcessiveDeviceRegistrationApplicationsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListExcessiveDeviceRegistrationApplicationsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListIdpConfigsRequest extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * CSAS,DingTalk,LDAP
-   */
-  include?: string;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      include: 'Include',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      include: 'string',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListIdpConfigsResponseBody extends $tea.Model {
-  data?: ListIdpConfigsResponseBodyData;
-  /**
-   * @example
-   * FD724DBC-CD76-5235-BF76-59C51B73296D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ListIdpConfigsResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListIdpConfigsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListIdpConfigsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListIdpConfigsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListIdpDepartmentsRequest extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1440
-   */
-  idpConfigId?: string;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      idpConfigId: 'IdpConfigId',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      idpConfigId: 'string',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListIdpDepartmentsResponseBody extends $tea.Model {
-  data?: ListIdpDepartmentsResponseBodyData;
-  /**
-   * @example
-   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ListIdpDepartmentsResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListIdpDepartmentsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListIdpDepartmentsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListIdpDepartmentsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNacUserCertRequest extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: string;
-  department?: string;
-  /**
-   * @example
-   * windows
-   */
-  deviceType?: string;
-  /**
-   * @example
-   * 1702770400
-   */
-  endTime?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: string;
-  /**
-   * @example
-   * 1702260834
-   */
-  startTime?: number;
-  /**
-   * @example
-   * Enabled
-   */
-  status?: string;
-  /**
-   * @example
-   * zhang**
-   */
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      department: 'Department',
-      deviceType: 'DeviceType',
-      endTime: 'EndTime',
-      pageSize: 'PageSize',
-      startTime: 'StartTime',
-      status: 'Status',
-      username: 'Username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'string',
-      department: 'string',
-      deviceType: 'string',
-      endTime: 'number',
-      pageSize: 'string',
-      startTime: 'number',
-      status: 'string',
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNacUserCertResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: number;
-  dataList?: ListNacUserCertResponseBodyDataList[];
-  /**
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      dataList: 'DataList',
-      message: 'Message',
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      dataList: { 'type': 'array', 'itemType': ListNacUserCertResponseBodyDataList },
-      message: 'string',
-      requestId: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNacUserCertResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListNacUserCertResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListNacUserCertResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicesForPrivateAccessApplicationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  applicationIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      applicationIds: 'ApplicationIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicesForPrivateAccessApplicationResponseBody extends $tea.Model {
-  applications?: ListPolicesForPrivateAccessApplicationResponseBodyApplications[];
-  /**
-   * @example
-   * 4AB972E2-D702-5464-B132-B1911498B8BF
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applications: 'Applications',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applications: { 'type': 'array', 'itemType': ListPolicesForPrivateAccessApplicationResponseBodyApplications },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicesForPrivateAccessApplicationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPolicesForPrivateAccessApplicationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPolicesForPrivateAccessApplicationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicesForPrivateAccessTagRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  tagIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      tagIds: 'TagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicesForPrivateAccessTagResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
-   */
-  requestId?: string;
-  tags?: ListPolicesForPrivateAccessTagResponseBodyTags[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tags: { 'type': 'array', 'itemType': ListPolicesForPrivateAccessTagResponseBodyTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicesForPrivateAccessTagResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPolicesForPrivateAccessTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPolicesForPrivateAccessTagResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicesForUserGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  userGroupIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      userGroupIds: 'UserGroupIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userGroupIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicesForUserGroupResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 5F04DFBD-3F48-5F70-AE72-474026670128
-   */
-  requestId?: string;
-  userGroups?: ListPolicesForUserGroupResponseBodyUserGroups[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      userGroups: 'UserGroups',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      userGroups: { 'type': 'array', 'itemType': ListPolicesForUserGroupResponseBodyUserGroups },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicesForUserGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPolicesForUserGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPolicesForUserGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPopTrafficStatisticsRequest extends $tea.Model {
-  /**
-   * @example
-   * 1681293719
-   */
-  endTime?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  /**
-   * @example
-   * 1681035708
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      region: 'Region',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      region: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPopTrafficStatisticsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
-   */
-  requestId?: string;
-  trafficData?: ListPopTrafficStatisticsResponseBodyTrafficData[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      trafficData: 'TrafficData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      trafficData: { 'type': 'array', 'itemType': ListPopTrafficStatisticsResponseBodyTrafficData },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPopTrafficStatisticsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPopTrafficStatisticsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPopTrafficStatisticsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessApplicationsRequest extends $tea.Model {
-  accessModes?: string;
-  /**
-   * @example
-   * 192.168.0.0/16
-   */
-  address?: string;
-  applicationIds?: string[];
-  connectorId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * private_access_application_name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * pa-policy-54a7838a48bf****
-   */
-  policyId?: string;
-  /**
-   * @example
-   * Enabled
-   */
-  status?: string;
-  /**
-   * @example
-   * tag-d3f64e8bdd4a****
-   */
-  tagId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessModes: 'AccessModes',
-      address: 'Address',
-      applicationIds: 'ApplicationIds',
-      connectorId: 'ConnectorId',
-      currentPage: 'CurrentPage',
-      name: 'Name',
-      pageSize: 'PageSize',
-      policyId: 'PolicyId',
-      status: 'Status',
-      tagId: 'TagId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessModes: 'string',
-      address: 'string',
-      applicationIds: { 'type': 'array', 'itemType': 'string' },
-      connectorId: 'string',
-      currentPage: 'number',
-      name: 'string',
-      pageSize: 'number',
-      policyId: 'string',
-      status: 'string',
-      tagId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessApplicationsResponseBody extends $tea.Model {
-  applications?: ListPrivateAccessApplicationsResponseBodyApplications[];
-  /**
-   * @example
-   * 748CFDC7-1EB6-5B8B-9405-DA76ED5BB60D
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      applications: 'Applications',
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applications: { 'type': 'array', 'itemType': ListPrivateAccessApplicationsResponseBodyApplications },
-      requestId: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessApplicationsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPrivateAccessApplicationsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPrivateAccessApplicationsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessApplicationsForDynamicRouteRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  dynamicRouteIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      dynamicRouteIds: 'DynamicRouteIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dynamicRouteIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessApplicationsForDynamicRouteResponseBody extends $tea.Model {
-  dynamicRoutes?: ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes[];
-  /**
-   * @example
-   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dynamicRoutes: 'DynamicRoutes',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dynamicRoutes: { 'type': 'array', 'itemType': ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessApplicationsForDynamicRouteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPrivateAccessApplicationsForDynamicRouteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPrivateAccessApplicationsForDynamicRouteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessPolicesRequest extends $tea.Model {
-  /**
-   * @example
-   * pa-application-e12860ef6c48****
-   */
-  applicationId?: string;
-  applicationName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * private_access_policy_name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * Allow
-   */
-  policyAction?: string;
-  policyIds?: string[];
-  /**
-   * @example
-   * Enabled
-   */
-  status?: string;
-  /**
-   * @example
-   * tag-c0cb77857a99****
-   */
-  tagId?: string;
-  tagName?: string;
-  /**
-   * @remarks
-   * 用户组ID。取值来源：
-   * - [ListUserGroups](~~ListUserGroups~~)：批量查询用户组。
-   * - [CreateUserGroup](~~CreateUserGroup~~)：创建用户组。
-   * 
-   * @example
-   * usergroup-6f1ef2fc56b6****
-   */
-  userGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationId: 'ApplicationId',
-      applicationName: 'ApplicationName',
-      currentPage: 'CurrentPage',
-      name: 'Name',
-      pageSize: 'PageSize',
-      policyAction: 'PolicyAction',
-      policyIds: 'PolicyIds',
-      status: 'Status',
-      tagId: 'TagId',
-      tagName: 'TagName',
-      userGroupId: 'UserGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationId: 'string',
-      applicationName: 'string',
-      currentPage: 'number',
-      name: 'string',
-      pageSize: 'number',
-      policyAction: 'string',
-      policyIds: { 'type': 'array', 'itemType': 'string' },
-      status: 'string',
-      tagId: 'string',
-      tagName: 'string',
-      userGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessPolicesResponseBody extends $tea.Model {
-  polices?: ListPrivateAccessPolicesResponseBodyPolices[];
-  /**
-   * @example
-   * 748CFDC7-1EB6-5B8B-9405-DA76ED5BB60D
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      polices: 'Polices',
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      polices: { 'type': 'array', 'itemType': ListPrivateAccessPolicesResponseBodyPolices },
-      requestId: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessPolicesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPrivateAccessPolicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPrivateAccessPolicesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessTagsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the internal access application. You can obtain the application ID by calling the following operations:
-   * 
-   * *   [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): queries all internal access applications.
-   * *   [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): creates an internal access application.
-   * 
-   * @example
-   * pa-application-e12860ef6c48****
-   */
-  applicationId?: string;
-  /**
-   * @remarks
-   * The page number. Valid values: 1 to 10000.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The name of the internal access tag. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
-   * 
-   * @example
-   * tag_name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 1000.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the internal access policy. You can obtain the policy ID by calling the following operations:
-   * 
-   * *   [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): queries all internal access policies.
-   * *   [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): creates an internal access policy.
-   * 
-   * @example
-   * pa-policy-54a7838a48bf****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the simple query mode. A value of true specifies that policy IDs are not queried.
-   * 
-   * @example
-   * true
-   */
-  simpleMode?: boolean;
-  /**
-   * @remarks
-   * The IDs of internal access tags. You can specify up to 100 tag IDs.
-   */
-  tagIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      applicationId: 'ApplicationId',
-      currentPage: 'CurrentPage',
-      name: 'Name',
-      pageSize: 'PageSize',
-      policyId: 'PolicyId',
-      simpleMode: 'SimpleMode',
-      tagIds: 'TagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationId: 'string',
-      currentPage: 'number',
-      name: 'string',
-      pageSize: 'number',
-      policyId: 'string',
-      simpleMode: 'boolean',
-      tagIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessTagsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 54C1D236-CDB9-586C-B44D-AFDCEA195545
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The internal access tags.
-   */
-  tags?: ListPrivateAccessTagsResponseBodyTags[];
-  /**
-   * @remarks
-   * The total number of internal access tags.
-   * 
-   * @example
-   * 1
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tags: 'Tags',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tags: { 'type': 'array', 'itemType': ListPrivateAccessTagsResponseBodyTags },
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessTagsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPrivateAccessTagsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPrivateAccessTagsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessTagsForDynamicRouteRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  dynamicRouteIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      dynamicRouteIds: 'DynamicRouteIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dynamicRouteIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessTagsForDynamicRouteResponseBody extends $tea.Model {
-  dynamicRoutes?: ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes[];
-  /**
-   * @example
-   * B608C6AE-623D-55C4-9454-601B88AE937E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dynamicRoutes: 'DynamicRoutes',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dynamicRoutes: { 'type': 'array', 'itemType': ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessTagsForDynamicRouteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPrivateAccessTagsForDynamicRouteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPrivateAccessTagsForDynamicRouteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRegistrationPoliciesRequest extends $tea.Model {
-  /**
-   * @example
-   * LimitAll
-   */
-  companyLimitType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * UserGroupAll
-   */
-  matchMode?: string;
-  /**
-   * @example
-   * registration_policy_name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * LimitDiff
-   */
-  personalLimitType?: string;
-  policyIds?: string[];
-  /**
-   * @example
-   * Enabled
-   */
-  status?: string;
-  /**
-   * @example
-   * usergroup-6f1ef2fc56b6****
-   */
-  userGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      companyLimitType: 'CompanyLimitType',
-      currentPage: 'CurrentPage',
-      matchMode: 'MatchMode',
-      name: 'Name',
-      pageSize: 'PageSize',
-      personalLimitType: 'PersonalLimitType',
-      policyIds: 'PolicyIds',
-      status: 'Status',
-      userGroupId: 'UserGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      companyLimitType: 'string',
-      currentPage: 'number',
-      matchMode: 'string',
-      name: 'string',
-      pageSize: 'number',
-      personalLimitType: 'string',
-      policyIds: { 'type': 'array', 'itemType': 'string' },
-      status: 'string',
-      userGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRegistrationPoliciesResponseBody extends $tea.Model {
-  policies?: ListRegistrationPoliciesResponseBodyPolicies[];
-  /**
-   * @example
-   * 7A8FE38A-E29C-5678-B84A-FEDBCB83552F
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalNum?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policies: 'Policies',
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policies: { 'type': 'array', 'itemType': ListRegistrationPoliciesResponseBodyPolicies },
-      requestId: 'string',
-      totalNum: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRegistrationPoliciesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListRegistrationPoliciesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListRegistrationPoliciesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRegistrationPoliciesForUserGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  userGroupIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      userGroupIds: 'UserGroupIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userGroupIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRegistrationPoliciesForUserGroupResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-   */
-  requestId?: string;
-  userGroups?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroups[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      userGroups: 'UserGroups',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      userGroups: { 'type': 'array', 'itemType': ListRegistrationPoliciesForUserGroupResponseBodyUserGroups },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRegistrationPoliciesForUserGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListRegistrationPoliciesForUserGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListRegistrationPoliciesForUserGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSoftwareForUserDeviceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
-   */
-  deviceTag?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      deviceTag: 'DeviceTag',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      deviceTag: 'string',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSoftwareForUserDeviceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
-   */
-  requestId?: string;
-  software?: ListSoftwareForUserDeviceResponseBodySoftware[];
-  /**
-   * @example
-   * 1
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      software: 'Software',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      software: { 'type': 'array', 'itemType': ListSoftwareForUserDeviceResponseBodySoftware },
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSoftwareForUserDeviceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListSoftwareForUserDeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListSoftwareForUserDeviceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsForPrivateAccessApplicationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  applicationIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      applicationIds: 'ApplicationIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsForPrivateAccessApplicationResponseBody extends $tea.Model {
-  applications?: ListTagsForPrivateAccessApplicationResponseBodyApplications[];
-  /**
-   * @example
-   * 7241F45B-E8D3-5BA3-8172-8A58AC2AB0FC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applications: 'Applications',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applications: { 'type': 'array', 'itemType': ListTagsForPrivateAccessApplicationResponseBodyApplications },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsForPrivateAccessApplicationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagsForPrivateAccessApplicationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagsForPrivateAccessApplicationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsForPrivateAccessPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  policyIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      policyIds: 'PolicyIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsForPrivateAccessPolicyResponseBody extends $tea.Model {
-  polices?: ListTagsForPrivateAccessPolicyResponseBodyPolices[];
-  /**
-   * @example
-   * 9EE61139-A6A8-5E13-80AF-83435C21B26B
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      polices: 'Polices',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      polices: { 'type': 'array', 'itemType': ListTagsForPrivateAccessPolicyResponseBodyPolices },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsForPrivateAccessPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagsForPrivateAccessPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagsForPrivateAccessPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserApplicationsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * private_access_application_name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
-   */
-  saseUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      name: 'Name',
-      pageSize: 'PageSize',
-      saseUserId: 'SaseUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      name: 'string',
-      pageSize: 'number',
-      saseUserId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserApplicationsResponseBody extends $tea.Model {
-  applications?: ListUserApplicationsResponseBodyApplications[];
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 20
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      applications: 'Applications',
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applications: { 'type': 'array', 'itemType': ListUserApplicationsResponseBodyApplications },
-      requestId: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserApplicationsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserApplicationsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserApplicationsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserDevicesRequest extends $tea.Model {
-  appStatuses?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  department?: string;
-  /**
-   * @example
-   * Company
-   */
-  deviceBelong?: string;
-  deviceStatuses?: string[];
-  deviceTags?: string[];
-  deviceTypes?: string[];
-  dlpStatuses?: string[];
-  /**
-   * @example
-   * win10-64bit
-   */
-  hostname?: string;
-  iaStatuses?: string[];
-  innerIp?: string;
-  /**
-   * @example
-   * 00:16:XX:XX:7c:46
-   */
-  mac?: string;
-  nacStatuses?: string[];
-  paStatuses?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
-   */
-  saseUserId?: string;
-  /**
-   * @example
-   * true
-   */
-  sharingStatus?: boolean;
-  sortBy?: string;
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appStatuses: 'AppStatuses',
-      currentPage: 'CurrentPage',
-      department: 'Department',
-      deviceBelong: 'DeviceBelong',
-      deviceStatuses: 'DeviceStatuses',
-      deviceTags: 'DeviceTags',
-      deviceTypes: 'DeviceTypes',
-      dlpStatuses: 'DlpStatuses',
-      hostname: 'Hostname',
-      iaStatuses: 'IaStatuses',
-      innerIp: 'InnerIp',
-      mac: 'Mac',
-      nacStatuses: 'NacStatuses',
-      paStatuses: 'PaStatuses',
-      pageSize: 'PageSize',
-      saseUserId: 'SaseUserId',
-      sharingStatus: 'SharingStatus',
-      sortBy: 'SortBy',
-      username: 'Username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appStatuses: { 'type': 'array', 'itemType': 'string' },
-      currentPage: 'number',
-      department: 'string',
-      deviceBelong: 'string',
-      deviceStatuses: { 'type': 'array', 'itemType': 'string' },
-      deviceTags: { 'type': 'array', 'itemType': 'string' },
-      deviceTypes: { 'type': 'array', 'itemType': 'string' },
-      dlpStatuses: { 'type': 'array', 'itemType': 'string' },
-      hostname: 'string',
-      iaStatuses: { 'type': 'array', 'itemType': 'string' },
-      innerIp: 'string',
-      mac: 'string',
-      nacStatuses: { 'type': 'array', 'itemType': 'string' },
-      paStatuses: { 'type': 'array', 'itemType': 'string' },
-      pageSize: 'number',
-      saseUserId: 'string',
-      sharingStatus: 'boolean',
-      sortBy: 'string',
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserDevicesResponseBody extends $tea.Model {
-  devices?: ListUserDevicesResponseBodyDevices[];
-  /**
-   * @example
-   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      devices: 'Devices',
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      devices: { 'type': 'array', 'itemType': ListUserDevicesResponseBodyDevices },
-      requestId: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserDevicesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserDevicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserDevicesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsRequest extends $tea.Model {
-  /**
-   * @example
-   * username
-   */
-  attributeValue?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * 用户组名称。长度为1~128个字符，支持中文和大小写英文字母，可包含数字、半角句号（.）、下划线（_）和短划线（-）。
-   * 
-   * @example
-   * user_group_name
-   */
-  name?: string;
-  /**
-   * @example
-   * pa-policy-54a7838a48bf****
-   */
-  PAPolicyId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  userGroupIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      attributeValue: 'AttributeValue',
-      currentPage: 'CurrentPage',
-      name: 'Name',
-      PAPolicyId: 'PAPolicyId',
-      pageSize: 'PageSize',
-      userGroupIds: 'UserGroupIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributeValue: 'string',
-      currentPage: 'number',
-      name: 'string',
-      PAPolicyId: 'string',
-      pageSize: 'number',
-      userGroupIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 4AB972E2-D702-5464-B132-B1911498B8BF
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalNum?: number;
-  userGroups?: ListUserGroupsResponseBodyUserGroups[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-      userGroups: 'UserGroups',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalNum: 'number',
-      userGroups: { 'type': 'array', 'itemType': ListUserGroupsResponseBodyUserGroups },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsForPrivateAccessPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  policyIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      policyIds: 'PolicyIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsForPrivateAccessPolicyResponseBody extends $tea.Model {
-  polices?: ListUserGroupsForPrivateAccessPolicyResponseBodyPolices[];
-  /**
-   * @example
-   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      polices: 'Polices',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      polices: { 'type': 'array', 'itemType': ListUserGroupsForPrivateAccessPolicyResponseBodyPolices },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsForPrivateAccessPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserGroupsForPrivateAccessPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserGroupsForPrivateAccessPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsForRegistrationPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  policyIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      policyIds: 'PolicyIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsForRegistrationPolicyResponseBody extends $tea.Model {
-  policies?: ListUserGroupsForRegistrationPolicyResponseBodyPolicies[];
-  /**
-   * @example
-   * D89009C7-54C6-51B6-BAE7-3F373920C6BF
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policies: 'Policies',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policies: { 'type': 'array', 'itemType': ListUserGroupsForRegistrationPolicyResponseBodyPolicies },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsForRegistrationPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserGroupsForRegistrationPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserGroupsForRegistrationPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserPrivateAccessPoliciesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * private_access_policy_name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
-   */
-  saseUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      name: 'Name',
-      pageSize: 'PageSize',
-      saseUserId: 'SaseUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      name: 'string',
-      pageSize: 'number',
-      saseUserId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserPrivateAccessPoliciesResponseBody extends $tea.Model {
-  polices?: ListUserPrivateAccessPoliciesResponseBodyPolices[];
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 9D852F87-AFB5-51B8-AACD-F7D0EFB8277D
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 20
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      polices: 'Polices',
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      polices: { 'type': 'array', 'itemType': ListUserPrivateAccessPoliciesResponseBodyPolices },
-      requestId: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserPrivateAccessPoliciesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserPrivateAccessPoliciesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserPrivateAccessPoliciesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUsersRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  department?: string;
-  fuzzyUsername?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  preciseUsername?: string;
-  saseUserIds?: string[];
-  /**
-   * @example
-   * Enabled
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      department: 'Department',
-      fuzzyUsername: 'FuzzyUsername',
-      pageSize: 'PageSize',
-      preciseUsername: 'PreciseUsername',
-      saseUserIds: 'SaseUserIds',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      department: 'string',
-      fuzzyUsername: 'string',
-      pageSize: 'number',
-      preciseUsername: 'string',
-      saseUserIds: { 'type': 'array', 'itemType': 'string' },
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUsersResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalNum?: string;
-  users?: ListUsersResponseBodyUsers[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-      users: 'Users',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalNum: 'string',
-      users: { 'type': 'array', 'itemType': ListUsersResponseBodyUsers },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUsersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUsersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUsersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupWmInfoMappingRequest extends $tea.Model {
-  /**
-   * @example
-   * 32
-   */
-  wmInfoSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 123***
-   */
-  wmInfoUint?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PureDocument
-   */
-  wmType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      wmInfoSize: 'WmInfoSize',
-      wmInfoUint: 'WmInfoUint',
-      wmType: 'WmType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      wmInfoSize: 'number',
-      wmInfoUint: 'string',
-      wmType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupWmInfoMappingResponseBody extends $tea.Model {
-  data?: LookupWmInfoMappingResponseBodyData;
-  /**
-   * @example
-   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: LookupWmInfoMappingResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupWmInfoMappingResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: LookupWmInfoMappingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: LookupWmInfoMappingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokeUserSessionRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 12345678
-   */
-  externalIds?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * idp-cfg9vcrqylo39c39uxnw
-   */
-  idpId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      externalIds: 'ExternalIds',
-      idpId: 'IdpId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      externalIds: 'string',
-      idpId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokeUserSessionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokeUserSessionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RevokeUserSessionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RevokeUserSessionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClientUserRequest extends $tea.Model {
-  /**
-   * @example
-   * 10701
-   */
-  departmentId?: string;
-  description?: string;
-  /**
-   * @example
-   * johndoe@example.com
-   */
-  email?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 20644
-   */
-  id?: string;
-  /**
-   * @example
-   * 13641966835
-   */
-  mobileNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      departmentId: 'DepartmentId',
-      description: 'Description',
-      email: 'Email',
-      id: 'Id',
-      mobileNumber: 'MobileNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      departmentId: 'string',
-      description: 'string',
-      email: 'string',
-      id: 'string',
-      mobileNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClientUserResponseBody extends $tea.Model {
-  /**
-   * @example
-   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClientUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateClientUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateClientUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClientUserPasswordRequest extends $tea.Model {
-  /**
-   * @example
-   * 1128
-   */
-  id?: string;
-  /**
-   * @example
-   * kehudiyidj
-   */
-  password?: string;
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      password: 'Password',
-      username: 'Username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      password: 'string',
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClientUserPasswordResponseBody extends $tea.Model {
-  /**
-   * @example
-   * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClientUserPasswordResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateClientUserPasswordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateClientUserPasswordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClientUserStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1495
-   */
-  id?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Enabled
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClientUserStatusResponseBody extends $tea.Model {
-  /**
-   * @example
-   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClientUserStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateClientUserStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateClientUserStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDynamicRouteRequest extends $tea.Model {
-  applicationIds?: string[];
-  /**
-   * @example
-   * Application
-   */
-  applicationType?: string;
-  description?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * dr-ca9fddfac7c6****
-   */
-  dynamicRouteId?: string;
-  /**
-   * @example
-   * connector
-   */
-  dynamicRouteType?: string;
-  /**
-   * @example
-   * Cover
-   */
-  modifyType?: string;
-  /**
-   * @example
-   * dynamic_route_name
-   */
-  name?: string;
-  /**
-   * @example
-   * connector-8ccb13b6f52c****
-   */
-  nextHop?: string;
-  /**
-   * @example
-   * 99
-   */
-  priority?: number;
-  regionIds?: string[];
-  /**
-   * @example
-   * Disabled
-   */
-  status?: string;
-  tagIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      applicationIds: 'ApplicationIds',
-      applicationType: 'ApplicationType',
-      description: 'Description',
-      dynamicRouteId: 'DynamicRouteId',
-      dynamicRouteType: 'DynamicRouteType',
-      modifyType: 'ModifyType',
-      name: 'Name',
-      nextHop: 'NextHop',
-      priority: 'Priority',
-      regionIds: 'RegionIds',
-      status: 'Status',
-      tagIds: 'TagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIds: { 'type': 'array', 'itemType': 'string' },
-      applicationType: 'string',
-      description: 'string',
-      dynamicRouteId: 'string',
-      dynamicRouteType: 'string',
-      modifyType: 'string',
-      name: 'string',
-      nextHop: 'string',
-      priority: 'number',
-      regionIds: { 'type': 'array', 'itemType': 'string' },
-      status: 'string',
-      tagIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDynamicRouteResponseBody extends $tea.Model {
-  /**
-   * @example
-   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDynamicRouteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateDynamicRouteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateDynamicRouteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateExcessiveDeviceRegistrationApplicationsStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  applicationIds?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Approved
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationIds: 'ApplicationIds',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIds: { 'type': 'array', 'itemType': 'string' },
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody extends $tea.Model {
-  applications?: UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyApplications[];
-  /**
-   * @example
-   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applications: 'Applications',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applications: { 'type': 'array', 'itemType': UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyApplications },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateIdpDepartmentRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10653
-   */
-  departmentId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  departmentName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 598
-   */
-  idpConfigId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      departmentId: 'DepartmentId',
-      departmentName: 'DepartmentName',
-      idpConfigId: 'IdpConfigId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      departmentId: 'string',
-      departmentName: 'string',
-      idpConfigId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateIdpDepartmentResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateIdpDepartmentResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateIdpDepartmentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateIdpDepartmentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateNacUserCertStatusRequest extends $tea.Model {
-  idList?: UpdateNacUserCertStatusRequestIdList[];
-  /**
-   * @example
-   * Enabled
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      idList: 'IdList',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      idList: { 'type': 'array', 'itemType': UpdateNacUserCertStatusRequestIdList },
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateNacUserCertStatusResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @example
-   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateNacUserCertStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateNacUserCertStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateNacUserCertStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePrivateAccessApplicationRequest extends $tea.Model {
-  addresses?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pa-application-e12860ef6c48****
-   */
-  applicationId?: string;
-  /**
-   * **if can be null:**
-   * true
-   */
-  description?: string;
-  l7ProxyDomainAutomaticPrefix?: string;
-  l7ProxyDomainCustom?: string;
-  l7ProxyDomainPrivate?: string;
-  /**
-   * @example
-   * Cover
-   */
-  modifyType?: string;
-  portRanges?: UpdatePrivateAccessApplicationRequestPortRanges[];
-  /**
-   * @example
-   * All
-   */
-  protocol?: string;
-  /**
-   * @example
-   * Enabled
-   */
-  status?: string;
-  /**
-   * **if can be null:**
-   * true
-   */
-  tagIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      addresses: 'Addresses',
-      applicationId: 'ApplicationId',
-      description: 'Description',
-      l7ProxyDomainAutomaticPrefix: 'L7ProxyDomainAutomaticPrefix',
-      l7ProxyDomainCustom: 'L7ProxyDomainCustom',
-      l7ProxyDomainPrivate: 'L7ProxyDomainPrivate',
-      modifyType: 'ModifyType',
-      portRanges: 'PortRanges',
-      protocol: 'Protocol',
-      status: 'Status',
-      tagIds: 'TagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addresses: { 'type': 'array', 'itemType': 'string' },
-      applicationId: 'string',
-      description: 'string',
-      l7ProxyDomainAutomaticPrefix: 'string',
-      l7ProxyDomainCustom: 'string',
-      l7ProxyDomainPrivate: 'string',
-      modifyType: 'string',
-      portRanges: { 'type': 'array', 'itemType': UpdatePrivateAccessApplicationRequestPortRanges },
-      protocol: 'string',
-      status: 'string',
-      tagIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePrivateAccessApplicationResponseBody extends $tea.Model {
-  /**
-   * @example
-   * FD724DBC-CD76-5235-BF76-59C51B73296D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePrivateAccessApplicationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdatePrivateAccessApplicationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdatePrivateAccessApplicationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePrivateAccessPolicyRequest extends $tea.Model {
-  applicationIds?: string[];
-  /**
-   * @example
-   * Application
-   */
-  applicationType?: string;
-  customUserAttributes?: UpdatePrivateAccessPolicyRequestCustomUserAttributes[];
-  /**
-   * **if can be null:**
-   * true
-   */
-  description?: string;
-  deviceAttributeAction?: string;
-  deviceAttributeId?: string;
-  /**
-   * @example
-   * Cover
-   */
-  modifyType?: string;
-  /**
-   * @example
-   * Allow
-   */
-  policyAction?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pa-policy-63b2f1844b86****
-   */
-  policyId?: string;
-  /**
-   * @example
-   * 1
-   */
-  priority?: number;
-  /**
-   * @example
-   * Enabled
-   */
-  status?: string;
-  /**
-   * @remarks
-   * 内网访问标签ID集合。一条策略最多支持100个内网访问标签ID。
-   */
-  tagIds?: string[];
-  userGroupIds?: string[];
-  /**
-   * @remarks
-   * 内网访问策略的用户组类型。取值：
-   * - **Normal**：普通用户组。
-   * - **Custom**：自定义用户组。
-   * 
-   * @example
-   * Normal
-   */
-  userGroupMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationIds: 'ApplicationIds',
-      applicationType: 'ApplicationType',
-      customUserAttributes: 'CustomUserAttributes',
-      description: 'Description',
-      deviceAttributeAction: 'DeviceAttributeAction',
-      deviceAttributeId: 'DeviceAttributeId',
-      modifyType: 'ModifyType',
-      policyAction: 'PolicyAction',
-      policyId: 'PolicyId',
-      priority: 'Priority',
-      status: 'Status',
-      tagIds: 'TagIds',
-      userGroupIds: 'UserGroupIds',
-      userGroupMode: 'UserGroupMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIds: { 'type': 'array', 'itemType': 'string' },
-      applicationType: 'string',
-      customUserAttributes: { 'type': 'array', 'itemType': UpdatePrivateAccessPolicyRequestCustomUserAttributes },
-      description: 'string',
-      deviceAttributeAction: 'string',
-      deviceAttributeId: 'string',
-      modifyType: 'string',
-      policyAction: 'string',
-      policyId: 'string',
-      priority: 'number',
-      status: 'string',
-      tagIds: { 'type': 'array', 'itemType': 'string' },
-      userGroupIds: { 'type': 'array', 'itemType': 'string' },
-      userGroupMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePrivateAccessPolicyResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePrivateAccessPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdatePrivateAccessPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdatePrivateAccessPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRegistrationPolicyRequest extends $tea.Model {
-  companyLimitCount?: UpdateRegistrationPolicyRequestCompanyLimitCount;
-  /**
-   * @example
-   * LimitAll
-   */
-  companyLimitType?: string;
-  description?: string;
-  /**
-   * @example
-   * UserGroupNormal
-   */
-  matchMode?: string;
-  /**
-   * @example
-   * registration_policy_name
-   */
-  name?: string;
-  personalLimitCount?: UpdateRegistrationPolicyRequestPersonalLimitCount;
-  /**
-   * @example
-   * LimitDiff
-   */
-  personalLimitType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * reg-policy-63b2f1844b86****
-   */
-  policyId?: string;
-  /**
-   * @example
-   * 0
-   */
-  priority?: number;
-  /**
-   * @example
-   * Enabled
-   */
-  status?: string;
-  userGroupIds?: string[];
-  whitelist?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      companyLimitCount: 'CompanyLimitCount',
-      companyLimitType: 'CompanyLimitType',
-      description: 'Description',
-      matchMode: 'MatchMode',
-      name: 'Name',
-      personalLimitCount: 'PersonalLimitCount',
-      personalLimitType: 'PersonalLimitType',
-      policyId: 'PolicyId',
-      priority: 'Priority',
-      status: 'Status',
-      userGroupIds: 'UserGroupIds',
-      whitelist: 'Whitelist',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      companyLimitCount: UpdateRegistrationPolicyRequestCompanyLimitCount,
-      companyLimitType: 'string',
-      description: 'string',
-      matchMode: 'string',
-      name: 'string',
-      personalLimitCount: UpdateRegistrationPolicyRequestPersonalLimitCount,
-      personalLimitType: 'string',
-      policyId: 'string',
-      priority: 'number',
-      status: 'string',
-      userGroupIds: { 'type': 'array', 'itemType': 'string' },
-      whitelist: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRegistrationPolicyShrinkRequest extends $tea.Model {
-  companyLimitCountShrink?: string;
-  /**
-   * @example
-   * LimitAll
-   */
-  companyLimitType?: string;
-  description?: string;
-  /**
-   * @example
-   * UserGroupNormal
-   */
-  matchMode?: string;
-  /**
-   * @example
-   * registration_policy_name
-   */
-  name?: string;
-  personalLimitCountShrink?: string;
-  /**
-   * @example
-   * LimitDiff
-   */
-  personalLimitType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * reg-policy-63b2f1844b86****
-   */
-  policyId?: string;
-  /**
-   * @example
-   * 0
-   */
-  priority?: number;
-  /**
-   * @example
-   * Enabled
-   */
-  status?: string;
-  userGroupIds?: string[];
-  whitelist?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      companyLimitCountShrink: 'CompanyLimitCount',
-      companyLimitType: 'CompanyLimitType',
-      description: 'Description',
-      matchMode: 'MatchMode',
-      name: 'Name',
-      personalLimitCountShrink: 'PersonalLimitCount',
-      personalLimitType: 'PersonalLimitType',
-      policyId: 'PolicyId',
-      priority: 'Priority',
-      status: 'Status',
-      userGroupIds: 'UserGroupIds',
-      whitelist: 'Whitelist',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      companyLimitCountShrink: 'string',
-      companyLimitType: 'string',
-      description: 'string',
-      matchMode: 'string',
-      name: 'string',
-      personalLimitCountShrink: 'string',
-      personalLimitType: 'string',
-      policyId: 'string',
-      priority: 'number',
-      status: 'string',
-      userGroupIds: { 'type': 'array', 'itemType': 'string' },
-      whitelist: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRegistrationPolicyResponseBody extends $tea.Model {
-  policy?: UpdateRegistrationPolicyResponseBodyPolicy;
-  /**
-   * @example
-   * 27064ECA-0936-59F3-8A98-EC821E5BD08F
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policy: 'Policy',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policy: UpdateRegistrationPolicyResponseBodyPolicy,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRegistrationPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateRegistrationPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateRegistrationPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserDevicesSharingStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  deviceTags?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * true
-   */
-  sharingStatus?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      deviceTags: 'DeviceTags',
-      sharingStatus: 'SharingStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceTags: { 'type': 'array', 'itemType': 'string' },
-      sharingStatus: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserDevicesSharingStatusResponseBody extends $tea.Model {
-  devices?: UpdateUserDevicesSharingStatusResponseBodyDevices[];
-  /**
-   * @example
-   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      devices: 'Devices',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      devices: { 'type': 'array', 'itemType': UpdateUserDevicesSharingStatusResponseBodyDevices },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserDevicesSharingStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateUserDevicesSharingStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateUserDevicesSharingStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserDevicesStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Unbound
-   */
-  deviceAction?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  deviceTags?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      deviceAction: 'DeviceAction',
-      deviceTags: 'DeviceTags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceAction: 'string',
-      deviceTags: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserDevicesStatusResponseBody extends $tea.Model {
-  devices?: UpdateUserDevicesStatusResponseBodyDevices[];
-  /**
-   * @example
-   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      devices: 'Devices',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      devices: { 'type': 'array', 'itemType': UpdateUserDevicesStatusResponseBodyDevices },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserDevicesStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateUserDevicesStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateUserDevicesStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserGroupRequest extends $tea.Model {
-  attributes?: UpdateUserGroupRequestAttributes[];
-  /**
-   * **if can be null:**
-   * true
-   */
-  description?: string;
-  /**
-   * @example
-   * Cover
-   */
-  modifyType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * usergroup-6f1ef2fc56b6****
-   */
-  userGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attributes: 'Attributes',
-      description: 'Description',
-      modifyType: 'ModifyType',
-      userGroupId: 'UserGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributes: { 'type': 'array', 'itemType': UpdateUserGroupRequestAttributes },
-      description: 'string',
-      modifyType: 'string',
-      userGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserGroupResponseBody extends $tea.Model {
-  /**
-   * @example
-   * FD724DBC-CD76-5235-BF76-59C51B73296D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateUserGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateUserGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUsersStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  saseUserIds?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Enabled
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      saseUserIds: 'SaseUserIds',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      saseUserIds: { 'type': 'array', 'itemType': 'string' },
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUsersStatusResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 47363C2B-1AAA-5954-8847-0E50FCC54117
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUsersStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateUsersStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateUsersStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePrivateAccessApplicationRequestPortRanges extends $tea.Model {
+      deviceRegistrationPolicies: CreateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies,
+      dlpSendPolicies: CreateApprovalProcessResponseBodyProcessDlpSendPolicies,
+      domainBlacklistPolicies: CreateApprovalProcessResponseBodyProcessDomainBlacklistPolicies,
+      domainWhitelistPolicies: CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies,
+      peripheralBlockPolicies: CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies,
+      processId: 'string',
+      processName: 'string',
+      processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': CreateApprovalProcessResponseBodyProcessProcessNodes } },
+      softwareBlockPolicies: CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies,
+    };
+  }
+
+  validate() {
+    if(this.appUninstallPolicies && typeof (this.appUninstallPolicies as any).validate === 'function') {
+      (this.appUninstallPolicies as any).validate();
+    }
+    if(this.deviceRegistrationPolicies && typeof (this.deviceRegistrationPolicies as any).validate === 'function') {
+      (this.deviceRegistrationPolicies as any).validate();
+    }
+    if(this.dlpSendPolicies && typeof (this.dlpSendPolicies as any).validate === 'function') {
+      (this.dlpSendPolicies as any).validate();
+    }
+    if(this.domainBlacklistPolicies && typeof (this.domainBlacklistPolicies as any).validate === 'function') {
+      (this.domainBlacklistPolicies as any).validate();
+    }
+    if(this.domainWhitelistPolicies && typeof (this.domainWhitelistPolicies as any).validate === 'function') {
+      (this.domainWhitelistPolicies as any).validate();
+    }
+    if(this.peripheralBlockPolicies && typeof (this.peripheralBlockPolicies as any).validate === 'function') {
+      (this.peripheralBlockPolicies as any).validate();
+    }
+    if(Array.isArray(this.processNodes)) {
+      $dara.Model.validateArray(this.processNodes);
+    }
+    if(this.softwareBlockPolicies && typeof (this.softwareBlockPolicies as any).validate === 'function') {
+      (this.softwareBlockPolicies as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateAccessApplicationRequestPortRanges extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -8537,12 +454,16 @@ export class CreatePrivateAccessApplicationRequestPortRanges extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePrivateAccessPolicyRequestCustomUserAttributes extends $tea.Model {
+export class CreatePrivateAccessPolicyRequestCustomUserAttributes extends $dara.Model {
   /**
    * @example
    * 12
@@ -8577,12 +498,16 @@ export class CreatePrivateAccessPolicyRequestCustomUserAttributes extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateRegistrationPolicyRequestCompanyLimitCount extends $tea.Model {
+export class CreateRegistrationPolicyRequestCompanyLimitCount extends $dara.Model {
   /**
    * @example
    * 1
@@ -8614,12 +539,16 @@ export class CreateRegistrationPolicyRequestCompanyLimitCount extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateRegistrationPolicyRequestPersonalLimitCount extends $tea.Model {
+export class CreateRegistrationPolicyRequestPersonalLimitCount extends $dara.Model {
   /**
    * @example
    * 0
@@ -8651,12 +580,16 @@ export class CreateRegistrationPolicyRequestPersonalLimitCount extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount extends $tea.Model {
+export class CreateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount extends $dara.Model {
   /**
    * @example
    * 0
@@ -8688,12 +621,16 @@ export class CreateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateRegistrationPolicyResponseBodyPolicyLimitDetail extends $tea.Model {
+export class CreateRegistrationPolicyResponseBodyPolicyLimitDetail extends $dara.Model {
   /**
    * @example
    * Company
@@ -8721,12 +658,19 @@ export class CreateRegistrationPolicyResponseBodyPolicyLimitDetail extends $tea.
     };
   }
 
+  validate() {
+    if(this.limitCount && typeof (this.limitCount as any).validate === 'function') {
+      (this.limitCount as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateRegistrationPolicyResponseBodyPolicy extends $tea.Model {
+export class CreateRegistrationPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @example
    * 2023-05-16 17:18:46
@@ -8791,12 +735,25 @@ export class CreateRegistrationPolicyResponseBodyPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.limitDetail)) {
+      $dara.Model.validateArray(this.limitDetail);
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    if(Array.isArray(this.whitelist)) {
+      $dara.Model.validateArray(this.whitelist);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateUserGroupRequestAttributes extends $tea.Model {
+export class CreateUserGroupRequestAttributes extends $dara.Model {
   /**
    * @example
    * 12
@@ -8841,12 +798,16 @@ export class CreateUserGroupRequestAttributes extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateWmBaseImageResponseBodyData extends $tea.Model {
+export class CreateWmBaseImageResponseBodyData extends $dara.Model {
   /**
    * @example
    * fafb432cdede9b20640e12105845386e-496883833-8242409229217337*****
@@ -8878,12 +839,16 @@ export class CreateWmBaseImageResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateWmEmbedTaskRequestCsvControl extends $tea.Model {
+export class CreateWmEmbedTaskRequestCsvControl extends $dara.Model {
   embedColumn?: number;
   embedPrecision?: number;
   method?: string;
@@ -8903,12 +868,16 @@ export class CreateWmEmbedTaskRequestCsvControl extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl extends $tea.Model {
+export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl extends $dara.Model {
   /**
    * @example
    * 10
@@ -8926,12 +895,16 @@ export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisible
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl extends $tea.Model {
+export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl extends $dara.Model {
   /**
    * @example
    * 30
@@ -9012,12 +985,16 @@ export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleCo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateWmEmbedTaskRequestDocumentControlBackgroundControl extends $tea.Model {
+export class CreateWmEmbedTaskRequestDocumentControlBackgroundControl extends $dara.Model {
   /**
    * @example
    * true
@@ -9048,12 +1025,22 @@ export class CreateWmEmbedTaskRequestDocumentControlBackgroundControl extends $t
     };
   }
 
+  validate() {
+    if(this.bgInvisibleControl && typeof (this.bgInvisibleControl as any).validate === 'function') {
+      (this.bgInvisibleControl as any).validate();
+    }
+    if(this.bgVisibleControl && typeof (this.bgVisibleControl as any).validate === 'function') {
+      (this.bgVisibleControl as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateWmEmbedTaskRequestDocumentControl extends $tea.Model {
+export class CreateWmEmbedTaskRequestDocumentControl extends $dara.Model {
   backgroundControl?: CreateWmEmbedTaskRequestDocumentControlBackgroundControl;
   /**
    * @example
@@ -9081,12 +1068,19 @@ export class CreateWmEmbedTaskRequestDocumentControl extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.backgroundControl && typeof (this.backgroundControl as any).validate === 'function') {
+      (this.backgroundControl as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateWmEmbedTaskResponseBodyData extends $tea.Model {
+export class CreateWmEmbedTaskResponseBodyData extends $dara.Model {
   /**
    * @example
    * job:5GfrJYsoaffmCE7Z5bZtjUefzxfd****
@@ -9104,12 +1098,16 @@ export class CreateWmEmbedTaskResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateWmExtractTaskRequestCsvControl extends $tea.Model {
+export class CreateWmExtractTaskRequestCsvControl extends $dara.Model {
   embedColumn?: number;
   embedPrecision?: number;
   method?: string;
@@ -9129,12 +1127,16 @@ export class CreateWmExtractTaskRequestCsvControl extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateWmExtractTaskResponseBodyData extends $tea.Model {
+export class CreateWmExtractTaskResponseBodyData extends $dara.Model {
   /**
    * @example
    * wmt-9648c22d2eb2cb57bb855dcae7898464********
@@ -9152,12 +1154,16 @@ export class CreateWmExtractTaskResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateWmInfoMappingResponseBodyData extends $tea.Model {
+export class CreateWmInfoMappingResponseBodyData extends $dara.Model {
   /**
    * @example
    * 123***
@@ -9175,12 +1181,16 @@ export class CreateWmInfoMappingResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetActiveIdpConfigResponseBodyData extends $tea.Model {
+export class GetActiveIdpConfigResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @example
@@ -9211,12 +1221,833 @@ export class GetActiveIdpConfigResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetClientUserResponseBodyDataDepartment extends $tea.Model {
+export class GetApprovalResponseBodyApprovalApprovalProgressesOperators extends $dara.Model {
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      saseUserId: 'SaseUserId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      saseUserId: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalResponseBodyApprovalApprovalProgresses extends $dara.Model {
+  /**
+   * @example
+   * Approve
+   */
+  action?: string;
+  comment?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  executor?: string;
+  operators?: GetApprovalResponseBodyApprovalApprovalProgressesOperators[];
+  /**
+   * @example
+   * Approved
+   */
+  status?: string;
+  /**
+   * @example
+   * 1736752000
+   */
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      comment: 'Comment',
+      executor: 'Executor',
+      operators: 'Operators',
+      status: 'Status',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      comment: 'string',
+      executor: 'string',
+      operators: { 'type': 'array', 'itemType': GetApprovalResponseBodyApprovalApprovalProgressesOperators },
+      status: 'string',
+      timestamp: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.operators)) {
+      $dara.Model.validateArray(this.operators);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalResponseBodyApproval extends $dara.Model {
+  approvalDetail?: string;
+  /**
+   * @example
+   * approval-3564b140642f****
+   */
+  approvalId?: string;
+  approvalProgresses?: GetApprovalResponseBodyApprovalApprovalProgresses[];
+  /**
+   * @example
+   * 2022-11-15 22:11:55
+   */
+  createTime?: string;
+  creatorDepartment?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
+  creatorDevTag?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  creatorUserId?: string;
+  creatorUsername?: string;
+  /**
+   * @example
+   * 1757952000
+   */
+  endTimestamp?: number;
+  /**
+   * @example
+   * DlpSend
+   */
+  policyType?: string;
+  /**
+   * @example
+   * approval-process-fcc351b8a95b****
+   */
+  processId?: string;
+  processName?: string;
+  reason?: string;
+  /**
+   * @example
+   * {"form": {"labelCol": 6,"wrapperCol": 12}}
+   */
+  schemaContent?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  schemaName?: string;
+  /**
+   * @example
+   * Pending
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvalDetail: 'ApprovalDetail',
+      approvalId: 'ApprovalId',
+      approvalProgresses: 'ApprovalProgresses',
+      createTime: 'CreateTime',
+      creatorDepartment: 'CreatorDepartment',
+      creatorDevTag: 'CreatorDevTag',
+      creatorUserId: 'CreatorUserId',
+      creatorUsername: 'CreatorUsername',
+      endTimestamp: 'EndTimestamp',
+      policyType: 'PolicyType',
+      processId: 'ProcessId',
+      processName: 'ProcessName',
+      reason: 'Reason',
+      schemaContent: 'SchemaContent',
+      schemaId: 'SchemaId',
+      schemaName: 'SchemaName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalDetail: 'string',
+      approvalId: 'string',
+      approvalProgresses: { 'type': 'array', 'itemType': GetApprovalResponseBodyApprovalApprovalProgresses },
+      createTime: 'string',
+      creatorDepartment: 'string',
+      creatorDevTag: 'string',
+      creatorUserId: 'string',
+      creatorUsername: 'string',
+      endTimestamp: 'number',
+      policyType: 'string',
+      processId: 'string',
+      processName: 'string',
+      reason: 'string',
+      schemaContent: 'string',
+      schemaId: 'string',
+      schemaName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.approvalProgresses)) {
+      $dara.Model.validateArray(this.approvalProgresses);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalProcessResponseBodyProcessAppUninstallPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalProcessResponseBodyProcessDeviceRegistrationPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalProcessResponseBodyProcessDlpSendPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalProcessResponseBodyProcessDomainBlacklistPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalProcessResponseBodyProcessProcessNodes extends $dara.Model {
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      saseUserId: 'SaseUserId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      saseUserId: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
+  appUninstallPolicies?: GetApprovalProcessResponseBodyProcessAppUninstallPolicies;
+  /**
+   * @example
+   * 2022-10-25 10:44:09
+   */
+  createTime?: string;
+  description?: string;
+  deviceRegistrationPolicies?: GetApprovalProcessResponseBodyProcessDeviceRegistrationPolicies;
+  dlpSendPolicies?: GetApprovalProcessResponseBodyProcessDlpSendPolicies;
+  domainBlacklistPolicies?: GetApprovalProcessResponseBodyProcessDomainBlacklistPolicies;
+  domainWhitelistPolicies?: GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies;
+  peripheralBlockPolicies?: GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies;
+  /**
+   * @example
+   * approval-process-35ee09077ee9****
+   */
+  processId?: string;
+  processName?: string;
+  processNodes?: GetApprovalProcessResponseBodyProcessProcessNodes[][];
+  softwareBlockPolicies?: GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies;
+  static names(): { [key: string]: string } {
+    return {
+      appUninstallPolicies: 'AppUninstallPolicies',
+      createTime: 'CreateTime',
+      description: 'Description',
+      deviceRegistrationPolicies: 'DeviceRegistrationPolicies',
+      dlpSendPolicies: 'DlpSendPolicies',
+      domainBlacklistPolicies: 'DomainBlacklistPolicies',
+      domainWhitelistPolicies: 'DomainWhitelistPolicies',
+      peripheralBlockPolicies: 'PeripheralBlockPolicies',
+      processId: 'ProcessId',
+      processName: 'ProcessName',
+      processNodes: 'ProcessNodes',
+      softwareBlockPolicies: 'SoftwareBlockPolicies',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUninstallPolicies: GetApprovalProcessResponseBodyProcessAppUninstallPolicies,
+      createTime: 'string',
+      description: 'string',
+      deviceRegistrationPolicies: GetApprovalProcessResponseBodyProcessDeviceRegistrationPolicies,
+      dlpSendPolicies: GetApprovalProcessResponseBodyProcessDlpSendPolicies,
+      domainBlacklistPolicies: GetApprovalProcessResponseBodyProcessDomainBlacklistPolicies,
+      domainWhitelistPolicies: GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies,
+      peripheralBlockPolicies: GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies,
+      processId: 'string',
+      processName: 'string',
+      processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': GetApprovalProcessResponseBodyProcessProcessNodes } },
+      softwareBlockPolicies: GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies,
+    };
+  }
+
+  validate() {
+    if(this.appUninstallPolicies && typeof (this.appUninstallPolicies as any).validate === 'function') {
+      (this.appUninstallPolicies as any).validate();
+    }
+    if(this.deviceRegistrationPolicies && typeof (this.deviceRegistrationPolicies as any).validate === 'function') {
+      (this.deviceRegistrationPolicies as any).validate();
+    }
+    if(this.dlpSendPolicies && typeof (this.dlpSendPolicies as any).validate === 'function') {
+      (this.dlpSendPolicies as any).validate();
+    }
+    if(this.domainBlacklistPolicies && typeof (this.domainBlacklistPolicies as any).validate === 'function') {
+      (this.domainBlacklistPolicies as any).validate();
+    }
+    if(this.domainWhitelistPolicies && typeof (this.domainWhitelistPolicies as any).validate === 'function') {
+      (this.domainWhitelistPolicies as any).validate();
+    }
+    if(this.peripheralBlockPolicies && typeof (this.peripheralBlockPolicies as any).validate === 'function') {
+      (this.peripheralBlockPolicies as any).validate();
+    }
+    if(Array.isArray(this.processNodes)) {
+      $dara.Model.validateArray(this.processNodes);
+    }
+    if(this.softwareBlockPolicies && typeof (this.softwareBlockPolicies as any).validate === 'function') {
+      (this.softwareBlockPolicies as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalSchemaResponseBodySchema extends $dara.Model {
+  /**
+   * @example
+   * 2022-02-14 11:57:51
+   */
+  createTime?: string;
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  isDefault?: boolean;
+  /**
+   * @example
+   * DlpSend
+   */
+  policyType?: string;
+  /**
+   * @example
+   * {"form": {"labelCol": 6,"wrapperCol": 12}}
+   */
+  schemaContent?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  schemaName?: string;
+  /**
+   * @example
+   * 1715680940
+   */
+  schemaVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      isDefault: 'IsDefault',
+      policyType: 'PolicyType',
+      schemaContent: 'SchemaContent',
+      schemaId: 'SchemaId',
+      schemaName: 'SchemaName',
+      schemaVersion: 'SchemaVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      isDefault: 'boolean',
+      policyType: 'string',
+      schemaContent: 'string',
+      schemaId: 'string',
+      schemaName: 'string',
+      schemaVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextEn extends $dara.Model {
+  /**
+   * @example
+   * After uninstalling, the device can no longer be used for company work, and it will lose access to the company\\"s intranet!
+   */
+  content?: string;
+  /**
+   * @example
+   * Report
+   */
+  mainButtonText?: string;
+  /**
+   * @example
+   * Ignore
+   */
+  minorButtonText?: string;
+  /**
+   * @example
+   * Anti-Uninstall Warning
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      mainButtonText: 'MainButtonText',
+      minorButtonText: 'MinorButtonText',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      mainButtonText: 'string',
+      minorButtonText: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextZh extends $dara.Model {
+  content?: string;
+  mainButtonText?: string;
+  minorButtonText?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      mainButtonText: 'MainButtonText',
+      minorButtonText: 'MinorButtonText',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      mainButtonText: 'string',
+      minorButtonText: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContent extends $dara.Model {
+  blockTextEn?: GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextEn;
+  blockTextZh?: GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextZh;
+  static names(): { [key: string]: string } {
+    return {
+      blockTextEn: 'BlockTextEn',
+      blockTextZh: 'BlockTextZh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockTextEn: GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextEn,
+      blockTextZh: GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextZh,
+    };
+  }
+
+  validate() {
+    if(this.blockTextEn && typeof (this.blockTextEn as any).validate === 'function') {
+      (this.blockTextEn as any).validate();
+    }
+    if(this.blockTextZh && typeof (this.blockTextZh as any).validate === 'function') {
+      (this.blockTextZh as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBootAndAntiUninstallPolicyResponseBodyStrategy extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  allowReport?: boolean;
+  blockContent?: GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContent;
+  /**
+   * @example
+   * 2023-04-16 10:50:05
+   */
+  createTime?: string;
+  /**
+   * @example
+   * true
+   */
+  isAntiUninstall?: boolean;
+  /**
+   * @example
+   * true
+   */
+  isBoot?: boolean;
+  /**
+   * @example
+   * auto-boot-anti-uninstall-6f6cbf5f6605****
+   */
+  policyId?: string;
+  /**
+   * @example
+   * approval-process-300abfb970cc****
+   */
+  reportProcessId?: string;
+  /**
+   * @example
+   * 2024-06-14 10:17:14
+   */
+  updateTime?: string;
+  userGroupIds?: string[];
+  whitelistUsers?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allowReport: 'AllowReport',
+      blockContent: 'BlockContent',
+      createTime: 'CreateTime',
+      isAntiUninstall: 'IsAntiUninstall',
+      isBoot: 'IsBoot',
+      policyId: 'PolicyId',
+      reportProcessId: 'ReportProcessId',
+      updateTime: 'UpdateTime',
+      userGroupIds: 'UserGroupIds',
+      whitelistUsers: 'WhitelistUsers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowReport: 'boolean',
+      blockContent: GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContent,
+      createTime: 'string',
+      isAntiUninstall: 'boolean',
+      isBoot: 'boolean',
+      policyId: 'string',
+      reportProcessId: 'string',
+      updateTime: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelistUsers: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.blockContent && typeof (this.blockContent as any).validate === 'function') {
+      (this.blockContent as any).validate();
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    if(Array.isArray(this.whitelistUsers)) {
+      $dara.Model.validateArray(this.whitelistUsers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientUserResponseBodyDataDepartment extends $dara.Model {
   /**
    * @example
    * 107
@@ -9237,12 +2068,16 @@ export class GetClientUserResponseBodyDataDepartment extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetClientUserResponseBodyData extends $tea.Model {
+export class GetClientUserResponseBodyData extends $dara.Model {
   department?: GetClientUserResponseBodyDataDepartment;
   /**
    * @example
@@ -9311,12 +2146,19 @@ export class GetClientUserResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.department && typeof (this.department as any).validate === 'function') {
+      (this.department as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDynamicRouteResponseBodyDynamicRoute extends $tea.Model {
+export class GetDynamicRouteResponseBodyDynamicRoute extends $dara.Model {
   applicationIds?: string[];
   /**
    * @example
@@ -9395,12 +2237,25 @@ export class GetDynamicRouteResponseBodyDynamicRoute extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    if(Array.isArray(this.regionIds)) {
+      $dara.Model.validateArray(this.regionIds);
+    }
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetIdpConfigResponseBodyData extends $tea.Model {
+export class GetIdpConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * AccessKey ID
@@ -9535,12 +2390,16 @@ export class GetIdpConfigResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPrivateAccessApplicationResponseBodyApplicationPortRanges extends $tea.Model {
+export class GetPrivateAccessApplicationResponseBodyApplicationPortRanges extends $dara.Model {
   /**
    * @example
    * 80
@@ -9565,12 +2424,16 @@ export class GetPrivateAccessApplicationResponseBodyApplicationPortRanges extend
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPrivateAccessApplicationResponseBodyApplication extends $tea.Model {
+export class GetPrivateAccessApplicationResponseBodyApplication extends $dara.Model {
   addresses?: string[];
   /**
    * @example
@@ -9643,12 +2506,31 @@ export class GetPrivateAccessApplicationResponseBodyApplication extends $tea.Mod
     };
   }
 
+  validate() {
+    if(Array.isArray(this.addresses)) {
+      $dara.Model.validateArray(this.addresses);
+    }
+    if(Array.isArray(this.connectorIds)) {
+      $dara.Model.validateArray(this.connectorIds);
+    }
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    if(Array.isArray(this.portRanges)) {
+      $dara.Model.validateArray(this.portRanges);
+    }
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPrivateAccessPolicyResponseBodyPolicyCustomUserAttributes extends $tea.Model {
+export class GetPrivateAccessPolicyResponseBodyPolicyCustomUserAttributes extends $dara.Model {
   /**
    * @example
    * 12
@@ -9683,12 +2565,16 @@ export class GetPrivateAccessPolicyResponseBodyPolicyCustomUserAttributes extend
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPrivateAccessPolicyResponseBodyPolicy extends $tea.Model {
+export class GetPrivateAccessPolicyResponseBodyPolicy extends $dara.Model {
   applicationIds?: string[];
   /**
    * @example
@@ -9776,12 +2662,28 @@ export class GetPrivateAccessPolicyResponseBodyPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    if(Array.isArray(this.customUserAttributes)) {
+      $dara.Model.validateArray(this.customUserAttributes);
+    }
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRegistrationPolicyResponseBodyLimitDetailLimitCount extends $tea.Model {
+export class GetRegistrationPolicyResponseBodyLimitDetailLimitCount extends $dara.Model {
   /**
    * @example
    * 0
@@ -9813,12 +2715,16 @@ export class GetRegistrationPolicyResponseBodyLimitDetailLimitCount extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRegistrationPolicyResponseBodyLimitDetail extends $tea.Model {
+export class GetRegistrationPolicyResponseBodyLimitDetail extends $dara.Model {
   /**
    * @example
    * Personal
@@ -9846,12 +2752,19 @@ export class GetRegistrationPolicyResponseBodyLimitDetail extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.limitCount && typeof (this.limitCount as any).validate === 'function') {
+      (this.limitCount as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUserDeviceResponseBodyDeviceHistoryUsers extends $tea.Model {
+export class GetUserDeviceResponseBodyDeviceHistoryUsers extends $dara.Model {
   /**
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
@@ -9872,12 +2785,42 @@ export class GetUserDeviceResponseBodyDeviceHistoryUsers extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUserDeviceResponseBodyDevice extends $tea.Model {
+export class GetUserDeviceResponseBodyDeviceNetInterfaceInfo extends $dara.Model {
+  mac?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mac: 'Mac',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mac: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   /**
    * @example
    * Online
@@ -9970,6 +2913,7 @@ export class GetUserDeviceResponseBodyDevice extends $tea.Model {
    * Unprovisioned
    */
   nacStatus?: string;
+  netInterfaceInfo?: GetUserDeviceResponseBodyDeviceNetInterfaceInfo[];
   /**
    * @example
    * Enabled
@@ -10018,6 +2962,7 @@ export class GetUserDeviceResponseBodyDevice extends $tea.Model {
       mac: 'Mac',
       memory: 'Memory',
       nacStatus: 'NacStatus',
+      netInterfaceInfo: 'NetInterfaceInfo',
       paStatus: 'PaStatus',
       saseUserId: 'SaseUserId',
       sharingStatus: 'SharingStatus',
@@ -10049,6 +2994,7 @@ export class GetUserDeviceResponseBodyDevice extends $tea.Model {
       mac: 'string',
       memory: 'string',
       nacStatus: 'string',
+      netInterfaceInfo: { 'type': 'array', 'itemType': GetUserDeviceResponseBodyDeviceNetInterfaceInfo },
       paStatus: 'string',
       saseUserId: 'string',
       sharingStatus: 'boolean',
@@ -10058,12 +3004,22 @@ export class GetUserDeviceResponseBodyDevice extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.historyUsers)) {
+      $dara.Model.validateArray(this.historyUsers);
+    }
+    if(Array.isArray(this.netInterfaceInfo)) {
+      $dara.Model.validateArray(this.netInterfaceInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUserGroupResponseBodyUserGroupAttributes extends $tea.Model {
+export class GetUserGroupResponseBodyUserGroupAttributes extends $dara.Model {
   /**
    * @example
    * 12
@@ -10098,12 +3054,16 @@ export class GetUserGroupResponseBodyUserGroupAttributes extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUserGroupResponseBodyUserGroup extends $tea.Model {
+export class GetUserGroupResponseBodyUserGroup extends $dara.Model {
   attributes?: GetUserGroupResponseBodyUserGroupAttributes[];
   /**
    * @example
@@ -10137,12 +3097,19 @@ export class GetUserGroupResponseBodyUserGroup extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.attributes)) {
+      $dara.Model.validateArray(this.attributes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetWmEmbedTaskResponseBodyData extends $tea.Model {
+export class GetWmEmbedTaskResponseBodyData extends $dara.Model {
   /**
    * @example
    * https://example.com/embed-****.pdf
@@ -10202,12 +3169,16 @@ export class GetWmEmbedTaskResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetWmExtractTaskResponseBodyData extends $tea.Model {
+export class GetWmExtractTaskResponseBodyData extends $dara.Model {
   /**
    * @example
    * 2024-01-01 11:22:33
@@ -10274,12 +3245,16 @@ export class GetWmExtractTaskResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplicationsPortRanges extends $tea.Model {
+export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplicationsPortRanges extends $dara.Model {
   /**
    * @example
    * 80
@@ -10304,12 +3279,16 @@ export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplicatio
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplications extends $tea.Model {
+export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplications extends $dara.Model {
   addresses?: string[];
   /**
    * @example
@@ -10364,12 +3343,22 @@ export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplicatio
     };
   }
 
+  validate() {
+    if(Array.isArray(this.addresses)) {
+      $dara.Model.validateArray(this.addresses);
+    }
+    if(Array.isArray(this.portRanges)) {
+      $dara.Model.validateArray(this.portRanges);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListApplicationsForPrivateAccessPolicyResponseBodyPolices extends $tea.Model {
+export class ListApplicationsForPrivateAccessPolicyResponseBodyPolices extends $dara.Model {
   applications?: ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplications[];
   /**
    * @example
@@ -10390,12 +3379,19 @@ export class ListApplicationsForPrivateAccessPolicyResponseBodyPolices extends $
     };
   }
 
+  validate() {
+    if(Array.isArray(this.applications)) {
+      $dara.Model.validateArray(this.applications);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListApplicationsForPrivateAccessTagResponseBodyTagsApplicationsPortRanges extends $tea.Model {
+export class ListApplicationsForPrivateAccessTagResponseBodyTagsApplicationsPortRanges extends $dara.Model {
   /**
    * @example
    * 80
@@ -10420,12 +3416,16 @@ export class ListApplicationsForPrivateAccessTagResponseBodyTagsApplicationsPort
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListApplicationsForPrivateAccessTagResponseBodyTagsApplications extends $tea.Model {
+export class ListApplicationsForPrivateAccessTagResponseBodyTagsApplications extends $dara.Model {
   addresses?: string[];
   /**
    * @example
@@ -10483,12 +3483,22 @@ export class ListApplicationsForPrivateAccessTagResponseBodyTagsApplications ext
     };
   }
 
+  validate() {
+    if(Array.isArray(this.addresses)) {
+      $dara.Model.validateArray(this.addresses);
+    }
+    if(Array.isArray(this.portRanges)) {
+      $dara.Model.validateArray(this.portRanges);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListApplicationsForPrivateAccessTagResponseBodyTags extends $tea.Model {
+export class ListApplicationsForPrivateAccessTagResponseBodyTags extends $dara.Model {
   applications?: ListApplicationsForPrivateAccessTagResponseBodyTagsApplications[];
   /**
    * @example
@@ -10509,12 +3519,811 @@ export class ListApplicationsForPrivateAccessTagResponseBodyTags extends $tea.Mo
     };
   }
 
+  validate() {
+    if(Array.isArray(this.applications)) {
+      $dara.Model.validateArray(this.applications);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListClientUsersResponseBodyDataDataListDepartment extends $tea.Model {
+export class ListApprovalProcessesResponseBodyProcessesAppUninstallPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesResponseBodyProcessesDeviceRegistrationPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesResponseBodyProcessesDlpSendPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesResponseBodyProcessesDomainBlacklistPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesResponseBodyProcessesDomainWhitelistPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesResponseBodyProcessesPeripheralBlockPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesResponseBodyProcessesProcessNodes extends $dara.Model {
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      saseUserId: 'SaseUserId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      saseUserId: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesResponseBodyProcessesSoftwareBlockPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
+  appUninstallPolicies?: ListApprovalProcessesResponseBodyProcessesAppUninstallPolicies;
+  /**
+   * @example
+   * 2024-02-27 14:04:27
+   */
+  createTime?: string;
+  description?: string;
+  deviceRegistrationPolicies?: ListApprovalProcessesResponseBodyProcessesDeviceRegistrationPolicies;
+  dlpSendPolicies?: ListApprovalProcessesResponseBodyProcessesDlpSendPolicies;
+  domainBlacklistPolicies?: ListApprovalProcessesResponseBodyProcessesDomainBlacklistPolicies;
+  domainWhitelistPolicies?: ListApprovalProcessesResponseBodyProcessesDomainWhitelistPolicies;
+  peripheralBlockPolicies?: ListApprovalProcessesResponseBodyProcessesPeripheralBlockPolicies;
+  /**
+   * @example
+   * approval-process-35ee09077ee9****
+   */
+  processId?: string;
+  processName?: string;
+  processNodes?: ListApprovalProcessesResponseBodyProcessesProcessNodes[][];
+  softwareBlockPolicies?: ListApprovalProcessesResponseBodyProcessesSoftwareBlockPolicies;
+  static names(): { [key: string]: string } {
+    return {
+      appUninstallPolicies: 'AppUninstallPolicies',
+      createTime: 'CreateTime',
+      description: 'Description',
+      deviceRegistrationPolicies: 'DeviceRegistrationPolicies',
+      dlpSendPolicies: 'DlpSendPolicies',
+      domainBlacklistPolicies: 'DomainBlacklistPolicies',
+      domainWhitelistPolicies: 'DomainWhitelistPolicies',
+      peripheralBlockPolicies: 'PeripheralBlockPolicies',
+      processId: 'ProcessId',
+      processName: 'ProcessName',
+      processNodes: 'ProcessNodes',
+      softwareBlockPolicies: 'SoftwareBlockPolicies',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUninstallPolicies: ListApprovalProcessesResponseBodyProcessesAppUninstallPolicies,
+      createTime: 'string',
+      description: 'string',
+      deviceRegistrationPolicies: ListApprovalProcessesResponseBodyProcessesDeviceRegistrationPolicies,
+      dlpSendPolicies: ListApprovalProcessesResponseBodyProcessesDlpSendPolicies,
+      domainBlacklistPolicies: ListApprovalProcessesResponseBodyProcessesDomainBlacklistPolicies,
+      domainWhitelistPolicies: ListApprovalProcessesResponseBodyProcessesDomainWhitelistPolicies,
+      peripheralBlockPolicies: ListApprovalProcessesResponseBodyProcessesPeripheralBlockPolicies,
+      processId: 'string',
+      processName: 'string',
+      processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': ListApprovalProcessesResponseBodyProcessesProcessNodes } },
+      softwareBlockPolicies: ListApprovalProcessesResponseBodyProcessesSoftwareBlockPolicies,
+    };
+  }
+
+  validate() {
+    if(this.appUninstallPolicies && typeof (this.appUninstallPolicies as any).validate === 'function') {
+      (this.appUninstallPolicies as any).validate();
+    }
+    if(this.deviceRegistrationPolicies && typeof (this.deviceRegistrationPolicies as any).validate === 'function') {
+      (this.deviceRegistrationPolicies as any).validate();
+    }
+    if(this.dlpSendPolicies && typeof (this.dlpSendPolicies as any).validate === 'function') {
+      (this.dlpSendPolicies as any).validate();
+    }
+    if(this.domainBlacklistPolicies && typeof (this.domainBlacklistPolicies as any).validate === 'function') {
+      (this.domainBlacklistPolicies as any).validate();
+    }
+    if(this.domainWhitelistPolicies && typeof (this.domainWhitelistPolicies as any).validate === 'function') {
+      (this.domainWhitelistPolicies as any).validate();
+    }
+    if(this.peripheralBlockPolicies && typeof (this.peripheralBlockPolicies as any).validate === 'function') {
+      (this.peripheralBlockPolicies as any).validate();
+    }
+    if(Array.isArray(this.processNodes)) {
+      $dara.Model.validateArray(this.processNodes);
+    }
+    if(this.softwareBlockPolicies && typeof (this.softwareBlockPolicies as any).validate === 'function') {
+      (this.softwareBlockPolicies as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesForApprovalSchemasResponseBodySchemasProcesses extends $dara.Model {
+  /**
+   * @example
+   * 2022-10-25 10:44:09
+   */
+  createTime?: string;
+  description?: string;
+  /**
+   * @example
+   * approval-process-dc61e92ba5c5****
+   */
+  processId?: string;
+  processName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      processId: 'ProcessId',
+      processName: 'ProcessName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      processId: 'string',
+      processName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesForApprovalSchemasResponseBodySchemas extends $dara.Model {
+  processes?: ListApprovalProcessesForApprovalSchemasResponseBodySchemasProcesses[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      processes: 'Processes',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processes: { 'type': 'array', 'itemType': ListApprovalProcessesForApprovalSchemasResponseBodySchemasProcesses },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.processes)) {
+      $dara.Model.validateArray(this.processes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalSchemasResponseBodySchemas extends $dara.Model {
+  /**
+   * @example
+   * 2024-03-15 14:44:07
+   */
+  createTime?: string;
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  isDefault?: boolean;
+  /**
+   * @example
+   * DlpSend
+   */
+  policyType?: string;
+  /**
+   * @example
+   * {"form": {"labelCol": 6,"wrapperCol": 12}}
+   */
+  schemaContent?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  schemaName?: string;
+  /**
+   * @example
+   * 1715680940
+   */
+  schemaVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      isDefault: 'IsDefault',
+      policyType: 'PolicyType',
+      schemaContent: 'SchemaContent',
+      schemaId: 'SchemaId',
+      schemaName: 'SchemaName',
+      schemaVersion: 'SchemaVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      isDefault: 'boolean',
+      policyType: 'string',
+      schemaContent: 'string',
+      schemaId: 'string',
+      schemaName: 'string',
+      schemaVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalSchemasForApprovalProcessesResponseBodyProcessesSchemas extends $dara.Model {
+  /**
+   * @example
+   * 2024-03-15 14:44:07
+   */
+  createTime?: string;
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  isDefault?: boolean;
+  /**
+   * @example
+   * DlpSend
+   */
+  policyType?: string;
+  /**
+   * @example
+   * {"form": {"labelCol": 6,"wrapperCol": 12}}
+   */
+  schemaContent?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  schemaName?: string;
+  /**
+   * @example
+   * 1715680940
+   */
+  schemaVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      isDefault: 'IsDefault',
+      policyType: 'PolicyType',
+      schemaContent: 'SchemaContent',
+      schemaId: 'SchemaId',
+      schemaName: 'SchemaName',
+      schemaVersion: 'SchemaVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      isDefault: 'boolean',
+      policyType: 'string',
+      schemaContent: 'string',
+      schemaId: 'string',
+      schemaName: 'string',
+      schemaVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalSchemasForApprovalProcessesResponseBodyProcesses extends $dara.Model {
+  /**
+   * @example
+   * approval-process-35ee09077ee9****
+   */
+  processId?: string;
+  schemas?: ListApprovalSchemasForApprovalProcessesResponseBodyProcessesSchemas[];
+  static names(): { [key: string]: string } {
+    return {
+      processId: 'ProcessId',
+      schemas: 'Schemas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processId: 'string',
+      schemas: { 'type': 'array', 'itemType': ListApprovalSchemasForApprovalProcessesResponseBodyProcessesSchemas },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.schemas)) {
+      $dara.Model.validateArray(this.schemas);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalsResponseBodyApprovalsApprovalProgressesOperators extends $dara.Model {
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      saseUserId: 'SaseUserId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      saseUserId: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalsResponseBodyApprovalsApprovalProgresses extends $dara.Model {
+  /**
+   * @example
+   * Approve
+   */
+  action?: string;
+  comment?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  executor?: string;
+  operators?: ListApprovalsResponseBodyApprovalsApprovalProgressesOperators[];
+  /**
+   * @example
+   * Approved
+   */
+  status?: string;
+  /**
+   * @example
+   * 1736752000
+   */
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      comment: 'Comment',
+      executor: 'Executor',
+      operators: 'Operators',
+      status: 'Status',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      comment: 'string',
+      executor: 'string',
+      operators: { 'type': 'array', 'itemType': ListApprovalsResponseBodyApprovalsApprovalProgressesOperators },
+      status: 'string',
+      timestamp: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.operators)) {
+      $dara.Model.validateArray(this.operators);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalsResponseBodyApprovals extends $dara.Model {
+  approvalDetail?: string;
+  /**
+   * @example
+   * approval-872b5e911b35****
+   */
+  approvalId?: string;
+  approvalProgresses?: ListApprovalsResponseBodyApprovalsApprovalProgresses[];
+  /**
+   * @example
+   * 2022-11-15 22:11:55
+   */
+  createTime?: string;
+  creatorDepartment?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
+  creatorDevTag?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  creatorUserId?: string;
+  creatorUsername?: string;
+  /**
+   * @example
+   * 1757952000
+   */
+  endTimestamp?: number;
+  /**
+   * @example
+   * DlpSend
+   */
+  policyType?: string;
+  /**
+   * @example
+   * approval-process-fcc351b8a95b****
+   */
+  processId?: string;
+  processName?: string;
+  reason?: string;
+  /**
+   * @example
+   * {"form": {"labelCol": 6,"wrapperCol": 12}}
+   */
+  schemaContent?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  schemaName?: string;
+  /**
+   * @example
+   * Pending
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvalDetail: 'ApprovalDetail',
+      approvalId: 'ApprovalId',
+      approvalProgresses: 'ApprovalProgresses',
+      createTime: 'CreateTime',
+      creatorDepartment: 'CreatorDepartment',
+      creatorDevTag: 'CreatorDevTag',
+      creatorUserId: 'CreatorUserId',
+      creatorUsername: 'CreatorUsername',
+      endTimestamp: 'EndTimestamp',
+      policyType: 'PolicyType',
+      processId: 'ProcessId',
+      processName: 'ProcessName',
+      reason: 'Reason',
+      schemaContent: 'SchemaContent',
+      schemaId: 'SchemaId',
+      schemaName: 'SchemaName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalDetail: 'string',
+      approvalId: 'string',
+      approvalProgresses: { 'type': 'array', 'itemType': ListApprovalsResponseBodyApprovalsApprovalProgresses },
+      createTime: 'string',
+      creatorDepartment: 'string',
+      creatorDevTag: 'string',
+      creatorUserId: 'string',
+      creatorUsername: 'string',
+      endTimestamp: 'number',
+      policyType: 'string',
+      processId: 'string',
+      processName: 'string',
+      reason: 'string',
+      schemaContent: 'string',
+      schemaId: 'string',
+      schemaName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.approvalProgresses)) {
+      $dara.Model.validateArray(this.approvalProgresses);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientUsersResponseBodyDataDataListDepartment extends $dara.Model {
   /**
    * @example
    * 105
@@ -10535,12 +4344,16 @@ export class ListClientUsersResponseBodyDataDataListDepartment extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListClientUsersResponseBodyDataDataList extends $tea.Model {
+export class ListClientUsersResponseBodyDataDataList extends $dara.Model {
   department?: ListClientUsersResponseBodyDataDataListDepartment;
   /**
    * @example
@@ -10609,12 +4422,19 @@ export class ListClientUsersResponseBodyDataDataList extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.department && typeof (this.department as any).validate === 'function') {
+      (this.department as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListClientUsersResponseBodyData extends $tea.Model {
+export class ListClientUsersResponseBodyData extends $dara.Model {
   dataList?: ListClientUsersResponseBodyDataDataList[];
   /**
    * @example
@@ -10635,12 +4455,19 @@ export class ListClientUsersResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.dataList)) {
+      $dara.Model.validateArray(this.dataList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConnectorsResponseBodyConnectorsApplications extends $tea.Model {
+export class ListConnectorsResponseBodyConnectorsApplications extends $dara.Model {
   /**
    * @example
    * pa-application-e12860ef6c48****
@@ -10665,12 +4492,16 @@ export class ListConnectorsResponseBodyConnectorsApplications extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConnectorsResponseBodyConnectorsConnectorClients extends $tea.Model {
+export class ListConnectorsResponseBodyConnectorsConnectorClients extends $dara.Model {
   connectionStatus?: string;
   devTag?: string;
   hostname?: string;
@@ -10693,12 +4524,16 @@ export class ListConnectorsResponseBodyConnectorsConnectorClients extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $tea.Model {
+export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $dara.Model {
   /**
    * @example
    * 23:00
@@ -10723,12 +4558,16 @@ export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConnectorsResponseBodyConnectors extends $tea.Model {
+export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   applications?: ListConnectorsResponseBodyConnectorsApplications[];
   connectorClients?: ListConnectorsResponseBodyConnectorsConnectorClients[];
   /**
@@ -10793,12 +4632,25 @@ export class ListConnectorsResponseBodyConnectors extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.applications)) {
+      $dara.Model.validateArray(this.applications);
+    }
+    if(Array.isArray(this.connectorClients)) {
+      $dara.Model.validateArray(this.connectorClients);
+    }
+    if(this.upgradeTime && typeof (this.upgradeTime as any).validate === 'function') {
+      (this.upgradeTime as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDynamicRoutesResponseBodyDynamicRoutes extends $tea.Model {
+export class ListDynamicRoutesResponseBodyDynamicRoutes extends $dara.Model {
   applicationIds?: string[];
   /**
    * @example
@@ -10877,12 +4729,25 @@ export class ListDynamicRoutesResponseBodyDynamicRoutes extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    if(Array.isArray(this.regionIds)) {
+      $dara.Model.validateArray(this.regionIds);
+    }
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications extends $tea.Model {
+export class ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications extends $dara.Model {
   /**
    * @example
    * reg-application-0f4a127b7e78****
@@ -10965,12 +4830,16 @@ export class ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListIdpConfigsResponseBodyDataDataList extends $tea.Model {
+export class ListIdpConfigsResponseBodyDataDataList extends $dara.Model {
   description?: string;
   /**
    * @example
@@ -11050,12 +4919,16 @@ export class ListIdpConfigsResponseBodyDataDataList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListIdpConfigsResponseBodyData extends $tea.Model {
+export class ListIdpConfigsResponseBodyData extends $dara.Model {
   dataList?: ListIdpConfigsResponseBodyDataDataList[];
   /**
    * @example
@@ -11076,12 +4949,19 @@ export class ListIdpConfigsResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.dataList)) {
+      $dara.Model.validateArray(this.dataList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListIdpDepartmentsResponseBodyDataDataList extends $tea.Model {
+export class ListIdpDepartmentsResponseBodyDataDataList extends $dara.Model {
   /**
    * @example
    * 30520
@@ -11109,12 +4989,16 @@ export class ListIdpDepartmentsResponseBodyDataDataList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListIdpDepartmentsResponseBodyData extends $tea.Model {
+export class ListIdpDepartmentsResponseBodyData extends $dara.Model {
   dataList?: ListIdpDepartmentsResponseBodyDataDataList[];
   /**
    * @example
@@ -11135,12 +5019,19 @@ export class ListIdpDepartmentsResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.dataList)) {
+      $dara.Model.validateArray(this.dataList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNacUserCertResponseBodyDataList extends $tea.Model {
+export class ListNacUserCertResponseBodyDataList extends $dara.Model {
   /**
    * @example
    * 1
@@ -11217,12 +5108,16 @@ export class ListNacUserCertResponseBodyDataList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPoliciesCustomUserAttributes extends $tea.Model {
+export class ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPoliciesCustomUserAttributes extends $dara.Model {
   /**
    * @example
    * 12
@@ -11257,12 +5152,16 @@ export class ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPolic
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPolicies extends $tea.Model {
+export class ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPolicies extends $dara.Model {
   /**
    * @example
    * Application
@@ -11335,12 +5234,19 @@ export class ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPolic
     };
   }
 
+  validate() {
+    if(Array.isArray(this.customUserAttributes)) {
+      $dara.Model.validateArray(this.customUserAttributes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicesForPrivateAccessApplicationResponseBodyApplications extends $tea.Model {
+export class ListPolicesForPrivateAccessApplicationResponseBodyApplications extends $dara.Model {
   /**
    * @example
    * pa-application-b927baf3e592****
@@ -11361,12 +5267,19 @@ export class ListPolicesForPrivateAccessApplicationResponseBodyApplications exte
     };
   }
 
+  validate() {
+    if(Array.isArray(this.policies)) {
+      $dara.Model.validateArray(this.policies);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicesForPrivateAccessTagResponseBodyTagsPolicesCustomUserAttributes extends $tea.Model {
+export class ListPolicesForPrivateAccessTagResponseBodyTagsPolicesCustomUserAttributes extends $dara.Model {
   /**
    * @remarks
    * 用户组的身份源ID。当自定义用户组类型为**department**时，存在该值。
@@ -11427,12 +5340,16 @@ export class ListPolicesForPrivateAccessTagResponseBodyTagsPolicesCustomUserAttr
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicesForPrivateAccessTagResponseBodyTagsPolices extends $tea.Model {
+export class ListPolicesForPrivateAccessTagResponseBodyTagsPolices extends $dara.Model {
   /**
    * @example
    * Application
@@ -11512,12 +5429,19 @@ export class ListPolicesForPrivateAccessTagResponseBodyTagsPolices extends $tea.
     };
   }
 
+  validate() {
+    if(Array.isArray(this.customUserAttributes)) {
+      $dara.Model.validateArray(this.customUserAttributes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicesForPrivateAccessTagResponseBodyTags extends $tea.Model {
+export class ListPolicesForPrivateAccessTagResponseBodyTags extends $dara.Model {
   polices?: ListPolicesForPrivateAccessTagResponseBodyTagsPolices[];
   /**
    * @example
@@ -11538,12 +5462,19 @@ export class ListPolicesForPrivateAccessTagResponseBodyTags extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.polices)) {
+      $dara.Model.validateArray(this.polices);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicesForUserGroupResponseBodyUserGroupsPolices extends $tea.Model {
+export class ListPolicesForUserGroupResponseBodyUserGroupsPolices extends $dara.Model {
   /**
    * @example
    * private_access_policy_name
@@ -11575,12 +5506,16 @@ export class ListPolicesForUserGroupResponseBodyUserGroupsPolices extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicesForUserGroupResponseBodyUserGroups extends $tea.Model {
+export class ListPolicesForUserGroupResponseBodyUserGroups extends $dara.Model {
   polices?: ListPolicesForUserGroupResponseBodyUserGroupsPolices[];
   /**
    * @example
@@ -11601,12 +5536,19 @@ export class ListPolicesForUserGroupResponseBodyUserGroups extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.polices)) {
+      $dara.Model.validateArray(this.polices);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints extends $tea.Model {
+export class ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints extends $dara.Model {
   /**
    * @example
    * 15325
@@ -11631,12 +5573,16 @@ export class ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints extends $
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPopTrafficStatisticsResponseBodyTrafficData extends $tea.Model {
+export class ListPopTrafficStatisticsResponseBodyTrafficData extends $dara.Model {
   datapoints?: ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints[];
   /**
    * @example
@@ -11657,12 +5603,19 @@ export class ListPopTrafficStatisticsResponseBodyTrafficData extends $tea.Model 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.datapoints)) {
+      $dara.Model.validateArray(this.datapoints);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPrivateAccessApplicationsResponseBodyApplicationsPortRanges extends $tea.Model {
+export class ListPrivateAccessApplicationsResponseBodyApplicationsPortRanges extends $dara.Model {
   /**
    * @example
    * 80
@@ -11687,12 +5640,16 @@ export class ListPrivateAccessApplicationsResponseBodyApplicationsPortRanges ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPrivateAccessApplicationsResponseBodyApplications extends $tea.Model {
+export class ListPrivateAccessApplicationsResponseBodyApplications extends $dara.Model {
   addresses?: string[];
   /**
    * @example
@@ -11765,12 +5722,31 @@ export class ListPrivateAccessApplicationsResponseBodyApplications extends $tea.
     };
   }
 
+  validate() {
+    if(Array.isArray(this.addresses)) {
+      $dara.Model.validateArray(this.addresses);
+    }
+    if(Array.isArray(this.connectorIds)) {
+      $dara.Model.validateArray(this.connectorIds);
+    }
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    if(Array.isArray(this.portRanges)) {
+      $dara.Model.validateArray(this.portRanges);
+    }
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges extends $tea.Model {
+export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges extends $dara.Model {
   /**
    * @example
    * 80
@@ -11795,12 +5771,16 @@ export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRout
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications extends $tea.Model {
+export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications extends $dara.Model {
   addresses?: string[];
   /**
    * @example
@@ -11855,12 +5835,22 @@ export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRout
     };
   }
 
+  validate() {
+    if(Array.isArray(this.addresses)) {
+      $dara.Model.validateArray(this.addresses);
+    }
+    if(Array.isArray(this.portRanges)) {
+      $dara.Model.validateArray(this.portRanges);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes extends $tea.Model {
+export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes extends $dara.Model {
   applications?: ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications[];
   /**
    * @example
@@ -11881,12 +5871,19 @@ export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRout
     };
   }
 
+  validate() {
+    if(Array.isArray(this.applications)) {
+      $dara.Model.validateArray(this.applications);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes extends $tea.Model {
+export class ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes extends $dara.Model {
   /**
    * @example
    * 12
@@ -11921,12 +5918,16 @@ export class ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPrivateAccessPolicesResponseBodyPolices extends $tea.Model {
+export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
   applicationIds?: string[];
   /**
    * @example
@@ -12014,12 +6015,28 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    if(Array.isArray(this.customUserAttributes)) {
+      $dara.Model.validateArray(this.customUserAttributes);
+    }
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPrivateAccessTagsResponseBodyTags extends $tea.Model {
+export class ListPrivateAccessTagsResponseBodyTags extends $dara.Model {
   /**
    * @remarks
    * The IDs of the internal access applications.
@@ -12094,12 +6111,22 @@ export class ListPrivateAccessTagsResponseBodyTags extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags extends $tea.Model {
+export class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags extends $dara.Model {
   /**
    * @example
    * 2022-10-23 14:02:56
@@ -12141,12 +6168,16 @@ export class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags e
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes extends $tea.Model {
+export class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes extends $dara.Model {
   /**
    * @example
    * dr-ca9fddfac7c6****
@@ -12167,12 +6198,19 @@ export class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes exten
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetailLimitCount extends $tea.Model {
+export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetailLimitCount extends $dara.Model {
   /**
    * @example
    * 3
@@ -12204,12 +6242,16 @@ export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetailLimitCount e
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetail extends $tea.Model {
+export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetail extends $dara.Model {
   /**
    * @example
    * Company
@@ -12237,12 +6279,19 @@ export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetail extends $te
     };
   }
 
+  validate() {
+    if(this.limitCount && typeof (this.limitCount as any).validate === 'function') {
+      (this.limitCount as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRegistrationPoliciesResponseBodyPolicies extends $tea.Model {
+export class ListRegistrationPoliciesResponseBodyPolicies extends $dara.Model {
   /**
    * @example
    * 2023-05-16 17:18:46
@@ -12307,12 +6356,25 @@ export class ListRegistrationPoliciesResponseBodyPolicies extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.limitDetail)) {
+      $dara.Model.validateArray(this.limitDetail);
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    if(Array.isArray(this.whitelist)) {
+      $dara.Model.validateArray(this.whitelist);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetailLimitCount extends $tea.Model {
+export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetailLimitCount extends $dara.Model {
   /**
    * @example
    * 3
@@ -12344,12 +6406,16 @@ export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesL
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetail extends $tea.Model {
+export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetail extends $dara.Model {
   /**
    * @example
    * Company
@@ -12377,12 +6443,19 @@ export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesL
     };
   }
 
+  validate() {
+    if(this.limitCount && typeof (this.limitCount as any).validate === 'function') {
+      (this.limitCount as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies extends $tea.Model {
+export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies extends $dara.Model {
   /**
    * @example
    * 2023-05-16 17:18:46
@@ -12444,12 +6517,22 @@ export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.limitDetail)) {
+      $dara.Model.validateArray(this.limitDetail);
+    }
+    if(Array.isArray(this.whitelist)) {
+      $dara.Model.validateArray(this.whitelist);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroups extends $tea.Model {
+export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroups extends $dara.Model {
   policies?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies[];
   /**
    * @example
@@ -12470,12 +6553,19 @@ export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroups extends 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.policies)) {
+      $dara.Model.validateArray(this.policies);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSoftwareForUserDeviceResponseBodySoftware extends $tea.Model {
+export class ListSoftwareForUserDeviceResponseBodySoftware extends $dara.Model {
   /**
    * @example
    * Alibaba (China) Network Technology Co.,Ltd.
@@ -12506,12 +6596,19 @@ export class ListSoftwareForUserDeviceResponseBodySoftware extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.versions)) {
+      $dara.Model.validateArray(this.versions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagsForPrivateAccessApplicationResponseBodyApplicationsTags extends $tea.Model {
+export class ListTagsForPrivateAccessApplicationResponseBodyApplicationsTags extends $dara.Model {
   /**
    * @example
    * 2022-07-01 16:05:26
@@ -12553,12 +6650,16 @@ export class ListTagsForPrivateAccessApplicationResponseBodyApplicationsTags ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagsForPrivateAccessApplicationResponseBodyApplications extends $tea.Model {
+export class ListTagsForPrivateAccessApplicationResponseBodyApplications extends $dara.Model {
   /**
    * @example
    * pa-application-7a4445897856****
@@ -12579,12 +6680,19 @@ export class ListTagsForPrivateAccessApplicationResponseBodyApplications extends
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagsForPrivateAccessPolicyResponseBodyPolicesTags extends $tea.Model {
+export class ListTagsForPrivateAccessPolicyResponseBodyPolicesTags extends $dara.Model {
   /**
    * @remarks
    * 内网访问标签创建时间。
@@ -12629,12 +6737,16 @@ export class ListTagsForPrivateAccessPolicyResponseBodyPolicesTags extends $tea.
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagsForPrivateAccessPolicyResponseBodyPolices extends $tea.Model {
+export class ListTagsForPrivateAccessPolicyResponseBodyPolices extends $dara.Model {
   /**
    * @example
    * pa-policy-1b0d0e8b4bcf****
@@ -12655,12 +6767,114 @@ export class ListTagsForPrivateAccessPolicyResponseBodyPolices extends $tea.Mode
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserApplicationsResponseBodyApplicationsPortRanges extends $tea.Model {
+export class ListUninstallApplicationsResponseBodyApplications extends $dara.Model {
+  /**
+   * @example
+   * uninstall-app-6646831ac314****
+   */
+  applicationId?: string;
+  /**
+   * @example
+   * 2023-07-17 18:46:55
+   */
+  createTime?: string;
+  department?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
+  devTag?: string;
+  /**
+   * @example
+   * Windows
+   */
+  devType?: string;
+  /**
+   * @example
+   * win10-64bit
+   */
+  hostname?: string;
+  idpName?: string;
+  /**
+   * @example
+   * false
+   */
+  isUninstall?: boolean;
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
+  mac?: string;
+  reason?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  /**
+   * @example
+   * Approved
+   */
+  status?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      createTime: 'CreateTime',
+      department: 'Department',
+      devTag: 'DevTag',
+      devType: 'DevType',
+      hostname: 'Hostname',
+      idpName: 'IdpName',
+      isUninstall: 'IsUninstall',
+      mac: 'Mac',
+      reason: 'Reason',
+      saseUserId: 'SaseUserId',
+      status: 'Status',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      createTime: 'string',
+      department: 'string',
+      devTag: 'string',
+      devType: 'string',
+      hostname: 'string',
+      idpName: 'string',
+      isUninstall: 'boolean',
+      mac: 'string',
+      reason: 'string',
+      saseUserId: 'string',
+      status: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserApplicationsResponseBodyApplicationsPortRanges extends $dara.Model {
   /**
    * @example
    * 80
@@ -12685,12 +6899,16 @@ export class ListUserApplicationsResponseBodyApplicationsPortRanges extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserApplicationsResponseBodyApplications extends $tea.Model {
+export class ListUserApplicationsResponseBodyApplications extends $dara.Model {
   /**
    * @example
    * Block
@@ -12735,12 +6953,48 @@ export class ListUserApplicationsResponseBodyApplications extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.addresses)) {
+      $dara.Model.validateArray(this.addresses);
+    }
+    if(Array.isArray(this.portRanges)) {
+      $dara.Model.validateArray(this.portRanges);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserDevicesResponseBodyDevices extends $tea.Model {
+export class ListUserDevicesResponseBodyDevicesNetInterfaceInfo extends $dara.Model {
+  mac?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mac: 'Mac',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mac: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   /**
    * @example
    * Online
@@ -12832,6 +7086,7 @@ export class ListUserDevicesResponseBodyDevices extends $tea.Model {
    * Enabled
    */
   nacStatus?: string;
+  netInterfaceInfo?: ListUserDevicesResponseBodyDevicesNetInterfaceInfo[];
   /**
    * @example
    * Enabled
@@ -12879,6 +7134,7 @@ export class ListUserDevicesResponseBodyDevices extends $tea.Model {
       mac: 'Mac',
       memory: 'Memory',
       nacStatus: 'NacStatus',
+      netInterfaceInfo: 'NetInterfaceInfo',
       paStatus: 'PaStatus',
       saseUserId: 'SaseUserId',
       sharingStatus: 'SharingStatus',
@@ -12909,6 +7165,7 @@ export class ListUserDevicesResponseBodyDevices extends $tea.Model {
       mac: 'string',
       memory: 'string',
       nacStatus: 'string',
+      netInterfaceInfo: { 'type': 'array', 'itemType': ListUserDevicesResponseBodyDevicesNetInterfaceInfo },
       paStatus: 'string',
       saseUserId: 'string',
       sharingStatus: 'boolean',
@@ -12918,12 +7175,19 @@ export class ListUserDevicesResponseBodyDevices extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.netInterfaceInfo)) {
+      $dara.Model.validateArray(this.netInterfaceInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserGroupsResponseBodyUserGroupsAttributes extends $tea.Model {
+export class ListUserGroupsResponseBodyUserGroupsAttributes extends $dara.Model {
   /**
    * @example
    * 12
@@ -12958,12 +7222,16 @@ export class ListUserGroupsResponseBodyUserGroupsAttributes extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserGroupsResponseBodyUserGroups extends $tea.Model {
+export class ListUserGroupsResponseBodyUserGroups extends $dara.Model {
   attributes?: ListUserGroupsResponseBodyUserGroupsAttributes[];
   /**
    * @example
@@ -13001,12 +7269,19 @@ export class ListUserGroupsResponseBodyUserGroups extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.attributes)) {
+      $dara.Model.validateArray(this.attributes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroupsAttributes extends $tea.Model {
+export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroupsAttributes extends $dara.Model {
   /**
    * @example
    * 12
@@ -13041,12 +7316,16 @@ export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroupsAt
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroups extends $tea.Model {
+export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroups extends $dara.Model {
   attributes?: ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroupsAttributes[];
   /**
    * @remarks
@@ -13087,12 +7366,19 @@ export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroups e
     };
   }
 
+  validate() {
+    if(Array.isArray(this.attributes)) {
+      $dara.Model.validateArray(this.attributes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolices extends $tea.Model {
+export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolices extends $dara.Model {
   /**
    * @example
    * pa-policy-1b0d0e8b4bcf****
@@ -13113,12 +7399,19 @@ export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolices extends $te
     };
   }
 
+  validate() {
+    if(Array.isArray(this.userGroups)) {
+      $dara.Model.validateArray(this.userGroups);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroupsAttributes extends $tea.Model {
+export class ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroupsAttributes extends $dara.Model {
   /**
    * @example
    * 12
@@ -13153,12 +7446,16 @@ export class ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroupsAt
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroups extends $tea.Model {
+export class ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroups extends $dara.Model {
   attributes?: ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroupsAttributes[];
   /**
    * @example
@@ -13196,12 +7493,19 @@ export class ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroups e
     };
   }
 
+  validate() {
+    if(Array.isArray(this.attributes)) {
+      $dara.Model.validateArray(this.attributes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserGroupsForRegistrationPolicyResponseBodyPolicies extends $tea.Model {
+export class ListUserGroupsForRegistrationPolicyResponseBodyPolicies extends $dara.Model {
   /**
    * @example
    * reg-policy-f25c9e5872e5****
@@ -13222,12 +7526,19 @@ export class ListUserGroupsForRegistrationPolicyResponseBodyPolicies extends $te
     };
   }
 
+  validate() {
+    if(Array.isArray(this.userGroups)) {
+      $dara.Model.validateArray(this.userGroups);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserPrivateAccessPoliciesResponseBodyPolicesCustomUserAttributes extends $tea.Model {
+export class ListUserPrivateAccessPoliciesResponseBodyPolicesCustomUserAttributes extends $dara.Model {
   /**
    * @example
    * 12
@@ -13262,12 +7573,16 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolicesCustomUserAttribute
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $tea.Model {
+export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $dara.Model {
   customUserAttributes?: ListUserPrivateAccessPoliciesResponseBodyPolicesCustomUserAttributes[];
   /**
    * @example
@@ -13330,12 +7645,19 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $tea.Model
     };
   }
 
+  validate() {
+    if(Array.isArray(this.customUserAttributes)) {
+      $dara.Model.validateArray(this.customUserAttributes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUsersResponseBodyUsers extends $tea.Model {
+export class ListUsersResponseBodyUsers extends $dara.Model {
   department?: string;
   /**
    * @example
@@ -13383,12 +7705,16 @@ export class ListUsersResponseBodyUsers extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LookupWmInfoMappingResponseBodyData extends $tea.Model {
+export class LookupWmInfoMappingResponseBodyData extends $dara.Model {
   /**
    * @example
    * aGVsbG8gc2F*****
@@ -13406,12 +7732,940 @@ export class LookupWmInfoMappingResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyApplications extends $tea.Model {
+export class UpdateApprovalProcessRequestMatchSchemas extends $dara.Model {
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  appUninstallSchemaId?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  deviceRegistrationSchemaId?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  dlpSendSchemaId?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  domainBlacklistSchemaId?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  domainWhitelistSchemaId?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  peripheralBlockSchemaId?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  softwareBlockSchemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appUninstallSchemaId: 'AppUninstallSchemaId',
+      deviceRegistrationSchemaId: 'DeviceRegistrationSchemaId',
+      dlpSendSchemaId: 'DlpSendSchemaId',
+      domainBlacklistSchemaId: 'DomainBlacklistSchemaId',
+      domainWhitelistSchemaId: 'DomainWhitelistSchemaId',
+      peripheralBlockSchemaId: 'PeripheralBlockSchemaId',
+      softwareBlockSchemaId: 'SoftwareBlockSchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUninstallSchemaId: 'string',
+      deviceRegistrationSchemaId: 'string',
+      dlpSendSchemaId: 'string',
+      domainBlacklistSchemaId: 'string',
+      domainWhitelistSchemaId: 'string',
+      peripheralBlockSchemaId: 'string',
+      softwareBlockSchemaId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessAppUninstallPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessDlpSendPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessProcessNodes extends $dara.Model {
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      saseUserId: 'SaseUserId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      saseUserId: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies extends $dara.Model {
+  policyIds?: string[];
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
+  appUninstallPolicies?: UpdateApprovalProcessResponseBodyProcessAppUninstallPolicies;
+  /**
+   * @example
+   * 2022-07-11 15:31:39
+   */
+  createTime?: string;
+  description?: string;
+  deviceRegistrationPolicies?: UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies;
+  dlpSendPolicies?: UpdateApprovalProcessResponseBodyProcessDlpSendPolicies;
+  domainBlacklistPolicies?: UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies;
+  domainWhitelistPolicies?: UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies;
+  peripheraBlockPolicies?: UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies;
+  /**
+   * @example
+   * approval-process-2677fcf063f5****
+   */
+  processId?: string;
+  processName?: string;
+  processNodes?: UpdateApprovalProcessResponseBodyProcessProcessNodes[][];
+  softwareBlockPolicies?: UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies;
+  static names(): { [key: string]: string } {
+    return {
+      appUninstallPolicies: 'AppUninstallPolicies',
+      createTime: 'CreateTime',
+      description: 'Description',
+      deviceRegistrationPolicies: 'DeviceRegistrationPolicies',
+      dlpSendPolicies: 'DlpSendPolicies',
+      domainBlacklistPolicies: 'DomainBlacklistPolicies',
+      domainWhitelistPolicies: 'DomainWhitelistPolicies',
+      peripheraBlockPolicies: 'PeripheraBlockPolicies',
+      processId: 'ProcessId',
+      processName: 'ProcessName',
+      processNodes: 'ProcessNodes',
+      softwareBlockPolicies: 'SoftwareBlockPolicies',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUninstallPolicies: UpdateApprovalProcessResponseBodyProcessAppUninstallPolicies,
+      createTime: 'string',
+      description: 'string',
+      deviceRegistrationPolicies: UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies,
+      dlpSendPolicies: UpdateApprovalProcessResponseBodyProcessDlpSendPolicies,
+      domainBlacklistPolicies: UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies,
+      domainWhitelistPolicies: UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies,
+      peripheraBlockPolicies: UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies,
+      processId: 'string',
+      processName: 'string',
+      processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': UpdateApprovalProcessResponseBodyProcessProcessNodes } },
+      softwareBlockPolicies: UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies,
+    };
+  }
+
+  validate() {
+    if(this.appUninstallPolicies && typeof (this.appUninstallPolicies as any).validate === 'function') {
+      (this.appUninstallPolicies as any).validate();
+    }
+    if(this.deviceRegistrationPolicies && typeof (this.deviceRegistrationPolicies as any).validate === 'function') {
+      (this.deviceRegistrationPolicies as any).validate();
+    }
+    if(this.dlpSendPolicies && typeof (this.dlpSendPolicies as any).validate === 'function') {
+      (this.dlpSendPolicies as any).validate();
+    }
+    if(this.domainBlacklistPolicies && typeof (this.domainBlacklistPolicies as any).validate === 'function') {
+      (this.domainBlacklistPolicies as any).validate();
+    }
+    if(this.domainWhitelistPolicies && typeof (this.domainWhitelistPolicies as any).validate === 'function') {
+      (this.domainWhitelistPolicies as any).validate();
+    }
+    if(this.peripheraBlockPolicies && typeof (this.peripheraBlockPolicies as any).validate === 'function') {
+      (this.peripheraBlockPolicies as any).validate();
+    }
+    if(Array.isArray(this.processNodes)) {
+      $dara.Model.validateArray(this.processNodes);
+    }
+    if(this.softwareBlockPolicies && typeof (this.softwareBlockPolicies as any).validate === 'function') {
+      (this.softwareBlockPolicies as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalStatusResponseBodyApprovalApprovalProgressesOperators extends $dara.Model {
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      saseUserId: 'SaseUserId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      saseUserId: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalStatusResponseBodyApprovalApprovalProgresses extends $dara.Model {
+  /**
+   * @example
+   * Approve
+   */
+  action?: string;
+  comment?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  executor?: string;
+  operators?: UpdateApprovalStatusResponseBodyApprovalApprovalProgressesOperators[];
+  /**
+   * @example
+   * Approved
+   */
+  status?: string;
+  /**
+   * @example
+   * 1736752000
+   */
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      comment: 'Comment',
+      executor: 'Executor',
+      operators: 'Operators',
+      status: 'Status',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      comment: 'string',
+      executor: 'string',
+      operators: { 'type': 'array', 'itemType': UpdateApprovalStatusResponseBodyApprovalApprovalProgressesOperators },
+      status: 'string',
+      timestamp: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.operators)) {
+      $dara.Model.validateArray(this.operators);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalStatusResponseBodyApproval extends $dara.Model {
+  approvalDetail?: string;
+  /**
+   * @example
+   * approval-165e6738ad9d****
+   */
+  approvalId?: string;
+  approvalProgresses?: UpdateApprovalStatusResponseBodyApprovalApprovalProgresses[];
+  /**
+   * @example
+   * 2022-11-15 22:11:55
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
+  creatorDevTag?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  creatorUserId?: string;
+  /**
+   * @example
+   * 1757952000
+   */
+  endTimestamp?: number;
+  /**
+   * @example
+   * DlpSend
+   */
+  policyType?: string;
+  /**
+   * @example
+   * approval-process-fcc351b8a95b****
+   */
+  processId?: string;
+  processName?: string;
+  reason?: string;
+  /**
+   * @example
+   * {"form": {"labelCol": 6,"wrapperCol": 12}}
+   */
+  schemaContent?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  schemaName?: string;
+  /**
+   * @example
+   * Pending
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvalDetail: 'ApprovalDetail',
+      approvalId: 'ApprovalId',
+      approvalProgresses: 'ApprovalProgresses',
+      createTime: 'CreateTime',
+      creatorDevTag: 'CreatorDevTag',
+      creatorUserId: 'CreatorUserId',
+      endTimestamp: 'EndTimestamp',
+      policyType: 'PolicyType',
+      processId: 'ProcessId',
+      processName: 'ProcessName',
+      reason: 'Reason',
+      schemaContent: 'SchemaContent',
+      schemaId: 'SchemaId',
+      schemaName: 'SchemaName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalDetail: 'string',
+      approvalId: 'string',
+      approvalProgresses: { 'type': 'array', 'itemType': UpdateApprovalStatusResponseBodyApprovalApprovalProgresses },
+      createTime: 'string',
+      creatorDevTag: 'string',
+      creatorUserId: 'string',
+      endTimestamp: 'number',
+      policyType: 'string',
+      processId: 'string',
+      processName: 'string',
+      reason: 'string',
+      schemaContent: 'string',
+      schemaId: 'string',
+      schemaName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.approvalProgresses)) {
+      $dara.Model.validateArray(this.approvalProgresses);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBootAndAntiUninstallPolicyRequestBlockContentBlockTextEn extends $dara.Model {
+  /**
+   * @example
+   * After uninstalling, the device can no longer be used for company work, and it will lose access to the company\\"s intranet!
+   */
+  content?: string;
+  /**
+   * @example
+   * Report
+   */
+  mainButtonText?: string;
+  /**
+   * @example
+   * Ignore
+   */
+  minorButtonText?: string;
+  /**
+   * @example
+   * Anti-Uninstall Warning
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      mainButtonText: 'MainButtonText',
+      minorButtonText: 'MinorButtonText',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      mainButtonText: 'string',
+      minorButtonText: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBootAndAntiUninstallPolicyRequestBlockContentBlockTextZh extends $dara.Model {
+  content?: string;
+  mainButtonText?: string;
+  minorButtonText?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      mainButtonText: 'MainButtonText',
+      minorButtonText: 'MinorButtonText',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      mainButtonText: 'string',
+      minorButtonText: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBootAndAntiUninstallPolicyRequestBlockContent extends $dara.Model {
+  blockTextEn?: UpdateBootAndAntiUninstallPolicyRequestBlockContentBlockTextEn;
+  blockTextZh?: UpdateBootAndAntiUninstallPolicyRequestBlockContentBlockTextZh;
+  static names(): { [key: string]: string } {
+    return {
+      blockTextEn: 'BlockTextEn',
+      blockTextZh: 'BlockTextZh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockTextEn: UpdateBootAndAntiUninstallPolicyRequestBlockContentBlockTextEn,
+      blockTextZh: UpdateBootAndAntiUninstallPolicyRequestBlockContentBlockTextZh,
+    };
+  }
+
+  validate() {
+    if(this.blockTextEn && typeof (this.blockTextEn as any).validate === 'function') {
+      (this.blockTextEn as any).validate();
+    }
+    if(this.blockTextZh && typeof (this.blockTextZh as any).validate === 'function') {
+      (this.blockTextZh as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextEn extends $dara.Model {
+  /**
+   * @example
+   * After uninstalling, the device can no longer be used for company work, and it will lose access to the company\\"s intranet!
+   */
+  content?: string;
+  /**
+   * @example
+   * Report
+   */
+  mainButtonText?: string;
+  /**
+   * @example
+   * Ignore
+   */
+  minorButtonText?: string;
+  /**
+   * @example
+   * Anti-Uninstall Warning
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      mainButtonText: 'MainButtonText',
+      minorButtonText: 'MinorButtonText',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      mainButtonText: 'string',
+      minorButtonText: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextZh extends $dara.Model {
+  content?: string;
+  mainButtonText?: string;
+  minorButtonText?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      mainButtonText: 'MainButtonText',
+      minorButtonText: 'MinorButtonText',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      mainButtonText: 'string',
+      minorButtonText: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBootAndAntiUninstallPolicyResponseBodyStrategyBlockContent extends $dara.Model {
+  blockTextEn?: UpdateBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextEn;
+  blockTextZh?: UpdateBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextZh;
+  static names(): { [key: string]: string } {
+    return {
+      blockTextEn: 'BlockTextEn',
+      blockTextZh: 'BlockTextZh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockTextEn: UpdateBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextEn,
+      blockTextZh: UpdateBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextZh,
+    };
+  }
+
+  validate() {
+    if(this.blockTextEn && typeof (this.blockTextEn as any).validate === 'function') {
+      (this.blockTextEn as any).validate();
+    }
+    if(this.blockTextZh && typeof (this.blockTextZh as any).validate === 'function') {
+      (this.blockTextZh as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBootAndAntiUninstallPolicyResponseBodyStrategy extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  allowReport?: boolean;
+  blockContent?: UpdateBootAndAntiUninstallPolicyResponseBodyStrategyBlockContent;
+  /**
+   * @example
+   * 2023-04-16 10:50:05
+   */
+  createTime?: string;
+  /**
+   * @example
+   * true
+   */
+  isAntiUninstall?: boolean;
+  /**
+   * @example
+   * true
+   */
+  isBoot?: boolean;
+  /**
+   * @example
+   * auto-boot-anti-uninstall-6f6cbf5f6605****
+   */
+  policyId?: string;
+  /**
+   * @example
+   * approval-process-65c255598826****
+   */
+  reportProcessId?: string;
+  /**
+   * @example
+   * 2024-06-14 10:17:14
+   */
+  updateTime?: string;
+  userGroupIds?: string[];
+  whitelistUsers?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allowReport: 'AllowReport',
+      blockContent: 'BlockContent',
+      createTime: 'CreateTime',
+      isAntiUninstall: 'IsAntiUninstall',
+      isBoot: 'IsBoot',
+      policyId: 'PolicyId',
+      reportProcessId: 'ReportProcessId',
+      updateTime: 'UpdateTime',
+      userGroupIds: 'UserGroupIds',
+      whitelistUsers: 'WhitelistUsers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowReport: 'boolean',
+      blockContent: UpdateBootAndAntiUninstallPolicyResponseBodyStrategyBlockContent,
+      createTime: 'string',
+      isAntiUninstall: 'boolean',
+      isBoot: 'boolean',
+      policyId: 'string',
+      reportProcessId: 'string',
+      updateTime: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelistUsers: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.blockContent && typeof (this.blockContent as any).validate === 'function') {
+      (this.blockContent as any).validate();
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    if(Array.isArray(this.whitelistUsers)) {
+      $dara.Model.validateArray(this.whitelistUsers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyApplications extends $dara.Model {
   /**
    * @example
    * reg-application-0f4a127b7e78****
@@ -13494,12 +8748,16 @@ export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyAppl
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateNacUserCertStatusRequestIdList extends $tea.Model {
+export class UpdateNacUserCertStatusRequestIdList extends $dara.Model {
   /**
    * @example
    * 36efa42d-2c32-c4dc-e3fc-8541e33a****
@@ -13524,12 +8782,16 @@ export class UpdateNacUserCertStatusRequestIdList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdatePrivateAccessApplicationRequestPortRanges extends $tea.Model {
+export class UpdatePrivateAccessApplicationRequestPortRanges extends $dara.Model {
   /**
    * @example
    * 80
@@ -13554,12 +8816,16 @@ export class UpdatePrivateAccessApplicationRequestPortRanges extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdatePrivateAccessPolicyRequestCustomUserAttributes extends $tea.Model {
+export class UpdatePrivateAccessPolicyRequestCustomUserAttributes extends $dara.Model {
   /**
    * @example
    * 12
@@ -13604,12 +8870,16 @@ export class UpdatePrivateAccessPolicyRequestCustomUserAttributes extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateRegistrationPolicyRequestCompanyLimitCount extends $tea.Model {
+export class UpdateRegistrationPolicyRequestCompanyLimitCount extends $dara.Model {
   /**
    * @example
    * 1
@@ -13641,12 +8911,16 @@ export class UpdateRegistrationPolicyRequestCompanyLimitCount extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateRegistrationPolicyRequestPersonalLimitCount extends $tea.Model {
+export class UpdateRegistrationPolicyRequestPersonalLimitCount extends $dara.Model {
   /**
    * @example
    * 0
@@ -13678,12 +8952,16 @@ export class UpdateRegistrationPolicyRequestPersonalLimitCount extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount extends $tea.Model {
+export class UpdateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount extends $dara.Model {
   /**
    * @example
    * 1
@@ -13715,12 +8993,16 @@ export class UpdateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateRegistrationPolicyResponseBodyPolicyLimitDetail extends $tea.Model {
+export class UpdateRegistrationPolicyResponseBodyPolicyLimitDetail extends $dara.Model {
   /**
    * @example
    * Company
@@ -13748,12 +9030,19 @@ export class UpdateRegistrationPolicyResponseBodyPolicyLimitDetail extends $tea.
     };
   }
 
+  validate() {
+    if(this.limitCount && typeof (this.limitCount as any).validate === 'function') {
+      (this.limitCount as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateRegistrationPolicyResponseBodyPolicy extends $tea.Model {
+export class UpdateRegistrationPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @example
    * 2023-05-16 17:18:46
@@ -13814,12 +9103,146 @@ export class UpdateRegistrationPolicyResponseBodyPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.limitDetail)) {
+      $dara.Model.validateArray(this.limitDetail);
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    if(Array.isArray(this.whitelist)) {
+      $dara.Model.validateArray(this.whitelist);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateUserDevicesSharingStatusResponseBodyDevices extends $tea.Model {
+export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $dara.Model {
+  /**
+   * @example
+   * uninstall-app-6646831ac314****
+   */
+  applicationId?: string;
+  /**
+   * @example
+   * 2023-07-17 18:46:55
+   */
+  createTime?: string;
+  department?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
+  devTag?: string;
+  /**
+   * @example
+   * Windows
+   */
+  devType?: string;
+  /**
+   * @example
+   * win10-64bit
+   */
+  hostname?: string;
+  idpName?: string;
+  /**
+   * @example
+   * false
+   */
+  isUninstall?: boolean;
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
+  mac?: string;
+  reason?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  /**
+   * @example
+   * Approved
+   */
+  status?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      createTime: 'CreateTime',
+      department: 'Department',
+      devTag: 'DevTag',
+      devType: 'DevType',
+      hostname: 'Hostname',
+      idpName: 'IdpName',
+      isUninstall: 'IsUninstall',
+      mac: 'Mac',
+      reason: 'Reason',
+      saseUserId: 'SaseUserId',
+      status: 'Status',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      createTime: 'string',
+      department: 'string',
+      devTag: 'string',
+      devType: 'string',
+      hostname: 'string',
+      idpName: 'string',
+      isUninstall: 'boolean',
+      mac: 'string',
+      reason: 'string',
+      saseUserId: 'string',
+      status: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesSharingStatusResponseBodyDevicesNetInterfaceInfo extends $dara.Model {
+  mac?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mac: 'Mac',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mac: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesSharingStatusResponseBodyDevices extends $dara.Model {
   /**
    * @example
    * Online
@@ -13911,6 +9334,7 @@ export class UpdateUserDevicesSharingStatusResponseBodyDevices extends $tea.Mode
    * Enabled
    */
   nacStatus?: string;
+  netInterfaceInfo?: UpdateUserDevicesSharingStatusResponseBodyDevicesNetInterfaceInfo[];
   /**
    * @example
    * Enabled
@@ -13958,6 +9382,7 @@ export class UpdateUserDevicesSharingStatusResponseBodyDevices extends $tea.Mode
       mac: 'Mac',
       memory: 'Memory',
       nacStatus: 'NacStatus',
+      netInterfaceInfo: 'NetInterfaceInfo',
       paStatus: 'PaStatus',
       saseUserId: 'SaseUserId',
       sharingStatus: 'SharingStatus',
@@ -13988,6 +9413,7 @@ export class UpdateUserDevicesSharingStatusResponseBodyDevices extends $tea.Mode
       mac: 'string',
       memory: 'string',
       nacStatus: 'string',
+      netInterfaceInfo: { 'type': 'array', 'itemType': UpdateUserDevicesSharingStatusResponseBodyDevicesNetInterfaceInfo },
       paStatus: 'string',
       saseUserId: 'string',
       sharingStatus: 'boolean',
@@ -13997,12 +9423,45 @@ export class UpdateUserDevicesSharingStatusResponseBodyDevices extends $tea.Mode
     };
   }
 
+  validate() {
+    if(Array.isArray(this.netInterfaceInfo)) {
+      $dara.Model.validateArray(this.netInterfaceInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateUserDevicesStatusResponseBodyDevices extends $tea.Model {
+export class UpdateUserDevicesStatusResponseBodyDevicesNetInterfaceInfo extends $dara.Model {
+  mac?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mac: 'Mac',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mac: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesStatusResponseBodyDevices extends $dara.Model {
   /**
    * @example
    * Online
@@ -14094,6 +9553,7 @@ export class UpdateUserDevicesStatusResponseBodyDevices extends $tea.Model {
    * Enabled
    */
   nacStatus?: string;
+  netInterfaceInfo?: UpdateUserDevicesStatusResponseBodyDevicesNetInterfaceInfo[];
   /**
    * @example
    * Enabled
@@ -14141,6 +9601,7 @@ export class UpdateUserDevicesStatusResponseBodyDevices extends $tea.Model {
       mac: 'Mac',
       memory: 'Memory',
       nacStatus: 'NacStatus',
+      netInterfaceInfo: 'NetInterfaceInfo',
       paStatus: 'PaStatus',
       saseUserId: 'SaseUserId',
       sharingStatus: 'SharingStatus',
@@ -14171,6 +9632,7 @@ export class UpdateUserDevicesStatusResponseBodyDevices extends $tea.Model {
       mac: 'string',
       memory: 'string',
       nacStatus: 'string',
+      netInterfaceInfo: { 'type': 'array', 'itemType': UpdateUserDevicesStatusResponseBodyDevicesNetInterfaceInfo },
       paStatus: 'string',
       saseUserId: 'string',
       sharingStatus: 'boolean',
@@ -14180,12 +9642,19 @@ export class UpdateUserDevicesStatusResponseBodyDevices extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.netInterfaceInfo)) {
+      $dara.Model.validateArray(this.netInterfaceInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateUserGroupRequestAttributes extends $tea.Model {
+export class UpdateUserGroupRequestAttributes extends $dara.Model {
   /**
    * @example
    * 12
@@ -14230,6 +9699,12826 @@ export class UpdateUserGroupRequestAttributes extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthReportInterval extends $dara.Model {
+  timeUnit?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      timeUnit: 'TimeUnit',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeUnit: 'string',
+      value: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisposalContent extends $dara.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
+  alertContent?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  alertTitle?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * **if can be null:**
+   * true
+   */
+  notifyActions?: string[];
+  prohibitActions?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      alertContent: 'AlertContent',
+      alertTitle: 'AlertTitle',
+      notifyActions: 'NotifyActions',
+      prohibitActions: 'ProhibitActions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertContent: 'string',
+      alertTitle: 'string',
+      notifyActions: { 'type': 'array', 'itemType': 'string' },
+      prohibitActions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.notifyActions)) {
+      $dara.Model.validateArray(this.notifyActions);
+    }
+    if(Array.isArray(this.prohibitActions)) {
+      $dara.Model.validateArray(this.prohibitActions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecoveryContent extends $dara.Model {
+  authReportInterval?: AuthReportInterval;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  recoveryActions?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      authReportInterval: 'AuthReportInterval',
+      recoveryActions: 'RecoveryActions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authReportInterval: AuthReportInterval,
+      recoveryActions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.authReportInterval && typeof (this.authReportInterval as any).validate === 'function') {
+      (this.authReportInterval as any).validate();
+    }
+    if(Array.isArray(this.recoveryActions)) {
+      $dara.Model.validateArray(this.recoveryActions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Rule extends $dara.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
+  combinator?: string;
+  id?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  name?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  operator?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  ruleSubType?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  ruleType?: string;
+  rules?: Rule[];
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      combinator: 'Combinator',
+      id: 'Id',
+      name: 'Name',
+      operator: 'Operator',
+      ruleSubType: 'RuleSubType',
+      ruleType: 'RuleType',
+      rules: 'Rules',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      combinator: 'string',
+      id: 'string',
+      name: 'string',
+      operator: 'string',
+      ruleSubType: 'string',
+      ruleType: 'string',
+      rules: { 'type': 'array', 'itemType': Rule },
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachApplication2ConnectorRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  applicationIds?: string[];
+  /**
+   * @remarks
+   * ConnectorID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * connector-94db94e06b98****
+   */
+  connectorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      connectorId: 'ConnectorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      connectorId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachApplication2ConnectorShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  applicationIdsShrink?: string;
+  /**
+   * @remarks
+   * ConnectorID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * connector-94db94e06b98****
+   */
+  connectorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationIdsShrink: 'ApplicationIds',
+      connectorId: 'ConnectorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIdsShrink: 'string',
+      connectorId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachApplication2ConnectorResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachApplication2ConnectorResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachApplication2ConnectorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachApplication2ConnectorResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachPolicy2ApprovalProcessRequest extends $dara.Model {
+  /**
+   * @example
+   * ladp-27a4fedf5e73****
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DlpSend
+   */
+  policyType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * approval-process-2677fcf063f5****
+   */
+  processId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      policyType: 'PolicyType',
+      processId: 'ProcessId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      policyType: 'string',
+      processId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachPolicy2ApprovalProcessResponseBody extends $dara.Model {
+  /**
+   * @example
+   * C51D9340-4604-5331-AE62-407F3B408F86
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachPolicy2ApprovalProcessResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachPolicy2ApprovalProcessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachPolicy2ApprovalProcessResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApprovalProcessRequest extends $dara.Model {
+  description?: string;
+  matchSchemas?: CreateApprovalProcessRequestMatchSchemas;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_process
+   */
+  processName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  processNodes?: string[][];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      matchSchemas: 'MatchSchemas',
+      processName: 'ProcessName',
+      processNodes: 'ProcessNodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      matchSchemas: CreateApprovalProcessRequestMatchSchemas,
+      processName: 'string',
+      processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
+    };
+  }
+
+  validate() {
+    if(this.matchSchemas && typeof (this.matchSchemas as any).validate === 'function') {
+      (this.matchSchemas as any).validate();
+    }
+    if(Array.isArray(this.processNodes)) {
+      $dara.Model.validateArray(this.processNodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApprovalProcessShrinkRequest extends $dara.Model {
+  description?: string;
+  matchSchemasShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_process
+   */
+  processName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  processNodes?: string[][];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      matchSchemasShrink: 'MatchSchemas',
+      processName: 'ProcessName',
+      processNodes: 'ProcessNodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      matchSchemasShrink: 'string',
+      processName: 'string',
+      processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.processNodes)) {
+      $dara.Model.validateArray(this.processNodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApprovalProcessResponseBody extends $dara.Model {
+  process?: CreateApprovalProcessResponseBodyProcess;
+  /**
+   * @example
+   * 2CABFEBB-0CE7-575E-833A-266F75D46713
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      process: 'Process',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      process: CreateApprovalProcessResponseBodyProcess,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.process && typeof (this.process as any).validate === 'function') {
+      (this.process as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApprovalProcessResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateApprovalProcessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateApprovalProcessResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClientUserRequest extends $dara.Model {
+  /**
+   * @example
+   * 10797
+   */
+  departmentId?: string;
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * johndoe@example.com
+   */
+  email?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 727
+   */
+  idpConfigId?: string;
+  /**
+   * @example
+   * 13641966835
+   */
+  mobileNumber?: string;
+  /**
+   * @example
+   * kehudiyi
+   */
+  password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentId: 'DepartmentId',
+      description: 'Description',
+      email: 'Email',
+      idpConfigId: 'IdpConfigId',
+      mobileNumber: 'MobileNumber',
+      password: 'Password',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentId: 'string',
+      description: 'string',
+      email: 'string',
+      idpConfigId: 'string',
+      mobileNumber: 'string',
+      password: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClientUserResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 726
+   */
+  data?: string;
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClientUserResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateClientUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateClientUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDynamicRouteRequest extends $dara.Model {
+  applicationIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Application
+   */
+  applicationType?: string;
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * connector
+   */
+  dynamicRouteType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dynamic_route_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * connector-8ccb13b6f52c****
+   */
+  nextHop?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 99
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Disabled
+   */
+  status?: string;
+  tagIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      applicationType: 'ApplicationType',
+      description: 'Description',
+      dynamicRouteType: 'DynamicRouteType',
+      name: 'Name',
+      nextHop: 'NextHop',
+      priority: 'Priority',
+      regionIds: 'RegionIds',
+      status: 'Status',
+      tagIds: 'TagIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      applicationType: 'string',
+      description: 'string',
+      dynamicRouteType: 'string',
+      name: 'string',
+      nextHop: 'string',
+      priority: 'number',
+      regionIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    if(Array.isArray(this.regionIds)) {
+      $dara.Model.validateArray(this.regionIds);
+    }
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDynamicRouteResponseBody extends $dara.Model {
+  /**
+   * @example
+   * dr-ca9fddfac7c6****
+   */
+  dynamicRouteId?: string;
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRouteId: 'DynamicRouteId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRouteId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDynamicRouteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDynamicRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDynamicRouteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdpDepartmentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  departmentName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1222
+   */
+  idpConfigId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentName: 'DepartmentName',
+      idpConfigId: 'IdpConfigId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentName: 'string',
+      idpConfigId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdpDepartmentResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 726
+   */
+  data?: string;
+  /**
+   * @example
+   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdpDepartmentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIdpDepartmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateIdpDepartmentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateAccessApplicationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  addresses?: string[];
+  browserAccessStatus?: string;
+  description?: string;
+  l7ProxyDomainAutomaticPrefix?: string;
+  l7ProxyDomainCustom?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * private_access_application_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  portRanges?: CreatePrivateAccessApplicationRequestPortRanges[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * All
+   */
+  protocol?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
+  status?: string;
+  tagIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      addresses: 'Addresses',
+      browserAccessStatus: 'BrowserAccessStatus',
+      description: 'Description',
+      l7ProxyDomainAutomaticPrefix: 'L7ProxyDomainAutomaticPrefix',
+      l7ProxyDomainCustom: 'L7ProxyDomainCustom',
+      name: 'Name',
+      portRanges: 'PortRanges',
+      protocol: 'Protocol',
+      status: 'Status',
+      tagIds: 'TagIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addresses: { 'type': 'array', 'itemType': 'string' },
+      browserAccessStatus: 'string',
+      description: 'string',
+      l7ProxyDomainAutomaticPrefix: 'string',
+      l7ProxyDomainCustom: 'string',
+      name: 'string',
+      portRanges: { 'type': 'array', 'itemType': CreatePrivateAccessApplicationRequestPortRanges },
+      protocol: 'string',
+      status: 'string',
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.addresses)) {
+      $dara.Model.validateArray(this.addresses);
+    }
+    if(Array.isArray(this.portRanges)) {
+      $dara.Model.validateArray(this.portRanges);
+    }
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateAccessApplicationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * pa-application-e12860ef6c48****
+   */
+  applicationId?: string;
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateAccessApplicationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePrivateAccessApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePrivateAccessApplicationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateAccessPolicyRequest extends $dara.Model {
+  applicationIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Application
+   */
+  applicationType?: string;
+  customUserAttributes?: CreatePrivateAccessPolicyRequestCustomUserAttributes[];
+  description?: string;
+  deviceAttributeAction?: string;
+  deviceAttributeId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * private_access_policy_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Allow
+   */
+  policyAction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
+  status?: string;
+  /**
+   * @remarks
+   * 内网访问标签ID集合。最多可输入100个内网访问标签ID。当**ApplicationType**为**Tag时**，必填。和**ApplicationIds**互斥。
+   */
+  tagIds?: string[];
+  userGroupIds?: string[];
+  /**
+   * @remarks
+   * 内网访问策略的用户组类型。取值：
+   * - **Normal**：普通用户组。
+   * - **Custom**：自定义用户组。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Normal
+   */
+  userGroupMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      applicationType: 'ApplicationType',
+      customUserAttributes: 'CustomUserAttributes',
+      description: 'Description',
+      deviceAttributeAction: 'DeviceAttributeAction',
+      deviceAttributeId: 'DeviceAttributeId',
+      name: 'Name',
+      policyAction: 'PolicyAction',
+      priority: 'Priority',
+      status: 'Status',
+      tagIds: 'TagIds',
+      userGroupIds: 'UserGroupIds',
+      userGroupMode: 'UserGroupMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      applicationType: 'string',
+      customUserAttributes: { 'type': 'array', 'itemType': CreatePrivateAccessPolicyRequestCustomUserAttributes },
+      description: 'string',
+      deviceAttributeAction: 'string',
+      deviceAttributeId: 'string',
+      name: 'string',
+      policyAction: 'string',
+      priority: 'number',
+      status: 'string',
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      userGroupMode: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    if(Array.isArray(this.customUserAttributes)) {
+      $dara.Model.validateArray(this.customUserAttributes);
+    }
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateAccessPolicyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * pa-policy-867ef4007c8a****
+   */
+  policyId?: string;
+  /**
+   * @example
+   * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateAccessPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePrivateAccessPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePrivateAccessPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateAccessTagRequest extends $dara.Model {
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tag_name
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateAccessTagResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
+  requestId?: string;
+  /**
+   * @example
+   * tag-d3f64e8bdd4a****
+   */
+  tagId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tagId: 'TagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tagId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateAccessTagResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePrivateAccessTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePrivateAccessTagResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRegistrationPolicyRequest extends $dara.Model {
+  companyLimitCount?: CreateRegistrationPolicyRequestCompanyLimitCount;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LimitAll
+   */
+  companyLimitType?: string;
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UserGroupAll
+   */
+  matchMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * registration_policy_name
+   */
+  name?: string;
+  personalLimitCount?: CreateRegistrationPolicyRequestPersonalLimitCount;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LimitDiff
+   */
+  personalLimitType?: string;
+  /**
+   * @example
+   * 99
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
+  status?: string;
+  userGroupIds?: string[];
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      companyLimitCount: 'CompanyLimitCount',
+      companyLimitType: 'CompanyLimitType',
+      description: 'Description',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      personalLimitCount: 'PersonalLimitCount',
+      personalLimitType: 'PersonalLimitType',
+      priority: 'Priority',
+      status: 'Status',
+      userGroupIds: 'UserGroupIds',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      companyLimitCount: CreateRegistrationPolicyRequestCompanyLimitCount,
+      companyLimitType: 'string',
+      description: 'string',
+      matchMode: 'string',
+      name: 'string',
+      personalLimitCount: CreateRegistrationPolicyRequestPersonalLimitCount,
+      personalLimitType: 'string',
+      priority: 'number',
+      status: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.companyLimitCount && typeof (this.companyLimitCount as any).validate === 'function') {
+      (this.companyLimitCount as any).validate();
+    }
+    if(this.personalLimitCount && typeof (this.personalLimitCount as any).validate === 'function') {
+      (this.personalLimitCount as any).validate();
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    if(Array.isArray(this.whitelist)) {
+      $dara.Model.validateArray(this.whitelist);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRegistrationPolicyShrinkRequest extends $dara.Model {
+  companyLimitCountShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LimitAll
+   */
+  companyLimitType?: string;
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UserGroupAll
+   */
+  matchMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * registration_policy_name
+   */
+  name?: string;
+  personalLimitCountShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LimitDiff
+   */
+  personalLimitType?: string;
+  /**
+   * @example
+   * 99
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
+  status?: string;
+  userGroupIds?: string[];
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      companyLimitCountShrink: 'CompanyLimitCount',
+      companyLimitType: 'CompanyLimitType',
+      description: 'Description',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      personalLimitCountShrink: 'PersonalLimitCount',
+      personalLimitType: 'PersonalLimitType',
+      priority: 'Priority',
+      status: 'Status',
+      userGroupIds: 'UserGroupIds',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      companyLimitCountShrink: 'string',
+      companyLimitType: 'string',
+      description: 'string',
+      matchMode: 'string',
+      name: 'string',
+      personalLimitCountShrink: 'string',
+      personalLimitType: 'string',
+      priority: 'number',
+      status: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    if(Array.isArray(this.whitelist)) {
+      $dara.Model.validateArray(this.whitelist);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRegistrationPolicyResponseBody extends $dara.Model {
+  policy?: CreateRegistrationPolicyResponseBodyPolicy;
+  /**
+   * @example
+   * FEF1144C-95D1-5F7C-81EF-9DB70EA49FCE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: CreateRegistrationPolicyResponseBodyPolicy,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.policy && typeof (this.policy as any).validate === 'function') {
+      (this.policy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRegistrationPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRegistrationPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRegistrationPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUserGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  attributes?: CreateUserGroupRequestAttributes[];
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user_group_name
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      description: 'Description',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: { 'type': 'array', 'itemType': CreateUserGroupRequestAttributes },
+      description: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.attributes)) {
+      $dara.Model.validateArray(this.attributes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUserGroupResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
+  requestId?: string;
+  /**
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
+  userGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userGroupId: 'UserGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUserGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateUserGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateUserGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmBaseImageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1080
+   */
+  height?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 255
+   */
+  opacity?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  scale?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1920
+   */
+  width?: number;
+  /**
+   * @example
+   * aGVsbG8gc2F*****
+   */
+  wmInfoBytesB64?: string;
+  /**
+   * @example
+   * 32
+   */
+  wmInfoSize?: number;
+  /**
+   * @example
+   * 12*****
+   */
+  wmInfoUint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureWebappInvisible
+   */
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      opacity: 'Opacity',
+      scale: 'Scale',
+      width: 'Width',
+      wmInfoBytesB64: 'WmInfoBytesB64',
+      wmInfoSize: 'WmInfoSize',
+      wmInfoUint: 'WmInfoUint',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      opacity: 'number',
+      scale: 'number',
+      width: 'number',
+      wmInfoBytesB64: 'string',
+      wmInfoSize: 'number',
+      wmInfoUint: 'string',
+      wmType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmBaseImageResponseBody extends $dara.Model {
+  data?: CreateWmBaseImageResponseBodyData;
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateWmBaseImageResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmBaseImageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWmBaseImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWmBaseImageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequest extends $dara.Model {
+  csvControl?: CreateWmEmbedTaskRequestCsvControl;
+  documentControl?: CreateWmEmbedTaskRequestDocumentControl;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://example.com/abc****.pdf
+   */
+  fileUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * abc****.pdf
+   */
+  filename?: string;
+  /**
+   * @example
+   * 95
+   */
+  imageEmbedJpegQuality?: number;
+  /**
+   * @example
+   * 2
+   */
+  imageEmbedLevel?: number;
+  /**
+   * @example
+   * 3000k
+   */
+  videoBitrate?: string;
+  /**
+   * @example
+   * false
+   */
+  videoIsLong?: boolean;
+  /**
+   * @example
+   * aGVsbG8gc2F*****
+   */
+  wmInfoBytesB64?: string;
+  /**
+   * @example
+   * 32
+   */
+  wmInfoSize?: number;
+  /**
+   * @example
+   * 123***
+   */
+  wmInfoUint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureDocument
+   */
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      csvControl: 'CsvControl',
+      documentControl: 'DocumentControl',
+      fileUrl: 'FileUrl',
+      filename: 'Filename',
+      imageEmbedJpegQuality: 'ImageEmbedJpegQuality',
+      imageEmbedLevel: 'ImageEmbedLevel',
+      videoBitrate: 'VideoBitrate',
+      videoIsLong: 'VideoIsLong',
+      wmInfoBytesB64: 'WmInfoBytesB64',
+      wmInfoSize: 'WmInfoSize',
+      wmInfoUint: 'WmInfoUint',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csvControl: CreateWmEmbedTaskRequestCsvControl,
+      documentControl: CreateWmEmbedTaskRequestDocumentControl,
+      fileUrl: 'string',
+      filename: 'string',
+      imageEmbedJpegQuality: 'number',
+      imageEmbedLevel: 'number',
+      videoBitrate: 'string',
+      videoIsLong: 'boolean',
+      wmInfoBytesB64: 'string',
+      wmInfoSize: 'number',
+      wmInfoUint: 'string',
+      wmType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.csvControl && typeof (this.csvControl as any).validate === 'function') {
+      (this.csvControl as any).validate();
+    }
+    if(this.documentControl && typeof (this.documentControl as any).validate === 'function') {
+      (this.documentControl as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
+  csvControlShrink?: string;
+  documentControlShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://example.com/abc****.pdf
+   */
+  fileUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * abc****.pdf
+   */
+  filename?: string;
+  /**
+   * @example
+   * 95
+   */
+  imageEmbedJpegQuality?: number;
+  /**
+   * @example
+   * 2
+   */
+  imageEmbedLevel?: number;
+  /**
+   * @example
+   * 3000k
+   */
+  videoBitrate?: string;
+  /**
+   * @example
+   * false
+   */
+  videoIsLong?: boolean;
+  /**
+   * @example
+   * aGVsbG8gc2F*****
+   */
+  wmInfoBytesB64?: string;
+  /**
+   * @example
+   * 32
+   */
+  wmInfoSize?: number;
+  /**
+   * @example
+   * 123***
+   */
+  wmInfoUint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureDocument
+   */
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      csvControlShrink: 'CsvControl',
+      documentControlShrink: 'DocumentControl',
+      fileUrl: 'FileUrl',
+      filename: 'Filename',
+      imageEmbedJpegQuality: 'ImageEmbedJpegQuality',
+      imageEmbedLevel: 'ImageEmbedLevel',
+      videoBitrate: 'VideoBitrate',
+      videoIsLong: 'VideoIsLong',
+      wmInfoBytesB64: 'WmInfoBytesB64',
+      wmInfoSize: 'WmInfoSize',
+      wmInfoUint: 'WmInfoUint',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csvControlShrink: 'string',
+      documentControlShrink: 'string',
+      fileUrl: 'string',
+      filename: 'string',
+      imageEmbedJpegQuality: 'number',
+      imageEmbedLevel: 'number',
+      videoBitrate: 'string',
+      videoIsLong: 'boolean',
+      wmInfoBytesB64: 'string',
+      wmInfoSize: 'number',
+      wmInfoUint: 'string',
+      wmType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskResponseBody extends $dara.Model {
+  data?: CreateWmEmbedTaskResponseBodyData;
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateWmEmbedTaskResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWmEmbedTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWmEmbedTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmExtractTaskRequest extends $dara.Model {
+  csvControl?: CreateWmExtractTaskRequestCsvControl;
+  /**
+   * @example
+   * false
+   */
+  documentIsCapture?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://example.com/test-****.pdf
+   */
+  fileUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-****.pdf
+   */
+  filename?: string;
+  /**
+   * @example
+   * false
+   */
+  videoIsLong?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  videoSpeed?: string;
+  /**
+   * @example
+   * 32
+   */
+  wmInfoSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureDocument
+   */
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      csvControl: 'CsvControl',
+      documentIsCapture: 'DocumentIsCapture',
+      fileUrl: 'FileUrl',
+      filename: 'Filename',
+      videoIsLong: 'VideoIsLong',
+      videoSpeed: 'VideoSpeed',
+      wmInfoSize: 'WmInfoSize',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csvControl: CreateWmExtractTaskRequestCsvControl,
+      documentIsCapture: 'boolean',
+      fileUrl: 'string',
+      filename: 'string',
+      videoIsLong: 'boolean',
+      videoSpeed: 'string',
+      wmInfoSize: 'number',
+      wmType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.csvControl && typeof (this.csvControl as any).validate === 'function') {
+      (this.csvControl as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmExtractTaskShrinkRequest extends $dara.Model {
+  csvControlShrink?: string;
+  /**
+   * @example
+   * false
+   */
+  documentIsCapture?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://example.com/test-****.pdf
+   */
+  fileUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-****.pdf
+   */
+  filename?: string;
+  /**
+   * @example
+   * false
+   */
+  videoIsLong?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  videoSpeed?: string;
+  /**
+   * @example
+   * 32
+   */
+  wmInfoSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureDocument
+   */
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      csvControlShrink: 'CsvControl',
+      documentIsCapture: 'DocumentIsCapture',
+      fileUrl: 'FileUrl',
+      filename: 'Filename',
+      videoIsLong: 'VideoIsLong',
+      videoSpeed: 'VideoSpeed',
+      wmInfoSize: 'WmInfoSize',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csvControlShrink: 'string',
+      documentIsCapture: 'boolean',
+      fileUrl: 'string',
+      filename: 'string',
+      videoIsLong: 'boolean',
+      videoSpeed: 'string',
+      wmInfoSize: 'number',
+      wmType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmExtractTaskResponseBody extends $dara.Model {
+  data?: CreateWmExtractTaskResponseBodyData;
+  /**
+   * @example
+   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateWmExtractTaskResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmExtractTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWmExtractTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWmExtractTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmInfoMappingRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aGVsbG8gc2F*****
+   */
+  wmInfoBytesB64?: string;
+  /**
+   * @example
+   * 32
+   */
+  wmInfoSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureDocument
+   */
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      wmInfoBytesB64: 'WmInfoBytesB64',
+      wmInfoSize: 'WmInfoSize',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      wmInfoBytesB64: 'string',
+      wmInfoSize: 'number',
+      wmType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmInfoMappingResponseBody extends $dara.Model {
+  data?: CreateWmInfoMappingResponseBodyData;
+  /**
+   * @example
+   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateWmInfoMappingResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmInfoMappingResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWmInfoMappingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWmInfoMappingResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApprovalProcessesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  processIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      processIds: 'ProcessIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.processIds)) {
+      $dara.Model.validateArray(this.processIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApprovalProcessesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * B608C6AE-623D-55C4-9454-601B88AE937E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApprovalProcessesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteApprovalProcessesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteApprovalProcessesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientUserRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 27058
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientUserResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientUserResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteClientUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteClientUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDynamicRouteRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dr-ca9fddfac7c6****
+   */
+  dynamicRouteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRouteId: 'DynamicRouteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRouteId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDynamicRouteResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 748CFDC7-1EB6-5B8B-9405-DA76ED5BB60D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDynamicRouteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDynamicRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDynamicRouteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIdpDepartmentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10829
+   */
+  departmentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 507
+   */
+  idpConfigId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentId: 'DepartmentId',
+      idpConfigId: 'IdpConfigId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentId: 'string',
+      idpConfigId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIdpDepartmentResponseBody extends $dara.Model {
+  /**
+   * @example
+   * FEF1144C-95D1-5F7C-81EF-9DB70EA49FCE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIdpDepartmentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIdpDepartmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIdpDepartmentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrivateAccessApplicationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pa-application-e12860ef6c48****
+   */
+  applicationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrivateAccessApplicationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrivateAccessApplicationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePrivateAccessApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePrivateAccessApplicationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrivateAccessPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pa-policy-867ef4007c8a****
+   */
+  policyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrivateAccessPolicyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrivateAccessPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePrivateAccessPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePrivateAccessPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrivateAccessTagRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tag-d3f64e8bdd4a****
+   */
+  tagId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagId: 'TagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrivateAccessTagResponseBody extends $dara.Model {
+  /**
+   * @example
+   * FD724DBC-CD76-5235-BF76-59C51B73296D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrivateAccessTagResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePrivateAccessTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePrivateAccessTagResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRegistrationPoliciesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  policyIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRegistrationPoliciesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRegistrationPoliciesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRegistrationPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRegistrationPoliciesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserDevicesRequest extends $dara.Model {
+  deviceTags?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      deviceTags: 'DeviceTags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceTags: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.deviceTags)) {
+      $dara.Model.validateArray(this.deviceTags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserDevicesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserDevicesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteUserDevicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteUserDevicesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
+  userGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userGroupId: 'UserGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserGroupResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteUserGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteUserGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachApplication2ConnectorRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  applicationIds?: string[];
+  /**
+   * @remarks
+   * ConnectorID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * connector-94db94e06b98****
+   */
+  connectorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      connectorId: 'ConnectorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      connectorId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachApplication2ConnectorShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  applicationIdsShrink?: string;
+  /**
+   * @remarks
+   * ConnectorID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * connector-94db94e06b98****
+   */
+  connectorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationIdsShrink: 'ApplicationIds',
+      connectorId: 'ConnectorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIdsShrink: 'string',
+      connectorId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachApplication2ConnectorResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachApplication2ConnectorResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachApplication2ConnectorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachApplication2ConnectorResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachPolicy2ApprovalProcessRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ladp-27a4fedf5e73****
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PeripheralBlock
+   */
+  policyType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * approval-process-2677fcf063f5****
+   */
+  processId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      policyType: 'PolicyType',
+      processId: 'ProcessId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      policyType: 'string',
+      processId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachPolicy2ApprovalProcessResponseBody extends $dara.Model {
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachPolicy2ApprovalProcessResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachPolicy2ApprovalProcessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachPolicy2ApprovalProcessResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportUserDevicesRequest extends $dara.Model {
+  appStatuses?: string[];
+  department?: string;
+  /**
+   * @example
+   * Company
+   */
+  deviceBelong?: string;
+  deviceStatuses?: string[];
+  deviceTags?: string[];
+  deviceTypes?: string[];
+  dlpStatuses?: string[];
+  /**
+   * @example
+   * win10-64bit
+   */
+  hostname?: string;
+  iaStatuses?: string[];
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
+  mac?: string;
+  nacStatuses?: string[];
+  paStatuses?: string[];
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  /**
+   * @example
+   * true
+   */
+  sharingStatus?: boolean;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appStatuses: 'AppStatuses',
+      department: 'Department',
+      deviceBelong: 'DeviceBelong',
+      deviceStatuses: 'DeviceStatuses',
+      deviceTags: 'DeviceTags',
+      deviceTypes: 'DeviceTypes',
+      dlpStatuses: 'DlpStatuses',
+      hostname: 'Hostname',
+      iaStatuses: 'IaStatuses',
+      mac: 'Mac',
+      nacStatuses: 'NacStatuses',
+      paStatuses: 'PaStatuses',
+      saseUserId: 'SaseUserId',
+      sharingStatus: 'SharingStatus',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appStatuses: { 'type': 'array', 'itemType': 'string' },
+      department: 'string',
+      deviceBelong: 'string',
+      deviceStatuses: { 'type': 'array', 'itemType': 'string' },
+      deviceTags: { 'type': 'array', 'itemType': 'string' },
+      deviceTypes: { 'type': 'array', 'itemType': 'string' },
+      dlpStatuses: { 'type': 'array', 'itemType': 'string' },
+      hostname: 'string',
+      iaStatuses: { 'type': 'array', 'itemType': 'string' },
+      mac: 'string',
+      nacStatuses: { 'type': 'array', 'itemType': 'string' },
+      paStatuses: { 'type': 'array', 'itemType': 'string' },
+      saseUserId: 'string',
+      sharingStatus: 'boolean',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appStatuses)) {
+      $dara.Model.validateArray(this.appStatuses);
+    }
+    if(Array.isArray(this.deviceStatuses)) {
+      $dara.Model.validateArray(this.deviceStatuses);
+    }
+    if(Array.isArray(this.deviceTags)) {
+      $dara.Model.validateArray(this.deviceTags);
+    }
+    if(Array.isArray(this.deviceTypes)) {
+      $dara.Model.validateArray(this.deviceTypes);
+    }
+    if(Array.isArray(this.dlpStatuses)) {
+      $dara.Model.validateArray(this.dlpStatuses);
+    }
+    if(Array.isArray(this.iaStatuses)) {
+      $dara.Model.validateArray(this.iaStatuses);
+    }
+    if(Array.isArray(this.nacStatuses)) {
+      $dara.Model.validateArray(this.nacStatuses);
+    }
+    if(Array.isArray(this.paStatuses)) {
+      $dara.Model.validateArray(this.paStatuses);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportUserDevicesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 748CFDC7-1EB6-5B8B-9405-DA76ED5BB60D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * https://sase-export.oss-cn-hangzhou.aliyuncs.com/export%2Fapp-device%2F20240607154831.xlsx?Expires=1717746571&OSSAccessKeyId=********************
+   */
+  signedUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      signedUrl: 'SignedUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      signedUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportUserDevicesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportUserDevicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExportUserDevicesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetActiveIdpConfigResponseBody extends $dara.Model {
+  data?: GetActiveIdpConfigResponseBodyData;
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetActiveIdpConfigResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetActiveIdpConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetActiveIdpConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetActiveIdpConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * approval-872b5e911b35****
+   */
+  approvalId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvalId: 'ApprovalId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalResponseBody extends $dara.Model {
+  approval?: GetApprovalResponseBodyApproval[];
+  /**
+   * @example
+   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approval: 'Approval',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approval: { 'type': 'array', 'itemType': GetApprovalResponseBodyApproval },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.approval)) {
+      $dara.Model.validateArray(this.approval);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetApprovalResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetApprovalResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalProcessRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * approval-process-fcc351b8a95b****
+   */
+  processId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      processId: 'ProcessId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalProcessResponseBody extends $dara.Model {
+  process?: GetApprovalProcessResponseBodyProcess;
+  /**
+   * @example
+   * C81E0B4B-AAEB-5FDD-B27E-3F5AF7EBD7EF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      process: 'Process',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      process: GetApprovalProcessResponseBodyProcess,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.process && typeof (this.process as any).validate === 'function') {
+      (this.process as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalProcessResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetApprovalProcessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetApprovalProcessResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalSchemaRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalSchemaResponseBody extends $dara.Model {
+  /**
+   * @example
+   * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
+   */
+  requestId?: string;
+  schema?: GetApprovalSchemaResponseBodySchema;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      schema: 'Schema',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      schema: GetApprovalSchemaResponseBodySchema,
+    };
+  }
+
+  validate() {
+    if(this.schema && typeof (this.schema as any).validate === 'function') {
+      (this.schema as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApprovalSchemaResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetApprovalSchemaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetApprovalSchemaResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBootAndAntiUninstallPolicyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * CB67D866-1E54-5106-89DF-6D70C73E5989
+   */
+  requestId?: string;
+  strategy?: GetBootAndAntiUninstallPolicyResponseBodyStrategy;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      strategy: 'Strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      strategy: GetBootAndAntiUninstallPolicyResponseBodyStrategy,
+    };
+  }
+
+  validate() {
+    if(this.strategy && typeof (this.strategy as any).validate === 'function') {
+      (this.strategy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBootAndAntiUninstallPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBootAndAntiUninstallPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBootAndAntiUninstallPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientUserRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 598
+   */
+  idpConfigId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      idpConfigId: 'IdpConfigId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idpConfigId: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientUserResponseBody extends $dara.Model {
+  data?: GetClientUserResponseBodyData;
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetClientUserResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientUserResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClientUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClientUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDynamicRouteRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dr-16ff07c8207d****
+   */
+  dynamicRouteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRouteId: 'DynamicRouteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRouteId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDynamicRouteResponseBody extends $dara.Model {
+  dynamicRoute?: GetDynamicRouteResponseBodyDynamicRoute;
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRoute: 'DynamicRoute',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRoute: GetDynamicRouteResponseBodyDynamicRoute,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dynamicRoute && typeof (this.dynamicRoute as any).validate === 'function') {
+      (this.dynamicRoute as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDynamicRouteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDynamicRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDynamicRouteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdpConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1465
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdpConfigResponseBody extends $dara.Model {
+  data?: GetIdpConfigResponseBodyData;
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetIdpConfigResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdpConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIdpConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIdpConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrivateAccessApplicationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pa-application-e12860ef6c48****
+   */
+  applicationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrivateAccessApplicationResponseBody extends $dara.Model {
+  application?: GetPrivateAccessApplicationResponseBodyApplication;
+  /**
+   * @example
+   * 3ACC5EDC-2B7D-5032-8C58-D7615D66C1D4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      application: 'Application',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      application: GetPrivateAccessApplicationResponseBodyApplication,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.application && typeof (this.application as any).validate === 'function') {
+      (this.application as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrivateAccessApplicationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPrivateAccessApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPrivateAccessApplicationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrivateAccessPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pa-policy-63b2f1844b86****
+   */
+  policyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrivateAccessPolicyResponseBody extends $dara.Model {
+  policy?: GetPrivateAccessPolicyResponseBodyPolicy;
+  /**
+   * @example
+   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: GetPrivateAccessPolicyResponseBodyPolicy,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.policy && typeof (this.policy as any).validate === 'function') {
+      (this.policy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrivateAccessPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPrivateAccessPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPrivateAccessPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegistrationPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * reg-policy-dcbfd33cb004****
+   */
+  policyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegistrationPolicyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 2023-05-16 17:18:46
+   */
+  createTime?: string;
+  description?: string;
+  limitDetail?: GetRegistrationPolicyResponseBodyLimitDetail[];
+  /**
+   * @example
+   * UserGroupAll
+   */
+  matchMode?: string;
+  /**
+   * @example
+   * registration_policy_name
+   */
+  name?: string;
+  /**
+   * @example
+   * reg-policy-dcbfd33cb004****
+   */
+  policyId?: string;
+  /**
+   * @example
+   * 99
+   */
+  priority?: number;
+  /**
+   * @example
+   * 47363C2B-1AAA-5954-8847-0E50FCC54117
+   */
+  requestId?: string;
+  /**
+   * @example
+   * Enabled
+   */
+  status?: string;
+  userGroupIds?: string[];
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      limitDetail: 'LimitDetail',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      policyId: 'PolicyId',
+      priority: 'Priority',
+      requestId: 'RequestId',
+      status: 'Status',
+      userGroupIds: 'UserGroupIds',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      limitDetail: { 'type': 'array', 'itemType': GetRegistrationPolicyResponseBodyLimitDetail },
+      matchMode: 'string',
+      name: 'string',
+      policyId: 'string',
+      priority: 'number',
+      requestId: 'string',
+      status: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.limitDetail)) {
+      $dara.Model.validateArray(this.limitDetail);
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    if(Array.isArray(this.whitelist)) {
+      $dara.Model.validateArray(this.whitelist);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegistrationPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRegistrationPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRegistrationPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserDeviceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
+  deviceTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceTag: 'DeviceTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceTag: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserDeviceResponseBody extends $dara.Model {
+  device?: GetUserDeviceResponseBodyDevice;
+  /**
+   * @example
+   * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      device: 'Device',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      device: GetUserDeviceResponseBodyDevice,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.device && typeof (this.device as any).validate === 'function') {
+      (this.device as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserDeviceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserDeviceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  userGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userGroupId: 'UserGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserGroupResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1310DBC7-7E1F-55D3-B4B4-E4BE912517FB
+   */
+  requestId?: string;
+  userGroup?: GetUserGroupResponseBodyUserGroup;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userGroup: 'UserGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userGroup: GetUserGroupResponseBodyUserGroup,
+    };
+  }
+
+  validate() {
+    if(this.userGroup && typeof (this.userGroup as any).validate === 'function') {
+      (this.userGroup as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmEmbedTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job:5GfrJYsoaffmCE7Z5bZtjU********
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmEmbedTaskResponseBody extends $dara.Model {
+  data?: GetWmEmbedTaskResponseBodyData;
+  /**
+   * @example
+   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetWmEmbedTaskResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmEmbedTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWmEmbedTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWmEmbedTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmExtractTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * wmt-9648c22d2eb2cb57bb855dcae7898464********
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmExtractTaskResponseBody extends $dara.Model {
+  data?: GetWmExtractTaskResponseBodyData;
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetWmExtractTaskResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWmExtractTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWmExtractTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWmExtractTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsForPrivateAccessPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  policyIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsForPrivateAccessPolicyResponseBody extends $dara.Model {
+  polices?: ListApplicationsForPrivateAccessPolicyResponseBodyPolices[];
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      polices: 'Polices',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      polices: { 'type': 'array', 'itemType': ListApplicationsForPrivateAccessPolicyResponseBodyPolices },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.polices)) {
+      $dara.Model.validateArray(this.polices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsForPrivateAccessPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApplicationsForPrivateAccessPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApplicationsForPrivateAccessPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsForPrivateAccessTagRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tagIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      tagIds: 'TagIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsForPrivateAccessTagResponseBody extends $dara.Model {
+  /**
+   * @example
+   * B608C6AE-623D-55C4-9454-601B88AE937E
+   */
+  requestId?: string;
+  tags?: ListApplicationsForPrivateAccessTagResponseBodyTags[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tags: { 'type': 'array', 'itemType': ListApplicationsForPrivateAccessTagResponseBodyTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsForPrivateAccessTagResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApplicationsForPrivateAccessTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApplicationsForPrivateAccessTagResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * pid-6d6ad77d5b52****
+   */
+  policyId?: string;
+  /**
+   * @example
+   * DlpSend
+   */
+  policyType?: string;
+  processIds?: string[];
+  /**
+   * @example
+   * test
+   */
+  processName?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      policyId: 'PolicyId',
+      policyType: 'PolicyType',
+      processIds: 'ProcessIds',
+      processName: 'ProcessName',
+      saseUserId: 'SaseUserId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      policyId: 'string',
+      policyType: 'string',
+      processIds: { 'type': 'array', 'itemType': 'string' },
+      processName: 'string',
+      saseUserId: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.processIds)) {
+      $dara.Model.validateArray(this.processIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesResponseBody extends $dara.Model {
+  processes?: ListApprovalProcessesResponseBodyProcesses[];
+  /**
+   * @example
+   * 7E39C33B-F565-55C6-ACC2-953FCE7DA7D6
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: string;
+  static names(): { [key: string]: string } {
+    return {
+      processes: 'Processes',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processes: { 'type': 'array', 'itemType': ListApprovalProcessesResponseBodyProcesses },
+      requestId: 'string',
+      totalNum: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.processes)) {
+      $dara.Model.validateArray(this.processes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApprovalProcessesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApprovalProcessesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesForApprovalSchemasRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  schemaIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      schemaIds: 'SchemaIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      schemaIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.schemaIds)) {
+      $dara.Model.validateArray(this.schemaIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesForApprovalSchemasResponseBody extends $dara.Model {
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
+  requestId?: string;
+  schemas?: ListApprovalProcessesForApprovalSchemasResponseBodySchemas[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      schemas: 'Schemas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      schemas: { 'type': 'array', 'itemType': ListApprovalProcessesForApprovalSchemasResponseBodySchemas },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.schemas)) {
+      $dara.Model.validateArray(this.schemas);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalProcessesForApprovalSchemasResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApprovalProcessesForApprovalSchemasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApprovalProcessesForApprovalSchemasResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalSchemasRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * DlpSend
+   */
+  policyType?: string;
+  schemaIds?: string[];
+  /**
+   * @example
+   * test
+   */
+  schemaName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      policyType: 'PolicyType',
+      schemaIds: 'SchemaIds',
+      schemaName: 'SchemaName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      policyType: 'string',
+      schemaIds: { 'type': 'array', 'itemType': 'string' },
+      schemaName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.schemaIds)) {
+      $dara.Model.validateArray(this.schemaIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalSchemasResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
+  requestId?: string;
+  schemas?: ListApprovalSchemasResponseBodySchemas[];
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      schemas: 'Schemas',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      schemas: { 'type': 'array', 'itemType': ListApprovalSchemasResponseBodySchemas },
+      totalNum: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.schemas)) {
+      $dara.Model.validateArray(this.schemas);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalSchemasResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApprovalSchemasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApprovalSchemasResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalSchemasForApprovalProcessesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  processIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      processIds: 'ProcessIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.processIds)) {
+      $dara.Model.validateArray(this.processIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalSchemasForApprovalProcessesResponseBody extends $dara.Model {
+  processes?: ListApprovalSchemasForApprovalProcessesResponseBodyProcesses[];
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      processes: 'Processes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processes: { 'type': 'array', 'itemType': ListApprovalSchemasForApprovalProcessesResponseBodyProcesses },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.processes)) {
+      $dara.Model.validateArray(this.processes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalSchemasForApprovalProcessesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApprovalSchemasForApprovalProcessesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApprovalSchemasForApprovalProcessesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalsRequest extends $dara.Model {
+  approvalIds?: string[];
+  /**
+   * @example
+   * 1736750500
+   */
+  createEndTime?: number;
+  /**
+   * @example
+   * 1730000000
+   */
+  createStartTime?: number;
+  creatorDepartment?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
+  creatorDevTag?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  creatorUserId?: string;
+  creatorUsername?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  operatorUserId?: string;
+  operatorUsername?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * DlpSend
+   */
+  policyType?: string;
+  /**
+   * @example
+   * approval-process-fcc351b8a95b****
+   */
+  processId?: string;
+  processName?: string;
+  /**
+   * @example
+   * approval-schema-090134f1ebff****
+   */
+  schemaId?: string;
+  /**
+   * @example
+   * test
+   */
+  schemaName?: string;
+  statuses?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      approvalIds: 'ApprovalIds',
+      createEndTime: 'CreateEndTime',
+      createStartTime: 'CreateStartTime',
+      creatorDepartment: 'CreatorDepartment',
+      creatorDevTag: 'CreatorDevTag',
+      creatorUserId: 'CreatorUserId',
+      creatorUsername: 'CreatorUsername',
+      currentPage: 'CurrentPage',
+      operatorUserId: 'OperatorUserId',
+      operatorUsername: 'OperatorUsername',
+      pageSize: 'PageSize',
+      policyType: 'PolicyType',
+      processId: 'ProcessId',
+      processName: 'ProcessName',
+      schemaId: 'SchemaId',
+      schemaName: 'SchemaName',
+      statuses: 'Statuses',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalIds: { 'type': 'array', 'itemType': 'string' },
+      createEndTime: 'number',
+      createStartTime: 'number',
+      creatorDepartment: 'string',
+      creatorDevTag: 'string',
+      creatorUserId: 'string',
+      creatorUsername: 'string',
+      currentPage: 'number',
+      operatorUserId: 'string',
+      operatorUsername: 'string',
+      pageSize: 'number',
+      policyType: 'string',
+      processId: 'string',
+      processName: 'string',
+      schemaId: 'string',
+      schemaName: 'string',
+      statuses: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.approvalIds)) {
+      $dara.Model.validateArray(this.approvalIds);
+    }
+    if(Array.isArray(this.statuses)) {
+      $dara.Model.validateArray(this.statuses);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalsResponseBody extends $dara.Model {
+  approvals?: ListApprovalsResponseBodyApprovals[];
+  /**
+   * @example
+   * 6965F5BA-53B6-5650-A708-51F090F843BB
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvals: 'Approvals',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvals: { 'type': 'array', 'itemType': ListApprovalsResponseBodyApprovals },
+      requestId: 'string',
+      totalNum: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.approvals)) {
+      $dara.Model.validateArray(this.approvals);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApprovalsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApprovalsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApprovalsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientUsersRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * 10785
+   */
+  departmentId?: string;
+  /**
+   * @example
+   * johndoe@example.com
+   */
+  email?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1071
+   */
+  idpConfigId?: string;
+  /**
+   * @example
+   * 18980976559
+   */
+  mobileNumber?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Enabled
+   */
+  status?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      departmentId: 'DepartmentId',
+      email: 'Email',
+      idpConfigId: 'IdpConfigId',
+      mobileNumber: 'MobileNumber',
+      pageSize: 'PageSize',
+      status: 'Status',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      departmentId: 'string',
+      email: 'string',
+      idpConfigId: 'string',
+      mobileNumber: 'string',
+      pageSize: 'number',
+      status: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientUsersResponseBody extends $dara.Model {
+  data?: ListClientUsersResponseBodyData;
+  /**
+   * @example
+   * FEF1144C-95D1-5F7C-81EF-9DB70EA49FCE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListClientUsersResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientUsersResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListClientUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListClientUsersResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConnectorsRequest extends $dara.Model {
+  connectorIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * connector_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  status?: string;
+  switchStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectorIds: 'ConnectorIds',
+      currentPage: 'CurrentPage',
+      name: 'Name',
+      pageSize: 'PageSize',
+      status: 'Status',
+      switchStatus: 'SwitchStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectorIds: { 'type': 'array', 'itemType': 'string' },
+      currentPage: 'number',
+      name: 'string',
+      pageSize: 'number',
+      status: 'string',
+      switchStatus: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.connectorIds)) {
+      $dara.Model.validateArray(this.connectorIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConnectorsResponseBody extends $dara.Model {
+  connectors?: ListConnectorsResponseBodyConnectors[];
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectors: 'Connectors',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectors: { 'type': 'array', 'itemType': ListConnectorsResponseBodyConnectors },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.connectors)) {
+      $dara.Model.validateArray(this.connectors);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConnectorsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConnectorsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListConnectorsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDynamicRouteRegionsResponseBody extends $dara.Model {
+  regions?: string[];
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDynamicRouteRegionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDynamicRouteRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDynamicRouteRegionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDynamicRoutesRequest extends $dara.Model {
+  /**
+   * @example
+   * pa-application-e12860ef6c48****
+   */
+  applicationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  dynamicRouteIds?: string[];
+  /**
+   * @example
+   * dynamic_route_name
+   */
+  name?: string;
+  /**
+   * @example
+   * connector-8ccb13b6f52c****
+   */
+  nextHop?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  regionIds?: string[];
+  /**
+   * @example
+   * Enabled
+   */
+  status?: string;
+  /**
+   * @example
+   * tag-d3f64e8bdd4a****
+   */
+  tagId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      currentPage: 'CurrentPage',
+      dynamicRouteIds: 'DynamicRouteIds',
+      name: 'Name',
+      nextHop: 'NextHop',
+      pageSize: 'PageSize',
+      regionIds: 'RegionIds',
+      status: 'Status',
+      tagId: 'TagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      currentPage: 'number',
+      dynamicRouteIds: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      nextHop: 'string',
+      pageSize: 'number',
+      regionIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      tagId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dynamicRouteIds)) {
+      $dara.Model.validateArray(this.dynamicRouteIds);
+    }
+    if(Array.isArray(this.regionIds)) {
+      $dara.Model.validateArray(this.regionIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDynamicRoutesResponseBody extends $dara.Model {
+  dynamicRoutes?: ListDynamicRoutesResponseBodyDynamicRoutes[];
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRoutes: 'DynamicRoutes',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRoutes: { 'type': 'array', 'itemType': ListDynamicRoutesResponseBodyDynamicRoutes },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dynamicRoutes)) {
+      $dara.Model.validateArray(this.dynamicRoutes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDynamicRoutesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDynamicRoutesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDynamicRoutesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExcessiveDeviceRegistrationApplicationsRequest extends $dara.Model {
+  applicationIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  department?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
+  deviceTag?: string;
+  /**
+   * @example
+   * win10-64bit
+   */
+  hostname?: string;
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
+  mac?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  statuses?: string[];
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      currentPage: 'CurrentPage',
+      department: 'Department',
+      deviceTag: 'DeviceTag',
+      hostname: 'Hostname',
+      mac: 'Mac',
+      pageSize: 'PageSize',
+      saseUserId: 'SaseUserId',
+      statuses: 'Statuses',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      currentPage: 'number',
+      department: 'string',
+      deviceTag: 'string',
+      hostname: 'string',
+      mac: 'string',
+      pageSize: 'number',
+      saseUserId: 'string',
+      statuses: { 'type': 'array', 'itemType': 'string' },
+      username: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    if(Array.isArray(this.statuses)) {
+      $dara.Model.validateArray(this.statuses);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExcessiveDeviceRegistrationApplicationsResponseBody extends $dara.Model {
+  applications?: ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications[];
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: { 'type': 'array', 'itemType': ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applications)) {
+      $dara.Model.validateArray(this.applications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExcessiveDeviceRegistrationApplicationsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListExcessiveDeviceRegistrationApplicationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListExcessiveDeviceRegistrationApplicationsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpConfigsRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * CSAS,DingTalk,LDAP
+   */
+  include?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      include: 'Include',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      include: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpConfigsResponseBody extends $dara.Model {
+  data?: ListIdpConfigsResponseBodyData;
+  /**
+   * @example
+   * FD724DBC-CD76-5235-BF76-59C51B73296D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListIdpConfigsResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpConfigsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIdpConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIdpConfigsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpDepartmentsRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1440
+   */
+  idpConfigId?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      idpConfigId: 'IdpConfigId',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      idpConfigId: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpDepartmentsResponseBody extends $dara.Model {
+  data?: ListIdpDepartmentsResponseBodyData;
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListIdpDepartmentsResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpDepartmentsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIdpDepartmentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIdpDepartmentsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNacUserCertRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: string;
+  department?: string;
+  /**
+   * @example
+   * windows
+   */
+  deviceType?: string;
+  /**
+   * @example
+   * 1702770400
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * 1702260834
+   */
+  startTime?: number;
+  /**
+   * @example
+   * Enabled
+   */
+  status?: string;
+  /**
+   * @example
+   * zhang**
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      department: 'Department',
+      deviceType: 'DeviceType',
+      endTime: 'EndTime',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      status: 'Status',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'string',
+      department: 'string',
+      deviceType: 'string',
+      endTime: 'number',
+      pageSize: 'string',
+      startTime: 'number',
+      status: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNacUserCertResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  dataList?: ListNacUserCertResponseBodyDataList[];
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      dataList: 'DataList',
+      message: 'Message',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      dataList: { 'type': 'array', 'itemType': ListNacUserCertResponseBodyDataList },
+      message: 'string',
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dataList)) {
+      $dara.Model.validateArray(this.dataList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNacUserCertResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNacUserCertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNacUserCertResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicesForPrivateAccessApplicationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  applicationIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicesForPrivateAccessApplicationResponseBody extends $dara.Model {
+  applications?: ListPolicesForPrivateAccessApplicationResponseBodyApplications[];
+  /**
+   * @example
+   * 4AB972E2-D702-5464-B132-B1911498B8BF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: { 'type': 'array', 'itemType': ListPolicesForPrivateAccessApplicationResponseBodyApplications },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applications)) {
+      $dara.Model.validateArray(this.applications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicesForPrivateAccessApplicationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPolicesForPrivateAccessApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPolicesForPrivateAccessApplicationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicesForPrivateAccessTagRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tagIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      tagIds: 'TagIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicesForPrivateAccessTagResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
+  requestId?: string;
+  tags?: ListPolicesForPrivateAccessTagResponseBodyTags[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tags: { 'type': 'array', 'itemType': ListPolicesForPrivateAccessTagResponseBodyTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicesForPrivateAccessTagResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPolicesForPrivateAccessTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPolicesForPrivateAccessTagResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicesForUserGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  userGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      userGroupIds: 'UserGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicesForUserGroupResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 5F04DFBD-3F48-5F70-AE72-474026670128
+   */
+  requestId?: string;
+  userGroups?: ListPolicesForUserGroupResponseBodyUserGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userGroups: 'UserGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userGroups: { 'type': 'array', 'itemType': ListPolicesForUserGroupResponseBodyUserGroups },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.userGroups)) {
+      $dara.Model.validateArray(this.userGroups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicesForUserGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPolicesForUserGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPolicesForUserGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPopTrafficStatisticsRequest extends $dara.Model {
+  /**
+   * @example
+   * 1681293719
+   */
+  endTime?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @example
+   * 1681035708
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      region: 'Region',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      region: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPopTrafficStatisticsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
+   */
+  requestId?: string;
+  trafficData?: ListPopTrafficStatisticsResponseBodyTrafficData[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      trafficData: 'TrafficData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      trafficData: { 'type': 'array', 'itemType': ListPopTrafficStatisticsResponseBodyTrafficData },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.trafficData)) {
+      $dara.Model.validateArray(this.trafficData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPopTrafficStatisticsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPopTrafficStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPopTrafficStatisticsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessApplicationsRequest extends $dara.Model {
+  accessModes?: string;
+  /**
+   * @example
+   * 192.168.0.0/16
+   */
+  address?: string;
+  applicationIds?: string[];
+  connectorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * private_access_application_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * pa-policy-54a7838a48bf****
+   */
+  policyId?: string;
+  /**
+   * @example
+   * Enabled
+   */
+  status?: string;
+  /**
+   * @example
+   * tag-d3f64e8bdd4a****
+   */
+  tagId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessModes: 'AccessModes',
+      address: 'Address',
+      applicationIds: 'ApplicationIds',
+      connectorId: 'ConnectorId',
+      currentPage: 'CurrentPage',
+      name: 'Name',
+      pageSize: 'PageSize',
+      policyId: 'PolicyId',
+      status: 'Status',
+      tagId: 'TagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessModes: 'string',
+      address: 'string',
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      connectorId: 'string',
+      currentPage: 'number',
+      name: 'string',
+      pageSize: 'number',
+      policyId: 'string',
+      status: 'string',
+      tagId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessApplicationsResponseBody extends $dara.Model {
+  applications?: ListPrivateAccessApplicationsResponseBodyApplications[];
+  /**
+   * @example
+   * 748CFDC7-1EB6-5B8B-9405-DA76ED5BB60D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: { 'type': 'array', 'itemType': ListPrivateAccessApplicationsResponseBodyApplications },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applications)) {
+      $dara.Model.validateArray(this.applications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessApplicationsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPrivateAccessApplicationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPrivateAccessApplicationsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessApplicationsForDynamicRouteRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dynamicRouteIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRouteIds: 'DynamicRouteIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRouteIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dynamicRouteIds)) {
+      $dara.Model.validateArray(this.dynamicRouteIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessApplicationsForDynamicRouteResponseBody extends $dara.Model {
+  dynamicRoutes?: ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes[];
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRoutes: 'DynamicRoutes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRoutes: { 'type': 'array', 'itemType': ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dynamicRoutes)) {
+      $dara.Model.validateArray(this.dynamicRoutes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessApplicationsForDynamicRouteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPrivateAccessApplicationsForDynamicRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPrivateAccessApplicationsForDynamicRouteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessPolicesRequest extends $dara.Model {
+  /**
+   * @example
+   * pa-application-e12860ef6c48****
+   */
+  applicationId?: string;
+  applicationName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * private_access_policy_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Allow
+   */
+  policyAction?: string;
+  policyIds?: string[];
+  /**
+   * @example
+   * Enabled
+   */
+  status?: string;
+  /**
+   * @example
+   * tag-c0cb77857a99****
+   */
+  tagId?: string;
+  tagName?: string;
+  /**
+   * @remarks
+   * 用户组ID。取值来源：
+   * - [ListUserGroups](~~ListUserGroups~~)：批量查询用户组。
+   * - [CreateUserGroup](~~CreateUserGroup~~)：创建用户组。
+   * 
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
+  userGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      applicationName: 'ApplicationName',
+      currentPage: 'CurrentPage',
+      name: 'Name',
+      pageSize: 'PageSize',
+      policyAction: 'PolicyAction',
+      policyIds: 'PolicyIds',
+      status: 'Status',
+      tagId: 'TagId',
+      tagName: 'TagName',
+      userGroupId: 'UserGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      applicationName: 'string',
+      currentPage: 'number',
+      name: 'string',
+      pageSize: 'number',
+      policyAction: 'string',
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      tagId: 'string',
+      tagName: 'string',
+      userGroupId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessPolicesResponseBody extends $dara.Model {
+  polices?: ListPrivateAccessPolicesResponseBodyPolices[];
+  /**
+   * @example
+   * 748CFDC7-1EB6-5B8B-9405-DA76ED5BB60D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      polices: 'Polices',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      polices: { 'type': 'array', 'itemType': ListPrivateAccessPolicesResponseBodyPolices },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.polices)) {
+      $dara.Model.validateArray(this.polices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessPolicesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPrivateAccessPolicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPrivateAccessPolicesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessTagsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the internal access application. You can obtain the application ID by calling the following operations:
+   * 
+   * *   [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): queries all internal access applications.
+   * *   [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): creates an internal access application.
+   * 
+   * @example
+   * pa-application-e12860ef6c48****
+   */
+  applicationId?: string;
+  /**
+   * @remarks
+   * The page number. Valid values: 1 to 10000.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The name of the internal access tag. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * tag_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 1000.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the internal access policy. You can obtain the policy ID by calling the following operations:
+   * 
+   * *   [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): queries all internal access policies.
+   * *   [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): creates an internal access policy.
+   * 
+   * @example
+   * pa-policy-54a7838a48bf****
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the simple query mode. A value of true specifies that policy IDs are not queried.
+   * 
+   * @example
+   * true
+   */
+  simpleMode?: boolean;
+  /**
+   * @remarks
+   * The IDs of internal access tags. You can specify up to 100 tag IDs.
+   */
+  tagIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      currentPage: 'CurrentPage',
+      name: 'Name',
+      pageSize: 'PageSize',
+      policyId: 'PolicyId',
+      simpleMode: 'SimpleMode',
+      tagIds: 'TagIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      currentPage: 'number',
+      name: 'string',
+      pageSize: 'number',
+      policyId: 'string',
+      simpleMode: 'boolean',
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessTagsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 54C1D236-CDB9-586C-B44D-AFDCEA195545
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The internal access tags.
+   */
+  tags?: ListPrivateAccessTagsResponseBodyTags[];
+  /**
+   * @remarks
+   * The total number of internal access tags.
+   * 
+   * @example
+   * 1
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tags: 'Tags',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tags: { 'type': 'array', 'itemType': ListPrivateAccessTagsResponseBodyTags },
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessTagsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPrivateAccessTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPrivateAccessTagsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessTagsForDynamicRouteRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dynamicRouteIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRouteIds: 'DynamicRouteIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRouteIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dynamicRouteIds)) {
+      $dara.Model.validateArray(this.dynamicRouteIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessTagsForDynamicRouteResponseBody extends $dara.Model {
+  dynamicRoutes?: ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes[];
+  /**
+   * @example
+   * B608C6AE-623D-55C4-9454-601B88AE937E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRoutes: 'DynamicRoutes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRoutes: { 'type': 'array', 'itemType': ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dynamicRoutes)) {
+      $dara.Model.validateArray(this.dynamicRoutes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessTagsForDynamicRouteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPrivateAccessTagsForDynamicRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPrivateAccessTagsForDynamicRouteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesRequest extends $dara.Model {
+  /**
+   * @example
+   * LimitAll
+   */
+  companyLimitType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * UserGroupAll
+   */
+  matchMode?: string;
+  /**
+   * @example
+   * registration_policy_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * LimitDiff
+   */
+  personalLimitType?: string;
+  policyIds?: string[];
+  /**
+   * @example
+   * Enabled
+   */
+  status?: string;
+  /**
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
+  userGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      companyLimitType: 'CompanyLimitType',
+      currentPage: 'CurrentPage',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      pageSize: 'PageSize',
+      personalLimitType: 'PersonalLimitType',
+      policyIds: 'PolicyIds',
+      status: 'Status',
+      userGroupId: 'UserGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      companyLimitType: 'string',
+      currentPage: 'number',
+      matchMode: 'string',
+      name: 'string',
+      pageSize: 'number',
+      personalLimitType: 'string',
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      userGroupId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesResponseBody extends $dara.Model {
+  policies?: ListRegistrationPoliciesResponseBodyPolicies[];
+  /**
+   * @example
+   * 7A8FE38A-E29C-5678-B84A-FEDBCB83552F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: { 'type': 'array', 'itemType': ListRegistrationPoliciesResponseBodyPolicies },
+      requestId: 'string',
+      totalNum: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policies)) {
+      $dara.Model.validateArray(this.policies);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRegistrationPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRegistrationPoliciesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesForUserGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  userGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      userGroupIds: 'UserGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesForUserGroupResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  userGroups?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userGroups: 'UserGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userGroups: { 'type': 'array', 'itemType': ListRegistrationPoliciesForUserGroupResponseBodyUserGroups },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.userGroups)) {
+      $dara.Model.validateArray(this.userGroups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesForUserGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRegistrationPoliciesForUserGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRegistrationPoliciesForUserGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwareForUserDeviceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
+  deviceTag?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      deviceTag: 'DeviceTag',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      deviceTag: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwareForUserDeviceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
+  requestId?: string;
+  software?: ListSoftwareForUserDeviceResponseBodySoftware[];
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      software: 'Software',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      software: { 'type': 'array', 'itemType': ListSoftwareForUserDeviceResponseBodySoftware },
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.software)) {
+      $dara.Model.validateArray(this.software);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwareForUserDeviceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSoftwareForUserDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSoftwareForUserDeviceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagsForPrivateAccessApplicationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  applicationIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagsForPrivateAccessApplicationResponseBody extends $dara.Model {
+  applications?: ListTagsForPrivateAccessApplicationResponseBodyApplications[];
+  /**
+   * @example
+   * 7241F45B-E8D3-5BA3-8172-8A58AC2AB0FC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: { 'type': 'array', 'itemType': ListTagsForPrivateAccessApplicationResponseBodyApplications },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applications)) {
+      $dara.Model.validateArray(this.applications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagsForPrivateAccessApplicationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagsForPrivateAccessApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagsForPrivateAccessApplicationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagsForPrivateAccessPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  policyIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagsForPrivateAccessPolicyResponseBody extends $dara.Model {
+  polices?: ListTagsForPrivateAccessPolicyResponseBodyPolices[];
+  /**
+   * @example
+   * 9EE61139-A6A8-5E13-80AF-83435C21B26B
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      polices: 'Polices',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      polices: { 'type': 'array', 'itemType': ListTagsForPrivateAccessPolicyResponseBodyPolices },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.polices)) {
+      $dara.Model.validateArray(this.polices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagsForPrivateAccessPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagsForPrivateAccessPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagsForPrivateAccessPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUninstallApplicationsRequest extends $dara.Model {
+  applicationIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  department?: string;
+  /**
+   * @example
+   * win10-64bit
+   */
+  hostname?: string;
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
+  mac?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  statuses?: string[];
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      currentPage: 'CurrentPage',
+      department: 'Department',
+      hostname: 'Hostname',
+      mac: 'Mac',
+      pageSize: 'PageSize',
+      statuses: 'Statuses',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      currentPage: 'number',
+      department: 'string',
+      hostname: 'string',
+      mac: 'string',
+      pageSize: 'number',
+      statuses: { 'type': 'array', 'itemType': 'string' },
+      username: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    if(Array.isArray(this.statuses)) {
+      $dara.Model.validateArray(this.statuses);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUninstallApplicationsResponseBody extends $dara.Model {
+  applications?: ListUninstallApplicationsResponseBodyApplications[];
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: { 'type': 'array', 'itemType': ListUninstallApplicationsResponseBodyApplications },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applications)) {
+      $dara.Model.validateArray(this.applications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUninstallApplicationsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUninstallApplicationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUninstallApplicationsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserApplicationsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * private_access_application_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      name: 'Name',
+      pageSize: 'PageSize',
+      saseUserId: 'SaseUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      name: 'string',
+      pageSize: 'number',
+      saseUserId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserApplicationsResponseBody extends $dara.Model {
+  applications?: ListUserApplicationsResponseBodyApplications[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 20
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: { 'type': 'array', 'itemType': ListUserApplicationsResponseBodyApplications },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applications)) {
+      $dara.Model.validateArray(this.applications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserApplicationsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserApplicationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserApplicationsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserDevicesRequest extends $dara.Model {
+  appStatuses?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  department?: string;
+  /**
+   * @example
+   * Company
+   */
+  deviceBelong?: string;
+  deviceStatuses?: string[];
+  deviceTags?: string[];
+  deviceTypes?: string[];
+  dlpStatuses?: string[];
+  /**
+   * @example
+   * win10-64bit
+   */
+  hostname?: string;
+  iaStatuses?: string[];
+  innerIp?: string;
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
+  mac?: string;
+  nacStatuses?: string[];
+  paStatuses?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  /**
+   * @example
+   * true
+   */
+  sharingStatus?: boolean;
+  sortBy?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appStatuses: 'AppStatuses',
+      currentPage: 'CurrentPage',
+      department: 'Department',
+      deviceBelong: 'DeviceBelong',
+      deviceStatuses: 'DeviceStatuses',
+      deviceTags: 'DeviceTags',
+      deviceTypes: 'DeviceTypes',
+      dlpStatuses: 'DlpStatuses',
+      hostname: 'Hostname',
+      iaStatuses: 'IaStatuses',
+      innerIp: 'InnerIp',
+      mac: 'Mac',
+      nacStatuses: 'NacStatuses',
+      paStatuses: 'PaStatuses',
+      pageSize: 'PageSize',
+      saseUserId: 'SaseUserId',
+      sharingStatus: 'SharingStatus',
+      sortBy: 'SortBy',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appStatuses: { 'type': 'array', 'itemType': 'string' },
+      currentPage: 'number',
+      department: 'string',
+      deviceBelong: 'string',
+      deviceStatuses: { 'type': 'array', 'itemType': 'string' },
+      deviceTags: { 'type': 'array', 'itemType': 'string' },
+      deviceTypes: { 'type': 'array', 'itemType': 'string' },
+      dlpStatuses: { 'type': 'array', 'itemType': 'string' },
+      hostname: 'string',
+      iaStatuses: { 'type': 'array', 'itemType': 'string' },
+      innerIp: 'string',
+      mac: 'string',
+      nacStatuses: { 'type': 'array', 'itemType': 'string' },
+      paStatuses: { 'type': 'array', 'itemType': 'string' },
+      pageSize: 'number',
+      saseUserId: 'string',
+      sharingStatus: 'boolean',
+      sortBy: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appStatuses)) {
+      $dara.Model.validateArray(this.appStatuses);
+    }
+    if(Array.isArray(this.deviceStatuses)) {
+      $dara.Model.validateArray(this.deviceStatuses);
+    }
+    if(Array.isArray(this.deviceTags)) {
+      $dara.Model.validateArray(this.deviceTags);
+    }
+    if(Array.isArray(this.deviceTypes)) {
+      $dara.Model.validateArray(this.deviceTypes);
+    }
+    if(Array.isArray(this.dlpStatuses)) {
+      $dara.Model.validateArray(this.dlpStatuses);
+    }
+    if(Array.isArray(this.iaStatuses)) {
+      $dara.Model.validateArray(this.iaStatuses);
+    }
+    if(Array.isArray(this.nacStatuses)) {
+      $dara.Model.validateArray(this.nacStatuses);
+    }
+    if(Array.isArray(this.paStatuses)) {
+      $dara.Model.validateArray(this.paStatuses);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserDevicesResponseBody extends $dara.Model {
+  devices?: ListUserDevicesResponseBodyDevices[];
+  /**
+   * @example
+   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      devices: 'Devices',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      devices: { 'type': 'array', 'itemType': ListUserDevicesResponseBodyDevices },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.devices)) {
+      $dara.Model.validateArray(this.devices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserDevicesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserDevicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserDevicesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserGroupsRequest extends $dara.Model {
+  /**
+   * @example
+   * username
+   */
+  attributeValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * 用户组名称。长度为1~128个字符，支持中文和大小写英文字母，可包含数字、半角句号（.）、下划线（_）和短划线（-）。
+   * 
+   * @example
+   * user_group_name
+   */
+  name?: string;
+  /**
+   * @example
+   * pa-policy-54a7838a48bf****
+   */
+  PAPolicyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  userGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      attributeValue: 'AttributeValue',
+      currentPage: 'CurrentPage',
+      name: 'Name',
+      PAPolicyId: 'PAPolicyId',
+      pageSize: 'PageSize',
+      userGroupIds: 'UserGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributeValue: 'string',
+      currentPage: 'number',
+      name: 'string',
+      PAPolicyId: 'string',
+      pageSize: 'number',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserGroupsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 4AB972E2-D702-5464-B132-B1911498B8BF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: number;
+  userGroups?: ListUserGroupsResponseBodyUserGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+      userGroups: 'UserGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalNum: 'number',
+      userGroups: { 'type': 'array', 'itemType': ListUserGroupsResponseBodyUserGroups },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.userGroups)) {
+      $dara.Model.validateArray(this.userGroups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserGroupsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserGroupsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserGroupsForPrivateAccessPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  policyIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserGroupsForPrivateAccessPolicyResponseBody extends $dara.Model {
+  polices?: ListUserGroupsForPrivateAccessPolicyResponseBodyPolices[];
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      polices: 'Polices',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      polices: { 'type': 'array', 'itemType': ListUserGroupsForPrivateAccessPolicyResponseBodyPolices },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.polices)) {
+      $dara.Model.validateArray(this.polices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserGroupsForPrivateAccessPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserGroupsForPrivateAccessPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserGroupsForPrivateAccessPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserGroupsForRegistrationPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  policyIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserGroupsForRegistrationPolicyResponseBody extends $dara.Model {
+  policies?: ListUserGroupsForRegistrationPolicyResponseBodyPolicies[];
+  /**
+   * @example
+   * D89009C7-54C6-51B6-BAE7-3F373920C6BF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: { 'type': 'array', 'itemType': ListUserGroupsForRegistrationPolicyResponseBodyPolicies },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policies)) {
+      $dara.Model.validateArray(this.policies);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserGroupsForRegistrationPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserGroupsForRegistrationPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserGroupsForRegistrationPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserPrivateAccessPoliciesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * private_access_policy_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      name: 'Name',
+      pageSize: 'PageSize',
+      saseUserId: 'SaseUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      name: 'string',
+      pageSize: 'number',
+      saseUserId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserPrivateAccessPoliciesResponseBody extends $dara.Model {
+  polices?: ListUserPrivateAccessPoliciesResponseBodyPolices[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9D852F87-AFB5-51B8-AACD-F7D0EFB8277D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 20
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      polices: 'Polices',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      polices: { 'type': 'array', 'itemType': ListUserPrivateAccessPoliciesResponseBodyPolices },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.polices)) {
+      $dara.Model.validateArray(this.polices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserPrivateAccessPoliciesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserPrivateAccessPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserPrivateAccessPoliciesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  department?: string;
+  fuzzyUsername?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  preciseUsername?: string;
+  saseUserIds?: string[];
+  /**
+   * @example
+   * Enabled
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      department: 'Department',
+      fuzzyUsername: 'FuzzyUsername',
+      pageSize: 'PageSize',
+      preciseUsername: 'PreciseUsername',
+      saseUserIds: 'SaseUserIds',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      department: 'string',
+      fuzzyUsername: 'string',
+      pageSize: 'number',
+      preciseUsername: 'string',
+      saseUserIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.saseUserIds)) {
+      $dara.Model.validateArray(this.saseUserIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalNum?: string;
+  users?: ListUsersResponseBodyUsers[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalNum: 'string',
+      users: { 'type': 'array', 'itemType': ListUsersResponseBodyUsers },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.users)) {
+      $dara.Model.validateArray(this.users);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUsersResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LookupWmInfoMappingRequest extends $dara.Model {
+  /**
+   * @example
+   * 32
+   */
+  wmInfoSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123***
+   */
+  wmInfoUint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureDocument
+   */
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      wmInfoSize: 'WmInfoSize',
+      wmInfoUint: 'WmInfoUint',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      wmInfoSize: 'number',
+      wmInfoUint: 'string',
+      wmType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LookupWmInfoMappingResponseBody extends $dara.Model {
+  data?: LookupWmInfoMappingResponseBodyData;
+  /**
+   * @example
+   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: LookupWmInfoMappingResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LookupWmInfoMappingResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LookupWmInfoMappingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LookupWmInfoMappingResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeUserSessionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345678
+   */
+  externalIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * idp-cfg9vcrqylo39c39uxnw
+   */
+  idpId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalIds: 'ExternalIds',
+      idpId: 'IdpId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalIds: 'string',
+      idpId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeUserSessionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeUserSessionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RevokeUserSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RevokeUserSessionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessRequest extends $dara.Model {
+  description?: string;
+  matchSchemas?: UpdateApprovalProcessRequestMatchSchemas;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * approval-process-f16bf74b2b29****
+   */
+  processId?: string;
+  processName?: string;
+  processNodes?: string[][];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      matchSchemas: 'MatchSchemas',
+      processId: 'ProcessId',
+      processName: 'ProcessName',
+      processNodes: 'ProcessNodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      matchSchemas: UpdateApprovalProcessRequestMatchSchemas,
+      processId: 'string',
+      processName: 'string',
+      processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
+    };
+  }
+
+  validate() {
+    if(this.matchSchemas && typeof (this.matchSchemas as any).validate === 'function') {
+      (this.matchSchemas as any).validate();
+    }
+    if(Array.isArray(this.processNodes)) {
+      $dara.Model.validateArray(this.processNodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessShrinkRequest extends $dara.Model {
+  description?: string;
+  matchSchemasShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * approval-process-f16bf74b2b29****
+   */
+  processId?: string;
+  processName?: string;
+  processNodes?: string[][];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      matchSchemasShrink: 'MatchSchemas',
+      processId: 'ProcessId',
+      processName: 'ProcessName',
+      processNodes: 'ProcessNodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      matchSchemasShrink: 'string',
+      processId: 'string',
+      processName: 'string',
+      processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.processNodes)) {
+      $dara.Model.validateArray(this.processNodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBody extends $dara.Model {
+  process?: UpdateApprovalProcessResponseBodyProcess;
+  /**
+   * @example
+   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      process: 'Process',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      process: UpdateApprovalProcessResponseBodyProcess,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.process && typeof (this.process as any).validate === 'function') {
+      (this.process as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateApprovalProcessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateApprovalProcessResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * approval-872b5e911b35****
+   */
+  approvalId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Approved
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvalId: 'ApprovalId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalStatusResponseBody extends $dara.Model {
+  approval?: UpdateApprovalStatusResponseBodyApproval[];
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approval: 'Approval',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approval: { 'type': 'array', 'itemType': UpdateApprovalStatusResponseBodyApproval },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.approval)) {
+      $dara.Model.validateArray(this.approval);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateApprovalStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateApprovalStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBootAndAntiUninstallPolicyRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  allowReport?: boolean;
+  blockContent?: UpdateBootAndAntiUninstallPolicyRequestBlockContent;
+  /**
+   * @example
+   * true
+   */
+  isAntiUninstall?: boolean;
+  /**
+   * @example
+   * true
+   */
+  isBoot?: boolean;
+  userGroupIds?: string[];
+  whitelistUsers?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allowReport: 'AllowReport',
+      blockContent: 'BlockContent',
+      isAntiUninstall: 'IsAntiUninstall',
+      isBoot: 'IsBoot',
+      userGroupIds: 'UserGroupIds',
+      whitelistUsers: 'WhitelistUsers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowReport: 'boolean',
+      blockContent: UpdateBootAndAntiUninstallPolicyRequestBlockContent,
+      isAntiUninstall: 'boolean',
+      isBoot: 'boolean',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelistUsers: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.blockContent && typeof (this.blockContent as any).validate === 'function') {
+      (this.blockContent as any).validate();
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    if(Array.isArray(this.whitelistUsers)) {
+      $dara.Model.validateArray(this.whitelistUsers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBootAndAntiUninstallPolicyShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  allowReport?: boolean;
+  blockContentShrink?: string;
+  /**
+   * @example
+   * true
+   */
+  isAntiUninstall?: boolean;
+  /**
+   * @example
+   * true
+   */
+  isBoot?: boolean;
+  userGroupIds?: string[];
+  whitelistUsers?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allowReport: 'AllowReport',
+      blockContentShrink: 'BlockContent',
+      isAntiUninstall: 'IsAntiUninstall',
+      isBoot: 'IsBoot',
+      userGroupIds: 'UserGroupIds',
+      whitelistUsers: 'WhitelistUsers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowReport: 'boolean',
+      blockContentShrink: 'string',
+      isAntiUninstall: 'boolean',
+      isBoot: 'boolean',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelistUsers: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    if(Array.isArray(this.whitelistUsers)) {
+      $dara.Model.validateArray(this.whitelistUsers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBootAndAntiUninstallPolicyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * CB67D866-1E54-5106-89DF-6D70C73E5989
+   */
+  requestId?: string;
+  strategy?: UpdateBootAndAntiUninstallPolicyResponseBodyStrategy;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      strategy: 'Strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      strategy: UpdateBootAndAntiUninstallPolicyResponseBodyStrategy,
+    };
+  }
+
+  validate() {
+    if(this.strategy && typeof (this.strategy as any).validate === 'function') {
+      (this.strategy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBootAndAntiUninstallPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBootAndAntiUninstallPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateBootAndAntiUninstallPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserRequest extends $dara.Model {
+  /**
+   * @example
+   * 10701
+   */
+  departmentId?: string;
+  description?: string;
+  /**
+   * @example
+   * johndoe@example.com
+   */
+  email?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20644
+   */
+  id?: string;
+  /**
+   * @example
+   * 13641966835
+   */
+  mobileNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentId: 'DepartmentId',
+      description: 'Description',
+      email: 'Email',
+      id: 'Id',
+      mobileNumber: 'MobileNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentId: 'string',
+      description: 'string',
+      email: 'string',
+      id: 'string',
+      mobileNumber: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserResponseBody extends $dara.Model {
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateClientUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateClientUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserPasswordRequest extends $dara.Model {
+  /**
+   * @example
+   * 1128
+   */
+  id?: string;
+  /**
+   * @example
+   * kehudiyidj
+   */
+  password?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      password: 'Password',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      password: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserPasswordResponseBody extends $dara.Model {
+  /**
+   * @example
+   * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserPasswordResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateClientUserPasswordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateClientUserPasswordResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1495
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserStatusResponseBody extends $dara.Model {
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateClientUserStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateClientUserStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDynamicRouteRequest extends $dara.Model {
+  applicationIds?: string[];
+  /**
+   * @example
+   * Application
+   */
+  applicationType?: string;
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dr-ca9fddfac7c6****
+   */
+  dynamicRouteId?: string;
+  /**
+   * @example
+   * connector
+   */
+  dynamicRouteType?: string;
+  /**
+   * @example
+   * Cover
+   */
+  modifyType?: string;
+  /**
+   * @example
+   * dynamic_route_name
+   */
+  name?: string;
+  /**
+   * @example
+   * connector-8ccb13b6f52c****
+   */
+  nextHop?: string;
+  /**
+   * @example
+   * 99
+   */
+  priority?: number;
+  regionIds?: string[];
+  /**
+   * @example
+   * Disabled
+   */
+  status?: string;
+  tagIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      applicationType: 'ApplicationType',
+      description: 'Description',
+      dynamicRouteId: 'DynamicRouteId',
+      dynamicRouteType: 'DynamicRouteType',
+      modifyType: 'ModifyType',
+      name: 'Name',
+      nextHop: 'NextHop',
+      priority: 'Priority',
+      regionIds: 'RegionIds',
+      status: 'Status',
+      tagIds: 'TagIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      applicationType: 'string',
+      description: 'string',
+      dynamicRouteId: 'string',
+      dynamicRouteType: 'string',
+      modifyType: 'string',
+      name: 'string',
+      nextHop: 'string',
+      priority: 'number',
+      regionIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    if(Array.isArray(this.regionIds)) {
+      $dara.Model.validateArray(this.regionIds);
+    }
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDynamicRouteResponseBody extends $dara.Model {
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDynamicRouteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDynamicRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDynamicRouteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExcessiveDeviceRegistrationApplicationsStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  applicationIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Approved
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody extends $dara.Model {
+  applications?: UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyApplications[];
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: { 'type': 'array', 'itemType': UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyApplications },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applications)) {
+      $dara.Model.validateArray(this.applications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdpDepartmentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10653
+   */
+  departmentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  departmentName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 598
+   */
+  idpConfigId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentId: 'DepartmentId',
+      departmentName: 'DepartmentName',
+      idpConfigId: 'IdpConfigId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentId: 'string',
+      departmentName: 'string',
+      idpConfigId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdpDepartmentResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdpDepartmentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateIdpDepartmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateIdpDepartmentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNacUserCertStatusRequest extends $dara.Model {
+  idList?: UpdateNacUserCertStatusRequestIdList[];
+  /**
+   * @example
+   * Enabled
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      idList: 'IdList',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idList: { 'type': 'array', 'itemType': UpdateNacUserCertStatusRequestIdList },
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.idList)) {
+      $dara.Model.validateArray(this.idList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNacUserCertStatusResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNacUserCertStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateNacUserCertStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateNacUserCertStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
+  addresses?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pa-application-e12860ef6c48****
+   */
+  applicationId?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  description?: string;
+  l7ProxyDomainAutomaticPrefix?: string;
+  l7ProxyDomainCustom?: string;
+  l7ProxyDomainPrivate?: string;
+  /**
+   * @example
+   * Cover
+   */
+  modifyType?: string;
+  portRanges?: UpdatePrivateAccessApplicationRequestPortRanges[];
+  /**
+   * @example
+   * All
+   */
+  protocol?: string;
+  /**
+   * @example
+   * Enabled
+   */
+  status?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  tagIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      addresses: 'Addresses',
+      applicationId: 'ApplicationId',
+      description: 'Description',
+      l7ProxyDomainAutomaticPrefix: 'L7ProxyDomainAutomaticPrefix',
+      l7ProxyDomainCustom: 'L7ProxyDomainCustom',
+      l7ProxyDomainPrivate: 'L7ProxyDomainPrivate',
+      modifyType: 'ModifyType',
+      portRanges: 'PortRanges',
+      protocol: 'Protocol',
+      status: 'Status',
+      tagIds: 'TagIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addresses: { 'type': 'array', 'itemType': 'string' },
+      applicationId: 'string',
+      description: 'string',
+      l7ProxyDomainAutomaticPrefix: 'string',
+      l7ProxyDomainCustom: 'string',
+      l7ProxyDomainPrivate: 'string',
+      modifyType: 'string',
+      portRanges: { 'type': 'array', 'itemType': UpdatePrivateAccessApplicationRequestPortRanges },
+      protocol: 'string',
+      status: 'string',
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.addresses)) {
+      $dara.Model.validateArray(this.addresses);
+    }
+    if(Array.isArray(this.portRanges)) {
+      $dara.Model.validateArray(this.portRanges);
+    }
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrivateAccessApplicationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * FD724DBC-CD76-5235-BF76-59C51B73296D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrivateAccessApplicationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePrivateAccessApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePrivateAccessApplicationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
+  applicationIds?: string[];
+  /**
+   * @example
+   * Application
+   */
+  applicationType?: string;
+  customUserAttributes?: UpdatePrivateAccessPolicyRequestCustomUserAttributes[];
+  /**
+   * **if can be null:**
+   * true
+   */
+  description?: string;
+  deviceAttributeAction?: string;
+  deviceAttributeId?: string;
+  /**
+   * @example
+   * Cover
+   */
+  modifyType?: string;
+  /**
+   * @example
+   * Allow
+   */
+  policyAction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pa-policy-63b2f1844b86****
+   */
+  policyId?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Enabled
+   */
+  status?: string;
+  /**
+   * @remarks
+   * 内网访问标签ID集合。一条策略最多支持100个内网访问标签ID。
+   */
+  tagIds?: string[];
+  userGroupIds?: string[];
+  /**
+   * @remarks
+   * 内网访问策略的用户组类型。取值：
+   * - **Normal**：普通用户组。
+   * - **Custom**：自定义用户组。
+   * 
+   * @example
+   * Normal
+   */
+  userGroupMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      applicationType: 'ApplicationType',
+      customUserAttributes: 'CustomUserAttributes',
+      description: 'Description',
+      deviceAttributeAction: 'DeviceAttributeAction',
+      deviceAttributeId: 'DeviceAttributeId',
+      modifyType: 'ModifyType',
+      policyAction: 'PolicyAction',
+      policyId: 'PolicyId',
+      priority: 'Priority',
+      status: 'Status',
+      tagIds: 'TagIds',
+      userGroupIds: 'UserGroupIds',
+      userGroupMode: 'UserGroupMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      applicationType: 'string',
+      customUserAttributes: { 'type': 'array', 'itemType': UpdatePrivateAccessPolicyRequestCustomUserAttributes },
+      description: 'string',
+      deviceAttributeAction: 'string',
+      deviceAttributeId: 'string',
+      modifyType: 'string',
+      policyAction: 'string',
+      policyId: 'string',
+      priority: 'number',
+      status: 'string',
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      userGroupMode: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    if(Array.isArray(this.customUserAttributes)) {
+      $dara.Model.validateArray(this.customUserAttributes);
+    }
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrivateAccessPolicyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrivateAccessPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePrivateAccessPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePrivateAccessPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRegistrationPolicyRequest extends $dara.Model {
+  companyLimitCount?: UpdateRegistrationPolicyRequestCompanyLimitCount;
+  /**
+   * @example
+   * LimitAll
+   */
+  companyLimitType?: string;
+  description?: string;
+  /**
+   * @example
+   * UserGroupNormal
+   */
+  matchMode?: string;
+  /**
+   * @example
+   * registration_policy_name
+   */
+  name?: string;
+  personalLimitCount?: UpdateRegistrationPolicyRequestPersonalLimitCount;
+  /**
+   * @example
+   * LimitDiff
+   */
+  personalLimitType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * reg-policy-63b2f1844b86****
+   */
+  policyId?: string;
+  /**
+   * @example
+   * 0
+   */
+  priority?: number;
+  /**
+   * @example
+   * Enabled
+   */
+  status?: string;
+  userGroupIds?: string[];
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      companyLimitCount: 'CompanyLimitCount',
+      companyLimitType: 'CompanyLimitType',
+      description: 'Description',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      personalLimitCount: 'PersonalLimitCount',
+      personalLimitType: 'PersonalLimitType',
+      policyId: 'PolicyId',
+      priority: 'Priority',
+      status: 'Status',
+      userGroupIds: 'UserGroupIds',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      companyLimitCount: UpdateRegistrationPolicyRequestCompanyLimitCount,
+      companyLimitType: 'string',
+      description: 'string',
+      matchMode: 'string',
+      name: 'string',
+      personalLimitCount: UpdateRegistrationPolicyRequestPersonalLimitCount,
+      personalLimitType: 'string',
+      policyId: 'string',
+      priority: 'number',
+      status: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.companyLimitCount && typeof (this.companyLimitCount as any).validate === 'function') {
+      (this.companyLimitCount as any).validate();
+    }
+    if(this.personalLimitCount && typeof (this.personalLimitCount as any).validate === 'function') {
+      (this.personalLimitCount as any).validate();
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    if(Array.isArray(this.whitelist)) {
+      $dara.Model.validateArray(this.whitelist);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRegistrationPolicyShrinkRequest extends $dara.Model {
+  companyLimitCountShrink?: string;
+  /**
+   * @example
+   * LimitAll
+   */
+  companyLimitType?: string;
+  description?: string;
+  /**
+   * @example
+   * UserGroupNormal
+   */
+  matchMode?: string;
+  /**
+   * @example
+   * registration_policy_name
+   */
+  name?: string;
+  personalLimitCountShrink?: string;
+  /**
+   * @example
+   * LimitDiff
+   */
+  personalLimitType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * reg-policy-63b2f1844b86****
+   */
+  policyId?: string;
+  /**
+   * @example
+   * 0
+   */
+  priority?: number;
+  /**
+   * @example
+   * Enabled
+   */
+  status?: string;
+  userGroupIds?: string[];
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      companyLimitCountShrink: 'CompanyLimitCount',
+      companyLimitType: 'CompanyLimitType',
+      description: 'Description',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      personalLimitCountShrink: 'PersonalLimitCount',
+      personalLimitType: 'PersonalLimitType',
+      policyId: 'PolicyId',
+      priority: 'Priority',
+      status: 'Status',
+      userGroupIds: 'UserGroupIds',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      companyLimitCountShrink: 'string',
+      companyLimitType: 'string',
+      description: 'string',
+      matchMode: 'string',
+      name: 'string',
+      personalLimitCountShrink: 'string',
+      personalLimitType: 'string',
+      policyId: 'string',
+      priority: 'number',
+      status: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
+    if(Array.isArray(this.whitelist)) {
+      $dara.Model.validateArray(this.whitelist);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRegistrationPolicyResponseBody extends $dara.Model {
+  policy?: UpdateRegistrationPolicyResponseBodyPolicy;
+  /**
+   * @example
+   * 27064ECA-0936-59F3-8A98-EC821E5BD08F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: UpdateRegistrationPolicyResponseBodyPolicy,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.policy && typeof (this.policy as any).validate === 'function') {
+      (this.policy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRegistrationPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRegistrationPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateRegistrationPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUninstallApplicationsStatusRequest extends $dara.Model {
+  applicationIds?: string[];
+  /**
+   * @example
+   * Approved
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationIds)) {
+      $dara.Model.validateArray(this.applicationIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUninstallApplicationsStatusResponseBody extends $dara.Model {
+  applications?: UpdateUninstallApplicationsStatusResponseBodyApplications[];
+  /**
+   * @example
+   * 9B769522-D50C-5978-8981-52BE800D6099
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: { 'type': 'array', 'itemType': UpdateUninstallApplicationsStatusResponseBodyApplications },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applications)) {
+      $dara.Model.validateArray(this.applications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUninstallApplicationsStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUninstallApplicationsStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUninstallApplicationsStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesSharingStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  deviceTags?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  sharingStatus?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      deviceTags: 'DeviceTags',
+      sharingStatus: 'SharingStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceTags: { 'type': 'array', 'itemType': 'string' },
+      sharingStatus: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.deviceTags)) {
+      $dara.Model.validateArray(this.deviceTags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesSharingStatusResponseBody extends $dara.Model {
+  devices?: UpdateUserDevicesSharingStatusResponseBodyDevices[];
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      devices: 'Devices',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      devices: { 'type': 'array', 'itemType': UpdateUserDevicesSharingStatusResponseBodyDevices },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.devices)) {
+      $dara.Model.validateArray(this.devices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesSharingStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserDevicesSharingStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUserDevicesSharingStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Unbound
+   */
+  deviceAction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  deviceTags?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      deviceAction: 'DeviceAction',
+      deviceTags: 'DeviceTags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceAction: 'string',
+      deviceTags: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.deviceTags)) {
+      $dara.Model.validateArray(this.deviceTags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesStatusResponseBody extends $dara.Model {
+  devices?: UpdateUserDevicesStatusResponseBodyDevices[];
+  /**
+   * @example
+   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      devices: 'Devices',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      devices: { 'type': 'array', 'itemType': UpdateUserDevicesStatusResponseBodyDevices },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.devices)) {
+      $dara.Model.validateArray(this.devices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserDevicesStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUserDevicesStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserGroupRequest extends $dara.Model {
+  attributes?: UpdateUserGroupRequestAttributes[];
+  /**
+   * **if can be null:**
+   * true
+   */
+  description?: string;
+  /**
+   * @example
+   * Cover
+   */
+  modifyType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
+  userGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      description: 'Description',
+      modifyType: 'ModifyType',
+      userGroupId: 'UserGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: { 'type': 'array', 'itemType': UpdateUserGroupRequestAttributes },
+      description: 'string',
+      modifyType: 'string',
+      userGroupId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.attributes)) {
+      $dara.Model.validateArray(this.attributes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserGroupResponseBody extends $dara.Model {
+  /**
+   * @example
+   * FD724DBC-CD76-5235-BF76-59C51B73296D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUserGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUsersStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  saseUserIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      saseUserIds: 'SaseUserIds',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      saseUserIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.saseUserIds)) {
+      $dara.Model.validateArray(this.saseUserIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUsersStatusResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 47363C2B-1AAA-5954-8847-0E50FCC54117
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUsersStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUsersStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUsersStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -14238,7 +22527,7 @@ export class UpdateUserGroupRequestAttributes extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -14247,15 +22536,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -14265,27 +22554,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachApplication2ConnectorResponse
    */
-  async attachApplication2ConnectorWithOptions(tmpReq: AttachApplication2ConnectorRequest, runtime: $Util.RuntimeOptions): Promise<AttachApplication2ConnectorResponse> {
-    Util.validateModel(tmpReq);
+  async attachApplication2ConnectorWithOptions(tmpReq: AttachApplication2ConnectorRequest, runtime: $dara.RuntimeOptions): Promise<AttachApplication2ConnectorResponse> {
+    tmpReq.validate();
     let request = new AttachApplication2ConnectorShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.applicationIds)) {
+    if (!$dara.isNull(tmpReq.applicationIds)) {
       request.applicationIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationIds, "ApplicationIds", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.applicationIdsShrink)) {
+    if (!$dara.isNull(request.applicationIdsShrink)) {
       body["ApplicationIds"] = request.applicationIdsShrink;
     }
 
-    if (!Util.isUnset(request.connectorId)) {
+    if (!$dara.isNull(request.connectorId)) {
       body["ConnectorId"] = request.connectorId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AttachApplication2Connector",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -14296,7 +22585,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachApplication2ConnectorResponse>(await this.callApi(params, req, runtime), new AttachApplication2ConnectorResponse({}));
+    return $dara.cast<AttachApplication2ConnectorResponse>(await this.callApi(params, req, runtime), new AttachApplication2ConnectorResponse({}));
   }
 
   /**
@@ -14306,8 +22595,123 @@ export default class Client extends OpenApi {
    * @returns AttachApplication2ConnectorResponse
    */
   async attachApplication2Connector(request: AttachApplication2ConnectorRequest): Promise<AttachApplication2ConnectorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.attachApplication2ConnectorWithOptions(request, runtime);
+  }
+
+  /**
+   * 挂载业务策略至指定审批流程
+   * 
+   * @param request - AttachPolicy2ApprovalProcessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachPolicy2ApprovalProcessResponse
+   */
+  async attachPolicy2ApprovalProcessWithOptions(request: AttachPolicy2ApprovalProcessRequest, runtime: $dara.RuntimeOptions): Promise<AttachPolicy2ApprovalProcessResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.policyId)) {
+      body["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.policyType)) {
+      body["PolicyType"] = request.policyType;
+    }
+
+    if (!$dara.isNull(request.processId)) {
+      body["ProcessId"] = request.processId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AttachPolicy2ApprovalProcess",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<AttachPolicy2ApprovalProcessResponse>(await this.callApi(params, req, runtime), new AttachPolicy2ApprovalProcessResponse({}));
+  }
+
+  /**
+   * 挂载业务策略至指定审批流程
+   * 
+   * @param request - AttachPolicy2ApprovalProcessRequest
+   * @returns AttachPolicy2ApprovalProcessResponse
+   */
+  async attachPolicy2ApprovalProcess(request: AttachPolicy2ApprovalProcessRequest): Promise<AttachPolicy2ApprovalProcessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.attachPolicy2ApprovalProcessWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建审批流程
+   * 
+   * @param tmpReq - CreateApprovalProcessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApprovalProcessResponse
+   */
+  async createApprovalProcessWithOptions(tmpReq: CreateApprovalProcessRequest, runtime: $dara.RuntimeOptions): Promise<CreateApprovalProcessResponse> {
+    tmpReq.validate();
+    let request = new CreateApprovalProcessShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.matchSchemas)) {
+      request.matchSchemasShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.matchSchemas, "MatchSchemas", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.matchSchemasShrink)) {
+      body["MatchSchemas"] = request.matchSchemasShrink;
+    }
+
+    if (!$dara.isNull(request.processName)) {
+      body["ProcessName"] = request.processName;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.processNodes)) {
+      bodyFlat["ProcessNodes"] = request.processNodes;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApprovalProcess",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CreateApprovalProcessResponse>(await this.callApi(params, req, runtime), new CreateApprovalProcessResponse({}));
+  }
+
+  /**
+   * 创建审批流程
+   * 
+   * @param request - CreateApprovalProcessRequest
+   * @returns CreateApprovalProcessResponse
+   */
+  async createApprovalProcess(request: CreateApprovalProcessRequest): Promise<CreateApprovalProcessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApprovalProcessWithOptions(request, runtime);
   }
 
   /**
@@ -14317,41 +22721,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateClientUserResponse
    */
-  async createClientUserWithOptions(request: CreateClientUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateClientUserResponse> {
-    Util.validateModel(request);
+  async createClientUserWithOptions(request: CreateClientUserRequest, runtime: $dara.RuntimeOptions): Promise<CreateClientUserResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.departmentId)) {
+    if (!$dara.isNull(request.departmentId)) {
       query["DepartmentId"] = request.departmentId;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.idpConfigId)) {
+    if (!$dara.isNull(request.idpConfigId)) {
       query["IdpConfigId"] = request.idpConfigId;
     }
 
-    if (!Util.isUnset(request.mobileNumber)) {
+    if (!$dara.isNull(request.mobileNumber)) {
       query["MobileNumber"] = request.mobileNumber;
     }
 
-    if (!Util.isUnset(request.password)) {
+    if (!$dara.isNull(request.password)) {
       query["Password"] = request.password;
     }
 
-    if (!Util.isUnset(request.username)) {
+    if (!$dara.isNull(request.username)) {
       query["Username"] = request.username;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateClientUser",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -14362,7 +22766,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateClientUserResponse>(await this.callApi(params, req, runtime), new CreateClientUserResponse({}));
+    return $dara.cast<CreateClientUserResponse>(await this.callApi(params, req, runtime), new CreateClientUserResponse({}));
   }
 
   /**
@@ -14372,7 +22776,7 @@ export default class Client extends OpenApi {
    * @returns CreateClientUserResponse
    */
   async createClientUser(request: CreateClientUserRequest): Promise<CreateClientUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createClientUserWithOptions(request, runtime);
   }
 
@@ -14383,47 +22787,47 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDynamicRouteResponse
    */
-  async createDynamicRouteWithOptions(request: CreateDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<CreateDynamicRouteResponse> {
-    Util.validateModel(request);
+  async createDynamicRouteWithOptions(request: CreateDynamicRouteRequest, runtime: $dara.RuntimeOptions): Promise<CreateDynamicRouteResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.applicationIds)) {
+    if (!$dara.isNull(request.applicationIds)) {
       bodyFlat["ApplicationIds"] = request.applicationIds;
     }
 
-    if (!Util.isUnset(request.applicationType)) {
+    if (!$dara.isNull(request.applicationType)) {
       body["ApplicationType"] = request.applicationType;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.dynamicRouteType)) {
+    if (!$dara.isNull(request.dynamicRouteType)) {
       body["DynamicRouteType"] = request.dynamicRouteType;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.nextHop)) {
+    if (!$dara.isNull(request.nextHop)) {
       body["NextHop"] = request.nextHop;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       body["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.regionIds)) {
+    if (!$dara.isNull(request.regionIds)) {
       bodyFlat["RegionIds"] = request.regionIds;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tagIds)) {
+    if (!$dara.isNull(request.tagIds)) {
       bodyFlat["TagIds"] = request.tagIds;
     }
 
@@ -14431,10 +22835,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateDynamicRoute",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -14445,7 +22849,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateDynamicRouteResponse>(await this.callApi(params, req, runtime), new CreateDynamicRouteResponse({}));
+    return $dara.cast<CreateDynamicRouteResponse>(await this.callApi(params, req, runtime), new CreateDynamicRouteResponse({}));
   }
 
   /**
@@ -14455,7 +22859,7 @@ export default class Client extends OpenApi {
    * @returns CreateDynamicRouteResponse
    */
   async createDynamicRoute(request: CreateDynamicRouteRequest): Promise<CreateDynamicRouteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createDynamicRouteWithOptions(request, runtime);
   }
 
@@ -14466,21 +22870,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateIdpDepartmentResponse
    */
-  async createIdpDepartmentWithOptions(request: CreateIdpDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateIdpDepartmentResponse> {
-    Util.validateModel(request);
+  async createIdpDepartmentWithOptions(request: CreateIdpDepartmentRequest, runtime: $dara.RuntimeOptions): Promise<CreateIdpDepartmentResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.departmentName)) {
+    if (!$dara.isNull(request.departmentName)) {
       query["DepartmentName"] = request.departmentName;
     }
 
-    if (!Util.isUnset(request.idpConfigId)) {
+    if (!$dara.isNull(request.idpConfigId)) {
       query["IdpConfigId"] = request.idpConfigId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateIdpDepartment",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -14491,7 +22895,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateIdpDepartmentResponse>(await this.callApi(params, req, runtime), new CreateIdpDepartmentResponse({}));
+    return $dara.cast<CreateIdpDepartmentResponse>(await this.callApi(params, req, runtime), new CreateIdpDepartmentResponse({}));
   }
 
   /**
@@ -14501,7 +22905,7 @@ export default class Client extends OpenApi {
    * @returns CreateIdpDepartmentResponse
    */
   async createIdpDepartment(request: CreateIdpDepartmentRequest): Promise<CreateIdpDepartmentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createIdpDepartmentWithOptions(request, runtime);
   }
 
@@ -14512,47 +22916,47 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePrivateAccessApplicationResponse
    */
-  async createPrivateAccessApplicationWithOptions(request: CreatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessApplicationResponse> {
-    Util.validateModel(request);
+  async createPrivateAccessApplicationWithOptions(request: CreatePrivateAccessApplicationRequest, runtime: $dara.RuntimeOptions): Promise<CreatePrivateAccessApplicationResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.addresses)) {
+    if (!$dara.isNull(request.addresses)) {
       bodyFlat["Addresses"] = request.addresses;
     }
 
-    if (!Util.isUnset(request.browserAccessStatus)) {
+    if (!$dara.isNull(request.browserAccessStatus)) {
       body["BrowserAccessStatus"] = request.browserAccessStatus;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.l7ProxyDomainAutomaticPrefix)) {
+    if (!$dara.isNull(request.l7ProxyDomainAutomaticPrefix)) {
       body["L7ProxyDomainAutomaticPrefix"] = request.l7ProxyDomainAutomaticPrefix;
     }
 
-    if (!Util.isUnset(request.l7ProxyDomainCustom)) {
+    if (!$dara.isNull(request.l7ProxyDomainCustom)) {
       body["L7ProxyDomainCustom"] = request.l7ProxyDomainCustom;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.portRanges)) {
+    if (!$dara.isNull(request.portRanges)) {
       bodyFlat["PortRanges"] = request.portRanges;
     }
 
-    if (!Util.isUnset(request.protocol)) {
+    if (!$dara.isNull(request.protocol)) {
       body["Protocol"] = request.protocol;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tagIds)) {
+    if (!$dara.isNull(request.tagIds)) {
       bodyFlat["TagIds"] = request.tagIds;
     }
 
@@ -14560,10 +22964,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreatePrivateAccessApplication",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -14574,7 +22978,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreatePrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new CreatePrivateAccessApplicationResponse({}));
+    return $dara.cast<CreatePrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new CreatePrivateAccessApplicationResponse({}));
   }
 
   /**
@@ -14584,7 +22988,7 @@ export default class Client extends OpenApi {
    * @returns CreatePrivateAccessApplicationResponse
    */
   async createPrivateAccessApplication(request: CreatePrivateAccessApplicationRequest): Promise<CreatePrivateAccessApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createPrivateAccessApplicationWithOptions(request, runtime);
   }
 
@@ -14595,59 +22999,59 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePrivateAccessPolicyResponse
    */
-  async createPrivateAccessPolicyWithOptions(request: CreatePrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessPolicyResponse> {
-    Util.validateModel(request);
+  async createPrivateAccessPolicyWithOptions(request: CreatePrivateAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<CreatePrivateAccessPolicyResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.applicationIds)) {
+    if (!$dara.isNull(request.applicationIds)) {
       bodyFlat["ApplicationIds"] = request.applicationIds;
     }
 
-    if (!Util.isUnset(request.applicationType)) {
+    if (!$dara.isNull(request.applicationType)) {
       body["ApplicationType"] = request.applicationType;
     }
 
-    if (!Util.isUnset(request.customUserAttributes)) {
+    if (!$dara.isNull(request.customUserAttributes)) {
       bodyFlat["CustomUserAttributes"] = request.customUserAttributes;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.deviceAttributeAction)) {
+    if (!$dara.isNull(request.deviceAttributeAction)) {
       body["DeviceAttributeAction"] = request.deviceAttributeAction;
     }
 
-    if (!Util.isUnset(request.deviceAttributeId)) {
+    if (!$dara.isNull(request.deviceAttributeId)) {
       body["DeviceAttributeId"] = request.deviceAttributeId;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.policyAction)) {
+    if (!$dara.isNull(request.policyAction)) {
       body["PolicyAction"] = request.policyAction;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       body["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tagIds)) {
+    if (!$dara.isNull(request.tagIds)) {
       bodyFlat["TagIds"] = request.tagIds;
     }
 
-    if (!Util.isUnset(request.userGroupIds)) {
+    if (!$dara.isNull(request.userGroupIds)) {
       bodyFlat["UserGroupIds"] = request.userGroupIds;
     }
 
-    if (!Util.isUnset(request.userGroupMode)) {
+    if (!$dara.isNull(request.userGroupMode)) {
       body["UserGroupMode"] = request.userGroupMode;
     }
 
@@ -14655,10 +23059,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreatePrivateAccessPolicy",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -14669,7 +23073,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreatePrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new CreatePrivateAccessPolicyResponse({}));
+    return $dara.cast<CreatePrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new CreatePrivateAccessPolicyResponse({}));
   }
 
   /**
@@ -14679,7 +23083,7 @@ export default class Client extends OpenApi {
    * @returns CreatePrivateAccessPolicyResponse
    */
   async createPrivateAccessPolicy(request: CreatePrivateAccessPolicyRequest): Promise<CreatePrivateAccessPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createPrivateAccessPolicyWithOptions(request, runtime);
   }
 
@@ -14690,21 +23094,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePrivateAccessTagResponse
    */
-  async createPrivateAccessTagWithOptions(request: CreatePrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessTagResponse> {
-    Util.validateModel(request);
+  async createPrivateAccessTagWithOptions(request: CreatePrivateAccessTagRequest, runtime: $dara.RuntimeOptions): Promise<CreatePrivateAccessTagResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreatePrivateAccessTag",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -14715,7 +23119,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreatePrivateAccessTagResponse>(await this.callApi(params, req, runtime), new CreatePrivateAccessTagResponse({}));
+    return $dara.cast<CreatePrivateAccessTagResponse>(await this.callApi(params, req, runtime), new CreatePrivateAccessTagResponse({}));
   }
 
   /**
@@ -14725,7 +23129,7 @@ export default class Client extends OpenApi {
    * @returns CreatePrivateAccessTagResponse
    */
   async createPrivateAccessTag(request: CreatePrivateAccessTagRequest): Promise<CreatePrivateAccessTagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createPrivateAccessTagWithOptions(request, runtime);
   }
 
@@ -14736,61 +23140,61 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateRegistrationPolicyResponse
    */
-  async createRegistrationPolicyWithOptions(tmpReq: CreateRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateRegistrationPolicyResponse> {
-    Util.validateModel(tmpReq);
+  async createRegistrationPolicyWithOptions(tmpReq: CreateRegistrationPolicyRequest, runtime: $dara.RuntimeOptions): Promise<CreateRegistrationPolicyResponse> {
+    tmpReq.validate();
     let request = new CreateRegistrationPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.companyLimitCount)) {
+    if (!$dara.isNull(tmpReq.companyLimitCount)) {
       request.companyLimitCountShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.companyLimitCount, "CompanyLimitCount", "json");
     }
 
-    if (!Util.isUnset(tmpReq.personalLimitCount)) {
+    if (!$dara.isNull(tmpReq.personalLimitCount)) {
       request.personalLimitCountShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.personalLimitCount, "PersonalLimitCount", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.companyLimitCountShrink)) {
+    if (!$dara.isNull(request.companyLimitCountShrink)) {
       body["CompanyLimitCount"] = request.companyLimitCountShrink;
     }
 
-    if (!Util.isUnset(request.companyLimitType)) {
+    if (!$dara.isNull(request.companyLimitType)) {
       body["CompanyLimitType"] = request.companyLimitType;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.matchMode)) {
+    if (!$dara.isNull(request.matchMode)) {
       body["MatchMode"] = request.matchMode;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.personalLimitCountShrink)) {
+    if (!$dara.isNull(request.personalLimitCountShrink)) {
       body["PersonalLimitCount"] = request.personalLimitCountShrink;
     }
 
-    if (!Util.isUnset(request.personalLimitType)) {
+    if (!$dara.isNull(request.personalLimitType)) {
       body["PersonalLimitType"] = request.personalLimitType;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       body["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.userGroupIds)) {
+    if (!$dara.isNull(request.userGroupIds)) {
       bodyFlat["UserGroupIds"] = request.userGroupIds;
     }
 
-    if (!Util.isUnset(request.whitelist)) {
+    if (!$dara.isNull(request.whitelist)) {
       bodyFlat["Whitelist"] = request.whitelist;
     }
 
@@ -14798,10 +23202,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateRegistrationPolicy",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -14812,7 +23216,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new CreateRegistrationPolicyResponse({}));
+    return $dara.cast<CreateRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new CreateRegistrationPolicyResponse({}));
   }
 
   /**
@@ -14822,7 +23226,7 @@ export default class Client extends OpenApi {
    * @returns CreateRegistrationPolicyResponse
    */
   async createRegistrationPolicy(request: CreateRegistrationPolicyRequest): Promise<CreateRegistrationPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createRegistrationPolicyWithOptions(request, runtime);
   }
 
@@ -14833,19 +23237,19 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateUserGroupResponse
    */
-  async createUserGroupWithOptions(request: CreateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserGroupResponse> {
-    Util.validateModel(request);
+  async createUserGroupWithOptions(request: CreateUserGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreateUserGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.attributes)) {
+    if (!$dara.isNull(request.attributes)) {
       bodyFlat["Attributes"] = request.attributes;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
@@ -14853,10 +23257,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateUserGroup",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -14867,7 +23271,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateUserGroupResponse>(await this.callApi(params, req, runtime), new CreateUserGroupResponse({}));
+    return $dara.cast<CreateUserGroupResponse>(await this.callApi(params, req, runtime), new CreateUserGroupResponse({}));
   }
 
   /**
@@ -14877,7 +23281,7 @@ export default class Client extends OpenApi {
    * @returns CreateUserGroupResponse
    */
   async createUserGroup(request: CreateUserGroupRequest): Promise<CreateUserGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createUserGroupWithOptions(request, runtime);
   }
 
@@ -14888,45 +23292,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateWmBaseImageResponse
    */
-  async createWmBaseImageWithOptions(request: CreateWmBaseImageRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmBaseImageResponse> {
-    Util.validateModel(request);
+  async createWmBaseImageWithOptions(request: CreateWmBaseImageRequest, runtime: $dara.RuntimeOptions): Promise<CreateWmBaseImageResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.height)) {
+    if (!$dara.isNull(request.height)) {
       body["Height"] = request.height;
     }
 
-    if (!Util.isUnset(request.opacity)) {
+    if (!$dara.isNull(request.opacity)) {
       body["Opacity"] = request.opacity;
     }
 
-    if (!Util.isUnset(request.scale)) {
+    if (!$dara.isNull(request.scale)) {
       body["Scale"] = request.scale;
     }
 
-    if (!Util.isUnset(request.width)) {
+    if (!$dara.isNull(request.width)) {
       body["Width"] = request.width;
     }
 
-    if (!Util.isUnset(request.wmInfoBytesB64)) {
+    if (!$dara.isNull(request.wmInfoBytesB64)) {
       body["WmInfoBytesB64"] = request.wmInfoBytesB64;
     }
 
-    if (!Util.isUnset(request.wmInfoSize)) {
+    if (!$dara.isNull(request.wmInfoSize)) {
       body["WmInfoSize"] = request.wmInfoSize;
     }
 
-    if (!Util.isUnset(request.wmInfoUint)) {
+    if (!$dara.isNull(request.wmInfoUint)) {
       body["WmInfoUint"] = request.wmInfoUint;
     }
 
-    if (!Util.isUnset(request.wmType)) {
+    if (!$dara.isNull(request.wmType)) {
       body["WmType"] = request.wmType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateWmBaseImage",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -14937,7 +23341,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateWmBaseImageResponse>(await this.callApi(params, req, runtime), new CreateWmBaseImageResponse({}));
+    return $dara.cast<CreateWmBaseImageResponse>(await this.callApi(params, req, runtime), new CreateWmBaseImageResponse({}));
   }
 
   /**
@@ -14947,7 +23351,7 @@ export default class Client extends OpenApi {
    * @returns CreateWmBaseImageResponse
    */
   async createWmBaseImage(request: CreateWmBaseImageRequest): Promise<CreateWmBaseImageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createWmBaseImageWithOptions(request, runtime);
   }
 
@@ -14958,73 +23362,73 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateWmEmbedTaskResponse
    */
-  async createWmEmbedTaskWithOptions(tmpReq: CreateWmEmbedTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmEmbedTaskResponse> {
-    Util.validateModel(tmpReq);
+  async createWmEmbedTaskWithOptions(tmpReq: CreateWmEmbedTaskRequest, runtime: $dara.RuntimeOptions): Promise<CreateWmEmbedTaskResponse> {
+    tmpReq.validate();
     let request = new CreateWmEmbedTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.csvControl)) {
+    if (!$dara.isNull(tmpReq.csvControl)) {
       request.csvControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.csvControl, "CsvControl", "json");
     }
 
-    if (!Util.isUnset(tmpReq.documentControl)) {
+    if (!$dara.isNull(tmpReq.documentControl)) {
       request.documentControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentControl, "DocumentControl", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.csvControlShrink)) {
+    if (!$dara.isNull(request.csvControlShrink)) {
       query["CsvControl"] = request.csvControlShrink;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.documentControlShrink)) {
+    if (!$dara.isNull(request.documentControlShrink)) {
       body["DocumentControl"] = request.documentControlShrink;
     }
 
-    if (!Util.isUnset(request.fileUrl)) {
+    if (!$dara.isNull(request.fileUrl)) {
       body["FileUrl"] = request.fileUrl;
     }
 
-    if (!Util.isUnset(request.filename)) {
+    if (!$dara.isNull(request.filename)) {
       body["Filename"] = request.filename;
     }
 
-    if (!Util.isUnset(request.imageEmbedJpegQuality)) {
+    if (!$dara.isNull(request.imageEmbedJpegQuality)) {
       body["ImageEmbedJpegQuality"] = request.imageEmbedJpegQuality;
     }
 
-    if (!Util.isUnset(request.imageEmbedLevel)) {
+    if (!$dara.isNull(request.imageEmbedLevel)) {
       body["ImageEmbedLevel"] = request.imageEmbedLevel;
     }
 
-    if (!Util.isUnset(request.videoBitrate)) {
+    if (!$dara.isNull(request.videoBitrate)) {
       body["VideoBitrate"] = request.videoBitrate;
     }
 
-    if (!Util.isUnset(request.videoIsLong)) {
+    if (!$dara.isNull(request.videoIsLong)) {
       body["VideoIsLong"] = request.videoIsLong;
     }
 
-    if (!Util.isUnset(request.wmInfoBytesB64)) {
+    if (!$dara.isNull(request.wmInfoBytesB64)) {
       body["WmInfoBytesB64"] = request.wmInfoBytesB64;
     }
 
-    if (!Util.isUnset(request.wmInfoSize)) {
+    if (!$dara.isNull(request.wmInfoSize)) {
       body["WmInfoSize"] = request.wmInfoSize;
     }
 
-    if (!Util.isUnset(request.wmInfoUint)) {
+    if (!$dara.isNull(request.wmInfoUint)) {
       body["WmInfoUint"] = request.wmInfoUint;
     }
 
-    if (!Util.isUnset(request.wmType)) {
+    if (!$dara.isNull(request.wmType)) {
       body["WmType"] = request.wmType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateWmEmbedTask",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15035,7 +23439,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateWmEmbedTaskResponse>(await this.callApi(params, req, runtime), new CreateWmEmbedTaskResponse({}));
+    return $dara.cast<CreateWmEmbedTaskResponse>(await this.callApi(params, req, runtime), new CreateWmEmbedTaskResponse({}));
   }
 
   /**
@@ -15045,7 +23449,7 @@ export default class Client extends OpenApi {
    * @returns CreateWmEmbedTaskResponse
    */
   async createWmEmbedTask(request: CreateWmEmbedTaskRequest): Promise<CreateWmEmbedTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createWmEmbedTaskWithOptions(request, runtime);
   }
 
@@ -15056,53 +23460,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateWmExtractTaskResponse
    */
-  async createWmExtractTaskWithOptions(tmpReq: CreateWmExtractTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmExtractTaskResponse> {
-    Util.validateModel(tmpReq);
+  async createWmExtractTaskWithOptions(tmpReq: CreateWmExtractTaskRequest, runtime: $dara.RuntimeOptions): Promise<CreateWmExtractTaskResponse> {
+    tmpReq.validate();
     let request = new CreateWmExtractTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.csvControl)) {
+    if (!$dara.isNull(tmpReq.csvControl)) {
       request.csvControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.csvControl, "CsvControl", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.csvControlShrink)) {
+    if (!$dara.isNull(request.csvControlShrink)) {
       query["CsvControl"] = request.csvControlShrink;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.documentIsCapture)) {
+    if (!$dara.isNull(request.documentIsCapture)) {
       body["DocumentIsCapture"] = request.documentIsCapture;
     }
 
-    if (!Util.isUnset(request.fileUrl)) {
+    if (!$dara.isNull(request.fileUrl)) {
       body["FileUrl"] = request.fileUrl;
     }
 
-    if (!Util.isUnset(request.filename)) {
+    if (!$dara.isNull(request.filename)) {
       body["Filename"] = request.filename;
     }
 
-    if (!Util.isUnset(request.videoIsLong)) {
+    if (!$dara.isNull(request.videoIsLong)) {
       body["VideoIsLong"] = request.videoIsLong;
     }
 
-    if (!Util.isUnset(request.videoSpeed)) {
+    if (!$dara.isNull(request.videoSpeed)) {
       body["VideoSpeed"] = request.videoSpeed;
     }
 
-    if (!Util.isUnset(request.wmInfoSize)) {
+    if (!$dara.isNull(request.wmInfoSize)) {
       body["WmInfoSize"] = request.wmInfoSize;
     }
 
-    if (!Util.isUnset(request.wmType)) {
+    if (!$dara.isNull(request.wmType)) {
       body["WmType"] = request.wmType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateWmExtractTask",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15113,7 +23517,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateWmExtractTaskResponse>(await this.callApi(params, req, runtime), new CreateWmExtractTaskResponse({}));
+    return $dara.cast<CreateWmExtractTaskResponse>(await this.callApi(params, req, runtime), new CreateWmExtractTaskResponse({}));
   }
 
   /**
@@ -15123,7 +23527,7 @@ export default class Client extends OpenApi {
    * @returns CreateWmExtractTaskResponse
    */
   async createWmExtractTask(request: CreateWmExtractTaskRequest): Promise<CreateWmExtractTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createWmExtractTaskWithOptions(request, runtime);
   }
 
@@ -15134,25 +23538,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateWmInfoMappingResponse
    */
-  async createWmInfoMappingWithOptions(request: CreateWmInfoMappingRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmInfoMappingResponse> {
-    Util.validateModel(request);
+  async createWmInfoMappingWithOptions(request: CreateWmInfoMappingRequest, runtime: $dara.RuntimeOptions): Promise<CreateWmInfoMappingResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.wmInfoBytesB64)) {
+    if (!$dara.isNull(request.wmInfoBytesB64)) {
       body["WmInfoBytesB64"] = request.wmInfoBytesB64;
     }
 
-    if (!Util.isUnset(request.wmInfoSize)) {
+    if (!$dara.isNull(request.wmInfoSize)) {
       body["WmInfoSize"] = request.wmInfoSize;
     }
 
-    if (!Util.isUnset(request.wmType)) {
+    if (!$dara.isNull(request.wmType)) {
       body["WmType"] = request.wmType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateWmInfoMapping",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15163,7 +23567,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateWmInfoMappingResponse>(await this.callApi(params, req, runtime), new CreateWmInfoMappingResponse({}));
+    return $dara.cast<CreateWmInfoMappingResponse>(await this.callApi(params, req, runtime), new CreateWmInfoMappingResponse({}));
   }
 
   /**
@@ -15173,8 +23577,55 @@ export default class Client extends OpenApi {
    * @returns CreateWmInfoMappingResponse
    */
   async createWmInfoMapping(request: CreateWmInfoMappingRequest): Promise<CreateWmInfoMappingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createWmInfoMappingWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量删除审批流程
+   * 
+   * @param request - DeleteApprovalProcessesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApprovalProcessesResponse
+   */
+  async deleteApprovalProcessesWithOptions(request: DeleteApprovalProcessesRequest, runtime: $dara.RuntimeOptions): Promise<DeleteApprovalProcessesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.processIds)) {
+      bodyFlat["ProcessIds"] = request.processIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApprovalProcesses",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DeleteApprovalProcessesResponse>(await this.callApi(params, req, runtime), new DeleteApprovalProcessesResponse({}));
+  }
+
+  /**
+   * 批量删除审批流程
+   * 
+   * @param request - DeleteApprovalProcessesRequest
+   * @returns DeleteApprovalProcessesResponse
+   */
+  async deleteApprovalProcesses(request: DeleteApprovalProcessesRequest): Promise<DeleteApprovalProcessesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteApprovalProcessesWithOptions(request, runtime);
   }
 
   /**
@@ -15184,17 +23635,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteClientUserResponse
    */
-  async deleteClientUserWithOptions(request: DeleteClientUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientUserResponse> {
-    Util.validateModel(request);
+  async deleteClientUserWithOptions(request: DeleteClientUserRequest, runtime: $dara.RuntimeOptions): Promise<DeleteClientUserResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteClientUser",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15205,7 +23656,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteClientUserResponse>(await this.callApi(params, req, runtime), new DeleteClientUserResponse({}));
+    return $dara.cast<DeleteClientUserResponse>(await this.callApi(params, req, runtime), new DeleteClientUserResponse({}));
   }
 
   /**
@@ -15215,7 +23666,7 @@ export default class Client extends OpenApi {
    * @returns DeleteClientUserResponse
    */
   async deleteClientUser(request: DeleteClientUserRequest): Promise<DeleteClientUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteClientUserWithOptions(request, runtime);
   }
 
@@ -15226,17 +23677,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDynamicRouteResponse
    */
-  async deleteDynamicRouteWithOptions(request: DeleteDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDynamicRouteResponse> {
-    Util.validateModel(request);
+  async deleteDynamicRouteWithOptions(request: DeleteDynamicRouteRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDynamicRouteResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dynamicRouteId)) {
+    if (!$dara.isNull(request.dynamicRouteId)) {
       query["DynamicRouteId"] = request.dynamicRouteId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDynamicRoute",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15247,7 +23698,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDynamicRouteResponse>(await this.callApi(params, req, runtime), new DeleteDynamicRouteResponse({}));
+    return $dara.cast<DeleteDynamicRouteResponse>(await this.callApi(params, req, runtime), new DeleteDynamicRouteResponse({}));
   }
 
   /**
@@ -15257,7 +23708,7 @@ export default class Client extends OpenApi {
    * @returns DeleteDynamicRouteResponse
    */
   async deleteDynamicRoute(request: DeleteDynamicRouteRequest): Promise<DeleteDynamicRouteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDynamicRouteWithOptions(request, runtime);
   }
 
@@ -15268,21 +23719,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteIdpDepartmentResponse
    */
-  async deleteIdpDepartmentWithOptions(request: DeleteIdpDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIdpDepartmentResponse> {
-    Util.validateModel(request);
+  async deleteIdpDepartmentWithOptions(request: DeleteIdpDepartmentRequest, runtime: $dara.RuntimeOptions): Promise<DeleteIdpDepartmentResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.departmentId)) {
+    if (!$dara.isNull(request.departmentId)) {
       query["DepartmentId"] = request.departmentId;
     }
 
-    if (!Util.isUnset(request.idpConfigId)) {
+    if (!$dara.isNull(request.idpConfigId)) {
       query["IdpConfigId"] = request.idpConfigId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteIdpDepartment",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15293,7 +23744,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteIdpDepartmentResponse>(await this.callApi(params, req, runtime), new DeleteIdpDepartmentResponse({}));
+    return $dara.cast<DeleteIdpDepartmentResponse>(await this.callApi(params, req, runtime), new DeleteIdpDepartmentResponse({}));
   }
 
   /**
@@ -15303,7 +23754,7 @@ export default class Client extends OpenApi {
    * @returns DeleteIdpDepartmentResponse
    */
   async deleteIdpDepartment(request: DeleteIdpDepartmentRequest): Promise<DeleteIdpDepartmentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteIdpDepartmentWithOptions(request, runtime);
   }
 
@@ -15314,17 +23765,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePrivateAccessApplicationResponse
    */
-  async deletePrivateAccessApplicationWithOptions(request: DeletePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateAccessApplicationResponse> {
-    Util.validateModel(request);
+  async deletePrivateAccessApplicationWithOptions(request: DeletePrivateAccessApplicationRequest, runtime: $dara.RuntimeOptions): Promise<DeletePrivateAccessApplicationResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.applicationId)) {
+    if (!$dara.isNull(request.applicationId)) {
       body["ApplicationId"] = request.applicationId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeletePrivateAccessApplication",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15335,7 +23786,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeletePrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new DeletePrivateAccessApplicationResponse({}));
+    return $dara.cast<DeletePrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new DeletePrivateAccessApplicationResponse({}));
   }
 
   /**
@@ -15345,7 +23796,7 @@ export default class Client extends OpenApi {
    * @returns DeletePrivateAccessApplicationResponse
    */
   async deletePrivateAccessApplication(request: DeletePrivateAccessApplicationRequest): Promise<DeletePrivateAccessApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePrivateAccessApplicationWithOptions(request, runtime);
   }
 
@@ -15356,17 +23807,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePrivateAccessPolicyResponse
    */
-  async deletePrivateAccessPolicyWithOptions(request: DeletePrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateAccessPolicyResponse> {
-    Util.validateModel(request);
+  async deletePrivateAccessPolicyWithOptions(request: DeletePrivateAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<DeletePrivateAccessPolicyResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       body["PolicyId"] = request.policyId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeletePrivateAccessPolicy",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15377,7 +23828,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeletePrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new DeletePrivateAccessPolicyResponse({}));
+    return $dara.cast<DeletePrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new DeletePrivateAccessPolicyResponse({}));
   }
 
   /**
@@ -15387,7 +23838,7 @@ export default class Client extends OpenApi {
    * @returns DeletePrivateAccessPolicyResponse
    */
   async deletePrivateAccessPolicy(request: DeletePrivateAccessPolicyRequest): Promise<DeletePrivateAccessPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePrivateAccessPolicyWithOptions(request, runtime);
   }
 
@@ -15398,17 +23849,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePrivateAccessTagResponse
    */
-  async deletePrivateAccessTagWithOptions(request: DeletePrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateAccessTagResponse> {
-    Util.validateModel(request);
+  async deletePrivateAccessTagWithOptions(request: DeletePrivateAccessTagRequest, runtime: $dara.RuntimeOptions): Promise<DeletePrivateAccessTagResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.tagId)) {
+    if (!$dara.isNull(request.tagId)) {
       body["TagId"] = request.tagId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeletePrivateAccessTag",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15419,7 +23870,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeletePrivateAccessTagResponse>(await this.callApi(params, req, runtime), new DeletePrivateAccessTagResponse({}));
+    return $dara.cast<DeletePrivateAccessTagResponse>(await this.callApi(params, req, runtime), new DeletePrivateAccessTagResponse({}));
   }
 
   /**
@@ -15429,7 +23880,7 @@ export default class Client extends OpenApi {
    * @returns DeletePrivateAccessTagResponse
    */
   async deletePrivateAccessTag(request: DeletePrivateAccessTagRequest): Promise<DeletePrivateAccessTagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePrivateAccessTagWithOptions(request, runtime);
   }
 
@@ -15440,11 +23891,11 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteRegistrationPoliciesResponse
    */
-  async deleteRegistrationPoliciesWithOptions(request: DeleteRegistrationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRegistrationPoliciesResponse> {
-    Util.validateModel(request);
+  async deleteRegistrationPoliciesWithOptions(request: DeleteRegistrationPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<DeleteRegistrationPoliciesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.policyIds)) {
+    if (!$dara.isNull(request.policyIds)) {
       bodyFlat["PolicyIds"] = request.policyIds;
     }
 
@@ -15452,10 +23903,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteRegistrationPolicies",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15466,7 +23917,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteRegistrationPoliciesResponse>(await this.callApi(params, req, runtime), new DeleteRegistrationPoliciesResponse({}));
+    return $dara.cast<DeleteRegistrationPoliciesResponse>(await this.callApi(params, req, runtime), new DeleteRegistrationPoliciesResponse({}));
   }
 
   /**
@@ -15476,7 +23927,7 @@ export default class Client extends OpenApi {
    * @returns DeleteRegistrationPoliciesResponse
    */
   async deleteRegistrationPolicies(request: DeleteRegistrationPoliciesRequest): Promise<DeleteRegistrationPoliciesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRegistrationPoliciesWithOptions(request, runtime);
   }
 
@@ -15487,11 +23938,11 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteUserDevicesResponse
    */
-  async deleteUserDevicesWithOptions(request: DeleteUserDevicesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserDevicesResponse> {
-    Util.validateModel(request);
+  async deleteUserDevicesWithOptions(request: DeleteUserDevicesRequest, runtime: $dara.RuntimeOptions): Promise<DeleteUserDevicesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceTags)) {
+    if (!$dara.isNull(request.deviceTags)) {
       bodyFlat["DeviceTags"] = request.deviceTags;
     }
 
@@ -15499,10 +23950,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteUserDevices",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15513,7 +23964,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteUserDevicesResponse>(await this.callApi(params, req, runtime), new DeleteUserDevicesResponse({}));
+    return $dara.cast<DeleteUserDevicesResponse>(await this.callApi(params, req, runtime), new DeleteUserDevicesResponse({}));
   }
 
   /**
@@ -15523,7 +23974,7 @@ export default class Client extends OpenApi {
    * @returns DeleteUserDevicesResponse
    */
   async deleteUserDevices(request: DeleteUserDevicesRequest): Promise<DeleteUserDevicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteUserDevicesWithOptions(request, runtime);
   }
 
@@ -15534,17 +23985,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteUserGroupResponse
    */
-  async deleteUserGroupWithOptions(request: DeleteUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserGroupResponse> {
-    Util.validateModel(request);
+  async deleteUserGroupWithOptions(request: DeleteUserGroupRequest, runtime: $dara.RuntimeOptions): Promise<DeleteUserGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.userGroupId)) {
+    if (!$dara.isNull(request.userGroupId)) {
       body["UserGroupId"] = request.userGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteUserGroup",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15555,7 +24006,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteUserGroupResponse>(await this.callApi(params, req, runtime), new DeleteUserGroupResponse({}));
+    return $dara.cast<DeleteUserGroupResponse>(await this.callApi(params, req, runtime), new DeleteUserGroupResponse({}));
   }
 
   /**
@@ -15565,7 +24016,7 @@ export default class Client extends OpenApi {
    * @returns DeleteUserGroupResponse
    */
   async deleteUserGroup(request: DeleteUserGroupRequest): Promise<DeleteUserGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteUserGroupWithOptions(request, runtime);
   }
 
@@ -15576,27 +24027,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachApplication2ConnectorResponse
    */
-  async detachApplication2ConnectorWithOptions(tmpReq: DetachApplication2ConnectorRequest, runtime: $Util.RuntimeOptions): Promise<DetachApplication2ConnectorResponse> {
-    Util.validateModel(tmpReq);
+  async detachApplication2ConnectorWithOptions(tmpReq: DetachApplication2ConnectorRequest, runtime: $dara.RuntimeOptions): Promise<DetachApplication2ConnectorResponse> {
+    tmpReq.validate();
     let request = new DetachApplication2ConnectorShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.applicationIds)) {
+    if (!$dara.isNull(tmpReq.applicationIds)) {
       request.applicationIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationIds, "ApplicationIds", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.applicationIdsShrink)) {
+    if (!$dara.isNull(request.applicationIdsShrink)) {
       body["ApplicationIds"] = request.applicationIdsShrink;
     }
 
-    if (!Util.isUnset(request.connectorId)) {
+    if (!$dara.isNull(request.connectorId)) {
       body["ConnectorId"] = request.connectorId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetachApplication2Connector",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15607,7 +24058,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachApplication2ConnectorResponse>(await this.callApi(params, req, runtime), new DetachApplication2ConnectorResponse({}));
+    return $dara.cast<DetachApplication2ConnectorResponse>(await this.callApi(params, req, runtime), new DetachApplication2ConnectorResponse({}));
   }
 
   /**
@@ -15617,8 +24068,58 @@ export default class Client extends OpenApi {
    * @returns DetachApplication2ConnectorResponse
    */
   async detachApplication2Connector(request: DetachApplication2ConnectorRequest): Promise<DetachApplication2ConnectorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detachApplication2ConnectorWithOptions(request, runtime);
+  }
+
+  /**
+   * 解绑业务策略与审批流程
+   * 
+   * @param request - DetachPolicy2ApprovalProcessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachPolicy2ApprovalProcessResponse
+   */
+  async detachPolicy2ApprovalProcessWithOptions(request: DetachPolicy2ApprovalProcessRequest, runtime: $dara.RuntimeOptions): Promise<DetachPolicy2ApprovalProcessResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.policyId)) {
+      body["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.policyType)) {
+      body["PolicyType"] = request.policyType;
+    }
+
+    if (!$dara.isNull(request.processId)) {
+      body["ProcessId"] = request.processId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetachPolicy2ApprovalProcess",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DetachPolicy2ApprovalProcessResponse>(await this.callApi(params, req, runtime), new DetachPolicy2ApprovalProcessResponse({}));
+  }
+
+  /**
+   * 解绑业务策略与审批流程
+   * 
+   * @param request - DetachPolicy2ApprovalProcessRequest
+   * @returns DetachPolicy2ApprovalProcessResponse
+   */
+  async detachPolicy2ApprovalProcess(request: DetachPolicy2ApprovalProcessRequest): Promise<DetachPolicy2ApprovalProcessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.detachPolicy2ApprovalProcessWithOptions(request, runtime);
   }
 
   /**
@@ -15628,67 +24129,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExportUserDevicesResponse
    */
-  async exportUserDevicesWithOptions(request: ExportUserDevicesRequest, runtime: $Util.RuntimeOptions): Promise<ExportUserDevicesResponse> {
-    Util.validateModel(request);
+  async exportUserDevicesWithOptions(request: ExportUserDevicesRequest, runtime: $dara.RuntimeOptions): Promise<ExportUserDevicesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appStatuses)) {
+    if (!$dara.isNull(request.appStatuses)) {
       bodyFlat["AppStatuses"] = request.appStatuses;
     }
 
-    if (!Util.isUnset(request.department)) {
+    if (!$dara.isNull(request.department)) {
       body["Department"] = request.department;
     }
 
-    if (!Util.isUnset(request.deviceBelong)) {
+    if (!$dara.isNull(request.deviceBelong)) {
       body["DeviceBelong"] = request.deviceBelong;
     }
 
-    if (!Util.isUnset(request.deviceStatuses)) {
+    if (!$dara.isNull(request.deviceStatuses)) {
       bodyFlat["DeviceStatuses"] = request.deviceStatuses;
     }
 
-    if (!Util.isUnset(request.deviceTags)) {
+    if (!$dara.isNull(request.deviceTags)) {
       bodyFlat["DeviceTags"] = request.deviceTags;
     }
 
-    if (!Util.isUnset(request.deviceTypes)) {
+    if (!$dara.isNull(request.deviceTypes)) {
       bodyFlat["DeviceTypes"] = request.deviceTypes;
     }
 
-    if (!Util.isUnset(request.dlpStatuses)) {
+    if (!$dara.isNull(request.dlpStatuses)) {
       bodyFlat["DlpStatuses"] = request.dlpStatuses;
     }
 
-    if (!Util.isUnset(request.hostname)) {
+    if (!$dara.isNull(request.hostname)) {
       body["Hostname"] = request.hostname;
     }
 
-    if (!Util.isUnset(request.iaStatuses)) {
+    if (!$dara.isNull(request.iaStatuses)) {
       bodyFlat["IaStatuses"] = request.iaStatuses;
     }
 
-    if (!Util.isUnset(request.mac)) {
+    if (!$dara.isNull(request.mac)) {
       body["Mac"] = request.mac;
     }
 
-    if (!Util.isUnset(request.nacStatuses)) {
+    if (!$dara.isNull(request.nacStatuses)) {
       bodyFlat["NacStatuses"] = request.nacStatuses;
     }
 
-    if (!Util.isUnset(request.paStatuses)) {
+    if (!$dara.isNull(request.paStatuses)) {
       bodyFlat["PaStatuses"] = request.paStatuses;
     }
 
-    if (!Util.isUnset(request.saseUserId)) {
+    if (!$dara.isNull(request.saseUserId)) {
       body["SaseUserId"] = request.saseUserId;
     }
 
-    if (!Util.isUnset(request.sharingStatus)) {
+    if (!$dara.isNull(request.sharingStatus)) {
       body["SharingStatus"] = request.sharingStatus;
     }
 
-    if (!Util.isUnset(request.username)) {
+    if (!$dara.isNull(request.username)) {
       body["Username"] = request.username;
     }
 
@@ -15696,10 +24197,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ExportUserDevices",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15710,7 +24211,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExportUserDevicesResponse>(await this.callApi(params, req, runtime), new ExportUserDevicesResponse({}));
+    return $dara.cast<ExportUserDevicesResponse>(await this.callApi(params, req, runtime), new ExportUserDevicesResponse({}));
   }
 
   /**
@@ -15720,7 +24221,7 @@ export default class Client extends OpenApi {
    * @returns ExportUserDevicesResponse
    */
   async exportUserDevices(request: ExportUserDevicesRequest): Promise<ExportUserDevicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.exportUserDevicesWithOptions(request, runtime);
   }
 
@@ -15731,9 +24232,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetActiveIdpConfigResponse
    */
-  async getActiveIdpConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<GetActiveIdpConfigResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getActiveIdpConfigWithOptions(runtime: $dara.RuntimeOptions): Promise<GetActiveIdpConfigResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetActiveIdpConfig",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15744,7 +24245,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetActiveIdpConfigResponse>(await this.callApi(params, req, runtime), new GetActiveIdpConfigResponse({}));
+    return $dara.cast<GetActiveIdpConfigResponse>(await this.callApi(params, req, runtime), new GetActiveIdpConfigResponse({}));
   }
 
   /**
@@ -15752,8 +24253,154 @@ export default class Client extends OpenApi {
    * @returns GetActiveIdpConfigResponse
    */
   async getActiveIdpConfig(): Promise<GetActiveIdpConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getActiveIdpConfigWithOptions(runtime);
+  }
+
+  /**
+   * 查询审批
+   * 
+   * @param request - GetApprovalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApprovalResponse
+   */
+  async getApprovalWithOptions(request: GetApprovalRequest, runtime: $dara.RuntimeOptions): Promise<GetApprovalResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApproval",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<GetApprovalResponse>(await this.callApi(params, req, runtime), new GetApprovalResponse({}));
+  }
+
+  /**
+   * 查询审批
+   * 
+   * @param request - GetApprovalRequest
+   * @returns GetApprovalResponse
+   */
+  async getApproval(request: GetApprovalRequest): Promise<GetApprovalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getApprovalWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询审批流程
+   * 
+   * @param request - GetApprovalProcessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApprovalProcessResponse
+   */
+  async getApprovalProcessWithOptions(request: GetApprovalProcessRequest, runtime: $dara.RuntimeOptions): Promise<GetApprovalProcessResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApprovalProcess",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<GetApprovalProcessResponse>(await this.callApi(params, req, runtime), new GetApprovalProcessResponse({}));
+  }
+
+  /**
+   * 查询审批流程
+   * 
+   * @param request - GetApprovalProcessRequest
+   * @returns GetApprovalProcessResponse
+   */
+  async getApprovalProcess(request: GetApprovalProcessRequest): Promise<GetApprovalProcessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getApprovalProcessWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询审批动态模板
+   * 
+   * @param request - GetApprovalSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApprovalSchemaResponse
+   */
+  async getApprovalSchemaWithOptions(request: GetApprovalSchemaRequest, runtime: $dara.RuntimeOptions): Promise<GetApprovalSchemaResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApprovalSchema",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<GetApprovalSchemaResponse>(await this.callApi(params, req, runtime), new GetApprovalSchemaResponse({}));
+  }
+
+  /**
+   * 查询审批动态模板
+   * 
+   * @param request - GetApprovalSchemaRequest
+   * @returns GetApprovalSchemaResponse
+   */
+  async getApprovalSchema(request: GetApprovalSchemaRequest): Promise<GetApprovalSchemaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getApprovalSchemaWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询自启动与防卸载策略配置
+   * 
+   * @param request - GetBootAndAntiUninstallPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBootAndAntiUninstallPolicyResponse
+   */
+  async getBootAndAntiUninstallPolicyWithOptions(runtime: $dara.RuntimeOptions): Promise<GetBootAndAntiUninstallPolicyResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBootAndAntiUninstallPolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<GetBootAndAntiUninstallPolicyResponse>(await this.callApi(params, req, runtime), new GetBootAndAntiUninstallPolicyResponse({}));
+  }
+
+  /**
+   * 查询自启动与防卸载策略配置
+   * @returns GetBootAndAntiUninstallPolicyResponse
+   */
+  async getBootAndAntiUninstallPolicy(): Promise<GetBootAndAntiUninstallPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getBootAndAntiUninstallPolicyWithOptions(runtime);
   }
 
   /**
@@ -15763,13 +24410,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetClientUserResponse
    */
-  async getClientUserWithOptions(request: GetClientUserRequest, runtime: $Util.RuntimeOptions): Promise<GetClientUserResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getClientUserWithOptions(request: GetClientUserRequest, runtime: $dara.RuntimeOptions): Promise<GetClientUserResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetClientUser",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15780,7 +24427,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetClientUserResponse>(await this.callApi(params, req, runtime), new GetClientUserResponse({}));
+    return $dara.cast<GetClientUserResponse>(await this.callApi(params, req, runtime), new GetClientUserResponse({}));
   }
 
   /**
@@ -15790,7 +24437,7 @@ export default class Client extends OpenApi {
    * @returns GetClientUserResponse
    */
   async getClientUser(request: GetClientUserRequest): Promise<GetClientUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getClientUserWithOptions(request, runtime);
   }
 
@@ -15801,13 +24448,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDynamicRouteResponse
    */
-  async getDynamicRouteWithOptions(request: GetDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<GetDynamicRouteResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getDynamicRouteWithOptions(request: GetDynamicRouteRequest, runtime: $dara.RuntimeOptions): Promise<GetDynamicRouteResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDynamicRoute",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15818,7 +24465,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDynamicRouteResponse>(await this.callApi(params, req, runtime), new GetDynamicRouteResponse({}));
+    return $dara.cast<GetDynamicRouteResponse>(await this.callApi(params, req, runtime), new GetDynamicRouteResponse({}));
   }
 
   /**
@@ -15828,7 +24475,7 @@ export default class Client extends OpenApi {
    * @returns GetDynamicRouteResponse
    */
   async getDynamicRoute(request: GetDynamicRouteRequest): Promise<GetDynamicRouteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDynamicRouteWithOptions(request, runtime);
   }
 
@@ -15839,13 +24486,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetIdpConfigResponse
    */
-  async getIdpConfigWithOptions(request: GetIdpConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetIdpConfigResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getIdpConfigWithOptions(request: GetIdpConfigRequest, runtime: $dara.RuntimeOptions): Promise<GetIdpConfigResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetIdpConfig",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15856,7 +24503,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetIdpConfigResponse>(await this.callApi(params, req, runtime), new GetIdpConfigResponse({}));
+    return $dara.cast<GetIdpConfigResponse>(await this.callApi(params, req, runtime), new GetIdpConfigResponse({}));
   }
 
   /**
@@ -15866,7 +24513,7 @@ export default class Client extends OpenApi {
    * @returns GetIdpConfigResponse
    */
   async getIdpConfig(request: GetIdpConfigRequest): Promise<GetIdpConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getIdpConfigWithOptions(request, runtime);
   }
 
@@ -15877,13 +24524,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPrivateAccessApplicationResponse
    */
-  async getPrivateAccessApplicationWithOptions(request: GetPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetPrivateAccessApplicationResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getPrivateAccessApplicationWithOptions(request: GetPrivateAccessApplicationRequest, runtime: $dara.RuntimeOptions): Promise<GetPrivateAccessApplicationResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetPrivateAccessApplication",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15894,7 +24541,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetPrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new GetPrivateAccessApplicationResponse({}));
+    return $dara.cast<GetPrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new GetPrivateAccessApplicationResponse({}));
   }
 
   /**
@@ -15904,7 +24551,7 @@ export default class Client extends OpenApi {
    * @returns GetPrivateAccessApplicationResponse
    */
   async getPrivateAccessApplication(request: GetPrivateAccessApplicationRequest): Promise<GetPrivateAccessApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getPrivateAccessApplicationWithOptions(request, runtime);
   }
 
@@ -15915,13 +24562,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPrivateAccessPolicyResponse
    */
-  async getPrivateAccessPolicyWithOptions(request: GetPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPrivateAccessPolicyResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getPrivateAccessPolicyWithOptions(request: GetPrivateAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<GetPrivateAccessPolicyResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetPrivateAccessPolicy",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15932,7 +24579,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetPrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new GetPrivateAccessPolicyResponse({}));
+    return $dara.cast<GetPrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new GetPrivateAccessPolicyResponse({}));
   }
 
   /**
@@ -15942,7 +24589,7 @@ export default class Client extends OpenApi {
    * @returns GetPrivateAccessPolicyResponse
    */
   async getPrivateAccessPolicy(request: GetPrivateAccessPolicyRequest): Promise<GetPrivateAccessPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getPrivateAccessPolicyWithOptions(request, runtime);
   }
 
@@ -15953,13 +24600,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRegistrationPolicyResponse
    */
-  async getRegistrationPolicyWithOptions(request: GetRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetRegistrationPolicyResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getRegistrationPolicyWithOptions(request: GetRegistrationPolicyRequest, runtime: $dara.RuntimeOptions): Promise<GetRegistrationPolicyResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetRegistrationPolicy",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -15970,7 +24617,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new GetRegistrationPolicyResponse({}));
+    return $dara.cast<GetRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new GetRegistrationPolicyResponse({}));
   }
 
   /**
@@ -15980,7 +24627,7 @@ export default class Client extends OpenApi {
    * @returns GetRegistrationPolicyResponse
    */
   async getRegistrationPolicy(request: GetRegistrationPolicyRequest): Promise<GetRegistrationPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getRegistrationPolicyWithOptions(request, runtime);
   }
 
@@ -15991,13 +24638,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserDeviceResponse
    */
-  async getUserDeviceWithOptions(request: GetUserDeviceRequest, runtime: $Util.RuntimeOptions): Promise<GetUserDeviceResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getUserDeviceWithOptions(request: GetUserDeviceRequest, runtime: $dara.RuntimeOptions): Promise<GetUserDeviceResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetUserDevice",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16008,7 +24655,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetUserDeviceResponse>(await this.callApi(params, req, runtime), new GetUserDeviceResponse({}));
+    return $dara.cast<GetUserDeviceResponse>(await this.callApi(params, req, runtime), new GetUserDeviceResponse({}));
   }
 
   /**
@@ -16018,7 +24665,7 @@ export default class Client extends OpenApi {
    * @returns GetUserDeviceResponse
    */
   async getUserDevice(request: GetUserDeviceRequest): Promise<GetUserDeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserDeviceWithOptions(request, runtime);
   }
 
@@ -16029,13 +24676,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserGroupResponse
    */
-  async getUserGroupWithOptions(request: GetUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetUserGroupResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getUserGroupWithOptions(request: GetUserGroupRequest, runtime: $dara.RuntimeOptions): Promise<GetUserGroupResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetUserGroup",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16046,7 +24693,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetUserGroupResponse>(await this.callApi(params, req, runtime), new GetUserGroupResponse({}));
+    return $dara.cast<GetUserGroupResponse>(await this.callApi(params, req, runtime), new GetUserGroupResponse({}));
   }
 
   /**
@@ -16056,7 +24703,7 @@ export default class Client extends OpenApi {
    * @returns GetUserGroupResponse
    */
   async getUserGroup(request: GetUserGroupRequest): Promise<GetUserGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserGroupWithOptions(request, runtime);
   }
 
@@ -16067,13 +24714,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetWmEmbedTaskResponse
    */
-  async getWmEmbedTaskWithOptions(request: GetWmEmbedTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetWmEmbedTaskResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getWmEmbedTaskWithOptions(request: GetWmEmbedTaskRequest, runtime: $dara.RuntimeOptions): Promise<GetWmEmbedTaskResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetWmEmbedTask",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16084,7 +24731,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetWmEmbedTaskResponse>(await this.callApi(params, req, runtime), new GetWmEmbedTaskResponse({}));
+    return $dara.cast<GetWmEmbedTaskResponse>(await this.callApi(params, req, runtime), new GetWmEmbedTaskResponse({}));
   }
 
   /**
@@ -16094,7 +24741,7 @@ export default class Client extends OpenApi {
    * @returns GetWmEmbedTaskResponse
    */
   async getWmEmbedTask(request: GetWmEmbedTaskRequest): Promise<GetWmEmbedTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getWmEmbedTaskWithOptions(request, runtime);
   }
 
@@ -16105,13 +24752,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetWmExtractTaskResponse
    */
-  async getWmExtractTaskWithOptions(request: GetWmExtractTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetWmExtractTaskResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getWmExtractTaskWithOptions(request: GetWmExtractTaskRequest, runtime: $dara.RuntimeOptions): Promise<GetWmExtractTaskResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetWmExtractTask",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16122,7 +24769,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetWmExtractTaskResponse>(await this.callApi(params, req, runtime), new GetWmExtractTaskResponse({}));
+    return $dara.cast<GetWmExtractTaskResponse>(await this.callApi(params, req, runtime), new GetWmExtractTaskResponse({}));
   }
 
   /**
@@ -16132,7 +24779,7 @@ export default class Client extends OpenApi {
    * @returns GetWmExtractTaskResponse
    */
   async getWmExtractTask(request: GetWmExtractTaskRequest): Promise<GetWmExtractTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getWmExtractTaskWithOptions(request, runtime);
   }
 
@@ -16143,13 +24790,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListApplicationsForPrivateAccessPolicyResponse
    */
-  async listApplicationsForPrivateAccessPolicyWithOptions(request: ListApplicationsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsForPrivateAccessPolicyResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listApplicationsForPrivateAccessPolicyWithOptions(request: ListApplicationsForPrivateAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ListApplicationsForPrivateAccessPolicyResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListApplicationsForPrivateAccessPolicy",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16160,7 +24807,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListApplicationsForPrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new ListApplicationsForPrivateAccessPolicyResponse({}));
+    return $dara.cast<ListApplicationsForPrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new ListApplicationsForPrivateAccessPolicyResponse({}));
   }
 
   /**
@@ -16170,7 +24817,7 @@ export default class Client extends OpenApi {
    * @returns ListApplicationsForPrivateAccessPolicyResponse
    */
   async listApplicationsForPrivateAccessPolicy(request: ListApplicationsForPrivateAccessPolicyRequest): Promise<ListApplicationsForPrivateAccessPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listApplicationsForPrivateAccessPolicyWithOptions(request, runtime);
   }
 
@@ -16181,13 +24828,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListApplicationsForPrivateAccessTagResponse
    */
-  async listApplicationsForPrivateAccessTagWithOptions(request: ListApplicationsForPrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsForPrivateAccessTagResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listApplicationsForPrivateAccessTagWithOptions(request: ListApplicationsForPrivateAccessTagRequest, runtime: $dara.RuntimeOptions): Promise<ListApplicationsForPrivateAccessTagResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListApplicationsForPrivateAccessTag",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16198,7 +24845,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListApplicationsForPrivateAccessTagResponse>(await this.callApi(params, req, runtime), new ListApplicationsForPrivateAccessTagResponse({}));
+    return $dara.cast<ListApplicationsForPrivateAccessTagResponse>(await this.callApi(params, req, runtime), new ListApplicationsForPrivateAccessTagResponse({}));
   }
 
   /**
@@ -16208,8 +24855,198 @@ export default class Client extends OpenApi {
    * @returns ListApplicationsForPrivateAccessTagResponse
    */
   async listApplicationsForPrivateAccessTag(request: ListApplicationsForPrivateAccessTagRequest): Promise<ListApplicationsForPrivateAccessTagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listApplicationsForPrivateAccessTagWithOptions(request, runtime);
+  }
+
+  /**
+   * 列表查询审批流程
+   * 
+   * @param request - ListApprovalProcessesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApprovalProcessesResponse
+   */
+  async listApprovalProcessesWithOptions(request: ListApprovalProcessesRequest, runtime: $dara.RuntimeOptions): Promise<ListApprovalProcessesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApprovalProcesses",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ListApprovalProcessesResponse>(await this.callApi(params, req, runtime), new ListApprovalProcessesResponse({}));
+  }
+
+  /**
+   * 列表查询审批流程
+   * 
+   * @param request - ListApprovalProcessesRequest
+   * @returns ListApprovalProcessesResponse
+   */
+  async listApprovalProcesses(request: ListApprovalProcessesRequest): Promise<ListApprovalProcessesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApprovalProcessesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询审批渲染模板关联的流程
+   * 
+   * @param request - ListApprovalProcessesForApprovalSchemasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApprovalProcessesForApprovalSchemasResponse
+   */
+  async listApprovalProcessesForApprovalSchemasWithOptions(request: ListApprovalProcessesForApprovalSchemasRequest, runtime: $dara.RuntimeOptions): Promise<ListApprovalProcessesForApprovalSchemasResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApprovalProcessesForApprovalSchemas",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ListApprovalProcessesForApprovalSchemasResponse>(await this.callApi(params, req, runtime), new ListApprovalProcessesForApprovalSchemasResponse({}));
+  }
+
+  /**
+   * 查询审批渲染模板关联的流程
+   * 
+   * @param request - ListApprovalProcessesForApprovalSchemasRequest
+   * @returns ListApprovalProcessesForApprovalSchemasResponse
+   */
+  async listApprovalProcessesForApprovalSchemas(request: ListApprovalProcessesForApprovalSchemasRequest): Promise<ListApprovalProcessesForApprovalSchemasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApprovalProcessesForApprovalSchemasWithOptions(request, runtime);
+  }
+
+  /**
+   * 列表查询审批动态模板
+   * 
+   * @param request - ListApprovalSchemasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApprovalSchemasResponse
+   */
+  async listApprovalSchemasWithOptions(request: ListApprovalSchemasRequest, runtime: $dara.RuntimeOptions): Promise<ListApprovalSchemasResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApprovalSchemas",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ListApprovalSchemasResponse>(await this.callApi(params, req, runtime), new ListApprovalSchemasResponse({}));
+  }
+
+  /**
+   * 列表查询审批动态模板
+   * 
+   * @param request - ListApprovalSchemasRequest
+   * @returns ListApprovalSchemasResponse
+   */
+  async listApprovalSchemas(request: ListApprovalSchemasRequest): Promise<ListApprovalSchemasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApprovalSchemasWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询审批流程关联的渲染模板
+   * 
+   * @param request - ListApprovalSchemasForApprovalProcessesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApprovalSchemasForApprovalProcessesResponse
+   */
+  async listApprovalSchemasForApprovalProcessesWithOptions(request: ListApprovalSchemasForApprovalProcessesRequest, runtime: $dara.RuntimeOptions): Promise<ListApprovalSchemasForApprovalProcessesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApprovalSchemasForApprovalProcesses",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ListApprovalSchemasForApprovalProcessesResponse>(await this.callApi(params, req, runtime), new ListApprovalSchemasForApprovalProcessesResponse({}));
+  }
+
+  /**
+   * 查询审批流程关联的渲染模板
+   * 
+   * @param request - ListApprovalSchemasForApprovalProcessesRequest
+   * @returns ListApprovalSchemasForApprovalProcessesResponse
+   */
+  async listApprovalSchemasForApprovalProcesses(request: ListApprovalSchemasForApprovalProcessesRequest): Promise<ListApprovalSchemasForApprovalProcessesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApprovalSchemasForApprovalProcessesWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量查询审批
+   * 
+   * @param request - ListApprovalsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApprovalsResponse
+   */
+  async listApprovalsWithOptions(request: ListApprovalsRequest, runtime: $dara.RuntimeOptions): Promise<ListApprovalsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApprovals",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ListApprovalsResponse>(await this.callApi(params, req, runtime), new ListApprovalsResponse({}));
+  }
+
+  /**
+   * 批量查询审批
+   * 
+   * @param request - ListApprovalsRequest
+   * @returns ListApprovalsResponse
+   */
+  async listApprovals(request: ListApprovalsRequest): Promise<ListApprovalsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApprovalsWithOptions(request, runtime);
   }
 
   /**
@@ -16219,13 +25056,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListClientUsersResponse
    */
-  async listClientUsersWithOptions(request: ListClientUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListClientUsersResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listClientUsersWithOptions(request: ListClientUsersRequest, runtime: $dara.RuntimeOptions): Promise<ListClientUsersResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListClientUsers",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16236,7 +25073,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListClientUsersResponse>(await this.callApi(params, req, runtime), new ListClientUsersResponse({}));
+    return $dara.cast<ListClientUsersResponse>(await this.callApi(params, req, runtime), new ListClientUsersResponse({}));
   }
 
   /**
@@ -16246,7 +25083,7 @@ export default class Client extends OpenApi {
    * @returns ListClientUsersResponse
    */
   async listClientUsers(request: ListClientUsersRequest): Promise<ListClientUsersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listClientUsersWithOptions(request, runtime);
   }
 
@@ -16257,13 +25094,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListConnectorsResponse
    */
-  async listConnectorsWithOptions(request: ListConnectorsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectorsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listConnectorsWithOptions(request: ListConnectorsRequest, runtime: $dara.RuntimeOptions): Promise<ListConnectorsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListConnectors",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16274,7 +25111,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListConnectorsResponse>(await this.callApi(params, req, runtime), new ListConnectorsResponse({}));
+    return $dara.cast<ListConnectorsResponse>(await this.callApi(params, req, runtime), new ListConnectorsResponse({}));
   }
 
   /**
@@ -16284,7 +25121,7 @@ export default class Client extends OpenApi {
    * @returns ListConnectorsResponse
    */
   async listConnectors(request: ListConnectorsRequest): Promise<ListConnectorsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listConnectorsWithOptions(request, runtime);
   }
 
@@ -16295,9 +25132,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDynamicRouteRegionsResponse
    */
-  async listDynamicRouteRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListDynamicRouteRegionsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async listDynamicRouteRegionsWithOptions(runtime: $dara.RuntimeOptions): Promise<ListDynamicRouteRegionsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "ListDynamicRouteRegions",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16308,7 +25145,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDynamicRouteRegionsResponse>(await this.callApi(params, req, runtime), new ListDynamicRouteRegionsResponse({}));
+    return $dara.cast<ListDynamicRouteRegionsResponse>(await this.callApi(params, req, runtime), new ListDynamicRouteRegionsResponse({}));
   }
 
   /**
@@ -16316,7 +25153,7 @@ export default class Client extends OpenApi {
    * @returns ListDynamicRouteRegionsResponse
    */
   async listDynamicRouteRegions(): Promise<ListDynamicRouteRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDynamicRouteRegionsWithOptions(runtime);
   }
 
@@ -16327,13 +25164,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDynamicRoutesResponse
    */
-  async listDynamicRoutesWithOptions(request: ListDynamicRoutesRequest, runtime: $Util.RuntimeOptions): Promise<ListDynamicRoutesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listDynamicRoutesWithOptions(request: ListDynamicRoutesRequest, runtime: $dara.RuntimeOptions): Promise<ListDynamicRoutesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDynamicRoutes",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16344,7 +25181,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDynamicRoutesResponse>(await this.callApi(params, req, runtime), new ListDynamicRoutesResponse({}));
+    return $dara.cast<ListDynamicRoutesResponse>(await this.callApi(params, req, runtime), new ListDynamicRoutesResponse({}));
   }
 
   /**
@@ -16354,7 +25191,7 @@ export default class Client extends OpenApi {
    * @returns ListDynamicRoutesResponse
    */
   async listDynamicRoutes(request: ListDynamicRoutesRequest): Promise<ListDynamicRoutesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDynamicRoutesWithOptions(request, runtime);
   }
 
@@ -16365,13 +25202,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListExcessiveDeviceRegistrationApplicationsResponse
    */
-  async listExcessiveDeviceRegistrationApplicationsWithOptions(request: ListExcessiveDeviceRegistrationApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListExcessiveDeviceRegistrationApplicationsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listExcessiveDeviceRegistrationApplicationsWithOptions(request: ListExcessiveDeviceRegistrationApplicationsRequest, runtime: $dara.RuntimeOptions): Promise<ListExcessiveDeviceRegistrationApplicationsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListExcessiveDeviceRegistrationApplications",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16382,7 +25219,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListExcessiveDeviceRegistrationApplicationsResponse>(await this.callApi(params, req, runtime), new ListExcessiveDeviceRegistrationApplicationsResponse({}));
+    return $dara.cast<ListExcessiveDeviceRegistrationApplicationsResponse>(await this.callApi(params, req, runtime), new ListExcessiveDeviceRegistrationApplicationsResponse({}));
   }
 
   /**
@@ -16392,7 +25229,7 @@ export default class Client extends OpenApi {
    * @returns ListExcessiveDeviceRegistrationApplicationsResponse
    */
   async listExcessiveDeviceRegistrationApplications(request: ListExcessiveDeviceRegistrationApplicationsRequest): Promise<ListExcessiveDeviceRegistrationApplicationsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listExcessiveDeviceRegistrationApplicationsWithOptions(request, runtime);
   }
 
@@ -16403,13 +25240,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListIdpConfigsResponse
    */
-  async listIdpConfigsWithOptions(request: ListIdpConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListIdpConfigsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listIdpConfigsWithOptions(request: ListIdpConfigsRequest, runtime: $dara.RuntimeOptions): Promise<ListIdpConfigsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListIdpConfigs",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16420,7 +25257,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListIdpConfigsResponse>(await this.callApi(params, req, runtime), new ListIdpConfigsResponse({}));
+    return $dara.cast<ListIdpConfigsResponse>(await this.callApi(params, req, runtime), new ListIdpConfigsResponse({}));
   }
 
   /**
@@ -16430,7 +25267,7 @@ export default class Client extends OpenApi {
    * @returns ListIdpConfigsResponse
    */
   async listIdpConfigs(request: ListIdpConfigsRequest): Promise<ListIdpConfigsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listIdpConfigsWithOptions(request, runtime);
   }
 
@@ -16441,13 +25278,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListIdpDepartmentsResponse
    */
-  async listIdpDepartmentsWithOptions(request: ListIdpDepartmentsRequest, runtime: $Util.RuntimeOptions): Promise<ListIdpDepartmentsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listIdpDepartmentsWithOptions(request: ListIdpDepartmentsRequest, runtime: $dara.RuntimeOptions): Promise<ListIdpDepartmentsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListIdpDepartments",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16458,7 +25295,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListIdpDepartmentsResponse>(await this.callApi(params, req, runtime), new ListIdpDepartmentsResponse({}));
+    return $dara.cast<ListIdpDepartmentsResponse>(await this.callApi(params, req, runtime), new ListIdpDepartmentsResponse({}));
   }
 
   /**
@@ -16468,7 +25305,7 @@ export default class Client extends OpenApi {
    * @returns ListIdpDepartmentsResponse
    */
   async listIdpDepartments(request: ListIdpDepartmentsRequest): Promise<ListIdpDepartmentsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listIdpDepartmentsWithOptions(request, runtime);
   }
 
@@ -16479,45 +25316,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNacUserCertResponse
    */
-  async listNacUserCertWithOptions(request: ListNacUserCertRequest, runtime: $Util.RuntimeOptions): Promise<ListNacUserCertResponse> {
-    Util.validateModel(request);
+  async listNacUserCertWithOptions(request: ListNacUserCertRequest, runtime: $dara.RuntimeOptions): Promise<ListNacUserCertResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.department)) {
+    if (!$dara.isNull(request.department)) {
       query["Department"] = request.department;
     }
 
-    if (!Util.isUnset(request.deviceType)) {
+    if (!$dara.isNull(request.deviceType)) {
       query["DeviceType"] = request.deviceType;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.username)) {
+    if (!$dara.isNull(request.username)) {
       query["Username"] = request.username;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListNacUserCert",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16528,7 +25365,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListNacUserCertResponse>(await this.callApi(params, req, runtime), new ListNacUserCertResponse({}));
+    return $dara.cast<ListNacUserCertResponse>(await this.callApi(params, req, runtime), new ListNacUserCertResponse({}));
   }
 
   /**
@@ -16538,7 +25375,7 @@ export default class Client extends OpenApi {
    * @returns ListNacUserCertResponse
    */
   async listNacUserCert(request: ListNacUserCertRequest): Promise<ListNacUserCertResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listNacUserCertWithOptions(request, runtime);
   }
 
@@ -16549,13 +25386,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPolicesForPrivateAccessApplicationResponse
    */
-  async listPolicesForPrivateAccessApplicationWithOptions(request: ListPolicesForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForPrivateAccessApplicationResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listPolicesForPrivateAccessApplicationWithOptions(request: ListPolicesForPrivateAccessApplicationRequest, runtime: $dara.RuntimeOptions): Promise<ListPolicesForPrivateAccessApplicationResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPolicesForPrivateAccessApplication",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16566,7 +25403,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPolicesForPrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new ListPolicesForPrivateAccessApplicationResponse({}));
+    return $dara.cast<ListPolicesForPrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new ListPolicesForPrivateAccessApplicationResponse({}));
   }
 
   /**
@@ -16576,7 +25413,7 @@ export default class Client extends OpenApi {
    * @returns ListPolicesForPrivateAccessApplicationResponse
    */
   async listPolicesForPrivateAccessApplication(request: ListPolicesForPrivateAccessApplicationRequest): Promise<ListPolicesForPrivateAccessApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPolicesForPrivateAccessApplicationWithOptions(request, runtime);
   }
 
@@ -16587,13 +25424,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPolicesForPrivateAccessTagResponse
    */
-  async listPolicesForPrivateAccessTagWithOptions(request: ListPolicesForPrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForPrivateAccessTagResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listPolicesForPrivateAccessTagWithOptions(request: ListPolicesForPrivateAccessTagRequest, runtime: $dara.RuntimeOptions): Promise<ListPolicesForPrivateAccessTagResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPolicesForPrivateAccessTag",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16604,7 +25441,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPolicesForPrivateAccessTagResponse>(await this.callApi(params, req, runtime), new ListPolicesForPrivateAccessTagResponse({}));
+    return $dara.cast<ListPolicesForPrivateAccessTagResponse>(await this.callApi(params, req, runtime), new ListPolicesForPrivateAccessTagResponse({}));
   }
 
   /**
@@ -16614,7 +25451,7 @@ export default class Client extends OpenApi {
    * @returns ListPolicesForPrivateAccessTagResponse
    */
   async listPolicesForPrivateAccessTag(request: ListPolicesForPrivateAccessTagRequest): Promise<ListPolicesForPrivateAccessTagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPolicesForPrivateAccessTagWithOptions(request, runtime);
   }
 
@@ -16625,13 +25462,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPolicesForUserGroupResponse
    */
-  async listPolicesForUserGroupWithOptions(request: ListPolicesForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForUserGroupResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listPolicesForUserGroupWithOptions(request: ListPolicesForUserGroupRequest, runtime: $dara.RuntimeOptions): Promise<ListPolicesForUserGroupResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPolicesForUserGroup",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16642,7 +25479,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPolicesForUserGroupResponse>(await this.callApi(params, req, runtime), new ListPolicesForUserGroupResponse({}));
+    return $dara.cast<ListPolicesForUserGroupResponse>(await this.callApi(params, req, runtime), new ListPolicesForUserGroupResponse({}));
   }
 
   /**
@@ -16652,7 +25489,7 @@ export default class Client extends OpenApi {
    * @returns ListPolicesForUserGroupResponse
    */
   async listPolicesForUserGroup(request: ListPolicesForUserGroupRequest): Promise<ListPolicesForUserGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPolicesForUserGroupWithOptions(request, runtime);
   }
 
@@ -16663,13 +25500,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPopTrafficStatisticsResponse
    */
-  async listPopTrafficStatisticsWithOptions(request: ListPopTrafficStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListPopTrafficStatisticsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listPopTrafficStatisticsWithOptions(request: ListPopTrafficStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<ListPopTrafficStatisticsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPopTrafficStatistics",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16680,7 +25517,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPopTrafficStatisticsResponse>(await this.callApi(params, req, runtime), new ListPopTrafficStatisticsResponse({}));
+    return $dara.cast<ListPopTrafficStatisticsResponse>(await this.callApi(params, req, runtime), new ListPopTrafficStatisticsResponse({}));
   }
 
   /**
@@ -16690,7 +25527,7 @@ export default class Client extends OpenApi {
    * @returns ListPopTrafficStatisticsResponse
    */
   async listPopTrafficStatistics(request: ListPopTrafficStatisticsRequest): Promise<ListPopTrafficStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPopTrafficStatisticsWithOptions(request, runtime);
   }
 
@@ -16701,13 +25538,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPrivateAccessApplicationsResponse
    */
-  async listPrivateAccessApplicationsWithOptions(request: ListPrivateAccessApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessApplicationsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listPrivateAccessApplicationsWithOptions(request: ListPrivateAccessApplicationsRequest, runtime: $dara.RuntimeOptions): Promise<ListPrivateAccessApplicationsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPrivateAccessApplications",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16718,7 +25555,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPrivateAccessApplicationsResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessApplicationsResponse({}));
+    return $dara.cast<ListPrivateAccessApplicationsResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessApplicationsResponse({}));
   }
 
   /**
@@ -16728,7 +25565,7 @@ export default class Client extends OpenApi {
    * @returns ListPrivateAccessApplicationsResponse
    */
   async listPrivateAccessApplications(request: ListPrivateAccessApplicationsRequest): Promise<ListPrivateAccessApplicationsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPrivateAccessApplicationsWithOptions(request, runtime);
   }
 
@@ -16739,13 +25576,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPrivateAccessApplicationsForDynamicRouteResponse
    */
-  async listPrivateAccessApplicationsForDynamicRouteWithOptions(request: ListPrivateAccessApplicationsForDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessApplicationsForDynamicRouteResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listPrivateAccessApplicationsForDynamicRouteWithOptions(request: ListPrivateAccessApplicationsForDynamicRouteRequest, runtime: $dara.RuntimeOptions): Promise<ListPrivateAccessApplicationsForDynamicRouteResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPrivateAccessApplicationsForDynamicRoute",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16756,7 +25593,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPrivateAccessApplicationsForDynamicRouteResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessApplicationsForDynamicRouteResponse({}));
+    return $dara.cast<ListPrivateAccessApplicationsForDynamicRouteResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessApplicationsForDynamicRouteResponse({}));
   }
 
   /**
@@ -16766,7 +25603,7 @@ export default class Client extends OpenApi {
    * @returns ListPrivateAccessApplicationsForDynamicRouteResponse
    */
   async listPrivateAccessApplicationsForDynamicRoute(request: ListPrivateAccessApplicationsForDynamicRouteRequest): Promise<ListPrivateAccessApplicationsForDynamicRouteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPrivateAccessApplicationsForDynamicRouteWithOptions(request, runtime);
   }
 
@@ -16777,13 +25614,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPrivateAccessPolicesResponse
    */
-  async listPrivateAccessPolicesWithOptions(request: ListPrivateAccessPolicesRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessPolicesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listPrivateAccessPolicesWithOptions(request: ListPrivateAccessPolicesRequest, runtime: $dara.RuntimeOptions): Promise<ListPrivateAccessPolicesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPrivateAccessPolices",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16794,7 +25631,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPrivateAccessPolicesResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessPolicesResponse({}));
+    return $dara.cast<ListPrivateAccessPolicesResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessPolicesResponse({}));
   }
 
   /**
@@ -16804,7 +25641,7 @@ export default class Client extends OpenApi {
    * @returns ListPrivateAccessPolicesResponse
    */
   async listPrivateAccessPolices(request: ListPrivateAccessPolicesRequest): Promise<ListPrivateAccessPolicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPrivateAccessPolicesWithOptions(request, runtime);
   }
 
@@ -16815,13 +25652,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPrivateAccessTagsResponse
    */
-  async listPrivateAccessTagsWithOptions(request: ListPrivateAccessTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessTagsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listPrivateAccessTagsWithOptions(request: ListPrivateAccessTagsRequest, runtime: $dara.RuntimeOptions): Promise<ListPrivateAccessTagsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPrivateAccessTags",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16832,7 +25669,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPrivateAccessTagsResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessTagsResponse({}));
+    return $dara.cast<ListPrivateAccessTagsResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessTagsResponse({}));
   }
 
   /**
@@ -16842,7 +25679,7 @@ export default class Client extends OpenApi {
    * @returns ListPrivateAccessTagsResponse
    */
   async listPrivateAccessTags(request: ListPrivateAccessTagsRequest): Promise<ListPrivateAccessTagsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPrivateAccessTagsWithOptions(request, runtime);
   }
 
@@ -16853,13 +25690,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPrivateAccessTagsForDynamicRouteResponse
    */
-  async listPrivateAccessTagsForDynamicRouteWithOptions(request: ListPrivateAccessTagsForDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessTagsForDynamicRouteResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listPrivateAccessTagsForDynamicRouteWithOptions(request: ListPrivateAccessTagsForDynamicRouteRequest, runtime: $dara.RuntimeOptions): Promise<ListPrivateAccessTagsForDynamicRouteResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPrivateAccessTagsForDynamicRoute",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16870,7 +25707,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPrivateAccessTagsForDynamicRouteResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessTagsForDynamicRouteResponse({}));
+    return $dara.cast<ListPrivateAccessTagsForDynamicRouteResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessTagsForDynamicRouteResponse({}));
   }
 
   /**
@@ -16880,7 +25717,7 @@ export default class Client extends OpenApi {
    * @returns ListPrivateAccessTagsForDynamicRouteResponse
    */
   async listPrivateAccessTagsForDynamicRoute(request: ListPrivateAccessTagsForDynamicRouteRequest): Promise<ListPrivateAccessTagsForDynamicRouteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPrivateAccessTagsForDynamicRouteWithOptions(request, runtime);
   }
 
@@ -16891,13 +25728,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRegistrationPoliciesResponse
    */
-  async listRegistrationPoliciesWithOptions(request: ListRegistrationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListRegistrationPoliciesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listRegistrationPoliciesWithOptions(request: ListRegistrationPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<ListRegistrationPoliciesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListRegistrationPolicies",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16908,7 +25745,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListRegistrationPoliciesResponse>(await this.callApi(params, req, runtime), new ListRegistrationPoliciesResponse({}));
+    return $dara.cast<ListRegistrationPoliciesResponse>(await this.callApi(params, req, runtime), new ListRegistrationPoliciesResponse({}));
   }
 
   /**
@@ -16918,7 +25755,7 @@ export default class Client extends OpenApi {
    * @returns ListRegistrationPoliciesResponse
    */
   async listRegistrationPolicies(request: ListRegistrationPoliciesRequest): Promise<ListRegistrationPoliciesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listRegistrationPoliciesWithOptions(request, runtime);
   }
 
@@ -16929,13 +25766,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRegistrationPoliciesForUserGroupResponse
    */
-  async listRegistrationPoliciesForUserGroupWithOptions(request: ListRegistrationPoliciesForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListRegistrationPoliciesForUserGroupResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listRegistrationPoliciesForUserGroupWithOptions(request: ListRegistrationPoliciesForUserGroupRequest, runtime: $dara.RuntimeOptions): Promise<ListRegistrationPoliciesForUserGroupResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListRegistrationPoliciesForUserGroup",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16946,7 +25783,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListRegistrationPoliciesForUserGroupResponse>(await this.callApi(params, req, runtime), new ListRegistrationPoliciesForUserGroupResponse({}));
+    return $dara.cast<ListRegistrationPoliciesForUserGroupResponse>(await this.callApi(params, req, runtime), new ListRegistrationPoliciesForUserGroupResponse({}));
   }
 
   /**
@@ -16956,7 +25793,7 @@ export default class Client extends OpenApi {
    * @returns ListRegistrationPoliciesForUserGroupResponse
    */
   async listRegistrationPoliciesForUserGroup(request: ListRegistrationPoliciesForUserGroupRequest): Promise<ListRegistrationPoliciesForUserGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listRegistrationPoliciesForUserGroupWithOptions(request, runtime);
   }
 
@@ -16967,13 +25804,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSoftwareForUserDeviceResponse
    */
-  async listSoftwareForUserDeviceWithOptions(request: ListSoftwareForUserDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ListSoftwareForUserDeviceResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listSoftwareForUserDeviceWithOptions(request: ListSoftwareForUserDeviceRequest, runtime: $dara.RuntimeOptions): Promise<ListSoftwareForUserDeviceResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListSoftwareForUserDevice",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -16984,7 +25821,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListSoftwareForUserDeviceResponse>(await this.callApi(params, req, runtime), new ListSoftwareForUserDeviceResponse({}));
+    return $dara.cast<ListSoftwareForUserDeviceResponse>(await this.callApi(params, req, runtime), new ListSoftwareForUserDeviceResponse({}));
   }
 
   /**
@@ -16994,7 +25831,7 @@ export default class Client extends OpenApi {
    * @returns ListSoftwareForUserDeviceResponse
    */
   async listSoftwareForUserDevice(request: ListSoftwareForUserDeviceRequest): Promise<ListSoftwareForUserDeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listSoftwareForUserDeviceWithOptions(request, runtime);
   }
 
@@ -17005,13 +25842,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagsForPrivateAccessApplicationResponse
    */
-  async listTagsForPrivateAccessApplicationWithOptions(request: ListTagsForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsForPrivateAccessApplicationResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listTagsForPrivateAccessApplicationWithOptions(request: ListTagsForPrivateAccessApplicationRequest, runtime: $dara.RuntimeOptions): Promise<ListTagsForPrivateAccessApplicationResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagsForPrivateAccessApplication",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17022,7 +25859,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagsForPrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new ListTagsForPrivateAccessApplicationResponse({}));
+    return $dara.cast<ListTagsForPrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new ListTagsForPrivateAccessApplicationResponse({}));
   }
 
   /**
@@ -17032,7 +25869,7 @@ export default class Client extends OpenApi {
    * @returns ListTagsForPrivateAccessApplicationResponse
    */
   async listTagsForPrivateAccessApplication(request: ListTagsForPrivateAccessApplicationRequest): Promise<ListTagsForPrivateAccessApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagsForPrivateAccessApplicationWithOptions(request, runtime);
   }
 
@@ -17043,13 +25880,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagsForPrivateAccessPolicyResponse
    */
-  async listTagsForPrivateAccessPolicyWithOptions(request: ListTagsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsForPrivateAccessPolicyResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listTagsForPrivateAccessPolicyWithOptions(request: ListTagsForPrivateAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ListTagsForPrivateAccessPolicyResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagsForPrivateAccessPolicy",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17060,7 +25897,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagsForPrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new ListTagsForPrivateAccessPolicyResponse({}));
+    return $dara.cast<ListTagsForPrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new ListTagsForPrivateAccessPolicyResponse({}));
   }
 
   /**
@@ -17070,8 +25907,46 @@ export default class Client extends OpenApi {
    * @returns ListTagsForPrivateAccessPolicyResponse
    */
   async listTagsForPrivateAccessPolicy(request: ListTagsForPrivateAccessPolicyRequest): Promise<ListTagsForPrivateAccessPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagsForPrivateAccessPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 列表查询卸载申请列表
+   * 
+   * @param request - ListUninstallApplicationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUninstallApplicationsResponse
+   */
+  async listUninstallApplicationsWithOptions(request: ListUninstallApplicationsRequest, runtime: $dara.RuntimeOptions): Promise<ListUninstallApplicationsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUninstallApplications",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ListUninstallApplicationsResponse>(await this.callApi(params, req, runtime), new ListUninstallApplicationsResponse({}));
+  }
+
+  /**
+   * 列表查询卸载申请列表
+   * 
+   * @param request - ListUninstallApplicationsRequest
+   * @returns ListUninstallApplicationsResponse
+   */
+  async listUninstallApplications(request: ListUninstallApplicationsRequest): Promise<ListUninstallApplicationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUninstallApplicationsWithOptions(request, runtime);
   }
 
   /**
@@ -17081,13 +25956,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUserApplicationsResponse
    */
-  async listUserApplicationsWithOptions(request: ListUserApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserApplicationsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listUserApplicationsWithOptions(request: ListUserApplicationsRequest, runtime: $dara.RuntimeOptions): Promise<ListUserApplicationsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserApplications",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17098,7 +25973,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserApplicationsResponse>(await this.callApi(params, req, runtime), new ListUserApplicationsResponse({}));
+    return $dara.cast<ListUserApplicationsResponse>(await this.callApi(params, req, runtime), new ListUserApplicationsResponse({}));
   }
 
   /**
@@ -17108,7 +25983,7 @@ export default class Client extends OpenApi {
    * @returns ListUserApplicationsResponse
    */
   async listUserApplications(request: ListUserApplicationsRequest): Promise<ListUserApplicationsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserApplicationsWithOptions(request, runtime);
   }
 
@@ -17119,13 +25994,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUserDevicesResponse
    */
-  async listUserDevicesWithOptions(request: ListUserDevicesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserDevicesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listUserDevicesWithOptions(request: ListUserDevicesRequest, runtime: $dara.RuntimeOptions): Promise<ListUserDevicesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserDevices",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17136,7 +26011,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserDevicesResponse>(await this.callApi(params, req, runtime), new ListUserDevicesResponse({}));
+    return $dara.cast<ListUserDevicesResponse>(await this.callApi(params, req, runtime), new ListUserDevicesResponse({}));
   }
 
   /**
@@ -17146,7 +26021,7 @@ export default class Client extends OpenApi {
    * @returns ListUserDevicesResponse
    */
   async listUserDevices(request: ListUserDevicesRequest): Promise<ListUserDevicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserDevicesWithOptions(request, runtime);
   }
 
@@ -17157,13 +26032,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUserGroupsResponse
    */
-  async listUserGroupsWithOptions(request: ListUserGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listUserGroupsWithOptions(request: ListUserGroupsRequest, runtime: $dara.RuntimeOptions): Promise<ListUserGroupsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserGroups",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17174,7 +26049,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserGroupsResponse>(await this.callApi(params, req, runtime), new ListUserGroupsResponse({}));
+    return $dara.cast<ListUserGroupsResponse>(await this.callApi(params, req, runtime), new ListUserGroupsResponse({}));
   }
 
   /**
@@ -17184,7 +26059,7 @@ export default class Client extends OpenApi {
    * @returns ListUserGroupsResponse
    */
   async listUserGroups(request: ListUserGroupsRequest): Promise<ListUserGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserGroupsWithOptions(request, runtime);
   }
 
@@ -17195,13 +26070,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUserGroupsForPrivateAccessPolicyResponse
    */
-  async listUserGroupsForPrivateAccessPolicyWithOptions(request: ListUserGroupsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsForPrivateAccessPolicyResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listUserGroupsForPrivateAccessPolicyWithOptions(request: ListUserGroupsForPrivateAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ListUserGroupsForPrivateAccessPolicyResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserGroupsForPrivateAccessPolicy",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17212,7 +26087,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserGroupsForPrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new ListUserGroupsForPrivateAccessPolicyResponse({}));
+    return $dara.cast<ListUserGroupsForPrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new ListUserGroupsForPrivateAccessPolicyResponse({}));
   }
 
   /**
@@ -17222,7 +26097,7 @@ export default class Client extends OpenApi {
    * @returns ListUserGroupsForPrivateAccessPolicyResponse
    */
   async listUserGroupsForPrivateAccessPolicy(request: ListUserGroupsForPrivateAccessPolicyRequest): Promise<ListUserGroupsForPrivateAccessPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserGroupsForPrivateAccessPolicyWithOptions(request, runtime);
   }
 
@@ -17233,13 +26108,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUserGroupsForRegistrationPolicyResponse
    */
-  async listUserGroupsForRegistrationPolicyWithOptions(request: ListUserGroupsForRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsForRegistrationPolicyResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listUserGroupsForRegistrationPolicyWithOptions(request: ListUserGroupsForRegistrationPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ListUserGroupsForRegistrationPolicyResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserGroupsForRegistrationPolicy",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17250,7 +26125,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserGroupsForRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new ListUserGroupsForRegistrationPolicyResponse({}));
+    return $dara.cast<ListUserGroupsForRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new ListUserGroupsForRegistrationPolicyResponse({}));
   }
 
   /**
@@ -17260,7 +26135,7 @@ export default class Client extends OpenApi {
    * @returns ListUserGroupsForRegistrationPolicyResponse
    */
   async listUserGroupsForRegistrationPolicy(request: ListUserGroupsForRegistrationPolicyRequest): Promise<ListUserGroupsForRegistrationPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserGroupsForRegistrationPolicyWithOptions(request, runtime);
   }
 
@@ -17271,13 +26146,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUserPrivateAccessPoliciesResponse
    */
-  async listUserPrivateAccessPoliciesWithOptions(request: ListUserPrivateAccessPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserPrivateAccessPoliciesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listUserPrivateAccessPoliciesWithOptions(request: ListUserPrivateAccessPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<ListUserPrivateAccessPoliciesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserPrivateAccessPolicies",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17288,7 +26163,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserPrivateAccessPoliciesResponse>(await this.callApi(params, req, runtime), new ListUserPrivateAccessPoliciesResponse({}));
+    return $dara.cast<ListUserPrivateAccessPoliciesResponse>(await this.callApi(params, req, runtime), new ListUserPrivateAccessPoliciesResponse({}));
   }
 
   /**
@@ -17298,7 +26173,7 @@ export default class Client extends OpenApi {
    * @returns ListUserPrivateAccessPoliciesResponse
    */
   async listUserPrivateAccessPolicies(request: ListUserPrivateAccessPoliciesRequest): Promise<ListUserPrivateAccessPoliciesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserPrivateAccessPoliciesWithOptions(request, runtime);
   }
 
@@ -17309,13 +26184,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUsersResponse
    */
-  async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listUsersWithOptions(request: ListUsersRequest, runtime: $dara.RuntimeOptions): Promise<ListUsersResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUsers",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17326,7 +26201,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
+    return $dara.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
   /**
@@ -17336,7 +26211,7 @@ export default class Client extends OpenApi {
    * @returns ListUsersResponse
    */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
   }
 
@@ -17347,13 +26222,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns LookupWmInfoMappingResponse
    */
-  async lookupWmInfoMappingWithOptions(request: LookupWmInfoMappingRequest, runtime: $Util.RuntimeOptions): Promise<LookupWmInfoMappingResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async lookupWmInfoMappingWithOptions(request: LookupWmInfoMappingRequest, runtime: $dara.RuntimeOptions): Promise<LookupWmInfoMappingResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "LookupWmInfoMapping",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17364,7 +26239,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<LookupWmInfoMappingResponse>(await this.callApi(params, req, runtime), new LookupWmInfoMappingResponse({}));
+    return $dara.cast<LookupWmInfoMappingResponse>(await this.callApi(params, req, runtime), new LookupWmInfoMappingResponse({}));
   }
 
   /**
@@ -17374,7 +26249,7 @@ export default class Client extends OpenApi {
    * @returns LookupWmInfoMappingResponse
    */
   async lookupWmInfoMapping(request: LookupWmInfoMappingRequest): Promise<LookupWmInfoMappingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.lookupWmInfoMappingWithOptions(request, runtime);
   }
 
@@ -17385,21 +26260,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RevokeUserSessionResponse
    */
-  async revokeUserSessionWithOptions(request: RevokeUserSessionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeUserSessionResponse> {
-    Util.validateModel(request);
+  async revokeUserSessionWithOptions(request: RevokeUserSessionRequest, runtime: $dara.RuntimeOptions): Promise<RevokeUserSessionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.externalIds)) {
+    if (!$dara.isNull(request.externalIds)) {
       query["ExternalIds"] = request.externalIds;
     }
 
-    if (!Util.isUnset(request.idpId)) {
+    if (!$dara.isNull(request.idpId)) {
       query["IdpId"] = request.idpId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RevokeUserSession",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17410,7 +26285,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RevokeUserSessionResponse>(await this.callApi(params, req, runtime), new RevokeUserSessionResponse({}));
+    return $dara.cast<RevokeUserSessionResponse>(await this.callApi(params, req, runtime), new RevokeUserSessionResponse({}));
   }
 
   /**
@@ -17420,8 +26295,196 @@ export default class Client extends OpenApi {
    * @returns RevokeUserSessionResponse
    */
   async revokeUserSession(request: RevokeUserSessionRequest): Promise<RevokeUserSessionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.revokeUserSessionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新审批流程
+   * 
+   * @param tmpReq - UpdateApprovalProcessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApprovalProcessResponse
+   */
+  async updateApprovalProcessWithOptions(tmpReq: UpdateApprovalProcessRequest, runtime: $dara.RuntimeOptions): Promise<UpdateApprovalProcessResponse> {
+    tmpReq.validate();
+    let request = new UpdateApprovalProcessShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.matchSchemas)) {
+      request.matchSchemasShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.matchSchemas, "MatchSchemas", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.matchSchemasShrink)) {
+      body["MatchSchemas"] = request.matchSchemasShrink;
+    }
+
+    if (!$dara.isNull(request.processId)) {
+      body["ProcessId"] = request.processId;
+    }
+
+    if (!$dara.isNull(request.processName)) {
+      body["ProcessName"] = request.processName;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.processNodes)) {
+      bodyFlat["ProcessNodes"] = request.processNodes;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApprovalProcess",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<UpdateApprovalProcessResponse>(await this.callApi(params, req, runtime), new UpdateApprovalProcessResponse({}));
+  }
+
+  /**
+   * 更新审批流程
+   * 
+   * @param request - UpdateApprovalProcessRequest
+   * @returns UpdateApprovalProcessResponse
+   */
+  async updateApprovalProcess(request: UpdateApprovalProcessRequest): Promise<UpdateApprovalProcessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApprovalProcessWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改审批状态
+   * 
+   * @param request - UpdateApprovalStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApprovalStatusResponse
+   */
+  async updateApprovalStatusWithOptions(request: UpdateApprovalStatusRequest, runtime: $dara.RuntimeOptions): Promise<UpdateApprovalStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.approvalId)) {
+      query["ApprovalId"] = request.approvalId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApprovalStatus",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<UpdateApprovalStatusResponse>(await this.callApi(params, req, runtime), new UpdateApprovalStatusResponse({}));
+  }
+
+  /**
+   * 修改审批状态
+   * 
+   * @param request - UpdateApprovalStatusRequest
+   * @returns UpdateApprovalStatusResponse
+   */
+  async updateApprovalStatus(request: UpdateApprovalStatusRequest): Promise<UpdateApprovalStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApprovalStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新自启动与防卸载策略配置
+   * 
+   * @param tmpReq - UpdateBootAndAntiUninstallPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBootAndAntiUninstallPolicyResponse
+   */
+  async updateBootAndAntiUninstallPolicyWithOptions(tmpReq: UpdateBootAndAntiUninstallPolicyRequest, runtime: $dara.RuntimeOptions): Promise<UpdateBootAndAntiUninstallPolicyResponse> {
+    tmpReq.validate();
+    let request = new UpdateBootAndAntiUninstallPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.blockContent)) {
+      request.blockContentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.blockContent, "BlockContent", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowReport)) {
+      body["AllowReport"] = request.allowReport;
+    }
+
+    if (!$dara.isNull(request.blockContentShrink)) {
+      body["BlockContent"] = request.blockContentShrink;
+    }
+
+    if (!$dara.isNull(request.isAntiUninstall)) {
+      body["IsAntiUninstall"] = request.isAntiUninstall;
+    }
+
+    if (!$dara.isNull(request.isBoot)) {
+      body["IsBoot"] = request.isBoot;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!$dara.isNull(request.whitelistUsers)) {
+      bodyFlat["WhitelistUsers"] = request.whitelistUsers;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateBootAndAntiUninstallPolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<UpdateBootAndAntiUninstallPolicyResponse>(await this.callApi(params, req, runtime), new UpdateBootAndAntiUninstallPolicyResponse({}));
+  }
+
+  /**
+   * 更新自启动与防卸载策略配置
+   * 
+   * @param request - UpdateBootAndAntiUninstallPolicyRequest
+   * @returns UpdateBootAndAntiUninstallPolicyResponse
+   */
+  async updateBootAndAntiUninstallPolicy(request: UpdateBootAndAntiUninstallPolicyRequest): Promise<UpdateBootAndAntiUninstallPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateBootAndAntiUninstallPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -17431,33 +26494,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateClientUserResponse
    */
-  async updateClientUserWithOptions(request: UpdateClientUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClientUserResponse> {
-    Util.validateModel(request);
+  async updateClientUserWithOptions(request: UpdateClientUserRequest, runtime: $dara.RuntimeOptions): Promise<UpdateClientUserResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.departmentId)) {
+    if (!$dara.isNull(request.departmentId)) {
       query["DepartmentId"] = request.departmentId;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.mobileNumber)) {
+    if (!$dara.isNull(request.mobileNumber)) {
       query["MobileNumber"] = request.mobileNumber;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateClientUser",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17468,7 +26531,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateClientUserResponse>(await this.callApi(params, req, runtime), new UpdateClientUserResponse({}));
+    return $dara.cast<UpdateClientUserResponse>(await this.callApi(params, req, runtime), new UpdateClientUserResponse({}));
   }
 
   /**
@@ -17478,7 +26541,7 @@ export default class Client extends OpenApi {
    * @returns UpdateClientUserResponse
    */
   async updateClientUser(request: UpdateClientUserRequest): Promise<UpdateClientUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateClientUserWithOptions(request, runtime);
   }
 
@@ -17489,25 +26552,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateClientUserPasswordResponse
    */
-  async updateClientUserPasswordWithOptions(request: UpdateClientUserPasswordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClientUserPasswordResponse> {
-    Util.validateModel(request);
+  async updateClientUserPasswordWithOptions(request: UpdateClientUserPasswordRequest, runtime: $dara.RuntimeOptions): Promise<UpdateClientUserPasswordResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.password)) {
+    if (!$dara.isNull(request.password)) {
       query["Password"] = request.password;
     }
 
-    if (!Util.isUnset(request.username)) {
+    if (!$dara.isNull(request.username)) {
       query["Username"] = request.username;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateClientUserPassword",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17518,7 +26581,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateClientUserPasswordResponse>(await this.callApi(params, req, runtime), new UpdateClientUserPasswordResponse({}));
+    return $dara.cast<UpdateClientUserPasswordResponse>(await this.callApi(params, req, runtime), new UpdateClientUserPasswordResponse({}));
   }
 
   /**
@@ -17528,7 +26591,7 @@ export default class Client extends OpenApi {
    * @returns UpdateClientUserPasswordResponse
    */
   async updateClientUserPassword(request: UpdateClientUserPasswordRequest): Promise<UpdateClientUserPasswordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateClientUserPasswordWithOptions(request, runtime);
   }
 
@@ -17539,21 +26602,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateClientUserStatusResponse
    */
-  async updateClientUserStatusWithOptions(request: UpdateClientUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClientUserStatusResponse> {
-    Util.validateModel(request);
+  async updateClientUserStatusWithOptions(request: UpdateClientUserStatusRequest, runtime: $dara.RuntimeOptions): Promise<UpdateClientUserStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateClientUserStatus",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17564,7 +26627,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateClientUserStatusResponse>(await this.callApi(params, req, runtime), new UpdateClientUserStatusResponse({}));
+    return $dara.cast<UpdateClientUserStatusResponse>(await this.callApi(params, req, runtime), new UpdateClientUserStatusResponse({}));
   }
 
   /**
@@ -17574,7 +26637,7 @@ export default class Client extends OpenApi {
    * @returns UpdateClientUserStatusResponse
    */
   async updateClientUserStatus(request: UpdateClientUserStatusRequest): Promise<UpdateClientUserStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateClientUserStatusWithOptions(request, runtime);
   }
 
@@ -17585,55 +26648,55 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDynamicRouteResponse
    */
-  async updateDynamicRouteWithOptions(request: UpdateDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDynamicRouteResponse> {
-    Util.validateModel(request);
+  async updateDynamicRouteWithOptions(request: UpdateDynamicRouteRequest, runtime: $dara.RuntimeOptions): Promise<UpdateDynamicRouteResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.applicationIds)) {
+    if (!$dara.isNull(request.applicationIds)) {
       bodyFlat["ApplicationIds"] = request.applicationIds;
     }
 
-    if (!Util.isUnset(request.applicationType)) {
+    if (!$dara.isNull(request.applicationType)) {
       body["ApplicationType"] = request.applicationType;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.dynamicRouteId)) {
+    if (!$dara.isNull(request.dynamicRouteId)) {
       body["DynamicRouteId"] = request.dynamicRouteId;
     }
 
-    if (!Util.isUnset(request.dynamicRouteType)) {
+    if (!$dara.isNull(request.dynamicRouteType)) {
       body["DynamicRouteType"] = request.dynamicRouteType;
     }
 
-    if (!Util.isUnset(request.modifyType)) {
+    if (!$dara.isNull(request.modifyType)) {
       body["ModifyType"] = request.modifyType;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.nextHop)) {
+    if (!$dara.isNull(request.nextHop)) {
       body["NextHop"] = request.nextHop;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       body["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.regionIds)) {
+    if (!$dara.isNull(request.regionIds)) {
       bodyFlat["RegionIds"] = request.regionIds;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tagIds)) {
+    if (!$dara.isNull(request.tagIds)) {
       bodyFlat["TagIds"] = request.tagIds;
     }
 
@@ -17641,10 +26704,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateDynamicRoute",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17655,7 +26718,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDynamicRouteResponse>(await this.callApi(params, req, runtime), new UpdateDynamicRouteResponse({}));
+    return $dara.cast<UpdateDynamicRouteResponse>(await this.callApi(params, req, runtime), new UpdateDynamicRouteResponse({}));
   }
 
   /**
@@ -17665,7 +26728,7 @@ export default class Client extends OpenApi {
    * @returns UpdateDynamicRouteResponse
    */
   async updateDynamicRoute(request: UpdateDynamicRouteRequest): Promise<UpdateDynamicRouteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDynamicRouteWithOptions(request, runtime);
   }
 
@@ -17676,15 +26739,15 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
    */
-  async updateExcessiveDeviceRegistrationApplicationsStatusWithOptions(request: UpdateExcessiveDeviceRegistrationApplicationsStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse> {
-    Util.validateModel(request);
+  async updateExcessiveDeviceRegistrationApplicationsStatusWithOptions(request: UpdateExcessiveDeviceRegistrationApplicationsStatusRequest, runtime: $dara.RuntimeOptions): Promise<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.applicationIds)) {
+    if (!$dara.isNull(request.applicationIds)) {
       bodyFlat["ApplicationIds"] = request.applicationIds;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
@@ -17692,10 +26755,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateExcessiveDeviceRegistrationApplicationsStatus",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17706,7 +26769,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse>(await this.callApi(params, req, runtime), new UpdateExcessiveDeviceRegistrationApplicationsStatusResponse({}));
+    return $dara.cast<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse>(await this.callApi(params, req, runtime), new UpdateExcessiveDeviceRegistrationApplicationsStatusResponse({}));
   }
 
   /**
@@ -17716,7 +26779,7 @@ export default class Client extends OpenApi {
    * @returns UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
    */
   async updateExcessiveDeviceRegistrationApplicationsStatus(request: UpdateExcessiveDeviceRegistrationApplicationsStatusRequest): Promise<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateExcessiveDeviceRegistrationApplicationsStatusWithOptions(request, runtime);
   }
 
@@ -17727,25 +26790,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateIdpDepartmentResponse
    */
-  async updateIdpDepartmentWithOptions(request: UpdateIdpDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIdpDepartmentResponse> {
-    Util.validateModel(request);
+  async updateIdpDepartmentWithOptions(request: UpdateIdpDepartmentRequest, runtime: $dara.RuntimeOptions): Promise<UpdateIdpDepartmentResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.departmentId)) {
+    if (!$dara.isNull(request.departmentId)) {
       query["DepartmentId"] = request.departmentId;
     }
 
-    if (!Util.isUnset(request.departmentName)) {
+    if (!$dara.isNull(request.departmentName)) {
       query["DepartmentName"] = request.departmentName;
     }
 
-    if (!Util.isUnset(request.idpConfigId)) {
+    if (!$dara.isNull(request.idpConfigId)) {
       query["IdpConfigId"] = request.idpConfigId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateIdpDepartment",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17756,7 +26819,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateIdpDepartmentResponse>(await this.callApi(params, req, runtime), new UpdateIdpDepartmentResponse({}));
+    return $dara.cast<UpdateIdpDepartmentResponse>(await this.callApi(params, req, runtime), new UpdateIdpDepartmentResponse({}));
   }
 
   /**
@@ -17766,7 +26829,7 @@ export default class Client extends OpenApi {
    * @returns UpdateIdpDepartmentResponse
    */
   async updateIdpDepartment(request: UpdateIdpDepartmentRequest): Promise<UpdateIdpDepartmentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateIdpDepartmentWithOptions(request, runtime);
   }
 
@@ -17777,15 +26840,15 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateNacUserCertStatusResponse
    */
-  async updateNacUserCertStatusWithOptions(request: UpdateNacUserCertStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNacUserCertStatusResponse> {
-    Util.validateModel(request);
+  async updateNacUserCertStatusWithOptions(request: UpdateNacUserCertStatusRequest, runtime: $dara.RuntimeOptions): Promise<UpdateNacUserCertStatusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.idList)) {
+    if (!$dara.isNull(request.idList)) {
       bodyFlat["IdList"] = request.idList;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
@@ -17793,10 +26856,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateNacUserCertStatus",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17807,7 +26870,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateNacUserCertStatusResponse>(await this.callApi(params, req, runtime), new UpdateNacUserCertStatusResponse({}));
+    return $dara.cast<UpdateNacUserCertStatusResponse>(await this.callApi(params, req, runtime), new UpdateNacUserCertStatusResponse({}));
   }
 
   /**
@@ -17817,7 +26880,7 @@ export default class Client extends OpenApi {
    * @returns UpdateNacUserCertStatusResponse
    */
   async updateNacUserCertStatus(request: UpdateNacUserCertStatusRequest): Promise<UpdateNacUserCertStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateNacUserCertStatusWithOptions(request, runtime);
   }
 
@@ -17828,51 +26891,51 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdatePrivateAccessApplicationResponse
    */
-  async updatePrivateAccessApplicationWithOptions(request: UpdatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateAccessApplicationResponse> {
-    Util.validateModel(request);
+  async updatePrivateAccessApplicationWithOptions(request: UpdatePrivateAccessApplicationRequest, runtime: $dara.RuntimeOptions): Promise<UpdatePrivateAccessApplicationResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.addresses)) {
+    if (!$dara.isNull(request.addresses)) {
       bodyFlat["Addresses"] = request.addresses;
     }
 
-    if (!Util.isUnset(request.applicationId)) {
+    if (!$dara.isNull(request.applicationId)) {
       body["ApplicationId"] = request.applicationId;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.l7ProxyDomainAutomaticPrefix)) {
+    if (!$dara.isNull(request.l7ProxyDomainAutomaticPrefix)) {
       body["L7ProxyDomainAutomaticPrefix"] = request.l7ProxyDomainAutomaticPrefix;
     }
 
-    if (!Util.isUnset(request.l7ProxyDomainCustom)) {
+    if (!$dara.isNull(request.l7ProxyDomainCustom)) {
       body["L7ProxyDomainCustom"] = request.l7ProxyDomainCustom;
     }
 
-    if (!Util.isUnset(request.l7ProxyDomainPrivate)) {
+    if (!$dara.isNull(request.l7ProxyDomainPrivate)) {
       body["L7ProxyDomainPrivate"] = request.l7ProxyDomainPrivate;
     }
 
-    if (!Util.isUnset(request.modifyType)) {
+    if (!$dara.isNull(request.modifyType)) {
       body["ModifyType"] = request.modifyType;
     }
 
-    if (!Util.isUnset(request.portRanges)) {
+    if (!$dara.isNull(request.portRanges)) {
       bodyFlat["PortRanges"] = request.portRanges;
     }
 
-    if (!Util.isUnset(request.protocol)) {
+    if (!$dara.isNull(request.protocol)) {
       body["Protocol"] = request.protocol;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tagIds)) {
+    if (!$dara.isNull(request.tagIds)) {
       bodyFlat["TagIds"] = request.tagIds;
     }
 
@@ -17880,10 +26943,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdatePrivateAccessApplication",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17894,7 +26957,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdatePrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new UpdatePrivateAccessApplicationResponse({}));
+    return $dara.cast<UpdatePrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new UpdatePrivateAccessApplicationResponse({}));
   }
 
   /**
@@ -17904,7 +26967,7 @@ export default class Client extends OpenApi {
    * @returns UpdatePrivateAccessApplicationResponse
    */
   async updatePrivateAccessApplication(request: UpdatePrivateAccessApplicationRequest): Promise<UpdatePrivateAccessApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePrivateAccessApplicationWithOptions(request, runtime);
   }
 
@@ -17915,63 +26978,63 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdatePrivateAccessPolicyResponse
    */
-  async updatePrivateAccessPolicyWithOptions(request: UpdatePrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateAccessPolicyResponse> {
-    Util.validateModel(request);
+  async updatePrivateAccessPolicyWithOptions(request: UpdatePrivateAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<UpdatePrivateAccessPolicyResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.applicationIds)) {
+    if (!$dara.isNull(request.applicationIds)) {
       bodyFlat["ApplicationIds"] = request.applicationIds;
     }
 
-    if (!Util.isUnset(request.applicationType)) {
+    if (!$dara.isNull(request.applicationType)) {
       body["ApplicationType"] = request.applicationType;
     }
 
-    if (!Util.isUnset(request.customUserAttributes)) {
+    if (!$dara.isNull(request.customUserAttributes)) {
       bodyFlat["CustomUserAttributes"] = request.customUserAttributes;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.deviceAttributeAction)) {
+    if (!$dara.isNull(request.deviceAttributeAction)) {
       body["DeviceAttributeAction"] = request.deviceAttributeAction;
     }
 
-    if (!Util.isUnset(request.deviceAttributeId)) {
+    if (!$dara.isNull(request.deviceAttributeId)) {
       body["DeviceAttributeId"] = request.deviceAttributeId;
     }
 
-    if (!Util.isUnset(request.modifyType)) {
+    if (!$dara.isNull(request.modifyType)) {
       body["ModifyType"] = request.modifyType;
     }
 
-    if (!Util.isUnset(request.policyAction)) {
+    if (!$dara.isNull(request.policyAction)) {
       body["PolicyAction"] = request.policyAction;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       body["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       body["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tagIds)) {
+    if (!$dara.isNull(request.tagIds)) {
       bodyFlat["TagIds"] = request.tagIds;
     }
 
-    if (!Util.isUnset(request.userGroupIds)) {
+    if (!$dara.isNull(request.userGroupIds)) {
       bodyFlat["UserGroupIds"] = request.userGroupIds;
     }
 
-    if (!Util.isUnset(request.userGroupMode)) {
+    if (!$dara.isNull(request.userGroupMode)) {
       body["UserGroupMode"] = request.userGroupMode;
     }
 
@@ -17979,10 +27042,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdatePrivateAccessPolicy",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -17993,7 +27056,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdatePrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new UpdatePrivateAccessPolicyResponse({}));
+    return $dara.cast<UpdatePrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new UpdatePrivateAccessPolicyResponse({}));
   }
 
   /**
@@ -18003,7 +27066,7 @@ export default class Client extends OpenApi {
    * @returns UpdatePrivateAccessPolicyResponse
    */
   async updatePrivateAccessPolicy(request: UpdatePrivateAccessPolicyRequest): Promise<UpdatePrivateAccessPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePrivateAccessPolicyWithOptions(request, runtime);
   }
 
@@ -18014,65 +27077,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateRegistrationPolicyResponse
    */
-  async updateRegistrationPolicyWithOptions(tmpReq: UpdateRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRegistrationPolicyResponse> {
-    Util.validateModel(tmpReq);
+  async updateRegistrationPolicyWithOptions(tmpReq: UpdateRegistrationPolicyRequest, runtime: $dara.RuntimeOptions): Promise<UpdateRegistrationPolicyResponse> {
+    tmpReq.validate();
     let request = new UpdateRegistrationPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.companyLimitCount)) {
+    if (!$dara.isNull(tmpReq.companyLimitCount)) {
       request.companyLimitCountShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.companyLimitCount, "CompanyLimitCount", "json");
     }
 
-    if (!Util.isUnset(tmpReq.personalLimitCount)) {
+    if (!$dara.isNull(tmpReq.personalLimitCount)) {
       request.personalLimitCountShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.personalLimitCount, "PersonalLimitCount", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.companyLimitCountShrink)) {
+    if (!$dara.isNull(request.companyLimitCountShrink)) {
       body["CompanyLimitCount"] = request.companyLimitCountShrink;
     }
 
-    if (!Util.isUnset(request.companyLimitType)) {
+    if (!$dara.isNull(request.companyLimitType)) {
       body["CompanyLimitType"] = request.companyLimitType;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.matchMode)) {
+    if (!$dara.isNull(request.matchMode)) {
       body["MatchMode"] = request.matchMode;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.personalLimitCountShrink)) {
+    if (!$dara.isNull(request.personalLimitCountShrink)) {
       body["PersonalLimitCount"] = request.personalLimitCountShrink;
     }
 
-    if (!Util.isUnset(request.personalLimitType)) {
+    if (!$dara.isNull(request.personalLimitType)) {
       body["PersonalLimitType"] = request.personalLimitType;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       body["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       body["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.userGroupIds)) {
+    if (!$dara.isNull(request.userGroupIds)) {
       bodyFlat["UserGroupIds"] = request.userGroupIds;
     }
 
-    if (!Util.isUnset(request.whitelist)) {
+    if (!$dara.isNull(request.whitelist)) {
       bodyFlat["Whitelist"] = request.whitelist;
     }
 
@@ -18080,10 +27143,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateRegistrationPolicy",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -18094,7 +27157,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new UpdateRegistrationPolicyResponse({}));
+    return $dara.cast<UpdateRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new UpdateRegistrationPolicyResponse({}));
   }
 
   /**
@@ -18104,8 +27167,59 @@ export default class Client extends OpenApi {
    * @returns UpdateRegistrationPolicyResponse
    */
   async updateRegistrationPolicy(request: UpdateRegistrationPolicyRequest): Promise<UpdateRegistrationPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRegistrationPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量修改卸载申请状态
+   * 
+   * @param request - UpdateUninstallApplicationsStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUninstallApplicationsStatusResponse
+   */
+  async updateUninstallApplicationsStatusWithOptions(request: UpdateUninstallApplicationsStatusRequest, runtime: $dara.RuntimeOptions): Promise<UpdateUninstallApplicationsStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applicationIds)) {
+      bodyFlat["ApplicationIds"] = request.applicationIds;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateUninstallApplicationsStatus",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<UpdateUninstallApplicationsStatusResponse>(await this.callApi(params, req, runtime), new UpdateUninstallApplicationsStatusResponse({}));
+  }
+
+  /**
+   * 批量修改卸载申请状态
+   * 
+   * @param request - UpdateUninstallApplicationsStatusRequest
+   * @returns UpdateUninstallApplicationsStatusResponse
+   */
+  async updateUninstallApplicationsStatus(request: UpdateUninstallApplicationsStatusRequest): Promise<UpdateUninstallApplicationsStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateUninstallApplicationsStatusWithOptions(request, runtime);
   }
 
   /**
@@ -18115,15 +27229,15 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateUserDevicesSharingStatusResponse
    */
-  async updateUserDevicesSharingStatusWithOptions(request: UpdateUserDevicesSharingStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserDevicesSharingStatusResponse> {
-    Util.validateModel(request);
+  async updateUserDevicesSharingStatusWithOptions(request: UpdateUserDevicesSharingStatusRequest, runtime: $dara.RuntimeOptions): Promise<UpdateUserDevicesSharingStatusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceTags)) {
+    if (!$dara.isNull(request.deviceTags)) {
       bodyFlat["DeviceTags"] = request.deviceTags;
     }
 
-    if (!Util.isUnset(request.sharingStatus)) {
+    if (!$dara.isNull(request.sharingStatus)) {
       body["SharingStatus"] = request.sharingStatus;
     }
 
@@ -18131,10 +27245,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateUserDevicesSharingStatus",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -18145,7 +27259,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateUserDevicesSharingStatusResponse>(await this.callApi(params, req, runtime), new UpdateUserDevicesSharingStatusResponse({}));
+    return $dara.cast<UpdateUserDevicesSharingStatusResponse>(await this.callApi(params, req, runtime), new UpdateUserDevicesSharingStatusResponse({}));
   }
 
   /**
@@ -18155,7 +27269,7 @@ export default class Client extends OpenApi {
    * @returns UpdateUserDevicesSharingStatusResponse
    */
   async updateUserDevicesSharingStatus(request: UpdateUserDevicesSharingStatusRequest): Promise<UpdateUserDevicesSharingStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateUserDevicesSharingStatusWithOptions(request, runtime);
   }
 
@@ -18166,15 +27280,15 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateUserDevicesStatusResponse
    */
-  async updateUserDevicesStatusWithOptions(request: UpdateUserDevicesStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserDevicesStatusResponse> {
-    Util.validateModel(request);
+  async updateUserDevicesStatusWithOptions(request: UpdateUserDevicesStatusRequest, runtime: $dara.RuntimeOptions): Promise<UpdateUserDevicesStatusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceAction)) {
+    if (!$dara.isNull(request.deviceAction)) {
       body["DeviceAction"] = request.deviceAction;
     }
 
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceTags)) {
+    if (!$dara.isNull(request.deviceTags)) {
       bodyFlat["DeviceTags"] = request.deviceTags;
     }
 
@@ -18182,10 +27296,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateUserDevicesStatus",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -18196,7 +27310,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateUserDevicesStatusResponse>(await this.callApi(params, req, runtime), new UpdateUserDevicesStatusResponse({}));
+    return $dara.cast<UpdateUserDevicesStatusResponse>(await this.callApi(params, req, runtime), new UpdateUserDevicesStatusResponse({}));
   }
 
   /**
@@ -18206,7 +27320,7 @@ export default class Client extends OpenApi {
    * @returns UpdateUserDevicesStatusResponse
    */
   async updateUserDevicesStatus(request: UpdateUserDevicesStatusRequest): Promise<UpdateUserDevicesStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateUserDevicesStatusWithOptions(request, runtime);
   }
 
@@ -18217,23 +27331,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateUserGroupResponse
    */
-  async updateUserGroupWithOptions(request: UpdateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserGroupResponse> {
-    Util.validateModel(request);
+  async updateUserGroupWithOptions(request: UpdateUserGroupRequest, runtime: $dara.RuntimeOptions): Promise<UpdateUserGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.attributes)) {
+    if (!$dara.isNull(request.attributes)) {
       bodyFlat["Attributes"] = request.attributes;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.modifyType)) {
+    if (!$dara.isNull(request.modifyType)) {
       body["ModifyType"] = request.modifyType;
     }
 
-    if (!Util.isUnset(request.userGroupId)) {
+    if (!$dara.isNull(request.userGroupId)) {
       body["UserGroupId"] = request.userGroupId;
     }
 
@@ -18241,10 +27355,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateUserGroup",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -18255,7 +27369,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateUserGroupResponse>(await this.callApi(params, req, runtime), new UpdateUserGroupResponse({}));
+    return $dara.cast<UpdateUserGroupResponse>(await this.callApi(params, req, runtime), new UpdateUserGroupResponse({}));
   }
 
   /**
@@ -18265,7 +27379,7 @@ export default class Client extends OpenApi {
    * @returns UpdateUserGroupResponse
    */
   async updateUserGroup(request: UpdateUserGroupRequest): Promise<UpdateUserGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateUserGroupWithOptions(request, runtime);
   }
 
@@ -18276,21 +27390,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateUsersStatusResponse
    */
-  async updateUsersStatusWithOptions(request: UpdateUsersStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUsersStatusResponse> {
-    Util.validateModel(request);
+  async updateUsersStatusWithOptions(request: UpdateUsersStatusRequest, runtime: $dara.RuntimeOptions): Promise<UpdateUsersStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.saseUserIds)) {
+    if (!$dara.isNull(request.saseUserIds)) {
       query["SaseUserIds"] = request.saseUserIds;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateUsersStatus",
       version: "2023-01-20",
       protocol: "HTTPS",
@@ -18301,7 +27415,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateUsersStatusResponse>(await this.callApi(params, req, runtime), new UpdateUsersStatusResponse({}));
+    return $dara.cast<UpdateUsersStatusResponse>(await this.callApi(params, req, runtime), new UpdateUsersStatusResponse({}));
   }
 
   /**
@@ -18311,7 +27425,7 @@ export default class Client extends OpenApi {
    * @returns UpdateUsersStatusResponse
    */
   async updateUsersStatus(request: UpdateUsersStatusRequest): Promise<UpdateUsersStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateUsersStatusWithOptions(request, runtime);
   }
 
