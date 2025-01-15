@@ -874,6 +874,7 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerate
 }
 
 export class GetVideoAnalysisTaskResponseBodyDataPayloadOutput extends $dara.Model {
+  resultJsonFileUrl?: string;
   videoAnalysisResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResult;
   videoCaptionResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult;
   videoGenerateResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResult;
@@ -881,6 +882,7 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutput extends $dara.Mod
   videoTitleGenerateResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResult;
   static names(): { [key: string]: string } {
     return {
+      resultJsonFileUrl: 'resultJsonFileUrl',
       videoAnalysisResult: 'videoAnalysisResult',
       videoCaptionResult: 'videoCaptionResult',
       videoGenerateResult: 'videoGenerateResult',
@@ -891,6 +893,7 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutput extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
+      resultJsonFileUrl: 'string',
       videoAnalysisResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResult,
       videoCaptionResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult,
       videoGenerateResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResult,
@@ -2362,6 +2365,174 @@ export class RunMarketingInformationWritingResponseBodyPayload extends $dara.Mod
   }
 }
 
+export class RunScriptChatResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * 403
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check log.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * F8A35034-EDCF-5C50-95A5-1044316F36E3
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 147648697127_914847410985_1730600302167
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150432017236011824686132ecdbc
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      eventInfo: 'eventInfo',
+      requestId: 'requestId',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      requestId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptChatResponseBodyPayloadOutput extends $dara.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptChatResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptChatResponseBodyPayload extends $dara.Model {
+  output?: RunScriptChatResponseBodyPayloadOutput;
+  usage?: RunScriptChatResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunScriptChatResponseBodyPayloadOutput,
+      usage: RunScriptChatResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunScriptContinueResponseBodyHeader extends $dara.Model {
   /**
    * @example
@@ -2696,6 +2867,196 @@ export class RunScriptPlanningResponseBodyPayload extends $dara.Model {
     return {
       output: RunScriptPlanningResponseBodyPayloadOutput,
       usage: RunScriptPlanningResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptRefineResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * 403
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check log.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * F8A35034-EDCF-5C50-95A5-1044316F36E3
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 17dc8bcd-f34a-46d1-a7a3-0fa3d1ce3824
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 14356391-6c6c-40d5-b80a-8ecd03b69d72
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150432017236011824686132ecdbc
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      eventInfo: 'eventInfo',
+      requestId: 'requestId',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      requestId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptRefineResponseBodyPayloadOutput extends $dara.Model {
+  content?: { [key: string]: string }[];
+  outline?: string;
+  role?: string;
+  scene?: string;
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      outline: 'outline',
+      role: 'role',
+      scene: 'scene',
+      summary: 'summary',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      outline: 'string',
+      role: 'string',
+      scene: 'string',
+      summary: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.content)) {
+      $dara.Model.validateArray(this.content);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptRefineResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptRefineResponseBodyPayload extends $dara.Model {
+  output?: RunScriptRefineResponseBodyPayloadOutput;
+  usage?: RunScriptRefineResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunScriptRefineResponseBodyPayloadOutput,
+      usage: RunScriptRefineResponseBodyPayloadUsage,
     };
   }
 
@@ -3859,6 +4220,11 @@ export class RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult e
 }
 
 export class RunVideoAnalysisResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @example
+   * http://
+   */
+  resultJsonFileUrl?: string;
   videoAnalysisResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult;
   videoCaptionResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult;
   videoGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult;
@@ -3867,6 +4233,7 @@ export class RunVideoAnalysisResponseBodyPayloadOutput extends $dara.Model {
   videoTitleGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult;
   static names(): { [key: string]: string } {
     return {
+      resultJsonFileUrl: 'resultJsonFileUrl',
       videoAnalysisResult: 'videoAnalysisResult',
       videoCaptionResult: 'videoCaptionResult',
       videoGenerateResult: 'videoGenerateResult',
@@ -3878,6 +4245,7 @@ export class RunVideoAnalysisResponseBodyPayloadOutput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      resultJsonFileUrl: 'string',
       videoAnalysisResult: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult,
       videoCaptionResult: RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult,
       videoGenerateResult: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult,
@@ -5504,6 +5872,114 @@ export class RunMarketingInformationWritingResponse extends $dara.Model {
   }
 }
 
+export class RunScriptChatRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  prompt?: string;
+  /**
+   * @example
+   * a3d1c2ac-f086-4a21-9069-f5631542f5a2
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      prompt: 'prompt',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prompt: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptChatResponseBody extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  end?: boolean;
+  header?: RunScriptChatResponseBodyHeader;
+  payload?: RunScriptChatResponseBodyPayload;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'end',
+      header: 'header',
+      payload: 'payload',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'boolean',
+      header: RunScriptChatResponseBodyHeader,
+      payload: RunScriptChatResponseBodyPayload,
+    };
+  }
+
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptChatResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunScriptChatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunScriptChatResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunScriptContinueRequest extends $dara.Model {
   /**
    * @example
@@ -5734,6 +6210,103 @@ export class RunScriptPlanningResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RunScriptPlanningResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptRefineRequest extends $dara.Model {
+  /**
+   * @example
+   * a3d1c2ac-f086-4a21-9069-f5631542f5a2
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptRefineResponseBody extends $dara.Model {
+  end?: boolean;
+  header?: RunScriptRefineResponseBodyHeader;
+  payload?: RunScriptRefineResponseBodyPayload;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'end',
+      header: 'header',
+      payload: 'payload',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'boolean',
+      header: RunScriptRefineResponseBodyHeader,
+      payload: RunScriptRefineResponseBodyPayload,
+    };
+  }
+
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptRefineResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunScriptRefineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunScriptRefineResponseBody,
     };
   }
 
@@ -7376,6 +7949,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 长剧本创作
+   * 
+   * @param request - RunScriptChatRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunScriptChatResponse
+   */
+  async runScriptChatWithOptions(workspaceId: string, request: RunScriptChatRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunScriptChatResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunScriptChat",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runScriptChat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<RunScriptChatResponse>(await this.callApi(params, req, runtime), new RunScriptChatResponse({}));
+  }
+
+  /**
+   * 长剧本创作
+   * 
+   * @param request - RunScriptChatRequest
+   * @returns RunScriptChatResponse
+   */
+  async runScriptChat(workspaceId: string, request: RunScriptChatRequest): Promise<RunScriptChatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runScriptChatWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 剧本续写
    * 
    * @param request - RunScriptContinueRequest
@@ -7495,6 +8117,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runScriptPlanningWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 剧本对话内容的整理
+   * 
+   * @param request - RunScriptRefineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunScriptRefineResponse
+   */
+  async runScriptRefineWithOptions(workspaceId: string, request: RunScriptRefineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunScriptRefineResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunScriptRefine",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runScriptRefine`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<RunScriptRefineResponse>(await this.callApi(params, req, runtime), new RunScriptRefineResponse({}));
+  }
+
+  /**
+   * 剧本对话内容的整理
+   * 
+   * @param request - RunScriptRefineRequest
+   * @returns RunScriptRefineResponse
+   */
+  async runScriptRefine(workspaceId: string, request: RunScriptRefineRequest): Promise<RunScriptRefineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runScriptRefineWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
