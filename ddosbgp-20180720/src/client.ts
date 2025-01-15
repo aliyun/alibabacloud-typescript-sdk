@@ -1,13 +1,4949 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class AddIpRequest extends $tea.Model {
+export class AddRdMemberListRequestMemberList extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * @example
+   * 19510843762****
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachAssetGroupToInstanceRequestAssetGroupList extends $dara.Model {
+  /**
+   * @remarks
+   * The UID of the member to which the asset belongs.
+   * 
+   * @example
+   * 1743970208320***
+   */
+  memberUid?: string;
+  /**
+   * @remarks
+   * The ID of the asset that you want to add. If the asset is a Web Application Firewall (WAF) instance, specify the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf-test-001
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The region ID of the asset.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The type of the asset.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memberUid: 'MemberUid',
+      name: 'Name',
+      region: 'Region',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberUid: 'string',
+      name: 'string',
+      region: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachToPolicyRequestIpPortProtocolList extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address of the protected object.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 112.124.241.***
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The port number of the protected object.
+   * 
+   * >  This parameter is available for only port-specific mitigation policies.
+   * 
+   * @example
+   * 8*
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The protocol type of the protected object. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * >  This parameter is available for only port-specific mitigation policies.
+   * 
+   * @example
+   * tcp
+   */
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRdMemberListRequestMemberList extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * @example
+   * 136548010379****
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetGroupResponseBodyAssetGroupList extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the asset.
+   * 
+   * @example
+   * waf_v2_public_cn-lbj382l****
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The region to which the asset belongs.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The type of the asset.
+   * 
+   * @example
+   * waf
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      region: 'Region',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      region: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetGroupToInstanceResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Origin instance of a paid edition.
+   * 
+   * @example
+   * ddosbgp-cn-7212zaa5v***
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The UID of the member to which the asset belongs.
+   * 
+   * @example
+   * 170858869679****
+   */
+  memberUid?: string;
+  /**
+   * @remarks
+   * The ID of the asset.
+   * 
+   * @example
+   * waf_v2_public_cn-lbj382l****
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The region ID of the asset.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The type of the asset.
+   * 
+   * @example
+   * waf
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      memberUid: 'MemberUid',
+      name: 'Name',
+      region: 'Region',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      memberUid: 'string',
+      name: 'string',
+      region: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosEventResponseBodyEvents extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the DDoS attack stopped. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1637554335
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The attacked IP address.
+   * 
+   * @example
+   * 47.89.XX.XX
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The volume of the request traffic at the start of the DDoS attack. Unit: Mbit/s.
+   * 
+   * @example
+   * 0
+   */
+  mbps?: number;
+  /**
+   * @remarks
+   * The number of packets at the start of the DDoS attack. Unit: packets per second (PPS).
+   * 
+   * @example
+   * 456
+   */
+  pps?: number;
+  /**
+   * @remarks
+   * The time when the DDoS attack started. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1637554034
+   */
+  startTime?: number;
+  /**
+   * @remarks
+   * The status of the DDoS attack event. Valid values:
+   * 
+   * *   **hole_begin**: indicates that blackhole filtering is triggered for the attacked IP address.
+   * *   **hole_end**: indicates that blackhole filtering is deactivated for the attacked IP address.
+   * *   **defense_begin**: indicates that attack traffic is being scrubbed.
+   * *   **defense_end**: indicates that attack traffic is scrubbed.
+   * 
+   * @example
+   * defense_end
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      ip: 'Ip',
+      mbps: 'Mbps',
+      pps: 'Pps',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      ip: 'string',
+      mbps: 'number',
+      pps: 'number',
+      startTime: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosOriginInstanceBillResponseBodyFlowList extends $dara.Model {
+  /**
+   * @remarks
+   * The traffic distribution by region. The JSON struct contains the following fields:
+   * 
+   * *   **bytes**: the traffic volume of EIPs with Anti-DDoS (Enhanced) enabled in a region. Unit: bytes.
+   * *   **memberUid**: the owner account.
+   * *   **instanceId**: the ID of the pay-as-you-go instance that protects the EIPs with Anti-DDoS (Enhanced) enabled.
+   * *   **ip**: the EIPs with Anti-DDoS (Enhanced) enabled.
+   * *   **region**: the region.
+   * 
+   * >  If the memberUid field in the JSON struct is empty, the information about the current account is returned. The value of the bytes parameter in the outermost level of the JSON struct indicates the total traffic, and the values of the bytes parameters in inner levels indicate the traffic of the account.
+   * 
+   * @example
+   * [{\\"bytes\\":79282719,\\"memberUid\\":\\"\\",\\"regionFlows\\":{\\"cn-hangzhou\\":[{\\"bytes\\":79282719,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.57\\",\\"region\\":\\"cn-hangzhou\\"}]}}]
+   */
+  memberFlow?: string;
+  /**
+   * @remarks
+   * The traffic distribution by region. The JSON struct contains the following fields:
+   * 
+   * *   **bytes**: the traffic volume of EIPs with Anti-DDoS (Enhanced) enabled in a region. Unit: bytes.
+   * *   **instanceId**: the ID of the pay-as-you-go instance that protects the EIPs with Anti-DDoS (Enhanced) enabled.
+   * *   **ip**: the EIPs with Anti-DDoS (Enhanced) enabled.
+   * *   **region**: the region.
+   * 
+   * @example
+   * {\\"cn-hangzhou\\":[{\\"bytes\\":0,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.124\\",\\"region\\":\\"cn-hangzhou\\"}]}
+   */
+  regionFlow?: string;
+  /**
+   * @remarks
+   * The timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1620951900
+   */
+  time?: number;
+  totalBillFlow?: number;
+  /**
+   * @remarks
+   * The traffic of EIPs with Anti-DDoS (Enhanced) enabled. Unit: bytes.
+   * 
+   * @example
+   * 6302081067
+   */
+  totalFlow?: number;
+  static names(): { [key: string]: string } {
+    return {
+      memberFlow: 'MemberFlow',
+      regionFlow: 'RegionFlow',
+      time: 'Time',
+      totalBillFlow: 'TotalBillFlow',
+      totalFlow: 'TotalFlow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberFlow: 'string',
+      regionFlow: 'string',
+      time: 'number',
+      totalBillFlow: 'number',
+      totalFlow: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList extends $dara.Model {
+  /**
+   * @remarks
+   * The application scope of the instance. Valid values:
+   * 
+   * *   **only_mainland_china**: regions in the Chinese mainland.
+   * *   **global**: all regions.
+   * *   **international_and_hmt**: regions outside the Chinese mainland.
+   * 
+   * @example
+   * global
+   */
+  coverage?: string;
+  /**
+   * @remarks
+   * The number of IP addresses protected by the pay-as-you-go instance in the Chinese mainland.
+   * 
+   * @example
+   * 5
+   */
+  ipCntCn?: number;
+  /**
+   * @remarks
+   * The number of IP addresses protected by the pay-as-you-go instance outside the Chinese mainland.
+   * 
+   * @example
+   * 5
+   */
+  ipCntOv?: number;
+  /**
+   * @remarks
+   * The bill distribution by account. The JSON struct contains the following fields:
+   * 
+   * *   **eipCnIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland.
+   * *   **eipOvIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland.
+   * *   **memberUid**: the owner account.
+   * *   **standardAssetsCnIpCount**: the number of IP addresses of regular Alibaba Cloud services in the Chinese mainland.
+   * *   **standardAssetsOvIpCount**: the number of IP addresses of regular Alibaba Cloud services outside the Chinese mainland.
+   * 
+   * >  If the memberUid field in the JSON struct is empty, the information about the current account is returned.
+   * 
+   * @example
+   * [{\\"eipCnIpCount\\":3,\\"eipOvIpCount\\":18,\\"memberUid\\":\\"\\",\\"standardAssetsCnIpCount\\":2,\\"standardAssetsOvIpCount\\":0},{\\"eipCnIpCount\\":3,\\"eipOvIpCount\\":0,\\"memberUid\\":\\"1776997906319249\\",\\"standardAssetsCnIpCount\\":0,\\"standardAssetsOvIpCount\\":0}]
+   */
+  memberIpCnt?: string;
+  /**
+   * @remarks
+   * The billing time. Unit: milliseconds.
+   * 
+   * @example
+   * 1680278400000
+   */
+  time?: number;
+  static names(): { [key: string]: string } {
+    return {
+      coverage: 'Coverage',
+      ipCntCn: 'IpCntCn',
+      ipCntOv: 'IpCntOv',
+      memberIpCnt: 'MemberIpCnt',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverage: 'string',
+      ipCntCn: 'number',
+      ipCntOv: 'number',
+      memberIpCnt: 'string',
+      time: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList extends $dara.Model {
+  /**
+   * @remarks
+   * The number of days that the instance is activated.
+   * 
+   * @example
+   * 30
+   */
+  enableDays?: number;
+  /**
+   * @remarks
+   * The total traffic of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland. Unit: bytes.
+   * 
+   * @example
+   * 123456
+   */
+  flowCn?: number;
+  /**
+   * @remarks
+   * The total traffic of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland. Unit: bytes.
+   * 
+   * @example
+   * 123456
+   */
+  flowIntl?: number;
+  /**
+   * @remarks
+   * The total number of protected IP addresses in the Chinese mainland.
+   * 
+   * >  The total number of protected IP addresses is the sum of the daily numbers of protected IP addresses in a month.
+   * 
+   * @example
+   * 28
+   */
+  ipCountCn?: number;
+  /**
+   * @remarks
+   * The total number of protected IP addresses outside the Chinese mainland.
+   * 
+   * >  The total number of protected IP addresses is the sum of the daily numbers of protected IP addresses in a month.
+   * 
+   * @example
+   * 30
+   */
+  ipCountIntl?: number;
+  /**
+   * @remarks
+   * The ID of the member.
+   * 
+   * @example
+   * 112873971277****
+   */
+  memberUid?: string;
+  /**
+   * @remarks
+   * The total traffic of regular Alibaba Cloud services in the Chinese mainland. Unit: bytes.
+   * 
+   * @example
+   * 123456
+   */
+  standardAssetsFlowCn?: number;
+  /**
+   * @remarks
+   * The total traffic of regular Alibaba Cloud services outside the Chinese mainland. Unit: bytes.
+   * 
+   * @example
+   * 123456
+   */
+  standardAssetsFlowIntl?: number;
+  /**
+   * @remarks
+   * The ID of the administrator account.
+   * 
+   * @example
+   * 102518028277****
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableDays: 'EnableDays',
+      flowCn: 'FlowCn',
+      flowIntl: 'FlowIntl',
+      ipCountCn: 'IpCountCn',
+      ipCountIntl: 'IpCountIntl',
+      memberUid: 'MemberUid',
+      standardAssetsFlowCn: 'StandardAssetsFlowCn',
+      standardAssetsFlowIntl: 'StandardAssetsFlowIntl',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableDays: 'number',
+      flowCn: 'number',
+      flowIntl: 'number',
+      ipCountCn: 'number',
+      ipCountIntl: 'number',
+      memberUid: 'string',
+      standardAssetsFlowCn: 'number',
+      standardAssetsFlowIntl: 'number',
+      uid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList extends $dara.Model {
+  /**
+   * @remarks
+   * The traffic distribution by region. The JSON struct contains the following fields:
+   * 
+   * *   **bytes**: the traffic volume of regular Alibaba Cloud services in a region. Unit: bytes.
+   * *   **memberUid**: the owner account.
+   * *   **instanceId**: the ID of the pay-as-you-go instance that protects the regular Alibaba Cloud services.
+   * *   **ip**: the IP address of the regular Alibaba Cloud service protected by the Anti-DDoS Origin instance.
+   * *   **region**: the region.
+   * 
+   * >  If the memberUid field in the JSON struct is empty, the information about the current account is returned. The value of the bytes parameter in the outermost level of the JSON struct indicates the total traffic, and the values of the bytes parameters in inner levels indicate the traffic of the account.
+   * 
+   * @example
+   * [{\\"bytes\\":79282719,\\"memberUid\\":\\"\\",\\"regionFlows\\":{\\"cn-hangzhou\\":[{\\"bytes\\":79282719,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.57\\",\\"region\\":\\"cn-hangzhou\\"}]}}]
+   */
+  memberFlow?: string;
+  /**
+   * @remarks
+   * The traffic distribution by region. The JSON struct contains the following fields:
+   * 
+   * *   **bytes**: the traffic volume of regular Alibaba Cloud services in a region. Unit: bytes.
+   * *   **instanceId**: the ID of the pay-as-you-go instance that protects the regular Alibaba Cloud services.
+   * *   **ip**: the IP address protected by the Anti-DDoS Origin instance.
+   * *   **region**: the region.
+   * 
+   * @example
+   * {\\"cn-hangzhou\\":[{\\"bytes\\":0,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.124\\",\\"region\\":\\"cn-hangzhou\\"}]}
+   */
+  regionFlow?: string;
+  /**
+   * @remarks
+   * The timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1679846400000
+   */
+  time?: number;
+  /**
+   * @remarks
+   * The traffic of regular Alibaba Cloud services. Unit: bytes.
+   * 
+   * @example
+   * 6302081067
+   */
+  totalFlow?: number;
+  static names(): { [key: string]: string } {
+    return {
+      memberFlow: 'MemberFlow',
+      regionFlow: 'RegionFlow',
+      time: 'Time',
+      totalFlow: 'TotalFlow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberFlow: 'string',
+      regionFlow: 'string',
+      time: 'number',
+      totalFlow: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceListRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The mitigation plan of the Anti-DDoS Origin instance.
+   * 
+   * @example
+   * test-key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The mitigation plan of the Anti-DDoS Origin instance. Valid values:
+   * 
+   * *   0: the Professional mitigation plan.
+   * *   1: the Enterprise mitigation plan.
+   * 
+   * @example
+   * test-value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceListResponseBodyInstanceListAutoProtectCondition extends $dara.Model {
+  /**
+   * @remarks
+   * Events which result in auto binding.
+   */
+  events?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      events: 'Events',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      events: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
+  /**
+   * @remarks
+   * The event that triggers automatic association. Valid values:
+   * 
+   * *   **any**: The instance is automatically associated with an object based on traffic scrubbing events or blackhole filtering events.
+   * *   **clean**: The instance is automatically associated with an object based on traffic scrubbing events.
+   * *   **blackhole**: The instance is automatically associated with an object based on blackhole filtering events.
+   */
+  autoProtectCondition?: DescribeInstanceListResponseBodyInstanceListAutoProtectCondition;
+  /**
+   * @remarks
+   * The time when the instance expires. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * false
+   */
+  autoRenewal?: boolean;
+  /**
+   * @remarks
+   * The type of the instance.
+   * 
+   * *   **ddos_ddosorigin_public_cn**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the China site (aliyun.com).
+   * *   **ddos_ddosorigin_public_intl**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the International site (alibabacloud.com).
+   * 
+   * @example
+   * 0
+   */
+  blackholdingCount?: string;
+  /**
+   * @remarks
+   * The condition that triggers automatic association of the instance with an object.
+   * 
+   * @example
+   * ddos_ddosorigin_public_cn
+   */
+  commodityType?: string;
+  /**
+   * @remarks
+   * Indicates whether overdue payments exist. Valid values:
+   * 
+   * *   **0**: Overdue payments do not exist.
+   * *   **1**: Overdue payments exist.
+   * 
+   * @example
+   * 1
+   */
+  coverageType?: number;
+  /**
+   * @remarks
+   * The events that trigger automatic association.
+   * 
+   * @example
+   * 0
+   */
+  debtStatus?: number;
+  /**
+   * @remarks
+   * The time when the instance was purchased. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1640275200000
+   */
+  expireTime?: number;
+  /**
+   * @remarks
+   * The mitigation plan of the instance. Valid values:
+   * 
+   * *   **0**: the Professional mitigation plan
+   * *   **1**: the Enterprise mitigation plan
+   * 
+   * @example
+   * 1592886047000
+   */
+  gmtCreate?: number;
+  /**
+   * @remarks
+   * The number of protected public IP addresses for which blackhole filtering is triggered.
+   * 
+   * >  You can call the [DeleteBlackhole](https://help.aliyun.com/document_detail/118692.html) operation to deactivate blackhole filtering for a protected IP address.
+   * 
+   * @example
+   * ddosbgp-cn-oew1pjrk****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The application scope of the instance.
+   * 
+   * *   **1**: The instance supports public IP addresses in all regions.
+   * *   **2**: The instance supports public IP addresses in regions in the Chinese mainland.
+   * *   **3**: The instance supports public IP addresses in regions outside the Chinese mainland.
+   * *   **4**: The instance supports public IP addresses in a region in or outside the Chinese mainland.
+   * 
+   * @example
+   * 1
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * IPv4
+   */
+  ipType?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * gamebox
+   */
+  product?: string;
+  /**
+   * @remarks
+   * The type of the cloud service that is associated with the Anti-DDoS Origin instance By default, this parameter is not returned. If the Anti-DDoS Origin instance is created by using a different cloud service, the code of the cloud service is returned.
+   * 
+   * Valid values:
+   * 
+   * *   **gamebox**: The Anti-DDoS Origin instance is created by using Game Security Box.
+   * *   **eip**: The Anti-DDoS Origin instance is created by using an elastic IP address (EIP) for which Anti-DDoS (Enhanced Edition) is enabled.
+   * 
+   * @example
+   * test
+   */
+  remark?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-aek3ccjxxxxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Indicates whether auto-renewal is enabled for the instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * 1
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoProtectCondition: 'AutoProtectCondition',
+      autoRenewal: 'AutoRenewal',
+      blackholdingCount: 'BlackholdingCount',
+      commodityType: 'CommodityType',
+      coverageType: 'CoverageType',
+      debtStatus: 'DebtStatus',
+      expireTime: 'ExpireTime',
+      gmtCreate: 'GmtCreate',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      ipType: 'IpType',
+      product: 'Product',
+      remark: 'Remark',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoProtectCondition: DescribeInstanceListResponseBodyInstanceListAutoProtectCondition,
+      autoRenewal: 'boolean',
+      blackholdingCount: 'string',
+      commodityType: 'string',
+      coverageType: 'number',
+      debtStatus: 'number',
+      expireTime: 'number',
+      gmtCreate: 'number',
+      instanceId: 'string',
+      instanceType: 'string',
+      ipType: 'string',
+      product: 'string',
+      remark: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.autoProtectCondition && typeof (this.autoProtectCondition as any).validate === 'function') {
+      (this.autoProtectCondition as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The bandwidth. Unit: Gbit/s.
+   * 
+   * @example
+   * 2
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
+   * The number of IP addresses that are protected by the Anti-DDoS Origin Enterprise instance.
+   * 
+   * @example
+   * 0
+   */
+  bindIpCount?: number;
+  /**
+   * @remarks
+   * The burstable clean bandwidth. Unit: Mbit/s.
+   * 
+   * @example
+   * 100
+   */
+  elasticBwMbps?: number;
+  /**
+   * @remarks
+   * The metering method of burstable clean bandwidth. Valid values:
+   * 
+   * *   **month**: the monthly 95th percentile metering method.
+   * *   **day**: the daily 95th percentile metering method.
+   * 
+   * @example
+   * day
+   */
+  elasticBwMode?: string;
+  /**
+   * @remarks
+   * The burstable protection bandwidth of each protected IP address. Unit: Gbit/s.
+   * 
+   * @example
+   * 300
+   */
+  ipAdvanceThre?: number;
+  /**
+   * @remarks
+   * The basic protection bandwidth of each protected IP address. Unit: Gbit/s.
+   * 
+   * @example
+   * 20
+   */
+  ipBasicThre?: number;
+  /**
+   * @remarks
+   * The number of IP addresses that can be protected by the Anti-DDoS Origin Enterprise instance.
+   * 
+   * @example
+   * 100
+   */
+  ipSpec?: number;
+  /**
+   * @remarks
+   * The clean bandwidth. Unit: Mbit/s.
+   * 
+   * @example
+   * 200
+   */
+  normalBandwidth?: number;
+  /**
+   * @remarks
+   * The burstable protection bandwidth of the Anti-DDoS Origin instance. Unit: Gbit/s.
+   * 
+   * @example
+   * 300
+   */
+  packAdvThre?: number;
+  /**
+   * @remarks
+   * The basic protection bandwidth of the Anti-DDoS Origin instance. Unit: Gbit/s.
+   * 
+   * @example
+   * 20
+   */
+  packBasicThre?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      bindIpCount: 'BindIpCount',
+      elasticBwMbps: 'ElasticBwMbps',
+      elasticBwMode: 'ElasticBwMode',
+      ipAdvanceThre: 'IpAdvanceThre',
+      ipBasicThre: 'IpBasicThre',
+      ipSpec: 'IpSpec',
+      normalBandwidth: 'NormalBandwidth',
+      packAdvThre: 'PackAdvThre',
+      packBasicThre: 'PackBasicThre',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      bindIpCount: 'number',
+      elasticBwMbps: 'number',
+      elasticBwMode: 'string',
+      ipAdvanceThre: 'number',
+      ipBasicThre: 'number',
+      ipSpec: 'number',
+      normalBandwidth: 'number',
+      packAdvThre: 'number',
+      packBasicThre: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $dara.Model {
+  /**
+   * @remarks
+   * The available best-effort protection sessions.
+   * 
+   * @example
+   * 2
+   */
+  availableDefenseTimes?: number;
+  /**
+   * @remarks
+   * The number of times that blackhole filtering can be deactivated.
+   * 
+   * @example
+   * 100
+   */
+  availableDeleteBlackholeCount?: string;
+  /**
+   * @remarks
+   * The percentage of the used best-effort protection sessions. Unit: %.
+   * 
+   * @example
+   * 30
+   */
+  defenseTimesPercent?: number;
+  /**
+   * @remarks
+   * Indicates whether the instance is downgraded. Valid value:
+   * 
+   * *   **8**: The instance is downgraded due to excessive bandwidth usage.
+   * 
+   * @example
+   * 8
+   */
+  downgradeStatus?: number;
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Origin instance.
+   * 
+   * @example
+   * ddosbgp-cn-n6w1r7nz****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Indicates whether best-effort protection is enabled. Valid values:
+   * 
+   * *   **0**: Best-effort protection is disabled.
+   * *   **1**: Best-effort protection is enabled.
+   * 
+   * @example
+   * 1
+   */
+  isFullDefenseMode?: number;
+  /**
+   * @remarks
+   * The configurations of the Anti-DDoS Origin instance, including the number of protected IP addresses and protection bandwidth.
+   */
+  packConfig?: DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig;
+  /**
+   * @remarks
+   * The region ID of the Anti-DDoS Origin instance.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the name of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The total best-effort protection sessions.
+   * 
+   * @example
+   * 2
+   */
+  totalDefenseTimes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableDefenseTimes: 'AvailableDefenseTimes',
+      availableDeleteBlackholeCount: 'AvailableDeleteBlackholeCount',
+      defenseTimesPercent: 'DefenseTimesPercent',
+      downgradeStatus: 'DowngradeStatus',
+      instanceId: 'InstanceId',
+      isFullDefenseMode: 'IsFullDefenseMode',
+      packConfig: 'PackConfig',
+      region: 'Region',
+      totalDefenseTimes: 'TotalDefenseTimes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableDefenseTimes: 'number',
+      availableDeleteBlackholeCount: 'string',
+      defenseTimesPercent: 'number',
+      downgradeStatus: 'number',
+      instanceId: 'string',
+      isFullDefenseMode: 'number',
+      packConfig: DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig,
+      region: 'string',
+      totalDefenseTimes: 'number',
+    };
+  }
+
+  validate() {
+    if(this.packConfig && typeof (this.packConfig as any).validate === 'function') {
+      (this.packConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOnDemandDdosEventResponseBodyEvents extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the DDoS attack stopped. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1557891306
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The attacked IP address.
+   * 
+   * @example
+   * 192.XX.XX.1
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The attack traffic. Unit: Mbit/s.
+   * 
+   * @example
+   * 110000
+   */
+  mbps?: number;
+  /**
+   * @remarks
+   * The packet forwarding rate of the DDoS attack. Unit: packets per second (PPS).
+   * 
+   * @example
+   * 0
+   */
+  pps?: number;
+  /**
+   * @remarks
+   * The time when the DDoS attack started. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1557889506
+   */
+  startTime?: number;
+  /**
+   * @remarks
+   * The status of the DDoS attack event. Valid values:
+   * 
+   * *   **hole_begin**: indicates that blackhole filtering is triggered.
+   * *   **hole_end**: indicates that tblackhole filtering is deactivated.
+   * *   **defense_begin**: indicates that traffic scrubbing is in progress.
+   * *   **defense_end**: indicates that traffic scrubbing is complete.
+   * 
+   * @example
+   * defense_end
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      ip: 'Ip',
+      mbps: 'Mbps',
+      pps: 'Pps',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      ip: 'string',
+      mbps: 'number',
+      pps: 'number',
+      startTime: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOnDemandInstanceStatusResponseBodyInstances extends $dara.Model {
+  /**
+   * @remarks
+   * The details of route advertisement for data centers outside the Chinese mainland. This parameter is a JSON string. The following fields are included in the value:
+   * 
+   * *   **region**: The code of the data center outside the Chinese mainland. The value is of the string type. For more information, see **Codes of data centers outside the Chinese mainland**.
+   * *   **declared**: indicates whether the data center advertised the route. The value is of the string type. Valid values: **0** and **1**. The value of 0 indicates that the data center did not advertise the route. The value of 1 indicates that the data center advertised the route.
+   * 
+   * @example
+   * [{\\"region\\":\\"oe24\\",\\"declared\\":0},{\\"region\\":\\"oe26\\",\\"declared\\":0},{\\"region\\":\\"oe28\\",\\"declared\\":0},{\\"region\\":\\"oi39\\",\\"declared\\":0},{\\"region\\":\\"us50\\",\\"declared\\":0},{\\"region\\":\\"jp141\\",\\"declared\\":0}]
+   */
+  declared?: string;
+  /**
+   * @remarks
+   * The description of the anti-DDoS diversion instance.
+   * 
+   * > This parameter is returned only when the information about multiple anti-DDoS diversion instances are returned. The value of this parameter is not returned because the information about only one anti-DDoS diversion instance is returned.
+   * 
+   * @example
+   * test
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * The ID of the anti-DDoS diversion instance.
+   * 
+   * > This parameter is returned only when the information about multiple anti-DDoS diversion instances are returned. The value of this parameter is not returned because the information about only one anti-DDoS diversion instance is returned.
+   * 
+   * @example
+   * ddosbgp-cn-z2q1qzxb****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The mode that is used to enable traffic rerouting to the anti-DDoS diversion instance. Valid values:
+   * 
+   * *   **manual**: The instance is manually started.
+   * *   **netflow-auto**: The instance is automatically started by using NetFlow that monitors network traffic.
+   * 
+   * @example
+   * netflow-auto
+   */
+  mode?: string;
+  /**
+   * @remarks
+   * The CIDR block of the anti-DDoS diversion instance.
+   * 
+   * @example
+   * 47.***.***.0/24
+   */
+  net?: string;
+  /**
+   * @remarks
+   * The number of the autonomous system (AS). Set the value to **0**, which indicates that AS is disabled.
+   * 
+   * @example
+   * 0
+   */
+  registedAs?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 171986973287****
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      declared: 'Declared',
+      desc: 'Desc',
+      instanceId: 'InstanceId',
+      mode: 'Mode',
+      net: 'Net',
+      registedAs: 'RegistedAs',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      declared: 'string',
+      desc: 'string',
+      instanceId: 'string',
+      mode: 'string',
+      net: 'string',
+      registedAs: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOpEntitiesResponseBodyOpEntities extends $dara.Model {
+  /**
+   * @remarks
+   * The operation object, which is the ID of the instance.
+   * 
+   * @example
+   * ddosbgp-cn-n6w1r7nz****
+   */
+  entityObject?: string;
+  /**
+   * @remarks
+   * The type of the operation object. The value is fixed as **1**, which indicates Anti-DDoS Origin instances.
+   * 
+   * @example
+   * 1
+   */
+  entityType?: number;
+  /**
+   * @remarks
+   * The time when the log was generated. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1635818114000
+   */
+  gmtCreate?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that performs the operation.
+   * 
+   * > If the value is **system**, the operation is performed by Anti-DDoS Origin.
+   * 
+   * @example
+   * 171986973287****
+   */
+  opAccount?: string;
+  /**
+   * @remarks
+   * The type of operation. Valid values:
+   * 
+   * *   **3**: indicates an operation to add an IP address to the Anti-DDoS Origin instance for protection.
+   * *   **4**: indicates an operation to remove a protected IP address from the Anti-DDoS Origin instance.
+   * *   **5**: indicates an operation to downgrade the Anti-DDoS Origin instance.
+   * *   **6**: indicates an operation to deactivate blackhole filtering for an IP address.
+   * *   **7**: indicates an operation to reset the number of times that you can deactivate blackhole filtering.
+   * *   **8**: indicates an operation to enable burstable protection.
+   * 
+   * @example
+   * 8
+   */
+  opAction?: number;
+  /**
+   * @remarks
+   * The details of the operation. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
+   * 
+   * *   **entity**: the operation object. Data type: object. The fields that are included in the value of the **entity** parameter vary based on the value of the **OpAction** parameter. Valid values:
+   * 
+   *     *   If the value of the **OpAction** parameter is **3**, the value of the **entity** parameter consists of the following field:
+   * 
+   *         *   **ips**: the public IP addresses that are protected by the Anti-DDoS Origin instance. Data type: array
+   * 
+   *     *   If the value of the **OpAction** parameter is **4**, the value of the **entity** parameter consists of the following field:
+   * 
+   *         *   **ips**: the public IP addresses that are no longer protected by the Anti-DDoS Origin instance. Data type: array.
+   * 
+   *     *   If the value of the **OpAction** parameter is **5**, the value of the **entity** parameter consists of the following fields:
+   * 
+   *         *   **baseBandwidth**: the basic protection bandwidth. Unit: Gbit/s. Data type: integer.
+   *         *   **elasticBandwidth**: the burstable protection bandwidth. Unit: Gbit/s. Data type: integer.
+   *         *   **opSource**: the source of the operation. The value is fixed as **1**, indicating that the operation is performed by Anti-DDoS Origin. Data type: integer.
+   * 
+   *     *   If the value of the **OpAction** parameter is **6**, the value of the **entity** parameter consists of the following field:
+   * 
+   *         *   **ips**: the public IP addresses for which to deactivate blackhole filtering. Data type: array.
+   * 
+   *     *   If the value of the **OpAction** parameter is **7**, the **entity** parameter is not returned.
+   * 
+   *     *   If the value of the **OpAction** parameter is **8**, the value of the **entity** parameter consists of the following fields:
+   * 
+   *         *   **baseBandwidth**: the basic protection bandwidth. Unit: Gbit/s. Data type: integer.
+   *         *   **elasticBandwidth**: the burstable protection bandwidth. Unit: Gbit/s. Data type: integer.
+   * 
+   * @example
+   * {"entity":{"baseBandwidth":20,"elasticBandwidth":20}}
+   */
+  opDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityObject: 'EntityObject',
+      entityType: 'EntityType',
+      gmtCreate: 'GmtCreate',
+      opAccount: 'OpAccount',
+      opAction: 'OpAction',
+      opDesc: 'OpDesc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityObject: 'string',
+      entityType: 'number',
+      gmtCreate: 'number',
+      opAccount: 'string',
+      opAction: 'number',
+      opDesc: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePackIpListResponseBodyIpList extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 47.98.XX.XX
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The ID of the member.
+   * 
+   * @example
+   * 170858869679****
+   */
+  memberUid?: string;
+  /**
+   * @remarks
+   * The time when the near-origin traffic diversion feature was disabled.
+   * 
+   * @example
+   * 1715658000
+   */
+  nsmExpireAt?: number;
+  /**
+   * @remarks
+   * The time when the near-origin traffic diversion feature was enabled.
+   * 
+   * @example
+   * 1715655000
+   */
+  nsmStartAt?: number;
+  /**
+   * @remarks
+   * The status of the near-origin traffic diversion feature. Valid values:
+   * 
+   * *   **1**: The near-origin traffic diversion feature is enabled.
+   * *   **0**: The near-origin traffic diversion feature is disabled.
+   * 
+   * @example
+   * 0
+   */
+  nsmStatus?: number;
+  /**
+   * @remarks
+   * The type of the cloud asset to which the IP address belongs. Valid values:
+   * 
+   * *   **ECS**: an ECS instance.
+   * *   **SLB**: a CLB (formerly SLB) instance.
+   * *   **EIP**: an EIP. If the IP address belongs to an ALB instance, the value EIP is returned.
+   * *   **WAF**: a WAF instance.
+   * 
+   * @example
+   * ECS
+   */
+  product?: string;
+  /**
+   * @remarks
+   * The region to which the protected IP address belongs.
+   * 
+   * >  If the protected IP address is in the same region as the instance, this parameter is not returned.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The description of the cloud asset to which the IP address belongs. The asset can be an ECS instance or an SLB instance.
+   * 
+   * >  If no descriptions are provided for the asset, this parameter is not returned.
+   * 
+   * @example
+   * test
+   */
+  remark?: string;
+  /**
+   * @remarks
+   * The status of the IP address. Valid values:
+   * 
+   * *   **normal**: The IP address is not under attack.
+   * *   **hole_begin**: Blackhole filtering is triggered for the IP address.
+   * 
+   * @example
+   * normal
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      memberUid: 'MemberUid',
+      nsmExpireAt: 'NsmExpireAt',
+      nsmStartAt: 'NsmStartAt',
+      nsmStatus: 'NsmStatus',
+      product: 'Product',
+      region: 'Region',
+      remark: 'Remark',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      memberUid: 'string',
+      nsmExpireAt: 'number',
+      nsmStartAt: 'number',
+      nsmStatus: 'number',
+      product: 'string',
+      region: 'string',
+      remark: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdMemberListResponseBodyMemberList extends $dara.Model {
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1624954942000
+   */
+  gmtCreate?: number;
+  /**
+   * @remarks
+   * The name of the member.
+   * 
+   * @example
+   * test1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * @example
+   * 1960279802016267
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'GmtCreate',
+      name: 'Name',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'number',
+      name: 'string',
+      uid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegions extends $dara.Model {
+  /**
+   * @remarks
+   * The English name of the region.
+   * 
+   * @example
+   * China (Hangzhou)
+   */
+  regionEnName?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The Chinese name of the region.
+   * 
+   * @example
+   * 华东1（杭州）
+   */
+  regionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionEnName: 'RegionEnName',
+      regionId: 'RegionId',
+      regionName: 'RegionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionEnName: 'string',
+      regionId: 'string',
+      regionName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrafficResponseBodyFlowList extends $dara.Model {
+  /**
+   * @remarks
+   * The bandwidth of attack traffic. Unit: bit/s.
+   * 
+   * >  This parameter is returned only if attack traffic exists.
+   * 
+   * @example
+   * 0
+   */
+  attackBps?: number;
+  /**
+   * @remarks
+   * The packet forwarding rate of attack traffic. Unit: packets per second.
+   * 
+   * >  This parameter is returned only if attack traffic exists.
+   * 
+   * @example
+   * 0
+   */
+  attackPps?: number;
+  /**
+   * @remarks
+   * The type of the traffic statistics. Valid values:
+   * 
+   * *   **max**: the peak traffic within the specified interval
+   * *   **avg**: the average traffic within the specified interval
+   * 
+   * @example
+   * max
+   */
+  flowType?: string;
+  /**
+   * @remarks
+   * The bandwidth of the total traffic. Unit: Kbit/s.
+   * 
+   * @example
+   * 417
+   */
+  kbps?: number;
+  /**
+   * @remarks
+   * The ID of the traffic statistics.
+   * 
+   * @example
+   * 8e33f19e-5644-11eb-b5c1-d89d67182200
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The packet forwarding rate of the total traffic. Unit: packets per second.
+   * 
+   * @example
+   * 274
+   */
+  pps?: number;
+  /**
+   * @remarks
+   * The time when the traffic statistics are calculated. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1620951900
+   */
+  time?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attackBps: 'AttackBps',
+      attackPps: 'AttackPps',
+      flowType: 'FlowType',
+      kbps: 'Kbps',
+      name: 'Name',
+      pps: 'Pps',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attackBps: 'number',
+      attackPps: 'number',
+      flowType: 'string',
+      kbps: 'number',
+      name: 'string',
+      pps: 'number',
+      time: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachFromPolicyRequestIpPortProtocolList extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address of the protected object.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 47.118.172.***
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The port of the protected object.
+   * 
+   * @example
+   * 8*
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The protocol type of the protected object. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * @example
+   * tcp
+   */
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DettachAssetGroupToInstanceRequestAssetGroupList extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the asset. If the asset is a Web Application Firewall (WAF) instance, specify the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v2_public_cn-lbj382l****
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The region ID of the asset.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The type of the asset. Valid values:
+   * 
+   * *   **waf**: WAF instance
+   * *   **ga**: Global Accelerator (GA) instance
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      region: 'Region',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      region: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpenedAccessLogInstancesResponseBodySlsConfigStatus extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether log analysis was enabled for the Anti-DDoS Origin instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Origin instance.
+   * 
+   * @example
+   * ddosbgp-cn-m7r1zce2****
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the destination port range. Valid values: **0** to **65535**.
+   * 
+   * @example
+   * 65535
+   */
+  dstPortEnd?: number;
+  /**
+   * @remarks
+   * The start of the destination port range. Valid values: **0** to **65535**.
+   * 
+   * @example
+   * 0
+   */
+  dstPortStart?: number;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * 2c0b09cd-a565-4481-9acb-418b********
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The action triggered if the rule is matched. Valid values:
+   * 
+   * *   **accept**: allows the traffic that matches the conditions in the byte-match filter rule.
+   * *   **drop**: discards the traffic that matches the conditions in the byte-match filter rule.
+   * *   **ip_rate**: limits rates on the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
+   * *   **session_rate**: limits the number of sessions from the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
+   * 
+   * @example
+   * drop
+   */
+  matchAction?: string;
+  /**
+   * @remarks
+   * The maximum packet length. Valid values: **1** to **1500**.
+   * 
+   * @example
+   * 1500
+   */
+  maxPktLen?: number;
+  /**
+   * @remarks
+   * The minimum packet length. Valid values: **1** to **1500**.
+   * 
+   * @example
+   * 1
+   */
+  minPktLen?: number;
+  /**
+   * @remarks
+   * The offset. Valid values: **0** to **1500**.
+   * 
+   * @example
+   * 0
+   */
+  offset?: number;
+  /**
+   * @remarks
+   * The payload. The value is a hexadecimal string.
+   * 
+   * @example
+   * abcd
+   */
+  payloadBytes?: string;
+  /**
+   * @remarks
+   * The protocol type. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * @example
+   * udp
+   */
+  protocol?: string;
+  /**
+   * @remarks
+   * The rate limit. Valid values: **1** to **100000**.
+   * 
+   * >  This parameter is required when **MatchAction** is set to **ip_rate** or **session_rate**.
+   * 
+   * @example
+   * 1000
+   */
+  rateValue?: number;
+  /**
+   * @remarks
+   * The sequence number that indicates the order for the rule to take effect. The value is an integer.
+   * 
+   * @example
+   * 1
+   */
+  seqNo?: number;
+  /**
+   * @remarks
+   * The end of the source port range. Valid values: **0** to **65535**.
+   * 
+   * @example
+   * 65535
+   */
+  srcPortEnd?: number;
+  /**
+   * @remarks
+   * The start of the source port range. Valid values: **0** to **65535**.
+   * 
+   * @example
+   * 0
+   */
+  srcPortStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstPortEnd: 'DstPortEnd',
+      dstPortStart: 'DstPortStart',
+      id: 'Id',
+      matchAction: 'MatchAction',
+      maxPktLen: 'MaxPktLen',
+      minPktLen: 'MinPktLen',
+      offset: 'Offset',
+      payloadBytes: 'PayloadBytes',
+      protocol: 'Protocol',
+      rateValue: 'RateValue',
+      seqNo: 'SeqNo',
+      srcPortEnd: 'SrcPortEnd',
+      srcPortStart: 'SrcPortStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstPortEnd: 'number',
+      dstPortStart: 'number',
+      id: 'string',
+      matchAction: 'string',
+      maxPktLen: 'number',
+      minPktLen: 'number',
+      offset: 'number',
+      payloadBytes: 'string',
+      protocol: 'string',
+      rateValue: 'number',
+      seqNo: 'number',
+      srcPortEnd: 'number',
+      srcPortStart: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContentL4RuleListConditionList extends $dara.Model {
+  /**
+   * @remarks
+   * The term that is used for matching.
+   * 
+   * >  If Method is set to **char**, the value of this parameter must be ASCII strings. If Method is set to **hex**, the value of this parameter must be hexadecimal strings. Maximum length: 2,048.
+   * 
+   * @example
+   * test
+   */
+  arg?: string;
+  /**
+   * @remarks
+   * The number of bytes from the start position for matching. Valid values: **1** to **2048**.
+   * 
+   * @example
+   * 32
+   */
+  depth?: number;
+  /**
+   * @remarks
+   * The start position for matching. Valid values: **0** to **2047**.
+   * 
+   * @example
+   * 0
+   */
+  position?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arg: 'Arg',
+      depth: 'Depth',
+      position: 'Position',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arg: 'string',
+      depth: 'number',
+      position: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContentL4RuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The action that is specified in the rule. Valid value:
+   * 
+   * *   **2**: The traffic is discarded.
+   * 
+   * @example
+   * 2
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The match conditions.
+   */
+  conditionList?: ListPolicyResponseBodyPolicyListContentL4RuleListConditionList[];
+  /**
+   * @remarks
+   * The minimum number of bytes in a session to trigger matching. Valid values: **0** to **2048**.
+   * 
+   * @example
+   * 0
+   */
+  limited?: number;
+  /**
+   * @remarks
+   * The condition based on which an action is performed. Valid values:
+   * 
+   * *   **0**: If the rule is matched, the action specified in the rule is performed.
+   * *   **1**: If the rule is not matched, the action specified in the rule is performed.
+   * 
+   * @example
+   * 1
+   */
+  match?: string;
+  /**
+   * @remarks
+   * The type of the rule. Valid values:
+   * 
+   * *   **char**: string match.
+   * *   **hex**: hexadecimal string match.
+   * 
+   * @example
+   * char
+   */
+  method?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * test**
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The priority of the rule.
+   * 
+   * @example
+   * 1
+   */
+  priority?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      conditionList: 'ConditionList',
+      limited: 'Limited',
+      match: 'Match',
+      method: 'Method',
+      name: 'Name',
+      priority: 'Priority',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      conditionList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentL4RuleListConditionList },
+      limited: 'number',
+      match: 'string',
+      method: 'string',
+      name: 'string',
+      priority: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditionList)) {
+      $dara.Model.validateArray(this.conditionList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContentPortRuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the destination port range. Valid values: **0** to **65535**.
+   * 
+   * @example
+   * 65535
+   */
+  dstPortEnd?: number;
+  /**
+   * @remarks
+   * The start of the destination port range. Valid values: **0** to **65535**.
+   * 
+   * @example
+   * 0
+   */
+  dstPortStart?: number;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * 8f3c3062-6c20-425d-8405-2bd1********
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The action triggered if the rule is matched. Valid value:
+   * 
+   * *   **drop**: The traffic is discarded.
+   * 
+   * @example
+   * drop
+   */
+  matchAction?: string;
+  /**
+   * @remarks
+   * The protocol type. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * @example
+   * udp
+   */
+  protocol?: string;
+  /**
+   * @remarks
+   * The sequence number that indicates the order for the rule to take effect. The value is an integer.
+   * 
+   * @example
+   * 1
+   */
+  seqNo?: number;
+  /**
+   * @remarks
+   * The end of the source port range. Valid values: **0** to **65535**.
+   * 
+   * @example
+   * 65535
+   */
+  srcPortEnd?: number;
+  /**
+   * @remarks
+   * The start of the source port range. Valid values: **0** to **65535**.
+   * 
+   * @example
+   * 0
+   */
+  srcPortStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstPortEnd: 'DstPortEnd',
+      dstPortStart: 'DstPortStart',
+      id: 'Id',
+      matchAction: 'MatchAction',
+      protocol: 'Protocol',
+      seqNo: 'SeqNo',
+      srcPortEnd: 'SrcPortEnd',
+      srcPortStart: 'SrcPortStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstPortEnd: 'number',
+      dstPortStart: 'number',
+      id: 'string',
+      matchAction: 'string',
+      protocol: 'string',
+      seqNo: 'number',
+      srcPortEnd: 'number',
+      srcPortStart: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContentSourceBlockList extends $dara.Model {
+  /**
+   * @remarks
+   * The validity period of the blacklist to which the source IP address is added. Unit: seconds.
+   * 
+   * @example
+   * 120
+   */
+  blockExpireSeconds?: number;
+  /**
+   * @remarks
+   * The statistical period during which the system collects data on source IP addresses to determine whether to add the source IP addresses to the blacklist. Unit: seconds.
+   * 
+   * @example
+   * 60
+   */
+  everySeconds?: number;
+  /**
+   * @remarks
+   * The number of times that the source IP address exceeds a limit in a statistical period.
+   * 
+   * @example
+   * 5
+   */
+  exceedLimitTimes?: number;
+  /**
+   * @remarks
+   * The type of the source rate limit. Valid values:
+   * 
+   * *   **3**: the PPS limit on source IP addresses.
+   * *   **4**: the bandwidth limit on source IP addresses.
+   * *   **5**: the PPS limit on source SYN packets.
+   * *   **6**: the bandwidth limit on source SYN packets.
+   * 
+   * @example
+   * 3
+   */
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockExpireSeconds: 'BlockExpireSeconds',
+      everySeconds: 'EverySeconds',
+      exceedLimitTimes: 'ExceedLimitTimes',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockExpireSeconds: 'number',
+      everySeconds: 'number',
+      exceedLimitTimes: 'number',
+      type: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContentSourceLimit extends $dara.Model {
+  /**
+   * @remarks
+   * The bandwidth limit on source IP addresses. Unit: bytes per second.
+   * 
+   * @example
+   * 2048
+   */
+  bps?: number;
+  /**
+   * @remarks
+   * The packets per second (PPS) limit on source IP addresses.
+   * 
+   * @example
+   * 64
+   */
+  pps?: number;
+  /**
+   * @remarks
+   * The bandwidth limit on source SYN packets. Unit: bytes per second.
+   * 
+   * @example
+   * 2048
+   */
+  synBps?: number;
+  /**
+   * @remarks
+   * The PPS limit on source SYN packets.
+   * 
+   * @example
+   * 64
+   */
+  synPps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bps: 'Bps',
+      pps: 'Pps',
+      synBps: 'SynBps',
+      synPps: 'SynPps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bps: 'number',
+      pps: 'number',
+      synBps: 'number',
+      synPps: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyListContent extends $dara.Model {
+  /**
+   * @remarks
+   * The validity period of the IP address blacklist. The value is a UNIX timestamp.
+   * 
+   * @example
+   * 1716878000
+   */
+  blackIpListExpireAt?: number;
+  /**
+   * @remarks
+   * Indicates whether ICMP blocking is enabled.
+   * 
+   * @example
+   * false
+   */
+  enableDropIcmp?: boolean;
+  /**
+   * @remarks
+   * Indicates whether intelligent protection is enabled.
+   * 
+   * @example
+   * true
+   */
+  enableIntelligence?: boolean;
+  /**
+   * @remarks
+   * Indicates whether port-specific mitigation is enabled.
+   * 
+   * @example
+   * true
+   */
+  enableL4Defense?: boolean;
+  /**
+   * @remarks
+   * The byte-match filter rules.
+   */
+  fingerPrintRuleList?: ListPolicyResponseBodyPolicyListContentFingerPrintRuleList[];
+  /**
+   * @remarks
+   * The level of intelligent protection. Valid values:
+   * 
+   * *   **default**: normal.
+   * *   **hard**: strict.
+   * *   **weak**: loose.
+   * 
+   * @example
+   * default
+   */
+  intelligenceLevel?: string;
+  /**
+   * @remarks
+   * The port-specific mitigation rules.
+   */
+  l4RuleList?: ListPolicyResponseBodyPolicyListContentL4RuleList[];
+  /**
+   * @remarks
+   * The port blocking rules.
+   */
+  portRuleList?: ListPolicyResponseBodyPolicyListContentPortRuleList[];
+  /**
+   * @remarks
+   * The ports whose traffic is filtered out by the filtering policies for UDP reflection attacks.
+   */
+  reflectBlockUdpPortList?: number[];
+  /**
+   * @remarks
+   * The countries in the location blacklist.
+   */
+  regionBlockCountryList?: number[];
+  /**
+   * @remarks
+   * The provinces in the location blacklist.
+   */
+  regionBlockProvinceList?: number[];
+  /**
+   * @remarks
+   * The source IP addresses that are added to the blacklist.
+   */
+  sourceBlockList?: ListPolicyResponseBodyPolicyListContentSourceBlockList[];
+  /**
+   * @remarks
+   * The settings for source rate limiting.
+   */
+  sourceLimit?: ListPolicyResponseBodyPolicyListContentSourceLimit;
+  /**
+   * @remarks
+   * Indicates whether back-to-origin CIDR blocks of Anti-DDoS Proxy are added to the whitelist.
+   * 
+   * @example
+   * false
+   */
+  whitenGfbrNets?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      blackIpListExpireAt: 'BlackIpListExpireAt',
+      enableDropIcmp: 'EnableDropIcmp',
+      enableIntelligence: 'EnableIntelligence',
+      enableL4Defense: 'EnableL4Defense',
+      fingerPrintRuleList: 'FingerPrintRuleList',
+      intelligenceLevel: 'IntelligenceLevel',
+      l4RuleList: 'L4RuleList',
+      portRuleList: 'PortRuleList',
+      reflectBlockUdpPortList: 'ReflectBlockUdpPortList',
+      regionBlockCountryList: 'RegionBlockCountryList',
+      regionBlockProvinceList: 'RegionBlockProvinceList',
+      sourceBlockList: 'SourceBlockList',
+      sourceLimit: 'SourceLimit',
+      whitenGfbrNets: 'WhitenGfbrNets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blackIpListExpireAt: 'number',
+      enableDropIcmp: 'boolean',
+      enableIntelligence: 'boolean',
+      enableL4Defense: 'boolean',
+      fingerPrintRuleList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentFingerPrintRuleList },
+      intelligenceLevel: 'string',
+      l4RuleList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentL4RuleList },
+      portRuleList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentPortRuleList },
+      reflectBlockUdpPortList: { 'type': 'array', 'itemType': 'number' },
+      regionBlockCountryList: { 'type': 'array', 'itemType': 'number' },
+      regionBlockProvinceList: { 'type': 'array', 'itemType': 'number' },
+      sourceBlockList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentSourceBlockList },
+      sourceLimit: ListPolicyResponseBodyPolicyListContentSourceLimit,
+      whitenGfbrNets: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.fingerPrintRuleList)) {
+      $dara.Model.validateArray(this.fingerPrintRuleList);
+    }
+    if(Array.isArray(this.l4RuleList)) {
+      $dara.Model.validateArray(this.l4RuleList);
+    }
+    if(Array.isArray(this.portRuleList)) {
+      $dara.Model.validateArray(this.portRuleList);
+    }
+    if(Array.isArray(this.reflectBlockUdpPortList)) {
+      $dara.Model.validateArray(this.reflectBlockUdpPortList);
+    }
+    if(Array.isArray(this.regionBlockCountryList)) {
+      $dara.Model.validateArray(this.regionBlockCountryList);
+    }
+    if(Array.isArray(this.regionBlockProvinceList)) {
+      $dara.Model.validateArray(this.regionBlockProvinceList);
+    }
+    if(Array.isArray(this.sourceBlockList)) {
+      $dara.Model.validateArray(this.sourceBlockList);
+    }
+    if(this.sourceLimit && typeof (this.sourceLimit as any).validate === 'function') {
+      (this.sourceLimit as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyResponseBodyPolicyList extends $dara.Model {
+  /**
+   * @remarks
+   * The number of protected objects that are added to the policy.
+   * 
+   * @example
+   * 0
+   */
+  attachedCount?: number;
+  /**
+   * @remarks
+   * The content of the policy.
+   */
+  content?: ListPolicyResponseBodyPolicyListContent;
+  /**
+   * @remarks
+   * The ID of the policy.
+   * 
+   * @example
+   * 877afbdf-3982-4d36-9886-f043********
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * test**
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The remarks of the policy.
+   * 
+   * @example
+   * test
+   */
+  remark?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values:
+   * 
+   * *   **default**: the default mitigation policy.
+   * *   **l3**: IP-specific mitigation policies.
+   * *   **l4**: port-specific mitigation policies.
+   * 
+   * @example
+   * l3
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachedCount: 'AttachedCount',
+      content: 'Content',
+      id: 'Id',
+      name: 'Name',
+      remark: 'Remark',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachedCount: 'number',
+      content: ListPolicyResponseBodyPolicyListContent,
+      id: 'string',
+      name: 'string',
+      remark: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyAttachmentRequestIpPortProtocolList extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address of the protected object.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 47.118.172.***
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The port number of the protected object.
+   * 
+   * @example
+   * 8*
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The protocol type of the protected object. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * @example
+   * tcp
+   */
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyAttachmentResponseBodyAttachmentList extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address of the protected object.
+   * 
+   * @example
+   * 147.139.183.***
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The UID of the member to which the IP address of the protected object belongs.
+   * 
+   * @example
+   * 177699790631****
+   */
+  memberUid?: string;
+  /**
+   * @remarks
+   * The ID of the policy.
+   * 
+   * @example
+   * 1b43f44e-65e1-411a-b0c0-d6c1********
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * test**
+   */
+  policyName?: string;
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * @example
+   * test
+   */
+  policyRemark?: string;
+  /**
+   * @remarks
+   * The type of the policy. Valid values:
+   * 
+   * *   **l3**: IP-specific mitigation policies.
+   * *   **l4**: port-specific mitigation policies.
+   * 
+   * @example
+   * l3
+   */
+  policyType?: string;
+  /**
+   * @remarks
+   * The port number of the protected object.
+   * 
+   * @example
+   * 8*
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The protocol type of the protected object. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * @example
+   * udp
+   */
+  protocol?: string;
+  /**
+   * @remarks
+   * The region to which the IP address of the protected object belongs.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      memberUid: 'MemberUid',
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+      policyRemark: 'PolicyRemark',
+      policyType: 'PolicyType',
+      port: 'Port',
+      protocol: 'Protocol',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      memberUid: 'string',
+      policyId: 'string',
+      policyName: 'string',
+      policyRemark: 'string',
+      policyType: 'string',
+      port: 'number',
+      protocol: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysResponseBodyTagKeys extends $dara.Model {
+  /**
+   * @remarks
+   * The total number of tag values that correspond to each key.
+   * 
+   * @example
+   * 1
+   */
+  tagCount?: number;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * a
+   */
+  tagKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagCount: 'TagCount',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagCount: 'number',
+      tagKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag to query.
+   * 
+   * >  The **ResourceId** parameter and the **key-value pair for the Tag parameter** cannot be left empty at the same time.
+   * 
+   * @example
+   * testKey1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag to query.
+   * 
+   * >  The **ResourceId** parameter and the **key-value pair for the Tag parameter** cannot be left empty at the same time.
+   * 
+   * @example
+   * testValue1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Origin instance.
+   * 
+   * @example
+   * ddosbgp-cn-n6w1r7nz****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource. The value is set to **INSTANCE**.
+   * 
+   * @example
+   * INSTANCE
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The key of the tag that is added to the instance.
+   * 
+   * @example
+   * testKey1
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the instance.
+   * 
+   * @example
+   * testValue1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagResource)) {
+      $dara.Model.validateArray(this.tagResource);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContentFingerPrintRuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the destination port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 65535
+   */
+  dstPortEnd?: number;
+  /**
+   * @remarks
+   * The start of the destination port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  dstPortStart?: number;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * 5fbe941f-a0cf-4a49-9c7c-8fac********
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The action triggered if the rule is matched. Valid values:
+   * 
+   * *   **accept**: allows the traffic that matches the conditions in the byte-match filter rule.
+   * *   **drop**: discards the traffic that matches the conditions in the byte-match filter rule.
+   * *   **ip_rate**: limits rates on the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
+   * *   **session_rate**: limits the number of sessions from the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * drop
+   */
+  matchAction?: string;
+  /**
+   * @remarks
+   * The maximum packet length. Valid values: **1** to **1500**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1500
+   */
+  maxPktLen?: number;
+  /**
+   * @remarks
+   * The minimum packet length. Valid values: **1** to **1500**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  minPktLen?: number;
+  /**
+   * @remarks
+   * The offset. Valid values: **0** to **1500**.
+   * 
+   * @example
+   * 0
+   */
+  offset?: number;
+  /**
+   * @remarks
+   * The payload. The value is a hexadecimal string.
+   * 
+   * @example
+   * abcd
+   */
+  payloadBytes?: string;
+  /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * udp
+   */
+  protocol?: string;
+  /**
+   * @remarks
+   * The rate limit. Valid values: **1** to **100000**.
+   * 
+   * >  This parameter is required when **MatchAction** is set to **ip_rate** or **session_rate**.
+   * 
+   * @example
+   * 100
+   */
+  rateValue?: number;
+  /**
+   * @remarks
+   * The sequence number that indicates the order for the rule to take effect. The value is an integer.
+   * 
+   * >  A smaller number indicates a higher priority.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  seqNo?: number;
+  /**
+   * @remarks
+   * The end of the source port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 65535
+   */
+  srcPortEnd?: number;
+  /**
+   * @remarks
+   * The start of the source port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  srcPortStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstPortEnd: 'DstPortEnd',
+      dstPortStart: 'DstPortStart',
+      id: 'Id',
+      matchAction: 'MatchAction',
+      maxPktLen: 'MaxPktLen',
+      minPktLen: 'MinPktLen',
+      offset: 'Offset',
+      payloadBytes: 'PayloadBytes',
+      protocol: 'Protocol',
+      rateValue: 'RateValue',
+      seqNo: 'SeqNo',
+      srcPortEnd: 'SrcPortEnd',
+      srcPortStart: 'SrcPortStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstPortEnd: 'number',
+      dstPortStart: 'number',
+      id: 'string',
+      matchAction: 'string',
+      maxPktLen: 'number',
+      minPktLen: 'number',
+      offset: 'number',
+      payloadBytes: 'string',
+      protocol: 'string',
+      rateValue: 'number',
+      seqNo: 'number',
+      srcPortEnd: 'number',
+      srcPortStart: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContentL4RuleListConditionList extends $dara.Model {
+  /**
+   * @remarks
+   * The term that is used for matching.
+   * 
+   * >  If Method is set to **char**, the value of this parameter must be ASCII strings. If Method is set to **hex**, the value of this parameter must be hexadecimal strings. Maximum length: 2,048.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * abcd
+   */
+  arg?: string;
+  /**
+   * @remarks
+   * The number of bytes from the start position for matching. Valid values: **1** to **2048**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1200
+   */
+  depth?: number;
+  /**
+   * @remarks
+   * The start position for matching. Valid values: **0** to **2047**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  position?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arg: 'Arg',
+      depth: 'Depth',
+      position: 'Position',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arg: 'string',
+      depth: 'number',
+      position: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContentL4RuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The action that is specified in the rule. Valid value:
+   * 
+   * *   **2**: The traffic is discarded.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The match conditions.
+   * 
+   * This parameter is required.
+   */
+  conditionList?: ModifyPolicyRequestContentL4RuleListConditionList[];
+  /**
+   * @remarks
+   * The minimum number of bytes in a session to trigger matching. Valid values: **0** to **2048**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  limited?: number;
+  /**
+   * @remarks
+   * The condition based on which an action is performed. Valid values:
+   * 
+   * *   **0**: If the rule is matched, the action specified in the rule is performed.
+   * *   **1**: If the rule is not matched, the action specified in the rule is performed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  match?: string;
+  /**
+   * @remarks
+   * The type of the rule. Valid values:
+   * 
+   * *   **char**: string match.
+   * *   **hex**: hexadecimal string match.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * char
+   */
+  method?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test****
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The priority of the rule. Valid values: **1** to **100**.
+   * 
+   * >  A smaller value indicates a higher priority.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  priority?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      conditionList: 'ConditionList',
+      limited: 'Limited',
+      match: 'Match',
+      method: 'Method',
+      name: 'Name',
+      priority: 'Priority',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      conditionList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentL4RuleListConditionList },
+      limited: 'number',
+      match: 'string',
+      method: 'string',
+      name: 'string',
+      priority: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditionList)) {
+      $dara.Model.validateArray(this.conditionList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContentPortRuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the destination port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 65535
+   */
+  dstPortEnd?: number;
+  /**
+   * @remarks
+   * The start of the destination port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  dstPortStart?: number;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * c52c2fa6-fdac-40c4-8753-be7c*********
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The action triggered if the rule is matched. Valid values:
+   * 
+   * *   **drop**: The traffic is discarded.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * drop
+   */
+  matchAction?: string;
+  /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tcp
+   */
+  protocol?: string;
+  /**
+   * @remarks
+   * The sequence number that indicates the order for the rule to take effect. The value is an integer.
+   * 
+   * >  A smaller number indicates a higher priority.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  seqNo?: number;
+  /**
+   * @remarks
+   * The end of the source port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 65535
+   */
+  srcPortEnd?: number;
+  /**
+   * @remarks
+   * The start of the source port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  srcPortStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstPortEnd: 'DstPortEnd',
+      dstPortStart: 'DstPortStart',
+      id: 'Id',
+      matchAction: 'MatchAction',
+      protocol: 'Protocol',
+      seqNo: 'SeqNo',
+      srcPortEnd: 'SrcPortEnd',
+      srcPortStart: 'SrcPortStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstPortEnd: 'number',
+      dstPortStart: 'number',
+      id: 'string',
+      matchAction: 'string',
+      protocol: 'string',
+      seqNo: 'number',
+      srcPortEnd: 'number',
+      srcPortStart: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContentSourceBlockList extends $dara.Model {
+  /**
+   * @remarks
+   * The validity period of the blacklist to which the source IP address is added. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 120
+   */
+  blockExpireSeconds?: number;
+  /**
+   * @remarks
+   * The statistical period during which the system collects data on source IP addresses to determine whether to add the source IP addresses to the blacklist. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
+  everySeconds?: number;
+  /**
+   * @remarks
+   * The number of times that the source IP address exceeds a limit in a statistical period.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
+  exceedLimitTimes?: number;
+  /**
+   * @remarks
+   * The type of the source rate limit. Valid values:
+   * 
+   * *   **3**: the pps limit on source IP addresses.
+   * *   **4**: the bandwidth limit on source IP addresses.
+   * *   **5**: the pps limit on source SYN packets.
+   * *   **6**: the bandwidth limit on source SYN packets.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockExpireSeconds: 'BlockExpireSeconds',
+      everySeconds: 'EverySeconds',
+      exceedLimitTimes: 'ExceedLimitTimes',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockExpireSeconds: 'number',
+      everySeconds: 'number',
+      exceedLimitTimes: 'number',
+      type: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContentSourceLimit extends $dara.Model {
+  /**
+   * @remarks
+   * The bandwidth limit on source IP addresses. Unit: bytes per second.
+   * 
+   * @example
+   * 2048
+   */
+  bps?: number;
+  /**
+   * @remarks
+   * The packets per second (pps) limit on source IP addresses.
+   * 
+   * @example
+   * 64
+   */
+  pps?: number;
+  /**
+   * @remarks
+   * The bandwidth limit on source SYN packets. Unit: bytes per second.
+   * 
+   * @example
+   * 2048
+   */
+  synBps?: number;
+  /**
+   * @remarks
+   * The pps limit on source SYN packets.
+   * 
+   * @example
+   * 64
+   */
+  synPps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bps: 'Bps',
+      pps: 'Pps',
+      synBps: 'SynBps',
+      synPps: 'SynPps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bps: 'number',
+      pps: 'number',
+      synBps: 'number',
+      synPps: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyRequestContent extends $dara.Model {
+  /**
+   * @remarks
+   * The IP addresses in the blacklist.
+   */
+  blackIpList?: string[];
+  /**
+   * @remarks
+   * The validity period of the IP address blacklist. The value is a UNIX timestamp.
+   * 
+   * @example
+   * 1716878000
+   */
+  blackIpListExpireAt?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable ICMP blocking.
+   * 
+   * @example
+   * true
+   */
+  enableDropIcmp?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable intelligent protection.
+   * 
+   * @example
+   * true
+   */
+  enableIntelligence?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable port-specific mitigation.
+   * 
+   * @example
+   * true
+   */
+  enableL4Defense?: boolean;
+  /**
+   * @remarks
+   * The byte-match filter rules.
+   */
+  fingerPrintRuleList?: ModifyPolicyRequestContentFingerPrintRuleList[];
+  /**
+   * @remarks
+   * The level of intelligent protection. Valid values:
+   * 
+   * *   **default**: normal.
+   * *   **hard**: strict.
+   * *   **weak**: loose.
+   * 
+   * @example
+   * default
+   */
+  intelligenceLevel?: string;
+  /**
+   * @remarks
+   * The port-specific mitigation rules.
+   */
+  l4RuleList?: ModifyPolicyRequestContentL4RuleList[];
+  /**
+   * @remarks
+   * The port blocking rules.
+   */
+  portRuleList?: ModifyPolicyRequestContentPortRuleList[];
+  /**
+   * @remarks
+   * The ports whose traffic is filtered out by the filtering policies for UDP reflection attacks.
+   */
+  reflectBlockUdpPortList?: number[];
+  /**
+   * @remarks
+   * The countries in the location blacklist.
+   */
+  regionBlockCountryList?: number[];
+  /**
+   * @remarks
+   * The provinces in the location blacklist.
+   */
+  regionBlockProvinceList?: number[];
+  /**
+   * @remarks
+   * The source IP addresses that are added to the blacklist.
+   */
+  sourceBlockList?: ModifyPolicyRequestContentSourceBlockList[];
+  /**
+   * @remarks
+   * The settings for source rate limiting.
+   */
+  sourceLimit?: ModifyPolicyRequestContentSourceLimit;
+  /**
+   * @remarks
+   * The IP addresses in the whitelist.
+   */
+  whiteIpList?: string[];
+  /**
+   * @remarks
+   * Specifies whether to add back-to-origin CIDR blocks of Anti-DDoS Proxy to the whitelist.
+   * 
+   * @example
+   * false
+   */
+  whitenGfbrNets?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      blackIpList: 'BlackIpList',
+      blackIpListExpireAt: 'BlackIpListExpireAt',
+      enableDropIcmp: 'EnableDropIcmp',
+      enableIntelligence: 'EnableIntelligence',
+      enableL4Defense: 'EnableL4Defense',
+      fingerPrintRuleList: 'FingerPrintRuleList',
+      intelligenceLevel: 'IntelligenceLevel',
+      l4RuleList: 'L4RuleList',
+      portRuleList: 'PortRuleList',
+      reflectBlockUdpPortList: 'ReflectBlockUdpPortList',
+      regionBlockCountryList: 'RegionBlockCountryList',
+      regionBlockProvinceList: 'RegionBlockProvinceList',
+      sourceBlockList: 'SourceBlockList',
+      sourceLimit: 'SourceLimit',
+      whiteIpList: 'WhiteIpList',
+      whitenGfbrNets: 'WhitenGfbrNets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blackIpList: { 'type': 'array', 'itemType': 'string' },
+      blackIpListExpireAt: 'number',
+      enableDropIcmp: 'boolean',
+      enableIntelligence: 'boolean',
+      enableL4Defense: 'boolean',
+      fingerPrintRuleList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentFingerPrintRuleList },
+      intelligenceLevel: 'string',
+      l4RuleList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentL4RuleList },
+      portRuleList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentPortRuleList },
+      reflectBlockUdpPortList: { 'type': 'array', 'itemType': 'number' },
+      regionBlockCountryList: { 'type': 'array', 'itemType': 'number' },
+      regionBlockProvinceList: { 'type': 'array', 'itemType': 'number' },
+      sourceBlockList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentSourceBlockList },
+      sourceLimit: ModifyPolicyRequestContentSourceLimit,
+      whiteIpList: { 'type': 'array', 'itemType': 'string' },
+      whitenGfbrNets: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.blackIpList)) {
+      $dara.Model.validateArray(this.blackIpList);
+    }
+    if(Array.isArray(this.fingerPrintRuleList)) {
+      $dara.Model.validateArray(this.fingerPrintRuleList);
+    }
+    if(Array.isArray(this.l4RuleList)) {
+      $dara.Model.validateArray(this.l4RuleList);
+    }
+    if(Array.isArray(this.portRuleList)) {
+      $dara.Model.validateArray(this.portRuleList);
+    }
+    if(Array.isArray(this.reflectBlockUdpPortList)) {
+      $dara.Model.validateArray(this.reflectBlockUdpPortList);
+    }
+    if(Array.isArray(this.regionBlockCountryList)) {
+      $dara.Model.validateArray(this.regionBlockCountryList);
+    }
+    if(Array.isArray(this.regionBlockProvinceList)) {
+      $dara.Model.validateArray(this.regionBlockProvinceList);
+    }
+    if(Array.isArray(this.sourceBlockList)) {
+      $dara.Model.validateArray(this.sourceBlockList);
+    }
+    if(this.sourceLimit && typeof (this.sourceLimit as any).validate === 'function') {
+      (this.sourceLimit as any).validate();
+    }
+    if(Array.isArray(this.whiteIpList)) {
+      $dara.Model.validateArray(this.whiteIpList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the destination port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 65535
+   */
+  dstPortEnd?: number;
+  /**
+   * @remarks
+   * The start of the destination port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  dstPortStart?: number;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * 83967609-7ea5-4f6d-a6ea-380b09e****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The action triggered if the rule is matched. Valid values:
+   * 
+   * *   **permit**: allows the traffic that matches the conditions in the byte-match filter rule.
+   * *   **drop**: discards the traffic that matches the conditions in the byte-match filter rule.
+   * *   **ip_rate**: limits rates on the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
+   * *   **session_rate**: limits the number of sessions from the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * drop
+   */
+  matchAction?: string;
+  /**
+   * @remarks
+   * The maximum packet length. Valid values: **1** to **1500**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1500
+   */
+  maxPktLen?: number;
+  /**
+   * @remarks
+   * The minimum packet length. Valid values: **1** to **1500**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  minPktLen?: number;
+  /**
+   * @remarks
+   * The offset. Valid values: **0** to **1500**.
+   * 
+   * @example
+   * 0
+   */
+  offset?: number;
+  /**
+   * @remarks
+   * The payload. The value is a hexadecimal string.
+   * 
+   * @example
+   * abcd
+   */
+  payloadBytes?: string;
+  /**
+   * @remarks
+   * The protocol type. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tcp
+   */
+  protocol?: string;
+  /**
+   * @remarks
+   * The rate limit. Valid values: **1** to **100000**.
+   * 
+   * >  This parameter is required when **MatchAction** is set to **ip_rate** or **session_rate**.
+   * 
+   * @example
+   * 100
+   */
+  rateValue?: number;
+  /**
+   * @remarks
+   * The sequence number that indicates the order for the rule to take effect. The value is an integer.
+   * 
+   * >  A smaller number indicates a higher priority.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  seqNo?: number;
+  /**
+   * @remarks
+   * The end of the source port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 65535
+   */
+  srcPortEnd?: number;
+  /**
+   * @remarks
+   * The start of the source port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  srcPortStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstPortEnd: 'DstPortEnd',
+      dstPortStart: 'DstPortStart',
+      id: 'Id',
+      matchAction: 'MatchAction',
+      maxPktLen: 'MaxPktLen',
+      minPktLen: 'MinPktLen',
+      offset: 'Offset',
+      payloadBytes: 'PayloadBytes',
+      protocol: 'Protocol',
+      rateValue: 'RateValue',
+      seqNo: 'SeqNo',
+      srcPortEnd: 'SrcPortEnd',
+      srcPortStart: 'SrcPortStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstPortEnd: 'number',
+      dstPortStart: 'number',
+      id: 'string',
+      matchAction: 'string',
+      maxPktLen: 'number',
+      minPktLen: 'number',
+      offset: 'number',
+      payloadBytes: 'string',
+      protocol: 'string',
+      rateValue: 'number',
+      seqNo: 'number',
+      srcPortEnd: 'number',
+      srcPortStart: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContentL4RuleListConditionList extends $dara.Model {
+  /**
+   * @remarks
+   * The term that is used for matching.
+   * 
+   * >  If Method is set to **char**, the value of this parameter must be ASCII strings. If Method is set to **hex**, the value of this parameter must be hexadecimal strings. Maximum length: 2,048.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * abcd
+   */
+  arg?: string;
+  /**
+   * @remarks
+   * The number of bytes from the start position for matching. Valid values: **1** to **2048**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1200
+   */
+  depth?: number;
+  /**
+   * @remarks
+   * The start position for matching. Valid values: **0** to **2047**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  position?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arg: 'Arg',
+      depth: 'Depth',
+      position: 'Position',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arg: 'string',
+      depth: 'number',
+      position: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContentL4RuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The action that is specified in the rule. Valid value:
+   * 
+   * *   **2**: The traffic is discarded.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The match conditions.
+   * 
+   * This parameter is required.
+   */
+  conditionList?: ModifyPolicyContentRequestContentL4RuleListConditionList[];
+  /**
+   * @remarks
+   * The minimum number of bytes in a session to trigger matching. Valid values: **0** to **2048**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  limited?: number;
+  /**
+   * @remarks
+   * The condition based on which an action is performed. Valid values:
+   * 
+   * *   **0**: If the rule is matched, the action specified in the rule is performed.
+   * *   **1**: If the rule is not matched, the action specified in the rule is performed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  match?: string;
+  /**
+   * @remarks
+   * The type of the rule. Valid values:
+   * 
+   * *   **char**: string match.
+   * *   **hex**: hexadecimal string match.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * char
+   */
+  method?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test**
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The priority of the rule. Valid values: 1 to 100.
+   * 
+   * >  A smaller value indicates a higher priority.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  priority?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      conditionList: 'ConditionList',
+      limited: 'Limited',
+      match: 'Match',
+      method: 'Method',
+      name: 'Name',
+      priority: 'Priority',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      conditionList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentL4RuleListConditionList },
+      limited: 'number',
+      match: 'string',
+      method: 'string',
+      name: 'string',
+      priority: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditionList)) {
+      $dara.Model.validateArray(this.conditionList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContentPortRuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the destination port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 65535
+   */
+  dstPortEnd?: number;
+  /**
+   * @remarks
+   * The start of the destination port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  dstPortStart?: number;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * 412a7312-58ff-4e32-a202-0ab0*******
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The action triggered if the rule is matched. Valid values:
+   * 
+   * *   **drop**: The traffic is discarded.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * drop
+   */
+  matchAction?: string;
+  /**
+   * @remarks
+   * The protocol type. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tcp
+   */
+  protocol?: string;
+  /**
+   * @remarks
+   * The sequence number that indicates the order for the rule to take effect. The value is an integer.
+   * 
+   * >  A smaller number indicates a higher priority.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  seqNo?: number;
+  /**
+   * @remarks
+   * The end of the source port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 65535
+   */
+  srcPortEnd?: number;
+  /**
+   * @remarks
+   * The start of the source port range. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  srcPortStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstPortEnd: 'DstPortEnd',
+      dstPortStart: 'DstPortStart',
+      id: 'Id',
+      matchAction: 'MatchAction',
+      protocol: 'Protocol',
+      seqNo: 'SeqNo',
+      srcPortEnd: 'SrcPortEnd',
+      srcPortStart: 'SrcPortStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstPortEnd: 'number',
+      dstPortStart: 'number',
+      id: 'string',
+      matchAction: 'string',
+      protocol: 'string',
+      seqNo: 'number',
+      srcPortEnd: 'number',
+      srcPortStart: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContentSourceBlockList extends $dara.Model {
+  /**
+   * @remarks
+   * The validity period of the blacklist to which the source IP address is added. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 120
+   */
+  blockExpireSeconds?: number;
+  /**
+   * @remarks
+   * The statistical period during which the system collects data on source IP addresses to determine whether to add the source IP addresses to the blacklist. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
+  everySeconds?: number;
+  /**
+   * @remarks
+   * The number of times that the source IP address exceeds a limit in a statistical period.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
+  exceedLimitTimes?: number;
+  /**
+   * @remarks
+   * The type of the source rate limit. Valid values:
+   * 
+   * *   **3**: the pps limit on source IP addresses.
+   * *   **4**: the bandwidth limit on source IP addresses.
+   * *   **5**: the pps limit on source SYN packets.
+   * *   **6**: the bandwidth limit on source SYN packets.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockExpireSeconds: 'BlockExpireSeconds',
+      everySeconds: 'EverySeconds',
+      exceedLimitTimes: 'ExceedLimitTimes',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockExpireSeconds: 'number',
+      everySeconds: 'number',
+      exceedLimitTimes: 'number',
+      type: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContentSourceLimit extends $dara.Model {
+  /**
+   * @remarks
+   * The bandwidth limit on source IP addresses. Unit: bytes per second.
+   * 
+   * @example
+   * 2048
+   */
+  bps?: number;
+  /**
+   * @remarks
+   * The packets per second (pps) limit on source IP addresses.
+   * 
+   * @example
+   * 64
+   */
+  pps?: number;
+  /**
+   * @remarks
+   * The bandwidth limit on source SYN packets. Unit: bytes per second.
+   * 
+   * @example
+   * 2048
+   */
+  synBps?: number;
+  /**
+   * @remarks
+   * The pps limit on source SYN packets.
+   * 
+   * @example
+   * 64
+   */
+  synPps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bps: 'Bps',
+      pps: 'Pps',
+      synBps: 'SynBps',
+      synPps: 'SynPps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bps: 'number',
+      pps: 'number',
+      synBps: 'number',
+      synPps: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyContentRequestContent extends $dara.Model {
+  /**
+   * @remarks
+   * The validity period of the IP address blacklist. The value is a UNIX timestamp.
+   * 
+   * @example
+   * 1716878000
+   */
+  blackIpListExpireAt?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable ICMP blocking.
+   * 
+   * @example
+   * true
+   */
+  enableDropIcmp?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable intelligent protection.
+   * 
+   * @example
+   * true
+   */
+  enableIntelligence?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable port-specific mitigation.
+   * 
+   * @example
+   * true
+   */
+  enableL4Defense?: boolean;
+  /**
+   * @remarks
+   * The byte-match filter rules.
+   */
+  fingerPrintRuleList?: ModifyPolicyContentRequestContentFingerPrintRuleList[];
+  /**
+   * @remarks
+   * The level of intelligent protection. Valid values:
+   * 
+   * *   **default**: normal.
+   * *   **hard**: strict.
+   * *   **weak**: loose.
+   * 
+   * @example
+   * default
+   */
+  intelligenceLevel?: string;
+  /**
+   * @remarks
+   * The port-specific mitigation rules.
+   */
+  l4RuleList?: ModifyPolicyContentRequestContentL4RuleList[];
+  /**
+   * @remarks
+   * The port blocking rules.
+   */
+  portRuleList?: ModifyPolicyContentRequestContentPortRuleList[];
+  /**
+   * @remarks
+   * The ports whose traffic is filtered out by the filtering policies for UDP reflection attacks.
+   */
+  reflectBlockUdpPortList?: number[];
+  /**
+   * @remarks
+   * The countries in the location blacklist.
+   */
+  regionBlockCountryList?: number[];
+  /**
+   * @remarks
+   * The provinces in the location blacklist.
+   */
+  regionBlockProvinceList?: number[];
+  /**
+   * @remarks
+   * The source IP addresses that are added to the blacklist.
+   */
+  sourceBlockList?: ModifyPolicyContentRequestContentSourceBlockList[];
+  /**
+   * @remarks
+   * The settings for source rate limiting.
+   */
+  sourceLimit?: ModifyPolicyContentRequestContentSourceLimit;
+  /**
+   * @remarks
+   * Specifies whether to add back-to-origin CIDR blocks of Anti-DDoS Proxy to the whitelist.
+   * 
+   * @example
+   * false
+   */
+  whitenGfbrNets?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      blackIpListExpireAt: 'BlackIpListExpireAt',
+      enableDropIcmp: 'EnableDropIcmp',
+      enableIntelligence: 'EnableIntelligence',
+      enableL4Defense: 'EnableL4Defense',
+      fingerPrintRuleList: 'FingerPrintRuleList',
+      intelligenceLevel: 'IntelligenceLevel',
+      l4RuleList: 'L4RuleList',
+      portRuleList: 'PortRuleList',
+      reflectBlockUdpPortList: 'ReflectBlockUdpPortList',
+      regionBlockCountryList: 'RegionBlockCountryList',
+      regionBlockProvinceList: 'RegionBlockProvinceList',
+      sourceBlockList: 'SourceBlockList',
+      sourceLimit: 'SourceLimit',
+      whitenGfbrNets: 'WhitenGfbrNets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blackIpListExpireAt: 'number',
+      enableDropIcmp: 'boolean',
+      enableIntelligence: 'boolean',
+      enableL4Defense: 'boolean',
+      fingerPrintRuleList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentFingerPrintRuleList },
+      intelligenceLevel: 'string',
+      l4RuleList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentL4RuleList },
+      portRuleList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentPortRuleList },
+      reflectBlockUdpPortList: { 'type': 'array', 'itemType': 'number' },
+      regionBlockCountryList: { 'type': 'array', 'itemType': 'number' },
+      regionBlockProvinceList: { 'type': 'array', 'itemType': 'number' },
+      sourceBlockList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentSourceBlockList },
+      sourceLimit: ModifyPolicyContentRequestContentSourceLimit,
+      whitenGfbrNets: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.fingerPrintRuleList)) {
+      $dara.Model.validateArray(this.fingerPrintRuleList);
+    }
+    if(Array.isArray(this.l4RuleList)) {
+      $dara.Model.validateArray(this.l4RuleList);
+    }
+    if(Array.isArray(this.portRuleList)) {
+      $dara.Model.validateArray(this.portRuleList);
+    }
+    if(Array.isArray(this.reflectBlockUdpPortList)) {
+      $dara.Model.validateArray(this.reflectBlockUdpPortList);
+    }
+    if(Array.isArray(this.regionBlockCountryList)) {
+      $dara.Model.validateArray(this.regionBlockCountryList);
+    }
+    if(Array.isArray(this.regionBlockProvinceList)) {
+      $dara.Model.validateArray(this.regionBlockProvinceList);
+    }
+    if(Array.isArray(this.sourceBlockList)) {
+      $dara.Model.validateArray(this.sourceBlockList);
+    }
+    if(this.sourceLimit && typeof (this.sourceLimit as any).validate === 'function') {
+      (this.sourceLimit as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySchedruleOnDemandResponseBodyRuleConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The scheduling action. The value is set to **declare**, which indicates that the route is advertised.
+   * 
+   * @example
+   * declare
+   */
+  ruleAction?: string;
+  /**
+   * @remarks
+   * If the inbound bandwidth or packets consecutively exceed the threshold for the specified number of times, the scheduling rule is triggered and traffic is rerouted to the on-demand instance. The specified number of times is the value of this parameter.
+   * 
+   * >  The threshold of inbound bandwidth is the value of **RuleConditionMbps**. The threshold of inbound packets is the value of **RuleConditionKpps**.
+   * 
+   * @example
+   * 3
+   */
+  ruleConditionCnt?: string;
+  /**
+   * @remarks
+   * The threshold of inbound packets. Unit: kilo packets per second (Kpps). Minimum value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  ruleConditionKpps?: string;
+  /**
+   * @remarks
+   * The threshold of inbound bandwidth. Unit: Mbit/s. Minimum value: **100**.
+   * 
+   * @example
+   * 100
+   */
+  ruleConditionMbps?: string;
+  /**
+   * @remarks
+   * The name of the scheduling rule.
+   * 
+   * @example
+   * ddosbgp-cn-z2q1qzxb****
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * Indicates whether the scheduling rule is enabled. Valid values:
+   * 
+   * *   **on**: enabled.
+   * *   **off**: disabled.
+   * 
+   * @example
+   * on
+   */
+  ruleSwitch?: string;
+  /**
+   * @remarks
+   * The start time of the period during which the scheduling rule is automatically stopped. The time must be in the 24-hour clock and in the `hh:mm` format.
+   * 
+   * If the system detects that DDoS attacks stop, the system no longer reroutes traffic to the on-demand instance from the time you specified. We recommend that you set this parameter to a value that is defined as off-peak hours.
+   * 
+   * >  This parameter takes effect only when the value of **RuleUndoMode** is **auto**.
+   * 
+   * @example
+   * 03:00
+   */
+  ruleUndoBeginTime?: string;
+  /**
+   * @remarks
+   * The end time of the period during which the scheduling rule is automatically stopped. The time must be in the 24-hour clock and in the `hh:mm` format.
+   * 
+   * @example
+   * 03:05
+   */
+  ruleUndoEndTime?: string;
+  /**
+   * @remarks
+   * The stop method of the scheduling rule. Valid values:
+   * 
+   * *   **auto**
+   * *   **manual**
+   * 
+   * @example
+   * auto
+   */
+  ruleUndoMode?: string;
+  /**
+   * @remarks
+   * The time zone of the time when the scheduling rule automatically stops. The time zone must be in the `GMT-hh:mm` format.
+   * 
+   * For example, the value `GMT-08:00` indicates that the time zone is UTC+8.
+   * 
+   * >  This parameter takes effect only when the value of **RuleUndoMode** is **auto**.
+   * 
+   * @example
+   * GMT-08:00
+   */
+  timeZone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleAction: 'RuleAction',
+      ruleConditionCnt: 'RuleConditionCnt',
+      ruleConditionKpps: 'RuleConditionKpps',
+      ruleConditionMbps: 'RuleConditionMbps',
+      ruleName: 'RuleName',
+      ruleSwitch: 'RuleSwitch',
+      ruleUndoBeginTime: 'RuleUndoBeginTime',
+      ruleUndoEndTime: 'RuleUndoEndTime',
+      ruleUndoMode: 'RuleUndoMode',
+      timeZone: 'TimeZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleAction: 'string',
+      ruleConditionCnt: 'string',
+      ruleConditionKpps: 'string',
+      ruleConditionMbps: 'string',
+      ruleName: 'string',
+      ruleSwitch: 'string',
+      ruleUndoBeginTime: 'string',
+      ruleUndoEndTime: 'string',
+      ruleUndoMode: 'string',
+      timeZone: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySchedruleOnDemandResponseBodyRuleStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The CIDR block of the on-demand instance.
+   * 
+   * @example
+   * 47.***.***.0/24
+   */
+  net?: string;
+  /**
+   * @remarks
+   * The scheduling status. Valid values:
+   * 
+   * *   **scheduled**
+   * *   **unscheduled**
+   * 
+   * @example
+   * unscheduled
+   */
+  ruleSchedStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      net: 'Net',
+      ruleSchedStatus: 'RuleSchedStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      net: 'string',
+      ruleSchedStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag to add.
+   * 
+   * > If the specified key does not exist, a key is created.
+   * 
+   * @example
+   * test-key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag to add.
+   * 
+   * > If the specified tag value does not exist, the tag value is created.
+   * 
+   * @example
+   * test-value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddIpRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Anti-DDoS Origin instance.
@@ -22,13 +4958,10 @@ export class AddIpRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IP addresses that you want to add to the Anti-DDoS Origin instance. This parameter is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that includes the following field:
+   * The IP addresses that you want to add to the Anti-DDoS Origin instance. This parameter is a string consisting of JSON arrays. Each element in a JSON array is a JSON struct that includes the following fields:
    * 
    * *   **ip**: required. The IP address that you want to add. Data type: string.
-   * 
-   *     **
-   * 
-   *     **Note** The IP address must be the IP address of an asset that belongs to the current Alibaba Cloud account.
+   * *   **member_uid**: optional. The member to which the asset belongs. Data type: string. This field is required only if the asset of a member is queried. Example: [{"ip":"121.41.XX.XX","member_uid":"120100811162\\*\\*\\*\\*"}].
    * 
    * This parameter is required.
    * 
@@ -74,12 +5007,16 @@ export class AddIpRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddIpResponseBody extends $tea.Model {
+export class AddIpResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -100,12 +5037,16 @@ export class AddIpResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddIpResponse extends $tea.Model {
+export class AddIpResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddIpResponseBody;
@@ -125,12 +5066,22 @@ export class AddIpResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddRdMemberListRequest extends $tea.Model {
+export class AddRdMemberListRequest extends $dara.Model {
   /**
    * @remarks
    * The list of the members.
@@ -150,12 +5101,19 @@ export class AddRdMemberListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.memberList)) {
+      $dara.Model.validateArray(this.memberList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddRdMemberListShrinkRequest extends $tea.Model {
+export class AddRdMemberListShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The list of the members.
@@ -175,12 +5133,16 @@ export class AddRdMemberListShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddRdMemberListResponseBody extends $tea.Model {
+export class AddRdMemberListResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -201,12 +5163,16 @@ export class AddRdMemberListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddRdMemberListResponse extends $tea.Model {
+export class AddRdMemberListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddRdMemberListResponseBody;
@@ -226,12 +5192,22 @@ export class AddRdMemberListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachAssetGroupToInstanceRequest extends $tea.Model {
+export class AttachAssetGroupToInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the asset to be associated.
@@ -277,12 +5253,19 @@ export class AttachAssetGroupToInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.assetGroupList)) {
+      $dara.Model.validateArray(this.assetGroupList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachAssetGroupToInstanceShrinkRequest extends $tea.Model {
+export class AttachAssetGroupToInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the asset to be associated.
@@ -328,12 +5311,16 @@ export class AttachAssetGroupToInstanceShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachAssetGroupToInstanceResponseBody extends $tea.Model {
+export class AttachAssetGroupToInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -354,12 +5341,16 @@ export class AttachAssetGroupToInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachAssetGroupToInstanceResponse extends $tea.Model {
+export class AttachAssetGroupToInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AttachAssetGroupToInstanceResponseBody;
@@ -379,12 +5370,22 @@ export class AttachAssetGroupToInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachToPolicyRequest extends $tea.Model {
+export class AttachToPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The protected objects.
@@ -416,12 +5417,19 @@ export class AttachToPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ipPortProtocolList)) {
+      $dara.Model.validateArray(this.ipPortProtocolList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachToPolicyShrinkRequest extends $tea.Model {
+export class AttachToPolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The protected objects.
@@ -453,12 +5461,16 @@ export class AttachToPolicyShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachToPolicyResponseBody extends $tea.Model {
+export class AttachToPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -479,12 +5491,16 @@ export class AttachToPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachToPolicyResponse extends $tea.Model {
+export class AttachToPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AttachToPolicyResponseBody;
@@ -504,12 +5520,22 @@ export class AttachToPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckAccessLogAuthRequest extends $tea.Model {
+export class CheckAccessLogAuthRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the region where the Anti-DDoS Origin instance resides.
@@ -544,12 +5570,16 @@ export class CheckAccessLogAuthRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckAccessLogAuthResponseBody extends $tea.Model {
+export class CheckAccessLogAuthResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether Anti-DDoS Origin was authorized to access Simple Log Service. Valid values:
@@ -583,12 +5613,16 @@ export class CheckAccessLogAuthResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckAccessLogAuthResponse extends $tea.Model {
+export class CheckAccessLogAuthResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CheckAccessLogAuthResponseBody;
@@ -608,12 +5642,22 @@ export class CheckAccessLogAuthResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckGrantRequest extends $tea.Model {
+export class CheckGrantRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to allow Anti-DDoS Origin to check the service-linked role. Valid values:
@@ -661,12 +5705,16 @@ export class CheckGrantRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckGrantResponseBody extends $tea.Model {
+export class CheckGrantResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -700,12 +5748,16 @@ export class CheckGrantResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckGrantResponse extends $tea.Model {
+export class CheckGrantResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CheckGrantResponseBody;
@@ -725,12 +5777,22 @@ export class CheckGrantResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConfigSchedruleOnDemandRequest extends $tea.Model {
+export class ConfigSchedruleOnDemandRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the on-demand instance.
@@ -903,12 +5965,16 @@ export class ConfigSchedruleOnDemandRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConfigSchedruleOnDemandResponseBody extends $tea.Model {
+export class ConfigSchedruleOnDemandResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -929,12 +5995,16 @@ export class ConfigSchedruleOnDemandResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConfigSchedruleOnDemandResponse extends $tea.Model {
+export class ConfigSchedruleOnDemandResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ConfigSchedruleOnDemandResponseBody;
@@ -954,12 +6024,22 @@ export class ConfigSchedruleOnDemandResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePolicyRequest extends $tea.Model {
+export class CreatePolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the policy.
@@ -997,12 +6077,16 @@ export class CreatePolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePolicyResponseBody extends $tea.Model {
+export class CreatePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the policy.
@@ -1033,12 +6117,16 @@ export class CreatePolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePolicyResponse extends $tea.Model {
+export class CreatePolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreatePolicyResponseBody;
@@ -1058,12 +6146,22 @@ export class CreatePolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSchedruleOnDemandRequest extends $tea.Model {
+export class CreateSchedruleOnDemandRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the on-demand instance.
@@ -1236,12 +6334,16 @@ export class CreateSchedruleOnDemandRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSchedruleOnDemandResponseBody extends $tea.Model {
+export class CreateSchedruleOnDemandResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -1262,12 +6364,16 @@ export class CreateSchedruleOnDemandResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSchedruleOnDemandResponse extends $tea.Model {
+export class CreateSchedruleOnDemandResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateSchedruleOnDemandResponseBody;
@@ -1287,12 +6393,22 @@ export class CreateSchedruleOnDemandResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteBlackholeRequest extends $tea.Model {
+export class DeleteBlackholeRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Anti-DDoS Origin instance.
@@ -1355,12 +6471,16 @@ export class DeleteBlackholeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteBlackholeResponseBody extends $tea.Model {
+export class DeleteBlackholeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -1381,12 +6501,16 @@ export class DeleteBlackholeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteBlackholeResponse extends $tea.Model {
+export class DeleteBlackholeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteBlackholeResponseBody;
@@ -1406,12 +6530,22 @@ export class DeleteBlackholeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteIpRequest extends $tea.Model {
+export class DeleteIpRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Anti-DDoS Origin instance.
@@ -1478,12 +6612,16 @@ export class DeleteIpRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteIpResponseBody extends $tea.Model {
+export class DeleteIpResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -1504,12 +6642,16 @@ export class DeleteIpResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteIpResponse extends $tea.Model {
+export class DeleteIpResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteIpResponseBody;
@@ -1529,12 +6671,22 @@ export class DeleteIpResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeletePolicyRequest extends $tea.Model {
+export class DeletePolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the policy.
@@ -1557,12 +6709,16 @@ export class DeletePolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeletePolicyResponseBody extends $tea.Model {
+export class DeletePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -1583,12 +6739,16 @@ export class DeletePolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeletePolicyResponse extends $tea.Model {
+export class DeletePolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeletePolicyResponseBody;
@@ -1608,12 +6768,22 @@ export class DeletePolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteRdMemberListRequest extends $tea.Model {
+export class DeleteRdMemberListRequest extends $dara.Model {
   /**
    * @remarks
    * The list of the members.
@@ -1633,12 +6803,19 @@ export class DeleteRdMemberListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.memberList)) {
+      $dara.Model.validateArray(this.memberList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteRdMemberListShrinkRequest extends $tea.Model {
+export class DeleteRdMemberListShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The list of the members.
@@ -1658,12 +6835,16 @@ export class DeleteRdMemberListShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteRdMemberListResponseBody extends $tea.Model {
+export class DeleteRdMemberListResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -1684,12 +6865,16 @@ export class DeleteRdMemberListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteRdMemberListResponse extends $tea.Model {
+export class DeleteRdMemberListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteRdMemberListResponseBody;
@@ -1709,12 +6894,22 @@ export class DeleteRdMemberListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSchedruleOnDemandRequest extends $tea.Model {
+export class DeleteSchedruleOnDemandRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the anti-DDoS diversion instance.
@@ -1763,12 +6958,16 @@ export class DeleteSchedruleOnDemandRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSchedruleOnDemandResponseBody extends $tea.Model {
+export class DeleteSchedruleOnDemandResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -1789,12 +6988,16 @@ export class DeleteSchedruleOnDemandResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSchedruleOnDemandResponse extends $tea.Model {
+export class DeleteSchedruleOnDemandResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteSchedruleOnDemandResponseBody;
@@ -1814,12 +7017,22 @@ export class DeleteSchedruleOnDemandResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeAssetGroupRequest extends $tea.Model {
+export class DescribeAssetGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the asset. If the asset is a Web Application Firewall (WAF) instance, specify the ID of the WAF instance.
@@ -1879,12 +7092,16 @@ export class DescribeAssetGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeAssetGroupResponseBody extends $tea.Model {
+export class DescribeAssetGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the asset.
@@ -1922,12 +7139,19 @@ export class DescribeAssetGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.assetGroupList)) {
+      $dara.Model.validateArray(this.assetGroupList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeAssetGroupResponse extends $tea.Model {
+export class DescribeAssetGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeAssetGroupResponseBody;
@@ -1947,12 +7171,22 @@ export class DescribeAssetGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeAssetGroupToInstanceRequest extends $tea.Model {
+export class DescribeAssetGroupToInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the instance to query.
@@ -2030,12 +7264,16 @@ export class DescribeAssetGroupToInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeAssetGroupToInstanceResponseBody extends $tea.Model {
+export class DescribeAssetGroupToInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response parameters.
@@ -2073,12 +7311,19 @@ export class DescribeAssetGroupToInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.dataList)) {
+      $dara.Model.validateArray(this.dataList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeAssetGroupToInstanceResponse extends $tea.Model {
+export class DescribeAssetGroupToInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeAssetGroupToInstanceResponseBody;
@@ -2098,12 +7343,22 @@ export class DescribeAssetGroupToInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDdosEventRequest extends $tea.Model {
+export class DescribeDdosEventRequest extends $dara.Model {
   /**
    * @remarks
    * The end time of the DDoS attack events to query. This value is a UNIX timestamp. Unit: seconds.
@@ -2210,12 +7465,16 @@ export class DescribeDdosEventRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDdosEventResponseBody extends $tea.Model {
+export class DescribeDdosEventResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the DDoS attack event.
@@ -2253,12 +7512,19 @@ export class DescribeDdosEventResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDdosEventResponse extends $tea.Model {
+export class DescribeDdosEventResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeDdosEventResponseBody;
@@ -2278,12 +7544,22 @@ export class DescribeDdosEventResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDdosOriginInstanceBillRequest extends $tea.Model {
+export class DescribeDdosOriginInstanceBillRequest extends $dara.Model {
   /**
    * @remarks
    * The end of the time range to query. The value is a timestamp. Unit: milliseconds. The time span between StartTime and EndTime cannot exceed 30 days.
@@ -2345,12 +7621,16 @@ export class DescribeDdosOriginInstanceBillRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDdosOriginInstanceBillResponseBody extends $tea.Model {
+export class DescribeDdosOriginInstanceBillResponseBody extends $dara.Model {
   /**
    * @remarks
    * The asset status.
@@ -2534,12 +7814,34 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.flowList)) {
+      $dara.Model.validateArray(this.flowList);
+    }
+    if(this.flowRegion) {
+      $dara.Model.validateMap(this.flowRegion);
+    }
+    if(Array.isArray(this.ipCountOrFunctionList)) {
+      $dara.Model.validateArray(this.ipCountOrFunctionList);
+    }
+    if(Array.isArray(this.monthlySummaryList)) {
+      $dara.Model.validateArray(this.monthlySummaryList);
+    }
+    if(Array.isArray(this.standardAssetsFlowList)) {
+      $dara.Model.validateArray(this.standardAssetsFlowList);
+    }
+    if(this.standardAssetsFlowRegion) {
+      $dara.Model.validateMap(this.standardAssetsFlowRegion);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDdosOriginInstanceBillResponse extends $tea.Model {
+export class DescribeDdosOriginInstanceBillResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeDdosOriginInstanceBillResponseBody;
@@ -2559,12 +7861,22 @@ export class DescribeDdosOriginInstanceBillResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeExcpetionCountRequest extends $tea.Model {
+export class DescribeExcpetionCountRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the region where the Anti-DDoS Origin instance resides.
@@ -2599,12 +7911,16 @@ export class DescribeExcpetionCountRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeExcpetionCountResponseBody extends $tea.Model {
+export class DescribeExcpetionCountResponseBody extends $dara.Model {
   /**
    * @remarks
    * The number of assets that are in an abnormal state.
@@ -2645,12 +7961,16 @@ export class DescribeExcpetionCountResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeExcpetionCountResponse extends $tea.Model {
+export class DescribeExcpetionCountResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeExcpetionCountResponseBody;
@@ -2670,15 +7990,25 @@ export class DescribeExcpetionCountResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstanceListRequest extends $tea.Model {
+export class DescribeInstanceListRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the Anti-DDoS Origin instances to query. Specify the value is in the `["<Instance ID 1>","<Instance ID 2>",……]` format.
+   * The number of the page to return.
    * 
    * @example
    * ["ddosbgp-cn-oew1pjrk****"]
@@ -2686,10 +8016,9 @@ export class DescribeInstanceListRequest extends $tea.Model {
   instanceIdList?: string;
   /**
    * @remarks
-   * The mitigation plan of the Anti-DDoS Origin instance to query. Valid values:
+   * The field that is used to sort the Anti-DDoS Origin instances. Set the value to **expireTime**, which indicates that the instances are sorted based on the expiration time.
    * 
-   * *   **0**: the Professional mitigation plan
-   * *   **1**: the Enterprise mitigation plan
+   * You can set the **Orderdire** parameter to specify the sorting method.
    * 
    * @example
    * 0
@@ -2697,38 +8026,9 @@ export class DescribeInstanceListRequest extends $tea.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The mitigation plan of the Anti-DDoS Origin instance.
+   * The total number of Anti-DDoS Origin instances.
    */
   instanceTypeList?: string[];
-  /**
-   * @remarks
-   * The IP address of the object that is protected by the Anti-DDoS Origin instance to query.
-   * 
-   * @example
-   * 47.89.XX.XX
-   */
-  ip?: string;
-  /**
-   * @remarks
-   * The protocol type of the IP address asset that is protected by the Anti-DDoS Origin instance to query. Valid values:
-   * 
-   * *   **Ipv4**: IPv4
-   * *   **Ipv6**: IPv6
-   * 
-   * @example
-   * IPv4
-   */
-  ipVersion?: string;
-  /**
-   * @remarks
-   * The field that is used to sort the Anti-DDoS Origin instances. Set the value to **expireTime**, which indicates that the instances are sorted based on the expiration time.
-   * 
-   * You can set the **Orderdire** parameter to specify the sorting method.
-   * 
-   * @example
-   * expireTime
-   */
-  orderby?: string;
   /**
    * @remarks
    * The sorting method. Valid values:
@@ -2737,12 +8037,41 @@ export class DescribeInstanceListRequest extends $tea.Model {
    * *   **asc**: the ascending order.
    * 
    * @example
+   * 47.89.XX.XX
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The IP address of the object that is protected by the Anti-DDoS Origin instance to query.
+   * 
+   * @example
+   * IPv4
+   */
+  ipVersion?: string;
+  /**
+   * @remarks
+   * The ID of the region where the Anti-DDoS Origin instance to query resides.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+   * 
+   * @example
+   * expireTime
+   */
+  orderby?: string;
+  /**
+   * @remarks
+   * The tags that are added to the Anti-DDoS Origin instance.
+   * 
+   * @example
    * desc
    */
   orderdire?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The protocol type of the IP address asset that is protected by the Anti-DDoS Origin instance to query. Valid values:
+   * 
+   * *   **Ipv4**: IPv4
+   * *   **Ipv6**: IPv6
    * 
    * This parameter is required.
    * 
@@ -2752,7 +8081,10 @@ export class DescribeInstanceListRequest extends $tea.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The mitigation plan of the Anti-DDoS Origin instance to query. Valid values:
+   * 
+   * *   **0**: the Professional mitigation plan
+   * *   **1**: the Enterprise mitigation plan
    * 
    * This parameter is required.
    * 
@@ -2762,9 +8094,7 @@ export class DescribeInstanceListRequest extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the Anti-DDoS Origin instance to query resides.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+   * The tag that is added to the Anti-DDoS Origin instance.
    * 
    * @example
    * cn-hangzhou
@@ -2772,7 +8102,7 @@ export class DescribeInstanceListRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The remarks of the Anti-DDoS Origin instance to query. Fuzzy match is supported.
+   * The number of entries to return on each page.
    * 
    * @example
    * test
@@ -2780,9 +8110,7 @@ export class DescribeInstanceListRequest extends $tea.Model {
   remark?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
-   * 
-   * If you do not specify this parameter, the instance belongs to the default resource group.
+   * The remarks of the Anti-DDoS Origin instance to query. Fuzzy match is supported.
    * 
    * @example
    * rg-acfm2pz25js****
@@ -2790,7 +8118,7 @@ export class DescribeInstanceListRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags that are added to the Anti-DDoS Origin instance.
+   * The key of the tag that is added to the Anti-DDoS Origin instance.
    */
   tag?: DescribeInstanceListRequestTag[];
   static names(): { [key: string]: string } {
@@ -2829,12 +8157,22 @@ export class DescribeInstanceListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceTypeList)) {
+      $dara.Model.validateArray(this.instanceTypeList);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstanceListResponseBody extends $tea.Model {
+export class DescribeInstanceListResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the Anti-DDoS Origin instances.
@@ -2842,7 +8180,7 @@ export class DescribeInstanceListResponseBody extends $tea.Model {
   instanceList?: DescribeInstanceListResponseBodyInstanceList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The details about the Anti-DDoS Origin instance.
    * 
    * @example
    * 381D5D33-BB8F-395F-8EE4-AE3BB4B523C4
@@ -2850,7 +8188,7 @@ export class DescribeInstanceListResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of Anti-DDoS Origin instances.
+   * The details about the Anti-DDoS Origin instances.
    * 
    * @example
    * 1
@@ -2872,12 +8210,19 @@ export class DescribeInstanceListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceList)) {
+      $dara.Model.validateArray(this.instanceList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstanceListResponse extends $tea.Model {
+export class DescribeInstanceListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeInstanceListResponseBody;
@@ -2897,12 +8242,22 @@ export class DescribeInstanceListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstanceSpecsRequest extends $tea.Model {
+export class DescribeInstanceSpecsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Anti-DDoS Origin instance. This parameter is a string that consists of JSON arrays. Each element in a JSON array indicates an instance ID. If you want to query more than one instance, separate instance IDs with commas (,).
@@ -2951,12 +8306,16 @@ export class DescribeInstanceSpecsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstanceSpecsResponseBody extends $tea.Model {
+export class DescribeInstanceSpecsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The specifications of the Anti-DDoS Origin instance, including whether best-effort protection is enabled, the number of available best-effort protection sessions, and the number of used best-effort protection sessions.
@@ -2984,12 +8343,19 @@ export class DescribeInstanceSpecsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceSpecs)) {
+      $dara.Model.validateArray(this.instanceSpecs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstanceSpecsResponse extends $tea.Model {
+export class DescribeInstanceSpecsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeInstanceSpecsResponseBody;
@@ -3009,12 +8375,22 @@ export class DescribeInstanceSpecsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOnDemandDdosEventRequest extends $tea.Model {
+export class DescribeOnDemandDdosEventRequest extends $dara.Model {
   /**
    * @remarks
    * The end time of the DDoS attack events to query. This value is a UNIX timestamp. Unit: seconds.
@@ -3121,12 +8497,16 @@ export class DescribeOnDemandDdosEventRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOnDemandDdosEventResponseBody extends $tea.Model {
+export class DescribeOnDemandDdosEventResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the DDoS attack event.
@@ -3164,12 +8544,19 @@ export class DescribeOnDemandDdosEventResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOnDemandDdosEventResponse extends $tea.Model {
+export class DescribeOnDemandDdosEventResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeOnDemandDdosEventResponseBody;
@@ -3189,12 +8576,22 @@ export class DescribeOnDemandDdosEventResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOnDemandInstanceStatusRequest extends $tea.Model {
+export class DescribeOnDemandInstanceStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the anti-DDoS diversion instances.
@@ -3231,12 +8628,19 @@ export class DescribeOnDemandInstanceStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceIdList)) {
+      $dara.Model.validateArray(this.instanceIdList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOnDemandInstanceStatusResponseBody extends $tea.Model {
+export class DescribeOnDemandInstanceStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the anti-DDoS diversion instance.
@@ -3264,12 +8668,19 @@ export class DescribeOnDemandInstanceStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOnDemandInstanceStatusResponse extends $tea.Model {
+export class DescribeOnDemandInstanceStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeOnDemandInstanceStatusResponseBody;
@@ -3289,12 +8700,22 @@ export class DescribeOnDemandInstanceStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOpEntitiesRequest extends $tea.Model {
+export class DescribeOpEntitiesRequest extends $dara.Model {
   /**
    * @remarks
    * The page number.
@@ -3325,6 +8746,29 @@ export class DescribeOpEntitiesRequest extends $tea.Model {
    * ddosbgp-cn-n6w1r7nz****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The type of the operation. Valid values:
+   * 
+   * *   **3**: Add an IP address to the instance.
+   * *   **4**: Remove an IP address from the instance.
+   * *   **5**: Downgrade the instance.
+   * *   **6**: Deactivate blackhole filtering.
+   * *   **7**: Reset the number of times that you can deactivate blackhole filtering.
+   * *   **8**: Restore the mitigation capability.
+   * *   **9**: Add an asset group.
+   * *   **10**: Remove an asset group.
+   * *   **11**: Enable the metering method of daily 95th percentile for the burstable clean bandwidth feature.
+   * *   **12**: Enable the metering method of monthly 95th percentile for the burstable clean bandwidth feature.
+   * *   **13**: Periodically switch between the metering methods of daily 95th percentile and monthly 95th percentile for the burstable clean bandwidth feature.
+   * *   **14**: Disable the metering method of daily 95th percentile for the burstable clean bandwidth feature.
+   * *   **15**: Disable the metering method of monthly 95th percentile for the burstable clean bandwidth feature.
+   * *   **16**: Disable burstable clean bandwidth due to overdue payments.
+   * *   **17**: Disable burstable clean bandwidth due to instance expiration.
+   * 
+   * @example
+   * 3
+   */
   opAction?: number;
   /**
    * @remarks
@@ -3417,12 +8861,16 @@ export class DescribeOpEntitiesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOpEntitiesResponseBody extends $tea.Model {
+export class DescribeOpEntitiesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the operation log.
@@ -3460,12 +8908,19 @@ export class DescribeOpEntitiesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.opEntities)) {
+      $dara.Model.validateArray(this.opEntities);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOpEntitiesResponse extends $tea.Model {
+export class DescribeOpEntitiesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeOpEntitiesResponseBody;
@@ -3485,12 +8940,22 @@ export class DescribeOpEntitiesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribePackIpListRequest extends $tea.Model {
+export class DescribePackIpListRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Anti-DDoS Origin instance to query.
@@ -3598,12 +9063,16 @@ export class DescribePackIpListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribePackIpListResponseBody extends $tea.Model {
+export class DescribePackIpListResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code of the request.
@@ -3666,12 +9135,19 @@ export class DescribePackIpListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ipList)) {
+      $dara.Model.validateArray(this.ipList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribePackIpListResponse extends $tea.Model {
+export class DescribePackIpListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribePackIpListResponseBody;
@@ -3691,12 +9167,22 @@ export class DescribePackIpListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRdMemberListRequest extends $tea.Model {
+export class DescribeRdMemberListRequest extends $dara.Model {
   /**
    * @remarks
    * The page number.
@@ -3737,12 +9223,16 @@ export class DescribeRdMemberListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRdMemberListResponseBody extends $tea.Model {
+export class DescribeRdMemberListResponseBody extends $dara.Model {
   /**
    * @remarks
    * The list of the members.
@@ -3780,12 +9270,19 @@ export class DescribeRdMemberListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.memberList)) {
+      $dara.Model.validateArray(this.memberList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRdMemberListResponse extends $tea.Model {
+export class DescribeRdMemberListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeRdMemberListResponseBody;
@@ -3805,12 +9302,22 @@ export class DescribeRdMemberListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRdStatusResponseBody extends $tea.Model {
+export class DescribeRdStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the current account.
@@ -3823,9 +9330,9 @@ export class DescribeRdStatusResponseBody extends $tea.Model {
    * @remarks
    * The type of the Alibaba Cloud account. Valid values:
    * 
-   * *   **MasterAccount**: management account
-   * *   **DelegatedAdminAccount**: delegated administrator account
-   * *   **MasterAccount**: member
+   * *   **MasterAccount**: management account.
+   * *   **DelegatedAdminAccount**: delegated administrator account.
+   * *   **MemberAccount**: member.
    * 
    * @example
    * MemberAccount
@@ -3915,12 +9422,16 @@ export class DescribeRdStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRdStatusResponse extends $tea.Model {
+export class DescribeRdStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeRdStatusResponseBody;
@@ -3940,12 +9451,22 @@ export class DescribeRdStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsRequest extends $tea.Model {
+export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the region. The default value is **cn-hangzhou**. If the default value is used, the regions of cloud assets that can be protected by Anti-DDoS Origin in the China (Hangzhou) region are queried.
@@ -3980,12 +9501,16 @@ export class DescribeRegionsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponseBody extends $tea.Model {
+export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -4036,12 +9561,19 @@ export class DescribeRegionsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponse extends $tea.Model {
+export class DescribeRegionsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeRegionsResponseBody;
@@ -4061,12 +9593,22 @@ export class DescribeRegionsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeTrafficRequest extends $tea.Model {
+export class DescribeTrafficRequest extends $dara.Model {
   /**
    * @remarks
    * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
@@ -4081,8 +9623,14 @@ export class DescribeTrafficRequest extends $tea.Model {
    * @remarks
    * The type of the traffic statistics to query. Valid values:
    * 
-   * *   **max**: the peak traffic within the specified interval
-   * *   **avg**: the average traffic within the specified interval
+   * *   **max**: the peak traffic within the specified interval.
+   * *   **avg**: the average traffic within the specified interval.
+   * 
+   * Enumerated values:
+   * 
+   * *   all
+   * *   avg
+   * *   max
    * 
    * @example
    * max
@@ -4184,12 +9732,16 @@ export class DescribeTrafficRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeTrafficResponseBody extends $tea.Model {
+export class DescribeTrafficResponseBody extends $dara.Model {
   /**
    * @remarks
    * The queried traffic statistics.
@@ -4217,12 +9769,19 @@ export class DescribeTrafficResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.flowList)) {
+      $dara.Model.validateArray(this.flowList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeTrafficResponse extends $tea.Model {
+export class DescribeTrafficResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeTrafficResponseBody;
@@ -4242,12 +9801,22 @@ export class DescribeTrafficResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachFromPolicyRequest extends $tea.Model {
+export class DetachFromPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The protected objects.
@@ -4283,12 +9852,19 @@ export class DetachFromPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ipPortProtocolList)) {
+      $dara.Model.validateArray(this.ipPortProtocolList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachFromPolicyShrinkRequest extends $tea.Model {
+export class DetachFromPolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The protected objects.
@@ -4324,12 +9900,16 @@ export class DetachFromPolicyShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachFromPolicyResponseBody extends $tea.Model {
+export class DetachFromPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -4350,12 +9930,16 @@ export class DetachFromPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachFromPolicyResponse extends $tea.Model {
+export class DetachFromPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DetachFromPolicyResponseBody;
@@ -4375,12 +9959,22 @@ export class DetachFromPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DettachAssetGroupToInstanceRequest extends $tea.Model {
+export class DettachAssetGroupToInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the asset that you want to dissociate.
@@ -4426,12 +10020,19 @@ export class DettachAssetGroupToInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.assetGroupList)) {
+      $dara.Model.validateArray(this.assetGroupList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DettachAssetGroupToInstanceShrinkRequest extends $tea.Model {
+export class DettachAssetGroupToInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the asset that you want to dissociate.
@@ -4477,12 +10078,16 @@ export class DettachAssetGroupToInstanceShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DettachAssetGroupToInstanceResponseBody extends $tea.Model {
+export class DettachAssetGroupToInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -4503,12 +10108,16 @@ export class DettachAssetGroupToInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DettachAssetGroupToInstanceResponse extends $tea.Model {
+export class DettachAssetGroupToInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DettachAssetGroupToInstanceResponseBody;
@@ -4528,12 +10137,22 @@ export class DettachAssetGroupToInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSlsOpenStatusRequest extends $tea.Model {
+export class GetSlsOpenStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the region where the Anti-DDoS Origin instance resides.
@@ -4568,12 +10187,16 @@ export class GetSlsOpenStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSlsOpenStatusResponseBody extends $tea.Model {
+export class GetSlsOpenStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -4607,12 +10230,16 @@ export class GetSlsOpenStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSlsOpenStatusResponse extends $tea.Model {
+export class GetSlsOpenStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetSlsOpenStatusResponseBody;
@@ -4632,12 +10259,22 @@ export class GetSlsOpenStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListOpenedAccessLogInstancesRequest extends $tea.Model {
+export class ListOpenedAccessLogInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The page number. Pages start from page 1. Default value: **1**.
@@ -4680,12 +10317,16 @@ export class ListOpenedAccessLogInstancesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListOpenedAccessLogInstancesResponseBody extends $tea.Model {
+export class ListOpenedAccessLogInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -4723,12 +10364,19 @@ export class ListOpenedAccessLogInstancesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.slsConfigStatus)) {
+      $dara.Model.validateArray(this.slsConfigStatus);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListOpenedAccessLogInstancesResponse extends $tea.Model {
+export class ListOpenedAccessLogInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListOpenedAccessLogInstancesResponseBody;
@@ -4748,12 +10396,22 @@ export class ListOpenedAccessLogInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicyRequest extends $tea.Model {
+export class ListPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the policy.
@@ -4825,12 +10483,16 @@ export class ListPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicyResponseBody extends $tea.Model {
+export class ListPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The policies.
@@ -4868,12 +10530,19 @@ export class ListPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.policyList)) {
+      $dara.Model.validateArray(this.policyList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicyResponse extends $tea.Model {
+export class ListPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListPolicyResponseBody;
@@ -4893,12 +10562,22 @@ export class ListPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicyAttachmentRequest extends $tea.Model {
+export class ListPolicyAttachmentRequest extends $dara.Model {
   /**
    * @remarks
    * The protected objects.
@@ -4960,12 +10639,19 @@ export class ListPolicyAttachmentRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ipPortProtocolList)) {
+      $dara.Model.validateArray(this.ipPortProtocolList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicyAttachmentShrinkRequest extends $tea.Model {
+export class ListPolicyAttachmentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The protected objects.
@@ -5027,12 +10713,16 @@ export class ListPolicyAttachmentShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicyAttachmentResponseBody extends $tea.Model {
+export class ListPolicyAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
    * The records of attachments to the mitigation policy.
@@ -5070,12 +10760,19 @@ export class ListPolicyAttachmentResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.attachmentList)) {
+      $dara.Model.validateArray(this.attachmentList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPolicyAttachmentResponse extends $tea.Model {
+export class ListPolicyAttachmentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListPolicyAttachmentResponseBody;
@@ -5095,12 +10792,22 @@ export class ListPolicyAttachmentResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagKeysRequest extends $tea.Model {
+export class ListTagKeysRequest extends $dara.Model {
   /**
    * @remarks
    * The page number. Pages start from page **1**. Default value: **1**.
@@ -5165,12 +10872,16 @@ export class ListTagKeysRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagKeysResponseBody extends $tea.Model {
+export class ListTagKeysResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.
@@ -5228,12 +10939,19 @@ export class ListTagKeysResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagKeys)) {
+      $dara.Model.validateArray(this.tagKeys);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagKeysResponse extends $tea.Model {
+export class ListTagKeysResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagKeysResponseBody;
@@ -5253,12 +10971,22 @@ export class ListTagKeysResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequest extends $tea.Model {
+export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of **NextToken**.
@@ -5336,12 +11064,22 @@ export class ListTagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBody extends $tea.Model {
+export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * A pagination token.
@@ -5379,12 +11117,19 @@ export class ListTagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tagResources && typeof (this.tagResources as any).validate === 'function') {
+      (this.tagResources as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponse extends $tea.Model {
+export class ListTagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagResourcesResponseBody;
@@ -5404,12 +11149,22 @@ export class ListTagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPolicyRequest extends $tea.Model {
+export class ModifyPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the action. Valid values:
@@ -5484,12 +11239,19 @@ export class ModifyPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPolicyShrinkRequest extends $tea.Model {
+export class ModifyPolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the action. Valid values:
@@ -5564,12 +11326,16 @@ export class ModifyPolicyShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPolicyResponseBody extends $tea.Model {
+export class ModifyPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -5590,12 +11356,16 @@ export class ModifyPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPolicyResponse extends $tea.Model {
+export class ModifyPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ModifyPolicyResponseBody;
@@ -5615,12 +11385,22 @@ export class ModifyPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPolicyContentRequest extends $tea.Model {
+export class ModifyPolicyContentRequest extends $dara.Model {
   /**
    * @remarks
    * The policy content.
@@ -5660,12 +11440,19 @@ export class ModifyPolicyContentRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPolicyContentShrinkRequest extends $tea.Model {
+export class ModifyPolicyContentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The policy content.
@@ -5705,12 +11492,16 @@ export class ModifyPolicyContentShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPolicyContentResponseBody extends $tea.Model {
+export class ModifyPolicyContentResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -5731,12 +11522,16 @@ export class ModifyPolicyContentResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPolicyContentResponse extends $tea.Model {
+export class ModifyPolicyContentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ModifyPolicyContentResponseBody;
@@ -5756,12 +11551,22 @@ export class ModifyPolicyContentResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyRemarkRequest extends $tea.Model {
+export class ModifyRemarkRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Anti-DDoS Origin instance for which you want to add remarks.
@@ -5822,12 +11627,16 @@ export class ModifyRemarkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyRemarkResponseBody extends $tea.Model {
+export class ModifyRemarkResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -5848,12 +11657,16 @@ export class ModifyRemarkResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyRemarkResponse extends $tea.Model {
+export class ModifyRemarkResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ModifyRemarkResponseBody;
@@ -5873,14 +11686,26 @@ export class ModifyRemarkResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MoveResourceGroupRequest extends $tea.Model {
+export class MoveResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the resource group to which you want to move the resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5889,6 +11714,8 @@ export class MoveResourceGroupRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
+   * The resource ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5897,6 +11724,8 @@ export class MoveResourceGroupRequest extends $tea.Model {
   resourceId?: string;
   /**
    * @remarks
+   * The region ID of the resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5905,6 +11734,8 @@ export class MoveResourceGroupRequest extends $tea.Model {
   resourceRegionId?: string;
   /**
    * @remarks
+   * The resource type. Set the value to **instance**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5929,13 +11760,20 @@ export class MoveResourceGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MoveResourceGroupResponseBody extends $tea.Model {
+export class MoveResourceGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 16A78396-936F-5481-91D7-591BF7981246
    */
@@ -5952,12 +11790,16 @@ export class MoveResourceGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MoveResourceGroupResponse extends $tea.Model {
+export class MoveResourceGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: MoveResourceGroupResponseBody;
@@ -5977,12 +11819,22 @@ export class MoveResourceGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySchedruleOnDemandRequest extends $tea.Model {
+export class QuerySchedruleOnDemandRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the on-demand instance.
@@ -6019,12 +11871,16 @@ export class QuerySchedruleOnDemandRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySchedruleOnDemandResponseBody extends $tea.Model {
+export class QuerySchedruleOnDemandResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the on-demand instance.
@@ -6079,12 +11935,22 @@ export class QuerySchedruleOnDemandResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ruleConfig)) {
+      $dara.Model.validateArray(this.ruleConfig);
+    }
+    if(Array.isArray(this.ruleStatus)) {
+      $dara.Model.validateArray(this.ruleStatus);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySchedruleOnDemandResponse extends $tea.Model {
+export class QuerySchedruleOnDemandResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySchedruleOnDemandResponseBody;
@@ -6104,12 +11970,22 @@ export class QuerySchedruleOnDemandResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReleaseDdosOriginInstanceRequest extends $tea.Model {
+export class ReleaseDdosOriginInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Anti-DDoS Origin instance that you want to release.
@@ -6134,12 +12010,16 @@ export class ReleaseDdosOriginInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReleaseDdosOriginInstanceResponseBody extends $tea.Model {
+export class ReleaseDdosOriginInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -6160,12 +12040,16 @@ export class ReleaseDdosOriginInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReleaseDdosOriginInstanceResponse extends $tea.Model {
+export class ReleaseDdosOriginInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ReleaseDdosOriginInstanceResponseBody;
@@ -6185,12 +12069,22 @@ export class ReleaseDdosOriginInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetInstanceModeOnDemandRequest extends $tea.Model {
+export class SetInstanceModeOnDemandRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of on-demand instances.
@@ -6242,12 +12136,19 @@ export class SetInstanceModeOnDemandRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceIdList)) {
+      $dara.Model.validateArray(this.instanceIdList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetInstanceModeOnDemandResponseBody extends $tea.Model {
+export class SetInstanceModeOnDemandResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -6268,12 +12169,16 @@ export class SetInstanceModeOnDemandResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetInstanceModeOnDemandResponse extends $tea.Model {
+export class SetInstanceModeOnDemandResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SetInstanceModeOnDemandResponseBody;
@@ -6293,12 +12198,22 @@ export class SetInstanceModeOnDemandResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequest extends $tea.Model {
+export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the region in which the instance resides.
@@ -6366,12 +12281,22 @@ export class TagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponseBody extends $tea.Model {
+export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -6392,12 +12317,16 @@ export class TagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponse extends $tea.Model {
+export class TagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: TagResourcesResponseBody;
@@ -6417,12 +12346,22 @@ export class TagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesRequest extends $tea.Model {
+export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to remove all tags from the instances. Default value: No.
@@ -6499,12 +12438,22 @@ export class UntagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tagKey)) {
+      $dara.Model.validateArray(this.tagKey);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesResponseBody extends $tea.Model {
+export class UntagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -6525,12 +12474,16 @@ export class UntagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesResponse extends $tea.Model {
+export class UntagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UntagResourcesResponseBody;
@@ -6550,4586 +12503,14 @@ export class UntagResourcesResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddRdMemberListRequestMemberList extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * @example
-   * 19510843762****
-   */
-  uid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      uid: 'Uid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      uid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachAssetGroupToInstanceRequestAssetGroupList extends $tea.Model {
-  /**
-   * @remarks
-   * The UID of the member to which the asset belongs.
-   * 
-   * @example
-   * 1743970208320***
-   */
-  memberUid?: string;
-  /**
-   * @remarks
-   * The ID of the asset that you want to add. If the asset is a Web Application Firewall (WAF) instance, specify the ID of the WAF instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * waf-test-001
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The region ID of the asset.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  /**
-   * @remarks
-   * The type of the asset.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * waf
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      memberUid: 'MemberUid',
-      name: 'Name',
-      region: 'Region',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      memberUid: 'string',
-      name: 'string',
-      region: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachToPolicyRequestIpPortProtocolList extends $tea.Model {
-  /**
-   * @remarks
-   * The IP address of the protected object.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 112.124.241.***
-   */
-  ip?: string;
-  /**
-   * @remarks
-   * The port number of the protected object.
-   * 
-   * >  This parameter is available for only port-specific mitigation policies.
-   * 
-   * @example
-   * 8*
-   */
-  port?: number;
-  /**
-   * @remarks
-   * The protocol type of the protected object. Valid values:
-   * 
-   * *   **tcp**
-   * *   **udp**
-   * 
-   * >  This parameter is available for only port-specific mitigation policies.
-   * 
-   * @example
-   * tcp
-   */
-  protocol?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ip: 'Ip',
-      port: 'Port',
-      protocol: 'Protocol',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ip: 'string',
-      port: 'number',
-      protocol: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRdMemberListRequestMemberList extends $tea.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * @example
-   * 136548010379****
-   */
-  uid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      uid: 'Uid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      uid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAssetGroupResponseBodyAssetGroupList extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the asset.
-   * 
-   * @example
-   * waf_v2_public_cn-lbj382l****
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The region to which the asset belongs.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  /**
-   * @remarks
-   * The type of the asset.
-   * 
-   * @example
-   * waf
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      region: 'Region',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      region: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAssetGroupToInstanceResponseBodyDataList extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the Anti-DDoS Origin instance of a paid edition.
-   * 
-   * @example
-   * ddosbgp-cn-7212zaa5v***
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The UID of the member to which the asset belongs.
-   * 
-   * @example
-   * 170858869679****
-   */
-  memberUid?: string;
-  /**
-   * @remarks
-   * The ID of the asset.
-   * 
-   * @example
-   * waf_v2_public_cn-lbj382l****
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The region ID of the asset.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  /**
-   * @remarks
-   * The type of the asset.
-   * 
-   * @example
-   * waf
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      memberUid: 'MemberUid',
-      name: 'Name',
-      region: 'Region',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      memberUid: 'string',
-      name: 'string',
-      region: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDdosEventResponseBodyEvents extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the DDoS attack stopped. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1637554335
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The attacked IP address.
-   * 
-   * @example
-   * 47.89.XX.XX
-   */
-  ip?: string;
-  /**
-   * @remarks
-   * The volume of the request traffic at the start of the DDoS attack. Unit: Mbit/s.
-   * 
-   * @example
-   * 0
-   */
-  mbps?: number;
-  /**
-   * @remarks
-   * The number of packets at the start of the DDoS attack. Unit: packets per second (PPS).
-   * 
-   * @example
-   * 456
-   */
-  pps?: number;
-  /**
-   * @remarks
-   * The time when the DDoS attack started. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1637554034
-   */
-  startTime?: number;
-  /**
-   * @remarks
-   * The status of the DDoS attack event. Valid values:
-   * 
-   * *   **hole_begin**: indicates that blackhole filtering is triggered for the attacked IP address.
-   * *   **hole_end**: indicates that blackhole filtering is deactivated for the attacked IP address.
-   * *   **defense_begin**: indicates that attack traffic is being scrubbed.
-   * *   **defense_end**: indicates that attack traffic is scrubbed.
-   * 
-   * @example
-   * defense_end
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      ip: 'Ip',
-      mbps: 'Mbps',
-      pps: 'Pps',
-      startTime: 'StartTime',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'number',
-      ip: 'string',
-      mbps: 'number',
-      pps: 'number',
-      startTime: 'number',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDdosOriginInstanceBillResponseBodyFlowList extends $tea.Model {
-  /**
-   * @remarks
-   * The traffic distribution by region. The JSON struct contains the following fields:
-   * 
-   * *   **bytes**: the traffic volume of EIPs with Anti-DDoS (Enhanced) enabled in a region. Unit: bytes.
-   * *   **memberUid**: the owner account.
-   * *   **instanceId**: the ID of the pay-as-you-go instance that protects the EIPs with Anti-DDoS (Enhanced) enabled.
-   * *   **ip**: the EIPs with Anti-DDoS (Enhanced) enabled.
-   * *   **region**: the region.
-   * 
-   * >  If the memberUid field in the JSON struct is empty, the information about the current account is returned. The value of the bytes parameter in the outermost level of the JSON struct indicates the total traffic, and the values of the bytes parameters in inner levels indicate the traffic of the account.
-   * 
-   * @example
-   * [{\\"bytes\\":79282719,\\"memberUid\\":\\"\\",\\"regionFlows\\":{\\"cn-hangzhou\\":[{\\"bytes\\":79282719,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.57\\",\\"region\\":\\"cn-hangzhou\\"}]}}]
-   */
-  memberFlow?: string;
-  /**
-   * @remarks
-   * The traffic distribution by region. The JSON struct contains the following fields:
-   * 
-   * *   **bytes**: the traffic volume of EIPs with Anti-DDoS (Enhanced) enabled in a region. Unit: bytes.
-   * *   **instanceId**: the ID of the pay-as-you-go instance that protects the EIPs with Anti-DDoS (Enhanced) enabled.
-   * *   **ip**: the EIPs with Anti-DDoS (Enhanced) enabled.
-   * *   **region**: the region.
-   * 
-   * @example
-   * {\\"cn-hangzhou\\":[{\\"bytes\\":0,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.124\\",\\"region\\":\\"cn-hangzhou\\"}]}
-   */
-  regionFlow?: string;
-  /**
-   * @remarks
-   * The timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1620951900
-   */
-  time?: number;
-  /**
-   * @remarks
-   * The traffic of EIPs with Anti-DDoS (Enhanced) enabled. Unit: bytes.
-   * 
-   * @example
-   * 6302081067
-   */
-  totalFlow?: number;
-  static names(): { [key: string]: string } {
-    return {
-      memberFlow: 'MemberFlow',
-      regionFlow: 'RegionFlow',
-      time: 'Time',
-      totalFlow: 'TotalFlow',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      memberFlow: 'string',
-      regionFlow: 'string',
-      time: 'number',
-      totalFlow: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList extends $tea.Model {
-  /**
-   * @remarks
-   * The application scope of the instance. Valid values:
-   * 
-   * *   **only_mainland_china**: regions in the Chinese mainland.
-   * *   **global**: all regions.
-   * *   **international_and_hmt**: regions outside the Chinese mainland.
-   * 
-   * @example
-   * global
-   */
-  coverage?: string;
-  /**
-   * @remarks
-   * The number of IP addresses protected by the pay-as-you-go instance in the Chinese mainland.
-   * 
-   * @example
-   * 5
-   */
-  ipCntCn?: number;
-  /**
-   * @remarks
-   * The number of IP addresses protected by the pay-as-you-go instance outside the Chinese mainland.
-   * 
-   * @example
-   * 5
-   */
-  ipCntOv?: number;
-  /**
-   * @remarks
-   * The bill distribution by account. The JSON struct contains the following fields:
-   * 
-   * *   **eipCnIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland.
-   * *   **eipOvIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland.
-   * *   **memberUid**: the owner account.
-   * *   **standardAssetsCnIpCount**: the number of IP addresses of regular Alibaba Cloud services in the Chinese mainland.
-   * *   **standardAssetsOvIpCount**: the number of IP addresses of regular Alibaba Cloud services outside the Chinese mainland.
-   * 
-   * >  If the memberUid field in the JSON struct is empty, the information about the current account is returned.
-   * 
-   * @example
-   * [{\\"eipCnIpCount\\":3,\\"eipOvIpCount\\":18,\\"memberUid\\":\\"\\",\\"standardAssetsCnIpCount\\":2,\\"standardAssetsOvIpCount\\":0},{\\"eipCnIpCount\\":3,\\"eipOvIpCount\\":0,\\"memberUid\\":\\"1776997906319249\\",\\"standardAssetsCnIpCount\\":0,\\"standardAssetsOvIpCount\\":0}]
-   */
-  memberIpCnt?: string;
-  /**
-   * @remarks
-   * The billing time. Unit: milliseconds.
-   * 
-   * @example
-   * 1680278400000
-   */
-  time?: number;
-  static names(): { [key: string]: string } {
-    return {
-      coverage: 'Coverage',
-      ipCntCn: 'IpCntCn',
-      ipCntOv: 'IpCntOv',
-      memberIpCnt: 'MemberIpCnt',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      coverage: 'string',
-      ipCntCn: 'number',
-      ipCntOv: 'number',
-      memberIpCnt: 'string',
-      time: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList extends $tea.Model {
-  /**
-   * @remarks
-   * The number of days that the instance is activated.
-   * 
-   * @example
-   * 30
-   */
-  enableDays?: number;
-  /**
-   * @remarks
-   * The total traffic of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland. Unit: bytes.
-   * 
-   * @example
-   * 123456
-   */
-  flowCn?: number;
-  /**
-   * @remarks
-   * The total traffic of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland. Unit: bytes.
-   * 
-   * @example
-   * 123456
-   */
-  flowIntl?: number;
-  /**
-   * @remarks
-   * The total number of protected IP addresses in the Chinese mainland.
-   * 
-   * >  The total number of protected IP addresses is the sum of the daily numbers of protected IP addresses in a month.
-   * 
-   * @example
-   * 28
-   */
-  ipCountCn?: number;
-  /**
-   * @remarks
-   * The total number of protected IP addresses outside the Chinese mainland.
-   * 
-   * >  The total number of protected IP addresses is the sum of the daily numbers of protected IP addresses in a month.
-   * 
-   * @example
-   * 30
-   */
-  ipCountIntl?: number;
-  /**
-   * @remarks
-   * The ID of the member.
-   * 
-   * @example
-   * 112873971277****
-   */
-  memberUid?: string;
-  /**
-   * @remarks
-   * The total traffic of regular Alibaba Cloud services in the Chinese mainland. Unit: bytes.
-   * 
-   * @example
-   * 123456
-   */
-  standardAssetsFlowCn?: number;
-  /**
-   * @remarks
-   * The total traffic of regular Alibaba Cloud services outside the Chinese mainland. Unit: bytes.
-   * 
-   * @example
-   * 123456
-   */
-  standardAssetsFlowIntl?: number;
-  /**
-   * @remarks
-   * The ID of the administrator account.
-   * 
-   * @example
-   * 102518028277****
-   */
-  uid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enableDays: 'EnableDays',
-      flowCn: 'FlowCn',
-      flowIntl: 'FlowIntl',
-      ipCountCn: 'IpCountCn',
-      ipCountIntl: 'IpCountIntl',
-      memberUid: 'MemberUid',
-      standardAssetsFlowCn: 'StandardAssetsFlowCn',
-      standardAssetsFlowIntl: 'StandardAssetsFlowIntl',
-      uid: 'Uid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableDays: 'number',
-      flowCn: 'number',
-      flowIntl: 'number',
-      ipCountCn: 'number',
-      ipCountIntl: 'number',
-      memberUid: 'string',
-      standardAssetsFlowCn: 'number',
-      standardAssetsFlowIntl: 'number',
-      uid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList extends $tea.Model {
-  /**
-   * @remarks
-   * The traffic distribution by region. The JSON struct contains the following fields:
-   * 
-   * *   **bytes**: the traffic volume of regular Alibaba Cloud services in a region. Unit: bytes.
-   * *   **memberUid**: the owner account.
-   * *   **instanceId**: the ID of the pay-as-you-go instance that protects the regular Alibaba Cloud services.
-   * *   **ip**: the IP address of the regular Alibaba Cloud service protected by the Anti-DDoS Origin instance.
-   * *   **region**: the region.
-   * 
-   * >  If the memberUid field in the JSON struct is empty, the information about the current account is returned. The value of the bytes parameter in the outermost level of the JSON struct indicates the total traffic, and the values of the bytes parameters in inner levels indicate the traffic of the account.
-   * 
-   * @example
-   * [{\\"bytes\\":79282719,\\"memberUid\\":\\"\\",\\"regionFlows\\":{\\"cn-hangzhou\\":[{\\"bytes\\":79282719,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.57\\",\\"region\\":\\"cn-hangzhou\\"}]}}]
-   */
-  memberFlow?: string;
-  /**
-   * @remarks
-   * The traffic distribution by region. The JSON struct contains the following fields:
-   * 
-   * *   **bytes**: the traffic volume of regular Alibaba Cloud services in a region. Unit: bytes.
-   * *   **instanceId**: the ID of the pay-as-you-go instance that protects the regular Alibaba Cloud services.
-   * *   **ip**: the IP address protected by the Anti-DDoS Origin instance.
-   * *   **region**: the region.
-   * 
-   * @example
-   * {\\"cn-hangzhou\\":[{\\"bytes\\":0,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.124\\",\\"region\\":\\"cn-hangzhou\\"}]}
-   */
-  regionFlow?: string;
-  /**
-   * @remarks
-   * The timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1679846400000
-   */
-  time?: number;
-  /**
-   * @remarks
-   * The traffic of regular Alibaba Cloud services. Unit: bytes.
-   * 
-   * @example
-   * 6302081067
-   */
-  totalFlow?: number;
-  static names(): { [key: string]: string } {
-    return {
-      memberFlow: 'MemberFlow',
-      regionFlow: 'RegionFlow',
-      time: 'Time',
-      totalFlow: 'TotalFlow',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      memberFlow: 'string',
-      regionFlow: 'string',
-      time: 'number',
-      totalFlow: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceListRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the tag that is added to the Anti-DDoS Origin instance.
-   * 
-   * @example
-   * test-key
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag that is added to the Anti-DDoS Origin instance.
-   * 
-   * @example
-   * test-value
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceListResponseBodyInstanceListAutoProtectCondition extends $tea.Model {
-  /**
-   * @remarks
-   * The events that trigger automatic association.
-   */
-  events?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      events: 'Events',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      events: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceListResponseBodyInstanceList extends $tea.Model {
-  /**
-   * @remarks
-   * The condition that triggers automatic association of the instance with an object.
-   */
-  autoProtectCondition?: DescribeInstanceListResponseBodyInstanceListAutoProtectCondition;
-  /**
-   * @remarks
-   * Indicates whether auto-renewal is enabled for the instance. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * false
-   */
-  autoRenewal?: boolean;
-  /**
-   * @remarks
-   * The number of protected public IP addresses for which blackhole filtering is triggered.
-   * 
-   * >  You can call the [DeleteBlackhole](https://help.aliyun.com/document_detail/118692.html) operation to deactivate blackhole filtering for a protected IP address.
-   * 
-   * @example
-   * 0
-   */
-  blackholdingCount?: string;
-  /**
-   * @remarks
-   * The type of the instance.
-   * 
-   * *   **ddos_ddosorigin_public_cn**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the China site (aliyun.com).
-   * *   **ddos_ddosorigin_public_intl**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the International site (alibabacloud.com).
-   * 
-   * @example
-   * ddos_ddosorigin_public_cn
-   */
-  commodityType?: string;
-  /**
-   * @remarks
-   * The application scope of the instance.
-   * 
-   * *   **1**: The instance supports public IP addresses in all regions.
-   * *   **2**: The instance supports public IP addresses in regions in the Chinese mainland.
-   * *   **3**: The instance supports public IP addresses in regions outside the Chinese mainland.
-   * *   **4**: The instance supports public IP addresses in a region in or outside the Chinese mainland.
-   * 
-   * @example
-   * 1
-   */
-  coverageType?: number;
-  debtStatus?: number;
-  /**
-   * @remarks
-   * The time when the instance expires. The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1640275200000
-   */
-  expireTime?: number;
-  /**
-   * @remarks
-   * The time when the instance was purchased. The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1592886047000
-   */
-  gmtCreate?: number;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * ddosbgp-cn-oew1pjrk****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The mitigation plan of the instance. Valid values:
-   * 
-   * *   **0**: the Professional mitigation plan
-   * *   **1**: the Enterprise mitigation plan
-   * 
-   * @example
-   * 1
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The protocol type of the IP address asset that is protected by the instance. Valid values:
-   * 
-   * *   **Ipv4**
-   * *   **Ipv6**
-   * 
-   * @example
-   * IPv4
-   */
-  ipType?: string;
-  /**
-   * @remarks
-   * The type of the cloud service that is associated with the Anti-DDoS Origin instance By default, this parameter is not returned. If the Anti-DDoS Origin instance is created by using a different cloud service, the code of the cloud service is returned.
-   * 
-   * Valid values:
-   * 
-   * *   **gamebox**: The Anti-DDoS Origin instance is created by using Game Security Box.
-   * *   **eip**: The Anti-DDoS Origin instance is created by using an elastic IP address (EIP) for which Anti-DDoS (Enhanced Edition) is enabled.
-   * 
-   * @example
-   * gamebox
-   */
-  product?: string;
-  /**
-   * @remarks
-   * The description of the instance.
-   * 
-   * @example
-   * test
-   */
-  remark?: string;
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The status of the instance. Valid values:
-   * 
-   * *   **1**: normal
-   * *   **2**: expired
-   * *   **3**: released
-   * 
-   * @example
-   * 1
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoProtectCondition: 'AutoProtectCondition',
-      autoRenewal: 'AutoRenewal',
-      blackholdingCount: 'BlackholdingCount',
-      commodityType: 'CommodityType',
-      coverageType: 'CoverageType',
-      debtStatus: 'DebtStatus',
-      expireTime: 'ExpireTime',
-      gmtCreate: 'GmtCreate',
-      instanceId: 'InstanceId',
-      instanceType: 'InstanceType',
-      ipType: 'IpType',
-      product: 'Product',
-      remark: 'Remark',
-      resourceGroupId: 'ResourceGroupId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoProtectCondition: DescribeInstanceListResponseBodyInstanceListAutoProtectCondition,
-      autoRenewal: 'boolean',
-      blackholdingCount: 'string',
-      commodityType: 'string',
-      coverageType: 'number',
-      debtStatus: 'number',
-      expireTime: 'number',
-      gmtCreate: 'number',
-      instanceId: 'string',
-      instanceType: 'string',
-      ipType: 'string',
-      product: 'string',
-      remark: 'string',
-      resourceGroupId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The bandwidth. Unit: Gbit/s.
-   * 
-   * @example
-   * 2
-   */
-  bandwidth?: number;
-  /**
-   * @remarks
-   * The number of IP addresses that are protected by the Anti-DDoS Origin Enterprise instance.
-   * 
-   * @example
-   * 0
-   */
-  bindIpCount?: number;
-  /**
-   * @remarks
-   * The burstable clean bandwidth. Unit: Mbit/s.
-   * 
-   * @example
-   * 100
-   */
-  elasticBwMbps?: number;
-  /**
-   * @remarks
-   * The metering method of burstable clean bandwidth. Valid values:
-   * 
-   * *   **month**: the monthly 95th percentile metering method.
-   * *   **day**: the daily 95th percentile metering method.
-   * 
-   * @example
-   * day
-   */
-  elasticBwMode?: string;
-  /**
-   * @remarks
-   * The burstable protection bandwidth of each protected IP address. Unit: Gbit/s.
-   * 
-   * @example
-   * 300
-   */
-  ipAdvanceThre?: number;
-  /**
-   * @remarks
-   * The basic protection bandwidth of each protected IP address. Unit: Gbit/s.
-   * 
-   * @example
-   * 20
-   */
-  ipBasicThre?: number;
-  /**
-   * @remarks
-   * The number of IP addresses that can be protected by the Anti-DDoS Origin Enterprise instance.
-   * 
-   * @example
-   * 100
-   */
-  ipSpec?: number;
-  /**
-   * @remarks
-   * The clean bandwidth. Unit: Mbit/s.
-   * 
-   * @example
-   * 200
-   */
-  normalBandwidth?: number;
-  /**
-   * @remarks
-   * The burstable protection bandwidth of the Anti-DDoS Origin instance. Unit: Gbit/s.
-   * 
-   * @example
-   * 300
-   */
-  packAdvThre?: number;
-  /**
-   * @remarks
-   * The basic protection bandwidth of the Anti-DDoS Origin instance. Unit: Gbit/s.
-   * 
-   * @example
-   * 20
-   */
-  packBasicThre?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bandwidth: 'Bandwidth',
-      bindIpCount: 'BindIpCount',
-      elasticBwMbps: 'ElasticBwMbps',
-      elasticBwMode: 'ElasticBwMode',
-      ipAdvanceThre: 'IpAdvanceThre',
-      ipBasicThre: 'IpBasicThre',
-      ipSpec: 'IpSpec',
-      normalBandwidth: 'NormalBandwidth',
-      packAdvThre: 'PackAdvThre',
-      packBasicThre: 'PackBasicThre',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bandwidth: 'number',
-      bindIpCount: 'number',
-      elasticBwMbps: 'number',
-      elasticBwMode: 'string',
-      ipAdvanceThre: 'number',
-      ipBasicThre: 'number',
-      ipSpec: 'number',
-      normalBandwidth: 'number',
-      packAdvThre: 'number',
-      packBasicThre: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $tea.Model {
-  /**
-   * @remarks
-   * The available best-effort protection sessions.
-   * 
-   * @example
-   * 2
-   */
-  availableDefenseTimes?: number;
-  /**
-   * @remarks
-   * The number of times that blackhole filtering can be deactivated.
-   * 
-   * @example
-   * 100
-   */
-  availableDeleteBlackholeCount?: string;
-  /**
-   * @remarks
-   * The percentage of the used best-effort protection sessions. Unit: %.
-   * 
-   * @example
-   * 30
-   */
-  defenseTimesPercent?: number;
-  /**
-   * @remarks
-   * Indicates whether the instance is downgraded. Valid value:
-   * 
-   * *   **8**: The instance is downgraded due to excessive bandwidth usage.
-   * 
-   * @example
-   * 8
-   */
-  downgradeStatus?: number;
-  /**
-   * @remarks
-   * The ID of the Anti-DDoS Origin instance.
-   * 
-   * @example
-   * ddosbgp-cn-n6w1r7nz****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * Indicates whether best-effort protection is enabled. Valid values:
-   * 
-   * *   **0**: Best-effort protection is disabled.
-   * *   **1**: Best-effort protection is enabled.
-   * 
-   * @example
-   * 1
-   */
-  isFullDefenseMode?: number;
-  /**
-   * @remarks
-   * The configurations of the Anti-DDoS Origin instance, including the number of protected IP addresses and protection bandwidth.
-   */
-  packConfig?: DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig;
-  /**
-   * @remarks
-   * The region ID of the Anti-DDoS Origin instance.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the name of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  /**
-   * @remarks
-   * The total best-effort protection sessions.
-   * 
-   * @example
-   * 2
-   */
-  totalDefenseTimes?: number;
-  static names(): { [key: string]: string } {
-    return {
-      availableDefenseTimes: 'AvailableDefenseTimes',
-      availableDeleteBlackholeCount: 'AvailableDeleteBlackholeCount',
-      defenseTimesPercent: 'DefenseTimesPercent',
-      downgradeStatus: 'DowngradeStatus',
-      instanceId: 'InstanceId',
-      isFullDefenseMode: 'IsFullDefenseMode',
-      packConfig: 'PackConfig',
-      region: 'Region',
-      totalDefenseTimes: 'TotalDefenseTimes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableDefenseTimes: 'number',
-      availableDeleteBlackholeCount: 'string',
-      defenseTimesPercent: 'number',
-      downgradeStatus: 'number',
-      instanceId: 'string',
-      isFullDefenseMode: 'number',
-      packConfig: DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig,
-      region: 'string',
-      totalDefenseTimes: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOnDemandDdosEventResponseBodyEvents extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the DDoS attack stopped. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1557891306
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The attacked IP address.
-   * 
-   * @example
-   * 192.XX.XX.1
-   */
-  ip?: string;
-  /**
-   * @remarks
-   * The attack traffic. Unit: Mbit/s.
-   * 
-   * @example
-   * 110000
-   */
-  mbps?: number;
-  /**
-   * @remarks
-   * The packet forwarding rate of the DDoS attack. Unit: packets per second (PPS).
-   * 
-   * @example
-   * 0
-   */
-  pps?: number;
-  /**
-   * @remarks
-   * The time when the DDoS attack started. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1557889506
-   */
-  startTime?: number;
-  /**
-   * @remarks
-   * The status of the DDoS attack event. Valid values:
-   * 
-   * *   **hole_begin**: indicates that blackhole filtering is triggered.
-   * *   **hole_end**: indicates that tblackhole filtering is deactivated.
-   * *   **defense_begin**: indicates that traffic scrubbing is in progress.
-   * *   **defense_end**: indicates that traffic scrubbing is complete.
-   * 
-   * @example
-   * defense_end
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      ip: 'Ip',
-      mbps: 'Mbps',
-      pps: 'Pps',
-      startTime: 'StartTime',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'number',
-      ip: 'string',
-      mbps: 'number',
-      pps: 'number',
-      startTime: 'number',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOnDemandInstanceStatusResponseBodyInstances extends $tea.Model {
-  /**
-   * @remarks
-   * The details of route advertisement for data centers outside the Chinese mainland. This parameter is a JSON string. The following fields are included in the value:
-   * 
-   * *   **region**: The code of the data center outside the Chinese mainland. The value is of the string type. For more information, see **Codes of data centers outside the Chinese mainland**.
-   * *   **declared**: indicates whether the data center advertised the route. The value is of the string type. Valid values: **0** and **1**. The value of 0 indicates that the data center did not advertise the route. The value of 1 indicates that the data center advertised the route.
-   * 
-   * @example
-   * [{\\"region\\":\\"oe24\\",\\"declared\\":0},{\\"region\\":\\"oe26\\",\\"declared\\":0},{\\"region\\":\\"oe28\\",\\"declared\\":0},{\\"region\\":\\"oi39\\",\\"declared\\":0},{\\"region\\":\\"us50\\",\\"declared\\":0},{\\"region\\":\\"jp141\\",\\"declared\\":0}]
-   */
-  declared?: string;
-  /**
-   * @remarks
-   * The description of the anti-DDoS diversion instance.
-   * 
-   * > This parameter is returned only when the information about multiple anti-DDoS diversion instances are returned. The value of this parameter is not returned because the information about only one anti-DDoS diversion instance is returned.
-   * 
-   * @example
-   * test
-   */
-  desc?: string;
-  /**
-   * @remarks
-   * The ID of the anti-DDoS diversion instance.
-   * 
-   * > This parameter is returned only when the information about multiple anti-DDoS diversion instances are returned. The value of this parameter is not returned because the information about only one anti-DDoS diversion instance is returned.
-   * 
-   * @example
-   * ddosbgp-cn-z2q1qzxb****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The mode that is used to enable traffic rerouting to the anti-DDoS diversion instance. Valid values:
-   * 
-   * *   **manual**: The instance is manually started.
-   * *   **netflow-auto**: The instance is automatically started by using NetFlow that monitors network traffic.
-   * 
-   * @example
-   * netflow-auto
-   */
-  mode?: string;
-  /**
-   * @remarks
-   * The CIDR block of the anti-DDoS diversion instance.
-   * 
-   * @example
-   * 47.***.***.0/24
-   */
-  net?: string;
-  /**
-   * @remarks
-   * The number of the autonomous system (AS). Set the value to **0**, which indicates that AS is disabled.
-   * 
-   * @example
-   * 0
-   */
-  registedAs?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account.
-   * 
-   * @example
-   * 171986973287****
-   */
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      declared: 'Declared',
-      desc: 'Desc',
-      instanceId: 'InstanceId',
-      mode: 'Mode',
-      net: 'Net',
-      registedAs: 'RegistedAs',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      declared: 'string',
-      desc: 'string',
-      instanceId: 'string',
-      mode: 'string',
-      net: 'string',
-      registedAs: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOpEntitiesResponseBodyOpEntities extends $tea.Model {
-  /**
-   * @remarks
-   * The operation object, which is the ID of the instance.
-   * 
-   * @example
-   * ddosbgp-cn-n6w1r7nz****
-   */
-  entityObject?: string;
-  /**
-   * @remarks
-   * The type of the operation object. The value is fixed as **1**, which indicates Anti-DDoS Origin instances.
-   * 
-   * @example
-   * 1
-   */
-  entityType?: number;
-  /**
-   * @remarks
-   * The time when the log was generated. The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1635818114000
-   */
-  gmtCreate?: number;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account that performs the operation.
-   * 
-   * > If the value is **system**, the operation is performed by Anti-DDoS Origin.
-   * 
-   * @example
-   * 171986973287****
-   */
-  opAccount?: string;
-  /**
-   * @remarks
-   * The type of operation. Valid values:
-   * 
-   * *   **3**: indicates an operation to add an IP address to the Anti-DDoS Origin instance for protection.
-   * *   **4**: indicates an operation to remove a protected IP address from the Anti-DDoS Origin instance.
-   * *   **5**: indicates an operation to downgrade the Anti-DDoS Origin instance.
-   * *   **6**: indicates an operation to deactivate blackhole filtering for an IP address.
-   * *   **7**: indicates an operation to reset the number of times that you can deactivate blackhole filtering.
-   * *   **8**: indicates an operation to enable burstable protection.
-   * 
-   * @example
-   * 8
-   */
-  opAction?: number;
-  /**
-   * @remarks
-   * The details of the operation. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
-   * 
-   * *   **entity**: the operation object. Data type: object. The fields that are included in the value of the **entity** parameter vary based on the value of the **OpAction** parameter. Valid values:
-   * 
-   *     *   If the value of the **OpAction** parameter is **3**, the value of the **entity** parameter consists of the following field:
-   * 
-   *         *   **ips**: the public IP addresses that are protected by the Anti-DDoS Origin instance. Data type: array
-   * 
-   *     *   If the value of the **OpAction** parameter is **4**, the value of the **entity** parameter consists of the following field:
-   * 
-   *         *   **ips**: the public IP addresses that are no longer protected by the Anti-DDoS Origin instance. Data type: array.
-   * 
-   *     *   If the value of the **OpAction** parameter is **5**, the value of the **entity** parameter consists of the following fields:
-   * 
-   *         *   **baseBandwidth**: the basic protection bandwidth. Unit: Gbit/s. Data type: integer.
-   *         *   **elasticBandwidth**: the burstable protection bandwidth. Unit: Gbit/s. Data type: integer.
-   *         *   **opSource**: the source of the operation. The value is fixed as **1**, indicating that the operation is performed by Anti-DDoS Origin. Data type: integer.
-   * 
-   *     *   If the value of the **OpAction** parameter is **6**, the value of the **entity** parameter consists of the following field:
-   * 
-   *         *   **ips**: the public IP addresses for which to deactivate blackhole filtering. Data type: array.
-   * 
-   *     *   If the value of the **OpAction** parameter is **7**, the **entity** parameter is not returned.
-   * 
-   *     *   If the value of the **OpAction** parameter is **8**, the value of the **entity** parameter consists of the following fields:
-   * 
-   *         *   **baseBandwidth**: the basic protection bandwidth. Unit: Gbit/s. Data type: integer.
-   *         *   **elasticBandwidth**: the burstable protection bandwidth. Unit: Gbit/s. Data type: integer.
-   * 
-   * @example
-   * {"entity":{"baseBandwidth":20,"elasticBandwidth":20}}
-   */
-  opDesc?: string;
-  static names(): { [key: string]: string } {
-    return {
-      entityObject: 'EntityObject',
-      entityType: 'EntityType',
-      gmtCreate: 'GmtCreate',
-      opAccount: 'OpAccount',
-      opAction: 'OpAction',
-      opDesc: 'OpDesc',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      entityObject: 'string',
-      entityType: 'number',
-      gmtCreate: 'number',
-      opAccount: 'string',
-      opAction: 'number',
-      opDesc: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePackIpListResponseBodyIpList extends $tea.Model {
-  /**
-   * @remarks
-   * The IP address.
-   * 
-   * @example
-   * 47.98.XX.XX
-   */
-  ip?: string;
-  /**
-   * @remarks
-   * The ID of the member.
-   * 
-   * @example
-   * 170858869679****
-   */
-  memberUid?: string;
-  /**
-   * @remarks
-   * The time when the near-origin traffic diversion feature was disabled.
-   * 
-   * @example
-   * 1715658000
-   */
-  nsmExpireAt?: number;
-  /**
-   * @remarks
-   * The time when the near-origin traffic diversion feature was enabled.
-   * 
-   * @example
-   * 1715655000
-   */
-  nsmStartAt?: number;
-  /**
-   * @remarks
-   * The status of the near-origin traffic diversion feature. Valid values:
-   * 
-   * *   **1**: The near-origin traffic diversion feature is enabled.
-   * *   **0**: The near-origin traffic diversion feature is disabled.
-   * 
-   * @example
-   * 0
-   */
-  nsmStatus?: number;
-  /**
-   * @remarks
-   * The type of the cloud asset to which the IP address belongs. Valid values:
-   * 
-   * *   **ECS**: an ECS instance.
-   * *   **SLB**: a CLB (formerly SLB) instance.
-   * *   **EIP**: an EIP. If the IP address belongs to an ALB instance, the value EIP is returned.
-   * *   **WAF**: a WAF instance.
-   * 
-   * @example
-   * ECS
-   */
-  product?: string;
-  /**
-   * @remarks
-   * The region to which the protected IP address belongs.
-   * 
-   * >  If the protected IP address is in the same region as the instance, this parameter is not returned.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  /**
-   * @remarks
-   * The description of the cloud asset to which the IP address belongs. The asset can be an ECS instance or an SLB instance.
-   * 
-   * >  If no descriptions are provided for the asset, this parameter is not returned.
-   * 
-   * @example
-   * test
-   */
-  remark?: string;
-  /**
-   * @remarks
-   * The status of the IP address. Valid values:
-   * 
-   * *   **normal**: The IP address is not under attack.
-   * *   **hole_begin**: Blackhole filtering is triggered for the IP address.
-   * 
-   * @example
-   * normal
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ip: 'Ip',
-      memberUid: 'MemberUid',
-      nsmExpireAt: 'NsmExpireAt',
-      nsmStartAt: 'NsmStartAt',
-      nsmStatus: 'NsmStatus',
-      product: 'Product',
-      region: 'Region',
-      remark: 'Remark',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ip: 'string',
-      memberUid: 'string',
-      nsmExpireAt: 'number',
-      nsmStartAt: 'number',
-      nsmStatus: 'number',
-      product: 'string',
-      region: 'string',
-      remark: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRdMemberListResponseBodyMemberList extends $tea.Model {
-  /**
-   * @remarks
-   * The creation time.
-   * 
-   * @example
-   * 1624954942000
-   */
-  gmtCreate?: number;
-  /**
-   * @remarks
-   * The name of the member.
-   * 
-   * @example
-   * test1
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * @example
-   * 1960279802016267
-   */
-  uid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreate: 'GmtCreate',
-      name: 'Name',
-      uid: 'Uid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreate: 'number',
-      name: 'string',
-      uid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
-  /**
-   * @remarks
-   * The English name of the region.
-   * 
-   * @example
-   * China (Hangzhou)
-   */
-  regionEnName?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The Chinese name of the region.
-   * 
-   * @example
-   * 华东1（杭州）
-   */
-  regionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionEnName: 'RegionEnName',
-      regionId: 'RegionId',
-      regionName: 'RegionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionEnName: 'string',
-      regionId: 'string',
-      regionName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTrafficResponseBodyFlowList extends $tea.Model {
-  /**
-   * @remarks
-   * The bandwidth of attack traffic. Unit: bit/s.
-   * 
-   * >  This parameter is returned only if attack traffic exists.
-   * 
-   * @example
-   * 0
-   */
-  attackBps?: number;
-  /**
-   * @remarks
-   * The packet forwarding rate of attack traffic. Unit: packets per second.
-   * 
-   * >  This parameter is returned only if attack traffic exists.
-   * 
-   * @example
-   * 0
-   */
-  attackPps?: number;
-  /**
-   * @remarks
-   * The type of the traffic statistics. Valid values:
-   * 
-   * *   **max**: the peak traffic within the specified interval
-   * *   **avg**: the average traffic within the specified interval
-   * 
-   * @example
-   * max
-   */
-  flowType?: string;
-  /**
-   * @remarks
-   * The bandwidth of the total traffic. Unit: Kbit/s.
-   * 
-   * @example
-   * 417
-   */
-  kbps?: number;
-  /**
-   * @remarks
-   * The ID of the traffic statistics.
-   * 
-   * @example
-   * 8e33f19e-5644-11eb-b5c1-d89d67182200
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The packet forwarding rate of the total traffic. Unit: packets per second.
-   * 
-   * @example
-   * 274
-   */
-  pps?: number;
-  /**
-   * @remarks
-   * The time when the traffic statistics are calculated. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1620951900
-   */
-  time?: number;
-  static names(): { [key: string]: string } {
-    return {
-      attackBps: 'AttackBps',
-      attackPps: 'AttackPps',
-      flowType: 'FlowType',
-      kbps: 'Kbps',
-      name: 'Name',
-      pps: 'Pps',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attackBps: 'number',
-      attackPps: 'number',
-      flowType: 'string',
-      kbps: 'number',
-      name: 'string',
-      pps: 'number',
-      time: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachFromPolicyRequestIpPortProtocolList extends $tea.Model {
-  /**
-   * @remarks
-   * The IP address of the protected object.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 47.118.172.***
-   */
-  ip?: string;
-  /**
-   * @remarks
-   * The port of the protected object.
-   * 
-   * @example
-   * 8*
-   */
-  port?: number;
-  /**
-   * @remarks
-   * The protocol type of the protected object. Valid values:
-   * 
-   * *   **tcp**
-   * *   **udp**
-   * 
-   * @example
-   * tcp
-   */
-  protocol?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ip: 'Ip',
-      port: 'Port',
-      protocol: 'Protocol',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ip: 'string',
-      port: 'number',
-      protocol: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DettachAssetGroupToInstanceRequestAssetGroupList extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the asset. If the asset is a Web Application Firewall (WAF) instance, specify the ID of the WAF instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * waf_v2_public_cn-lbj382l****
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The region ID of the asset.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  /**
-   * @remarks
-   * The type of the asset. Valid values:
-   * 
-   * *   **waf**: WAF instance
-   * *   **ga**: Global Accelerator (GA) instance
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * waf
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      region: 'Region',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      region: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOpenedAccessLogInstancesResponseBodySlsConfigStatus extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether log analysis was enabled for the Anti-DDoS Origin instance. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
-  enable?: boolean;
-  /**
-   * @remarks
-   * The ID of the Anti-DDoS Origin instance.
-   * 
-   * @example
-   * ddosbgp-cn-m7r1zce2****
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'boolean',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends $tea.Model {
-  /**
-   * @remarks
-   * The end of the destination port range. Valid values: **0** to **65535**.
-   * 
-   * @example
-   * 65535
-   */
-  dstPortEnd?: number;
-  /**
-   * @remarks
-   * The start of the destination port range. Valid values: **0** to **65535**.
-   * 
-   * @example
-   * 0
-   */
-  dstPortStart?: number;
-  /**
-   * @remarks
-   * The ID of the rule.
-   * 
-   * @example
-   * 2c0b09cd-a565-4481-9acb-418b********
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The action triggered if the rule is matched. Valid values:
-   * 
-   * *   **accept**: allows the traffic that matches the conditions in the byte-match filter rule.
-   * *   **drop**: discards the traffic that matches the conditions in the byte-match filter rule.
-   * *   **ip_rate**: limits rates on the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
-   * *   **session_rate**: limits the number of sessions from the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
-   * 
-   * @example
-   * drop
-   */
-  matchAction?: string;
-  /**
-   * @remarks
-   * The maximum packet length. Valid values: **1** to **1500**.
-   * 
-   * @example
-   * 1500
-   */
-  maxPktLen?: number;
-  /**
-   * @remarks
-   * The minimum packet length. Valid values: **1** to **1500**.
-   * 
-   * @example
-   * 1
-   */
-  minPktLen?: number;
-  /**
-   * @remarks
-   * The offset. Valid values: **0** to **1500**.
-   * 
-   * @example
-   * 0
-   */
-  offset?: number;
-  /**
-   * @remarks
-   * The payload. The value is a hexadecimal string.
-   * 
-   * @example
-   * abcd
-   */
-  payloadBytes?: string;
-  /**
-   * @remarks
-   * The protocol type. Valid values:
-   * 
-   * *   **tcp**
-   * *   **udp**
-   * 
-   * @example
-   * udp
-   */
-  protocol?: string;
-  /**
-   * @remarks
-   * The rate limit. Valid values: **1** to **100000**.
-   * 
-   * >  This parameter is required when **MatchAction** is set to **ip_rate** or **session_rate**.
-   * 
-   * @example
-   * 1000
-   */
-  rateValue?: number;
-  /**
-   * @remarks
-   * The sequence number that indicates the order for the rule to take effect. The value is an integer.
-   * 
-   * @example
-   * 1
-   */
-  seqNo?: number;
-  /**
-   * @remarks
-   * The end of the source port range. Valid values: **0** to **65535**.
-   * 
-   * @example
-   * 65535
-   */
-  srcPortEnd?: number;
-  /**
-   * @remarks
-   * The start of the source port range. Valid values: **0** to **65535**.
-   * 
-   * @example
-   * 0
-   */
-  srcPortStart?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dstPortEnd: 'DstPortEnd',
-      dstPortStart: 'DstPortStart',
-      id: 'Id',
-      matchAction: 'MatchAction',
-      maxPktLen: 'MaxPktLen',
-      minPktLen: 'MinPktLen',
-      offset: 'Offset',
-      payloadBytes: 'PayloadBytes',
-      protocol: 'Protocol',
-      rateValue: 'RateValue',
-      seqNo: 'SeqNo',
-      srcPortEnd: 'SrcPortEnd',
-      srcPortStart: 'SrcPortStart',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dstPortEnd: 'number',
-      dstPortStart: 'number',
-      id: 'string',
-      matchAction: 'string',
-      maxPktLen: 'number',
-      minPktLen: 'number',
-      offset: 'number',
-      payloadBytes: 'string',
-      protocol: 'string',
-      rateValue: 'number',
-      seqNo: 'number',
-      srcPortEnd: 'number',
-      srcPortStart: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyResponseBodyPolicyListContentL4RuleListConditionList extends $tea.Model {
-  /**
-   * @remarks
-   * The term that is used for matching.
-   * 
-   * >  If Method is set to **char**, the value of this parameter must be ASCII strings. If Method is set to **hex**, the value of this parameter must be hexadecimal strings. Maximum length: 2,048.
-   * 
-   * @example
-   * test
-   */
-  arg?: string;
-  /**
-   * @remarks
-   * The number of bytes from the start position for matching. Valid values: **1** to **2048**.
-   * 
-   * @example
-   * 32
-   */
-  depth?: number;
-  /**
-   * @remarks
-   * The start position for matching. Valid values: **0** to **2047**.
-   * 
-   * @example
-   * 0
-   */
-  position?: number;
-  static names(): { [key: string]: string } {
-    return {
-      arg: 'Arg',
-      depth: 'Depth',
-      position: 'Position',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      arg: 'string',
-      depth: 'number',
-      position: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyResponseBodyPolicyListContentL4RuleList extends $tea.Model {
-  /**
-   * @remarks
-   * The action that is specified in the rule. Valid value:
-   * 
-   * *   **2**: The traffic is discarded.
-   * 
-   * @example
-   * 2
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The match conditions.
-   */
-  conditionList?: ListPolicyResponseBodyPolicyListContentL4RuleListConditionList[];
-  /**
-   * @remarks
-   * The minimum number of bytes in a session to trigger matching. Valid values: **0** to **2048**.
-   * 
-   * @example
-   * 0
-   */
-  limited?: number;
-  /**
-   * @remarks
-   * The condition based on which an action is performed. Valid values:
-   * 
-   * *   **0**: If the rule is matched, the action specified in the rule is performed.
-   * *   **1**: If the rule is not matched, the action specified in the rule is performed.
-   * 
-   * @example
-   * 1
-   */
-  match?: string;
-  /**
-   * @remarks
-   * The type of the rule. Valid values:
-   * 
-   * *   **char**: string match.
-   * *   **hex**: hexadecimal string match.
-   * 
-   * @example
-   * char
-   */
-  method?: string;
-  /**
-   * @remarks
-   * The name of the rule.
-   * 
-   * @example
-   * test**
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The priority of the rule.
-   * 
-   * @example
-   * 1
-   */
-  priority?: number;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      conditionList: 'ConditionList',
-      limited: 'Limited',
-      match: 'Match',
-      method: 'Method',
-      name: 'Name',
-      priority: 'Priority',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      conditionList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentL4RuleListConditionList },
-      limited: 'number',
-      match: 'string',
-      method: 'string',
-      name: 'string',
-      priority: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyResponseBodyPolicyListContentPortRuleList extends $tea.Model {
-  /**
-   * @remarks
-   * The end of the destination port range. Valid values: **0** to **65535**.
-   * 
-   * @example
-   * 65535
-   */
-  dstPortEnd?: number;
-  /**
-   * @remarks
-   * The start of the destination port range. Valid values: **0** to **65535**.
-   * 
-   * @example
-   * 0
-   */
-  dstPortStart?: number;
-  /**
-   * @remarks
-   * The ID of the rule.
-   * 
-   * @example
-   * 8f3c3062-6c20-425d-8405-2bd1********
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The action triggered if the rule is matched. Valid value:
-   * 
-   * *   **drop**: The traffic is discarded.
-   * 
-   * @example
-   * drop
-   */
-  matchAction?: string;
-  /**
-   * @remarks
-   * The protocol type. Valid values:
-   * 
-   * *   **tcp**
-   * *   **udp**
-   * 
-   * @example
-   * udp
-   */
-  protocol?: string;
-  /**
-   * @remarks
-   * The sequence number that indicates the order for the rule to take effect. The value is an integer.
-   * 
-   * @example
-   * 1
-   */
-  seqNo?: number;
-  /**
-   * @remarks
-   * The end of the source port range. Valid values: **0** to **65535**.
-   * 
-   * @example
-   * 65535
-   */
-  srcPortEnd?: number;
-  /**
-   * @remarks
-   * The start of the source port range. Valid values: **0** to **65535**.
-   * 
-   * @example
-   * 0
-   */
-  srcPortStart?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dstPortEnd: 'DstPortEnd',
-      dstPortStart: 'DstPortStart',
-      id: 'Id',
-      matchAction: 'MatchAction',
-      protocol: 'Protocol',
-      seqNo: 'SeqNo',
-      srcPortEnd: 'SrcPortEnd',
-      srcPortStart: 'SrcPortStart',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dstPortEnd: 'number',
-      dstPortStart: 'number',
-      id: 'string',
-      matchAction: 'string',
-      protocol: 'string',
-      seqNo: 'number',
-      srcPortEnd: 'number',
-      srcPortStart: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyResponseBodyPolicyListContentSourceBlockList extends $tea.Model {
-  /**
-   * @remarks
-   * The validity period of the blacklist to which the source IP address is added. Unit: seconds.
-   * 
-   * @example
-   * 120
-   */
-  blockExpireSeconds?: number;
-  /**
-   * @remarks
-   * The statistical period during which the system collects data on source IP addresses to determine whether to add the source IP addresses to the blacklist. Unit: seconds.
-   * 
-   * @example
-   * 60
-   */
-  everySeconds?: number;
-  /**
-   * @remarks
-   * The number of times that the source IP address exceeds a limit in a statistical period.
-   * 
-   * @example
-   * 5
-   */
-  exceedLimitTimes?: number;
-  /**
-   * @remarks
-   * The type of the source rate limit. Valid values:
-   * 
-   * *   **3**: the PPS limit on source IP addresses.
-   * *   **4**: the bandwidth limit on source IP addresses.
-   * *   **5**: the PPS limit on source SYN packets.
-   * *   **6**: the bandwidth limit on source SYN packets.
-   * 
-   * @example
-   * 3
-   */
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      blockExpireSeconds: 'BlockExpireSeconds',
-      everySeconds: 'EverySeconds',
-      exceedLimitTimes: 'ExceedLimitTimes',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockExpireSeconds: 'number',
-      everySeconds: 'number',
-      exceedLimitTimes: 'number',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyResponseBodyPolicyListContentSourceLimit extends $tea.Model {
-  /**
-   * @remarks
-   * The bandwidth limit on source IP addresses. Unit: bytes per second.
-   * 
-   * @example
-   * 2048
-   */
-  bps?: number;
-  /**
-   * @remarks
-   * The packets per second (PPS) limit on source IP addresses.
-   * 
-   * @example
-   * 64
-   */
-  pps?: number;
-  /**
-   * @remarks
-   * The bandwidth limit on source SYN packets. Unit: bytes per second.
-   * 
-   * @example
-   * 2048
-   */
-  synBps?: number;
-  /**
-   * @remarks
-   * The PPS limit on source SYN packets.
-   * 
-   * @example
-   * 64
-   */
-  synPps?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bps: 'Bps',
-      pps: 'Pps',
-      synBps: 'SynBps',
-      synPps: 'SynPps',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bps: 'number',
-      pps: 'number',
-      synBps: 'number',
-      synPps: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyResponseBodyPolicyListContent extends $tea.Model {
-  /**
-   * @remarks
-   * The validity period of the IP address blacklist. The value is a UNIX timestamp.
-   * 
-   * @example
-   * 1716878000
-   */
-  blackIpListExpireAt?: number;
-  /**
-   * @remarks
-   * Indicates whether ICMP blocking is enabled.
-   * 
-   * @example
-   * false
-   */
-  enableDropIcmp?: boolean;
-  /**
-   * @remarks
-   * Indicates whether intelligent protection is enabled.
-   * 
-   * @example
-   * true
-   */
-  enableIntelligence?: boolean;
-  /**
-   * @remarks
-   * Indicates whether port-specific mitigation is enabled.
-   * 
-   * @example
-   * true
-   */
-  enableL4Defense?: boolean;
-  /**
-   * @remarks
-   * The byte-match filter rules.
-   */
-  fingerPrintRuleList?: ListPolicyResponseBodyPolicyListContentFingerPrintRuleList[];
-  /**
-   * @remarks
-   * The level of intelligent protection. Valid values:
-   * 
-   * *   **default**: normal.
-   * *   **hard**: strict.
-   * *   **weak**: loose.
-   * 
-   * @example
-   * default
-   */
-  intelligenceLevel?: string;
-  /**
-   * @remarks
-   * The port-specific mitigation rules.
-   */
-  l4RuleList?: ListPolicyResponseBodyPolicyListContentL4RuleList[];
-  /**
-   * @remarks
-   * The port blocking rules.
-   */
-  portRuleList?: ListPolicyResponseBodyPolicyListContentPortRuleList[];
-  /**
-   * @remarks
-   * The ports whose traffic is filtered out by the filtering policies for UDP reflection attacks.
-   */
-  reflectBlockUdpPortList?: number[];
-  /**
-   * @remarks
-   * The countries in the location blacklist.
-   */
-  regionBlockCountryList?: number[];
-  /**
-   * @remarks
-   * The provinces in the location blacklist.
-   */
-  regionBlockProvinceList?: number[];
-  /**
-   * @remarks
-   * The source IP addresses that are added to the blacklist.
-   */
-  sourceBlockList?: ListPolicyResponseBodyPolicyListContentSourceBlockList[];
-  /**
-   * @remarks
-   * The settings for source rate limiting.
-   */
-  sourceLimit?: ListPolicyResponseBodyPolicyListContentSourceLimit;
-  /**
-   * @remarks
-   * Indicates whether back-to-origin CIDR blocks of Anti-DDoS Proxy are added to the whitelist.
-   * 
-   * @example
-   * false
-   */
-  whitenGfbrNets?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      blackIpListExpireAt: 'BlackIpListExpireAt',
-      enableDropIcmp: 'EnableDropIcmp',
-      enableIntelligence: 'EnableIntelligence',
-      enableL4Defense: 'EnableL4Defense',
-      fingerPrintRuleList: 'FingerPrintRuleList',
-      intelligenceLevel: 'IntelligenceLevel',
-      l4RuleList: 'L4RuleList',
-      portRuleList: 'PortRuleList',
-      reflectBlockUdpPortList: 'ReflectBlockUdpPortList',
-      regionBlockCountryList: 'RegionBlockCountryList',
-      regionBlockProvinceList: 'RegionBlockProvinceList',
-      sourceBlockList: 'SourceBlockList',
-      sourceLimit: 'SourceLimit',
-      whitenGfbrNets: 'WhitenGfbrNets',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blackIpListExpireAt: 'number',
-      enableDropIcmp: 'boolean',
-      enableIntelligence: 'boolean',
-      enableL4Defense: 'boolean',
-      fingerPrintRuleList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentFingerPrintRuleList },
-      intelligenceLevel: 'string',
-      l4RuleList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentL4RuleList },
-      portRuleList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentPortRuleList },
-      reflectBlockUdpPortList: { 'type': 'array', 'itemType': 'number' },
-      regionBlockCountryList: { 'type': 'array', 'itemType': 'number' },
-      regionBlockProvinceList: { 'type': 'array', 'itemType': 'number' },
-      sourceBlockList: { 'type': 'array', 'itemType': ListPolicyResponseBodyPolicyListContentSourceBlockList },
-      sourceLimit: ListPolicyResponseBodyPolicyListContentSourceLimit,
-      whitenGfbrNets: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyResponseBodyPolicyList extends $tea.Model {
-  /**
-   * @remarks
-   * The number of protected objects that are added to the policy.
-   * 
-   * @example
-   * 0
-   */
-  attachedCount?: number;
-  /**
-   * @remarks
-   * The content of the policy.
-   */
-  content?: ListPolicyResponseBodyPolicyListContent;
-  /**
-   * @remarks
-   * The ID of the policy.
-   * 
-   * @example
-   * 877afbdf-3982-4d36-9886-f043********
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The name of the policy.
-   * 
-   * @example
-   * test**
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The remarks of the policy.
-   * 
-   * @example
-   * test
-   */
-  remark?: string;
-  /**
-   * @remarks
-   * The type of the policy. Valid values:
-   * 
-   * *   **default**: the default mitigation policy.
-   * *   **l3**: IP-specific mitigation policies.
-   * *   **l4**: port-specific mitigation policies.
-   * 
-   * @example
-   * l3
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attachedCount: 'AttachedCount',
-      content: 'Content',
-      id: 'Id',
-      name: 'Name',
-      remark: 'Remark',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attachedCount: 'number',
-      content: ListPolicyResponseBodyPolicyListContent,
-      id: 'string',
-      name: 'string',
-      remark: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyAttachmentRequestIpPortProtocolList extends $tea.Model {
-  /**
-   * @remarks
-   * The IP address of the protected object.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 47.118.172.***
-   */
-  ip?: string;
-  /**
-   * @remarks
-   * The port number of the protected object.
-   * 
-   * @example
-   * 8*
-   */
-  port?: number;
-  /**
-   * @remarks
-   * The protocol type of the protected object. Valid values:
-   * 
-   * *   **tcp**
-   * *   **udp**
-   * 
-   * @example
-   * tcp
-   */
-  protocol?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ip: 'Ip',
-      port: 'Port',
-      protocol: 'Protocol',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ip: 'string',
-      port: 'number',
-      protocol: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyAttachmentResponseBodyAttachmentList extends $tea.Model {
-  /**
-   * @remarks
-   * The IP address of the protected object.
-   * 
-   * @example
-   * 147.139.183.***
-   */
-  ip?: string;
-  /**
-   * @remarks
-   * The UID of the member to which the IP address of the protected object belongs.
-   * 
-   * @example
-   * 177699790631****
-   */
-  memberUid?: string;
-  /**
-   * @remarks
-   * The ID of the policy.
-   * 
-   * @example
-   * 1b43f44e-65e1-411a-b0c0-d6c1********
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The name of the rule.
-   * 
-   * @example
-   * test**
-   */
-  policyName?: string;
-  /**
-   * @remarks
-   * The description of the policy.
-   * 
-   * @example
-   * test
-   */
-  policyRemark?: string;
-  /**
-   * @remarks
-   * The type of the policy. Valid values:
-   * 
-   * *   **l3**: IP-specific mitigation policies.
-   * *   **l4**: port-specific mitigation policies.
-   * 
-   * @example
-   * l3
-   */
-  policyType?: string;
-  /**
-   * @remarks
-   * The port number of the protected object.
-   * 
-   * @example
-   * 8*
-   */
-  port?: number;
-  /**
-   * @remarks
-   * The protocol type of the protected object. Valid values:
-   * 
-   * *   **tcp**
-   * *   **udp**
-   * 
-   * @example
-   * udp
-   */
-  protocol?: string;
-  /**
-   * @remarks
-   * The region to which the IP address of the protected object belongs.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ip: 'Ip',
-      memberUid: 'MemberUid',
-      policyId: 'PolicyId',
-      policyName: 'PolicyName',
-      policyRemark: 'PolicyRemark',
-      policyType: 'PolicyType',
-      port: 'Port',
-      protocol: 'Protocol',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ip: 'string',
-      memberUid: 'string',
-      policyId: 'string',
-      policyName: 'string',
-      policyRemark: 'string',
-      policyType: 'string',
-      port: 'number',
-      protocol: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysResponseBodyTagKeys extends $tea.Model {
-  /**
-   * @remarks
-   * The total number of tag values that correspond to each key.
-   * 
-   * @example
-   * 1
-   */
-  tagCount?: number;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * a
-   */
-  tagKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagCount: 'TagCount',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagCount: 'number',
-      tagKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the tag to query.
-   * 
-   * >  The **ResourceId** parameter and the **key-value pair for the Tag parameter** cannot be left empty at the same time.
-   * 
-   * @example
-   * testKey1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag to query.
-   * 
-   * >  The **ResourceId** parameter and the **key-value pair for the Tag parameter** cannot be left empty at the same time.
-   * 
-   * @example
-   * testValue1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the Anti-DDoS Origin instance.
-   * 
-   * @example
-   * ddosbgp-cn-n6w1r7nz****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The type of the resource. The value is set to **INSTANCE**.
-   * 
-   * @example
-   * INSTANCE
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The key of the tag that is added to the instance.
-   * 
-   * @example
-   * testKey1
-   */
-  tagKey?: string;
-  /**
-   * @remarks
-   * The value of the tag that is added to the instance.
-   * 
-   * @example
-   * testValue1
-   */
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceType: 'string',
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
-  static names(): { [key: string]: string } {
-    return {
-      tagResource: 'TagResource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyRequestContentFingerPrintRuleList extends $tea.Model {
-  /**
-   * @remarks
-   * The end of the destination port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 65535
-   */
-  dstPortEnd?: number;
-  /**
-   * @remarks
-   * The start of the destination port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  dstPortStart?: number;
-  /**
-   * @remarks
-   * The ID of the rule.
-   * 
-   * @example
-   * 5fbe941f-a0cf-4a49-9c7c-8fac********
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The action triggered if the rule is matched. Valid values:
-   * 
-   * *   **accept**: allows the traffic that matches the conditions in the byte-match filter rule.
-   * *   **drop**: discards the traffic that matches the conditions in the byte-match filter rule.
-   * *   **ip_rate**: limits rates on the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
-   * *   **session_rate**: limits the number of sessions from the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * drop
-   */
-  matchAction?: string;
-  /**
-   * @remarks
-   * The maximum packet length. Valid values: **1** to **1500**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1500
-   */
-  maxPktLen?: number;
-  /**
-   * @remarks
-   * The minimum packet length. Valid values: **1** to **1500**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  minPktLen?: number;
-  /**
-   * @remarks
-   * The offset. Valid values: **0** to **1500**.
-   * 
-   * @example
-   * 0
-   */
-  offset?: number;
-  /**
-   * @remarks
-   * The payload. The value is a hexadecimal string.
-   * 
-   * @example
-   * abcd
-   */
-  payloadBytes?: string;
-  /**
-   * @remarks
-   * The type of the protocol. Valid values:
-   * 
-   * *   **tcp**
-   * *   **udp**
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * udp
-   */
-  protocol?: string;
-  /**
-   * @remarks
-   * The rate limit. Valid values: **1** to **100000**.
-   * 
-   * >  This parameter is required when **MatchAction** is set to **ip_rate** or **session_rate**.
-   * 
-   * @example
-   * 100
-   */
-  rateValue?: number;
-  /**
-   * @remarks
-   * The sequence number that indicates the order for the rule to take effect. The value is an integer.
-   * 
-   * >  A smaller number indicates a higher priority.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  seqNo?: number;
-  /**
-   * @remarks
-   * The end of the source port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 65535
-   */
-  srcPortEnd?: number;
-  /**
-   * @remarks
-   * The start of the source port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  srcPortStart?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dstPortEnd: 'DstPortEnd',
-      dstPortStart: 'DstPortStart',
-      id: 'Id',
-      matchAction: 'MatchAction',
-      maxPktLen: 'MaxPktLen',
-      minPktLen: 'MinPktLen',
-      offset: 'Offset',
-      payloadBytes: 'PayloadBytes',
-      protocol: 'Protocol',
-      rateValue: 'RateValue',
-      seqNo: 'SeqNo',
-      srcPortEnd: 'SrcPortEnd',
-      srcPortStart: 'SrcPortStart',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dstPortEnd: 'number',
-      dstPortStart: 'number',
-      id: 'string',
-      matchAction: 'string',
-      maxPktLen: 'number',
-      minPktLen: 'number',
-      offset: 'number',
-      payloadBytes: 'string',
-      protocol: 'string',
-      rateValue: 'number',
-      seqNo: 'number',
-      srcPortEnd: 'number',
-      srcPortStart: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyRequestContentL4RuleListConditionList extends $tea.Model {
-  /**
-   * @remarks
-   * The term that is used for matching.
-   * 
-   * >  If Method is set to **char**, the value of this parameter must be ASCII strings. If Method is set to **hex**, the value of this parameter must be hexadecimal strings. Maximum length: 2,048.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * abcd
-   */
-  arg?: string;
-  /**
-   * @remarks
-   * The number of bytes from the start position for matching. Valid values: **1** to **2048**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1200
-   */
-  depth?: number;
-  /**
-   * @remarks
-   * The start position for matching. Valid values: **0** to **2047**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  position?: number;
-  static names(): { [key: string]: string } {
-    return {
-      arg: 'Arg',
-      depth: 'Depth',
-      position: 'Position',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      arg: 'string',
-      depth: 'number',
-      position: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyRequestContentL4RuleList extends $tea.Model {
-  /**
-   * @remarks
-   * The action that is specified in the rule. Valid value:
-   * 
-   * *   **2**: The traffic is discarded.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The match conditions.
-   * 
-   * This parameter is required.
-   */
-  conditionList?: ModifyPolicyRequestContentL4RuleListConditionList[];
-  /**
-   * @remarks
-   * The minimum number of bytes in a session to trigger matching. Valid values: **0** to **2048**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  limited?: number;
-  /**
-   * @remarks
-   * The condition based on which an action is performed. Valid values:
-   * 
-   * *   **0**: If the rule is matched, the action specified in the rule is performed.
-   * *   **1**: If the rule is not matched, the action specified in the rule is performed.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  match?: string;
-  /**
-   * @remarks
-   * The type of the rule. Valid values:
-   * 
-   * *   **char**: string match.
-   * *   **hex**: hexadecimal string match.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * char
-   */
-  method?: string;
-  /**
-   * @remarks
-   * The name of the rule.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test****
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The priority of the rule. Valid values: **1** to **100**.
-   * 
-   * >  A smaller value indicates a higher priority.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  priority?: number;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      conditionList: 'ConditionList',
-      limited: 'Limited',
-      match: 'Match',
-      method: 'Method',
-      name: 'Name',
-      priority: 'Priority',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      conditionList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentL4RuleListConditionList },
-      limited: 'number',
-      match: 'string',
-      method: 'string',
-      name: 'string',
-      priority: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyRequestContentPortRuleList extends $tea.Model {
-  /**
-   * @remarks
-   * The end of the destination port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 65535
-   */
-  dstPortEnd?: number;
-  /**
-   * @remarks
-   * The start of the destination port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  dstPortStart?: number;
-  /**
-   * @remarks
-   * The ID of the rule.
-   * 
-   * @example
-   * c52c2fa6-fdac-40c4-8753-be7c*********
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The action triggered if the rule is matched. Valid values:
-   * 
-   * *   **drop**: The traffic is discarded.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * drop
-   */
-  matchAction?: string;
-  /**
-   * @remarks
-   * The type of the protocol. Valid values:
-   * 
-   * *   **tcp**
-   * *   **udp**
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * tcp
-   */
-  protocol?: string;
-  /**
-   * @remarks
-   * The sequence number that indicates the order for the rule to take effect. The value is an integer.
-   * 
-   * >  A smaller number indicates a higher priority.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  seqNo?: number;
-  /**
-   * @remarks
-   * The end of the source port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 65535
-   */
-  srcPortEnd?: number;
-  /**
-   * @remarks
-   * The start of the source port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  srcPortStart?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dstPortEnd: 'DstPortEnd',
-      dstPortStart: 'DstPortStart',
-      id: 'Id',
-      matchAction: 'MatchAction',
-      protocol: 'Protocol',
-      seqNo: 'SeqNo',
-      srcPortEnd: 'SrcPortEnd',
-      srcPortStart: 'SrcPortStart',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dstPortEnd: 'number',
-      dstPortStart: 'number',
-      id: 'string',
-      matchAction: 'string',
-      protocol: 'string',
-      seqNo: 'number',
-      srcPortEnd: 'number',
-      srcPortStart: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyRequestContentSourceBlockList extends $tea.Model {
-  /**
-   * @remarks
-   * The validity period of the blacklist to which the source IP address is added. Unit: seconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 120
-   */
-  blockExpireSeconds?: number;
-  /**
-   * @remarks
-   * The statistical period during which the system collects data on source IP addresses to determine whether to add the source IP addresses to the blacklist. Unit: seconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 60
-   */
-  everySeconds?: number;
-  /**
-   * @remarks
-   * The number of times that the source IP address exceeds a limit in a statistical period.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 5
-   */
-  exceedLimitTimes?: number;
-  /**
-   * @remarks
-   * The type of the source rate limit. Valid values:
-   * 
-   * *   **3**: the pps limit on source IP addresses.
-   * *   **4**: the bandwidth limit on source IP addresses.
-   * *   **5**: the pps limit on source SYN packets.
-   * *   **6**: the bandwidth limit on source SYN packets.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 3
-   */
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      blockExpireSeconds: 'BlockExpireSeconds',
-      everySeconds: 'EverySeconds',
-      exceedLimitTimes: 'ExceedLimitTimes',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockExpireSeconds: 'number',
-      everySeconds: 'number',
-      exceedLimitTimes: 'number',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyRequestContentSourceLimit extends $tea.Model {
-  /**
-   * @remarks
-   * The bandwidth limit on source IP addresses. Unit: bytes per second.
-   * 
-   * @example
-   * 2048
-   */
-  bps?: number;
-  /**
-   * @remarks
-   * The packets per second (pps) limit on source IP addresses.
-   * 
-   * @example
-   * 64
-   */
-  pps?: number;
-  /**
-   * @remarks
-   * The bandwidth limit on source SYN packets. Unit: bytes per second.
-   * 
-   * @example
-   * 2048
-   */
-  synBps?: number;
-  /**
-   * @remarks
-   * The pps limit on source SYN packets.
-   * 
-   * @example
-   * 64
-   */
-  synPps?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bps: 'Bps',
-      pps: 'Pps',
-      synBps: 'SynBps',
-      synPps: 'SynPps',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bps: 'number',
-      pps: 'number',
-      synBps: 'number',
-      synPps: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyRequestContent extends $tea.Model {
-  /**
-   * @remarks
-   * The IP addresses in the blacklist.
-   */
-  blackIpList?: string[];
-  /**
-   * @remarks
-   * The validity period of the IP address blacklist. The value is a UNIX timestamp.
-   * 
-   * @example
-   * 1716878000
-   */
-  blackIpListExpireAt?: number;
-  /**
-   * @remarks
-   * Specifies whether to enable ICMP blocking.
-   * 
-   * @example
-   * true
-   */
-  enableDropIcmp?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable intelligent protection.
-   * 
-   * @example
-   * true
-   */
-  enableIntelligence?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable port-specific mitigation.
-   */
-  enableL4Defense?: boolean;
-  /**
-   * @remarks
-   * The byte-match filter rules.
-   */
-  fingerPrintRuleList?: ModifyPolicyRequestContentFingerPrintRuleList[];
-  /**
-   * @remarks
-   * The level of intelligent protection. Valid values:
-   * 
-   * *   **default**: normal.
-   * *   **hard**: strict.
-   * *   **weak**: loose.
-   * 
-   * @example
-   * default
-   */
-  intelligenceLevel?: string;
-  /**
-   * @remarks
-   * The port-specific mitigation rules.
-   */
-  l4RuleList?: ModifyPolicyRequestContentL4RuleList[];
-  /**
-   * @remarks
-   * The port blocking rules.
-   */
-  portRuleList?: ModifyPolicyRequestContentPortRuleList[];
-  /**
-   * @remarks
-   * The ports whose traffic is filtered out by the filtering policies for UDP reflection attacks.
-   */
-  reflectBlockUdpPortList?: number[];
-  /**
-   * @remarks
-   * The countries in the location blacklist.
-   */
-  regionBlockCountryList?: number[];
-  /**
-   * @remarks
-   * The provinces in the location blacklist.
-   */
-  regionBlockProvinceList?: number[];
-  /**
-   * @remarks
-   * The source IP addresses that are added to the blacklist.
-   */
-  sourceBlockList?: ModifyPolicyRequestContentSourceBlockList[];
-  /**
-   * @remarks
-   * The settings for source rate limiting.
-   */
-  sourceLimit?: ModifyPolicyRequestContentSourceLimit;
-  /**
-   * @remarks
-   * The IP addresses in the whitelist.
-   */
-  whiteIpList?: string[];
-  /**
-   * @remarks
-   * Specifies whether to add back-to-origin CIDR blocks of Anti-DDoS Proxy to the whitelist.
-   * 
-   * @example
-   * false
-   */
-  whitenGfbrNets?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      blackIpList: 'BlackIpList',
-      blackIpListExpireAt: 'BlackIpListExpireAt',
-      enableDropIcmp: 'EnableDropIcmp',
-      enableIntelligence: 'EnableIntelligence',
-      enableL4Defense: 'EnableL4Defense',
-      fingerPrintRuleList: 'FingerPrintRuleList',
-      intelligenceLevel: 'IntelligenceLevel',
-      l4RuleList: 'L4RuleList',
-      portRuleList: 'PortRuleList',
-      reflectBlockUdpPortList: 'ReflectBlockUdpPortList',
-      regionBlockCountryList: 'RegionBlockCountryList',
-      regionBlockProvinceList: 'RegionBlockProvinceList',
-      sourceBlockList: 'SourceBlockList',
-      sourceLimit: 'SourceLimit',
-      whiteIpList: 'WhiteIpList',
-      whitenGfbrNets: 'WhitenGfbrNets',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blackIpList: { 'type': 'array', 'itemType': 'string' },
-      blackIpListExpireAt: 'number',
-      enableDropIcmp: 'boolean',
-      enableIntelligence: 'boolean',
-      enableL4Defense: 'boolean',
-      fingerPrintRuleList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentFingerPrintRuleList },
-      intelligenceLevel: 'string',
-      l4RuleList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentL4RuleList },
-      portRuleList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentPortRuleList },
-      reflectBlockUdpPortList: { 'type': 'array', 'itemType': 'number' },
-      regionBlockCountryList: { 'type': 'array', 'itemType': 'number' },
-      regionBlockProvinceList: { 'type': 'array', 'itemType': 'number' },
-      sourceBlockList: { 'type': 'array', 'itemType': ModifyPolicyRequestContentSourceBlockList },
-      sourceLimit: ModifyPolicyRequestContentSourceLimit,
-      whiteIpList: { 'type': 'array', 'itemType': 'string' },
-      whitenGfbrNets: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $tea.Model {
-  /**
-   * @remarks
-   * The end of the destination port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 65535
-   */
-  dstPortEnd?: number;
-  /**
-   * @remarks
-   * The start of the destination port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  dstPortStart?: number;
-  /**
-   * @remarks
-   * The ID of the rule.
-   * 
-   * @example
-   * 83967609-7ea5-4f6d-a6ea-380b09e****
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The action triggered if the rule is matched. Valid values:
-   * 
-   * *   **permit**: allows the traffic that matches the conditions in the byte-match filter rule.
-   * *   **drop**: discards the traffic that matches the conditions in the byte-match filter rule.
-   * *   **ip_rate**: limits rates on the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
-   * *   **session_rate**: limits the number of sessions from the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * drop
-   */
-  matchAction?: string;
-  /**
-   * @remarks
-   * The maximum packet length. Valid values: **1** to **1500**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1500
-   */
-  maxPktLen?: number;
-  /**
-   * @remarks
-   * The minimum packet length. Valid values: **1** to **1500**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  minPktLen?: number;
-  /**
-   * @remarks
-   * The offset. Valid values: **0** to **1500**.
-   * 
-   * @example
-   * 0
-   */
-  offset?: number;
-  /**
-   * @remarks
-   * The payload. The value is a hexadecimal string.
-   * 
-   * @example
-   * abcd
-   */
-  payloadBytes?: string;
-  /**
-   * @remarks
-   * The protocol type. Valid values:
-   * 
-   * *   **tcp**
-   * *   **udp**
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * tcp
-   */
-  protocol?: string;
-  /**
-   * @remarks
-   * The rate limit. Valid values: **1** to **100000**.
-   * 
-   * >  This parameter is required when **MatchAction** is set to **ip_rate** or **session_rate**.
-   * 
-   * @example
-   * 100
-   */
-  rateValue?: number;
-  /**
-   * @remarks
-   * The sequence number that indicates the order for the rule to take effect. The value is an integer.
-   * 
-   * >  A smaller number indicates a higher priority.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  seqNo?: number;
-  /**
-   * @remarks
-   * The end of the source port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 65535
-   */
-  srcPortEnd?: number;
-  /**
-   * @remarks
-   * The start of the source port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  srcPortStart?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dstPortEnd: 'DstPortEnd',
-      dstPortStart: 'DstPortStart',
-      id: 'Id',
-      matchAction: 'MatchAction',
-      maxPktLen: 'MaxPktLen',
-      minPktLen: 'MinPktLen',
-      offset: 'Offset',
-      payloadBytes: 'PayloadBytes',
-      protocol: 'Protocol',
-      rateValue: 'RateValue',
-      seqNo: 'SeqNo',
-      srcPortEnd: 'SrcPortEnd',
-      srcPortStart: 'SrcPortStart',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dstPortEnd: 'number',
-      dstPortStart: 'number',
-      id: 'string',
-      matchAction: 'string',
-      maxPktLen: 'number',
-      minPktLen: 'number',
-      offset: 'number',
-      payloadBytes: 'string',
-      protocol: 'string',
-      rateValue: 'number',
-      seqNo: 'number',
-      srcPortEnd: 'number',
-      srcPortStart: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyContentRequestContentL4RuleListConditionList extends $tea.Model {
-  /**
-   * @remarks
-   * The term that is used for matching.
-   * 
-   * >  If Method is set to **char**, the value of this parameter must be ASCII strings. If Method is set to **hex**, the value of this parameter must be hexadecimal strings. Maximum length: 2,048.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * abcd
-   */
-  arg?: string;
-  /**
-   * @remarks
-   * The number of bytes from the start position for matching. Valid values: **1** to **2048**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1200
-   */
-  depth?: number;
-  /**
-   * @remarks
-   * The start position for matching. Valid values: **0** to **2047**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  position?: number;
-  static names(): { [key: string]: string } {
-    return {
-      arg: 'Arg',
-      depth: 'Depth',
-      position: 'Position',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      arg: 'string',
-      depth: 'number',
-      position: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyContentRequestContentL4RuleList extends $tea.Model {
-  /**
-   * @remarks
-   * The action that is specified in the rule. Valid value:
-   * 
-   * *   **2**: The traffic is discarded.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The match conditions.
-   * 
-   * This parameter is required.
-   */
-  conditionList?: ModifyPolicyContentRequestContentL4RuleListConditionList[];
-  /**
-   * @remarks
-   * The minimum number of bytes in a session to trigger matching. Valid values: **0** to **2048**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  limited?: number;
-  /**
-   * @remarks
-   * The condition based on which an action is performed. Valid values:
-   * 
-   * *   **0**: If the rule is matched, the action specified in the rule is performed.
-   * *   **1**: If the rule is not matched, the action specified in the rule is performed.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  match?: string;
-  /**
-   * @remarks
-   * The type of the rule. Valid values:
-   * 
-   * *   **char**: string match.
-   * *   **hex**: hexadecimal string match.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * char
-   */
-  method?: string;
-  /**
-   * @remarks
-   * The name of the rule.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test**
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The priority of the rule. Valid values: 1 to 100.
-   * 
-   * >  A smaller value indicates a higher priority.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  priority?: number;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      conditionList: 'ConditionList',
-      limited: 'Limited',
-      match: 'Match',
-      method: 'Method',
-      name: 'Name',
-      priority: 'Priority',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      conditionList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentL4RuleListConditionList },
-      limited: 'number',
-      match: 'string',
-      method: 'string',
-      name: 'string',
-      priority: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyContentRequestContentPortRuleList extends $tea.Model {
-  /**
-   * @remarks
-   * The end of the destination port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 65535
-   */
-  dstPortEnd?: number;
-  /**
-   * @remarks
-   * The start of the destination port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  dstPortStart?: number;
-  /**
-   * @remarks
-   * The ID of the rule.
-   * 
-   * @example
-   * 412a7312-58ff-4e32-a202-0ab0*******
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The action triggered if the rule is matched. Valid values:
-   * 
-   * *   **drop**: The traffic is discarded.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * drop
-   */
-  matchAction?: string;
-  /**
-   * @remarks
-   * The protocol type. Valid values:
-   * 
-   * *   **tcp**
-   * *   **udp**
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * tcp
-   */
-  protocol?: string;
-  /**
-   * @remarks
-   * The sequence number that indicates the order for the rule to take effect. The value is an integer.
-   * 
-   * >  A smaller number indicates a higher priority.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  seqNo?: number;
-  /**
-   * @remarks
-   * The end of the source port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 65535
-   */
-  srcPortEnd?: number;
-  /**
-   * @remarks
-   * The start of the source port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  srcPortStart?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dstPortEnd: 'DstPortEnd',
-      dstPortStart: 'DstPortStart',
-      id: 'Id',
-      matchAction: 'MatchAction',
-      protocol: 'Protocol',
-      seqNo: 'SeqNo',
-      srcPortEnd: 'SrcPortEnd',
-      srcPortStart: 'SrcPortStart',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dstPortEnd: 'number',
-      dstPortStart: 'number',
-      id: 'string',
-      matchAction: 'string',
-      protocol: 'string',
-      seqNo: 'number',
-      srcPortEnd: 'number',
-      srcPortStart: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyContentRequestContentSourceBlockList extends $tea.Model {
-  /**
-   * @remarks
-   * The validity period of the blacklist to which the source IP address is added. Unit: seconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 120
-   */
-  blockExpireSeconds?: number;
-  /**
-   * @remarks
-   * The statistical period during which the system collects data on source IP addresses to determine whether to add the source IP addresses to the blacklist. Unit: seconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 60
-   */
-  everySeconds?: number;
-  /**
-   * @remarks
-   * The number of times that the source IP address exceeds a limit in a statistical period.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 5
-   */
-  exceedLimitTimes?: number;
-  /**
-   * @remarks
-   * The type of the source rate limit. Valid values:
-   * 
-   * *   **3**: the pps limit on source IP addresses.
-   * *   **4**: the bandwidth limit on source IP addresses.
-   * *   **5**: the pps limit on source SYN packets.
-   * *   **6**: the bandwidth limit on source SYN packets.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 3
-   */
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      blockExpireSeconds: 'BlockExpireSeconds',
-      everySeconds: 'EverySeconds',
-      exceedLimitTimes: 'ExceedLimitTimes',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockExpireSeconds: 'number',
-      everySeconds: 'number',
-      exceedLimitTimes: 'number',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyContentRequestContentSourceLimit extends $tea.Model {
-  /**
-   * @remarks
-   * The bandwidth limit on source IP addresses. Unit: bytes per second.
-   * 
-   * @example
-   * 2048
-   */
-  bps?: number;
-  /**
-   * @remarks
-   * The packets per second (pps) limit on source IP addresses.
-   * 
-   * @example
-   * 64
-   */
-  pps?: number;
-  /**
-   * @remarks
-   * The bandwidth limit on source SYN packets. Unit: bytes per second.
-   * 
-   * @example
-   * 2048
-   */
-  synBps?: number;
-  /**
-   * @remarks
-   * The pps limit on source SYN packets.
-   * 
-   * @example
-   * 64
-   */
-  synPps?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bps: 'Bps',
-      pps: 'Pps',
-      synBps: 'SynBps',
-      synPps: 'SynPps',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bps: 'number',
-      pps: 'number',
-      synBps: 'number',
-      synPps: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyContentRequestContent extends $tea.Model {
-  /**
-   * @remarks
-   * The validity period of the IP address blacklist. The value is a UNIX timestamp.
-   * 
-   * @example
-   * 1716878000
-   */
-  blackIpListExpireAt?: number;
-  /**
-   * @remarks
-   * Specifies whether to enable ICMP blocking.
-   * 
-   * @example
-   * true
-   */
-  enableDropIcmp?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable intelligent protection.
-   * 
-   * @example
-   * true
-   */
-  enableIntelligence?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable port-specific mitigation.
-   */
-  enableL4Defense?: boolean;
-  /**
-   * @remarks
-   * The byte-match filter rules.
-   */
-  fingerPrintRuleList?: ModifyPolicyContentRequestContentFingerPrintRuleList[];
-  /**
-   * @remarks
-   * The level of intelligent protection. Valid values:
-   * 
-   * *   **default**: normal.
-   * *   **hard**: strict.
-   * *   **weak**: loose.
-   * 
-   * @example
-   * default
-   */
-  intelligenceLevel?: string;
-  /**
-   * @remarks
-   * The port-specific mitigation rules.
-   */
-  l4RuleList?: ModifyPolicyContentRequestContentL4RuleList[];
-  /**
-   * @remarks
-   * The port blocking rules.
-   */
-  portRuleList?: ModifyPolicyContentRequestContentPortRuleList[];
-  /**
-   * @remarks
-   * The ports whose traffic is filtered out by the filtering policies for UDP reflection attacks.
-   */
-  reflectBlockUdpPortList?: number[];
-  /**
-   * @remarks
-   * The countries in the location blacklist.
-   */
-  regionBlockCountryList?: number[];
-  /**
-   * @remarks
-   * The provinces in the location blacklist.
-   */
-  regionBlockProvinceList?: number[];
-  /**
-   * @remarks
-   * The source IP addresses that are added to the blacklist.
-   */
-  sourceBlockList?: ModifyPolicyContentRequestContentSourceBlockList[];
-  /**
-   * @remarks
-   * The settings for source rate limiting.
-   */
-  sourceLimit?: ModifyPolicyContentRequestContentSourceLimit;
-  /**
-   * @remarks
-   * Specifies whether to add back-to-origin CIDR blocks of Anti-DDoS Proxy to the whitelist.
-   * 
-   * @example
-   * false
-   */
-  whitenGfbrNets?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      blackIpListExpireAt: 'BlackIpListExpireAt',
-      enableDropIcmp: 'EnableDropIcmp',
-      enableIntelligence: 'EnableIntelligence',
-      enableL4Defense: 'EnableL4Defense',
-      fingerPrintRuleList: 'FingerPrintRuleList',
-      intelligenceLevel: 'IntelligenceLevel',
-      l4RuleList: 'L4RuleList',
-      portRuleList: 'PortRuleList',
-      reflectBlockUdpPortList: 'ReflectBlockUdpPortList',
-      regionBlockCountryList: 'RegionBlockCountryList',
-      regionBlockProvinceList: 'RegionBlockProvinceList',
-      sourceBlockList: 'SourceBlockList',
-      sourceLimit: 'SourceLimit',
-      whitenGfbrNets: 'WhitenGfbrNets',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blackIpListExpireAt: 'number',
-      enableDropIcmp: 'boolean',
-      enableIntelligence: 'boolean',
-      enableL4Defense: 'boolean',
-      fingerPrintRuleList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentFingerPrintRuleList },
-      intelligenceLevel: 'string',
-      l4RuleList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentL4RuleList },
-      portRuleList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentPortRuleList },
-      reflectBlockUdpPortList: { 'type': 'array', 'itemType': 'number' },
-      regionBlockCountryList: { 'type': 'array', 'itemType': 'number' },
-      regionBlockProvinceList: { 'type': 'array', 'itemType': 'number' },
-      sourceBlockList: { 'type': 'array', 'itemType': ModifyPolicyContentRequestContentSourceBlockList },
-      sourceLimit: ModifyPolicyContentRequestContentSourceLimit,
-      whitenGfbrNets: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySchedruleOnDemandResponseBodyRuleConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The scheduling action. The value is set to **declare**, which indicates that the route is advertised.
-   * 
-   * @example
-   * declare
-   */
-  ruleAction?: string;
-  /**
-   * @remarks
-   * If the inbound bandwidth or packets consecutively exceed the threshold for the specified number of times, the scheduling rule is triggered and traffic is rerouted to the on-demand instance. The specified number of times is the value of this parameter.
-   * 
-   * >  The threshold of inbound bandwidth is the value of **RuleConditionMbps**. The threshold of inbound packets is the value of **RuleConditionKpps**.
-   * 
-   * @example
-   * 3
-   */
-  ruleConditionCnt?: string;
-  /**
-   * @remarks
-   * The threshold of inbound packets. Unit: kilo packets per second (Kpps). Minimum value: **10**.
-   * 
-   * @example
-   * 10
-   */
-  ruleConditionKpps?: string;
-  /**
-   * @remarks
-   * The threshold of inbound bandwidth. Unit: Mbit/s. Minimum value: **100**.
-   * 
-   * @example
-   * 100
-   */
-  ruleConditionMbps?: string;
-  /**
-   * @remarks
-   * The name of the scheduling rule.
-   * 
-   * @example
-   * ddosbgp-cn-z2q1qzxb****
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * Indicates whether the scheduling rule is enabled. Valid values:
-   * 
-   * *   **on**: enabled.
-   * *   **off**: disabled.
-   * 
-   * @example
-   * on
-   */
-  ruleSwitch?: string;
-  /**
-   * @remarks
-   * The start time of the period during which the scheduling rule is automatically stopped. The time must be in the 24-hour clock and in the `hh:mm` format.
-   * 
-   * If the system detects that DDoS attacks stop, the system no longer reroutes traffic to the on-demand instance from the time you specified. We recommend that you set this parameter to a value that is defined as off-peak hours.
-   * 
-   * >  This parameter takes effect only when the value of **RuleUndoMode** is **auto**.
-   * 
-   * @example
-   * 03:00
-   */
-  ruleUndoBeginTime?: string;
-  /**
-   * @remarks
-   * The end time of the period during which the scheduling rule is automatically stopped. The time must be in the 24-hour clock and in the `hh:mm` format.
-   * 
-   * @example
-   * 03:05
-   */
-  ruleUndoEndTime?: string;
-  /**
-   * @remarks
-   * The stop method of the scheduling rule. Valid values:
-   * 
-   * *   **auto**
-   * *   **manual**
-   * 
-   * @example
-   * auto
-   */
-  ruleUndoMode?: string;
-  /**
-   * @remarks
-   * The time zone of the time when the scheduling rule automatically stops. The time zone must be in the `GMT-hh:mm` format.
-   * 
-   * For example, the value `GMT-08:00` indicates that the time zone is UTC+8.
-   * 
-   * >  This parameter takes effect only when the value of **RuleUndoMode** is **auto**.
-   * 
-   * @example
-   * GMT-08:00
-   */
-  timeZone?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ruleAction: 'RuleAction',
-      ruleConditionCnt: 'RuleConditionCnt',
-      ruleConditionKpps: 'RuleConditionKpps',
-      ruleConditionMbps: 'RuleConditionMbps',
-      ruleName: 'RuleName',
-      ruleSwitch: 'RuleSwitch',
-      ruleUndoBeginTime: 'RuleUndoBeginTime',
-      ruleUndoEndTime: 'RuleUndoEndTime',
-      ruleUndoMode: 'RuleUndoMode',
-      timeZone: 'TimeZone',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ruleAction: 'string',
-      ruleConditionCnt: 'string',
-      ruleConditionKpps: 'string',
-      ruleConditionMbps: 'string',
-      ruleName: 'string',
-      ruleSwitch: 'string',
-      ruleUndoBeginTime: 'string',
-      ruleUndoEndTime: 'string',
-      ruleUndoMode: 'string',
-      timeZone: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySchedruleOnDemandResponseBodyRuleStatus extends $tea.Model {
-  /**
-   * @remarks
-   * The CIDR block of the on-demand instance.
-   * 
-   * @example
-   * 47.***.***.0/24
-   */
-  net?: string;
-  /**
-   * @remarks
-   * The scheduling status. Valid values:
-   * 
-   * *   **scheduled**
-   * *   **unscheduled**
-   * 
-   * @example
-   * unscheduled
-   */
-  ruleSchedStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      net: 'Net',
-      ruleSchedStatus: 'RuleSchedStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      net: 'string',
-      ruleSchedStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the tag to add.
-   * 
-   * > If the specified key does not exist, a key is created.
-   * 
-   * @example
-   * test-key
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag to add.
-   * 
-   * > If the specified tag value does not exist, the tag value is created.
-   * 
-   * @example
-   * test-value
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -11140,7 +12521,7 @@ export class TagResourcesRequestTag extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
@@ -11171,15 +12552,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -11189,29 +12570,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddIpResponse
    */
-  async addIpWithOptions(request: AddIpRequest, runtime: $Util.RuntimeOptions): Promise<AddIpResponse> {
-    Util.validateModel(request);
+  async addIpWithOptions(request: AddIpRequest, runtime: $dara.RuntimeOptions): Promise<AddIpResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ipList)) {
+    if (!$dara.isNull(request.ipList)) {
       query["IpList"] = request.ipList;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddIp",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11222,7 +12603,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddIpResponse>(await this.callApi(params, req, runtime), new AddIpResponse({}));
+    return $dara.cast<AddIpResponse>(await this.callApi(params, req, runtime), new AddIpResponse({}));
   }
 
   /**
@@ -11232,7 +12613,7 @@ export default class Client extends OpenApi {
    * @returns AddIpResponse
    */
   async addIp(request: AddIpRequest): Promise<AddIpResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addIpWithOptions(request, runtime);
   }
 
@@ -11246,23 +12627,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddRdMemberListResponse
    */
-  async addRdMemberListWithOptions(tmpReq: AddRdMemberListRequest, runtime: $Util.RuntimeOptions): Promise<AddRdMemberListResponse> {
-    Util.validateModel(tmpReq);
+  async addRdMemberListWithOptions(tmpReq: AddRdMemberListRequest, runtime: $dara.RuntimeOptions): Promise<AddRdMemberListResponse> {
+    tmpReq.validate();
     let request = new AddRdMemberListShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.memberList)) {
+    if (!$dara.isNull(tmpReq.memberList)) {
       request.memberListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.memberList, "MemberList", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.memberListShrink)) {
+    if (!$dara.isNull(request.memberListShrink)) {
       query["MemberList"] = request.memberListShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddRdMemberList",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11273,7 +12654,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddRdMemberListResponse>(await this.callApi(params, req, runtime), new AddRdMemberListResponse({}));
+    return $dara.cast<AddRdMemberListResponse>(await this.callApi(params, req, runtime), new AddRdMemberListResponse({}));
   }
 
   /**
@@ -11286,7 +12667,7 @@ export default class Client extends OpenApi {
    * @returns AddRdMemberListResponse
    */
   async addRdMemberList(request: AddRdMemberListRequest): Promise<AddRdMemberListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addRdMemberListWithOptions(request, runtime);
   }
 
@@ -11297,31 +12678,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachAssetGroupToInstanceResponse
    */
-  async attachAssetGroupToInstanceWithOptions(tmpReq: AttachAssetGroupToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AttachAssetGroupToInstanceResponse> {
-    Util.validateModel(tmpReq);
+  async attachAssetGroupToInstanceWithOptions(tmpReq: AttachAssetGroupToInstanceRequest, runtime: $dara.RuntimeOptions): Promise<AttachAssetGroupToInstanceResponse> {
+    tmpReq.validate();
     let request = new AttachAssetGroupToInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.assetGroupList)) {
+    if (!$dara.isNull(tmpReq.assetGroupList)) {
       request.assetGroupListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assetGroupList, "AssetGroupList", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.assetGroupListShrink)) {
+    if (!$dara.isNull(request.assetGroupListShrink)) {
       query["AssetGroupList"] = request.assetGroupListShrink;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AttachAssetGroupToInstance",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11332,7 +12713,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachAssetGroupToInstanceResponse>(await this.callApi(params, req, runtime), new AttachAssetGroupToInstanceResponse({}));
+    return $dara.cast<AttachAssetGroupToInstanceResponse>(await this.callApi(params, req, runtime), new AttachAssetGroupToInstanceResponse({}));
   }
 
   /**
@@ -11342,7 +12723,7 @@ export default class Client extends OpenApi {
    * @returns AttachAssetGroupToInstanceResponse
    */
   async attachAssetGroupToInstance(request: AttachAssetGroupToInstanceRequest): Promise<AttachAssetGroupToInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.attachAssetGroupToInstanceWithOptions(request, runtime);
   }
 
@@ -11353,27 +12734,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachToPolicyResponse
    */
-  async attachToPolicyWithOptions(tmpReq: AttachToPolicyRequest, runtime: $Util.RuntimeOptions): Promise<AttachToPolicyResponse> {
-    Util.validateModel(tmpReq);
+  async attachToPolicyWithOptions(tmpReq: AttachToPolicyRequest, runtime: $dara.RuntimeOptions): Promise<AttachToPolicyResponse> {
+    tmpReq.validate();
     let request = new AttachToPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.ipPortProtocolList)) {
+    if (!$dara.isNull(tmpReq.ipPortProtocolList)) {
       request.ipPortProtocolListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipPortProtocolList, "IpPortProtocolList", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.ipPortProtocolListShrink)) {
+    if (!$dara.isNull(request.ipPortProtocolListShrink)) {
       query["IpPortProtocolList"] = request.ipPortProtocolListShrink;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AttachToPolicy",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11384,7 +12765,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachToPolicyResponse>(await this.callApi(params, req, runtime), new AttachToPolicyResponse({}));
+    return $dara.cast<AttachToPolicyResponse>(await this.callApi(params, req, runtime), new AttachToPolicyResponse({}));
   }
 
   /**
@@ -11394,7 +12775,7 @@ export default class Client extends OpenApi {
    * @returns AttachToPolicyResponse
    */
   async attachToPolicy(request: AttachToPolicyRequest): Promise<AttachToPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.attachToPolicyWithOptions(request, runtime);
   }
 
@@ -11405,21 +12786,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckAccessLogAuthResponse
    */
-  async checkAccessLogAuthWithOptions(request: CheckAccessLogAuthRequest, runtime: $Util.RuntimeOptions): Promise<CheckAccessLogAuthResponse> {
-    Util.validateModel(request);
+  async checkAccessLogAuthWithOptions(request: CheckAccessLogAuthRequest, runtime: $dara.RuntimeOptions): Promise<CheckAccessLogAuthResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckAccessLogAuth",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11430,7 +12811,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckAccessLogAuthResponse>(await this.callApi(params, req, runtime), new CheckAccessLogAuthResponse({}));
+    return $dara.cast<CheckAccessLogAuthResponse>(await this.callApi(params, req, runtime), new CheckAccessLogAuthResponse({}));
   }
 
   /**
@@ -11440,7 +12821,7 @@ export default class Client extends OpenApi {
    * @returns CheckAccessLogAuthResponse
    */
   async checkAccessLogAuth(request: CheckAccessLogAuthRequest): Promise<CheckAccessLogAuthResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkAccessLogAuthWithOptions(request, runtime);
   }
 
@@ -11456,13 +12837,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckGrantResponse
    */
-  async checkGrantWithOptions(request: CheckGrantRequest, runtime: $Util.RuntimeOptions): Promise<CheckGrantResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async checkGrantWithOptions(request: CheckGrantRequest, runtime: $dara.RuntimeOptions): Promise<CheckGrantResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckGrant",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11473,7 +12854,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckGrantResponse>(await this.callApi(params, req, runtime), new CheckGrantResponse({}));
+    return $dara.cast<CheckGrantResponse>(await this.callApi(params, req, runtime), new CheckGrantResponse({}));
   }
 
   /**
@@ -11488,72 +12869,72 @@ export default class Client extends OpenApi {
    * @returns CheckGrantResponse
    */
   async checkGrant(request: CheckGrantRequest): Promise<CheckGrantResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkGrantWithOptions(request, runtime);
   }
 
   /**
-   * Modifies a scheduling rule of an on-demand instance.
+   * Modifies a scheduling rule of an anti-DDoS diversion instance.
    * 
    * @param request - ConfigSchedruleOnDemandRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigSchedruleOnDemandResponse
    */
-  async configSchedruleOnDemandWithOptions(request: ConfigSchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<ConfigSchedruleOnDemandResponse> {
-    Util.validateModel(request);
+  async configSchedruleOnDemandWithOptions(request: ConfigSchedruleOnDemandRequest, runtime: $dara.RuntimeOptions): Promise<ConfigSchedruleOnDemandResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.ruleAction)) {
+    if (!$dara.isNull(request.ruleAction)) {
       query["RuleAction"] = request.ruleAction;
     }
 
-    if (!Util.isUnset(request.ruleConditionCnt)) {
+    if (!$dara.isNull(request.ruleConditionCnt)) {
       query["RuleConditionCnt"] = request.ruleConditionCnt;
     }
 
-    if (!Util.isUnset(request.ruleConditionKpps)) {
+    if (!$dara.isNull(request.ruleConditionKpps)) {
       query["RuleConditionKpps"] = request.ruleConditionKpps;
     }
 
-    if (!Util.isUnset(request.ruleConditionMbps)) {
+    if (!$dara.isNull(request.ruleConditionMbps)) {
       query["RuleConditionMbps"] = request.ruleConditionMbps;
     }
 
-    if (!Util.isUnset(request.ruleName)) {
+    if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
     }
 
-    if (!Util.isUnset(request.ruleSwitch)) {
+    if (!$dara.isNull(request.ruleSwitch)) {
       query["RuleSwitch"] = request.ruleSwitch;
     }
 
-    if (!Util.isUnset(request.ruleUndoBeginTime)) {
+    if (!$dara.isNull(request.ruleUndoBeginTime)) {
       query["RuleUndoBeginTime"] = request.ruleUndoBeginTime;
     }
 
-    if (!Util.isUnset(request.ruleUndoEndTime)) {
+    if (!$dara.isNull(request.ruleUndoEndTime)) {
       query["RuleUndoEndTime"] = request.ruleUndoEndTime;
     }
 
-    if (!Util.isUnset(request.ruleUndoMode)) {
+    if (!$dara.isNull(request.ruleUndoMode)) {
       query["RuleUndoMode"] = request.ruleUndoMode;
     }
 
-    if (!Util.isUnset(request.timeZone)) {
+    if (!$dara.isNull(request.timeZone)) {
       query["TimeZone"] = request.timeZone;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ConfigSchedruleOnDemand",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11564,17 +12945,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ConfigSchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new ConfigSchedruleOnDemandResponse({}));
+    return $dara.cast<ConfigSchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new ConfigSchedruleOnDemandResponse({}));
   }
 
   /**
-   * Modifies a scheduling rule of an on-demand instance.
+   * Modifies a scheduling rule of an anti-DDoS diversion instance.
    * 
    * @param request - ConfigSchedruleOnDemandRequest
    * @returns ConfigSchedruleOnDemandResponse
    */
   async configSchedruleOnDemand(request: ConfigSchedruleOnDemandRequest): Promise<ConfigSchedruleOnDemandResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.configSchedruleOnDemandWithOptions(request, runtime);
   }
 
@@ -11585,21 +12966,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePolicyResponse
    */
-  async createPolicyWithOptions(request: CreatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyResponse> {
-    Util.validateModel(request);
+  async createPolicyWithOptions(request: CreatePolicyRequest, runtime: $dara.RuntimeOptions): Promise<CreatePolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreatePolicy",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11610,7 +12991,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreatePolicyResponse>(await this.callApi(params, req, runtime), new CreatePolicyResponse({}));
+    return $dara.cast<CreatePolicyResponse>(await this.callApi(params, req, runtime), new CreatePolicyResponse({}));
   }
 
   /**
@@ -11620,72 +13001,72 @@ export default class Client extends OpenApi {
    * @returns CreatePolicyResponse
    */
   async createPolicy(request: CreatePolicyRequest): Promise<CreatePolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createPolicyWithOptions(request, runtime);
   }
 
   /**
-   * Creates a scheduling rule for an on-demand instance.
+   * Creates a scheduling rule for an anti-DDoS diversion instance.
    * 
    * @param request - CreateSchedruleOnDemandRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSchedruleOnDemandResponse
    */
-  async createSchedruleOnDemandWithOptions(request: CreateSchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<CreateSchedruleOnDemandResponse> {
-    Util.validateModel(request);
+  async createSchedruleOnDemandWithOptions(request: CreateSchedruleOnDemandRequest, runtime: $dara.RuntimeOptions): Promise<CreateSchedruleOnDemandResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.ruleAction)) {
+    if (!$dara.isNull(request.ruleAction)) {
       query["RuleAction"] = request.ruleAction;
     }
 
-    if (!Util.isUnset(request.ruleConditionCnt)) {
+    if (!$dara.isNull(request.ruleConditionCnt)) {
       query["RuleConditionCnt"] = request.ruleConditionCnt;
     }
 
-    if (!Util.isUnset(request.ruleConditionKpps)) {
+    if (!$dara.isNull(request.ruleConditionKpps)) {
       query["RuleConditionKpps"] = request.ruleConditionKpps;
     }
 
-    if (!Util.isUnset(request.ruleConditionMbps)) {
+    if (!$dara.isNull(request.ruleConditionMbps)) {
       query["RuleConditionMbps"] = request.ruleConditionMbps;
     }
 
-    if (!Util.isUnset(request.ruleName)) {
+    if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
     }
 
-    if (!Util.isUnset(request.ruleSwitch)) {
+    if (!$dara.isNull(request.ruleSwitch)) {
       query["RuleSwitch"] = request.ruleSwitch;
     }
 
-    if (!Util.isUnset(request.ruleUndoBeginTime)) {
+    if (!$dara.isNull(request.ruleUndoBeginTime)) {
       query["RuleUndoBeginTime"] = request.ruleUndoBeginTime;
     }
 
-    if (!Util.isUnset(request.ruleUndoEndTime)) {
+    if (!$dara.isNull(request.ruleUndoEndTime)) {
       query["RuleUndoEndTime"] = request.ruleUndoEndTime;
     }
 
-    if (!Util.isUnset(request.ruleUndoMode)) {
+    if (!$dara.isNull(request.ruleUndoMode)) {
       query["RuleUndoMode"] = request.ruleUndoMode;
     }
 
-    if (!Util.isUnset(request.timeZone)) {
+    if (!$dara.isNull(request.timeZone)) {
       query["TimeZone"] = request.timeZone;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateSchedruleOnDemand",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11696,17 +13077,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateSchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new CreateSchedruleOnDemandResponse({}));
+    return $dara.cast<CreateSchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new CreateSchedruleOnDemandResponse({}));
   }
 
   /**
-   * Creates a scheduling rule for an on-demand instance.
+   * Creates a scheduling rule for an anti-DDoS diversion instance.
    * 
    * @param request - CreateSchedruleOnDemandRequest
    * @returns CreateSchedruleOnDemandResponse
    */
   async createSchedruleOnDemand(request: CreateSchedruleOnDemandRequest): Promise<CreateSchedruleOnDemandResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createSchedruleOnDemandWithOptions(request, runtime);
   }
 
@@ -11723,29 +13104,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteBlackholeResponse
    */
-  async deleteBlackholeWithOptions(request: DeleteBlackholeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBlackholeResponse> {
-    Util.validateModel(request);
+  async deleteBlackholeWithOptions(request: DeleteBlackholeRequest, runtime: $dara.RuntimeOptions): Promise<DeleteBlackholeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       query["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteBlackhole",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11756,7 +13137,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteBlackholeResponse>(await this.callApi(params, req, runtime), new DeleteBlackholeResponse({}));
+    return $dara.cast<DeleteBlackholeResponse>(await this.callApi(params, req, runtime), new DeleteBlackholeResponse({}));
   }
 
   /**
@@ -11772,7 +13153,7 @@ export default class Client extends OpenApi {
    * @returns DeleteBlackholeResponse
    */
   async deleteBlackhole(request: DeleteBlackholeRequest): Promise<DeleteBlackholeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteBlackholeWithOptions(request, runtime);
   }
 
@@ -11786,29 +13167,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteIpResponse
    */
-  async deleteIpWithOptions(request: DeleteIpRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpResponse> {
-    Util.validateModel(request);
+  async deleteIpWithOptions(request: DeleteIpRequest, runtime: $dara.RuntimeOptions): Promise<DeleteIpResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ipList)) {
+    if (!$dara.isNull(request.ipList)) {
       query["IpList"] = request.ipList;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteIp",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11819,7 +13200,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteIpResponse>(await this.callApi(params, req, runtime), new DeleteIpResponse({}));
+    return $dara.cast<DeleteIpResponse>(await this.callApi(params, req, runtime), new DeleteIpResponse({}));
   }
 
   /**
@@ -11832,7 +13213,7 @@ export default class Client extends OpenApi {
    * @returns DeleteIpResponse
    */
   async deleteIp(request: DeleteIpRequest): Promise<DeleteIpResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteIpWithOptions(request, runtime);
   }
 
@@ -11846,17 +13227,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePolicyResponse
    */
-  async deletePolicyWithOptions(request: DeletePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyResponse> {
-    Util.validateModel(request);
+  async deletePolicyWithOptions(request: DeletePolicyRequest, runtime: $dara.RuntimeOptions): Promise<DeletePolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeletePolicy",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11867,7 +13248,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeletePolicyResponse>(await this.callApi(params, req, runtime), new DeletePolicyResponse({}));
+    return $dara.cast<DeletePolicyResponse>(await this.callApi(params, req, runtime), new DeletePolicyResponse({}));
   }
 
   /**
@@ -11880,7 +13261,7 @@ export default class Client extends OpenApi {
    * @returns DeletePolicyResponse
    */
   async deletePolicy(request: DeletePolicyRequest): Promise<DeletePolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePolicyWithOptions(request, runtime);
   }
 
@@ -11894,23 +13275,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteRdMemberListResponse
    */
-  async deleteRdMemberListWithOptions(tmpReq: DeleteRdMemberListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRdMemberListResponse> {
-    Util.validateModel(tmpReq);
+  async deleteRdMemberListWithOptions(tmpReq: DeleteRdMemberListRequest, runtime: $dara.RuntimeOptions): Promise<DeleteRdMemberListResponse> {
+    tmpReq.validate();
     let request = new DeleteRdMemberListShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.memberList)) {
+    if (!$dara.isNull(tmpReq.memberList)) {
       request.memberListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.memberList, "MemberList", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.memberListShrink)) {
+    if (!$dara.isNull(request.memberListShrink)) {
       query["MemberList"] = request.memberListShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteRdMemberList",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11921,7 +13302,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteRdMemberListResponse>(await this.callApi(params, req, runtime), new DeleteRdMemberListResponse({}));
+    return $dara.cast<DeleteRdMemberListResponse>(await this.callApi(params, req, runtime), new DeleteRdMemberListResponse({}));
   }
 
   /**
@@ -11934,7 +13315,7 @@ export default class Client extends OpenApi {
    * @returns DeleteRdMemberListResponse
    */
   async deleteRdMemberList(request: DeleteRdMemberListRequest): Promise<DeleteRdMemberListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRdMemberListWithOptions(request, runtime);
   }
 
@@ -11945,25 +13326,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSchedruleOnDemandResponse
    */
-  async deleteSchedruleOnDemandWithOptions(request: DeleteSchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSchedruleOnDemandResponse> {
-    Util.validateModel(request);
+  async deleteSchedruleOnDemandWithOptions(request: DeleteSchedruleOnDemandRequest, runtime: $dara.RuntimeOptions): Promise<DeleteSchedruleOnDemandResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.ruleName)) {
+    if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteSchedruleOnDemand",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -11974,7 +13355,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteSchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new DeleteSchedruleOnDemandResponse({}));
+    return $dara.cast<DeleteSchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new DeleteSchedruleOnDemandResponse({}));
   }
 
   /**
@@ -11984,7 +13365,7 @@ export default class Client extends OpenApi {
    * @returns DeleteSchedruleOnDemandResponse
    */
   async deleteSchedruleOnDemand(request: DeleteSchedruleOnDemandRequest): Promise<DeleteSchedruleOnDemandResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSchedruleOnDemandWithOptions(request, runtime);
   }
 
@@ -11995,29 +13376,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAssetGroupResponse
    */
-  async describeAssetGroupWithOptions(request: DescribeAssetGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetGroupResponse> {
-    Util.validateModel(request);
+  async describeAssetGroupWithOptions(request: DescribeAssetGroupRequest, runtime: $dara.RuntimeOptions): Promise<DescribeAssetGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       query["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeAssetGroup",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12028,7 +13409,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeAssetGroupResponse>(await this.callApi(params, req, runtime), new DescribeAssetGroupResponse({}));
+    return $dara.cast<DescribeAssetGroupResponse>(await this.callApi(params, req, runtime), new DescribeAssetGroupResponse({}));
   }
 
   /**
@@ -12038,7 +13419,7 @@ export default class Client extends OpenApi {
    * @returns DescribeAssetGroupResponse
    */
   async describeAssetGroup(request: DescribeAssetGroupRequest): Promise<DescribeAssetGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAssetGroupWithOptions(request, runtime);
   }
 
@@ -12049,37 +13430,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAssetGroupToInstanceResponse
    */
-  async describeAssetGroupToInstanceWithOptions(request: DescribeAssetGroupToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetGroupToInstanceResponse> {
-    Util.validateModel(request);
+  async describeAssetGroupToInstanceWithOptions(request: DescribeAssetGroupToInstanceRequest, runtime: $dara.RuntimeOptions): Promise<DescribeAssetGroupToInstanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.memberUid)) {
+    if (!$dara.isNull(request.memberUid)) {
       query["MemberUid"] = request.memberUid;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       query["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeAssetGroupToInstance",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12090,7 +13471,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeAssetGroupToInstanceResponse>(await this.callApi(params, req, runtime), new DescribeAssetGroupToInstanceResponse({}));
+    return $dara.cast<DescribeAssetGroupToInstanceResponse>(await this.callApi(params, req, runtime), new DescribeAssetGroupToInstanceResponse({}));
   }
 
   /**
@@ -12100,7 +13481,7 @@ export default class Client extends OpenApi {
    * @returns DescribeAssetGroupToInstanceResponse
    */
   async describeAssetGroupToInstance(request: DescribeAssetGroupToInstanceRequest): Promise<DescribeAssetGroupToInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAssetGroupToInstanceWithOptions(request, runtime);
   }
 
@@ -12116,45 +13497,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDdosEventResponse
    */
-  async describeDdosEventWithOptions(request: DescribeDdosEventRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDdosEventResponse> {
-    Util.validateModel(request);
+  async describeDdosEventWithOptions(request: DescribeDdosEventRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDdosEventResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       query["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDdosEvent",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12165,7 +13546,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDdosEventResponse>(await this.callApi(params, req, runtime), new DescribeDdosEventResponse({}));
+    return $dara.cast<DescribeDdosEventResponse>(await this.callApi(params, req, runtime), new DescribeDdosEventResponse({}));
   }
 
   /**
@@ -12180,7 +13561,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDdosEventResponse
    */
   async describeDdosEvent(request: DescribeDdosEventRequest): Promise<DescribeDdosEventResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDdosEventWithOptions(request, runtime);
   }
 
@@ -12191,29 +13572,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDdosOriginInstanceBillResponse
    */
-  async describeDdosOriginInstanceBillWithOptions(request: DescribeDdosOriginInstanceBillRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDdosOriginInstanceBillResponse> {
-    Util.validateModel(request);
+  async describeDdosOriginInstanceBillWithOptions(request: DescribeDdosOriginInstanceBillRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDdosOriginInstanceBillResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.isShowList)) {
+    if (!$dara.isNull(request.isShowList)) {
       query["IsShowList"] = request.isShowList;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDdosOriginInstanceBill",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12224,7 +13605,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDdosOriginInstanceBillResponse>(await this.callApi(params, req, runtime), new DescribeDdosOriginInstanceBillResponse({}));
+    return $dara.cast<DescribeDdosOriginInstanceBillResponse>(await this.callApi(params, req, runtime), new DescribeDdosOriginInstanceBillResponse({}));
   }
 
   /**
@@ -12234,7 +13615,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDdosOriginInstanceBillResponse
    */
   async describeDdosOriginInstanceBill(request: DescribeDdosOriginInstanceBillRequest): Promise<DescribeDdosOriginInstanceBillResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDdosOriginInstanceBillWithOptions(request, runtime);
   }
 
@@ -12249,21 +13630,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeExcpetionCountResponse
    */
-  async describeExcpetionCountWithOptions(request: DescribeExcpetionCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExcpetionCountResponse> {
-    Util.validateModel(request);
+  async describeExcpetionCountWithOptions(request: DescribeExcpetionCountRequest, runtime: $dara.RuntimeOptions): Promise<DescribeExcpetionCountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeExcpetionCount",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12274,7 +13655,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeExcpetionCountResponse>(await this.callApi(params, req, runtime), new DescribeExcpetionCountResponse({}));
+    return $dara.cast<DescribeExcpetionCountResponse>(await this.callApi(params, req, runtime), new DescribeExcpetionCountResponse({}));
   }
 
   /**
@@ -12288,7 +13669,7 @@ export default class Client extends OpenApi {
    * @returns DescribeExcpetionCountResponse
    */
   async describeExcpetionCount(request: DescribeExcpetionCountRequest): Promise<DescribeExcpetionCountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeExcpetionCountWithOptions(request, runtime);
   }
 
@@ -12296,73 +13677,71 @@ export default class Client extends OpenApi {
    * Queries the details of all Anti-DDoS Origin instances.
    * 
    * @remarks
-   * You can call the DescribeInstanceList operation to query the details of all Anti-DDoS Origin instances within your Alibaba Cloud account by page. The details include the ID, validity period, and status of each instance.  
-   * ## Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * Queries the details of all Anti-DDoS Origin instances.
    * 
    * @param request - DescribeInstanceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceListResponse
    */
-  async describeInstanceListWithOptions(request: DescribeInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceListResponse> {
-    Util.validateModel(request);
+  async describeInstanceListWithOptions(request: DescribeInstanceListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInstanceListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceIdList)) {
+    if (!$dara.isNull(request.instanceIdList)) {
       query["InstanceIdList"] = request.instanceIdList;
     }
 
-    if (!Util.isUnset(request.instanceType)) {
+    if (!$dara.isNull(request.instanceType)) {
       query["InstanceType"] = request.instanceType;
     }
 
-    if (!Util.isUnset(request.instanceTypeList)) {
+    if (!$dara.isNull(request.instanceTypeList)) {
       query["InstanceTypeList"] = request.instanceTypeList;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       query["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.ipVersion)) {
+    if (!$dara.isNull(request.ipVersion)) {
       query["IpVersion"] = request.ipVersion;
     }
 
-    if (!Util.isUnset(request.orderby)) {
+    if (!$dara.isNull(request.orderby)) {
       query["Orderby"] = request.orderby;
     }
 
-    if (!Util.isUnset(request.orderdire)) {
+    if (!$dara.isNull(request.orderdire)) {
       query["Orderdire"] = request.orderdire;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeInstanceList",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12373,22 +13752,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeInstanceListResponse>(await this.callApi(params, req, runtime), new DescribeInstanceListResponse({}));
+    return $dara.cast<DescribeInstanceListResponse>(await this.callApi(params, req, runtime), new DescribeInstanceListResponse({}));
   }
 
   /**
    * Queries the details of all Anti-DDoS Origin instances.
    * 
    * @remarks
-   * You can call the DescribeInstanceList operation to query the details of all Anti-DDoS Origin instances within your Alibaba Cloud account by page. The details include the ID, validity period, and status of each instance.  
-   * ## Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * Queries the details of all Anti-DDoS Origin instances.
    * 
    * @param request - DescribeInstanceListRequest
    * @returns DescribeInstanceListResponse
    */
   async describeInstanceList(request: DescribeInstanceListRequest): Promise<DescribeInstanceListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstanceListWithOptions(request, runtime);
   }
 
@@ -12399,25 +13776,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceSpecsResponse
    */
-  async describeInstanceSpecsWithOptions(request: DescribeInstanceSpecsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSpecsResponse> {
-    Util.validateModel(request);
+  async describeInstanceSpecsWithOptions(request: DescribeInstanceSpecsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInstanceSpecsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceIdList)) {
+    if (!$dara.isNull(request.instanceIdList)) {
       query["InstanceIdList"] = request.instanceIdList;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeInstanceSpecs",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12428,7 +13805,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeInstanceSpecsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSpecsResponse({}));
+    return $dara.cast<DescribeInstanceSpecsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSpecsResponse({}));
   }
 
   /**
@@ -12438,7 +13815,7 @@ export default class Client extends OpenApi {
    * @returns DescribeInstanceSpecsResponse
    */
   async describeInstanceSpecs(request: DescribeInstanceSpecsRequest): Promise<DescribeInstanceSpecsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstanceSpecsWithOptions(request, runtime);
   }
 
@@ -12454,45 +13831,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOnDemandDdosEventResponse
    */
-  async describeOnDemandDdosEventWithOptions(request: DescribeOnDemandDdosEventRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOnDemandDdosEventResponse> {
-    Util.validateModel(request);
+  async describeOnDemandDdosEventWithOptions(request: DescribeOnDemandDdosEventRequest, runtime: $dara.RuntimeOptions): Promise<DescribeOnDemandDdosEventResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       query["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeOnDemandDdosEvent",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12503,7 +13880,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeOnDemandDdosEventResponse>(await this.callApi(params, req, runtime), new DescribeOnDemandDdosEventResponse({}));
+    return $dara.cast<DescribeOnDemandDdosEventResponse>(await this.callApi(params, req, runtime), new DescribeOnDemandDdosEventResponse({}));
   }
 
   /**
@@ -12518,7 +13895,7 @@ export default class Client extends OpenApi {
    * @returns DescribeOnDemandDdosEventResponse
    */
   async describeOnDemandDdosEvent(request: DescribeOnDemandDdosEventRequest): Promise<DescribeOnDemandDdosEventResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeOnDemandDdosEventWithOptions(request, runtime);
   }
 
@@ -12529,21 +13906,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOnDemandInstanceStatusResponse
    */
-  async describeOnDemandInstanceStatusWithOptions(request: DescribeOnDemandInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOnDemandInstanceStatusResponse> {
-    Util.validateModel(request);
+  async describeOnDemandInstanceStatusWithOptions(request: DescribeOnDemandInstanceStatusRequest, runtime: $dara.RuntimeOptions): Promise<DescribeOnDemandInstanceStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceIdList)) {
+    if (!$dara.isNull(request.instanceIdList)) {
       query["InstanceIdList"] = request.instanceIdList;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeOnDemandInstanceStatus",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12554,7 +13931,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeOnDemandInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeOnDemandInstanceStatusResponse({}));
+    return $dara.cast<DescribeOnDemandInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeOnDemandInstanceStatusResponse({}));
   }
 
   /**
@@ -12564,7 +13941,7 @@ export default class Client extends OpenApi {
    * @returns DescribeOnDemandInstanceStatusResponse
    */
   async describeOnDemandInstanceStatus(request: DescribeOnDemandInstanceStatusRequest): Promise<DescribeOnDemandInstanceStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeOnDemandInstanceStatusWithOptions(request, runtime);
   }
 
@@ -12580,53 +13957,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOpEntitiesResponse
    */
-  async describeOpEntitiesWithOptions(request: DescribeOpEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOpEntitiesResponse> {
-    Util.validateModel(request);
+  async describeOpEntitiesWithOptions(request: DescribeOpEntitiesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeOpEntitiesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.opAction)) {
+    if (!$dara.isNull(request.opAction)) {
       query["OpAction"] = request.opAction;
     }
 
-    if (!Util.isUnset(request.orderBy)) {
+    if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
 
-    if (!Util.isUnset(request.orderDir)) {
+    if (!$dara.isNull(request.orderDir)) {
       query["OrderDir"] = request.orderDir;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeOpEntities",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12637,7 +14014,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeOpEntitiesResponse>(await this.callApi(params, req, runtime), new DescribeOpEntitiesResponse({}));
+    return $dara.cast<DescribeOpEntitiesResponse>(await this.callApi(params, req, runtime), new DescribeOpEntitiesResponse({}));
   }
 
   /**
@@ -12652,7 +14029,7 @@ export default class Client extends OpenApi {
    * @returns DescribeOpEntitiesResponse
    */
   async describeOpEntities(request: DescribeOpEntitiesRequest): Promise<DescribeOpEntitiesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeOpEntitiesWithOptions(request, runtime);
   }
 
@@ -12668,45 +14045,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePackIpListResponse
    */
-  async describePackIpListWithOptions(request: DescribePackIpListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePackIpListResponse> {
-    Util.validateModel(request);
+  async describePackIpListWithOptions(request: DescribePackIpListRequest, runtime: $dara.RuntimeOptions): Promise<DescribePackIpListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       query["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.memberUid)) {
+    if (!$dara.isNull(request.memberUid)) {
       query["MemberUid"] = request.memberUid;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productName)) {
+    if (!$dara.isNull(request.productName)) {
       query["ProductName"] = request.productName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribePackIpList",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12717,7 +14094,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePackIpListResponse>(await this.callApi(params, req, runtime), new DescribePackIpListResponse({}));
+    return $dara.cast<DescribePackIpListResponse>(await this.callApi(params, req, runtime), new DescribePackIpListResponse({}));
   }
 
   /**
@@ -12732,7 +14109,7 @@ export default class Client extends OpenApi {
    * @returns DescribePackIpListResponse
    */
   async describePackIpList(request: DescribePackIpListRequest): Promise<DescribePackIpListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describePackIpListWithOptions(request, runtime);
   }
 
@@ -12743,25 +14120,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRdMemberListResponse
    */
-  async describeRdMemberListWithOptions(request: DescribeRdMemberListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRdMemberListResponse> {
-    Util.validateModel(request);
+  async describeRdMemberListWithOptions(request: DescribeRdMemberListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRdMemberListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceDirectoryId)) {
+    if (!$dara.isNull(request.resourceDirectoryId)) {
       query["ResourceDirectoryId"] = request.resourceDirectoryId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRdMemberList",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12772,7 +14149,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRdMemberListResponse>(await this.callApi(params, req, runtime), new DescribeRdMemberListResponse({}));
+    return $dara.cast<DescribeRdMemberListResponse>(await this.callApi(params, req, runtime), new DescribeRdMemberListResponse({}));
   }
 
   /**
@@ -12782,7 +14159,7 @@ export default class Client extends OpenApi {
    * @returns DescribeRdMemberListResponse
    */
   async describeRdMemberList(request: DescribeRdMemberListRequest): Promise<DescribeRdMemberListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRdMemberListWithOptions(request, runtime);
   }
 
@@ -12793,9 +14170,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRdStatusResponse
    */
-  async describeRdStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRdStatusResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async describeRdStatusWithOptions(runtime: $dara.RuntimeOptions): Promise<DescribeRdStatusResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRdStatus",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12806,7 +14183,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRdStatusResponse>(await this.callApi(params, req, runtime), new DescribeRdStatusResponse({}));
+    return $dara.cast<DescribeRdStatusResponse>(await this.callApi(params, req, runtime), new DescribeRdStatusResponse({}));
   }
 
   /**
@@ -12814,7 +14191,7 @@ export default class Client extends OpenApi {
    * @returns DescribeRdStatusResponse
    */
   async describeRdStatus(): Promise<DescribeRdStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRdStatusWithOptions(runtime);
   }
 
@@ -12825,21 +14202,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRegions",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12850,7 +14227,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   /**
@@ -12860,7 +14237,7 @@ export default class Client extends OpenApi {
    * @returns DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
@@ -12877,49 +14254,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTrafficResponse
    */
-  async describeTrafficWithOptions(request: DescribeTrafficRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrafficResponse> {
-    Util.validateModel(request);
+  async describeTrafficWithOptions(request: DescribeTrafficRequest, runtime: $dara.RuntimeOptions): Promise<DescribeTrafficResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.flowType)) {
+    if (!$dara.isNull(request.flowType)) {
       query["FlowType"] = request.flowType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.interval)) {
+    if (!$dara.isNull(request.interval)) {
       query["Interval"] = request.interval;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       query["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.ipnet)) {
+    if (!$dara.isNull(request.ipnet)) {
       query["Ipnet"] = request.ipnet;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeTraffic",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12930,7 +14307,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeTrafficResponse>(await this.callApi(params, req, runtime), new DescribeTrafficResponse({}));
+    return $dara.cast<DescribeTrafficResponse>(await this.callApi(params, req, runtime), new DescribeTrafficResponse({}));
   }
 
   /**
@@ -12946,7 +14323,7 @@ export default class Client extends OpenApi {
    * @returns DescribeTrafficResponse
    */
   async describeTraffic(request: DescribeTrafficRequest): Promise<DescribeTrafficResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeTrafficWithOptions(request, runtime);
   }
 
@@ -12957,27 +14334,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachFromPolicyResponse
    */
-  async detachFromPolicyWithOptions(tmpReq: DetachFromPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DetachFromPolicyResponse> {
-    Util.validateModel(tmpReq);
+  async detachFromPolicyWithOptions(tmpReq: DetachFromPolicyRequest, runtime: $dara.RuntimeOptions): Promise<DetachFromPolicyResponse> {
+    tmpReq.validate();
     let request = new DetachFromPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.ipPortProtocolList)) {
+    if (!$dara.isNull(tmpReq.ipPortProtocolList)) {
       request.ipPortProtocolListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipPortProtocolList, "IpPortProtocolList", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.ipPortProtocolListShrink)) {
+    if (!$dara.isNull(request.ipPortProtocolListShrink)) {
       query["IpPortProtocolList"] = request.ipPortProtocolListShrink;
     }
 
-    if (!Util.isUnset(request.policyType)) {
+    if (!$dara.isNull(request.policyType)) {
       query["PolicyType"] = request.policyType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetachFromPolicy",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -12988,7 +14365,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachFromPolicyResponse>(await this.callApi(params, req, runtime), new DetachFromPolicyResponse({}));
+    return $dara.cast<DetachFromPolicyResponse>(await this.callApi(params, req, runtime), new DetachFromPolicyResponse({}));
   }
 
   /**
@@ -12998,7 +14375,7 @@ export default class Client extends OpenApi {
    * @returns DetachFromPolicyResponse
    */
   async detachFromPolicy(request: DetachFromPolicyRequest): Promise<DetachFromPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detachFromPolicyWithOptions(request, runtime);
   }
 
@@ -13009,31 +14386,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DettachAssetGroupToInstanceResponse
    */
-  async dettachAssetGroupToInstanceWithOptions(tmpReq: DettachAssetGroupToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DettachAssetGroupToInstanceResponse> {
-    Util.validateModel(tmpReq);
+  async dettachAssetGroupToInstanceWithOptions(tmpReq: DettachAssetGroupToInstanceRequest, runtime: $dara.RuntimeOptions): Promise<DettachAssetGroupToInstanceResponse> {
+    tmpReq.validate();
     let request = new DettachAssetGroupToInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.assetGroupList)) {
+    if (!$dara.isNull(tmpReq.assetGroupList)) {
       request.assetGroupListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assetGroupList, "AssetGroupList", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.assetGroupListShrink)) {
+    if (!$dara.isNull(request.assetGroupListShrink)) {
       query["AssetGroupList"] = request.assetGroupListShrink;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DettachAssetGroupToInstance",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13044,7 +14421,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DettachAssetGroupToInstanceResponse>(await this.callApi(params, req, runtime), new DettachAssetGroupToInstanceResponse({}));
+    return $dara.cast<DettachAssetGroupToInstanceResponse>(await this.callApi(params, req, runtime), new DettachAssetGroupToInstanceResponse({}));
   }
 
   /**
@@ -13054,7 +14431,7 @@ export default class Client extends OpenApi {
    * @returns DettachAssetGroupToInstanceResponse
    */
   async dettachAssetGroupToInstance(request: DettachAssetGroupToInstanceRequest): Promise<DettachAssetGroupToInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.dettachAssetGroupToInstanceWithOptions(request, runtime);
   }
 
@@ -13065,21 +14442,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSlsOpenStatusResponse
    */
-  async getSlsOpenStatusWithOptions(request: GetSlsOpenStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSlsOpenStatusResponse> {
-    Util.validateModel(request);
+  async getSlsOpenStatusWithOptions(request: GetSlsOpenStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetSlsOpenStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSlsOpenStatus",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13090,7 +14467,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSlsOpenStatusResponse>(await this.callApi(params, req, runtime), new GetSlsOpenStatusResponse({}));
+    return $dara.cast<GetSlsOpenStatusResponse>(await this.callApi(params, req, runtime), new GetSlsOpenStatusResponse({}));
   }
 
   /**
@@ -13100,7 +14477,7 @@ export default class Client extends OpenApi {
    * @returns GetSlsOpenStatusResponse
    */
   async getSlsOpenStatus(request: GetSlsOpenStatusRequest): Promise<GetSlsOpenStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSlsOpenStatusWithOptions(request, runtime);
   }
 
@@ -13111,25 +14488,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListOpenedAccessLogInstancesResponse
    */
-  async listOpenedAccessLogInstancesWithOptions(request: ListOpenedAccessLogInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListOpenedAccessLogInstancesResponse> {
-    Util.validateModel(request);
+  async listOpenedAccessLogInstancesWithOptions(request: ListOpenedAccessLogInstancesRequest, runtime: $dara.RuntimeOptions): Promise<ListOpenedAccessLogInstancesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListOpenedAccessLogInstances",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13140,7 +14517,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListOpenedAccessLogInstancesResponse>(await this.callApi(params, req, runtime), new ListOpenedAccessLogInstancesResponse({}));
+    return $dara.cast<ListOpenedAccessLogInstancesResponse>(await this.callApi(params, req, runtime), new ListOpenedAccessLogInstancesResponse({}));
   }
 
   /**
@@ -13150,7 +14527,7 @@ export default class Client extends OpenApi {
    * @returns ListOpenedAccessLogInstancesResponse
    */
   async listOpenedAccessLogInstances(request: ListOpenedAccessLogInstancesRequest): Promise<ListOpenedAccessLogInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listOpenedAccessLogInstancesWithOptions(request, runtime);
   }
 
@@ -13161,33 +14538,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPolicyResponse
    */
-  async listPolicyWithOptions(request: ListPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicyResponse> {
-    Util.validateModel(request);
+  async listPolicyWithOptions(request: ListPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ListPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPolicy",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13198,7 +14575,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPolicyResponse>(await this.callApi(params, req, runtime), new ListPolicyResponse({}));
+    return $dara.cast<ListPolicyResponse>(await this.callApi(params, req, runtime), new ListPolicyResponse({}));
   }
 
   /**
@@ -13208,7 +14585,7 @@ export default class Client extends OpenApi {
    * @returns ListPolicyResponse
    */
   async listPolicy(request: ListPolicyRequest): Promise<ListPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPolicyWithOptions(request, runtime);
   }
 
@@ -13219,39 +14596,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPolicyAttachmentResponse
    */
-  async listPolicyAttachmentWithOptions(tmpReq: ListPolicyAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicyAttachmentResponse> {
-    Util.validateModel(tmpReq);
+  async listPolicyAttachmentWithOptions(tmpReq: ListPolicyAttachmentRequest, runtime: $dara.RuntimeOptions): Promise<ListPolicyAttachmentResponse> {
+    tmpReq.validate();
     let request = new ListPolicyAttachmentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.ipPortProtocolList)) {
+    if (!$dara.isNull(tmpReq.ipPortProtocolList)) {
       request.ipPortProtocolListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipPortProtocolList, "IpPortProtocolList", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.ipPortProtocolListShrink)) {
+    if (!$dara.isNull(request.ipPortProtocolListShrink)) {
       query["IpPortProtocolList"] = request.ipPortProtocolListShrink;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.policyType)) {
+    if (!$dara.isNull(request.policyType)) {
       query["PolicyType"] = request.policyType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPolicyAttachment",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13262,7 +14639,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPolicyAttachmentResponse>(await this.callApi(params, req, runtime), new ListPolicyAttachmentResponse({}));
+    return $dara.cast<ListPolicyAttachmentResponse>(await this.callApi(params, req, runtime), new ListPolicyAttachmentResponse({}));
   }
 
   /**
@@ -13272,7 +14649,7 @@ export default class Client extends OpenApi {
    * @returns ListPolicyAttachmentResponse
    */
   async listPolicyAttachment(request: ListPolicyAttachmentRequest): Promise<ListPolicyAttachmentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPolicyAttachmentWithOptions(request, runtime);
   }
 
@@ -13283,33 +14660,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagKeysResponse
    */
-  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
-    Util.validateModel(request);
+  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $dara.RuntimeOptions): Promise<ListTagKeysResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagKeys",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13320,7 +14697,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+    return $dara.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
   }
 
   /**
@@ -13330,7 +14707,7 @@ export default class Client extends OpenApi {
    * @returns ListTagKeysResponse
    */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
   }
 
@@ -13346,37 +14723,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13387,7 +14764,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   /**
@@ -13402,46 +14779,49 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
    * Modifies a mitigation policy.
    * 
+   * @remarks
+   * Modifies a mitigation policy.
+   * 
    * @param tmpReq - ModifyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyPolicyResponse
    */
-  async modifyPolicyWithOptions(tmpReq: ModifyPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyResponse> {
-    Util.validateModel(tmpReq);
+  async modifyPolicyWithOptions(tmpReq: ModifyPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ModifyPolicyResponse> {
+    tmpReq.validate();
     let request = new ModifyPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.content)) {
+    if (!$dara.isNull(tmpReq.content)) {
       request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.actionType)) {
+    if (!$dara.isNull(request.actionType)) {
       query["ActionType"] = request.actionType;
     }
 
-    if (!Util.isUnset(request.contentShrink)) {
+    if (!$dara.isNull(request.contentShrink)) {
       query["Content"] = request.contentShrink;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyPolicy",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13452,17 +14832,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyPolicyResponse>(await this.callApi(params, req, runtime), new ModifyPolicyResponse({}));
+    return $dara.cast<ModifyPolicyResponse>(await this.callApi(params, req, runtime), new ModifyPolicyResponse({}));
   }
 
   /**
+   * Modifies a mitigation policy.
+   * 
+   * @remarks
    * Modifies a mitigation policy.
    * 
    * @param request - ModifyPolicyRequest
    * @returns ModifyPolicyResponse
    */
   async modifyPolicy(request: ModifyPolicyRequest): Promise<ModifyPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPolicyWithOptions(request, runtime);
   }
 
@@ -13476,31 +14859,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyPolicyContentResponse
    */
-  async modifyPolicyContentWithOptions(tmpReq: ModifyPolicyContentRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyContentResponse> {
-    Util.validateModel(tmpReq);
+  async modifyPolicyContentWithOptions(tmpReq: ModifyPolicyContentRequest, runtime: $dara.RuntimeOptions): Promise<ModifyPolicyContentResponse> {
+    tmpReq.validate();
     let request = new ModifyPolicyContentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.content)) {
+    if (!$dara.isNull(tmpReq.content)) {
       request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.contentShrink)) {
+    if (!$dara.isNull(request.contentShrink)) {
       query["Content"] = request.contentShrink;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyPolicyContent",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13511,7 +14894,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyPolicyContentResponse>(await this.callApi(params, req, runtime), new ModifyPolicyContentResponse({}));
+    return $dara.cast<ModifyPolicyContentResponse>(await this.callApi(params, req, runtime), new ModifyPolicyContentResponse({}));
   }
 
   /**
@@ -13524,7 +14907,7 @@ export default class Client extends OpenApi {
    * @returns ModifyPolicyContentResponse
    */
   async modifyPolicyContent(request: ModifyPolicyContentRequest): Promise<ModifyPolicyContentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPolicyContentWithOptions(request, runtime);
   }
 
@@ -13540,29 +14923,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyRemarkResponse
    */
-  async modifyRemarkWithOptions(request: ModifyRemarkRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRemarkResponse> {
-    Util.validateModel(request);
+  async modifyRemarkWithOptions(request: ModifyRemarkRequest, runtime: $dara.RuntimeOptions): Promise<ModifyRemarkResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyRemark",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13573,7 +14956,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyRemarkResponse>(await this.callApi(params, req, runtime), new ModifyRemarkResponse({}));
+    return $dara.cast<ModifyRemarkResponse>(await this.callApi(params, req, runtime), new ModifyRemarkResponse({}));
   }
 
   /**
@@ -13588,40 +14971,40 @@ export default class Client extends OpenApi {
    * @returns ModifyRemarkResponse
    */
   async modifyRemark(request: ModifyRemarkRequest): Promise<ModifyRemarkResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyRemarkWithOptions(request, runtime);
   }
 
   /**
-   * 移动资源组
+   * Changes the resource group to which a cloud resource belongs.
    * 
    * @param request - MoveResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns MoveResourceGroupResponse
    */
-  async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
-    Util.validateModel(request);
+  async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<MoveResourceGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceRegionId)) {
+    if (!$dara.isNull(request.resourceRegionId)) {
       query["ResourceRegionId"] = request.resourceRegionId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "MoveResourceGroup",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13632,42 +15015,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
+    return $dara.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
   /**
-   * 移动资源组
+   * Changes the resource group to which a cloud resource belongs.
    * 
    * @param request - MoveResourceGroupRequest
    * @returns MoveResourceGroupResponse
    */
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
   /**
-   * Queries the scheduling rule of an on-demand instance.
+   * Queries the scheduling rule of an anti-DDoS diversion instance.
    * 
    * @param request - QuerySchedruleOnDemandRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySchedruleOnDemandResponse
    */
-  async querySchedruleOnDemandWithOptions(request: QuerySchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<QuerySchedruleOnDemandResponse> {
-    Util.validateModel(request);
+  async querySchedruleOnDemandWithOptions(request: QuerySchedruleOnDemandRequest, runtime: $dara.RuntimeOptions): Promise<QuerySchedruleOnDemandResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySchedruleOnDemand",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13678,17 +15061,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new QuerySchedruleOnDemandResponse({}));
+    return $dara.cast<QuerySchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new QuerySchedruleOnDemandResponse({}));
   }
 
   /**
-   * Queries the scheduling rule of an on-demand instance.
+   * Queries the scheduling rule of an anti-DDoS diversion instance.
    * 
    * @param request - QuerySchedruleOnDemandRequest
    * @returns QuerySchedruleOnDemandResponse
    */
   async querySchedruleOnDemand(request: QuerySchedruleOnDemandRequest): Promise<QuerySchedruleOnDemandResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySchedruleOnDemandWithOptions(request, runtime);
   }
 
@@ -13699,17 +15082,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReleaseDdosOriginInstanceResponse
    */
-  async releaseDdosOriginInstanceWithOptions(request: ReleaseDdosOriginInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseDdosOriginInstanceResponse> {
-    Util.validateModel(request);
+  async releaseDdosOriginInstanceWithOptions(request: ReleaseDdosOriginInstanceRequest, runtime: $dara.RuntimeOptions): Promise<ReleaseDdosOriginInstanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReleaseDdosOriginInstance",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13720,7 +15103,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReleaseDdosOriginInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseDdosOriginInstanceResponse({}));
+    return $dara.cast<ReleaseDdosOriginInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseDdosOriginInstanceResponse({}));
   }
 
   /**
@@ -13730,7 +15113,7 @@ export default class Client extends OpenApi {
    * @returns ReleaseDdosOriginInstanceResponse
    */
   async releaseDdosOriginInstance(request: ReleaseDdosOriginInstanceRequest): Promise<ReleaseDdosOriginInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.releaseDdosOriginInstanceWithOptions(request, runtime);
   }
 
@@ -13741,25 +15124,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetInstanceModeOnDemandResponse
    */
-  async setInstanceModeOnDemandWithOptions(request: SetInstanceModeOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<SetInstanceModeOnDemandResponse> {
-    Util.validateModel(request);
+  async setInstanceModeOnDemandWithOptions(request: SetInstanceModeOnDemandRequest, runtime: $dara.RuntimeOptions): Promise<SetInstanceModeOnDemandResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceIdList)) {
+    if (!$dara.isNull(request.instanceIdList)) {
       query["InstanceIdList"] = request.instanceIdList;
     }
 
-    if (!Util.isUnset(request.mode)) {
+    if (!$dara.isNull(request.mode)) {
       query["Mode"] = request.mode;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetInstanceModeOnDemand",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13770,7 +15153,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetInstanceModeOnDemandResponse>(await this.callApi(params, req, runtime), new SetInstanceModeOnDemandResponse({}));
+    return $dara.cast<SetInstanceModeOnDemandResponse>(await this.callApi(params, req, runtime), new SetInstanceModeOnDemandResponse({}));
   }
 
   /**
@@ -13780,7 +15163,7 @@ export default class Client extends OpenApi {
    * @returns SetInstanceModeOnDemandResponse
    */
   async setInstanceModeOnDemand(request: SetInstanceModeOnDemandRequest): Promise<SetInstanceModeOnDemandResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setInstanceModeOnDemandWithOptions(request, runtime);
   }
 
@@ -13796,33 +15179,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13833,7 +15216,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   /**
@@ -13848,7 +15231,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
@@ -13859,37 +15242,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2018-07-20",
       protocol: "HTTPS",
@@ -13900,7 +15283,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   /**
@@ -13910,7 +15293,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
