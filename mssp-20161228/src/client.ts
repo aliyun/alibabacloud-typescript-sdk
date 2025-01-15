@@ -1,4731 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class ConfirmDjbhReportRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Primary key ID of the report.
-   * 
-   * @example
-   * 24563
-   */
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfirmDjbhReportResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * API response code.
-   * 
-   * @example
-   * OK
-   */
-  code?: string;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: string;
-  /**
-   * @remarks
-   * Return message.
-   * 
-   * @example
-   * Successful!
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * EF801DD1-D934-51B3-92D4-776CE17B184F
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfirmDjbhReportResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ConfirmDjbhReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ConfirmDjbhReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceLinkedRoleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Language.
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * Region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceLinkedRoleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * 592B80F0-7674-56A4-9027-8A0A9ACDBD56
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceLinkedRoleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateServiceLinkedRoleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateServiceLinkedRoleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceWorkOrderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Creator.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 426556
-   */
-  creator?: string;
-  /**
-   * @remarks
-   * Customer ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1477832102462645
-   */
-  customerId?: string;
-  /**
-   * @remarks
-   * Duration in days.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 5
-   */
-  durationDay?: string;
-  /**
-   * @remarks
-   * Attachment requirement.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Y
-   */
-  isAttachment?: string;
-  /**
-   * @remarks
-   * Whether a reminder is needed.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Y
-   */
-  isWorkOrderNotify?: string;
-  /**
-   * @remarks
-   * Number of days for advance notification.
-   * 
-   * @example
-   * 5
-   */
-  notifyDay?: string;
-  /**
-   * @remarks
-   * Notification ID.
-   * 
-   * @example
-   * 10
-   */
-  notifyId?: number;
-  /**
-   * @remarks
-   * Operation remarks.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 新建
-   */
-  operateRemark?: string;
-  /**
-   * @remarks
-   * Operation type.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CREATE
-   */
-  operateType?: string;
-  /**
-   * @remarks
-   * Operator.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 426556
-   */
-  operator?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  ownerId?: string;
-  /**
-   * @remarks
-   * Start time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2021-01-21 15:25:25
-   */
-  startTime?: number;
-  /**
-   * @remarks
-   * Work order details.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * {"questionDetail":"测试工单","answerDetail":""}
-   */
-  workOrderDetail?: string;
-  /**
-   * @remarks
-   * Work order name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 安全月报交付任务
-   */
-  workOrderName?: string;
-  /**
-   * @remarks
-   * Work order source.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 工单迁移
-   */
-  workOrderSource?: string;
-  /**
-   * @remarks
-   * Work order status.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * UNPROCESSED
-   */
-  workOrderStatus?: string;
-  /**
-   * @remarks
-   * Work order type.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * MONTH_REPORT
-   */
-  workOrderType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      creator: 'Creator',
-      customerId: 'CustomerId',
-      durationDay: 'DurationDay',
-      isAttachment: 'IsAttachment',
-      isWorkOrderNotify: 'IsWorkOrderNotify',
-      notifyDay: 'NotifyDay',
-      notifyId: 'NotifyId',
-      operateRemark: 'OperateRemark',
-      operateType: 'OperateType',
-      operator: 'Operator',
-      ownerId: 'OwnerId',
-      startTime: 'StartTime',
-      workOrderDetail: 'WorkOrderDetail',
-      workOrderName: 'WorkOrderName',
-      workOrderSource: 'WorkOrderSource',
-      workOrderStatus: 'WorkOrderStatus',
-      workOrderType: 'WorkOrderType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      creator: 'string',
-      customerId: 'string',
-      durationDay: 'string',
-      isAttachment: 'string',
-      isWorkOrderNotify: 'string',
-      notifyDay: 'string',
-      notifyId: 'number',
-      operateRemark: 'string',
-      operateType: 'string',
-      operator: 'string',
-      ownerId: 'string',
-      startTime: 'number',
-      workOrderDetail: 'string',
-      workOrderName: 'string',
-      workOrderSource: 'string',
-      workOrderStatus: 'string',
-      workOrderType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceWorkOrderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   */
-  data?: CreateServiceWorkOrderResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The prompt message of the returned result.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 7DC44321-7AAE-51CD-8E5F-CEB968569042
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful.
-   * - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: CreateServiceWorkOrderResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceWorkOrderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateServiceWorkOrderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateServiceWorkOrderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDjbhReportRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Primary key ID of the report.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 26579
-   */
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDjbhReportResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * API response code.
-   * 
-   * @example
-   * successful
-   */
-  code?: string;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: string;
-  /**
-   * @remarks
-   * Prompt message for the returned result.
-   * 
-   * @example
-   * Successful!
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * 86786E4C-6416-55CF-9AB6-5E275B68801D
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDjbhReportResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDjbhReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDjbhReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceLinkedRoleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Language.
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * Region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceLinkedRoleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Whether the service-linked role permission is granted:
-   * - true: Granted.
-   * - false: Not granted.
-   * 
-   * @example
-   * true
-   */
-  entityRoleGrant?: boolean;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * 02F8BBF3-2D61-5982-8911-EEB387BE3AF8
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      entityRoleGrant: 'EntityRoleGrant',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      entityRoleGrant: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceLinkedRoleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeServiceLinkedRoleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeServiceLinkedRoleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisposeServiceWorkOrderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Attachment name.
-   * 
-   * @example
-   * bbaa133c-0ac2-489f-9fc8-39f91c2e770c_20230301-20240403-服务工单列表.xlsx
-   */
-  attachmentName?: string;
-  /**
-   * @remarks
-   * End time.
-   * 
-   * @example
-   * 2024-04-14 00:00:00
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * Forward to owner.
-   * 
-   * @example
-   * 405639
-   */
-  forwardOwnerId?: string;
-  /**
-   * @remarks
-   * Work order ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 23172
-   */
-  id?: number;
-  /**
-   * @remarks
-   * Attachment requirement.
-   * 
-   * @example
-   * Y
-   */
-  isAttachment?: string;
-  /**
-   * @remarks
-   * Work order notification.
-   * 
-   * @example
-   * Y
-   */
-  isWorkOrderNotify?: string;
-  /**
-   * @remarks
-   * Notification ID.
-   * 
-   * @example
-   * 10
-   */
-  notifyId?: number;
-  /**
-   * @remarks
-   * Operation remarks.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 处理完成
-   */
-  operateRemark?: string;
-  /**
-   * @remarks
-   * Processing type.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * PROCESSED
-   */
-  operateType?: string;
-  /**
-   * @remarks
-   * Operator.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 396120
-   */
-  operator?: string;
-  /**
-   * @remarks
-   * Start time.
-   * 
-   * @example
-   * 2024-04-02 00:00:00
-   */
-  startTime?: number;
-  /**
-   * @remarks
-   * Upgrade owner.
-   * 
-   * @example
-   * 336333
-   */
-  upgradeOwnerId?: string;
-  /**
-   * @remarks
-   * Work order details.
-   * 
-   * @example
-   * {"questionDetail":"测试工单","answerDetail":""}
-   */
-  workOrderDetail?: string;
-  /**
-   * @remarks
-   * Work order name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 安全产品配置问题与超量提醒
-   */
-  workOrderName?: string;
-  /**
-   * @remarks
-   * Work order status.
-   * 
-   * @example
-   * PROCESSED
-   */
-  workOrderStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attachmentName: 'AttachmentName',
-      endTime: 'EndTime',
-      forwardOwnerId: 'ForwardOwnerId',
-      id: 'Id',
-      isAttachment: 'IsAttachment',
-      isWorkOrderNotify: 'IsWorkOrderNotify',
-      notifyId: 'NotifyId',
-      operateRemark: 'OperateRemark',
-      operateType: 'OperateType',
-      operator: 'Operator',
-      startTime: 'StartTime',
-      upgradeOwnerId: 'UpgradeOwnerId',
-      workOrderDetail: 'WorkOrderDetail',
-      workOrderName: 'WorkOrderName',
-      workOrderStatus: 'WorkOrderStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attachmentName: 'string',
-      endTime: 'number',
-      forwardOwnerId: 'string',
-      id: 'number',
-      isAttachment: 'string',
-      isWorkOrderNotify: 'string',
-      notifyId: 'number',
-      operateRemark: 'string',
-      operateType: 'string',
-      operator: 'string',
-      startTime: 'number',
-      upgradeOwnerId: 'string',
-      workOrderDetail: 'string',
-      workOrderName: 'string',
-      workOrderStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisposeServiceWorkOrderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * API response code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message of the returned result.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ED520610-6231-5D80-BADD-A8CDC7BBC809
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisposeServiceWorkOrderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DisposeServiceWorkOrderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DisposeServiceWorkOrderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisposeWorkTaskRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Operator.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * WB01089929
-   */
-  operator?: string;
-  /**
-   * @remarks
-   * Operation remarks.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 处理完成
-   */
-  optRemark?: string;
-  /**
-   * @remarks
-   * Work order status.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 8
-   */
-  status?: number;
-  /**
-   * @remarks
-   * Work order ID, multiple IDs separated by commas.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10310
-   */
-  taskIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      operator: 'Operator',
-      optRemark: 'OptRemark',
-      status: 'Status',
-      taskIds: 'TaskIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      operator: 'string',
-      optRemark: 'string',
-      status: 'number',
-      taskIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisposeWorkTaskResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface response code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message of the returned result.
-   * 
-   * @example
-   * Success.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 86786E4C-6416-55CF-9AB6-5E275B68801D
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisposeWorkTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DisposeWorkTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DisposeWorkTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAlarmDetailByIdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Primary key ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 20077761
-   */
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAlarmDetailByIdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * API response code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   */
-  data?: GetAlarmDetailByIdResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Return message.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 5C1B0668-442C-57AE-9668-D894B0B012EB
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the operation was successful: - true: Success. - false: Failure.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetAlarmDetailByIdResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAlarmDetailByIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAlarmDetailByIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAlarmDetailByIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAttackedAssetDealRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Time filter type, supporting filtering by the last 7 days, the last 30 days, the last half year, or custom time periods.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * month
-   */
-  dateType?: string;
-  /**
-   * @remarks
-   * End time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1732268720000
-   */
-  endDate?: number;
-  /**
-   * @remarks
-   * Start time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1732268720000
-   */
-  startDate?: number;
-  /**
-   * @remarks
-   * Source of the alert event.
-   * 
-   * @example
-   * 暂时无需传参，有问题请联系管理员
-   */
-  suspEventSource?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dateType: 'DateType',
-      endDate: 'EndDate',
-      startDate: 'StartDate',
-      suspEventSource: 'SuspEventSource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dateType: 'string',
-      endDate: 'number',
-      startDate: 'number',
-      suspEventSource: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAttackedAssetDealResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface return code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data query result.
-   */
-  data?: GetAttackedAssetDealResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Return message.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1E74F11C-B4A8-5774-962C-02003BA8504E
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the query was successful.<br />
-   * **Enum values:**
-   * * true: Success.
-   * * false: Failure.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetAttackedAssetDealResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAttackedAssetDealResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAttackedAssetDealResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAttackedAssetDealResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBaselineSummaryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Time filter type, supports filtering by the last 7 days, the last 30 days, the last half year, or custom time periods.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * month
-   */
-  dateType?: string;
-  /**
-   * @remarks
-   * End time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1732156885986
-   */
-  endDate?: number;
-  /**
-   * @remarks
-   * Start time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1729478485000
-   */
-  startDate?: number;
-  /**
-   * @remarks
-   * Alert event source.
-   * 
-   * @example
-   * 该字段暂未使用，有问题请联系管理员
-   */
-  suspEventSource?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dateType: 'DateType',
-      endDate: 'EndDate',
-      startDate: 'StartDate',
-      suspEventSource: 'SuspEventSource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dateType: 'string',
-      endDate: 'number',
-      startDate: 'number',
-      suspEventSource: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBaselineSummaryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface response code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   */
-  data?: GetBaselineSummaryResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message for the returned result.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 67D61738-5E38-5164-947A-34E3850D493A
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the operation was successful. Values: true: success; false: failure.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetBaselineSummaryResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBaselineSummaryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetBaselineSummaryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetBaselineSummaryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConsoleScoreRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Filter time type, supports filtering by the last 7 days, last 30 days, last half year, or custom. If empty, it represents the last 7 days.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * month
-   */
-  dateType?: string;
-  /**
-   * @remarks
-   * End date.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1732156885986
-   */
-  endDate?: number;
-  /**
-   * @remarks
-   * Start date.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1729478485000
-   */
-  startDate?: number;
-  /**
-   * @remarks
-   * Source of alert events.
-   * 
-   * @example
-   * 该字段暂未使用，有问题请联系管理员
-   */
-  suspEventSource?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dateType: 'DateType',
-      endDate: 'EndDate',
-      startDate: 'StartDate',
-      suspEventSource: 'SuspEventSource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dateType: 'string',
-      endDate: 'number',
-      startDate: 'number',
-      suspEventSource: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConsoleScoreResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface response code.
-   * 
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   * 
-   * @example
-   * {
-   *     "score": "94.00",
-   *     "consoleScoreTrendDTOS": [
-   *         {
-   *             "date": "20241009",
-   *             "score": "100.0"
-   *         }
-   *     ],
-   *     "cyclicYearOverYear": "-6.00",
-   *     "recordDate": "20241209",
-   *     "weeklyYearOverYear": "1.62",
-   *     "aboveWholeNetworkUserRatio": "6.25",
-   *     "aliUid": "1601097845544644",
-   *     "detailJson": "[{\\"detailDTO\\":[{\\"count\\":0,\\"itemName\\":\\"应用漏洞POC验证\\",\\"mark\\":\\"1\\"},{\\"count\\":0,\\"itemName\\":\\"未授权访问漏洞（公网暴露）\\",\\"mark\\":\\"1\\"},{\\"count\\":0,\\"itemName\\":\\"后台弱口令漏洞（公网暴露）\\",\\"mark\\":\\"1\\"},{\\"count\\":0,\\"itemName\\":\\"文件上传漏洞（公网暴露）\\",\\"mark\\":\\"1\\"}],\\"markRate\\":\\"0.5\\",\\"markType\\":\\"vul\\"},{\\"detailDTO\\":[{\\"count\\":12,\\"itemName\\":\\"WAF3.0回源配置不正确\\",\\"mark\\":\\"1\\"},{\\"count\\":0,\\"itemName\\":\\"AK泄露检查未开启\\",\\"mark\\":\\"1\\"},{\\"count\\":0,\\"itemName\\":\\"DNAT管理端口开放\\",\\"mark\\":\\"1\\"},{\\"count\\":0,\\"itemName\\":\\"高危端口暴露\\",\\"mark\\":\\"0.5\\"}],\\"markRate\\":\\"0.5\\",\\"markType\\":\\"risk\\"}]"
-   * }
-   */
-  data?: any;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message for the result returned.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * D0937B0F-9180-5F70-B6ED-0BA22591627F
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the operation was successful. true means success, false means failure.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'any',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConsoleScoreResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetConsoleScoreResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetConsoleScoreResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDetailByIdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Primary key ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 22
-   */
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDetailByIdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface return code.
-   * 
-   * @example
-   * 404
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data query result.
-   */
-  data?: GetDetailByIdResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Return message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * DAB46EC5-3746-59C4-B6D2-469F442EC73F
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful. Values: - **true**: indicates a successful call. - **false**: indicates a failed call.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetDetailByIdResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDetailByIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDetailByIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDetailByIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentDownloadUrlRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Document management ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 175815
-   */
-  id?: number;
-  reportType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      reportType: 'ReportType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      reportType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentDownloadUrlResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * API status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * OSS file access URL.
-   * 
-   * @example
-   * https://oos-cn.ctyunapi.cn/example-bucket/test/1.jpg
-   */
-  data?: string;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Message of the returned result.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * C7BE80B4-7692-54FA-AB22-2A7DF08C4754
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful: - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentDownloadUrlResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDocumentDownloadUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDocumentDownloadUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentPageRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Current page.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * Delivered by.
-   * 
-   * @example
-   * 张三
-   */
-  deliveredBy?: string;
-  /**
-   * @remarks
-   * Document name.
-   * 
-   * @example
-   * 季度报告
-   */
-  documentName?: string;
-  /**
-   * @remarks
-   * Document type.
-   * 
-   * @example
-   * 0
-   */
-  documentType?: string;
-  /**
-   * @remarks
-   * Page size.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Report type.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  reportType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      deliveredBy: 'DeliveredBy',
-      documentName: 'DocumentName',
-      documentType: 'DocumentType',
-      pageSize: 'PageSize',
-      reportType: 'ReportType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      deliveredBy: 'string',
-      documentName: 'string',
-      documentType: 'string',
-      pageSize: 'number',
-      reportType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentPageResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface response code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Response data.
-   */
-  data?: GetDocumentPageResponseBodyData[];
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message for the response result.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Pagination information.
-   */
-  pageInfo?: GetDocumentPageResponseBodyPageInfo;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 04DAD7B4-E1DA-5C2C-8E5C-A1EDC880CF60
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      pageInfo: 'PageInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': GetDocumentPageResponseBodyData },
-      httpStatusCode: 'number',
-      message: 'string',
-      pageInfo: GetDocumentPageResponseBodyPageInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentPageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDocumentPageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDocumentPageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentSummaryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Type of service report.
-   * 
-   * @example
-   * 1
-   */
-  reportType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      reportType: 'ReportType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      reportType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentSummaryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface return code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data query result.
-   */
-  data?: GetDocumentSummaryResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message for the returned result.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 7903F2DE-D9EE-5D16-8A08-E9223E54B281
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful. Values:
-   * - **true**: Yes.
-   * - **false**: No.
-   * 
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetDocumentSummaryResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentSummaryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDocumentSummaryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDocumentSummaryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRecentDocumentRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Filter time type, supports filtering by the last 7 days, the last 30 days, the last half year, or custom time ranges.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 该字段暂未使用，有问题请联系管理员
-   */
-  dateType?: string;
-  /**
-   * @remarks
-   * End time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 该字段暂未使用，有问题请联系管理员
-   */
-  endDate?: number;
-  /**
-   * @remarks
-   * Start time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 该字段暂未使用，有问题请联系管理员
-   */
-  startDate?: number;
-  /**
-   * @remarks
-   * Alert event source.
-   * 
-   * @example
-   * 该字段暂未使用，有问题请联系管理员
-   */
-  suspEventSource?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dateType: 'DateType',
-      endDate: 'EndDate',
-      startDate: 'StartDate',
-      suspEventSource: 'SuspEventSource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dateType: 'string',
-      endDate: 'number',
-      startDate: 'number',
-      suspEventSource: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRecentDocumentResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface response code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   */
-  data?: GetRecentDocumentResponseBodyData[];
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Response message.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 4916FA8D-F294-518D-B373-8B59D63CAB19
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': GetRecentDocumentResponseBodyData },
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRecentDocumentResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetRecentDocumentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetRecentDocumentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSafetyCoverRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Filter time type, supports filtering by the last 7 days, the last 30 days, the last half year, or custom time periods.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * month
-   */
-  dateType?: string;
-  /**
-   * @remarks
-   * End time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1732268720000
-   */
-  endDate?: number;
-  /**
-   * @remarks
-   * Start time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1732255620000
-   */
-  startDate?: number;
-  /**
-   * @remarks
-   * Alert event source.
-   * 
-   * @example
-   * 该接口不用传
-   */
-  suspEventSource?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dateType: 'DateType',
-      endDate: 'EndDate',
-      startDate: 'StartDate',
-      suspEventSource: 'SuspEventSource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dateType: 'string',
-      endDate: 'number',
-      startDate: 'number',
-      suspEventSource: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSafetyCoverResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * API return code.
-   * 
-   * @example
-   * 404
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data query result.
-   */
-  data?: GetSafetyCoverResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Message of the response result.
-   * 
-   * @example
-   * system error
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 564f8bb9-df3c-42a0-877a-b35d48f66603
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful:
-   * - **true**: Call succeeded.
-   * - **false**: Call failed.
-   * 
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetSafetyCoverResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSafetyCoverResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSafetyCoverResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSafetyCoverResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSowListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Filter time type, supports filtering by the last 7 days, the last 30 days, the last half year, or custom time ranges.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * month
-   */
-  dateType?: string;
-  /**
-   * @remarks
-   * End time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1732156885986
-   */
-  endDate?: number;
-  /**
-   * @remarks
-   * Start time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1729478485000
-   */
-  startDate?: number;
-  /**
-   * @remarks
-   * Alert event source.
-   * 
-   * @example
-   * 该字段暂未使用，有问题请联系管理员
-   */
-  suspEventSource?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dateType: 'DateType',
-      endDate: 'EndDate',
-      startDate: 'StartDate',
-      suspEventSource: 'SuspEventSource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dateType: 'string',
-      endDate: 'number',
-      startDate: 'number',
-      suspEventSource: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSowListResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface response code.
-   * 
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   */
-  data?: GetSowListResponseBodyData[];
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt information for the returned result.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * FA8883BC-CB18-5E28-A113-8249917CA05E
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': GetSowListResponseBodyData },
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSowListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSowListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSowListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSuspEventPageRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Alarm end time.
-   * 
-   * @example
-   * 1732515522000
-   */
-  alarmEndTime?: number;
-  /**
-   * @remarks
-   * Alarm start time.
-   * 
-   * @example
-   * 1722515522000
-   */
-  alarmStartTime?: number;
-  /**
-   * @remarks
-   * Current page number.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * Number of items per page.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Alarm source.
-   * 
-   * @example
-   * SUSP_EVENT
-   */
-  source?: string;
-  /**
-   * @remarks
-   * Disposal status.
-   * 
-   * @example
-   * 1
-   */
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      alarmEndTime: 'AlarmEndTime',
-      alarmStartTime: 'AlarmStartTime',
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      source: 'Source',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alarmEndTime: 'number',
-      alarmStartTime: 'number',
-      currentPage: 'number',
-      pageSize: 'number',
-      source: 'string',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSuspEventPageResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * API response code.
-   * 
-   * @example
-   * OK
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   */
-  data?: GetSuspEventPageResponseBodyData[];
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message of the returned result.
-   * 
-   * @example
-   * system error
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Pagination information.
-   */
-  pageInfo?: GetSuspEventPageResponseBodyPageInfo;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * AFA6F7B7-7C4B-58BB-B8FB-E0FFA4483561
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful.
-   * - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      pageInfo: 'PageInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': GetSuspEventPageResponseBodyData },
-      httpStatusCode: 'number',
-      message: 'string',
-      pageInfo: GetSuspEventPageResponseBodyPageInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSuspEventPageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSuspEventPageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSuspEventPageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSuspEventSummaryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Filter time type. Supports filtering by the last 7 days, the last 30 days, the last half year, or custom time ranges.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * month
-   */
-  dateType?: string;
-  /**
-   * @remarks
-   * End time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1732156885986
-   */
-  endDate?: number;
-  /**
-   * @remarks
-   * Start time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1729478485000
-   */
-  startDate?: number;
-  /**
-   * @remarks
-   * Alert event source.
-   * 
-   * @example
-   * SUSP_EVENT
-   */
-  suspEventSource?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dateType: 'DateType',
-      endDate: 'EndDate',
-      startDate: 'StartDate',
-      suspEventSource: 'SuspEventSource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dateType: 'string',
-      endDate: 'number',
-      startDate: 'number',
-      suspEventSource: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSuspEventSummaryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * API response code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   */
-  data?: GetSuspEventSummaryResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message for the returned result.
-   * 
-   * @example
-   * Successful!
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 9B2DAE9B-B901-5818-AFEF-E5637D938280
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful.
-   * - true: Call succeeded.
-   * - false: Call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetSuspEventSummaryResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSuspEventSummaryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSuspEventSummaryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSuspEventSummaryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSuspPageSummaryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface response code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   */
-  data?: GetSuspPageSummaryResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message for the result returned.
-   * 
-   * @example
-   * SUCCESS
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * EF801DD1-D934-51B3-92D4-776CE17B184F
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * - **true**: Call succeeded.
-   * - **false**: Call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetSuspPageSummaryResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSuspPageSummaryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSuspPageSummaryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSuspPageSummaryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface response code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   */
-  data?: GetUserStatusResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message of the returned result.
-   * 
-   * @example
-   * SUCCESS
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * D8DBD769-613E-5E6B-A9FD-B622375B152D
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetUserStatusResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetUserStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetUserStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVulItemPageRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Vulnerability alias.
-   * 
-   * @example
-   * RHSA-2018:3665-Important: NetworkManager security update
-   */
-  aliasName?: string;
-  /**
-   * @remarks
-   * Current page number.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * Processing status. y: processed; n: unprocessed; h: processing.
-   * 
-   * @example
-   * n
-   */
-  dealed?: string;
-  /**
-   * @remarks
-   * Risk level.
-   * 
-   * @example
-   * later
-   */
-  level?: string;
-  /**
-   * @remarks
-   * Vulnerability name.
-   * 
-   * @example
-   * oval:com.redhat.rhsa:def:20183665
-   */
-  name?: string;
-  /**
-   * @remarks
-   * Number of items to display per page in the returned data.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Vulnerability type.
-   * 
-   * @example
-   * sca
-   */
-  scanType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliasName: 'AliasName',
-      currentPage: 'CurrentPage',
-      dealed: 'Dealed',
-      level: 'Level',
-      name: 'Name',
-      pageSize: 'PageSize',
-      scanType: 'ScanType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliasName: 'string',
-      currentPage: 'number',
-      dealed: 'string',
-      level: 'string',
-      name: 'string',
-      pageSize: 'number',
-      scanType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVulItemPageResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * API response code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   */
-  data?: GetVulItemPageResponseBodyData[];
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message for the returned result.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Pagination information.
-   */
-  pageInfo?: GetVulItemPageResponseBodyPageInfo;
-  /**
-   * @remarks
-   * Request response.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 02F8BBF3-2D61-5982-8911-EEB387BE3AF8
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful.
-   * true: Call succeeded. false: Call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      pageInfo: 'PageInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': GetVulItemPageResponseBodyData },
-      httpStatusCode: 'number',
-      message: 'string',
-      pageInfo: GetVulItemPageResponseBodyPageInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVulItemPageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetVulItemPageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetVulItemPageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVulListByIdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Current page
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * Whether it has been processed; y: processed; n: not processed
-   * 
-   * @example
-   * n
-   */
-  dealed?: string;
-  /**
-   * @remarks
-   * Primary key ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 4209205
-   */
-  id?: number;
-  /**
-   * @remarks
-   * Risk level
-   * 
-   * @example
-   * asap,later,nntf
-   */
-  necessity?: string;
-  /**
-   * @remarks
-   * Page size
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Asset information of the vulnerability to be queried, which can be set as asset name, public IP, or private IP.
-   * 
-   * @example
-   * production_nat_cn-hangzhou_zone_105
-   */
-  remark?: string;
-  /**
-   * @remarks
-   * UUID of the server with the vulnerability to be queried. Multiple UUIDs should be separated by a comma (,).
-   * 
-   * @example
-   * 3615b908-995a-4edb-bc85-1981b4e94ba0,9c52cf9a-d8ba-4e31-ae06-500b879ee4e6,4b7de3cf-c4ac-42fc-8804-35070493dc29,f3c01525-0777-4c97-88d9-bec11afd4a6a,a80bd516-c4f3-4c27-a169-c8abfaf9e89e
-   */
-  uuids?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      dealed: 'Dealed',
-      id: 'Id',
-      necessity: 'Necessity',
-      pageSize: 'PageSize',
-      remark: 'Remark',
-      uuids: 'Uuids',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      dealed: 'string',
-      id: 'number',
-      necessity: 'string',
-      pageSize: 'number',
-      remark: 'string',
-      uuids: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVulListByIdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * API response code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   */
-  data?: GetVulListByIdResponseBodyData[];
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message for the returned result.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Pagination information.
-   */
-  pageInfo?: GetVulListByIdResponseBodyPageInfo;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * D38B3D2F-67FD-57FF-87D1-C431D2C70F76
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful. Values: - **true**: Yes. - **false**: No.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      pageInfo: 'PageInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': GetVulListByIdResponseBodyData },
-      httpStatusCode: 'number',
-      message: 'string',
-      pageInfo: GetVulListByIdResponseBodyPageInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVulListByIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetVulListByIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetVulListByIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVulPageSummaryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface return code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data query result.
-   */
-  data?: GetVulPageSummaryResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Return message.
-   * 
-   * @example
-   * operation success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * A3A575C8-80F9-5F04-AA24-CCAC246884A3
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetVulPageSummaryResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVulPageSummaryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetVulPageSummaryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetVulPageSummaryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVulSummaryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Filter time type. Supports filtering by the last 7 days, the last 30 days, the last half year, or a custom time range.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * month
-   */
-  dateType?: string;
-  /**
-   * @remarks
-   * End time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1732156885986
-   */
-  endDate?: number;
-  /**
-   * @remarks
-   * Start time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1729478485000
-   */
-  startDate?: number;
-  /**
-   * @remarks
-   * Alert event source.
-   * 
-   * @example
-   * 该字段暂未使用，有问题请联系管理员
-   */
-  suspEventSource?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dateType: 'DateType',
-      endDate: 'EndDate',
-      startDate: 'StartDate',
-      suspEventSource: 'SuspEventSource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dateType: 'string',
-      endDate: 'number',
-      startDate: 'number',
-      suspEventSource: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVulSummaryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface response code.
-   * 
-   * @example
-   * OK
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   */
-  data?: GetVulSummaryResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message for the response result.
-   * 
-   * @example
-   * system error
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * EF801DD1-D934-51B3-92D4-776CE17B184F
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetVulSummaryResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVulSummaryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetVulSummaryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetVulSummaryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWorkTaskSummaryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Filter time type, supports filtering by the last 7 days, the last 30 days, the last half year, or custom time periods.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * month
-   */
-  dateType?: string;
-  /**
-   * @remarks
-   * End time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1732156885986
-   */
-  endDate?: number;
-  /**
-   * @remarks
-   * Start time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1729478485000
-   */
-  startDate?: number;
-  /**
-   * @remarks
-   * Alert event source.
-   * 
-   * @example
-   * 该字段暂时未用，有问题请联系管理员
-   */
-  suspEventSource?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dateType: 'DateType',
-      endDate: 'EndDate',
-      startDate: 'StartDate',
-      suspEventSource: 'SuspEventSource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dateType: 'string',
-      endDate: 'number',
-      startDate: 'number',
-      suspEventSource: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWorkTaskSummaryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Response code.
-   * 
-   * @example
-   * OK
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data returned by the interface.
-   */
-  data?: GetWorkTaskSummaryResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Prompt message for the response result.
-   * 
-   * @example
-   * Successful!
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * EF801DD1-D934-51B3-92D4-776CE17B184F
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetWorkTaskSummaryResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWorkTaskSummaryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetWorkTaskSummaryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetWorkTaskSummaryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageServiceCustomerRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Authorization status.
-   * 
-   * @example
-   * 1
-   */
-  authStatus?: number;
-  /**
-   * @remarks
-   * Cloud Monitoring - Alert authorization status.
-   * 
-   * @example
-   * 1
-   */
-  cmAuthStatus?: number;
-  /**
-   * @remarks
-   * The page number of the query result, default is 1.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * End time. The format is a Unix timestamp, which is the number of milliseconds since January 1, 1970.
-   * 
-   * @example
-   * 1710641101123
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * Cloud Security - Alert authorization status.
-   * 
-   * @example
-   * 1
-   */
-  monitorAuthStatus?: number;
-  /**
-   * @remarks
-   * Number of records per page.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Start time. The format is a Unix timestamp, which is the number of milliseconds since January 1, 1970.
-   * 
-   * @example
-   * 1710641101000
-   */
-  startTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      authStatus: 'AuthStatus',
-      cmAuthStatus: 'CmAuthStatus',
-      currentPage: 'CurrentPage',
-      endTime: 'EndTime',
-      monitorAuthStatus: 'MonitorAuthStatus',
-      pageSize: 'PageSize',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authStatus: 'number',
-      cmAuthStatus: 'number',
-      currentPage: 'number',
-      endTime: 'number',
-      monitorAuthStatus: 'number',
-      pageSize: 'number',
-      startTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageServiceCustomerResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface return code.
-   * 
-   * @example
-   * System error or openapi error
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Data query results.
-   */
-  data?: PageServiceCustomerResponseBodyData[];
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Return message. When the request is successful, it returns a success message; when the request fails, it returns the reason for the failure.
-   * 
-   * @example
-   * OK
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Pagination information.
-   */
-  pageInfo?: PageServiceCustomerResponseBodyPageInfo;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 808A307F-9513-5099-AAA5-98D4EF199140
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Request return status.
-   * - true: Success.
-   * - false: Failure.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      pageInfo: 'PageInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': PageServiceCustomerResponseBodyData },
-      httpStatusCode: 'number',
-      message: 'string',
-      pageInfo: PageServiceCustomerResponseBodyPageInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageServiceCustomerResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PageServiceCustomerResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PageServiceCustomerResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendCustomEventRequest extends $tea.Model {
-  /**
-   * @remarks
-   * User ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1214484929940219
-   */
-  customerId?: string;
-  /**
-   * @remarks
-   * Data source.
-   * 
-   * @example
-   * aegis_suspicious_event
-   */
-  dataSource?: string;
-  /**
-   * @remarks
-   * Event details.
-   * 
-   * @example
-   * 疑似病毒木马启动运行。
-   */
-  eventDescription?: string;
-  /**
-   * @remarks
-   * Alert event details.
-   * 
-   * @example
-   * [{"name":"提示","type":"text","value":"在您的系统上发现可疑进程启动行为，通常与病毒木马或入侵事件相关"},{"name":"ATT&CK攻击阶段","type":"text","value":"代码执行"},{"name":"恶意行为","type":"text","value":"可疑的漏洞利用代码执行"},{"name":"规则类型","type":"text","value":"进程启动"},{"name":"规则引擎","type":"text","value":"精准攻击识别引擎"},{"name":"处置动作","type":"text","value":"阻断行为"},{"name":"进程路径","type":"text","value":"/usr/bin/python3.9"},{"name":"命令行","type":"text","value":"python3 /root/poc/python/cve-2018-15473.py --username root --port 22"},{"name":"父进程路径","type":"text","value":"/bin/gunkit"},{"name":"父进程命令行","type":"text","value":"gunkit serve-grpc --addr unix:///data/gunkit-grpc.sock"},{"name":"进程ID","type":"text","value":"22714"},{"name":"父进程ID","type":"text","value":"2986"},{"name":"描述","type":"text","value":"主动防御检测到可疑进程启动行为，这类可疑进程通常存在于特殊的系统目录，或通过后缀伪装成文档/音频/图片等文件诱导用户运行，该异常行为已被成功拦截"},{"name":"处置建议","type":"text","value":"请您及时排查是否是正常的业务操作，如果您觉得此次拦截是非预期的，那您可以在主动防御 - 恶意行为防御页面中，关闭“可疑进程启动“规则集或者将受影响机器从管理主机中移除"},{"name":"父进程关系","type":"processChain","value":"1:::/usr/lib/systemd/systemd --switched-root --system --deserialize 22 &&& 2939:::/usr/local/bin/containerd-shim-runc-v2 -namespace moby -id 270f164903b47d4e219b410b8d11d9079a7ad1bac8133aea604598300d3b03d5 -address /run/containerd/containerd.sock &&& 2962:::/usr/bin/python3 /usr/bin/supervisord -n &&& 2986:::gunkit serve-grpc --addr unix:///data/gunkit-grpc.sock"}]
-   */
-  eventDetails?: string;
-  /**
-   * @remarks
-   * Event name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 客户端离线
-   */
-  eventName?: string;
-  /**
-   * @remarks
-   * Event type.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * SUSP_CUSTOM_CFW
-   */
-  eventType?: string;
-  /**
-   * @remarks
-   * Alert discovery time.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2023-04-23 14:47:34
-   */
-  findTime?: number;
-  /**
-   * @remarks
-   * Instance ID.
-   * 
-   * @example
-   * i-uf60h3ns25bzq9eyf8ps
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * Instance name.
-   * 
-   * @example
-   * 猫吉-售卖-MDR扫描器集群1
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * Whether to send.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  isSend?: string;
-  /**
-   * @remarks
-   * Event level.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * serious
-   */
-  level?: string;
-  /**
-   * @remarks
-   * The first occurrence time of the alert event.
-   * 
-   * @example
-   * 1724956996000
-   */
-  occurrenceTime?: number;
-  ownerId?: string;
-  /**
-   * @remarks
-   * Product name.
-   * 
-   * @example
-   * CloudSecCenter
-   */
-  product?: string;
-  /**
-   * @remarks
-   * Unique ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 68888f02-98f2-492b-a2b2-5b13295755b7
-   */
-  uniqueId?: string;
-  /**
-   * @remarks
-   * UUID.
-   * 
-   * @example
-   * 93B6CDAB-7D2E-33D2-9EBA-25D561A2E95F
-   */
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      customerId: 'CustomerId',
-      dataSource: 'DataSource',
-      eventDescription: 'EventDescription',
-      eventDetails: 'EventDetails',
-      eventName: 'EventName',
-      eventType: 'EventType',
-      findTime: 'FindTime',
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      isSend: 'IsSend',
-      level: 'Level',
-      occurrenceTime: 'OccurrenceTime',
-      ownerId: 'OwnerId',
-      product: 'Product',
-      uniqueId: 'UniqueId',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customerId: 'string',
-      dataSource: 'string',
-      eventDescription: 'string',
-      eventDetails: 'string',
-      eventName: 'string',
-      eventType: 'string',
-      findTime: 'number',
-      instanceId: 'string',
-      instanceName: 'string',
-      isSend: 'string',
-      level: 'string',
-      occurrenceTime: 'number',
-      ownerId: 'string',
-      product: 'string',
-      uniqueId: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendCustomEventResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Interface response code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Interface return data.
-   */
-  data?: SendCustomEventResponseBodyData;
-  /**
-   * @remarks
-   * HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Return message. When the request is successful, it returns a success message; when the request fails, it returns the reason for the failure.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 606EB377-155D-5AEB-AC4F-F013444A4C45
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the call was successful.
-   * 
-   * - true: Call succeeded.
-   * 
-   * - false: Call failed.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SendCustomEventResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendCustomEventResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SendCustomEventResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SendCustomEventResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceWorkOrderResponseBodyData extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class CreateServiceWorkOrderResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Completion time.
@@ -4866,12 +146,16 @@ export class CreateServiceWorkOrderResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAlarmDetailByIdResponseBodyDataEventDetails extends $tea.Model {
+export class GetAlarmDetailByIdResponseBodyDataEventDetails extends $dara.Model {
   /**
    * @remarks
    * Alarm event display name.
@@ -4922,12 +206,16 @@ export class GetAlarmDetailByIdResponseBodyDataEventDetails extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAlarmDetailByIdResponseBodyData extends $tea.Model {
+export class GetAlarmDetailByIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Alarm event type.
@@ -5157,12 +445,19 @@ export class GetAlarmDetailByIdResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.eventDetails)) {
+      $dara.Model.validateArray(this.eventDetails);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAttackedAssetDealResponseBodyDataEcsTrendList extends $tea.Model {
+export class GetAttackedAssetDealResponseBodyDataEcsTrendList extends $dara.Model {
   /**
    * @remarks
    * Date point.
@@ -5203,12 +498,16 @@ export class GetAttackedAssetDealResponseBodyDataEcsTrendList extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAttackedAssetDealResponseBodyData extends $tea.Model {
+export class GetAttackedAssetDealResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Collection of attacked asset convergence trends.
@@ -5226,12 +525,19 @@ export class GetAttackedAssetDealResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ecsTrendList)) {
+      $dara.Model.validateArray(this.ecsTrendList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetBaselineSummaryResponseBodyDataTrendDTOList extends $tea.Model {
+export class GetBaselineSummaryResponseBodyDataTrendDTOList extends $dara.Model {
   /**
    * @remarks
    * Date point.
@@ -5272,12 +578,16 @@ export class GetBaselineSummaryResponseBodyDataTrendDTOList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetBaselineSummaryResponseBodyData extends $tea.Model {
+export class GetBaselineSummaryResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Collection of baseline statistical data.
@@ -5295,12 +605,19 @@ export class GetBaselineSummaryResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.trendDTOList)) {
+      $dara.Model.validateArray(this.trendDTOList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDetailByIdResponseBodyDataVulDetails extends $tea.Model {
+export class GetDetailByIdResponseBodyDataVulDetails extends $dara.Model {
   /**
    * @remarks
    * CVE ID.
@@ -5351,12 +668,16 @@ export class GetDetailByIdResponseBodyDataVulDetails extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDetailByIdResponseBodyData extends $tea.Model {
+export class GetDetailByIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Vulnerability details.
@@ -5374,18 +695,25 @@ export class GetDetailByIdResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.vulDetails)) {
+      $dara.Model.validateArray(this.vulDetails);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDocumentPageResponseBodyData extends $tea.Model {
+export class GetDocumentPageResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Delivered by.
    * 
    * @example
-   * 张三
+   * luna
    */
   deliveredBy?: string;
   /**
@@ -5393,7 +721,7 @@ export class GetDocumentPageResponseBodyData extends $tea.Model {
    * Report name.
    * 
    * @example
-   * 季度报告
+   * month report
    */
   documentName?: string;
   /**
@@ -5406,12 +734,19 @@ export class GetDocumentPageResponseBodyData extends $tea.Model {
   documentType?: string;
   /**
    * @remarks
-   * Document primary key ID.
+   * Primary key ID of the document.
    * 
    * @example
    * 346409
    */
   id?: number;
+  /**
+   * @remarks
+   * Report status.
+   * 
+   * @example
+   * uploaded
+   */
   reportStatus?: string;
   /**
    * @remarks
@@ -5443,12 +778,16 @@ export class GetDocumentPageResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDocumentPageResponseBodyPageInfo extends $tea.Model {
+export class GetDocumentPageResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
    * The current page number in pagination queries.
@@ -5459,7 +798,7 @@ export class GetDocumentPageResponseBodyPageInfo extends $tea.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of data items displayed per page.
+   * Number of items per page in the returned data.
    * 
    * @example
    * 10
@@ -5467,7 +806,7 @@ export class GetDocumentPageResponseBodyPageInfo extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of data items found.
+   * Total number of queried items.
    * 
    * @example
    * 3149
@@ -5489,12 +828,16 @@ export class GetDocumentPageResponseBodyPageInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDocumentSummaryResponseBodyData extends $tea.Model {
+export class GetDocumentSummaryResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Number of documents.
@@ -5525,12 +868,16 @@ export class GetDocumentSummaryResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRecentDocumentResponseBodyData extends $tea.Model {
+export class GetRecentDocumentResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Primary key ID.
@@ -5571,12 +918,16 @@ export class GetRecentDocumentResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSafetyCoverResponseBodyDataCfwProtection extends $tea.Model {
+export class GetSafetyCoverResponseBodyDataCfwProtection extends $dara.Model {
   /**
    * @remarks
    * Number of unprotected items.
@@ -5637,12 +988,16 @@ export class GetSafetyCoverResponseBodyDataCfwProtection extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSafetyCoverResponseBodyDataEcsProtection extends $tea.Model {
+export class GetSafetyCoverResponseBodyDataEcsProtection extends $dara.Model {
   /**
    * @remarks
    * Number of unprotected items.
@@ -5703,12 +1058,16 @@ export class GetSafetyCoverResponseBodyDataEcsProtection extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSafetyCoverResponseBodyDataWafProtection extends $tea.Model {
+export class GetSafetyCoverResponseBodyDataWafProtection extends $dara.Model {
   /**
    * @remarks
    * Number of unprotected items.
@@ -5769,12 +1128,16 @@ export class GetSafetyCoverResponseBodyDataWafProtection extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSafetyCoverResponseBodyData extends $tea.Model {
+export class GetSafetyCoverResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * CFW protection coverage.
@@ -5806,12 +1169,25 @@ export class GetSafetyCoverResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.cfwProtection && typeof (this.cfwProtection as any).validate === 'function') {
+      (this.cfwProtection as any).validate();
+    }
+    if(this.ecsProtection && typeof (this.ecsProtection as any).validate === 'function') {
+      (this.ecsProtection as any).validate();
+    }
+    if(this.wafProtection && typeof (this.wafProtection as any).validate === 'function') {
+      (this.wafProtection as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSowListResponseBodyData extends $tea.Model {
+export class GetSowListResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Completion time.
@@ -5892,12 +1268,16 @@ export class GetSowListResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSuspEventPageResponseBodyData extends $tea.Model {
+export class GetSuspEventPageResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Alarm event type.
@@ -6068,12 +1448,16 @@ export class GetSuspEventPageResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSuspEventPageResponseBodyPageInfo extends $tea.Model {
+export class GetSuspEventPageResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
    * The current page number in pagination queries.
@@ -6114,12 +1498,16 @@ export class GetSuspEventPageResponseBodyPageInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSuspEventSummaryResponseBodyDataNetworkAttackTrendDTOTrendList extends $tea.Model {
+export class GetSuspEventSummaryResponseBodyDataNetworkAttackTrendDTOTrendList extends $dara.Model {
   /**
    * @remarks
    * Date.
@@ -6170,12 +1558,16 @@ export class GetSuspEventSummaryResponseBodyDataNetworkAttackTrendDTOTrendList e
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSuspEventSummaryResponseBodyDataNetworkAttackTrendDTO extends $tea.Model {
+export class GetSuspEventSummaryResponseBodyDataNetworkAttackTrendDTO extends $dara.Model {
   /**
    * @remarks
    * Collection of trend nodes for each attack item.
@@ -6193,12 +1585,19 @@ export class GetSuspEventSummaryResponseBodyDataNetworkAttackTrendDTO extends $t
     };
   }
 
+  validate() {
+    if(Array.isArray(this.trendList)) {
+      $dara.Model.validateArray(this.trendList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSuspEventSummaryResponseBodyDataSuspEventDealSummaryDTO extends $tea.Model {
+export class GetSuspEventSummaryResponseBodyDataSuspEventDealSummaryDTO extends $dara.Model {
   /**
    * @remarks
    * Completed.
@@ -6269,12 +1668,16 @@ export class GetSuspEventSummaryResponseBodyDataSuspEventDealSummaryDTO extends 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSuspEventSummaryResponseBodyDataSuspEventTopDTOSuspEventList extends $tea.Model {
+export class GetSuspEventSummaryResponseBodyDataSuspEventTopDTOSuspEventList extends $dara.Model {
   /**
    * @remarks
    * Alert name.
@@ -6305,12 +1708,16 @@ export class GetSuspEventSummaryResponseBodyDataSuspEventTopDTOSuspEventList ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSuspEventSummaryResponseBodyDataSuspEventTopDTO extends $tea.Model {
+export class GetSuspEventSummaryResponseBodyDataSuspEventTopDTO extends $dara.Model {
   /**
    * @remarks
    * Top 10 before handling alarms
@@ -6328,12 +1735,19 @@ export class GetSuspEventSummaryResponseBodyDataSuspEventTopDTO extends $tea.Mod
     };
   }
 
+  validate() {
+    if(Array.isArray(this.suspEventList)) {
+      $dara.Model.validateArray(this.suspEventList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSuspEventSummaryResponseBodyDataSuspEventTrendDTOTrendList extends $tea.Model {
+export class GetSuspEventSummaryResponseBodyDataSuspEventTrendDTOTrendList extends $dara.Model {
   /**
    * @remarks
    * Time point.
@@ -6374,12 +1788,16 @@ export class GetSuspEventSummaryResponseBodyDataSuspEventTrendDTOTrendList exten
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSuspEventSummaryResponseBodyDataSuspEventTrendDTO extends $tea.Model {
+export class GetSuspEventSummaryResponseBodyDataSuspEventTrendDTO extends $dara.Model {
   /**
    * @remarks
    * Trend of alerts.
@@ -6397,12 +1815,19 @@ export class GetSuspEventSummaryResponseBodyDataSuspEventTrendDTO extends $tea.M
     };
   }
 
+  validate() {
+    if(Array.isArray(this.trendList)) {
+      $dara.Model.validateArray(this.trendList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSuspEventSummaryResponseBodyData extends $tea.Model {
+export class GetSuspEventSummaryResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Network attack trend.
@@ -6441,12 +1866,28 @@ export class GetSuspEventSummaryResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.networkAttackTrendDTO && typeof (this.networkAttackTrendDTO as any).validate === 'function') {
+      (this.networkAttackTrendDTO as any).validate();
+    }
+    if(this.suspEventDealSummaryDTO && typeof (this.suspEventDealSummaryDTO as any).validate === 'function') {
+      (this.suspEventDealSummaryDTO as any).validate();
+    }
+    if(this.suspEventTopDTO && typeof (this.suspEventTopDTO as any).validate === 'function') {
+      (this.suspEventTopDTO as any).validate();
+    }
+    if(this.suspEventTrendDTO && typeof (this.suspEventTrendDTO as any).validate === 'function') {
+      (this.suspEventTrendDTO as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSuspPageSummaryResponseBodyData extends $tea.Model {
+export class GetSuspPageSummaryResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Number of completed items.
@@ -6527,12 +1968,16 @@ export class GetSuspPageSummaryResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUserStatusResponseBodyData extends $tea.Model {
+export class GetUserStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Customer type.
@@ -6603,12 +2048,16 @@ export class GetUserStatusResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVulItemPageResponseBodyData extends $tea.Model {
+export class GetVulItemPageResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Vulnerability alias.
@@ -6789,12 +2238,16 @@ export class GetVulItemPageResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVulItemPageResponseBodyPageInfo extends $tea.Model {
+export class GetVulItemPageResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
    * The current page number for pagination queries.
@@ -6835,12 +2288,16 @@ export class GetVulItemPageResponseBodyPageInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVulListByIdResponseBodyDataEffectMsgDTOS extends $tea.Model {
+export class GetVulListByIdResponseBodyDataEffectMsgDTOS extends $dara.Model {
   /**
    * @remarks
    * Hit
@@ -6881,12 +2338,16 @@ export class GetVulListByIdResponseBodyDataEffectMsgDTOS extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVulListByIdResponseBodyData extends $tea.Model {
+export class GetVulListByIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Vulnerability Alias
@@ -7057,12 +2518,19 @@ export class GetVulListByIdResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.effectMsgDTOS)) {
+      $dara.Model.validateArray(this.effectMsgDTOS);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVulListByIdResponseBodyPageInfo extends $tea.Model {
+export class GetVulListByIdResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
    * Current page number.
@@ -7103,12 +2571,16 @@ export class GetVulListByIdResponseBodyPageInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVulPageSummaryResponseBodyData extends $tea.Model {
+export class GetVulPageSummaryResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Number of completed items.
@@ -7189,12 +2661,16 @@ export class GetVulPageSummaryResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVulSummaryResponseBodyDataTrendList extends $tea.Model {
+export class GetVulSummaryResponseBodyDataTrendList extends $dara.Model {
   /**
    * @remarks
    * Time point.
@@ -7235,12 +2711,16 @@ export class GetVulSummaryResponseBodyDataTrendList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVulSummaryResponseBodyData extends $tea.Model {
+export class GetVulSummaryResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Number of completed items.
@@ -7288,12 +2768,19 @@ export class GetVulSummaryResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.trendList)) {
+      $dara.Model.validateArray(this.trendList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetWorkTaskSummaryResponseBodyData extends $tea.Model {
+export class GetWorkTaskSummaryResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Average response time (in minutes).
@@ -7384,12 +2871,16 @@ export class GetWorkTaskSummaryResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PageServiceCustomerResponseBodyData extends $tea.Model {
+export class PageServiceCustomerResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Customer UID.
@@ -7510,12 +3001,16 @@ export class PageServiceCustomerResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PageServiceCustomerResponseBodyPageInfo extends $tea.Model {
+export class PageServiceCustomerResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
    * The current page number in pagination queries.
@@ -7556,12 +3051,16 @@ export class PageServiceCustomerResponseBodyPageInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendCustomEventResponseBodyData extends $tea.Model {
+export class SendCustomEventResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Service UID.
@@ -7652,6 +3151,5326 @@ export class SendCustomEventResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmDjbhReportRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Primary key ID of the report.
+   * 
+   * @example
+   * 24563
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmDjbhReportResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * API response code.
+   * 
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: string;
+  /**
+   * @remarks
+   * Return message.
+   * 
+   * @example
+   * Successful!
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * EF801DD1-D934-51B3-92D4-776CE17B184F
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmDjbhReportResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfirmDjbhReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConfirmDjbhReportResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceLinkedRoleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Language.
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceLinkedRoleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 592B80F0-7674-56A4-9027-8A0A9ACDBD56
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceLinkedRoleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceLinkedRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceLinkedRoleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceWorkOrderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Creator.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 426556
+   */
+  creator?: string;
+  /**
+   * @remarks
+   * Customer ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1477832102462645
+   */
+  customerId?: string;
+  /**
+   * @remarks
+   * Duration in days.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
+  durationDay?: string;
+  /**
+   * @remarks
+   * Attachment requirement.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Y
+   */
+  isAttachment?: string;
+  isMilestone?: string;
+  /**
+   * @remarks
+   * Whether a reminder is needed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Y
+   */
+  isWorkOrderNotify?: string;
+  /**
+   * @remarks
+   * Number of days for advance notification.
+   * 
+   * @example
+   * 5
+   */
+  notifyDay?: string;
+  /**
+   * @remarks
+   * Notification ID.
+   * 
+   * @example
+   * 10
+   */
+  notifyId?: number;
+  /**
+   * @remarks
+   * Operation remarks.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 新建
+   */
+  operateRemark?: string;
+  /**
+   * @remarks
+   * Operation type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CREATE
+   */
+  operateType?: string;
+  /**
+   * @remarks
+   * Operator.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 426556
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  ownerId?: string;
+  /**
+   * @remarks
+   * Start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-01-21 15:25:25
+   */
+  startTime?: number;
+  /**
+   * @remarks
+   * Work order details.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"questionDetail":"测试工单","answerDetail":""}
+   */
+  workOrderDetail?: string;
+  /**
+   * @remarks
+   * Work order name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 安全月报交付任务
+   */
+  workOrderName?: string;
+  /**
+   * @remarks
+   * Work order source.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 工单迁移
+   */
+  workOrderSource?: string;
+  /**
+   * @remarks
+   * Work order status.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * UNPROCESSED
+   */
+  workOrderStatus?: string;
+  /**
+   * @remarks
+   * Work order type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MONTH_REPORT
+   */
+  workOrderType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creator: 'Creator',
+      customerId: 'CustomerId',
+      durationDay: 'DurationDay',
+      isAttachment: 'IsAttachment',
+      isMilestone: 'IsMilestone',
+      isWorkOrderNotify: 'IsWorkOrderNotify',
+      notifyDay: 'NotifyDay',
+      notifyId: 'NotifyId',
+      operateRemark: 'OperateRemark',
+      operateType: 'OperateType',
+      operator: 'Operator',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+      workOrderDetail: 'WorkOrderDetail',
+      workOrderName: 'WorkOrderName',
+      workOrderSource: 'WorkOrderSource',
+      workOrderStatus: 'WorkOrderStatus',
+      workOrderType: 'WorkOrderType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creator: 'string',
+      customerId: 'string',
+      durationDay: 'string',
+      isAttachment: 'string',
+      isMilestone: 'string',
+      isWorkOrderNotify: 'string',
+      notifyDay: 'string',
+      notifyId: 'number',
+      operateRemark: 'string',
+      operateType: 'string',
+      operator: 'string',
+      ownerId: 'string',
+      startTime: 'number',
+      workOrderDetail: 'string',
+      workOrderName: 'string',
+      workOrderSource: 'string',
+      workOrderStatus: 'string',
+      workOrderType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceWorkOrderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   */
+  data?: CreateServiceWorkOrderResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The prompt message of the returned result.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7DC44321-7AAE-51CD-8E5F-CEB968569042
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful.
+   * - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateServiceWorkOrderResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceWorkOrderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceWorkOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceWorkOrderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDjbhReportRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Primary key ID of the report.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 26579
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDjbhReportResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * API response code.
+   * 
+   * @example
+   * successful
+   */
+  code?: string;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: string;
+  /**
+   * @remarks
+   * Prompt message for the returned result.
+   * 
+   * @example
+   * Successful!
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 86786E4C-6416-55CF-9AB6-5E275B68801D
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDjbhReportResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDjbhReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDjbhReportResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceLinkedRoleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Language.
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceLinkedRoleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Whether the service-linked role permission is granted:
+   * - true: Granted.
+   * - false: Not granted.
+   * 
+   * @example
+   * true
+   */
+  entityRoleGrant?: boolean;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 02F8BBF3-2D61-5982-8911-EEB387BE3AF8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityRoleGrant: 'EntityRoleGrant',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityRoleGrant: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceLinkedRoleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeServiceLinkedRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeServiceLinkedRoleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisposeServiceWorkOrderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Attachment name.
+   * 
+   * @example
+   * bbaa133c-0ac2-489f-9fc8-39f91c2e770c_20230301-20240403-服务工单列表.xlsx
+   */
+  attachmentName?: string;
+  /**
+   * @remarks
+   * End time.
+   * 
+   * @example
+   * 2024-04-14 00:00:00
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * Forward to owner.
+   * 
+   * @example
+   * 405639
+   */
+  forwardOwnerId?: string;
+  /**
+   * @remarks
+   * Work order ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 23172
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Attachment requirement.
+   * 
+   * @example
+   * Y
+   */
+  isAttachment?: string;
+  /**
+   * @remarks
+   * Work order notification.
+   * 
+   * @example
+   * Y
+   */
+  isWorkOrderNotify?: string;
+  /**
+   * @remarks
+   * Notification ID.
+   * 
+   * @example
+   * 10
+   */
+  notifyId?: number;
+  /**
+   * @remarks
+   * Operation remarks.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 处理完成
+   */
+  operateRemark?: string;
+  /**
+   * @remarks
+   * Processing type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PROCESSED
+   */
+  operateType?: string;
+  /**
+   * @remarks
+   * Operator.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 396120
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * Start time.
+   * 
+   * @example
+   * 2024-04-02 00:00:00
+   */
+  startTime?: number;
+  /**
+   * @remarks
+   * Upgrade owner.
+   * 
+   * @example
+   * 336333
+   */
+  upgradeOwnerId?: string;
+  /**
+   * @remarks
+   * Work order details.
+   * 
+   * @example
+   * {"questionDetail":"测试工单","answerDetail":""}
+   */
+  workOrderDetail?: string;
+  /**
+   * @remarks
+   * Work order name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 安全产品配置问题与超量提醒
+   */
+  workOrderName?: string;
+  /**
+   * @remarks
+   * Work order status.
+   * 
+   * @example
+   * PROCESSED
+   */
+  workOrderStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachmentName: 'AttachmentName',
+      endTime: 'EndTime',
+      forwardOwnerId: 'ForwardOwnerId',
+      id: 'Id',
+      isAttachment: 'IsAttachment',
+      isWorkOrderNotify: 'IsWorkOrderNotify',
+      notifyId: 'NotifyId',
+      operateRemark: 'OperateRemark',
+      operateType: 'OperateType',
+      operator: 'Operator',
+      startTime: 'StartTime',
+      upgradeOwnerId: 'UpgradeOwnerId',
+      workOrderDetail: 'WorkOrderDetail',
+      workOrderName: 'WorkOrderName',
+      workOrderStatus: 'WorkOrderStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachmentName: 'string',
+      endTime: 'number',
+      forwardOwnerId: 'string',
+      id: 'number',
+      isAttachment: 'string',
+      isWorkOrderNotify: 'string',
+      notifyId: 'number',
+      operateRemark: 'string',
+      operateType: 'string',
+      operator: 'string',
+      startTime: 'number',
+      upgradeOwnerId: 'string',
+      workOrderDetail: 'string',
+      workOrderName: 'string',
+      workOrderStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisposeServiceWorkOrderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * API response code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message of the returned result.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ED520610-6231-5D80-BADD-A8CDC7BBC809
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisposeServiceWorkOrderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisposeServiceWorkOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisposeServiceWorkOrderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisposeWorkTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Operator.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * WB01089929
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * Operation remarks.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 处理完成
+   */
+  optRemark?: string;
+  /**
+   * @remarks
+   * Work order status.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8
+   */
+  status?: number;
+  /**
+   * @remarks
+   * Work order ID, multiple IDs separated by commas.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10310
+   */
+  taskIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      optRemark: 'OptRemark',
+      status: 'Status',
+      taskIds: 'TaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      optRemark: 'string',
+      status: 'number',
+      taskIds: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisposeWorkTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface response code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message of the returned result.
+   * 
+   * @example
+   * Success.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 86786E4C-6416-55CF-9AB6-5E275B68801D
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisposeWorkTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisposeWorkTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisposeWorkTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlarmDetailByIdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Primary key ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20077761
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlarmDetailByIdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * API response code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   */
+  data?: GetAlarmDetailByIdResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Return message.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5C1B0668-442C-57AE-9668-D894B0B012EB
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the operation was successful: - true: Success. - false: Failure.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetAlarmDetailByIdResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlarmDetailByIdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAlarmDetailByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAlarmDetailByIdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAttackedAssetDealRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Time filter type, supporting filtering by the last 7 days, the last 30 days, the last half year, or custom time periods.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * month
+   */
+  dateType?: string;
+  /**
+   * @remarks
+   * End time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1732268720000
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * Start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1732268720000
+   */
+  startDate?: number;
+  /**
+   * @remarks
+   * Source of the alert event.
+   * 
+   * @example
+   * 暂时无需传参，有问题请联系管理员
+   */
+  suspEventSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateType: 'DateType',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      suspEventSource: 'SuspEventSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateType: 'string',
+      endDate: 'number',
+      startDate: 'number',
+      suspEventSource: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAttackedAssetDealResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface return code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data query result.
+   */
+  data?: GetAttackedAssetDealResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Return message.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1E74F11C-B4A8-5774-962C-02003BA8504E
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the query was successful.<br />
+   * **Enum values:**
+   * * true: Success.
+   * * false: Failure.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetAttackedAssetDealResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAttackedAssetDealResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAttackedAssetDealResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAttackedAssetDealResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBaselineSummaryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Time filter type, supports filtering by the last 7 days, the last 30 days, the last half year, or custom time periods.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * month
+   */
+  dateType?: string;
+  /**
+   * @remarks
+   * End time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1732156885986
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * Start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1729478485000
+   */
+  startDate?: number;
+  /**
+   * @remarks
+   * Alert event source.
+   * 
+   * @example
+   * 该字段暂未使用，有问题请联系管理员
+   */
+  suspEventSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateType: 'DateType',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      suspEventSource: 'SuspEventSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateType: 'string',
+      endDate: 'number',
+      startDate: 'number',
+      suspEventSource: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBaselineSummaryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface response code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   */
+  data?: GetBaselineSummaryResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message for the returned result.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 67D61738-5E38-5164-947A-34E3850D493A
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation was successful. Values: true: success; false: failure.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetBaselineSummaryResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBaselineSummaryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBaselineSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBaselineSummaryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsoleScoreRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter time type, supports filtering by the last 7 days, last 30 days, last half year, or custom. If empty, it represents the last 7 days.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * month
+   */
+  dateType?: string;
+  /**
+   * @remarks
+   * End date.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1732156885986
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * Start date.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1729478485000
+   */
+  startDate?: number;
+  /**
+   * @remarks
+   * Source of alert events.
+   * 
+   * @example
+   * 该字段暂未使用，有问题请联系管理员
+   */
+  suspEventSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateType: 'DateType',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      suspEventSource: 'SuspEventSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateType: 'string',
+      endDate: 'number',
+      startDate: 'number',
+      suspEventSource: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsoleScoreResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface response code.
+   * 
+   * @example
+   * Success
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   * 
+   * @example
+   * {
+   *     "score": "94.00",
+   *     "consoleScoreTrendDTOS": [
+   *         {
+   *             "date": "20241009",
+   *             "score": "100.0"
+   *         }
+   *     ],
+   *     "cyclicYearOverYear": "-6.00",
+   *     "recordDate": "20241209",
+   *     "weeklyYearOverYear": "1.62",
+   *     "aboveWholeNetworkUserRatio": "6.25",
+   *     "aliUid": "1601097845544644",
+   *     "detailJson": "[{\\"detailDTO\\":[{\\"count\\":0,\\"itemName\\":\\"应用漏洞POC验证\\",\\"mark\\":\\"1\\"},{\\"count\\":0,\\"itemName\\":\\"未授权访问漏洞（公网暴露）\\",\\"mark\\":\\"1\\"},{\\"count\\":0,\\"itemName\\":\\"后台弱口令漏洞（公网暴露）\\",\\"mark\\":\\"1\\"},{\\"count\\":0,\\"itemName\\":\\"文件上传漏洞（公网暴露）\\",\\"mark\\":\\"1\\"}],\\"markRate\\":\\"0.5\\",\\"markType\\":\\"vul\\"},{\\"detailDTO\\":[{\\"count\\":12,\\"itemName\\":\\"WAF3.0回源配置不正确\\",\\"mark\\":\\"1\\"},{\\"count\\":0,\\"itemName\\":\\"AK泄露检查未开启\\",\\"mark\\":\\"1\\"},{\\"count\\":0,\\"itemName\\":\\"DNAT管理端口开放\\",\\"mark\\":\\"1\\"},{\\"count\\":0,\\"itemName\\":\\"高危端口暴露\\",\\"mark\\":\\"0.5\\"}],\\"markRate\\":\\"0.5\\",\\"markType\\":\\"risk\\"}]"
+   * }
+   */
+  data?: any;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message for the result returned.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * D0937B0F-9180-5F70-B6ED-0BA22591627F
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation was successful. true means success, false means failure.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsoleScoreResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConsoleScoreResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetConsoleScoreResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDetailByIdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Primary key ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 22
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDetailByIdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface return code.
+   * 
+   * @example
+   * 404
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data query result.
+   */
+  data?: GetDetailByIdResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Return message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DAB46EC5-3746-59C4-B6D2-469F442EC73F
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful. Values: - **true**: indicates a successful call. - **false**: indicates a failed call.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetDetailByIdResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDetailByIdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDetailByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDetailByIdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentDownloadUrlRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Document management ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 175815
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Report type.
+   * 
+   * @example
+   * 5
+   */
+  reportType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      reportType: 'ReportType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      reportType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentDownloadUrlResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * API status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * OSS file access URL.
+   * 
+   * @example
+   * https://oos-cn.ctyunapi.cn/example-bucket/test/1.jpg
+   */
+  data?: string;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Message of the returned result.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * C7BE80B4-7692-54FA-AB22-2A7DF08C4754
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful: - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentDownloadUrlResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocumentDownloadUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDocumentDownloadUrlResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentPageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Current page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * Delivered by.
+   * 
+   * @example
+   * luna
+   */
+  deliveredBy?: string;
+  /**
+   * @remarks
+   * Document name.
+   * 
+   * @example
+   * month report
+   */
+  documentName?: string;
+  /**
+   * @remarks
+   * Document type.
+   * 
+   * @example
+   * 0
+   */
+  documentType?: string;
+  /**
+   * @remarks
+   * Page size.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Report type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  reportType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      deliveredBy: 'DeliveredBy',
+      documentName: 'DocumentName',
+      documentType: 'DocumentType',
+      pageSize: 'PageSize',
+      reportType: 'ReportType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      deliveredBy: 'string',
+      documentName: 'string',
+      documentType: 'string',
+      pageSize: 'number',
+      reportType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentPageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * API response code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Response data.
+   */
+  data?: GetDocumentPageResponseBodyData[];
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message for the result.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Pagination information.
+   */
+  pageInfo?: GetDocumentPageResponseBodyPageInfo;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 04DAD7B4-E1DA-5C2C-8E5C-A1EDC880CF60
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetDocumentPageResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      pageInfo: GetDocumentPageResponseBodyPageInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    if(this.pageInfo && typeof (this.pageInfo as any).validate === 'function') {
+      (this.pageInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentPageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocumentPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDocumentPageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentSummaryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Type of service report.
+   * 
+   * @example
+   * 1
+   */
+  reportType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reportType: 'ReportType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reportType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentSummaryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface return code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data query result.
+   */
+  data?: GetDocumentSummaryResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message for the returned result.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7903F2DE-D9EE-5D16-8A08-E9223E54B281
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful. Values:
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetDocumentSummaryResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentSummaryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocumentSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDocumentSummaryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRecentDocumentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter time type, supports filtering by the last 7 days, the last 30 days, the last half year, or custom time ranges.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 该字段暂未使用，有问题请联系管理员
+   */
+  dateType?: string;
+  /**
+   * @remarks
+   * End time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 该字段暂未使用，有问题请联系管理员
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * Start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 该字段暂未使用，有问题请联系管理员
+   */
+  startDate?: number;
+  /**
+   * @remarks
+   * Alert event source.
+   * 
+   * @example
+   * 该字段暂未使用，有问题请联系管理员
+   */
+  suspEventSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateType: 'DateType',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      suspEventSource: 'SuspEventSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateType: 'string',
+      endDate: 'number',
+      startDate: 'number',
+      suspEventSource: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRecentDocumentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface response code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   */
+  data?: GetRecentDocumentResponseBodyData[];
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 4916FA8D-F294-518D-B373-8B59D63CAB19
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetRecentDocumentResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRecentDocumentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRecentDocumentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRecentDocumentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSafetyCoverRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter time type, supports filtering by the last 7 days, the last 30 days, the last half year, or custom time periods.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * month
+   */
+  dateType?: string;
+  /**
+   * @remarks
+   * End time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1732268720000
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * Start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1732255620000
+   */
+  startDate?: number;
+  /**
+   * @remarks
+   * Alert event source.
+   * 
+   * @example
+   * 该接口不用传
+   */
+  suspEventSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateType: 'DateType',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      suspEventSource: 'SuspEventSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateType: 'string',
+      endDate: 'number',
+      startDate: 'number',
+      suspEventSource: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSafetyCoverResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * API return code.
+   * 
+   * @example
+   * 404
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data query result.
+   */
+  data?: GetSafetyCoverResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Message of the response result.
+   * 
+   * @example
+   * system error
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 564f8bb9-df3c-42a0-877a-b35d48f66603
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful:
+   * - **true**: Call succeeded.
+   * - **false**: Call failed.
+   * 
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSafetyCoverResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSafetyCoverResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSafetyCoverResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSafetyCoverResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSowListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter time type, supports filtering by the last 7 days, the last 30 days, the last half year, or custom time ranges.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * month
+   */
+  dateType?: string;
+  /**
+   * @remarks
+   * End time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1732156885986
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * Start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1729478485000
+   */
+  startDate?: number;
+  /**
+   * @remarks
+   * Alert event source.
+   * 
+   * @example
+   * 该字段暂未使用，有问题请联系管理员
+   */
+  suspEventSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateType: 'DateType',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      suspEventSource: 'SuspEventSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateType: 'string',
+      endDate: 'number',
+      startDate: 'number',
+      suspEventSource: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSowListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface response code.
+   * 
+   * @example
+   * Success
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   */
+  data?: GetSowListResponseBodyData[];
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt information for the returned result.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * FA8883BC-CB18-5E28-A113-8249917CA05E
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetSowListResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSowListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSowListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSowListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSuspEventPageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Alarm end time.
+   * 
+   * @example
+   * 1732515522000
+   */
+  alarmEndTime?: number;
+  /**
+   * @remarks
+   * Alarm start time.
+   * 
+   * @example
+   * 1722515522000
+   */
+  alarmStartTime?: number;
+  /**
+   * @remarks
+   * Current page number.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * Number of items per page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Alarm source.
+   * 
+   * @example
+   * SUSP_EVENT
+   */
+  source?: string;
+  /**
+   * @remarks
+   * Disposal status.
+   * 
+   * @example
+   * 1
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alarmEndTime: 'AlarmEndTime',
+      alarmStartTime: 'AlarmStartTime',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      source: 'Source',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmEndTime: 'number',
+      alarmStartTime: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+      source: 'string',
+      status: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSuspEventPageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * API response code.
+   * 
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   */
+  data?: GetSuspEventPageResponseBodyData[];
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message of the returned result.
+   * 
+   * @example
+   * system error
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Pagination information.
+   */
+  pageInfo?: GetSuspEventPageResponseBodyPageInfo;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AFA6F7B7-7C4B-58BB-B8FB-E0FFA4483561
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful.
+   * - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetSuspEventPageResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      pageInfo: GetSuspEventPageResponseBodyPageInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    if(this.pageInfo && typeof (this.pageInfo as any).validate === 'function') {
+      (this.pageInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSuspEventPageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSuspEventPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSuspEventPageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSuspEventSummaryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter time type. Supports filtering by the last 7 days, the last 30 days, the last half year, or custom time ranges.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * month
+   */
+  dateType?: string;
+  /**
+   * @remarks
+   * End time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1732156885986
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * Start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1729478485000
+   */
+  startDate?: number;
+  /**
+   * @remarks
+   * Alert event source.
+   * 
+   * @example
+   * SUSP_EVENT
+   */
+  suspEventSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateType: 'DateType',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      suspEventSource: 'SuspEventSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateType: 'string',
+      endDate: 'number',
+      startDate: 'number',
+      suspEventSource: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSuspEventSummaryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * API response code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   */
+  data?: GetSuspEventSummaryResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message for the returned result.
+   * 
+   * @example
+   * Successful!
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9B2DAE9B-B901-5818-AFEF-E5637D938280
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful.
+   * - true: Call succeeded.
+   * - false: Call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSuspEventSummaryResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSuspEventSummaryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSuspEventSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSuspEventSummaryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSuspPageSummaryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface response code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   */
+  data?: GetSuspPageSummaryResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message for the result returned.
+   * 
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * EF801DD1-D934-51B3-92D4-776CE17B184F
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * - **true**: Call succeeded.
+   * - **false**: Call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSuspPageSummaryResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSuspPageSummaryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSuspPageSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSuspPageSummaryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface response code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   */
+  data?: GetUserStatusResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message of the returned result.
+   * 
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * D8DBD769-613E-5E6B-A9FD-B622375B152D
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetUserStatusResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulItemPageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Vulnerability alias.
+   * 
+   * @example
+   * RHSA-2018:3665-Important: NetworkManager security update
+   */
+  aliasName?: string;
+  /**
+   * @remarks
+   * Current page number.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * Processing status. y: processed; n: unprocessed; h: processing.
+   * 
+   * @example
+   * n
+   */
+  dealed?: string;
+  /**
+   * @remarks
+   * Risk level.
+   * 
+   * @example
+   * later
+   */
+  level?: string;
+  /**
+   * @remarks
+   * Vulnerability name.
+   * 
+   * @example
+   * oval:com.redhat.rhsa:def:20183665
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Number of items to display per page in the returned data.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Vulnerability type.
+   * 
+   * @example
+   * sca
+   */
+  scanType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasName: 'AliasName',
+      currentPage: 'CurrentPage',
+      dealed: 'Dealed',
+      level: 'Level',
+      name: 'Name',
+      pageSize: 'PageSize',
+      scanType: 'ScanType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasName: 'string',
+      currentPage: 'number',
+      dealed: 'string',
+      level: 'string',
+      name: 'string',
+      pageSize: 'number',
+      scanType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulItemPageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * API response code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   */
+  data?: GetVulItemPageResponseBodyData[];
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message for the returned result.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Pagination information.
+   */
+  pageInfo?: GetVulItemPageResponseBodyPageInfo;
+  /**
+   * @remarks
+   * Request response.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 02F8BBF3-2D61-5982-8911-EEB387BE3AF8
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful.
+   * true: Call succeeded. false: Call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetVulItemPageResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      pageInfo: GetVulItemPageResponseBodyPageInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    if(this.pageInfo && typeof (this.pageInfo as any).validate === 'function') {
+      (this.pageInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulItemPageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVulItemPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVulItemPageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulListByIdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Current page
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * Whether it has been processed; y: processed; n: not processed
+   * 
+   * @example
+   * n
+   */
+  dealed?: string;
+  /**
+   * @remarks
+   * Primary key ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 4209205
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Risk level
+   * 
+   * @example
+   * asap,later,nntf
+   */
+  necessity?: string;
+  /**
+   * @remarks
+   * Page size
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Asset information of the vulnerability to be queried, which can be set as asset name, public IP, or private IP.
+   * 
+   * @example
+   * production_nat_cn-hangzhou_zone_105
+   */
+  remark?: string;
+  /**
+   * @remarks
+   * UUID of the server with the vulnerability to be queried. Multiple UUIDs should be separated by a comma (,).
+   * 
+   * @example
+   * 3615b908-995a-4edb-bc85-1981b4e94ba0,9c52cf9a-d8ba-4e31-ae06-500b879ee4e6,4b7de3cf-c4ac-42fc-8804-35070493dc29,f3c01525-0777-4c97-88d9-bec11afd4a6a,a80bd516-c4f3-4c27-a169-c8abfaf9e89e
+   */
+  uuids?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      dealed: 'Dealed',
+      id: 'Id',
+      necessity: 'Necessity',
+      pageSize: 'PageSize',
+      remark: 'Remark',
+      uuids: 'Uuids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      dealed: 'string',
+      id: 'number',
+      necessity: 'string',
+      pageSize: 'number',
+      remark: 'string',
+      uuids: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulListByIdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * API response code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   */
+  data?: GetVulListByIdResponseBodyData[];
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message for the returned result.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Pagination information.
+   */
+  pageInfo?: GetVulListByIdResponseBodyPageInfo;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * D38B3D2F-67FD-57FF-87D1-C431D2C70F76
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful. Values: - **true**: Yes. - **false**: No.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetVulListByIdResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      pageInfo: GetVulListByIdResponseBodyPageInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    if(this.pageInfo && typeof (this.pageInfo as any).validate === 'function') {
+      (this.pageInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulListByIdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVulListByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVulListByIdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulPageSummaryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface return code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data query result.
+   */
+  data?: GetVulPageSummaryResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Return message.
+   * 
+   * @example
+   * operation success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * A3A575C8-80F9-5F04-AA24-CCAC246884A3
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetVulPageSummaryResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulPageSummaryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVulPageSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVulPageSummaryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulSummaryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter time type. Supports filtering by the last 7 days, the last 30 days, the last half year, or a custom time range.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * month
+   */
+  dateType?: string;
+  /**
+   * @remarks
+   * End time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1732156885986
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * Start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1729478485000
+   */
+  startDate?: number;
+  /**
+   * @remarks
+   * Alert event source.
+   * 
+   * @example
+   * 该字段暂未使用，有问题请联系管理员
+   */
+  suspEventSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateType: 'DateType',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      suspEventSource: 'SuspEventSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateType: 'string',
+      endDate: 'number',
+      startDate: 'number',
+      suspEventSource: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulSummaryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface response code.
+   * 
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   */
+  data?: GetVulSummaryResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message for the response result.
+   * 
+   * @example
+   * system error
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * EF801DD1-D934-51B3-92D4-776CE17B184F
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetVulSummaryResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulSummaryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVulSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVulSummaryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkTaskSummaryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter time type, supports filtering by the last 7 days, the last 30 days, the last half year, or custom time periods.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * month
+   */
+  dateType?: string;
+  /**
+   * @remarks
+   * End time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1732156885986
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * Start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1729478485000
+   */
+  startDate?: number;
+  /**
+   * @remarks
+   * Alert event source.
+   * 
+   * @example
+   * 该字段暂时未用，有问题请联系管理员
+   */
+  suspEventSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateType: 'DateType',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      suspEventSource: 'SuspEventSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateType: 'string',
+      endDate: 'number',
+      startDate: 'number',
+      suspEventSource: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkTaskSummaryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response code.
+   * 
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data returned by the interface.
+   */
+  data?: GetWorkTaskSummaryResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Prompt message for the response result.
+   * 
+   * @example
+   * Successful!
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * EF801DD1-D934-51B3-92D4-776CE17B184F
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetWorkTaskSummaryResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkTaskSummaryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWorkTaskSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWorkTaskSummaryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageServiceCustomerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Authorization status.
+   * 
+   * @example
+   * 1
+   */
+  authStatus?: number;
+  /**
+   * @remarks
+   * Cloud Monitoring - Alert authorization status.
+   * 
+   * @example
+   * 1
+   */
+  cmAuthStatus?: number;
+  /**
+   * @remarks
+   * The page number of the query result, default is 1.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * End time. The format is a Unix timestamp, which is the number of milliseconds since January 1, 1970.
+   * 
+   * @example
+   * 1710641101123
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * Cloud Security - Alert authorization status.
+   * 
+   * @example
+   * 1
+   */
+  monitorAuthStatus?: number;
+  /**
+   * @remarks
+   * Number of records per page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Start time. The format is a Unix timestamp, which is the number of milliseconds since January 1, 1970.
+   * 
+   * @example
+   * 1710641101000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authStatus: 'AuthStatus',
+      cmAuthStatus: 'CmAuthStatus',
+      currentPage: 'CurrentPage',
+      endTime: 'EndTime',
+      monitorAuthStatus: 'MonitorAuthStatus',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authStatus: 'number',
+      cmAuthStatus: 'number',
+      currentPage: 'number',
+      endTime: 'number',
+      monitorAuthStatus: 'number',
+      pageSize: 'number',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageServiceCustomerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface return code.
+   * 
+   * @example
+   * System error or openapi error
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Data query results.
+   */
+  data?: PageServiceCustomerResponseBodyData[];
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Return message. When the request is successful, it returns a success message; when the request fails, it returns the reason for the failure.
+   * 
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Pagination information.
+   */
+  pageInfo?: PageServiceCustomerResponseBodyPageInfo;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 808A307F-9513-5099-AAA5-98D4EF199140
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Request return status.
+   * - true: Success.
+   * - false: Failure.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': PageServiceCustomerResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      pageInfo: PageServiceCustomerResponseBodyPageInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    if(this.pageInfo && typeof (this.pageInfo as any).validate === 'function') {
+      (this.pageInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageServiceCustomerResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PageServiceCustomerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PageServiceCustomerResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCustomEventRequest extends $dara.Model {
+  /**
+   * @remarks
+   * User ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1214484929940219
+   */
+  customerId?: string;
+  /**
+   * @remarks
+   * Data source.
+   * 
+   * @example
+   * aegis_suspicious_event
+   */
+  dataSource?: string;
+  /**
+   * @remarks
+   * Event details.
+   * 
+   * @example
+   * 疑似病毒木马启动运行。
+   */
+  eventDescription?: string;
+  /**
+   * @remarks
+   * Alert event details.
+   * 
+   * @example
+   * [{"name":"提示","type":"text","value":"在您的系统上发现可疑进程启动行为，通常与病毒木马或入侵事件相关"},{"name":"ATT&CK攻击阶段","type":"text","value":"代码执行"},{"name":"恶意行为","type":"text","value":"可疑的漏洞利用代码执行"},{"name":"规则类型","type":"text","value":"进程启动"},{"name":"规则引擎","type":"text","value":"精准攻击识别引擎"},{"name":"处置动作","type":"text","value":"阻断行为"},{"name":"进程路径","type":"text","value":"/usr/bin/python3.9"},{"name":"命令行","type":"text","value":"python3 /root/poc/python/cve-2018-15473.py --username root --port 22"},{"name":"父进程路径","type":"text","value":"/bin/gunkit"},{"name":"父进程命令行","type":"text","value":"gunkit serve-grpc --addr unix:///data/gunkit-grpc.sock"},{"name":"进程ID","type":"text","value":"22714"},{"name":"父进程ID","type":"text","value":"2986"},{"name":"描述","type":"text","value":"主动防御检测到可疑进程启动行为，这类可疑进程通常存在于特殊的系统目录，或通过后缀伪装成文档/音频/图片等文件诱导用户运行，该异常行为已被成功拦截"},{"name":"处置建议","type":"text","value":"请您及时排查是否是正常的业务操作，如果您觉得此次拦截是非预期的，那您可以在主动防御 - 恶意行为防御页面中，关闭“可疑进程启动“规则集或者将受影响机器从管理主机中移除"},{"name":"父进程关系","type":"processChain","value":"1:::/usr/lib/systemd/systemd --switched-root --system --deserialize 22 &&& 2939:::/usr/local/bin/containerd-shim-runc-v2 -namespace moby -id 270f164903b47d4e219b410b8d11d9079a7ad1bac8133aea604598300d3b03d5 -address /run/containerd/containerd.sock &&& 2962:::/usr/bin/python3 /usr/bin/supervisord -n &&& 2986:::gunkit serve-grpc --addr unix:///data/gunkit-grpc.sock"}]
+   */
+  eventDetails?: string;
+  /**
+   * @remarks
+   * Event name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 客户端离线
+   */
+  eventName?: string;
+  /**
+   * @remarks
+   * Event type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SUSP_CUSTOM_CFW
+   */
+  eventType?: string;
+  /**
+   * @remarks
+   * Alert discovery time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-23 14:47:34
+   */
+  findTime?: number;
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * @example
+   * i-uf60h3ns25bzq9eyf8ps
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Instance name.
+   * 
+   * @example
+   * 猫吉-售卖-MDR扫描器集群1
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * Whether to send.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  isSend?: string;
+  /**
+   * @remarks
+   * Event level.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * serious
+   */
+  level?: string;
+  /**
+   * @remarks
+   * The first occurrence time of the alert event.
+   * 
+   * @example
+   * 1724956996000
+   */
+  occurrenceTime?: number;
+  ownerId?: string;
+  /**
+   * @remarks
+   * Product name.
+   * 
+   * @example
+   * CloudSecCenter
+   */
+  product?: string;
+  /**
+   * @remarks
+   * Unique ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 68888f02-98f2-492b-a2b2-5b13295755b7
+   */
+  uniqueId?: string;
+  /**
+   * @remarks
+   * UUID.
+   * 
+   * @example
+   * 93B6CDAB-7D2E-33D2-9EBA-25D561A2E95F
+   */
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customerId: 'CustomerId',
+      dataSource: 'DataSource',
+      eventDescription: 'EventDescription',
+      eventDetails: 'EventDetails',
+      eventName: 'EventName',
+      eventType: 'EventType',
+      findTime: 'FindTime',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      isSend: 'IsSend',
+      level: 'Level',
+      occurrenceTime: 'OccurrenceTime',
+      ownerId: 'OwnerId',
+      product: 'Product',
+      uniqueId: 'UniqueId',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customerId: 'string',
+      dataSource: 'string',
+      eventDescription: 'string',
+      eventDetails: 'string',
+      eventName: 'string',
+      eventType: 'string',
+      findTime: 'number',
+      instanceId: 'string',
+      instanceName: 'string',
+      isSend: 'string',
+      level: 'string',
+      occurrenceTime: 'number',
+      ownerId: 'string',
+      product: 'string',
+      uniqueId: 'string',
+      uuid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCustomEventResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Interface response code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Interface return data.
+   */
+  data?: SendCustomEventResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Return message. When the request is successful, it returns a success message; when the request fails, it returns the reason for the failure.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 606EB377-155D-5AEB-AC4F-F013444A4C45
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful.
+   * 
+   * - true: Call succeeded.
+   * 
+   * - false: Call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SendCustomEventResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCustomEventResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendCustomEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendCustomEventResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -7660,7 +8479,7 @@ export class SendCustomEventResponseBodyData extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -7669,15 +8488,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -7687,17 +8506,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfirmDjbhReportResponse
    */
-  async confirmDjbhReportWithOptions(request: ConfirmDjbhReportRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmDjbhReportResponse> {
-    Util.validateModel(request);
+  async confirmDjbhReportWithOptions(request: ConfirmDjbhReportRequest, runtime: $dara.RuntimeOptions): Promise<ConfirmDjbhReportResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ConfirmDjbhReport",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -7708,7 +8527,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ConfirmDjbhReportResponse>(await this.callApi(params, req, runtime), new ConfirmDjbhReportResponse({}));
+    return $dara.cast<ConfirmDjbhReportResponse>(await this.callApi(params, req, runtime), new ConfirmDjbhReportResponse({}));
   }
 
   /**
@@ -7718,7 +8537,7 @@ export default class Client extends OpenApi {
    * @returns ConfirmDjbhReportResponse
    */
   async confirmDjbhReport(request: ConfirmDjbhReportRequest): Promise<ConfirmDjbhReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.confirmDjbhReportWithOptions(request, runtime);
   }
 
@@ -7729,21 +8548,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceLinkedRoleResponse
    */
-  async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
-    Util.validateModel(request);
+  async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $dara.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateServiceLinkedRole",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -7754,7 +8573,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleResponse({}));
+    return $dara.cast<CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleResponse({}));
   }
 
   /**
@@ -7764,7 +8583,7 @@ export default class Client extends OpenApi {
    * @returns CreateServiceLinkedRoleResponse
    */
   async createServiceLinkedRole(request: CreateServiceLinkedRoleRequest): Promise<CreateServiceLinkedRoleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createServiceLinkedRoleWithOptions(request, runtime);
   }
 
@@ -7775,81 +8594,85 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceWorkOrderResponse
    */
-  async createServiceWorkOrderWithOptions(request: CreateServiceWorkOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceWorkOrderResponse> {
-    Util.validateModel(request);
+  async createServiceWorkOrderWithOptions(request: CreateServiceWorkOrderRequest, runtime: $dara.RuntimeOptions): Promise<CreateServiceWorkOrderResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.creator)) {
+    if (!$dara.isNull(request.creator)) {
       body["Creator"] = request.creator;
     }
 
-    if (!Util.isUnset(request.customerId)) {
+    if (!$dara.isNull(request.customerId)) {
       body["CustomerId"] = request.customerId;
     }
 
-    if (!Util.isUnset(request.durationDay)) {
+    if (!$dara.isNull(request.durationDay)) {
       body["DurationDay"] = request.durationDay;
     }
 
-    if (!Util.isUnset(request.isAttachment)) {
+    if (!$dara.isNull(request.isAttachment)) {
       body["IsAttachment"] = request.isAttachment;
     }
 
-    if (!Util.isUnset(request.isWorkOrderNotify)) {
+    if (!$dara.isNull(request.isMilestone)) {
+      body["IsMilestone"] = request.isMilestone;
+    }
+
+    if (!$dara.isNull(request.isWorkOrderNotify)) {
       body["IsWorkOrderNotify"] = request.isWorkOrderNotify;
     }
 
-    if (!Util.isUnset(request.notifyDay)) {
+    if (!$dara.isNull(request.notifyDay)) {
       body["NotifyDay"] = request.notifyDay;
     }
 
-    if (!Util.isUnset(request.notifyId)) {
+    if (!$dara.isNull(request.notifyId)) {
       body["NotifyId"] = request.notifyId;
     }
 
-    if (!Util.isUnset(request.operateRemark)) {
+    if (!$dara.isNull(request.operateRemark)) {
       body["OperateRemark"] = request.operateRemark;
     }
 
-    if (!Util.isUnset(request.operateType)) {
+    if (!$dara.isNull(request.operateType)) {
       body["OperateType"] = request.operateType;
     }
 
-    if (!Util.isUnset(request.operator)) {
+    if (!$dara.isNull(request.operator)) {
       body["Operator"] = request.operator;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       body["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       body["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.workOrderDetail)) {
+    if (!$dara.isNull(request.workOrderDetail)) {
       body["WorkOrderDetail"] = request.workOrderDetail;
     }
 
-    if (!Util.isUnset(request.workOrderName)) {
+    if (!$dara.isNull(request.workOrderName)) {
       body["WorkOrderName"] = request.workOrderName;
     }
 
-    if (!Util.isUnset(request.workOrderSource)) {
+    if (!$dara.isNull(request.workOrderSource)) {
       body["WorkOrderSource"] = request.workOrderSource;
     }
 
-    if (!Util.isUnset(request.workOrderStatus)) {
+    if (!$dara.isNull(request.workOrderStatus)) {
       body["WorkOrderStatus"] = request.workOrderStatus;
     }
 
-    if (!Util.isUnset(request.workOrderType)) {
+    if (!$dara.isNull(request.workOrderType)) {
       body["WorkOrderType"] = request.workOrderType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateServiceWorkOrder",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -7860,7 +8683,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateServiceWorkOrderResponse>(await this.callApi(params, req, runtime), new CreateServiceWorkOrderResponse({}));
+    return $dara.cast<CreateServiceWorkOrderResponse>(await this.callApi(params, req, runtime), new CreateServiceWorkOrderResponse({}));
   }
 
   /**
@@ -7870,7 +8693,7 @@ export default class Client extends OpenApi {
    * @returns CreateServiceWorkOrderResponse
    */
   async createServiceWorkOrder(request: CreateServiceWorkOrderRequest): Promise<CreateServiceWorkOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createServiceWorkOrderWithOptions(request, runtime);
   }
 
@@ -7881,17 +8704,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDjbhReportResponse
    */
-  async deleteDjbhReportWithOptions(request: DeleteDjbhReportRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDjbhReportResponse> {
-    Util.validateModel(request);
+  async deleteDjbhReportWithOptions(request: DeleteDjbhReportRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDjbhReportResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDjbhReport",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -7902,7 +8725,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDjbhReportResponse>(await this.callApi(params, req, runtime), new DeleteDjbhReportResponse({}));
+    return $dara.cast<DeleteDjbhReportResponse>(await this.callApi(params, req, runtime), new DeleteDjbhReportResponse({}));
   }
 
   /**
@@ -7912,7 +8735,7 @@ export default class Client extends OpenApi {
    * @returns DeleteDjbhReportResponse
    */
   async deleteDjbhReport(request: DeleteDjbhReportRequest): Promise<DeleteDjbhReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDjbhReportWithOptions(request, runtime);
   }
 
@@ -7923,21 +8746,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceLinkedRoleResponse
    */
-  async describeServiceLinkedRoleWithOptions(request: DescribeServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServiceLinkedRoleResponse> {
-    Util.validateModel(request);
+  async describeServiceLinkedRoleWithOptions(request: DescribeServiceLinkedRoleRequest, runtime: $dara.RuntimeOptions): Promise<DescribeServiceLinkedRoleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeServiceLinkedRole",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -7948,7 +8771,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new DescribeServiceLinkedRoleResponse({}));
+    return $dara.cast<DescribeServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new DescribeServiceLinkedRoleResponse({}));
   }
 
   /**
@@ -7958,7 +8781,7 @@ export default class Client extends OpenApi {
    * @returns DescribeServiceLinkedRoleResponse
    */
   async describeServiceLinkedRole(request: DescribeServiceLinkedRoleRequest): Promise<DescribeServiceLinkedRoleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeServiceLinkedRoleWithOptions(request, runtime);
   }
 
@@ -7969,73 +8792,73 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisposeServiceWorkOrderResponse
    */
-  async disposeServiceWorkOrderWithOptions(request: DisposeServiceWorkOrderRequest, runtime: $Util.RuntimeOptions): Promise<DisposeServiceWorkOrderResponse> {
-    Util.validateModel(request);
+  async disposeServiceWorkOrderWithOptions(request: DisposeServiceWorkOrderRequest, runtime: $dara.RuntimeOptions): Promise<DisposeServiceWorkOrderResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.attachmentName)) {
+    if (!$dara.isNull(request.attachmentName)) {
       body["AttachmentName"] = request.attachmentName;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       body["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.forwardOwnerId)) {
+    if (!$dara.isNull(request.forwardOwnerId)) {
       body["ForwardOwnerId"] = request.forwardOwnerId;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.isAttachment)) {
+    if (!$dara.isNull(request.isAttachment)) {
       body["IsAttachment"] = request.isAttachment;
     }
 
-    if (!Util.isUnset(request.isWorkOrderNotify)) {
+    if (!$dara.isNull(request.isWorkOrderNotify)) {
       body["IsWorkOrderNotify"] = request.isWorkOrderNotify;
     }
 
-    if (!Util.isUnset(request.notifyId)) {
+    if (!$dara.isNull(request.notifyId)) {
       body["NotifyId"] = request.notifyId;
     }
 
-    if (!Util.isUnset(request.operateRemark)) {
+    if (!$dara.isNull(request.operateRemark)) {
       body["OperateRemark"] = request.operateRemark;
     }
 
-    if (!Util.isUnset(request.operateType)) {
+    if (!$dara.isNull(request.operateType)) {
       body["OperateType"] = request.operateType;
     }
 
-    if (!Util.isUnset(request.operator)) {
+    if (!$dara.isNull(request.operator)) {
       body["Operator"] = request.operator;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       body["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.upgradeOwnerId)) {
+    if (!$dara.isNull(request.upgradeOwnerId)) {
       body["UpgradeOwnerId"] = request.upgradeOwnerId;
     }
 
-    if (!Util.isUnset(request.workOrderDetail)) {
+    if (!$dara.isNull(request.workOrderDetail)) {
       body["WorkOrderDetail"] = request.workOrderDetail;
     }
 
-    if (!Util.isUnset(request.workOrderName)) {
+    if (!$dara.isNull(request.workOrderName)) {
       body["WorkOrderName"] = request.workOrderName;
     }
 
-    if (!Util.isUnset(request.workOrderStatus)) {
+    if (!$dara.isNull(request.workOrderStatus)) {
       body["WorkOrderStatus"] = request.workOrderStatus;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DisposeServiceWorkOrder",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8046,7 +8869,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DisposeServiceWorkOrderResponse>(await this.callApi(params, req, runtime), new DisposeServiceWorkOrderResponse({}));
+    return $dara.cast<DisposeServiceWorkOrderResponse>(await this.callApi(params, req, runtime), new DisposeServiceWorkOrderResponse({}));
   }
 
   /**
@@ -8056,7 +8879,7 @@ export default class Client extends OpenApi {
    * @returns DisposeServiceWorkOrderResponse
    */
   async disposeServiceWorkOrder(request: DisposeServiceWorkOrderRequest): Promise<DisposeServiceWorkOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.disposeServiceWorkOrderWithOptions(request, runtime);
   }
 
@@ -8067,29 +8890,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisposeWorkTaskResponse
    */
-  async disposeWorkTaskWithOptions(request: DisposeWorkTaskRequest, runtime: $Util.RuntimeOptions): Promise<DisposeWorkTaskResponse> {
-    Util.validateModel(request);
+  async disposeWorkTaskWithOptions(request: DisposeWorkTaskRequest, runtime: $dara.RuntimeOptions): Promise<DisposeWorkTaskResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.operator)) {
+    if (!$dara.isNull(request.operator)) {
       body["Operator"] = request.operator;
     }
 
-    if (!Util.isUnset(request.optRemark)) {
+    if (!$dara.isNull(request.optRemark)) {
       body["OptRemark"] = request.optRemark;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.taskIds)) {
+    if (!$dara.isNull(request.taskIds)) {
       body["TaskIds"] = request.taskIds;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DisposeWorkTask",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8100,7 +8923,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DisposeWorkTaskResponse>(await this.callApi(params, req, runtime), new DisposeWorkTaskResponse({}));
+    return $dara.cast<DisposeWorkTaskResponse>(await this.callApi(params, req, runtime), new DisposeWorkTaskResponse({}));
   }
 
   /**
@@ -8110,7 +8933,7 @@ export default class Client extends OpenApi {
    * @returns DisposeWorkTaskResponse
    */
   async disposeWorkTask(request: DisposeWorkTaskRequest): Promise<DisposeWorkTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.disposeWorkTaskWithOptions(request, runtime);
   }
 
@@ -8121,17 +8944,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAlarmDetailByIdResponse
    */
-  async getAlarmDetailByIdWithOptions(request: GetAlarmDetailByIdRequest, runtime: $Util.RuntimeOptions): Promise<GetAlarmDetailByIdResponse> {
-    Util.validateModel(request);
+  async getAlarmDetailByIdWithOptions(request: GetAlarmDetailByIdRequest, runtime: $dara.RuntimeOptions): Promise<GetAlarmDetailByIdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAlarmDetailById",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8142,7 +8965,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAlarmDetailByIdResponse>(await this.callApi(params, req, runtime), new GetAlarmDetailByIdResponse({}));
+    return $dara.cast<GetAlarmDetailByIdResponse>(await this.callApi(params, req, runtime), new GetAlarmDetailByIdResponse({}));
   }
 
   /**
@@ -8152,7 +8975,7 @@ export default class Client extends OpenApi {
    * @returns GetAlarmDetailByIdResponse
    */
   async getAlarmDetailById(request: GetAlarmDetailByIdRequest): Promise<GetAlarmDetailByIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAlarmDetailByIdWithOptions(request, runtime);
   }
 
@@ -8163,29 +8986,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAttackedAssetDealResponse
    */
-  async getAttackedAssetDealWithOptions(request: GetAttackedAssetDealRequest, runtime: $Util.RuntimeOptions): Promise<GetAttackedAssetDealResponse> {
-    Util.validateModel(request);
+  async getAttackedAssetDealWithOptions(request: GetAttackedAssetDealRequest, runtime: $dara.RuntimeOptions): Promise<GetAttackedAssetDealResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dateType)) {
+    if (!$dara.isNull(request.dateType)) {
       body["DateType"] = request.dateType;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       body["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       body["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.suspEventSource)) {
+    if (!$dara.isNull(request.suspEventSource)) {
       body["SuspEventSource"] = request.suspEventSource;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAttackedAssetDeal",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8196,7 +9019,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAttackedAssetDealResponse>(await this.callApi(params, req, runtime), new GetAttackedAssetDealResponse({}));
+    return $dara.cast<GetAttackedAssetDealResponse>(await this.callApi(params, req, runtime), new GetAttackedAssetDealResponse({}));
   }
 
   /**
@@ -8206,7 +9029,7 @@ export default class Client extends OpenApi {
    * @returns GetAttackedAssetDealResponse
    */
   async getAttackedAssetDeal(request: GetAttackedAssetDealRequest): Promise<GetAttackedAssetDealResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAttackedAssetDealWithOptions(request, runtime);
   }
 
@@ -8217,29 +9040,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetBaselineSummaryResponse
    */
-  async getBaselineSummaryWithOptions(request: GetBaselineSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineSummaryResponse> {
-    Util.validateModel(request);
+  async getBaselineSummaryWithOptions(request: GetBaselineSummaryRequest, runtime: $dara.RuntimeOptions): Promise<GetBaselineSummaryResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dateType)) {
+    if (!$dara.isNull(request.dateType)) {
       body["DateType"] = request.dateType;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       body["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       body["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.suspEventSource)) {
+    if (!$dara.isNull(request.suspEventSource)) {
       body["SuspEventSource"] = request.suspEventSource;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetBaselineSummary",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8250,7 +9073,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetBaselineSummaryResponse>(await this.callApi(params, req, runtime), new GetBaselineSummaryResponse({}));
+    return $dara.cast<GetBaselineSummaryResponse>(await this.callApi(params, req, runtime), new GetBaselineSummaryResponse({}));
   }
 
   /**
@@ -8260,7 +9083,7 @@ export default class Client extends OpenApi {
    * @returns GetBaselineSummaryResponse
    */
   async getBaselineSummary(request: GetBaselineSummaryRequest): Promise<GetBaselineSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getBaselineSummaryWithOptions(request, runtime);
   }
 
@@ -8271,29 +9094,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConsoleScoreResponse
    */
-  async getConsoleScoreWithOptions(request: GetConsoleScoreRequest, runtime: $Util.RuntimeOptions): Promise<GetConsoleScoreResponse> {
-    Util.validateModel(request);
+  async getConsoleScoreWithOptions(request: GetConsoleScoreRequest, runtime: $dara.RuntimeOptions): Promise<GetConsoleScoreResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dateType)) {
+    if (!$dara.isNull(request.dateType)) {
       body["DateType"] = request.dateType;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       body["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       body["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.suspEventSource)) {
+    if (!$dara.isNull(request.suspEventSource)) {
       body["SuspEventSource"] = request.suspEventSource;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetConsoleScore",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8304,7 +9127,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetConsoleScoreResponse>(await this.callApi(params, req, runtime), new GetConsoleScoreResponse({}));
+    return $dara.cast<GetConsoleScoreResponse>(await this.callApi(params, req, runtime), new GetConsoleScoreResponse({}));
   }
 
   /**
@@ -8314,7 +9137,7 @@ export default class Client extends OpenApi {
    * @returns GetConsoleScoreResponse
    */
   async getConsoleScore(request: GetConsoleScoreRequest): Promise<GetConsoleScoreResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getConsoleScoreWithOptions(request, runtime);
   }
 
@@ -8325,17 +9148,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDetailByIdResponse
    */
-  async getDetailByIdWithOptions(request: GetDetailByIdRequest, runtime: $Util.RuntimeOptions): Promise<GetDetailByIdResponse> {
-    Util.validateModel(request);
+  async getDetailByIdWithOptions(request: GetDetailByIdRequest, runtime: $dara.RuntimeOptions): Promise<GetDetailByIdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDetailById",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8346,7 +9169,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDetailByIdResponse>(await this.callApi(params, req, runtime), new GetDetailByIdResponse({}));
+    return $dara.cast<GetDetailByIdResponse>(await this.callApi(params, req, runtime), new GetDetailByIdResponse({}));
   }
 
   /**
@@ -8356,7 +9179,7 @@ export default class Client extends OpenApi {
    * @returns GetDetailByIdResponse
    */
   async getDetailById(request: GetDetailByIdRequest): Promise<GetDetailByIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDetailByIdWithOptions(request, runtime);
   }
 
@@ -8367,21 +9190,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDocumentDownloadUrlResponse
    */
-  async getDocumentDownloadUrlWithOptions(request: GetDocumentDownloadUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetDocumentDownloadUrlResponse> {
-    Util.validateModel(request);
+  async getDocumentDownloadUrlWithOptions(request: GetDocumentDownloadUrlRequest, runtime: $dara.RuntimeOptions): Promise<GetDocumentDownloadUrlResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.reportType)) {
+    if (!$dara.isNull(request.reportType)) {
       body["ReportType"] = request.reportType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDocumentDownloadUrl",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8392,7 +9215,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDocumentDownloadUrlResponse>(await this.callApi(params, req, runtime), new GetDocumentDownloadUrlResponse({}));
+    return $dara.cast<GetDocumentDownloadUrlResponse>(await this.callApi(params, req, runtime), new GetDocumentDownloadUrlResponse({}));
   }
 
   /**
@@ -8402,7 +9225,7 @@ export default class Client extends OpenApi {
    * @returns GetDocumentDownloadUrlResponse
    */
   async getDocumentDownloadUrl(request: GetDocumentDownloadUrlRequest): Promise<GetDocumentDownloadUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDocumentDownloadUrlWithOptions(request, runtime);
   }
 
@@ -8413,37 +9236,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDocumentPageResponse
    */
-  async getDocumentPageWithOptions(request: GetDocumentPageRequest, runtime: $Util.RuntimeOptions): Promise<GetDocumentPageResponse> {
-    Util.validateModel(request);
+  async getDocumentPageWithOptions(request: GetDocumentPageRequest, runtime: $dara.RuntimeOptions): Promise<GetDocumentPageResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       body["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.deliveredBy)) {
+    if (!$dara.isNull(request.deliveredBy)) {
       body["DeliveredBy"] = request.deliveredBy;
     }
 
-    if (!Util.isUnset(request.documentName)) {
+    if (!$dara.isNull(request.documentName)) {
       body["DocumentName"] = request.documentName;
     }
 
-    if (!Util.isUnset(request.documentType)) {
+    if (!$dara.isNull(request.documentType)) {
       body["DocumentType"] = request.documentType;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.reportType)) {
+    if (!$dara.isNull(request.reportType)) {
       body["ReportType"] = request.reportType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDocumentPage",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8454,7 +9277,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDocumentPageResponse>(await this.callApi(params, req, runtime), new GetDocumentPageResponse({}));
+    return $dara.cast<GetDocumentPageResponse>(await this.callApi(params, req, runtime), new GetDocumentPageResponse({}));
   }
 
   /**
@@ -8464,7 +9287,7 @@ export default class Client extends OpenApi {
    * @returns GetDocumentPageResponse
    */
   async getDocumentPage(request: GetDocumentPageRequest): Promise<GetDocumentPageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDocumentPageWithOptions(request, runtime);
   }
 
@@ -8475,17 +9298,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDocumentSummaryResponse
    */
-  async getDocumentSummaryWithOptions(request: GetDocumentSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetDocumentSummaryResponse> {
-    Util.validateModel(request);
+  async getDocumentSummaryWithOptions(request: GetDocumentSummaryRequest, runtime: $dara.RuntimeOptions): Promise<GetDocumentSummaryResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.reportType)) {
+    if (!$dara.isNull(request.reportType)) {
       body["ReportType"] = request.reportType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDocumentSummary",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8496,7 +9319,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDocumentSummaryResponse>(await this.callApi(params, req, runtime), new GetDocumentSummaryResponse({}));
+    return $dara.cast<GetDocumentSummaryResponse>(await this.callApi(params, req, runtime), new GetDocumentSummaryResponse({}));
   }
 
   /**
@@ -8506,7 +9329,7 @@ export default class Client extends OpenApi {
    * @returns GetDocumentSummaryResponse
    */
   async getDocumentSummary(request: GetDocumentSummaryRequest): Promise<GetDocumentSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDocumentSummaryWithOptions(request, runtime);
   }
 
@@ -8517,29 +9340,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRecentDocumentResponse
    */
-  async getRecentDocumentWithOptions(request: GetRecentDocumentRequest, runtime: $Util.RuntimeOptions): Promise<GetRecentDocumentResponse> {
-    Util.validateModel(request);
+  async getRecentDocumentWithOptions(request: GetRecentDocumentRequest, runtime: $dara.RuntimeOptions): Promise<GetRecentDocumentResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dateType)) {
+    if (!$dara.isNull(request.dateType)) {
       body["DateType"] = request.dateType;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       body["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       body["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.suspEventSource)) {
+    if (!$dara.isNull(request.suspEventSource)) {
       body["SuspEventSource"] = request.suspEventSource;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetRecentDocument",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8550,7 +9373,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetRecentDocumentResponse>(await this.callApi(params, req, runtime), new GetRecentDocumentResponse({}));
+    return $dara.cast<GetRecentDocumentResponse>(await this.callApi(params, req, runtime), new GetRecentDocumentResponse({}));
   }
 
   /**
@@ -8560,7 +9383,7 @@ export default class Client extends OpenApi {
    * @returns GetRecentDocumentResponse
    */
   async getRecentDocument(request: GetRecentDocumentRequest): Promise<GetRecentDocumentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getRecentDocumentWithOptions(request, runtime);
   }
 
@@ -8571,29 +9394,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSafetyCoverResponse
    */
-  async getSafetyCoverWithOptions(request: GetSafetyCoverRequest, runtime: $Util.RuntimeOptions): Promise<GetSafetyCoverResponse> {
-    Util.validateModel(request);
+  async getSafetyCoverWithOptions(request: GetSafetyCoverRequest, runtime: $dara.RuntimeOptions): Promise<GetSafetyCoverResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dateType)) {
+    if (!$dara.isNull(request.dateType)) {
       body["DateType"] = request.dateType;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       body["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       body["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.suspEventSource)) {
+    if (!$dara.isNull(request.suspEventSource)) {
       body["SuspEventSource"] = request.suspEventSource;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSafetyCover",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8604,7 +9427,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSafetyCoverResponse>(await this.callApi(params, req, runtime), new GetSafetyCoverResponse({}));
+    return $dara.cast<GetSafetyCoverResponse>(await this.callApi(params, req, runtime), new GetSafetyCoverResponse({}));
   }
 
   /**
@@ -8614,7 +9437,7 @@ export default class Client extends OpenApi {
    * @returns GetSafetyCoverResponse
    */
   async getSafetyCover(request: GetSafetyCoverRequest): Promise<GetSafetyCoverResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSafetyCoverWithOptions(request, runtime);
   }
 
@@ -8625,29 +9448,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSowListResponse
    */
-  async getSowListWithOptions(request: GetSowListRequest, runtime: $Util.RuntimeOptions): Promise<GetSowListResponse> {
-    Util.validateModel(request);
+  async getSowListWithOptions(request: GetSowListRequest, runtime: $dara.RuntimeOptions): Promise<GetSowListResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dateType)) {
+    if (!$dara.isNull(request.dateType)) {
       body["DateType"] = request.dateType;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       body["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       body["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.suspEventSource)) {
+    if (!$dara.isNull(request.suspEventSource)) {
       body["SuspEventSource"] = request.suspEventSource;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSowList",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8658,7 +9481,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSowListResponse>(await this.callApi(params, req, runtime), new GetSowListResponse({}));
+    return $dara.cast<GetSowListResponse>(await this.callApi(params, req, runtime), new GetSowListResponse({}));
   }
 
   /**
@@ -8668,7 +9491,7 @@ export default class Client extends OpenApi {
    * @returns GetSowListResponse
    */
   async getSowList(request: GetSowListRequest): Promise<GetSowListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSowListWithOptions(request, runtime);
   }
 
@@ -8679,37 +9502,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSuspEventPageResponse
    */
-  async getSuspEventPageWithOptions(request: GetSuspEventPageRequest, runtime: $Util.RuntimeOptions): Promise<GetSuspEventPageResponse> {
-    Util.validateModel(request);
+  async getSuspEventPageWithOptions(request: GetSuspEventPageRequest, runtime: $dara.RuntimeOptions): Promise<GetSuspEventPageResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.alarmEndTime)) {
+    if (!$dara.isNull(request.alarmEndTime)) {
       body["AlarmEndTime"] = request.alarmEndTime;
     }
 
-    if (!Util.isUnset(request.alarmStartTime)) {
+    if (!$dara.isNull(request.alarmStartTime)) {
       body["AlarmStartTime"] = request.alarmStartTime;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       body["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.source)) {
+    if (!$dara.isNull(request.source)) {
       body["Source"] = request.source;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSuspEventPage",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8720,7 +9543,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSuspEventPageResponse>(await this.callApi(params, req, runtime), new GetSuspEventPageResponse({}));
+    return $dara.cast<GetSuspEventPageResponse>(await this.callApi(params, req, runtime), new GetSuspEventPageResponse({}));
   }
 
   /**
@@ -8730,7 +9553,7 @@ export default class Client extends OpenApi {
    * @returns GetSuspEventPageResponse
    */
   async getSuspEventPage(request: GetSuspEventPageRequest): Promise<GetSuspEventPageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSuspEventPageWithOptions(request, runtime);
   }
 
@@ -8741,29 +9564,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSuspEventSummaryResponse
    */
-  async getSuspEventSummaryWithOptions(request: GetSuspEventSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetSuspEventSummaryResponse> {
-    Util.validateModel(request);
+  async getSuspEventSummaryWithOptions(request: GetSuspEventSummaryRequest, runtime: $dara.RuntimeOptions): Promise<GetSuspEventSummaryResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dateType)) {
+    if (!$dara.isNull(request.dateType)) {
       body["DateType"] = request.dateType;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       body["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       body["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.suspEventSource)) {
+    if (!$dara.isNull(request.suspEventSource)) {
       body["SuspEventSource"] = request.suspEventSource;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSuspEventSummary",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8774,7 +9597,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSuspEventSummaryResponse>(await this.callApi(params, req, runtime), new GetSuspEventSummaryResponse({}));
+    return $dara.cast<GetSuspEventSummaryResponse>(await this.callApi(params, req, runtime), new GetSuspEventSummaryResponse({}));
   }
 
   /**
@@ -8784,7 +9607,7 @@ export default class Client extends OpenApi {
    * @returns GetSuspEventSummaryResponse
    */
   async getSuspEventSummary(request: GetSuspEventSummaryRequest): Promise<GetSuspEventSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSuspEventSummaryWithOptions(request, runtime);
   }
 
@@ -8795,9 +9618,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSuspPageSummaryResponse
    */
-  async getSuspPageSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetSuspPageSummaryResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getSuspPageSummaryWithOptions(runtime: $dara.RuntimeOptions): Promise<GetSuspPageSummaryResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetSuspPageSummary",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8808,7 +9631,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSuspPageSummaryResponse>(await this.callApi(params, req, runtime), new GetSuspPageSummaryResponse({}));
+    return $dara.cast<GetSuspPageSummaryResponse>(await this.callApi(params, req, runtime), new GetSuspPageSummaryResponse({}));
   }
 
   /**
@@ -8816,7 +9639,7 @@ export default class Client extends OpenApi {
    * @returns GetSuspPageSummaryResponse
    */
   async getSuspPageSummary(): Promise<GetSuspPageSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSuspPageSummaryWithOptions(runtime);
   }
 
@@ -8827,9 +9650,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserStatusResponse
    */
-  async getUserStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<GetUserStatusResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getUserStatusWithOptions(runtime: $dara.RuntimeOptions): Promise<GetUserStatusResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetUserStatus",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8840,7 +9663,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetUserStatusResponse>(await this.callApi(params, req, runtime), new GetUserStatusResponse({}));
+    return $dara.cast<GetUserStatusResponse>(await this.callApi(params, req, runtime), new GetUserStatusResponse({}));
   }
 
   /**
@@ -8848,7 +9671,7 @@ export default class Client extends OpenApi {
    * @returns GetUserStatusResponse
    */
   async getUserStatus(): Promise<GetUserStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserStatusWithOptions(runtime);
   }
 
@@ -8859,41 +9682,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVulItemPageResponse
    */
-  async getVulItemPageWithOptions(request: GetVulItemPageRequest, runtime: $Util.RuntimeOptions): Promise<GetVulItemPageResponse> {
-    Util.validateModel(request);
+  async getVulItemPageWithOptions(request: GetVulItemPageRequest, runtime: $dara.RuntimeOptions): Promise<GetVulItemPageResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.aliasName)) {
+    if (!$dara.isNull(request.aliasName)) {
       body["AliasName"] = request.aliasName;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       body["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.dealed)) {
+    if (!$dara.isNull(request.dealed)) {
       body["Dealed"] = request.dealed;
     }
 
-    if (!Util.isUnset(request.level)) {
+    if (!$dara.isNull(request.level)) {
       body["Level"] = request.level;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.scanType)) {
+    if (!$dara.isNull(request.scanType)) {
       body["ScanType"] = request.scanType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetVulItemPage",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8904,7 +9727,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetVulItemPageResponse>(await this.callApi(params, req, runtime), new GetVulItemPageResponse({}));
+    return $dara.cast<GetVulItemPageResponse>(await this.callApi(params, req, runtime), new GetVulItemPageResponse({}));
   }
 
   /**
@@ -8914,7 +9737,7 @@ export default class Client extends OpenApi {
    * @returns GetVulItemPageResponse
    */
   async getVulItemPage(request: GetVulItemPageRequest): Promise<GetVulItemPageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getVulItemPageWithOptions(request, runtime);
   }
 
@@ -8925,41 +9748,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVulListByIdResponse
    */
-  async getVulListByIdWithOptions(request: GetVulListByIdRequest, runtime: $Util.RuntimeOptions): Promise<GetVulListByIdResponse> {
-    Util.validateModel(request);
+  async getVulListByIdWithOptions(request: GetVulListByIdRequest, runtime: $dara.RuntimeOptions): Promise<GetVulListByIdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       body["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.dealed)) {
+    if (!$dara.isNull(request.dealed)) {
       body["Dealed"] = request.dealed;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.necessity)) {
+    if (!$dara.isNull(request.necessity)) {
       body["Necessity"] = request.necessity;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       body["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.uuids)) {
+    if (!$dara.isNull(request.uuids)) {
       body["Uuids"] = request.uuids;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetVulListById",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -8970,7 +9793,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetVulListByIdResponse>(await this.callApi(params, req, runtime), new GetVulListByIdResponse({}));
+    return $dara.cast<GetVulListByIdResponse>(await this.callApi(params, req, runtime), new GetVulListByIdResponse({}));
   }
 
   /**
@@ -8980,7 +9803,7 @@ export default class Client extends OpenApi {
    * @returns GetVulListByIdResponse
    */
   async getVulListById(request: GetVulListByIdRequest): Promise<GetVulListByIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getVulListByIdWithOptions(request, runtime);
   }
 
@@ -8991,9 +9814,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVulPageSummaryResponse
    */
-  async getVulPageSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetVulPageSummaryResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getVulPageSummaryWithOptions(runtime: $dara.RuntimeOptions): Promise<GetVulPageSummaryResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetVulPageSummary",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -9004,7 +9827,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetVulPageSummaryResponse>(await this.callApi(params, req, runtime), new GetVulPageSummaryResponse({}));
+    return $dara.cast<GetVulPageSummaryResponse>(await this.callApi(params, req, runtime), new GetVulPageSummaryResponse({}));
   }
 
   /**
@@ -9012,7 +9835,7 @@ export default class Client extends OpenApi {
    * @returns GetVulPageSummaryResponse
    */
   async getVulPageSummary(): Promise<GetVulPageSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getVulPageSummaryWithOptions(runtime);
   }
 
@@ -9023,29 +9846,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVulSummaryResponse
    */
-  async getVulSummaryWithOptions(request: GetVulSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetVulSummaryResponse> {
-    Util.validateModel(request);
+  async getVulSummaryWithOptions(request: GetVulSummaryRequest, runtime: $dara.RuntimeOptions): Promise<GetVulSummaryResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dateType)) {
+    if (!$dara.isNull(request.dateType)) {
       body["DateType"] = request.dateType;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       body["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       body["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.suspEventSource)) {
+    if (!$dara.isNull(request.suspEventSource)) {
       body["SuspEventSource"] = request.suspEventSource;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetVulSummary",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -9056,7 +9879,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetVulSummaryResponse>(await this.callApi(params, req, runtime), new GetVulSummaryResponse({}));
+    return $dara.cast<GetVulSummaryResponse>(await this.callApi(params, req, runtime), new GetVulSummaryResponse({}));
   }
 
   /**
@@ -9066,7 +9889,7 @@ export default class Client extends OpenApi {
    * @returns GetVulSummaryResponse
    */
   async getVulSummary(request: GetVulSummaryRequest): Promise<GetVulSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getVulSummaryWithOptions(request, runtime);
   }
 
@@ -9077,29 +9900,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetWorkTaskSummaryResponse
    */
-  async getWorkTaskSummaryWithOptions(request: GetWorkTaskSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetWorkTaskSummaryResponse> {
-    Util.validateModel(request);
+  async getWorkTaskSummaryWithOptions(request: GetWorkTaskSummaryRequest, runtime: $dara.RuntimeOptions): Promise<GetWorkTaskSummaryResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dateType)) {
+    if (!$dara.isNull(request.dateType)) {
       body["DateType"] = request.dateType;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       body["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       body["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.suspEventSource)) {
+    if (!$dara.isNull(request.suspEventSource)) {
       body["SuspEventSource"] = request.suspEventSource;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetWorkTaskSummary",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -9110,7 +9933,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetWorkTaskSummaryResponse>(await this.callApi(params, req, runtime), new GetWorkTaskSummaryResponse({}));
+    return $dara.cast<GetWorkTaskSummaryResponse>(await this.callApi(params, req, runtime), new GetWorkTaskSummaryResponse({}));
   }
 
   /**
@@ -9120,7 +9943,7 @@ export default class Client extends OpenApi {
    * @returns GetWorkTaskSummaryResponse
    */
   async getWorkTaskSummary(request: GetWorkTaskSummaryRequest): Promise<GetWorkTaskSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getWorkTaskSummaryWithOptions(request, runtime);
   }
 
@@ -9131,41 +9954,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PageServiceCustomerResponse
    */
-  async pageServiceCustomerWithOptions(request: PageServiceCustomerRequest, runtime: $Util.RuntimeOptions): Promise<PageServiceCustomerResponse> {
-    Util.validateModel(request);
+  async pageServiceCustomerWithOptions(request: PageServiceCustomerRequest, runtime: $dara.RuntimeOptions): Promise<PageServiceCustomerResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.authStatus)) {
+    if (!$dara.isNull(request.authStatus)) {
       body["AuthStatus"] = request.authStatus;
     }
 
-    if (!Util.isUnset(request.cmAuthStatus)) {
+    if (!$dara.isNull(request.cmAuthStatus)) {
       body["CmAuthStatus"] = request.cmAuthStatus;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       body["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       body["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.monitorAuthStatus)) {
+    if (!$dara.isNull(request.monitorAuthStatus)) {
       body["MonitorAuthStatus"] = request.monitorAuthStatus;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       body["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PageServiceCustomer",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -9176,7 +9999,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PageServiceCustomerResponse>(await this.callApi(params, req, runtime), new PageServiceCustomerResponse({}));
+    return $dara.cast<PageServiceCustomerResponse>(await this.callApi(params, req, runtime), new PageServiceCustomerResponse({}));
   }
 
   /**
@@ -9186,7 +10009,7 @@ export default class Client extends OpenApi {
    * @returns PageServiceCustomerResponse
    */
   async pageServiceCustomer(request: PageServiceCustomerRequest): Promise<PageServiceCustomerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pageServiceCustomerWithOptions(request, runtime);
   }
 
@@ -9197,77 +10020,77 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendCustomEventResponse
    */
-  async sendCustomEventWithOptions(request: SendCustomEventRequest, runtime: $Util.RuntimeOptions): Promise<SendCustomEventResponse> {
-    Util.validateModel(request);
+  async sendCustomEventWithOptions(request: SendCustomEventRequest, runtime: $dara.RuntimeOptions): Promise<SendCustomEventResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.customerId)) {
+    if (!$dara.isNull(request.customerId)) {
       body["CustomerId"] = request.customerId;
     }
 
-    if (!Util.isUnset(request.dataSource)) {
+    if (!$dara.isNull(request.dataSource)) {
       body["DataSource"] = request.dataSource;
     }
 
-    if (!Util.isUnset(request.eventDescription)) {
+    if (!$dara.isNull(request.eventDescription)) {
       body["EventDescription"] = request.eventDescription;
     }
 
-    if (!Util.isUnset(request.eventDetails)) {
+    if (!$dara.isNull(request.eventDetails)) {
       body["EventDetails"] = request.eventDetails;
     }
 
-    if (!Util.isUnset(request.eventName)) {
+    if (!$dara.isNull(request.eventName)) {
       body["EventName"] = request.eventName;
     }
 
-    if (!Util.isUnset(request.eventType)) {
+    if (!$dara.isNull(request.eventType)) {
       body["EventType"] = request.eventType;
     }
 
-    if (!Util.isUnset(request.findTime)) {
+    if (!$dara.isNull(request.findTime)) {
       body["FindTime"] = request.findTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.isSend)) {
+    if (!$dara.isNull(request.isSend)) {
       body["IsSend"] = request.isSend;
     }
 
-    if (!Util.isUnset(request.level)) {
+    if (!$dara.isNull(request.level)) {
       body["Level"] = request.level;
     }
 
-    if (!Util.isUnset(request.occurrenceTime)) {
+    if (!$dara.isNull(request.occurrenceTime)) {
       body["OccurrenceTime"] = request.occurrenceTime;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       body["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.product)) {
+    if (!$dara.isNull(request.product)) {
       body["Product"] = request.product;
     }
 
-    if (!Util.isUnset(request.uniqueId)) {
+    if (!$dara.isNull(request.uniqueId)) {
       body["UniqueId"] = request.uniqueId;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendCustomEvent",
       version: "2016-12-28",
       protocol: "HTTPS",
@@ -9278,7 +10101,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendCustomEventResponse>(await this.callApi(params, req, runtime), new SendCustomEventResponse({}));
+    return $dara.cast<SendCustomEventResponse>(await this.callApi(params, req, runtime), new SendCustomEventResponse({}));
   }
 
   /**
@@ -9288,7 +10111,7 @@ export default class Client extends OpenApi {
    * @returns SendCustomEventResponse
    */
   async sendCustomEvent(request: SendCustomEventRequest): Promise<SendCustomEventResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendCustomEventWithOptions(request, runtime);
   }
 
