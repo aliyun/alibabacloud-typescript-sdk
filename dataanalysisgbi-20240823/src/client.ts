@@ -1,13 +1,431 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class BatchDeleteSynonymsRequest extends $tea.Model {
+export class RunDataAnalysisResponseBodyDataSqlData extends $dara.Model {
+  column?: string[];
+  data?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      column: 'column',
+      data: 'data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: { 'type': 'array', 'itemType': 'string' },
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.column)) {
+      $dara.Model.validateArray(this.column);
+    }
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDataAnalysisResponseBodyDataVisualizationData extends $dara.Model {
+  /**
+   * @example
+   * bar
+   */
+  plotType?: string;
+  xAxis?: string[];
+  yAxis?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      plotType: 'plotType',
+      xAxis: 'xAxis',
+      yAxis: 'yAxis',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      plotType: 'string',
+      xAxis: { 'type': 'array', 'itemType': 'string' },
+      yAxis: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.xAxis)) {
+      $dara.Model.validateArray(this.xAxis);
+    }
+    if(Array.isArray(this.yAxis)) {
+      $dara.Model.validateArray(this.yAxis);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDataAnalysisResponseBodyDataVisualization extends $dara.Model {
+  data?: RunDataAnalysisResponseBodyDataVisualizationData;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RunDataAnalysisResponseBodyDataVisualizationData,
+      text: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDataAnalysisResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * Access was denied, message: No such namespace namespaces/tech-scp-chain7.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * rewrite
+   */
+  event?: string;
+  evidence?: string;
+  httpStatusCode?: number;
+  /**
+   * @example
+   * DA2578F7-88A5-5D6E-9305-33E724E97D60
+   */
+  requestId?: string;
+  rewrite?: string;
+  selector?: string[];
+  /**
+   * @example
+   * sessionid1
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * select p.product_id, p.product_name, sum(o.quantity) as total_sales from products p join orders o on p.product_id = o.product_id where o.order_date between \\"2022-10-22\\" and \\"2024-10-22\\" group by p.product_id, p.product_name having total_sales > 5
+   */
+  sql?: string;
+  sqlData?: RunDataAnalysisResponseBodyDataSqlData;
+  /**
+   * @example
+   * Can not issue data manipulation statements with executeQuery()
+   */
+  sqlError?: string;
+  visualization?: RunDataAnalysisResponseBodyDataVisualization;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'errorMessage',
+      event: 'event',
+      evidence: 'evidence',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      rewrite: 'rewrite',
+      selector: 'selector',
+      sessionId: 'sessionId',
+      sql: 'sql',
+      sqlData: 'sqlData',
+      sqlError: 'sqlError',
+      visualization: 'visualization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      event: 'string',
+      evidence: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      rewrite: 'string',
+      selector: { 'type': 'array', 'itemType': 'string' },
+      sessionId: 'string',
+      sql: 'string',
+      sqlData: RunDataAnalysisResponseBodyDataSqlData,
+      sqlError: 'string',
+      visualization: RunDataAnalysisResponseBodyDataVisualization,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.selector)) {
+      $dara.Model.validateArray(this.selector);
+    }
+    if(this.sqlData && typeof (this.sqlData as any).validate === 'function') {
+      (this.sqlData as any).validate();
+    }
+    if(this.visualization && typeof (this.visualization as any).validate === 'function') {
+      (this.visualization as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDataResultAnalysisRequestSqlData extends $dara.Model {
+  column?: string[];
+  data?: { [key: string]: string }[];
+  static names(): { [key: string]: string } {
+    return {
+      column: 'column',
+      data: 'data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: { 'type': 'array', 'itemType': 'string' },
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.column)) {
+      $dara.Model.validateArray(this.column);
+    }
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDataResultAnalysisResponseBodyDataVisualizationData extends $dara.Model {
+  /**
+   * @example
+   * bar
+   */
+  plotType?: string;
+  xAxis?: string[];
+  yAxis?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      plotType: 'plotType',
+      xAxis: 'xAxis',
+      yAxis: 'yAxis',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      plotType: 'string',
+      xAxis: { 'type': 'array', 'itemType': 'string' },
+      yAxis: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.xAxis)) {
+      $dara.Model.validateArray(this.xAxis);
+    }
+    if(Array.isArray(this.yAxis)) {
+      $dara.Model.validateArray(this.yAxis);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDataResultAnalysisResponseBodyDataVisualization extends $dara.Model {
+  data?: RunDataResultAnalysisResponseBodyDataVisualizationData;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RunDataResultAnalysisResponseBodyDataVisualizationData,
+      text: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDataResultAnalysisResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * Access was denied, message: No such namespace namespaces/tech-scp-chain7.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * result
+   */
+  event?: string;
+  /**
+   * @example
+   * DA2578F7-88A5-5D6E-9305-33E724E97D60
+   */
+  requestId?: string;
+  rewrite?: string;
+  /**
+   * @example
+   * select p.product_id, p.product_name, sum(o.quantity) as total_sales from products p join orders o on p.product_id = o.product_id where o.order_date between \\"2022-10-22\\" and \\"2024-10-22\\" group by p.product_id, p.product_name having total_sales > 5
+   */
+  sql?: string;
+  visualization?: RunDataResultAnalysisResponseBodyDataVisualization;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'errorMessage',
+      event: 'event',
+      requestId: 'requestId',
+      rewrite: 'rewrite',
+      sql: 'sql',
+      visualization: 'visualization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      event: 'string',
+      requestId: 'string',
+      rewrite: 'string',
+      sql: 'string',
+      visualization: RunDataResultAnalysisResponseBodyDataVisualization,
+    };
+  }
+
+  validate() {
+    if(this.visualization && typeof (this.visualization as any).validate === 'function') {
+      (this.visualization as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSqlGenerationResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * Access was denied, message: No such namespace namespaces/tech-scp-chain7.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * sql
+   */
+  event?: string;
+  evidence?: string;
+  /**
+   * @example
+   * DA2578F7-88A5-5D6E-9305-33E724E97D60
+   */
+  requestId?: string;
+  rewrite?: string;
+  selector?: string[];
+  /**
+   * @example
+   * f64c38dd-a235-4bb4-ae6c-79eaedcba699
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * select p.product_id, p.product_name, sum(o.quantity) as total_sales from products p join orders o on p.product_id = o.product_id where o.order_date between \\"2022-10-22\\" and \\"2024-10-22\\" group by p.product_id, p.product_name having total_sales > 5
+   */
+  sql?: string;
+  /**
+   * @example
+   * Can not issue data manipulation statements with executeQuery()
+   */
+  sqlError?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'errorMessage',
+      event: 'event',
+      evidence: 'evidence',
+      requestId: 'requestId',
+      rewrite: 'rewrite',
+      selector: 'selector',
+      sessionId: 'sessionId',
+      sql: 'sql',
+      sqlError: 'sqlError',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      event: 'string',
+      evidence: 'string',
+      requestId: 'string',
+      rewrite: 'string',
+      selector: { 'type': 'array', 'itemType': 'string' },
+      sessionId: 'string',
+      sql: 'string',
+      sqlError: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.selector)) {
+      $dara.Model.validateArray(this.selector);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteSynonymsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -35,12 +453,19 @@ export class BatchDeleteSynonymsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.synonymIdKeys)) {
+      $dara.Model.validateArray(this.synonymIdKeys);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BatchDeleteSynonymsResponseBody extends $tea.Model {
+export class BatchDeleteSynonymsResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -86,12 +511,16 @@ export class BatchDeleteSynonymsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BatchDeleteSynonymsResponse extends $tea.Model {
+export class BatchDeleteSynonymsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BatchDeleteSynonymsResponseBody;
@@ -111,12 +540,22 @@ export class BatchDeleteSynonymsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelDatasourceAuthorizationRequest extends $tea.Model {
+export class CancelDatasourceAuthorizationRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -137,12 +576,16 @@ export class CancelDatasourceAuthorizationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelDatasourceAuthorizationResponseBody extends $tea.Model {
+export class CancelDatasourceAuthorizationResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -188,12 +631,16 @@ export class CancelDatasourceAuthorizationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelDatasourceAuthorizationResponse extends $tea.Model {
+export class CancelDatasourceAuthorizationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CancelDatasourceAuthorizationResponseBody;
@@ -213,12 +660,22 @@ export class CancelDatasourceAuthorizationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateBusinessLogicRequest extends $tea.Model {
+export class CreateBusinessLogicRequest extends $dara.Model {
   description?: string;
   /**
    * @example
@@ -249,12 +706,16 @@ export class CreateBusinessLogicRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateBusinessLogicResponseBody extends $tea.Model {
+export class CreateBusinessLogicResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -300,12 +761,16 @@ export class CreateBusinessLogicResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateBusinessLogicResponse extends $tea.Model {
+export class CreateBusinessLogicResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateBusinessLogicResponseBody;
@@ -325,12 +790,22 @@ export class CreateBusinessLogicResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDatasourceAuthorizationRequest extends $tea.Model {
+export class CreateDatasourceAuthorizationRequest extends $dara.Model {
   /**
    * @example
    * password
@@ -389,12 +864,16 @@ export class CreateDatasourceAuthorizationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDatasourceAuthorizationResponseBody extends $tea.Model {
+export class CreateDatasourceAuthorizationResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -440,12 +919,16 @@ export class CreateDatasourceAuthorizationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDatasourceAuthorizationResponse extends $tea.Model {
+export class CreateDatasourceAuthorizationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateDatasourceAuthorizationResponseBody;
@@ -465,12 +948,22 @@ export class CreateDatasourceAuthorizationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSynonymsRequest extends $tea.Model {
+export class CreateSynonymsRequest extends $dara.Model {
   columns?: string[];
   /**
    * @remarks
@@ -508,12 +1001,22 @@ export class CreateSynonymsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
+    }
+    if(Array.isArray(this.wordSynonyms)) {
+      $dara.Model.validateArray(this.wordSynonyms);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSynonymsResponseBody extends $tea.Model {
+export class CreateSynonymsResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -559,12 +1062,16 @@ export class CreateSynonymsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSynonymsResponse extends $tea.Model {
+export class CreateSynonymsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateSynonymsResponseBody;
@@ -584,12 +1091,22 @@ export class CreateSynonymsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVirtualDatasourceInstanceRequest extends $tea.Model {
+export class CreateVirtualDatasourceInstanceRequest extends $dara.Model {
   description?: string;
   /**
    * @example
@@ -623,12 +1140,16 @@ export class CreateVirtualDatasourceInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVirtualDatasourceInstanceResponseBody extends $tea.Model {
+export class CreateVirtualDatasourceInstanceResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -674,12 +1195,16 @@ export class CreateVirtualDatasourceInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVirtualDatasourceInstanceResponse extends $tea.Model {
+export class CreateVirtualDatasourceInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateVirtualDatasourceInstanceResponseBody;
@@ -699,12 +1224,22 @@ export class CreateVirtualDatasourceInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteBusinessLogicRequest extends $tea.Model {
+export class DeleteBusinessLogicRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -732,12 +1267,19 @@ export class DeleteBusinessLogicRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.businessLogicIdKeys)) {
+      $dara.Model.validateArray(this.businessLogicIdKeys);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteBusinessLogicResponseBody extends $tea.Model {
+export class DeleteBusinessLogicResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -783,12 +1325,16 @@ export class DeleteBusinessLogicResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteBusinessLogicResponse extends $tea.Model {
+export class DeleteBusinessLogicResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteBusinessLogicResponseBody;
@@ -808,12 +1354,22 @@ export class DeleteBusinessLogicResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteColumnRequest extends $tea.Model {
+export class DeleteColumnRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -844,12 +1400,16 @@ export class DeleteColumnRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteColumnResponseBody extends $tea.Model {
+export class DeleteColumnResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -895,12 +1455,16 @@ export class DeleteColumnResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteColumnResponse extends $tea.Model {
+export class DeleteColumnResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteColumnResponseBody;
@@ -920,12 +1484,22 @@ export class DeleteColumnResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSelectedTableRequest extends $tea.Model {
+export class DeleteSelectedTableRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -956,12 +1530,16 @@ export class DeleteSelectedTableRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSelectedTableResponseBody extends $tea.Model {
+export class DeleteSelectedTableResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -1007,12 +1585,16 @@ export class DeleteSelectedTableResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSelectedTableResponse extends $tea.Model {
+export class DeleteSelectedTableResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteSelectedTableResponseBody;
@@ -1032,12 +1614,22 @@ export class DeleteSelectedTableResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteVirtualDatasourceInstanceRequest extends $tea.Model {
+export class DeleteVirtualDatasourceInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1068,12 +1660,16 @@ export class DeleteVirtualDatasourceInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteVirtualDatasourceInstanceResponseBody extends $tea.Model {
+export class DeleteVirtualDatasourceInstanceResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -1119,12 +1715,16 @@ export class DeleteVirtualDatasourceInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteVirtualDatasourceInstanceResponse extends $tea.Model {
+export class DeleteVirtualDatasourceInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteVirtualDatasourceInstanceResponseBody;
@@ -1144,12 +1744,22 @@ export class DeleteVirtualDatasourceInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListBusinessLogicRequest extends $tea.Model {
+export class ListBusinessLogicRequest extends $dara.Model {
   /**
    * @example
    * 10
@@ -1184,12 +1794,16 @@ export class ListBusinessLogicRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListBusinessLogicResponseBody extends $tea.Model {
+export class ListBusinessLogicResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -1231,12 +1845,16 @@ export class ListBusinessLogicResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListBusinessLogicResponse extends $tea.Model {
+export class ListBusinessLogicResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListBusinessLogicResponseBody;
@@ -1256,12 +1874,22 @@ export class ListBusinessLogicResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListColumnRequest extends $tea.Model {
+export class ListColumnRequest extends $dara.Model {
   /**
    * @example
    * 10
@@ -1303,12 +1931,16 @@ export class ListColumnRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListColumnResponseBody extends $tea.Model {
+export class ListColumnResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -1350,12 +1982,16 @@ export class ListColumnResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListColumnResponse extends $tea.Model {
+export class ListColumnResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListColumnResponseBody;
@@ -1375,12 +2011,22 @@ export class ListColumnResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEnumMappingRequest extends $tea.Model {
+export class ListEnumMappingRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1421,12 +2067,16 @@ export class ListEnumMappingRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEnumMappingResponseBody extends $tea.Model {
+export class ListEnumMappingResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -1468,12 +2118,16 @@ export class ListEnumMappingResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEnumMappingResponse extends $tea.Model {
+export class ListEnumMappingResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListEnumMappingResponseBody;
@@ -1493,12 +2147,22 @@ export class ListEnumMappingResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSelectedTablesRequest extends $tea.Model {
+export class ListSelectedTablesRequest extends $dara.Model {
   /**
    * @example
    * 10
@@ -1533,12 +2197,16 @@ export class ListSelectedTablesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSelectedTablesResponseBody extends $tea.Model {
+export class ListSelectedTablesResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -1580,12 +2248,16 @@ export class ListSelectedTablesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSelectedTablesResponse extends $tea.Model {
+export class ListSelectedTablesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListSelectedTablesResponseBody;
@@ -1605,12 +2277,22 @@ export class ListSelectedTablesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSynonymsRequest extends $tea.Model {
+export class ListSynonymsRequest extends $dara.Model {
   /**
    * @example
    * 10
@@ -1645,12 +2327,16 @@ export class ListSynonymsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSynonymsResponseBody extends $tea.Model {
+export class ListSynonymsResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -1718,12 +2404,16 @@ export class ListSynonymsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSynonymsResponse extends $tea.Model {
+export class ListSynonymsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListSynonymsResponseBody;
@@ -1743,12 +2433,22 @@ export class ListSynonymsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVirtualDatasourceInstanceRequest extends $tea.Model {
+export class ListVirtualDatasourceInstanceRequest extends $dara.Model {
   /**
    * @example
    * 100
@@ -1783,12 +2483,16 @@ export class ListVirtualDatasourceInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVirtualDatasourceInstanceResponseBody extends $tea.Model {
+export class ListVirtualDatasourceInstanceResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -1830,12 +2534,16 @@ export class ListVirtualDatasourceInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVirtualDatasourceInstanceResponse extends $tea.Model {
+export class ListVirtualDatasourceInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListVirtualDatasourceInstanceResponseBody;
@@ -1855,12 +2563,22 @@ export class ListVirtualDatasourceInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RecoverColumnRequest extends $tea.Model {
+export class RecoverColumnRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1901,12 +2619,16 @@ export class RecoverColumnRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RecoverColumnResponseBody extends $tea.Model {
+export class RecoverColumnResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -1952,12 +2674,16 @@ export class RecoverColumnResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RecoverColumnResponse extends $tea.Model {
+export class RecoverColumnResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RecoverColumnResponseBody;
@@ -1977,12 +2703,23 @@ export class RecoverColumnResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResyncTableRequest extends $tea.Model {
+export class ResyncTableRequest extends $dara.Model {
+  keep?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -2001,6 +2738,7 @@ export class ResyncTableRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      keep: 'keep',
       tableIdKey: 'tableIdKey',
       workspaceId: 'workspaceId',
     };
@@ -2008,9 +2746,14 @@ export class ResyncTableRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      keep: 'boolean',
       tableIdKey: 'string',
       workspaceId: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -2018,7 +2761,7 @@ export class ResyncTableRequest extends $tea.Model {
   }
 }
 
-export class ResyncTableResponseBody extends $tea.Model {
+export class ResyncTableResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -2064,12 +2807,16 @@ export class ResyncTableResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResyncTableResponse extends $tea.Model {
+export class ResyncTableResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ResyncTableResponseBody;
@@ -2089,12 +2836,22 @@ export class ResyncTableResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunDataAnalysisRequest extends $tea.Model {
+export class RunDataAnalysisRequest extends $dara.Model {
   dataRole?: string[];
   /**
    * @example
@@ -2139,12 +2896,22 @@ export class RunDataAnalysisRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.dataRole)) {
+      $dara.Model.validateArray(this.dataRole);
+    }
+    if(this.userParams) {
+      $dara.Model.validateMap(this.userParams);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunDataAnalysisResponseBody extends $tea.Model {
+export class RunDataAnalysisResponseBody extends $dara.Model {
   code?: string;
   data?: RunDataAnalysisResponseBodyData;
   httpStatusCode?: number;
@@ -2167,12 +2934,19 @@ export class RunDataAnalysisResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunDataAnalysisResponse extends $tea.Model {
+export class RunDataAnalysisResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunDataAnalysisResponseBody;
@@ -2192,12 +2966,22 @@ export class RunDataAnalysisResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunDataResultAnalysisRequest extends $tea.Model {
+export class RunDataResultAnalysisRequest extends $dara.Model {
   /**
    * @example
    * all
@@ -2238,12 +3022,19 @@ export class RunDataResultAnalysisRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.sqlData && typeof (this.sqlData as any).validate === 'function') {
+      (this.sqlData as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunDataResultAnalysisResponseBody extends $tea.Model {
+export class RunDataResultAnalysisResponseBody extends $dara.Model {
   data?: RunDataResultAnalysisResponseBodyData;
   static names(): { [key: string]: string } {
     return {
@@ -2257,12 +3048,19 @@ export class RunDataResultAnalysisResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunDataResultAnalysisResponse extends $tea.Model {
+export class RunDataResultAnalysisResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunDataResultAnalysisResponseBody;
@@ -2282,12 +3080,22 @@ export class RunDataResultAnalysisResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunSqlGenerationRequest extends $tea.Model {
+export class RunSqlGenerationRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2329,12 +3137,16 @@ export class RunSqlGenerationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunSqlGenerationResponseBody extends $tea.Model {
+export class RunSqlGenerationResponseBody extends $dara.Model {
   data?: RunSqlGenerationResponseBodyData;
   static names(): { [key: string]: string } {
     return {
@@ -2348,12 +3160,19 @@ export class RunSqlGenerationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunSqlGenerationResponse extends $tea.Model {
+export class RunSqlGenerationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunSqlGenerationResponseBody;
@@ -2373,12 +3192,22 @@ export class RunSqlGenerationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SaveVirtualDatasourceDdlRequest extends $tea.Model {
+export class SaveVirtualDatasourceDdlRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2416,12 +3245,16 @@ export class SaveVirtualDatasourceDdlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SaveVirtualDatasourceDdlResponseBody extends $tea.Model {
+export class SaveVirtualDatasourceDdlResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -2467,12 +3300,16 @@ export class SaveVirtualDatasourceDdlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SaveVirtualDatasourceDdlResponse extends $tea.Model {
+export class SaveVirtualDatasourceDdlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SaveVirtualDatasourceDdlResponseBody;
@@ -2492,13 +3329,24 @@ export class SaveVirtualDatasourceDdlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SyncRemoteTablesRequest extends $tea.Model {
+export class SyncRemoteTablesRequest extends $dara.Model {
   keepTableNames?: string[];
+  noModifiedTableNames?: string[];
   /**
    * @example
    * true
@@ -2520,6 +3368,7 @@ export class SyncRemoteTablesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       keepTableNames: 'keepTableNames',
+      noModifiedTableNames: 'noModifiedTableNames',
       pullSamples: 'pullSamples',
       tableNames: 'tableNames',
       workspaceId: 'workspaceId',
@@ -2529,10 +3378,24 @@ export class SyncRemoteTablesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       keepTableNames: { 'type': 'array', 'itemType': 'string' },
+      noModifiedTableNames: { 'type': 'array', 'itemType': 'string' },
       pullSamples: 'boolean',
       tableNames: { 'type': 'array', 'itemType': 'string' },
       workspaceId: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.keepTableNames)) {
+      $dara.Model.validateArray(this.keepTableNames);
+    }
+    if(Array.isArray(this.noModifiedTableNames)) {
+      $dara.Model.validateArray(this.noModifiedTableNames);
+    }
+    if(Array.isArray(this.tableNames)) {
+      $dara.Model.validateArray(this.tableNames);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -2540,7 +3403,7 @@ export class SyncRemoteTablesRequest extends $tea.Model {
   }
 }
 
-export class SyncRemoteTablesResponseBody extends $tea.Model {
+export class SyncRemoteTablesResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -2586,12 +3449,16 @@ export class SyncRemoteTablesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SyncRemoteTablesResponse extends $tea.Model {
+export class SyncRemoteTablesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SyncRemoteTablesResponseBody;
@@ -2611,12 +3478,22 @@ export class SyncRemoteTablesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateBusinessLogicRequest extends $tea.Model {
+export class UpdateBusinessLogicRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2664,12 +3541,16 @@ export class UpdateBusinessLogicRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateBusinessLogicResponseBody extends $tea.Model {
+export class UpdateBusinessLogicResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -2715,12 +3596,16 @@ export class UpdateBusinessLogicResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateBusinessLogicResponse extends $tea.Model {
+export class UpdateBusinessLogicResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateBusinessLogicResponseBody;
@@ -2740,12 +3625,22 @@ export class UpdateBusinessLogicResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateColumnRequest extends $tea.Model {
+export class UpdateColumnRequest extends $dara.Model {
   chineseName?: string;
   /**
    * @remarks
@@ -2822,12 +3717,22 @@ export class UpdateColumnRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.enumValues)) {
+      $dara.Model.validateArray(this.enumValues);
+    }
+    if(Array.isArray(this.samples)) {
+      $dara.Model.validateArray(this.samples);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateColumnResponseBody extends $tea.Model {
+export class UpdateColumnResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -2873,12 +3778,16 @@ export class UpdateColumnResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateColumnResponse extends $tea.Model {
+export class UpdateColumnResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateColumnResponseBody;
@@ -2898,12 +3807,22 @@ export class UpdateColumnResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateEnumMappingRequest extends $tea.Model {
+export class UpdateEnumMappingRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2947,12 +3866,19 @@ export class UpdateEnumMappingRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.enumMapping) {
+      $dara.Model.validateMap(this.enumMapping);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateEnumMappingResponseBody extends $tea.Model {
+export class UpdateEnumMappingResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -2998,12 +3924,16 @@ export class UpdateEnumMappingResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateEnumMappingResponse extends $tea.Model {
+export class UpdateEnumMappingResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateEnumMappingResponseBody;
@@ -3023,12 +3953,22 @@ export class UpdateEnumMappingResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSynonymsRequest extends $tea.Model {
+export class UpdateSynonymsRequest extends $dara.Model {
   columns?: string[];
   /**
    * @remarks
@@ -3076,12 +4016,22 @@ export class UpdateSynonymsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
+    }
+    if(Array.isArray(this.wordSynonyms)) {
+      $dara.Model.validateArray(this.wordSynonyms);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSynonymsResponseBody extends $tea.Model {
+export class UpdateSynonymsResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -3127,12 +4077,16 @@ export class UpdateSynonymsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSynonymsResponse extends $tea.Model {
+export class UpdateSynonymsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateSynonymsResponseBody;
@@ -3152,12 +4106,22 @@ export class UpdateSynonymsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTableInfoRequest extends $tea.Model {
+export class UpdateTableInfoRequest extends $dara.Model {
   description?: string;
   foreignKeys?: string[];
   /**
@@ -3201,12 +4165,19 @@ export class UpdateTableInfoRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.foreignKeys)) {
+      $dara.Model.validateArray(this.foreignKeys);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTableInfoResponseBody extends $tea.Model {
+export class UpdateTableInfoResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -3252,12 +4223,16 @@ export class UpdateTableInfoResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTableInfoResponse extends $tea.Model {
+export class UpdateTableInfoResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateTableInfoResponseBody;
@@ -3277,12 +4252,22 @@ export class UpdateTableInfoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateVirtualDatasourceInstanceRequest extends $tea.Model {
+export class UpdateVirtualDatasourceInstanceRequest extends $dara.Model {
   description?: string;
   name?: string;
   type?: number;
@@ -3319,12 +4304,16 @@ export class UpdateVirtualDatasourceInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateVirtualDatasourceInstanceResponseBody extends $tea.Model {
+export class UpdateVirtualDatasourceInstanceResponseBody extends $dara.Model {
   /**
    * @example
    * NoAuth
@@ -3370,12 +4359,16 @@ export class UpdateVirtualDatasourceInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateVirtualDatasourceInstanceResponse extends $tea.Model {
+export class UpdateVirtualDatasourceInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateVirtualDatasourceInstanceResponseBody;
@@ -3395,343 +4388,14 @@ export class UpdateVirtualDatasourceInstanceResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunDataAnalysisResponseBodyDataSqlData extends $tea.Model {
-  column?: string[];
-  data?: { [key: string]: any }[];
-  static names(): { [key: string]: string } {
-    return {
-      column: 'column',
-      data: 'data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      column: { 'type': 'array', 'itemType': 'string' },
-      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunDataAnalysisResponseBodyDataVisualizationData extends $tea.Model {
-  /**
-   * @example
-   * bar
-   */
-  plotType?: string;
-  xAxis?: string[];
-  yAxis?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      plotType: 'plotType',
-      xAxis: 'xAxis',
-      yAxis: 'yAxis',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      plotType: 'string',
-      xAxis: { 'type': 'array', 'itemType': 'string' },
-      yAxis: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunDataAnalysisResponseBodyDataVisualization extends $tea.Model {
-  data?: RunDataAnalysisResponseBodyDataVisualizationData;
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RunDataAnalysisResponseBodyDataVisualizationData,
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunDataAnalysisResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * Access was denied, message: No such namespace namespaces/tech-scp-chain7.
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * rewrite
-   */
-  event?: string;
-  evidence?: string;
-  httpStatusCode?: number;
-  /**
-   * @example
-   * DA2578F7-88A5-5D6E-9305-33E724E97D60
-   */
-  requestId?: string;
-  rewrite?: string;
-  selector?: string[];
-  /**
-   * @example
-   * sessionid1
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * select p.product_id, p.product_name, sum(o.quantity) as total_sales from products p join orders o on p.product_id = o.product_id where o.order_date between \\"2022-10-22\\" and \\"2024-10-22\\" group by p.product_id, p.product_name having total_sales > 5
-   */
-  sql?: string;
-  sqlData?: RunDataAnalysisResponseBodyDataSqlData;
-  /**
-   * @example
-   * Can not issue data manipulation statements with executeQuery()
-   */
-  sqlError?: string;
-  visualization?: RunDataAnalysisResponseBodyDataVisualization;
-  static names(): { [key: string]: string } {
-    return {
-      errorMessage: 'errorMessage',
-      event: 'event',
-      evidence: 'evidence',
-      httpStatusCode: 'httpStatusCode',
-      requestId: 'requestId',
-      rewrite: 'rewrite',
-      selector: 'selector',
-      sessionId: 'sessionId',
-      sql: 'sql',
-      sqlData: 'sqlData',
-      sqlError: 'sqlError',
-      visualization: 'visualization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorMessage: 'string',
-      event: 'string',
-      evidence: 'string',
-      httpStatusCode: 'number',
-      requestId: 'string',
-      rewrite: 'string',
-      selector: { 'type': 'array', 'itemType': 'string' },
-      sessionId: 'string',
-      sql: 'string',
-      sqlData: RunDataAnalysisResponseBodyDataSqlData,
-      sqlError: 'string',
-      visualization: RunDataAnalysisResponseBodyDataVisualization,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunDataResultAnalysisRequestSqlData extends $tea.Model {
-  column?: string[];
-  data?: { [key: string]: string }[];
-  static names(): { [key: string]: string } {
-    return {
-      column: 'column',
-      data: 'data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      column: { 'type': 'array', 'itemType': 'string' },
-      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunDataResultAnalysisResponseBodyDataVisualizationData extends $tea.Model {
-  /**
-   * @example
-   * bar
-   */
-  plotType?: string;
-  xAxis?: string[];
-  yAxis?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      plotType: 'plotType',
-      xAxis: 'xAxis',
-      yAxis: 'yAxis',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      plotType: 'string',
-      xAxis: { 'type': 'array', 'itemType': 'string' },
-      yAxis: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunDataResultAnalysisResponseBodyDataVisualization extends $tea.Model {
-  data?: RunDataResultAnalysisResponseBodyDataVisualizationData;
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RunDataResultAnalysisResponseBodyDataVisualizationData,
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunDataResultAnalysisResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * Access was denied, message: No such namespace namespaces/tech-scp-chain7.
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * result
-   */
-  event?: string;
-  /**
-   * @example
-   * DA2578F7-88A5-5D6E-9305-33E724E97D60
-   */
-  requestId?: string;
-  rewrite?: string;
-  /**
-   * @example
-   * select p.product_id, p.product_name, sum(o.quantity) as total_sales from products p join orders o on p.product_id = o.product_id where o.order_date between \\"2022-10-22\\" and \\"2024-10-22\\" group by p.product_id, p.product_name having total_sales > 5
-   */
-  sql?: string;
-  visualization?: RunDataResultAnalysisResponseBodyDataVisualization;
-  static names(): { [key: string]: string } {
-    return {
-      errorMessage: 'errorMessage',
-      event: 'event',
-      requestId: 'requestId',
-      rewrite: 'rewrite',
-      sql: 'sql',
-      visualization: 'visualization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorMessage: 'string',
-      event: 'string',
-      requestId: 'string',
-      rewrite: 'string',
-      sql: 'string',
-      visualization: RunDataResultAnalysisResponseBodyDataVisualization,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunSqlGenerationResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * Access was denied, message: No such namespace namespaces/tech-scp-chain7.
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * sql
-   */
-  event?: string;
-  evidence?: string;
-  /**
-   * @example
-   * DA2578F7-88A5-5D6E-9305-33E724E97D60
-   */
-  requestId?: string;
-  rewrite?: string;
-  selector?: string[];
-  /**
-   * @example
-   * f64c38dd-a235-4bb4-ae6c-79eaedcba699
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * select p.product_id, p.product_name, sum(o.quantity) as total_sales from products p join orders o on p.product_id = o.product_id where o.order_date between \\"2022-10-22\\" and \\"2024-10-22\\" group by p.product_id, p.product_name having total_sales > 5
-   */
-  sql?: string;
-  /**
-   * @example
-   * Can not issue data manipulation statements with executeQuery()
-   */
-  sqlError?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorMessage: 'errorMessage',
-      event: 'event',
-      evidence: 'evidence',
-      requestId: 'requestId',
-      rewrite: 'rewrite',
-      selector: 'selector',
-      sessionId: 'sessionId',
-      sql: 'sql',
-      sqlError: 'sqlError',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorMessage: 'string',
-      event: 'string',
-      evidence: 'string',
-      requestId: 'string',
-      rewrite: 'string',
-      selector: { 'type': 'array', 'itemType': 'string' },
-      sessionId: 'string',
-      sql: 'string',
-      sqlError: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -3742,7 +4406,7 @@ export class RunSqlGenerationResponseBodyData extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -3751,15 +4415,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -3770,24 +4434,24 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BatchDeleteSynonymsResponse
    */
-  async batchDeleteSynonymsWithOptions(request: BatchDeleteSynonymsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchDeleteSynonymsResponse> {
-    Util.validateModel(request);
+  async batchDeleteSynonymsWithOptions(request: BatchDeleteSynonymsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<BatchDeleteSynonymsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.synonymIdKeys)) {
+    if (!$dara.isNull(request.synonymIdKeys)) {
       body["synonymIdKeys"] = request.synonymIdKeys;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BatchDeleteSynonyms",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -3798,7 +4462,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<BatchDeleteSynonymsResponse>(await this.callApi(params, req, runtime), new BatchDeleteSynonymsResponse({}));
+    return $dara.cast<BatchDeleteSynonymsResponse>(await this.callApi(params, req, runtime), new BatchDeleteSynonymsResponse({}));
   }
 
   /**
@@ -3808,7 +4472,7 @@ export default class Client extends OpenApi {
    * @returns BatchDeleteSynonymsResponse
    */
   async batchDeleteSynonyms(request: BatchDeleteSynonymsRequest): Promise<BatchDeleteSynonymsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.batchDeleteSynonymsWithOptions(request, headers, runtime);
   }
@@ -3821,18 +4485,18 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelDatasourceAuthorizationResponse
    */
-  async cancelDatasourceAuthorizationWithOptions(request: CancelDatasourceAuthorizationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelDatasourceAuthorizationResponse> {
-    Util.validateModel(request);
+  async cancelDatasourceAuthorizationWithOptions(request: CancelDatasourceAuthorizationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CancelDatasourceAuthorizationResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelDatasourceAuthorization",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -3843,7 +4507,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CancelDatasourceAuthorizationResponse>(await this.callApi(params, req, runtime), new CancelDatasourceAuthorizationResponse({}));
+    return $dara.cast<CancelDatasourceAuthorizationResponse>(await this.callApi(params, req, runtime), new CancelDatasourceAuthorizationResponse({}));
   }
 
   /**
@@ -3853,7 +4517,7 @@ export default class Client extends OpenApi {
    * @returns CancelDatasourceAuthorizationResponse
    */
   async cancelDatasourceAuthorization(request: CancelDatasourceAuthorizationRequest): Promise<CancelDatasourceAuthorizationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelDatasourceAuthorizationWithOptions(request, headers, runtime);
   }
@@ -3866,28 +4530,28 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateBusinessLogicResponse
    */
-  async createBusinessLogicWithOptions(request: CreateBusinessLogicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateBusinessLogicResponse> {
-    Util.validateModel(request);
+  async createBusinessLogicWithOptions(request: CreateBusinessLogicRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateBusinessLogicResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateBusinessLogic",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -3898,7 +4562,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateBusinessLogicResponse>(await this.callApi(params, req, runtime), new CreateBusinessLogicResponse({}));
+    return $dara.cast<CreateBusinessLogicResponse>(await this.callApi(params, req, runtime), new CreateBusinessLogicResponse({}));
   }
 
   /**
@@ -3908,7 +4572,7 @@ export default class Client extends OpenApi {
    * @returns CreateBusinessLogicResponse
    */
   async createBusinessLogic(request: CreateBusinessLogicRequest): Promise<CreateBusinessLogicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createBusinessLogicWithOptions(request, headers, runtime);
   }
@@ -3921,40 +4585,40 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDatasourceAuthorizationResponse
    */
-  async createDatasourceAuthorizationWithOptions(request: CreateDatasourceAuthorizationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDatasourceAuthorizationResponse> {
-    Util.validateModel(request);
+  async createDatasourceAuthorizationWithOptions(request: CreateDatasourceAuthorizationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateDatasourceAuthorizationResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.password)) {
+    if (!$dara.isNull(request.password)) {
       body["password"] = request.password;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["type"] = request.type;
     }
 
-    if (!Util.isUnset(request.url)) {
+    if (!$dara.isNull(request.url)) {
       body["url"] = request.url;
     }
 
-    if (!Util.isUnset(request.userName)) {
+    if (!$dara.isNull(request.userName)) {
       body["userName"] = request.userName;
     }
 
-    if (!Util.isUnset(request.vdbId)) {
+    if (!$dara.isNull(request.vdbId)) {
       body["vdbId"] = request.vdbId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateDatasourceAuthorization",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -3965,7 +4629,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateDatasourceAuthorizationResponse>(await this.callApi(params, req, runtime), new CreateDatasourceAuthorizationResponse({}));
+    return $dara.cast<CreateDatasourceAuthorizationResponse>(await this.callApi(params, req, runtime), new CreateDatasourceAuthorizationResponse({}));
   }
 
   /**
@@ -3975,7 +4639,7 @@ export default class Client extends OpenApi {
    * @returns CreateDatasourceAuthorizationResponse
    */
   async createDatasourceAuthorization(request: CreateDatasourceAuthorizationRequest): Promise<CreateDatasourceAuthorizationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createDatasourceAuthorizationWithOptions(request, headers, runtime);
   }
@@ -3988,32 +4652,32 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSynonymsResponse
    */
-  async createSynonymsWithOptions(request: CreateSynonymsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSynonymsResponse> {
-    Util.validateModel(request);
+  async createSynonymsWithOptions(request: CreateSynonymsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateSynonymsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.columns)) {
+    if (!$dara.isNull(request.columns)) {
       body["columns"] = request.columns;
     }
 
-    if (!Util.isUnset(request.word)) {
+    if (!$dara.isNull(request.word)) {
       body["word"] = request.word;
     }
 
-    if (!Util.isUnset(request.wordSynonyms)) {
+    if (!$dara.isNull(request.wordSynonyms)) {
       body["wordSynonyms"] = request.wordSynonyms;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateSynonyms",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4024,7 +4688,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateSynonymsResponse>(await this.callApi(params, req, runtime), new CreateSynonymsResponse({}));
+    return $dara.cast<CreateSynonymsResponse>(await this.callApi(params, req, runtime), new CreateSynonymsResponse({}));
   }
 
   /**
@@ -4034,7 +4698,7 @@ export default class Client extends OpenApi {
    * @returns CreateSynonymsResponse
    */
   async createSynonyms(request: CreateSynonymsRequest): Promise<CreateSynonymsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createSynonymsWithOptions(request, headers, runtime);
   }
@@ -4047,32 +4711,32 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVirtualDatasourceInstanceResponse
    */
-  async createVirtualDatasourceInstanceWithOptions(request: CreateVirtualDatasourceInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVirtualDatasourceInstanceResponse> {
-    Util.validateModel(request);
+  async createVirtualDatasourceInstanceWithOptions(request: CreateVirtualDatasourceInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateVirtualDatasourceInstanceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["name"] = request.name;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateVirtualDatasourceInstance",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4083,7 +4747,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateVirtualDatasourceInstanceResponse>(await this.callApi(params, req, runtime), new CreateVirtualDatasourceInstanceResponse({}));
+    return $dara.cast<CreateVirtualDatasourceInstanceResponse>(await this.callApi(params, req, runtime), new CreateVirtualDatasourceInstanceResponse({}));
   }
 
   /**
@@ -4093,7 +4757,7 @@ export default class Client extends OpenApi {
    * @returns CreateVirtualDatasourceInstanceResponse
    */
   async createVirtualDatasourceInstance(request: CreateVirtualDatasourceInstanceRequest): Promise<CreateVirtualDatasourceInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createVirtualDatasourceInstanceWithOptions(request, headers, runtime);
   }
@@ -4106,24 +4770,24 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteBusinessLogicResponse
    */
-  async deleteBusinessLogicWithOptions(request: DeleteBusinessLogicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBusinessLogicResponse> {
-    Util.validateModel(request);
+  async deleteBusinessLogicWithOptions(request: DeleteBusinessLogicRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteBusinessLogicResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.businessLogicIdKeys)) {
+    if (!$dara.isNull(request.businessLogicIdKeys)) {
       body["businessLogicIdKeys"] = request.businessLogicIdKeys;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteBusinessLogic",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4134,7 +4798,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteBusinessLogicResponse>(await this.callApi(params, req, runtime), new DeleteBusinessLogicResponse({}));
+    return $dara.cast<DeleteBusinessLogicResponse>(await this.callApi(params, req, runtime), new DeleteBusinessLogicResponse({}));
   }
 
   /**
@@ -4144,7 +4808,7 @@ export default class Client extends OpenApi {
    * @returns DeleteBusinessLogicResponse
    */
   async deleteBusinessLogic(request: DeleteBusinessLogicRequest): Promise<DeleteBusinessLogicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteBusinessLogicWithOptions(request, headers, runtime);
   }
@@ -4157,24 +4821,24 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteColumnResponse
    */
-  async deleteColumnWithOptions(request: DeleteColumnRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteColumnResponse> {
-    Util.validateModel(request);
+  async deleteColumnWithOptions(request: DeleteColumnRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteColumnResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.columnIdKey)) {
+    if (!$dara.isNull(request.columnIdKey)) {
       body["columnIdKey"] = request.columnIdKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteColumn",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4185,7 +4849,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteColumnResponse>(await this.callApi(params, req, runtime), new DeleteColumnResponse({}));
+    return $dara.cast<DeleteColumnResponse>(await this.callApi(params, req, runtime), new DeleteColumnResponse({}));
   }
 
   /**
@@ -4195,7 +4859,7 @@ export default class Client extends OpenApi {
    * @returns DeleteColumnResponse
    */
   async deleteColumn(request: DeleteColumnRequest): Promise<DeleteColumnResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteColumnWithOptions(request, headers, runtime);
   }
@@ -4208,24 +4872,24 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSelectedTableResponse
    */
-  async deleteSelectedTableWithOptions(request: DeleteSelectedTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSelectedTableResponse> {
-    Util.validateModel(request);
+  async deleteSelectedTableWithOptions(request: DeleteSelectedTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteSelectedTableResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.tableIdKey)) {
+    if (!$dara.isNull(request.tableIdKey)) {
       body["tableIdKey"] = request.tableIdKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteSelectedTable",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4236,7 +4900,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteSelectedTableResponse>(await this.callApi(params, req, runtime), new DeleteSelectedTableResponse({}));
+    return $dara.cast<DeleteSelectedTableResponse>(await this.callApi(params, req, runtime), new DeleteSelectedTableResponse({}));
   }
 
   /**
@@ -4246,7 +4910,7 @@ export default class Client extends OpenApi {
    * @returns DeleteSelectedTableResponse
    */
   async deleteSelectedTable(request: DeleteSelectedTableRequest): Promise<DeleteSelectedTableResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteSelectedTableWithOptions(request, headers, runtime);
   }
@@ -4259,24 +4923,24 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVirtualDatasourceInstanceResponse
    */
-  async deleteVirtualDatasourceInstanceWithOptions(request: DeleteVirtualDatasourceInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualDatasourceInstanceResponse> {
-    Util.validateModel(request);
+  async deleteVirtualDatasourceInstanceWithOptions(request: DeleteVirtualDatasourceInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteVirtualDatasourceInstanceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.vdbId)) {
+    if (!$dara.isNull(request.vdbId)) {
       body["vdbId"] = request.vdbId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteVirtualDatasourceInstance",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4287,7 +4951,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteVirtualDatasourceInstanceResponse>(await this.callApi(params, req, runtime), new DeleteVirtualDatasourceInstanceResponse({}));
+    return $dara.cast<DeleteVirtualDatasourceInstanceResponse>(await this.callApi(params, req, runtime), new DeleteVirtualDatasourceInstanceResponse({}));
   }
 
   /**
@@ -4297,7 +4961,7 @@ export default class Client extends OpenApi {
    * @returns DeleteVirtualDatasourceInstanceResponse
    */
   async deleteVirtualDatasourceInstance(request: DeleteVirtualDatasourceInstanceRequest): Promise<DeleteVirtualDatasourceInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteVirtualDatasourceInstanceWithOptions(request, headers, runtime);
   }
@@ -4310,28 +4974,28 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListBusinessLogicResponse
    */
-  async listBusinessLogicWithOptions(request: ListBusinessLogicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListBusinessLogicResponse> {
-    Util.validateModel(request);
+  async listBusinessLogicWithOptions(request: ListBusinessLogicRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListBusinessLogicResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       body["maxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["nextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListBusinessLogic",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4342,7 +5006,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListBusinessLogicResponse>(await this.callApi(params, req, runtime), new ListBusinessLogicResponse({}));
+    return $dara.cast<ListBusinessLogicResponse>(await this.callApi(params, req, runtime), new ListBusinessLogicResponse({}));
   }
 
   /**
@@ -4352,7 +5016,7 @@ export default class Client extends OpenApi {
    * @returns ListBusinessLogicResponse
    */
   async listBusinessLogic(request: ListBusinessLogicRequest): Promise<ListBusinessLogicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listBusinessLogicWithOptions(request, headers, runtime);
   }
@@ -4365,32 +5029,32 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListColumnResponse
    */
-  async listColumnWithOptions(request: ListColumnRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListColumnResponse> {
-    Util.validateModel(request);
+  async listColumnWithOptions(request: ListColumnRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListColumnResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       body["maxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["nextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.tableIdKey)) {
+    if (!$dara.isNull(request.tableIdKey)) {
       body["tableIdKey"] = request.tableIdKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListColumn",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4401,7 +5065,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListColumnResponse>(await this.callApi(params, req, runtime), new ListColumnResponse({}));
+    return $dara.cast<ListColumnResponse>(await this.callApi(params, req, runtime), new ListColumnResponse({}));
   }
 
   /**
@@ -4411,7 +5075,7 @@ export default class Client extends OpenApi {
    * @returns ListColumnResponse
    */
   async listColumn(request: ListColumnRequest): Promise<ListColumnResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listColumnWithOptions(request, headers, runtime);
   }
@@ -4424,28 +5088,28 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEnumMappingResponse
    */
-  async listEnumMappingWithOptions(request: ListEnumMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEnumMappingResponse> {
-    Util.validateModel(request);
+  async listEnumMappingWithOptions(request: ListEnumMappingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListEnumMappingResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.columnIdKey)) {
+    if (!$dara.isNull(request.columnIdKey)) {
       body["columnIdKey"] = request.columnIdKey;
     }
 
-    if (!Util.isUnset(request.tableIdKey)) {
+    if (!$dara.isNull(request.tableIdKey)) {
       body["tableIdKey"] = request.tableIdKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListEnumMapping",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4456,7 +5120,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListEnumMappingResponse>(await this.callApi(params, req, runtime), new ListEnumMappingResponse({}));
+    return $dara.cast<ListEnumMappingResponse>(await this.callApi(params, req, runtime), new ListEnumMappingResponse({}));
   }
 
   /**
@@ -4466,7 +5130,7 @@ export default class Client extends OpenApi {
    * @returns ListEnumMappingResponse
    */
   async listEnumMapping(request: ListEnumMappingRequest): Promise<ListEnumMappingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listEnumMappingWithOptions(request, headers, runtime);
   }
@@ -4479,28 +5143,28 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSelectedTablesResponse
    */
-  async listSelectedTablesWithOptions(request: ListSelectedTablesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSelectedTablesResponse> {
-    Util.validateModel(request);
+  async listSelectedTablesWithOptions(request: ListSelectedTablesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListSelectedTablesResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       body["maxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["nextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListSelectedTables",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4511,7 +5175,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListSelectedTablesResponse>(await this.callApi(params, req, runtime), new ListSelectedTablesResponse({}));
+    return $dara.cast<ListSelectedTablesResponse>(await this.callApi(params, req, runtime), new ListSelectedTablesResponse({}));
   }
 
   /**
@@ -4521,7 +5185,7 @@ export default class Client extends OpenApi {
    * @returns ListSelectedTablesResponse
    */
   async listSelectedTables(request: ListSelectedTablesRequest): Promise<ListSelectedTablesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSelectedTablesWithOptions(request, headers, runtime);
   }
@@ -4534,28 +5198,28 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSynonymsResponse
    */
-  async listSynonymsWithOptions(request: ListSynonymsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSynonymsResponse> {
-    Util.validateModel(request);
+  async listSynonymsWithOptions(request: ListSynonymsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListSynonymsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       body["maxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["nextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListSynonyms",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4566,7 +5230,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListSynonymsResponse>(await this.callApi(params, req, runtime), new ListSynonymsResponse({}));
+    return $dara.cast<ListSynonymsResponse>(await this.callApi(params, req, runtime), new ListSynonymsResponse({}));
   }
 
   /**
@@ -4576,7 +5240,7 @@ export default class Client extends OpenApi {
    * @returns ListSynonymsResponse
    */
   async listSynonyms(request: ListSynonymsRequest): Promise<ListSynonymsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSynonymsWithOptions(request, headers, runtime);
   }
@@ -4589,28 +5253,28 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVirtualDatasourceInstanceResponse
    */
-  async listVirtualDatasourceInstanceWithOptions(request: ListVirtualDatasourceInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVirtualDatasourceInstanceResponse> {
-    Util.validateModel(request);
+  async listVirtualDatasourceInstanceWithOptions(request: ListVirtualDatasourceInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListVirtualDatasourceInstanceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       body["maxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["nextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListVirtualDatasourceInstance",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4621,7 +5285,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListVirtualDatasourceInstanceResponse>(await this.callApi(params, req, runtime), new ListVirtualDatasourceInstanceResponse({}));
+    return $dara.cast<ListVirtualDatasourceInstanceResponse>(await this.callApi(params, req, runtime), new ListVirtualDatasourceInstanceResponse({}));
   }
 
   /**
@@ -4631,7 +5295,7 @@ export default class Client extends OpenApi {
    * @returns ListVirtualDatasourceInstanceResponse
    */
   async listVirtualDatasourceInstance(request: ListVirtualDatasourceInstanceRequest): Promise<ListVirtualDatasourceInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listVirtualDatasourceInstanceWithOptions(request, headers, runtime);
   }
@@ -4644,28 +5308,28 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RecoverColumnResponse
    */
-  async recoverColumnWithOptions(request: RecoverColumnRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RecoverColumnResponse> {
-    Util.validateModel(request);
+  async recoverColumnWithOptions(request: RecoverColumnRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RecoverColumnResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.columnIdKey)) {
+    if (!$dara.isNull(request.columnIdKey)) {
       body["columnIdKey"] = request.columnIdKey;
     }
 
-    if (!Util.isUnset(request.tableIdKey)) {
+    if (!$dara.isNull(request.tableIdKey)) {
       body["tableIdKey"] = request.tableIdKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RecoverColumn",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4676,7 +5340,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RecoverColumnResponse>(await this.callApi(params, req, runtime), new RecoverColumnResponse({}));
+    return $dara.cast<RecoverColumnResponse>(await this.callApi(params, req, runtime), new RecoverColumnResponse({}));
   }
 
   /**
@@ -4686,7 +5350,7 @@ export default class Client extends OpenApi {
    * @returns RecoverColumnResponse
    */
   async recoverColumn(request: RecoverColumnRequest): Promise<RecoverColumnResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.recoverColumnWithOptions(request, headers, runtime);
   }
@@ -4699,24 +5363,28 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResyncTableResponse
    */
-  async resyncTableWithOptions(request: ResyncTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResyncTableResponse> {
-    Util.validateModel(request);
+  async resyncTableWithOptions(request: ResyncTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ResyncTableResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.tableIdKey)) {
+    if (!$dara.isNull(request.keep)) {
+      body["keep"] = request.keep;
+    }
+
+    if (!$dara.isNull(request.tableIdKey)) {
       body["tableIdKey"] = request.tableIdKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ResyncTable",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4727,7 +5395,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ResyncTableResponse>(await this.callApi(params, req, runtime), new ResyncTableResponse({}));
+    return $dara.cast<ResyncTableResponse>(await this.callApi(params, req, runtime), new ResyncTableResponse({}));
   }
 
   /**
@@ -4737,7 +5405,7 @@ export default class Client extends OpenApi {
    * @returns ResyncTableResponse
    */
   async resyncTable(request: ResyncTableRequest): Promise<ResyncTableResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.resyncTableWithOptions(request, headers, runtime);
   }
@@ -4750,49 +5418,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunDataAnalysisResponse
    */
-  async runDataAnalysisWithOptions(workspaceId: string, request: RunDataAnalysisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunDataAnalysisResponse> {
-    Util.validateModel(request);
+  async runDataAnalysisWithOptions(workspaceId: string, request: RunDataAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunDataAnalysisResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dataRole)) {
+    if (!$dara.isNull(request.dataRole)) {
       body["dataRole"] = request.dataRole;
     }
 
-    if (!Util.isUnset(request.generateSqlOnly)) {
+    if (!$dara.isNull(request.generateSqlOnly)) {
       body["generateSqlOnly"] = request.generateSqlOnly;
     }
 
-    if (!Util.isUnset(request.query)) {
+    if (!$dara.isNull(request.query)) {
       body["query"] = request.query;
     }
 
-    if (!Util.isUnset(request.sessionId)) {
+    if (!$dara.isNull(request.sessionId)) {
       body["sessionId"] = request.sessionId;
     }
 
-    if (!Util.isUnset(request.specificationType)) {
+    if (!$dara.isNull(request.specificationType)) {
       body["specificationType"] = request.specificationType;
     }
 
-    if (!Util.isUnset(request.userParams)) {
+    if (!$dara.isNull(request.userParams)) {
       body["userParams"] = request.userParams;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunDataAnalysis",
       version: "2024-08-23",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/gbi/runDataAnalysis`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/gbi/runDataAnalysis`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RunDataAnalysisResponse>(await this.callApi(params, req, runtime), new RunDataAnalysisResponse({}));
+    return $dara.cast<RunDataAnalysisResponse>(await this.callApi(params, req, runtime), new RunDataAnalysisResponse({}));
   }
 
   /**
@@ -4802,7 +5470,7 @@ export default class Client extends OpenApi {
    * @returns RunDataAnalysisResponse
    */
   async runDataAnalysis(workspaceId: string, request: RunDataAnalysisRequest): Promise<RunDataAnalysisResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runDataAnalysisWithOptions(workspaceId, request, headers, runtime);
   }
@@ -4815,32 +5483,32 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunDataResultAnalysisResponse
    */
-  async runDataResultAnalysisWithOptions(request: RunDataResultAnalysisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunDataResultAnalysisResponse> {
-    Util.validateModel(request);
+  async runDataResultAnalysisWithOptions(request: RunDataResultAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunDataResultAnalysisResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.analysisMode)) {
+    if (!$dara.isNull(request.analysisMode)) {
       body["analysisMode"] = request.analysisMode;
     }
 
-    if (!Util.isUnset(request.requestId)) {
+    if (!$dara.isNull(request.requestId)) {
       body["requestId"] = request.requestId;
     }
 
-    if (!Util.isUnset(request.sqlData)) {
+    if (!$dara.isNull(request.sqlData)) {
       body["sqlData"] = request.sqlData;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunDataResultAnalysis",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4851,7 +5519,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RunDataResultAnalysisResponse>(await this.callApi(params, req, runtime), new RunDataResultAnalysisResponse({}));
+    return $dara.cast<RunDataResultAnalysisResponse>(await this.callApi(params, req, runtime), new RunDataResultAnalysisResponse({}));
   }
 
   /**
@@ -4861,7 +5529,7 @@ export default class Client extends OpenApi {
    * @returns RunDataResultAnalysisResponse
    */
   async runDataResultAnalysis(request: RunDataResultAnalysisRequest): Promise<RunDataResultAnalysisResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runDataResultAnalysisWithOptions(request, headers, runtime);
   }
@@ -4874,32 +5542,32 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunSqlGenerationResponse
    */
-  async runSqlGenerationWithOptions(request: RunSqlGenerationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunSqlGenerationResponse> {
-    Util.validateModel(request);
+  async runSqlGenerationWithOptions(request: RunSqlGenerationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunSqlGenerationResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.query)) {
+    if (!$dara.isNull(request.query)) {
       body["query"] = request.query;
     }
 
-    if (!Util.isUnset(request.sessionId)) {
+    if (!$dara.isNull(request.sessionId)) {
       body["sessionId"] = request.sessionId;
     }
 
-    if (!Util.isUnset(request.specificationType)) {
+    if (!$dara.isNull(request.specificationType)) {
       body["specificationType"] = request.specificationType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunSqlGeneration",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4910,7 +5578,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RunSqlGenerationResponse>(await this.callApi(params, req, runtime), new RunSqlGenerationResponse({}));
+    return $dara.cast<RunSqlGenerationResponse>(await this.callApi(params, req, runtime), new RunSqlGenerationResponse({}));
   }
 
   /**
@@ -4920,7 +5588,7 @@ export default class Client extends OpenApi {
    * @returns RunSqlGenerationResponse
    */
   async runSqlGeneration(request: RunSqlGenerationRequest): Promise<RunSqlGenerationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runSqlGenerationWithOptions(request, headers, runtime);
   }
@@ -4933,28 +5601,28 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveVirtualDatasourceDdlResponse
    */
-  async saveVirtualDatasourceDdlWithOptions(request: SaveVirtualDatasourceDdlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SaveVirtualDatasourceDdlResponse> {
-    Util.validateModel(request);
+  async saveVirtualDatasourceDdlWithOptions(request: SaveVirtualDatasourceDdlRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<SaveVirtualDatasourceDdlResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ddl)) {
+    if (!$dara.isNull(request.ddl)) {
       body["ddl"] = request.ddl;
     }
 
-    if (!Util.isUnset(request.vdbId)) {
+    if (!$dara.isNull(request.vdbId)) {
       body["vdbId"] = request.vdbId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveVirtualDatasourceDdl",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -4965,7 +5633,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<SaveVirtualDatasourceDdlResponse>(await this.callApi(params, req, runtime), new SaveVirtualDatasourceDdlResponse({}));
+    return $dara.cast<SaveVirtualDatasourceDdlResponse>(await this.callApi(params, req, runtime), new SaveVirtualDatasourceDdlResponse({}));
   }
 
   /**
@@ -4975,7 +5643,7 @@ export default class Client extends OpenApi {
    * @returns SaveVirtualDatasourceDdlResponse
    */
   async saveVirtualDatasourceDdl(request: SaveVirtualDatasourceDdlRequest): Promise<SaveVirtualDatasourceDdlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.saveVirtualDatasourceDdlWithOptions(request, headers, runtime);
   }
@@ -4988,32 +5656,36 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SyncRemoteTablesResponse
    */
-  async syncRemoteTablesWithOptions(request: SyncRemoteTablesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SyncRemoteTablesResponse> {
-    Util.validateModel(request);
+  async syncRemoteTablesWithOptions(request: SyncRemoteTablesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<SyncRemoteTablesResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.keepTableNames)) {
+    if (!$dara.isNull(request.keepTableNames)) {
       body["keepTableNames"] = request.keepTableNames;
     }
 
-    if (!Util.isUnset(request.pullSamples)) {
+    if (!$dara.isNull(request.noModifiedTableNames)) {
+      body["noModifiedTableNames"] = request.noModifiedTableNames;
+    }
+
+    if (!$dara.isNull(request.pullSamples)) {
       body["pullSamples"] = request.pullSamples;
     }
 
-    if (!Util.isUnset(request.tableNames)) {
+    if (!$dara.isNull(request.tableNames)) {
       body["tableNames"] = request.tableNames;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SyncRemoteTables",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -5024,7 +5696,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<SyncRemoteTablesResponse>(await this.callApi(params, req, runtime), new SyncRemoteTablesResponse({}));
+    return $dara.cast<SyncRemoteTablesResponse>(await this.callApi(params, req, runtime), new SyncRemoteTablesResponse({}));
   }
 
   /**
@@ -5034,7 +5706,7 @@ export default class Client extends OpenApi {
    * @returns SyncRemoteTablesResponse
    */
   async syncRemoteTables(request: SyncRemoteTablesRequest): Promise<SyncRemoteTablesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.syncRemoteTablesWithOptions(request, headers, runtime);
   }
@@ -5047,32 +5719,32 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateBusinessLogicResponse
    */
-  async updateBusinessLogicWithOptions(request: UpdateBusinessLogicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateBusinessLogicResponse> {
-    Util.validateModel(request);
+  async updateBusinessLogicWithOptions(request: UpdateBusinessLogicRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateBusinessLogicResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.businessLogicIdKey)) {
+    if (!$dara.isNull(request.businessLogicIdKey)) {
       body["businessLogicIdKey"] = request.businessLogicIdKey;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateBusinessLogic",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -5083,7 +5755,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateBusinessLogicResponse>(await this.callApi(params, req, runtime), new UpdateBusinessLogicResponse({}));
+    return $dara.cast<UpdateBusinessLogicResponse>(await this.callApi(params, req, runtime), new UpdateBusinessLogicResponse({}));
   }
 
   /**
@@ -5093,7 +5765,7 @@ export default class Client extends OpenApi {
    * @returns UpdateBusinessLogicResponse
    */
   async updateBusinessLogic(request: UpdateBusinessLogicRequest): Promise<UpdateBusinessLogicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateBusinessLogicWithOptions(request, headers, runtime);
   }
@@ -5106,56 +5778,56 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateColumnResponse
    */
-  async updateColumnWithOptions(request: UpdateColumnRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateColumnResponse> {
-    Util.validateModel(request);
+  async updateColumnWithOptions(request: UpdateColumnRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateColumnResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.chineseName)) {
+    if (!$dara.isNull(request.chineseName)) {
       body["chineseName"] = request.chineseName;
     }
 
-    if (!Util.isUnset(request.columnIdKey)) {
+    if (!$dara.isNull(request.columnIdKey)) {
       body["columnIdKey"] = request.columnIdKey;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
     }
 
-    if (!Util.isUnset(request.enumType)) {
+    if (!$dara.isNull(request.enumType)) {
       body["enumType"] = request.enumType;
     }
 
-    if (!Util.isUnset(request.enumValues)) {
+    if (!$dara.isNull(request.enumValues)) {
       body["enumValues"] = request.enumValues;
     }
 
-    if (!Util.isUnset(request.rangeMax)) {
+    if (!$dara.isNull(request.rangeMax)) {
       body["rangeMax"] = request.rangeMax;
     }
 
-    if (!Util.isUnset(request.rangeMin)) {
+    if (!$dara.isNull(request.rangeMin)) {
       body["rangeMin"] = request.rangeMin;
     }
 
-    if (!Util.isUnset(request.samples)) {
+    if (!$dara.isNull(request.samples)) {
       body["samples"] = request.samples;
     }
 
-    if (!Util.isUnset(request.tableIdKey)) {
+    if (!$dara.isNull(request.tableIdKey)) {
       body["tableIdKey"] = request.tableIdKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateColumn",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -5166,7 +5838,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateColumnResponse>(await this.callApi(params, req, runtime), new UpdateColumnResponse({}));
+    return $dara.cast<UpdateColumnResponse>(await this.callApi(params, req, runtime), new UpdateColumnResponse({}));
   }
 
   /**
@@ -5176,7 +5848,7 @@ export default class Client extends OpenApi {
    * @returns UpdateColumnResponse
    */
   async updateColumn(request: UpdateColumnRequest): Promise<UpdateColumnResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateColumnWithOptions(request, headers, runtime);
   }
@@ -5189,32 +5861,32 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateEnumMappingResponse
    */
-  async updateEnumMappingWithOptions(request: UpdateEnumMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateEnumMappingResponse> {
-    Util.validateModel(request);
+  async updateEnumMappingWithOptions(request: UpdateEnumMappingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateEnumMappingResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.columnIdKey)) {
+    if (!$dara.isNull(request.columnIdKey)) {
       body["columnIdKey"] = request.columnIdKey;
     }
 
-    if (!Util.isUnset(request.enumMapping)) {
+    if (!$dara.isNull(request.enumMapping)) {
       body["enumMapping"] = request.enumMapping;
     }
 
-    if (!Util.isUnset(request.tableIdKey)) {
+    if (!$dara.isNull(request.tableIdKey)) {
       body["tableIdKey"] = request.tableIdKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateEnumMapping",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -5225,7 +5897,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateEnumMappingResponse>(await this.callApi(params, req, runtime), new UpdateEnumMappingResponse({}));
+    return $dara.cast<UpdateEnumMappingResponse>(await this.callApi(params, req, runtime), new UpdateEnumMappingResponse({}));
   }
 
   /**
@@ -5235,7 +5907,7 @@ export default class Client extends OpenApi {
    * @returns UpdateEnumMappingResponse
    */
   async updateEnumMapping(request: UpdateEnumMappingRequest): Promise<UpdateEnumMappingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateEnumMappingWithOptions(request, headers, runtime);
   }
@@ -5248,36 +5920,36 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSynonymsResponse
    */
-  async updateSynonymsWithOptions(request: UpdateSynonymsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSynonymsResponse> {
-    Util.validateModel(request);
+  async updateSynonymsWithOptions(request: UpdateSynonymsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateSynonymsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.columns)) {
+    if (!$dara.isNull(request.columns)) {
       body["columns"] = request.columns;
     }
 
-    if (!Util.isUnset(request.synonymIdKey)) {
+    if (!$dara.isNull(request.synonymIdKey)) {
       body["synonymIdKey"] = request.synonymIdKey;
     }
 
-    if (!Util.isUnset(request.word)) {
+    if (!$dara.isNull(request.word)) {
       body["word"] = request.word;
     }
 
-    if (!Util.isUnset(request.wordSynonyms)) {
+    if (!$dara.isNull(request.wordSynonyms)) {
       body["wordSynonyms"] = request.wordSynonyms;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateSynonyms",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -5288,7 +5960,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateSynonymsResponse>(await this.callApi(params, req, runtime), new UpdateSynonymsResponse({}));
+    return $dara.cast<UpdateSynonymsResponse>(await this.callApi(params, req, runtime), new UpdateSynonymsResponse({}));
   }
 
   /**
@@ -5298,7 +5970,7 @@ export default class Client extends OpenApi {
    * @returns UpdateSynonymsResponse
    */
   async updateSynonyms(request: UpdateSynonymsRequest): Promise<UpdateSynonymsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateSynonymsWithOptions(request, headers, runtime);
   }
@@ -5311,36 +5983,36 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateTableInfoResponse
    */
-  async updateTableInfoWithOptions(request: UpdateTableInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTableInfoResponse> {
-    Util.validateModel(request);
+  async updateTableInfoWithOptions(request: UpdateTableInfoRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateTableInfoResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
     }
 
-    if (!Util.isUnset(request.foreignKeys)) {
+    if (!$dara.isNull(request.foreignKeys)) {
       body["foreignKeys"] = request.foreignKeys;
     }
 
-    if (!Util.isUnset(request.primaryKey)) {
+    if (!$dara.isNull(request.primaryKey)) {
       body["primaryKey"] = request.primaryKey;
     }
 
-    if (!Util.isUnset(request.tableIdKey)) {
+    if (!$dara.isNull(request.tableIdKey)) {
       body["tableIdKey"] = request.tableIdKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateTableInfo",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -5351,7 +6023,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateTableInfoResponse>(await this.callApi(params, req, runtime), new UpdateTableInfoResponse({}));
+    return $dara.cast<UpdateTableInfoResponse>(await this.callApi(params, req, runtime), new UpdateTableInfoResponse({}));
   }
 
   /**
@@ -5361,7 +6033,7 @@ export default class Client extends OpenApi {
    * @returns UpdateTableInfoResponse
    */
   async updateTableInfo(request: UpdateTableInfoRequest): Promise<UpdateTableInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateTableInfoWithOptions(request, headers, runtime);
   }
@@ -5374,36 +6046,36 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateVirtualDatasourceInstanceResponse
    */
-  async updateVirtualDatasourceInstanceWithOptions(request: UpdateVirtualDatasourceInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateVirtualDatasourceInstanceResponse> {
-    Util.validateModel(request);
+  async updateVirtualDatasourceInstanceWithOptions(request: UpdateVirtualDatasourceInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateVirtualDatasourceInstanceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["name"] = request.name;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["type"] = request.type;
     }
 
-    if (!Util.isUnset(request.vdbId)) {
+    if (!$dara.isNull(request.vdbId)) {
       body["vdbId"] = request.vdbId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateVirtualDatasourceInstance",
       version: "2024-08-23",
       protocol: "HTTPS",
@@ -5414,7 +6086,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateVirtualDatasourceInstanceResponse>(await this.callApi(params, req, runtime), new UpdateVirtualDatasourceInstanceResponse({}));
+    return $dara.cast<UpdateVirtualDatasourceInstanceResponse>(await this.callApi(params, req, runtime), new UpdateVirtualDatasourceInstanceResponse({}));
   }
 
   /**
@@ -5424,7 +6096,7 @@ export default class Client extends OpenApi {
    * @returns UpdateVirtualDatasourceInstanceResponse
    */
   async updateVirtualDatasourceInstance(request: UpdateVirtualDatasourceInstanceRequest): Promise<UpdateVirtualDatasourceInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateVirtualDatasourceInstanceWithOptions(request, headers, runtime);
   }
