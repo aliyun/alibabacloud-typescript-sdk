@@ -1,4411 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class ApproveOperationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Node ID
-   * 
-   * @example
-   * e01-cn-zvp2tgykr08
-   */
-  nodeId?: string;
-  /**
-   * @remarks
-   * Operation Type
-   * 
-   * @example
-   * RepairMachine
-   */
-  operationType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nodeId: 'NodeId',
-      operationType: 'OperationType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodeId: 'string',
-      operationType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApproveOperationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Error Message
-   * 
-   * @example
-   * Resource not found
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * 8F065DDD-6996-5973-9691-9EC57BD0072E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApproveOperationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ApproveOperationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ApproveOperationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Target Resource Group
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rg-aekzyqdwnfabx6q
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * Resource ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * i118099391667548921125
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * Region ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  resourceRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-      resourceId: 'ResourceId',
-      resourceRegionId: 'ResourceRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-      resourceId: 'string',
-      resourceRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * ID of the request
-   * 
-   * @example
-   * 8F065DDD-6996-5973-9691-9EC57BD0072E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ChangeResourceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ChangeResourceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster description
-   * 
-   * @example
-   * Cluster description
-   */
-  clusterDescription?: string;
-  /**
-   * @remarks
-   * Cluster name
-   * 
-   * @example
-   * Standard_Cluster
-   */
-  clusterName?: string;
-  /**
-   * @remarks
-   * Cluster type
-   * 
-   * @example
-   * Lite
-   */
-  clusterType?: string;
-  /**
-   * @remarks
-   * Components (software instances)
-   */
-  components?: CreateClusterRequestComponents[];
-  /**
-   * @remarks
-   * Cluster number
-   * 
-   * @example
-   * A1
-   */
-  hpnZone?: string;
-  /**
-   * @remarks
-   * Whether to allow skipping failed nodes, default value is False
-   * 
-   * @example
-   * False
-   */
-  ignoreFailedNodeTasks?: boolean;
-  /**
-   * @remarks
-   * Network information
-   */
-  networks?: CreateClusterRequestNetworks;
-  /**
-   * @remarks
-   * Node VSwitches
-   */
-  nimizVSwitches?: string[];
-  /**
-   * @remarks
-   * Node group list
-   */
-  nodeGroups?: CreateClusterRequestNodeGroups[];
-  /**
-   * @remarks
-   * Open Eni Jumbo Frame
-   * 
-   * @example
-   * false
-   */
-  openEniJumboFrame?: boolean;
-  /**
-   * @remarks
-   * Resource group ID
-   * 
-   * @example
-   * rg-aek2xdkc6icwfha
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * Resource tags
-   */
-  tag?: CreateClusterRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      clusterDescription: 'ClusterDescription',
-      clusterName: 'ClusterName',
-      clusterType: 'ClusterType',
-      components: 'Components',
-      hpnZone: 'HpnZone',
-      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
-      networks: 'Networks',
-      nimizVSwitches: 'NimizVSwitches',
-      nodeGroups: 'NodeGroups',
-      openEniJumboFrame: 'OpenEniJumboFrame',
-      resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterDescription: 'string',
-      clusterName: 'string',
-      clusterType: 'string',
-      components: { 'type': 'array', 'itemType': CreateClusterRequestComponents },
-      hpnZone: 'string',
-      ignoreFailedNodeTasks: 'boolean',
-      networks: CreateClusterRequestNetworks,
-      nimizVSwitches: { 'type': 'array', 'itemType': 'string' },
-      nodeGroups: { 'type': 'array', 'itemType': CreateClusterRequestNodeGroups },
-      openEniJumboFrame: 'boolean',
-      resourceGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateClusterRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster description
-   * 
-   * @example
-   * Cluster description
-   */
-  clusterDescription?: string;
-  /**
-   * @remarks
-   * Cluster name
-   * 
-   * @example
-   * Standard_Cluster
-   */
-  clusterName?: string;
-  /**
-   * @remarks
-   * Cluster type
-   * 
-   * @example
-   * Lite
-   */
-  clusterType?: string;
-  /**
-   * @remarks
-   * Components (software instances)
-   */
-  componentsShrink?: string;
-  /**
-   * @remarks
-   * Cluster number
-   * 
-   * @example
-   * A1
-   */
-  hpnZone?: string;
-  /**
-   * @remarks
-   * Whether to allow skipping failed nodes, default value is False
-   * 
-   * @example
-   * False
-   */
-  ignoreFailedNodeTasks?: boolean;
-  /**
-   * @remarks
-   * Network information
-   */
-  networksShrink?: string;
-  /**
-   * @remarks
-   * Node VSwitches
-   */
-  nimizVSwitchesShrink?: string;
-  /**
-   * @remarks
-   * Node group list
-   */
-  nodeGroupsShrink?: string;
-  /**
-   * @remarks
-   * Open Eni Jumbo Frame
-   * 
-   * @example
-   * false
-   */
-  openEniJumboFrame?: boolean;
-  /**
-   * @remarks
-   * Resource group ID
-   * 
-   * @example
-   * rg-aek2xdkc6icwfha
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * Resource tags
-   */
-  tag?: CreateClusterShrinkRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      clusterDescription: 'ClusterDescription',
-      clusterName: 'ClusterName',
-      clusterType: 'ClusterType',
-      componentsShrink: 'Components',
-      hpnZone: 'HpnZone',
-      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
-      networksShrink: 'Networks',
-      nimizVSwitchesShrink: 'NimizVSwitches',
-      nodeGroupsShrink: 'NodeGroups',
-      openEniJumboFrame: 'OpenEniJumboFrame',
-      resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterDescription: 'string',
-      clusterName: 'string',
-      clusterType: 'string',
-      componentsShrink: 'string',
-      hpnZone: 'string',
-      ignoreFailedNodeTasks: 'boolean',
-      networksShrink: 'string',
-      nimizVSwitchesShrink: 'string',
-      nodeGroupsShrink: 'string',
-      openEniJumboFrame: 'boolean',
-      resourceGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateClusterShrinkRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i116913051663373010974
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * 3C683243-7915-57FB-9570-A2932C1C0F78
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Task Id
-   * 
-   * @example
-   * i159809891662373011015
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateClusterResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiagnosticTaskRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Log information
-   */
-  aiJobLogInfo?: CreateDiagnosticTaskRequestAiJobLogInfo;
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i118913031696573280136
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Diagnostic type.
-   * 
-   * @example
-   * CheckByAiJobLogs
-   */
-  diagnosticType?: string;
-  /**
-   * @remarks
-   * List of node IDs
-   */
-  nodeIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      aiJobLogInfo: 'AiJobLogInfo',
-      clusterId: 'ClusterId',
-      diagnosticType: 'DiagnosticType',
-      nodeIds: 'NodeIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aiJobLogInfo: CreateDiagnosticTaskRequestAiJobLogInfo,
-      clusterId: 'string',
-      diagnosticType: 'string',
-      nodeIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiagnosticTaskShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Log information
-   */
-  aiJobLogInfoShrink?: string;
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i118913031696573280136
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Diagnostic type.
-   * 
-   * @example
-   * CheckByAiJobLogs
-   */
-  diagnosticType?: string;
-  /**
-   * @remarks
-   * List of node IDs
-   */
-  nodeIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aiJobLogInfoShrink: 'AiJobLogInfo',
-      clusterId: 'ClusterId',
-      diagnosticType: 'DiagnosticType',
-      nodeIdsShrink: 'NodeIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aiJobLogInfoShrink: 'string',
-      clusterId: 'string',
-      diagnosticType: 'string',
-      nodeIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiagnosticTaskResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Diagnosis ID
-   * 
-   * @example
-   * diag-i150553931717380274931
-   */
-  diagnosticId?: string;
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * A511C02A-0127-51AA-A9F9-966382C9A1B5
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diagnosticId: 'DiagnosticId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diagnosticId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiagnosticTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDiagnosticTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDiagnosticTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteClusterRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * i116913051662373010974
-   */
-  clusterId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteClusterResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Request Id
-   * 
-   * @example
-   * 0FC4A1C7-421C-5EAB-9361-4C0338EFA287
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteClusterResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteClusterResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * i119982311660892626523
-   */
-  clusterId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster Description
-   * 
-   * @example
-   * Default cluster
-   */
-  clusterDescription?: string;
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i116913051662373010974
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Cluster Name
-   * 
-   * @example
-   * Eflo-YJ-Test-Cluster
-   */
-  clusterName?: string;
-  /**
-   * @remarks
-   * Cluster Type
-   * 
-   * @example
-   * AckEdgePro
-   */
-  clusterType?: string;
-  /**
-   * @remarks
-   * Component Information
-   */
-  components?: DescribeClusterResponseBodyComponents[];
-  /**
-   * @remarks
-   * Type of IP in the compute network
-   * 
-   * @example
-   * IPv4
-   */
-  computingIpVersion?: string;
-  /**
-   * @remarks
-   * Creation Time
-   * 
-   * @example
-   * 2022-06-08T07:05:11Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * Cluster Number
-   * 
-   * @example
-   * A2
-   */
-  hpnZone?: string;
-  /**
-   * @remarks
-   * Network Information
-   */
-  networks?: DescribeClusterResponseBodyNetworks[];
-  /**
-   * @remarks
-   * Number of Nodes
-   * 
-   * @example
-   * 2
-   */
-  nodeCount?: number;
-  /**
-   * @remarks
-   * Number of Node Groups
-   * 
-   * @example
-   * 2
-   */
-  nodeGroupCount?: number;
-  /**
-   * @remarks
-   * Open Eni Jumbo Frame
-   * 
-   * @example
-   * close
-   */
-  openEniJumboFrame?: string;
-  /**
-   * @remarks
-   * Cluster State
-   * 
-   * @example
-   * running
-   */
-  operatingState?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * 887FA855-89F4-5DB3-B305-C5879EC480E6
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Resource Group ID
-   * 
-   * @example
-   * rg-aek2k3rqlvv6ytq
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * Task ID
-   * 
-   * @example
-   * i152609221670466904596
-   */
-  taskId?: string;
-  /**
-   * @remarks
-   * Update Time
-   * 
-   * @example
-   * 2022-08-23T06:36:17.000Z
-   */
-  updateTime?: string;
-  /**
-   * @remarks
-   * VPC ID
-   * 
-   * @example
-   * vpc-0jlkqysom5dmcviymep3f
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterDescription: 'ClusterDescription',
-      clusterId: 'ClusterId',
-      clusterName: 'ClusterName',
-      clusterType: 'ClusterType',
-      components: 'Components',
-      computingIpVersion: 'ComputingIpVersion',
-      createTime: 'CreateTime',
-      hpnZone: 'HpnZone',
-      networks: 'Networks',
-      nodeCount: 'NodeCount',
-      nodeGroupCount: 'NodeGroupCount',
-      openEniJumboFrame: 'OpenEniJumboFrame',
-      operatingState: 'OperatingState',
-      requestId: 'RequestId',
-      resourceGroupId: 'ResourceGroupId',
-      taskId: 'TaskId',
-      updateTime: 'UpdateTime',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterDescription: 'string',
-      clusterId: 'string',
-      clusterName: 'string',
-      clusterType: 'string',
-      components: { 'type': 'array', 'itemType': DescribeClusterResponseBodyComponents },
-      computingIpVersion: 'string',
-      createTime: 'string',
-      hpnZone: 'string',
-      networks: { 'type': 'array', 'itemType': DescribeClusterResponseBodyNetworks },
-      nodeCount: 'number',
-      nodeGroupCount: 'number',
-      openEniJumboFrame: 'string',
-      operatingState: 'string',
-      requestId: 'string',
-      resourceGroupId: 'string',
-      taskId: 'string',
-      updateTime: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeClusterResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInvocationsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Sets the encoding method for the `CommandContent` and `Output` fields in the returned data. Possible values:
-   * 
-   * - PlainText: Returns the original command content and output information.
-   * - Base64: Returns the Base64-encoded command content and output information.
-   * 
-   * Default value: Base64.
-   * 
-   * @example
-   * PlainText
-   */
-  contentEncoding?: string;
-  /**
-   * @remarks
-   * Indicates whether to return the output information of the command execution in the result.
-   * 
-   * - true: Return. In this case, you must specify at least the `InvokeId` or `InstanceId` parameter.
-   * - false: Do not return.
-   * 
-   * Default value: false.
-   * 
-   * @example
-   * true
-   */
-  includeOutput?: boolean;
-  /**
-   * @remarks
-   * Command execution ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * t-cd03crwys0lrls0
-   */
-  invokeId?: string;
-  /**
-   * @remarks
-   * Instance ID
-   * 
-   * @example
-   * e01-cn-zvp2tgykr08
-   */
-  nodeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contentEncoding: 'ContentEncoding',
-      includeOutput: 'IncludeOutput',
-      invokeId: 'InvokeId',
-      nodeId: 'NodeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contentEncoding: 'string',
-      includeOutput: 'boolean',
-      invokeId: 'string',
-      nodeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInvocationsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Script execution record object.
-   */
-  invocations?: DescribeInvocationsResponseBodyInvocations;
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      invocations: 'Invocations',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      invocations: DescribeInvocationsResponseBodyInvocations,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInvocationsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeInvocationsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeInvocationsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNodeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Node ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * mock-sn-2060
-   */
-  nodeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nodeId: 'NodeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNodeResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i116913051662373010974
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Cluster name
-   * 
-   * @example
-   * Standard_Cluster
-   */
-  clusterName?: string;
-  /**
-   * @remarks
-   * Creation time
-   * 
-   * @example
-   * 2022-09-30T03:35:53Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * Expiration time
-   * 
-   * @example
-   * 2022-06-23T16:00:00Z
-   */
-  expiredTime?: string;
-  /**
-   * @remarks
-   * Hostname
-   * 
-   * @example
-   * 31d38530-241e-11ed-bc63-acde48001122
-   */
-  hostname?: string;
-  /**
-   * @remarks
-   * Cluster number
-   * 
-   * @example
-   * A1
-   */
-  hpnZone?: string;
-  /**
-   * @remarks
-   * Image ID
-   * 
-   * @example
-   * i190297201634099844192
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * Image name
-   * 
-   * @example
-   * Centos7.9_all_0811
-   */
-  imageName?: string;
-  /**
-   * @remarks
-   * Machine type
-   * 
-   * @example
-   * efg1.nvga1
-   */
-  machineType?: string;
-  /**
-   * @remarks
-   * Network information
-   */
-  networks?: DescribeNodeResponseBodyNetworks[];
-  /**
-   * @remarks
-   * Node group ID
-   * 
-   * @example
-   * ng-ec3c96ff0aa4c60d
-   */
-  nodeGroupId?: string;
-  /**
-   * @remarks
-   * Node group name
-   * 
-   * @example
-   * emr-default
-   */
-  nodeGroupName?: string;
-  /**
-   * @remarks
-   * Node ID
-   * 
-   * @example
-   * e01-cn-zvp2tgykr08
-   */
-  nodeId?: string;
-  /**
-   * @remarks
-   * Node status
-   * 
-   * @example
-   * Using
-   */
-  operatingState?: string;
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * AC4F0004-7BCE-52E0-891B-CAC7D64E3368
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * 资源组ID
-   * 
-   * @example
-   * rg-acfmywpvugkh7kq
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * Unique machine identifier
-   * 
-   * @example
-   * sag42ckf4jx
-   */
-  sn?: string;
-  /**
-   * @remarks
-   * Zone ID
-   * 
-   * @example
-   * cn-hangzhou-i
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      clusterName: 'ClusterName',
-      createTime: 'CreateTime',
-      expiredTime: 'ExpiredTime',
-      hostname: 'Hostname',
-      hpnZone: 'HpnZone',
-      imageId: 'ImageId',
-      imageName: 'ImageName',
-      machineType: 'MachineType',
-      networks: 'Networks',
-      nodeGroupId: 'NodeGroupId',
-      nodeGroupName: 'NodeGroupName',
-      nodeId: 'NodeId',
-      operatingState: 'OperatingState',
-      requestId: 'RequestId',
-      resourceGroupId: 'ResourceGroupId',
-      sn: 'Sn',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      clusterName: 'string',
-      createTime: 'string',
-      expiredTime: 'string',
-      hostname: 'string',
-      hpnZone: 'string',
-      imageId: 'string',
-      imageName: 'string',
-      machineType: 'string',
-      networks: { 'type': 'array', 'itemType': DescribeNodeResponseBodyNetworks },
-      nodeGroupId: 'string',
-      nodeGroupName: 'string',
-      nodeId: 'string',
-      operatingState: 'string',
-      requestId: 'string',
-      resourceGroupId: 'string',
-      sn: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeNodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeNodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Filter the returned results based on Chinese, English, and Japanese. For more information, see RFC7231. Valid values:
-   * 
-   * zh-CN
-   * en-US
-   * Default value: zh-CN
-   * 
-   * @example
-   * zh-CN
-   */
-  acceptLanguage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceptLanguage: 'AcceptLanguage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptLanguage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * List of region information.
-   */
-  regions?: DescribeRegionsResponseBodyRegions[];
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * 1D2FBB36-C39B-5EBB-9928-FCC1A236D65D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSendFileResultsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Command execution ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * t-bj038i0d6r8zoqo
-   */
-  invokeId?: string;
-  /**
-   * @remarks
-   * Node ID
-   * 
-   * @example
-   * e01-cn-zvp2tgykr08
-   */
-  nodeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      invokeId: 'InvokeId',
-      nodeId: 'NodeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      invokeId: 'string',
-      nodeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSendFileResultsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Record of file distribution.
-   */
-  invocations?: DescribeSendFileResultsResponseBodyInvocations;
-  /**
-   * @remarks
-   * ID of the request
-   * 
-   * @example
-   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Total number of commands.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      invocations: 'Invocations',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      invocations: DescribeSendFileResultsResponseBodyInvocations,
-      requestId: 'string',
-      totalCount: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSendFileResultsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSendFileResultsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSendFileResultsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTaskRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Task ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * i156331731670384438138
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTaskResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i119982311660892626523
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Cluster Name
-   * 
-   * @example
-   * Standard_Cluster
-   */
-  clusterName?: string;
-  /**
-   * @remarks
-   * Start Time
-   * 
-   * @example
-   * 2022-11-30T02:00:00.852Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * Task Failure Message
-   * 
-   * @example
-   * Releasing [prod_main_mid_26e234cf] in region [cn-beijing] with weight [0]
-   */
-  message?: string;
-  /**
-   * @remarks
-   * List of node IDs
-   */
-  nodeIds?: string[];
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * A7FD7411-9395-52E8-AF42-EB3A4A55446D
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Execution Steps
-   */
-  steps?: DescribeTaskResponseBodySteps[];
-  /**
-   * @remarks
-   * Task State
-   * 
-   * @example
-   * running
-   */
-  taskState?: string;
-  /**
-   * @remarks
-   * Task Type
-   * 
-   * @example
-   * cut_cluster
-   */
-  taskType?: string;
-  /**
-   * @remarks
-   * Update Time
-   * 
-   * @example
-   * 2022-11-30T03:40:14.852Z
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      clusterName: 'ClusterName',
-      createTime: 'CreateTime',
-      message: 'Message',
-      nodeIds: 'NodeIds',
-      requestId: 'RequestId',
-      steps: 'Steps',
-      taskState: 'TaskState',
-      taskType: 'TaskType',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      clusterName: 'string',
-      createTime: 'string',
-      message: 'string',
-      nodeIds: { 'type': 'array', 'itemType': 'string' },
-      requestId: 'string',
-      steps: { 'type': 'array', 'itemType': DescribeTaskResponseBodySteps },
-      taskState: 'string',
-      taskType: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeZonesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Filter the returned results based on Chinese or English. For more information, see RFC7231. Valid values:
-   * 
-   * zh-CN
-   * en-US
-   * Default value: zh-CN
-   * 
-   * @example
-   * zh-CN
-   */
-  acceptLanguage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceptLanguage: 'AcceptLanguage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptLanguage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeZonesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * E9116F2D-82F8-501E-9ADB-2BE0C02B6A84
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * List of available zones
-   */
-  zones?: DescribeZonesResponseBodyZones[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      zones: 'Zones',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      zones: { 'type': 'array', 'itemType': DescribeZonesResponseBodyZones },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeZonesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeZonesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeZonesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtendClusterRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i15b480fbd2fcdbc2869cd80
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Whether to allow skipping failed node tasks, default value is False
-   * 
-   * @example
-   * False
-   */
-  ignoreFailedNodeTasks?: boolean;
-  /**
-   * @remarks
-   * IP allocation policy combination: Each policy can only choose one type, and multiple policies can be combined
-   */
-  ipAllocationPolicy?: ExtendClusterRequestIpAllocationPolicy[];
-  /**
-   * @remarks
-   * Node Group
-   */
-  nodeGroups?: ExtendClusterRequestNodeGroups[];
-  /**
-   * @remarks
-   * VSwitch availability zone ID
-   * 
-   * @example
-   * cn-shanghai-b
-   */
-  vSwitchZoneId?: string;
-  /**
-   * @remarks
-   * List of cluster subnets
-   */
-  vpdSubnets?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
-      ipAllocationPolicy: 'IpAllocationPolicy',
-      nodeGroups: 'NodeGroups',
-      vSwitchZoneId: 'VSwitchZoneId',
-      vpdSubnets: 'VpdSubnets',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      ignoreFailedNodeTasks: 'boolean',
-      ipAllocationPolicy: { 'type': 'array', 'itemType': ExtendClusterRequestIpAllocationPolicy },
-      nodeGroups: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroups },
-      vSwitchZoneId: 'string',
-      vpdSubnets: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtendClusterShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i15b480fbd2fcdbc2869cd80
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Whether to allow skipping failed node tasks, default value is False
-   * 
-   * @example
-   * False
-   */
-  ignoreFailedNodeTasks?: boolean;
-  /**
-   * @remarks
-   * IP allocation policy combination: Each policy can only choose one type, and multiple policies can be combined
-   */
-  ipAllocationPolicyShrink?: string;
-  /**
-   * @remarks
-   * Node Group
-   */
-  nodeGroupsShrink?: string;
-  /**
-   * @remarks
-   * VSwitch availability zone ID
-   * 
-   * @example
-   * cn-shanghai-b
-   */
-  vSwitchZoneId?: string;
-  /**
-   * @remarks
-   * List of cluster subnets
-   */
-  vpdSubnetsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
-      ipAllocationPolicyShrink: 'IpAllocationPolicy',
-      nodeGroupsShrink: 'NodeGroups',
-      vSwitchZoneId: 'VSwitchZoneId',
-      vpdSubnetsShrink: 'VpdSubnets',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      ignoreFailedNodeTasks: 'boolean',
-      ipAllocationPolicyShrink: 'string',
-      nodeGroupsShrink: 'string',
-      vSwitchZoneId: 'string',
-      vpdSubnetsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtendClusterResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * 03668372-18FF-5959-98D9-6B36A4643C7A
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Task ID
-   * 
-   * @example
-   * i158475611663639202234
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtendClusterResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ExtendClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ExtendClusterResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClusterNodesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * i15b480fbd2fcdbc2869cd80
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Number of items per page in a paginated query, with a default value of 20.
-   * 
-   * @example
-   * 20
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * Query token (Token), which is the value of the NextToken parameter returned by the previous API call.
-   * 
-   * @example
-   * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * Node group ID
-   * 
-   * @example
-   * ng-ec3c96ff0aa4c60d
-   */
-  nodeGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      nodeGroupId: 'NodeGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      nodeGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClusterNodesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The query token value returned by this call.
-   * 
-   * @example
-   * AAAAAXW/ZB9TBvH+0ZK0phtCibQgQmu1RbqplAI6Velo2OKR
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * List of nodes
-   */
-  nodes?: ListClusterNodesResponseBodyNodes[];
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * 2BA76272-6608-5AEC-BBA8-B6F0D3D14CDB
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      nodes: 'Nodes',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      nodes: { 'type': 'array', 'itemType': ListClusterNodesResponseBodyNodes },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClusterNodesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListClusterNodesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListClusterNodesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Number of items per page for paginated queries, with a default value of 20.
-   * 
-   * @example
-   * 20
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * Query token, which is the value of the NextToken parameter returned by the previous API call.
-   * 
-   * @example
-   * a3f2224a5ec7224116c4f5246120abe4
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * Resource group ID
-   * 
-   * @example
-   * rg-aek2bg6wyoox6jq
-   */
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster information
-   */
-  clusters?: ListClustersResponseBodyClusters[];
-  /**
-   * @remarks
-   * The query token value returned by this call.
-   * 
-   * @example
-   * f4f9a292c17072a2
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * 2FE2B22C-CF9D-59DE-BF63-DC9B9B33A9D1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusters: 'Clusters',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusters: { 'type': 'array', 'itemType': ListClustersResponseBodyClusters },
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListClustersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListClustersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFreeNodesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster number
-   * 
-   * @example
-   * A1
-   */
-  hpnZone?: string;
-  /**
-   * @remarks
-   * Machine type
-   * 
-   * @example
-   * mock-machine-type2
-   */
-  machineType?: string;
-  /**
-   * @remarks
-   * Number of items per page for paginated queries, default is 20.
-   * 
-   * @example
-   * 20
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * Query token (Token), the value should be the NextToken parameter value returned from the previous API call.
-   * 
-   * @example
-   * a3f2224a5ec7224116c4f5246120abe4
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * Resource group ID
-   * 
-   * @example
-   * rg-acfmxno4vh5muoq
-   */
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      hpnZone: 'HpnZone',
-      machineType: 'MachineType',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hpnZone: 'string',
-      machineType: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFreeNodesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The query token value returned by this call.
-   * 
-   * @example
-   * a3f2224a5ec7224116c4f5246120abe4
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * List of nodes
-   */
-  nodes?: ListFreeNodesResponseBodyNodes[];
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * AA14CB86-70C4-5CB7-9E7B-6CCA77F3512B
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      nodes: 'Nodes',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      nodes: { 'type': 'array', 'itemType': ListFreeNodesResponseBodyNodes },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFreeNodesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListFreeNodesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListFreeNodesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMachineTypesRequest extends $tea.Model {
-  /**
-   * @example
-   * efg1.nvga1
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMachineTypesResponseBody extends $tea.Model {
-  machineTypes?: ListMachineTypesResponseBodyMachineTypes[];
-  /**
-   * @example
-   * a3f2224a5ec7224116c4f5246120abe4
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * F16BA4D8-FF50-53B6-A026-F443FE31006C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      machineTypes: 'MachineTypes',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      machineTypes: { 'type': 'array', 'itemType': ListMachineTypesResponseBodyMachineTypes },
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMachineTypesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMachineTypesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMachineTypesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodeGroupsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i119982311660892626523
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Number of items per page in a paginated query. The maximum value is 100.
-   * 
-   * Default value:
-   * 
-   * - If no value is set or the set value is less than 20, the default value is 20.
-   * - If the set value is greater than 100, the default value is 100.
-   * 
-   * @example
-   * 20
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * NextToken for the next page, include this value when requesting the next page
-   * 
-   * @example
-   * a3f2224a5ec7224116c4f5246120abe4
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * Node group ID
-   * 
-   * @example
-   * ng-ec3c96ff0aa4c60d
-   */
-  nodeGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      nodeGroupId: 'NodeGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      nodeGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodeGroupsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster group information
-   */
-  groups?: ListNodeGroupsResponseBodyGroups[];
-  /**
-   * @remarks
-   * NextToken for the next page, include this value when requesting the next page
-   * 
-   * @example
-   * 563d42ae0b17572449ec8c97f7f66069
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * ID of the request
-   * 
-   * @example
-   * 887FA855-89F4-5DB3-B305-C5879EC480E6
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groups: 'Groups',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groups: { 'type': 'array', 'itemType': ListNodeGroupsResponseBodyGroups },
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodeGroupsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListNodeGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListNodeGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Query token (Token), the value should be the NextToken returned from the previous API call
-   * 
-   * @example
-   * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * Region ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * List of resource IDs
-   * 
-   * This parameter is required.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * Resource type
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Node
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * List of tags
-   */
-  tag?: ListTagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * NextToken for the next page, include this returned value when requesting the next page
-   * 
-   * @example
-   * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * 8F208B6D-4C42-5FD3-B6BE-E826E92A44DD
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Tagged resources.
-   */
-  tagResources?: ListTagResourcesResponseBodyTagResources;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      tagResources: 'TagResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      tagResources: ListTagResourcesResponseBodyTagResources,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RebootNodesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i15b480fbd2fcdbc2869cd80
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Whether to allow skipping failed node tasks, default value is False
-   * 
-   * @example
-   * False
-   */
-  ignoreFailedNodeTasks?: boolean;
-  /**
-   * @remarks
-   * List of nodes
-   */
-  nodes?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
-      nodes: 'Nodes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      ignoreFailedNodeTasks: 'boolean',
-      nodes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RebootNodesShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i15b480fbd2fcdbc2869cd80
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Whether to allow skipping failed node tasks, default value is False
-   * 
-   * @example
-   * False
-   */
-  ignoreFailedNodeTasks?: boolean;
-  /**
-   * @remarks
-   * List of nodes
-   */
-  nodesShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
-      nodesShrink: 'Nodes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      ignoreFailedNodeTasks: 'boolean',
-      nodesShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RebootNodesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Task Id
-   * 
-   * @example
-   * i158475611663639202234
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RebootNodesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RebootNodesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RebootNodesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReimageNodesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i15dfa12e8f27c44f4a006c2c8bb
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Whether to allow skipping failed node tasks, default value is False
-   * 
-   * @example
-   * False
-   */
-  ignoreFailedNodeTasks?: boolean;
-  /**
-   * @remarks
-   * Node list
-   */
-  nodes?: ReimageNodesRequestNodes[];
-  /**
-   * @remarks
-   * Custom data
-   * 
-   * @example
-   * #!/bin/sh
-   * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
-   */
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
-      nodes: 'Nodes',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      ignoreFailedNodeTasks: 'boolean',
-      nodes: { 'type': 'array', 'itemType': ReimageNodesRequestNodes },
-      userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReimageNodesShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i15dfa12e8f27c44f4a006c2c8bb
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Whether to allow skipping failed node tasks, default value is False
-   * 
-   * @example
-   * False
-   */
-  ignoreFailedNodeTasks?: boolean;
-  /**
-   * @remarks
-   * Node list
-   */
-  nodesShrink?: string;
-  /**
-   * @remarks
-   * Custom data
-   * 
-   * @example
-   * #!/bin/sh
-   * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
-   */
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
-      nodesShrink: 'Nodes',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      ignoreFailedNodeTasks: 'boolean',
-      nodesShrink: 'string',
-      userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReimageNodesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * 15FBCD9B-C93F-54E8-A168-AADE7E66DAD2
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Task ID
-   * 
-   * @example
-   * i158782151663841517926
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReimageNodesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReimageNodesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReimageNodesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCommandRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Ensures idempotence of the request. Generate a unique parameter value from your client to ensure that the value is unique across different requests. 
-   * ClientToken supports only ASCII characters and cannot exceed 64 characters. For more information, see How to Ensure Idempotence.
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-426655440000
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * Command content. Please note the following:
-   * 
-   * - Specify `EnableParameter=true` to enable custom parameters in the command content.
-   * - Define custom parameters using the {{}} format; spaces and newlines within `{{}}` will be ignored.
-   * - The number of custom parameters cannot exceed 20.
-   * - Custom parameter names can only contain a-zA-Z0-9-_, and are case-insensitive.
-   * - A single custom parameter name cannot exceed 64 bytes.
-   * 
-   * @example
-   * ZWNobyAxMjM=
-   */
-  commandContent?: string;
-  /**
-   * @example
-   * c-e996287206324975b5fbe1d***
-   */
-  commandId?: string;
-  /**
-   * @remarks
-   * Encoding method for the script content. Valid values:
-   * 
-   * - PlainText: No encoding, transmitted in plain text.
-   * - Base64: Base64 encoding.
-   * 
-   * Default value: PlainText. If an invalid value is provided, it will be treated as PlainText.
-   * 
-   * @example
-   * Base64
-   */
-  contentEncoding?: string;
-  /**
-   * @remarks
-   * Command description.
-   * 
-   * @example
-   * testDescription
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Whether the command contains custom parameters.
-   * 
-   * Default value: false.
-   * 
-   * @example
-   * false
-   */
-  enableParameter?: boolean;
-  /**
-   * @remarks
-   * Execution time for scheduled commands. Currently, three types of scheduling methods are supported: fixed interval (based on Rate expression), one-time execution at a specific time, and clock-based scheduling (based on Cron expression).
-   * 
-   * Fixed interval execution: Based on the Rate expression, the command is executed at the set interval. The interval can be set in seconds (s), minutes (m), hours (h), and days (d), suitable for scenarios where tasks need to be executed at fixed intervals. The format is rate(<interval value><interval unit>), such as rate(5m) for every 5 minutes. The following restrictions apply to fixed interval execution:
-   * - The interval should not exceed 7 days and should be no less than 60 seconds, and it must be greater than the timeout of the scheduled task.
-   * - The interval is based on a fixed frequency and is independent of the actual execution time of the task. For example, if the command is set to execute every 5 minutes and the task takes 2 minutes to complete, the next round will start 3 minutes after the completion of the task.
-   * - The task will not be executed immediately upon creation. For example, if the command is set to execute every 5 minutes, it will not be executed immediately upon creation but will start 5 minutes after the task is created.
-   * One-time execution at a specific time: Executes the command once at the specified time and timezone. The format is at(yyyy-MM-dd HH:mm:ss <timezone>), which is at(year-month-day hour:minute:second <timezone>). If no timezone is specified, UTC is used by default. Timezones support the following three formats:
-   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
-   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
-   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
-   * 
-   * For example, to execute once at 13:15:30 on June 6, 2022, in Shanghai, China, the format would be: at(2022-06-06 13:15:30 Asia/Shanghai); to execute once at 13:15:30 on June 6, 2022, in the GMT-7:00 timezone, the format would be: at(2022-06-06 13:15:30 GMT-7:00).
-   * 
-   * Clock-based scheduling (based on Cron expression): Based on the Cron expression, the command is executed according to the set schedule. The format is <second> <minute> <hour> <day> <month> <weekday> <year (optional)> <timezone>, i.e., <Cron expression> <timezone>. In the specified timezone, the scheduled task execution time is calculated based on the Cron expression and then executed. If no timezone is specified, the system\\"s internal timezone of the instance running the scheduled task is used by default. For more information about Cron expressions, see Cron Expressions. Timezones support the following three formats:
-   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
-   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
-   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
-   * 
-   * For example, to execute the command at 10:15 AM every day in 2022 in Shanghai, China, the format would be 0 15 10 ? * * 2022 Asia/Shanghai; to execute the command every 30 minutes between 10:00 AM and 11:30 AM every day in 2022 in the GMT+8:00 timezone, the format would be 0 0/30 10-11 * * ? 2022 GMT+8:00; to execute the command every 5 minutes between 2:00 PM and 2:55 PM every day in October every two years starting from 2022 in UTC, the format would be 0 0/5 14 * 10 ? 2022/2 UTC.
-   */
-  frequency?: string;
-  /**
-   * @example
-   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
-   */
-  launcher?: string;
-  /**
-   * @remarks
-   * Command name.
-   * 
-   * @example
-   * testName
-   */
-  name?: string;
-  /**
-   * @remarks
-   * List of nodes.
-   */
-  nodeIdList?: string[];
-  /**
-   * @remarks
-   * When the command contains custom parameters, you need to pass in key-value pairs of these custom parameters when executing the command. For example, if the command content is `echo {{name}}`, you can pass in the key-value pair `{"name":"Jack"}` through the `Parameter` parameter. The custom parameter will automatically replace the variable value `name`, resulting in a new command, which actually executes as `echo Jack`.
-   * 
-   * The number of custom parameters ranges from 0 to 10, and you should note:
-   * 
-   * - Keys cannot be empty strings and support up to 64 characters at most.
-   * - Values can be empty strings.
-   * - When combined with the original command content and Base64 encoded, if the command is saved, the size after Base64 encoding must not exceed 18 KB; if the command is not saved, the size after Base64 encoding must not exceed 24 KB. You can set whether to keep the command via `KeepCommand`.
-   * - The set of custom parameter names must be a subset of the parameter set defined during command creation. For parameters that are not passed in, you can use an empty string as a substitute.
-   * 
-   * The default value is empty, indicating that the parameter is not set, thus disabling custom parameters.
-   * 
-   * @example
-   * {"name":"Jack", "accessKey":"LTAIdyvdIqaRY****"}
-   */
-  parameters?: { [key: string]: any };
-  /**
-   * @remarks
-   * Set the command execution mode. Valid values:
-   * 
-   * - Once: Execute the command immediately.
-   * - Period: Execute the command at a scheduled time. When this parameter is set to `Period`, you must also specify the `Frequency` parameter.
-   * - NextRebootOnly: Automatically execute the command when the instance starts next time.
-   * - EveryReboot: Automatically execute the command every time the instance starts.
-   * 
-   * Default value:
-   * - If the `Frequency` parameter is not specified, the default value is `Once`.
-   * - If the `Frequency` parameter is specified, regardless of whether this parameter is already set, it will be processed as `Period`.
-   * 
-   * @example
-   * Once
-   */
-  repeatMode?: string;
-  /**
-   * @example
-   * ProcessTree
-   */
-  terminationMode?: string;
-  /**
-   * @remarks
-   * Timeout for executing the command, in seconds. If the command cannot run due to process issues, missing modules, or the absence of the Cloud Assistant Agent, a timeout will occur. After a timeout, the command process will be forcibly terminated. Default value: 60.
-   * 
-   * @example
-   * 3600
-   */
-  timeout?: number;
-  /**
-   * @remarks
-   * The username to execute the command in the instance. The length must not exceed 255 characters.
-   *     For Linux systems, the command is executed by the root user by default.
-   * 
-   * @example
-   * root
-   */
-  username?: string;
-  /**
-   * @remarks
-   * You can customize the execution path of the command. The default paths are as follows:
-   * 
-   * - Linux instances: The default execution path is under the /home directory of the root user.
-   * 
-   * @example
-   * /home/user
-   */
-  workingDir?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      commandContent: 'CommandContent',
-      commandId: 'CommandId',
-      contentEncoding: 'ContentEncoding',
-      description: 'Description',
-      enableParameter: 'EnableParameter',
-      frequency: 'Frequency',
-      launcher: 'Launcher',
-      name: 'Name',
-      nodeIdList: 'NodeIdList',
-      parameters: 'Parameters',
-      repeatMode: 'RepeatMode',
-      terminationMode: 'TerminationMode',
-      timeout: 'Timeout',
-      username: 'Username',
-      workingDir: 'WorkingDir',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      commandContent: 'string',
-      commandId: 'string',
-      contentEncoding: 'string',
-      description: 'string',
-      enableParameter: 'boolean',
-      frequency: 'string',
-      launcher: 'string',
-      name: 'string',
-      nodeIdList: { 'type': 'array', 'itemType': 'string' },
-      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      repeatMode: 'string',
-      terminationMode: 'string',
-      timeout: 'number',
-      username: 'string',
-      workingDir: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCommandShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Ensures idempotence of the request. Generate a unique parameter value from your client to ensure that the value is unique across different requests. 
-   * ClientToken supports only ASCII characters and cannot exceed 64 characters. For more information, see How to Ensure Idempotence.
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-426655440000
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * Command content. Please note the following:
-   * 
-   * - Specify `EnableParameter=true` to enable custom parameters in the command content.
-   * - Define custom parameters using the {{}} format; spaces and newlines within `{{}}` will be ignored.
-   * - The number of custom parameters cannot exceed 20.
-   * - Custom parameter names can only contain a-zA-Z0-9-_, and are case-insensitive.
-   * - A single custom parameter name cannot exceed 64 bytes.
-   * 
-   * @example
-   * ZWNobyAxMjM=
-   */
-  commandContent?: string;
-  /**
-   * @example
-   * c-e996287206324975b5fbe1d***
-   */
-  commandId?: string;
-  /**
-   * @remarks
-   * Encoding method for the script content. Valid values:
-   * 
-   * - PlainText: No encoding, transmitted in plain text.
-   * - Base64: Base64 encoding.
-   * 
-   * Default value: PlainText. If an invalid value is provided, it will be treated as PlainText.
-   * 
-   * @example
-   * Base64
-   */
-  contentEncoding?: string;
-  /**
-   * @remarks
-   * Command description.
-   * 
-   * @example
-   * testDescription
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Whether the command contains custom parameters.
-   * 
-   * Default value: false.
-   * 
-   * @example
-   * false
-   */
-  enableParameter?: boolean;
-  /**
-   * @remarks
-   * Execution time for scheduled commands. Currently, three types of scheduling methods are supported: fixed interval (based on Rate expression), one-time execution at a specific time, and clock-based scheduling (based on Cron expression).
-   * 
-   * Fixed interval execution: Based on the Rate expression, the command is executed at the set interval. The interval can be set in seconds (s), minutes (m), hours (h), and days (d), suitable for scenarios where tasks need to be executed at fixed intervals. The format is rate(<interval value><interval unit>), such as rate(5m) for every 5 minutes. The following restrictions apply to fixed interval execution:
-   * - The interval should not exceed 7 days and should be no less than 60 seconds, and it must be greater than the timeout of the scheduled task.
-   * - The interval is based on a fixed frequency and is independent of the actual execution time of the task. For example, if the command is set to execute every 5 minutes and the task takes 2 minutes to complete, the next round will start 3 minutes after the completion of the task.
-   * - The task will not be executed immediately upon creation. For example, if the command is set to execute every 5 minutes, it will not be executed immediately upon creation but will start 5 minutes after the task is created.
-   * One-time execution at a specific time: Executes the command once at the specified time and timezone. The format is at(yyyy-MM-dd HH:mm:ss <timezone>), which is at(year-month-day hour:minute:second <timezone>). If no timezone is specified, UTC is used by default. Timezones support the following three formats:
-   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
-   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
-   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
-   * 
-   * For example, to execute once at 13:15:30 on June 6, 2022, in Shanghai, China, the format would be: at(2022-06-06 13:15:30 Asia/Shanghai); to execute once at 13:15:30 on June 6, 2022, in the GMT-7:00 timezone, the format would be: at(2022-06-06 13:15:30 GMT-7:00).
-   * 
-   * Clock-based scheduling (based on Cron expression): Based on the Cron expression, the command is executed according to the set schedule. The format is <second> <minute> <hour> <day> <month> <weekday> <year (optional)> <timezone>, i.e., <Cron expression> <timezone>. In the specified timezone, the scheduled task execution time is calculated based on the Cron expression and then executed. If no timezone is specified, the system\\"s internal timezone of the instance running the scheduled task is used by default. For more information about Cron expressions, see Cron Expressions. Timezones support the following three formats:
-   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
-   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
-   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
-   * 
-   * For example, to execute the command at 10:15 AM every day in 2022 in Shanghai, China, the format would be 0 15 10 ? * * 2022 Asia/Shanghai; to execute the command every 30 minutes between 10:00 AM and 11:30 AM every day in 2022 in the GMT+8:00 timezone, the format would be 0 0/30 10-11 * * ? 2022 GMT+8:00; to execute the command every 5 minutes between 2:00 PM and 2:55 PM every day in October every two years starting from 2022 in UTC, the format would be 0 0/5 14 * 10 ? 2022/2 UTC.
-   */
-  frequency?: string;
-  /**
-   * @example
-   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
-   */
-  launcher?: string;
-  /**
-   * @remarks
-   * Command name.
-   * 
-   * @example
-   * testName
-   */
-  name?: string;
-  /**
-   * @remarks
-   * List of nodes.
-   */
-  nodeIdListShrink?: string;
-  /**
-   * @remarks
-   * When the command contains custom parameters, you need to pass in key-value pairs of these custom parameters when executing the command. For example, if the command content is `echo {{name}}`, you can pass in the key-value pair `{"name":"Jack"}` through the `Parameter` parameter. The custom parameter will automatically replace the variable value `name`, resulting in a new command, which actually executes as `echo Jack`.
-   * 
-   * The number of custom parameters ranges from 0 to 10, and you should note:
-   * 
-   * - Keys cannot be empty strings and support up to 64 characters at most.
-   * - Values can be empty strings.
-   * - When combined with the original command content and Base64 encoded, if the command is saved, the size after Base64 encoding must not exceed 18 KB; if the command is not saved, the size after Base64 encoding must not exceed 24 KB. You can set whether to keep the command via `KeepCommand`.
-   * - The set of custom parameter names must be a subset of the parameter set defined during command creation. For parameters that are not passed in, you can use an empty string as a substitute.
-   * 
-   * The default value is empty, indicating that the parameter is not set, thus disabling custom parameters.
-   * 
-   * @example
-   * {"name":"Jack", "accessKey":"LTAIdyvdIqaRY****"}
-   */
-  parametersShrink?: string;
-  /**
-   * @remarks
-   * Set the command execution mode. Valid values:
-   * 
-   * - Once: Execute the command immediately.
-   * - Period: Execute the command at a scheduled time. When this parameter is set to `Period`, you must also specify the `Frequency` parameter.
-   * - NextRebootOnly: Automatically execute the command when the instance starts next time.
-   * - EveryReboot: Automatically execute the command every time the instance starts.
-   * 
-   * Default value:
-   * - If the `Frequency` parameter is not specified, the default value is `Once`.
-   * - If the `Frequency` parameter is specified, regardless of whether this parameter is already set, it will be processed as `Period`.
-   * 
-   * @example
-   * Once
-   */
-  repeatMode?: string;
-  /**
-   * @example
-   * ProcessTree
-   */
-  terminationMode?: string;
-  /**
-   * @remarks
-   * Timeout for executing the command, in seconds. If the command cannot run due to process issues, missing modules, or the absence of the Cloud Assistant Agent, a timeout will occur. After a timeout, the command process will be forcibly terminated. Default value: 60.
-   * 
-   * @example
-   * 3600
-   */
-  timeout?: number;
-  /**
-   * @remarks
-   * The username to execute the command in the instance. The length must not exceed 255 characters.
-   *     For Linux systems, the command is executed by the root user by default.
-   * 
-   * @example
-   * root
-   */
-  username?: string;
-  /**
-   * @remarks
-   * You can customize the execution path of the command. The default paths are as follows:
-   * 
-   * - Linux instances: The default execution path is under the /home directory of the root user.
-   * 
-   * @example
-   * /home/user
-   */
-  workingDir?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      commandContent: 'CommandContent',
-      commandId: 'CommandId',
-      contentEncoding: 'ContentEncoding',
-      description: 'Description',
-      enableParameter: 'EnableParameter',
-      frequency: 'Frequency',
-      launcher: 'Launcher',
-      name: 'Name',
-      nodeIdListShrink: 'NodeIdList',
-      parametersShrink: 'Parameters',
-      repeatMode: 'RepeatMode',
-      terminationMode: 'TerminationMode',
-      timeout: 'Timeout',
-      username: 'Username',
-      workingDir: 'WorkingDir',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      commandContent: 'string',
-      commandId: 'string',
-      contentEncoding: 'string',
-      description: 'string',
-      enableParameter: 'boolean',
-      frequency: 'string',
-      launcher: 'string',
-      name: 'string',
-      nodeIdListShrink: 'string',
-      parametersShrink: 'string',
-      repeatMode: 'string',
-      terminationMode: 'string',
-      timeout: 'number',
-      username: 'string',
-      workingDir: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCommandResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * ID of the command execution.
-   * 
-   * @example
-   * t-7d2a745b412b4601b2d47f6a768d*
-   */
-  invokeId?: string;
-  /**
-   * @remarks
-   * ID of the request
-   * 
-   * @example
-   * 2FE2B22C-CF9D-59DE-BF63-DC9B9B33A9D1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      invokeId: 'InvokeId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      invokeId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCommandResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RunCommandResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RunCommandResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendFileRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The content of the file. After Base64 encoding, the size cannot exceed 32 KB.
-   * 
-   * - When the `ContentType` parameter is `PlainText`, this field is plain text.
-   * - When the `ContentType` parameter is `Base64`, this field is Base64 encoded text.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * #!/bin/bash echo "Current User is :" echo $(ps | grep "$$" | awk \\"{print $2}\\") -------- oss://bucketName/objectName
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The content type of the file.
-   * 
-   * PlainText: Plain text.
-   * Base64: Base64 encoded.
-   * The default value is PlainText.
-   * 
-   * @example
-   * PlainText
-   */
-  contentType?: string;
-  /**
-   * @remarks
-   * Description information. Supports all character sets, and the length must not exceed 512 characters.
-   * 
-   * @example
-   * This is a test file.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The group of the file. Applies only to Linux instances, and the default is root. The length must not exceed 64 characters.
-   * 
-   * Note
-   * When using other groups, ensure that the group exists in the instance.
-   * 
-   * @example
-   * test
-   */
-  fileGroup?: string;
-  /**
-   * @remarks
-   * The permissions of the file. Applies only to Linux instances, and the setting method is the same as the chmod command.
-   * 
-   * The default value is 0644, which means the user has read and write permissions, while the group and other users have read-only permissions.
-   * 
-   * @example
-   * 0644
-   */
-  fileMode?: string;
-  /**
-   * @remarks
-   * The owner of the file. Applies only to Linux instances, and the default is root.
-   * 
-   * @example
-   * root
-   */
-  fileOwner?: string;
-  /**
-   * @remarks
-   * The name of the file. Supports all character sets, and the length must not exceed 255 characters.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * file.txt
-   */
-  name?: string;
-  /**
-   * @remarks
-   * List of nodes.
-   * 
-   * This parameter is required.
-   */
-  nodeIdList?: string[];
-  /**
-   * @remarks
-   * Whether to overwrite the file if a file with the same name already exists in the target directory.
-   * - true: Overwrite.
-   * - false: Do not overwrite.
-   * 
-   * The default value is false.
-   * 
-   * @example
-   * True
-   */
-  overwrite?: boolean;
-  /**
-   * @remarks
-   * The directory in the target Lingjun node where the file will be sent. If it does not exist, it will be automatically created.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * /home
-   */
-  targetDir?: string;
-  /**
-   * @remarks
-   * The timeout for sending the file. Unit: seconds.
-   * 
-   * - A timeout may occur due to process reasons, missing modules, or missing Cloud Assistant Agent.
-   * - If the set timeout is less than 10 seconds, to ensure successful delivery, the system will automatically set the timeout to 10 seconds.
-   * 
-   * The default value is 60.
-   * 
-   * @example
-   * 600
-   */
-  timeout?: number;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      contentType: 'ContentType',
-      description: 'Description',
-      fileGroup: 'FileGroup',
-      fileMode: 'FileMode',
-      fileOwner: 'FileOwner',
-      name: 'Name',
-      nodeIdList: 'NodeIdList',
-      overwrite: 'Overwrite',
-      targetDir: 'TargetDir',
-      timeout: 'Timeout',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      contentType: 'string',
-      description: 'string',
-      fileGroup: 'string',
-      fileMode: 'string',
-      fileOwner: 'string',
-      name: 'string',
-      nodeIdList: { 'type': 'array', 'itemType': 'string' },
-      overwrite: 'boolean',
-      targetDir: 'string',
-      timeout: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendFileShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The content of the file. After Base64 encoding, the size cannot exceed 32 KB.
-   * 
-   * - When the `ContentType` parameter is `PlainText`, this field is plain text.
-   * - When the `ContentType` parameter is `Base64`, this field is Base64 encoded text.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * #!/bin/bash echo "Current User is :" echo $(ps | grep "$$" | awk \\"{print $2}\\") -------- oss://bucketName/objectName
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The content type of the file.
-   * 
-   * PlainText: Plain text.
-   * Base64: Base64 encoded.
-   * The default value is PlainText.
-   * 
-   * @example
-   * PlainText
-   */
-  contentType?: string;
-  /**
-   * @remarks
-   * Description information. Supports all character sets, and the length must not exceed 512 characters.
-   * 
-   * @example
-   * This is a test file.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The group of the file. Applies only to Linux instances, and the default is root. The length must not exceed 64 characters.
-   * 
-   * Note
-   * When using other groups, ensure that the group exists in the instance.
-   * 
-   * @example
-   * test
-   */
-  fileGroup?: string;
-  /**
-   * @remarks
-   * The permissions of the file. Applies only to Linux instances, and the setting method is the same as the chmod command.
-   * 
-   * The default value is 0644, which means the user has read and write permissions, while the group and other users have read-only permissions.
-   * 
-   * @example
-   * 0644
-   */
-  fileMode?: string;
-  /**
-   * @remarks
-   * The owner of the file. Applies only to Linux instances, and the default is root.
-   * 
-   * @example
-   * root
-   */
-  fileOwner?: string;
-  /**
-   * @remarks
-   * The name of the file. Supports all character sets, and the length must not exceed 255 characters.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * file.txt
-   */
-  name?: string;
-  /**
-   * @remarks
-   * List of nodes.
-   * 
-   * This parameter is required.
-   */
-  nodeIdListShrink?: string;
-  /**
-   * @remarks
-   * Whether to overwrite the file if a file with the same name already exists in the target directory.
-   * - true: Overwrite.
-   * - false: Do not overwrite.
-   * 
-   * The default value is false.
-   * 
-   * @example
-   * True
-   */
-  overwrite?: boolean;
-  /**
-   * @remarks
-   * The directory in the target Lingjun node where the file will be sent. If it does not exist, it will be automatically created.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * /home
-   */
-  targetDir?: string;
-  /**
-   * @remarks
-   * The timeout for sending the file. Unit: seconds.
-   * 
-   * - A timeout may occur due to process reasons, missing modules, or missing Cloud Assistant Agent.
-   * - If the set timeout is less than 10 seconds, to ensure successful delivery, the system will automatically set the timeout to 10 seconds.
-   * 
-   * The default value is 60.
-   * 
-   * @example
-   * 600
-   */
-  timeout?: number;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      contentType: 'ContentType',
-      description: 'Description',
-      fileGroup: 'FileGroup',
-      fileMode: 'FileMode',
-      fileOwner: 'FileOwner',
-      name: 'Name',
-      nodeIdListShrink: 'NodeIdList',
-      overwrite: 'Overwrite',
-      targetDir: 'TargetDir',
-      timeout: 'Timeout',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      contentType: 'string',
-      description: 'string',
-      fileGroup: 'string',
-      fileMode: 'string',
-      fileOwner: 'string',
-      name: 'string',
-      nodeIdListShrink: 'string',
-      overwrite: 'boolean',
-      targetDir: 'string',
-      timeout: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendFileResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Command execution ID.
-   * 
-   * @example
-   * t-hz03la52z1zkvls
-   */
-  invokeId?: string;
-  /**
-   * @remarks
-   * ID of the request
-   * 
-   * @example
-   * 3C683243-7915-57FB-9570-A2932C1C0F78
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      invokeId: 'InvokeId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      invokeId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendFileResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SendFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SendFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ShrinkClusterRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i15dfa12e8f27c44f4a006c2c8bb
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Whether to allow skipping failed node tasks, default value is False
-   * 
-   * @example
-   * False
-   */
-  ignoreFailedNodeTasks?: boolean;
-  /**
-   * @remarks
-   * Node group information
-   */
-  nodeGroups?: ShrinkClusterRequestNodeGroups[];
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
-      nodeGroups: 'NodeGroups',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      ignoreFailedNodeTasks: 'boolean',
-      nodeGroups: { 'type': 'array', 'itemType': ShrinkClusterRequestNodeGroups },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ShrinkClusterShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Cluster ID
-   * 
-   * @example
-   * i15dfa12e8f27c44f4a006c2c8bb
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Whether to allow skipping failed node tasks, default value is False
-   * 
-   * @example
-   * False
-   */
-  ignoreFailedNodeTasks?: boolean;
-  /**
-   * @remarks
-   * Node group information
-   */
-  nodeGroupsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
-      nodeGroupsShrink: 'NodeGroups',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      ignoreFailedNodeTasks: 'boolean',
-      nodeGroupsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ShrinkClusterResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * CC9FEF89-9BE5-5E03-845E-238B48D7599B
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * task id
-   * 
-   * @example
-   * i159136551662516768776
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ShrinkClusterResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ShrinkClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ShrinkClusterResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopInvocationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Command execution ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * f-hz044748dzepds0
-   */
-  invokeId?: string;
-  /**
-   * @remarks
-   * List of nodes.
-   */
-  nodeIdList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      invokeId: 'InvokeId',
-      nodeIdList: 'NodeIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      invokeId: 'string',
-      nodeIdList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopInvocationShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Command execution ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * f-hz044748dzepds0
-   */
-  invokeId?: string;
-  /**
-   * @remarks
-   * List of nodes.
-   */
-  nodeIdListShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      invokeId: 'InvokeId',
-      nodeIdListShrink: 'NodeIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      invokeId: 'string',
-      nodeIdListShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopInvocationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * A7FD7411-9395-52E8-AF42-EB3A4A55446D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopInvocationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopInvocationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopInvocationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Region ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * List of resource IDs
-   * 
-   * This parameter is required.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * Resource type
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Cluster
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * Tags
-   * 
-   * This parameter is required.
-   */
-  tag?: TagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * ID of the request
-   * 
-   * @example
-   * E7BB53E1-0B08-5C4E-BA66-9225548C3151
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Whether to remove all, only effective when TagKey.N is empty. Valid values:
-   * 
-   * - True, remove all
-   * - False, do not remove all
-   * 
-   * Default is False
-   * 
-   * @example
-   * False
-   */
-  all?: boolean;
-  /**
-   * @remarks
-   * Region ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * List of resource IDs
-   * 
-   * This parameter is required.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * Resource type
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Cluster
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * List of tag keys
-   */
-  tagKey?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      all: 'All',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tagKey: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * request id
-   * 
-   * @example
-   * 81F648D0-5570-5351-AE98-6F501C7E957F
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UntagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterRequestComponentsComponentConfig extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class CreateClusterRequestComponentsComponentConfig extends $dara.Model {
   /**
    * @remarks
    * Basic component parameters
@@ -4461,12 +61,19 @@ export class CreateClusterRequestComponentsComponentConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.nodeUnits)) {
+      $dara.Model.validateArray(this.nodeUnits);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestComponents extends $tea.Model {
+export class CreateClusterRequestComponents extends $dara.Model {
   /**
    * @remarks
    * Component configuration
@@ -4494,12 +101,19 @@ export class CreateClusterRequestComponents extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.componentConfig && typeof (this.componentConfig as any).validate === 'function') {
+      (this.componentConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds extends $tea.Model {
+export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds extends $dara.Model {
   /**
    * @remarks
    * Bond name
@@ -4530,12 +144,16 @@ export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds exten
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicy extends $tea.Model {
+export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicy extends $dara.Model {
   /**
    * @remarks
    * Default bond cluster subnet
@@ -4563,12 +181,19 @@ export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicy extends $t
     };
   }
 
+  validate() {
+    if(Array.isArray(this.bonds)) {
+      $dara.Model.validateArray(this.bonds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds extends $tea.Model {
+export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds extends $dara.Model {
   /**
    * @remarks
    * Bond name
@@ -4599,12 +224,16 @@ export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBond
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy extends $tea.Model {
+export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy extends $dara.Model {
   /**
    * @remarks
    * Bond information
@@ -4632,12 +261,19 @@ export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy ext
     };
   }
 
+  validate() {
+    if(Array.isArray(this.bonds)) {
+      $dara.Model.validateArray(this.bonds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds extends $tea.Model {
+export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds extends $dara.Model {
   /**
    * @remarks
    * Bond name
@@ -4668,12 +304,16 @@ export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds exten
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicy extends $tea.Model {
+export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicy extends $dara.Model {
   /**
    * @remarks
    * Bond information
@@ -4701,12 +341,19 @@ export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicy extends $t
     };
   }
 
+  validate() {
+    if(Array.isArray(this.bonds)) {
+      $dara.Model.validateArray(this.bonds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestNetworksIpAllocationPolicy extends $tea.Model {
+export class CreateClusterRequestNetworksIpAllocationPolicy extends $dara.Model {
   /**
    * @remarks
    * Bond policy
@@ -4738,12 +385,25 @@ export class CreateClusterRequestNetworksIpAllocationPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.bondPolicy && typeof (this.bondPolicy as any).validate === 'function') {
+      (this.bondPolicy as any).validate();
+    }
+    if(Array.isArray(this.machineTypePolicy)) {
+      $dara.Model.validateArray(this.machineTypePolicy);
+    }
+    if(Array.isArray(this.nodePolicy)) {
+      $dara.Model.validateArray(this.nodePolicy);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestNetworksNewVpdInfoVpdSubnets extends $tea.Model {
+export class CreateClusterRequestNetworksNewVpdInfoVpdSubnets extends $dara.Model {
   /**
    * @remarks
    * Subnet CIDR
@@ -4784,12 +444,16 @@ export class CreateClusterRequestNetworksNewVpdInfoVpdSubnets extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestNetworksNewVpdInfo extends $tea.Model {
+export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   /**
    * @remarks
    * Cloud Enterprise Network ID
@@ -4867,12 +531,19 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.vpdSubnets)) {
+      $dara.Model.validateArray(this.vpdSubnets);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestNetworksVpdInfo extends $tea.Model {
+export class CreateClusterRequestNetworksVpdInfo extends $dara.Model {
   /**
    * @remarks
    * VPC ID
@@ -4900,12 +571,19 @@ export class CreateClusterRequestNetworksVpdInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.vpdSubnets)) {
+      $dara.Model.validateArray(this.vpdSubnets);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestNetworks extends $tea.Model {
+export class CreateClusterRequestNetworks extends $dara.Model {
   /**
    * @remarks
    * IP allocation policy
@@ -4987,12 +665,25 @@ export class CreateClusterRequestNetworks extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ipAllocationPolicy)) {
+      $dara.Model.validateArray(this.ipAllocationPolicy);
+    }
+    if(this.newVpdInfo && typeof (this.newVpdInfo as any).validate === 'function') {
+      (this.newVpdInfo as any).validate();
+    }
+    if(this.vpdInfo && typeof (this.vpdInfo as any).validate === 'function') {
+      (this.vpdInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestNodeGroupsNodes extends $tea.Model {
+export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
   /**
    * @remarks
    * Hostname
@@ -5053,12 +744,16 @@ export class CreateClusterRequestNodeGroupsNodes extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestNodeGroups extends $tea.Model {
+export class CreateClusterRequestNodeGroups extends $dara.Model {
   /**
    * @remarks
    * System image ID
@@ -5136,12 +831,19 @@ export class CreateClusterRequestNodeGroups extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.nodes)) {
+      $dara.Model.validateArray(this.nodes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequestTag extends $tea.Model {
+export class CreateClusterRequestTag extends $dara.Model {
   /**
    * @remarks
    * Key
@@ -5172,12 +874,16 @@ export class CreateClusterRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterShrinkRequestTag extends $tea.Model {
+export class CreateClusterShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
    * Key
@@ -5208,12 +914,16 @@ export class CreateClusterShrinkRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogsLogs extends $tea.Model {
+export class CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogsLogs extends $dara.Model {
   /**
    * @remarks
    * Sent date, in the format yyyymmdd.
@@ -5244,12 +954,16 @@ export class CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogsLogs extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogs extends $tea.Model {
+export class CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogs extends $dara.Model {
   /**
    * @remarks
    * Instance ID
@@ -5287,12 +1001,19 @@ export class CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogs extends $tea.Model
     };
   }
 
+  validate() {
+    if(Array.isArray(this.logs)) {
+      $dara.Model.validateArray(this.logs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDiagnosticTaskRequestAiJobLogInfo extends $tea.Model {
+export class CreateDiagnosticTaskRequestAiJobLogInfo extends $dara.Model {
   /**
    * @remarks
    * Task logs
@@ -5332,12 +1053,19 @@ export class CreateDiagnosticTaskRequestAiJobLogInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.aiJobLogs)) {
+      $dara.Model.validateArray(this.aiJobLogs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeClusterResponseBodyComponents extends $tea.Model {
+export class DescribeClusterResponseBodyComponents extends $dara.Model {
   /**
    * @remarks
    * Component ID
@@ -5368,12 +1096,16 @@ export class DescribeClusterResponseBodyComponents extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeClusterResponseBodyNetworks extends $tea.Model {
+export class DescribeClusterResponseBodyNetworks extends $dara.Model {
   /**
    * @remarks
    * VPC Segment ID
@@ -5394,12 +1126,16 @@ export class DescribeClusterResponseBodyNetworks extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvokeNode extends $tea.Model {
+export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvokeNode extends $dara.Model {
   /**
    * @remarks
    * The start time of the command execution.
@@ -5624,12 +1360,16 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodes extends $tea.Model {
+export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodes extends $dara.Model {
   /**
    * @remarks
    * Command execution records for nodes.
@@ -5647,12 +1387,19 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodes ext
     };
   }
 
+  validate() {
+    if(Array.isArray(this.invokeNode)) {
+      $dara.Model.validateArray(this.invokeNode);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInvocationsResponseBodyInvocationsInvocation extends $tea.Model {
+export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.Model {
   /**
    * @remarks
    * Command content.
@@ -5836,12 +1583,19 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $tea.M
     };
   }
 
+  validate() {
+    if(this.invokeNodes && typeof (this.invokeNodes as any).validate === 'function') {
+      (this.invokeNodes as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInvocationsResponseBodyInvocations extends $tea.Model {
+export class DescribeInvocationsResponseBodyInvocations extends $dara.Model {
   /**
    * @remarks
    * File delivery record.
@@ -5859,12 +1613,19 @@ export class DescribeInvocationsResponseBodyInvocations extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.invocation)) {
+      $dara.Model.validateArray(this.invocation);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNodeResponseBodyNetworks extends $tea.Model {
+export class DescribeNodeResponseBodyNetworks extends $dara.Model {
   /**
    * @remarks
    * Network interface port information
@@ -5915,12 +1676,16 @@ export class DescribeNodeResponseBodyNetworks extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
    * Region name
@@ -5951,12 +1716,16 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodesInvokeNode extends $tea.Model {
+export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodesInvokeNode extends $dara.Model {
   /**
    * @remarks
    * The creation time of the file distribution task.
@@ -6090,12 +1859,16 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes extends $tea.Model {
+export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes extends $dara.Model {
   /**
    * @remarks
    * Record of file distribution for the node.
@@ -6113,12 +1886,19 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes
     };
   }
 
+  validate() {
+    if(Array.isArray(this.invokeNode)) {
+      $dara.Model.validateArray(this.invokeNode);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $tea.Model {
+export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $dara.Model {
   /**
    * @remarks
    * Output information after command execution.
@@ -6278,12 +2058,19 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $t
     };
   }
 
+  validate() {
+    if(this.invokeNodes && typeof (this.invokeNodes as any).validate === 'function') {
+      (this.invokeNodes as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeSendFileResultsResponseBodyInvocations extends $tea.Model {
+export class DescribeSendFileResultsResponseBodyInvocations extends $dara.Model {
   /**
    * @remarks
    * Command execution ID.
@@ -6301,12 +2088,19 @@ export class DescribeSendFileResultsResponseBodyInvocations extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.invocation)) {
+      $dara.Model.validateArray(this.invocation);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeTaskResponseBodyStepsSubTasks extends $tea.Model {
+export class DescribeTaskResponseBodyStepsSubTasks extends $dara.Model {
   /**
    * @remarks
    * Creation Time
@@ -6377,12 +2171,16 @@ export class DescribeTaskResponseBodyStepsSubTasks extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeTaskResponseBodySteps extends $tea.Model {
+export class DescribeTaskResponseBodySteps extends $dara.Model {
   /**
    * @remarks
    * Step Failure Message
@@ -6470,12 +2268,19 @@ export class DescribeTaskResponseBodySteps extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.subTasks)) {
+      $dara.Model.validateArray(this.subTasks);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeZonesResponseBodyZones extends $tea.Model {
+export class DescribeZonesResponseBodyZones extends $dara.Model {
   /**
    * @remarks
    * Zone name
@@ -6506,12 +2311,16 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExtendClusterRequestIpAllocationPolicyBondPolicyBonds extends $tea.Model {
+export class ExtendClusterRequestIpAllocationPolicyBondPolicyBonds extends $dara.Model {
   /**
    * @remarks
    * Bond name
@@ -6542,12 +2351,16 @@ export class ExtendClusterRequestIpAllocationPolicyBondPolicyBonds extends $tea.
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExtendClusterRequestIpAllocationPolicyBondPolicy extends $tea.Model {
+export class ExtendClusterRequestIpAllocationPolicyBondPolicy extends $dara.Model {
   /**
    * @remarks
    * Default bond cluster subnet
@@ -6575,12 +2388,19 @@ export class ExtendClusterRequestIpAllocationPolicyBondPolicy extends $tea.Model
     };
   }
 
+  validate() {
+    if(Array.isArray(this.bonds)) {
+      $dara.Model.validateArray(this.bonds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds extends $tea.Model {
+export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds extends $dara.Model {
   /**
    * @remarks
    * Bond name
@@ -6611,12 +2431,16 @@ export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds extend
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicy extends $tea.Model {
+export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicy extends $dara.Model {
   /**
    * @remarks
    * Bond information
@@ -6644,12 +2468,19 @@ export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicy extends $te
     };
   }
 
+  validate() {
+    if(Array.isArray(this.bonds)) {
+      $dara.Model.validateArray(this.bonds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExtendClusterRequestIpAllocationPolicyNodePolicyBonds extends $tea.Model {
+export class ExtendClusterRequestIpAllocationPolicyNodePolicyBonds extends $dara.Model {
   /**
    * @remarks
    * Bond name
@@ -6680,12 +2511,16 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicyBonds extends $tea.
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $tea.Model {
+export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $dara.Model {
   /**
    * @remarks
    * Bond information
@@ -6713,12 +2548,19 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $tea.Model
     };
   }
 
+  validate() {
+    if(Array.isArray(this.bonds)) {
+      $dara.Model.validateArray(this.bonds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExtendClusterRequestIpAllocationPolicy extends $tea.Model {
+export class ExtendClusterRequestIpAllocationPolicy extends $dara.Model {
   /**
    * @remarks
    * Specify the cluster subnet ID based on the bond name
@@ -6750,12 +2592,25 @@ export class ExtendClusterRequestIpAllocationPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.bondPolicy && typeof (this.bondPolicy as any).validate === 'function') {
+      (this.bondPolicy as any).validate();
+    }
+    if(Array.isArray(this.machineTypePolicy)) {
+      $dara.Model.validateArray(this.machineTypePolicy);
+    }
+    if(Array.isArray(this.nodePolicy)) {
+      $dara.Model.validateArray(this.nodePolicy);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExtendClusterRequestNodeGroupsNodes extends $tea.Model {
+export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
   /**
    * @remarks
    * Hostname
@@ -6816,12 +2671,16 @@ export class ExtendClusterRequestNodeGroupsNodes extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExtendClusterRequestNodeGroups extends $tea.Model {
+export class ExtendClusterRequestNodeGroups extends $dara.Model {
   /**
    * @remarks
    * Node Group ID
@@ -6870,12 +2729,19 @@ export class ExtendClusterRequestNodeGroups extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.nodes)) {
+      $dara.Model.validateArray(this.nodes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListClusterNodesResponseBodyNodesNetworks extends $tea.Model {
+export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   /**
    * @remarks
    * Machine network interface name
@@ -6926,12 +2792,16 @@ export class ListClusterNodesResponseBodyNodesNetworks extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListClusterNodesResponseBodyNodes extends $tea.Model {
+export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
    * Creation time
@@ -7069,12 +2939,19 @@ export class ListClusterNodesResponseBodyNodes extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.networks)) {
+      $dara.Model.validateArray(this.networks);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListClustersResponseBodyClusters extends $tea.Model {
+export class ListClustersResponseBodyClusters extends $dara.Model {
   /**
    * @remarks
    * Cluster description
@@ -7235,12 +3112,16 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFreeNodesResponseBodyNodes extends $tea.Model {
+export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
    * Creation time
@@ -7331,54 +3212,92 @@ export class ListFreeNodesResponseBodyNodes extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListMachineTypesResponseBodyMachineTypes extends $tea.Model {
+export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   /**
+   * @remarks
+   * Number of bonds
+   * 
    * @example
    * 2
    */
   bondNum?: number;
   /**
+   * @remarks
+   * CPU information
+   * 
    * @example
    * 2x Intel Icelake 8369B 32C CPU
    */
   cpuInfo?: string;
   /**
+   * @remarks
+   * Disk information
+   * 
    * @example
    * 2x 480GB SATA SSD
    */
   diskInfo?: string;
   /**
+   * @remarks
+   * GPU information
+   * 
    * @example
    * 8x NVIDIA SXM4 80GB A100 GPU
    */
   gpuInfo?: string;
   /**
+   * @remarks
+   * Memory information
+   * 
    * @example
    * 32x 64GB DDR4 3200 Memory
    */
   memoryInfo?: string;
   /**
+   * @remarks
+   * Machine name
+   * 
    * @example
    * efg1.nvga1
    */
   name?: string;
   /**
+   * @remarks
+   * Network information
+   * 
    * @example
    * 2x 100Gbps DP NIC
    */
   networkInfo?: string;
   /**
+   * @remarks
+   * Number of nodes
+   * 
    * @example
    * 10
    */
   nodeCount?: string;
+  /**
+   * @remarks
+   * Number of CPU cores
+   * 
+   * @example
+   * 48
+   */
   totalCpuCore?: number;
   /**
+   * @remarks
+   * Type of machine
+   * 
    * @example
    * Public
    */
@@ -7413,12 +3332,16 @@ export class ListMachineTypesResponseBodyMachineTypes extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNodeGroupsResponseBodyGroups extends $tea.Model {
+export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
    * Cluster ID
@@ -7549,12 +3472,16 @@ export class ListNodeGroupsResponseBodyGroups extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequestTag extends $tea.Model {
+export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
    * Tag key
@@ -7585,12 +3512,16 @@ export class ListTagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
   /**
    * @remarks
    * Resource ID
@@ -7641,12 +3572,16 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Mo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
   static names(): { [key: string]: string } {
     return {
@@ -7660,12 +3595,19 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagResource)) {
+      $dara.Model.validateArray(this.tagResource);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReimageNodesRequestNodes extends $tea.Model {
+export class ReimageNodesRequestNodes extends $dara.Model {
   /**
    * @remarks
    * Hostname
@@ -7716,12 +3658,16 @@ export class ReimageNodesRequestNodes extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ShrinkClusterRequestNodeGroupsNodes extends $tea.Model {
+export class ShrinkClusterRequestNodeGroupsNodes extends $dara.Model {
   /**
    * @remarks
    * Node ID
@@ -7742,12 +3688,16 @@ export class ShrinkClusterRequestNodeGroupsNodes extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ShrinkClusterRequestNodeGroups extends $tea.Model {
+export class ShrinkClusterRequestNodeGroups extends $dara.Model {
   /**
    * @remarks
    * Node group ID
@@ -7775,12 +3725,19 @@ export class ShrinkClusterRequestNodeGroups extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.nodes)) {
+      $dara.Model.validateArray(this.nodes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequestTag extends $tea.Model {
+export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
    * Tag key
@@ -7811,6 +3768,5209 @@ export class TagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApproveOperationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Node ID
+   * 
+   * @example
+   * e01-cn-zvp2tgykr08
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * Operation Type
+   * 
+   * @example
+   * RepairMachine
+   */
+  operationType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      operationType: 'OperationType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      operationType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApproveOperationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Error Message
+   * 
+   * @example
+   * Resource not found
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 8F065DDD-6996-5973-9691-9EC57BD0072E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApproveOperationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApproveOperationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApproveOperationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Target Resource Group
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rg-aekzyqdwnfabx6q
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Resource ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i118099391667548921125
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * Region ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  resourceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceRegionId: 'ResourceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceId: 'string',
+      resourceRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * ID of the request
+   * 
+   * @example
+   * 8F065DDD-6996-5973-9691-9EC57BD0072E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster description
+   * 
+   * @example
+   * Cluster description
+   */
+  clusterDescription?: string;
+  /**
+   * @remarks
+   * Cluster name
+   * 
+   * @example
+   * Standard_Cluster
+   */
+  clusterName?: string;
+  /**
+   * @remarks
+   * Cluster type
+   * 
+   * @example
+   * Lite
+   */
+  clusterType?: string;
+  /**
+   * @remarks
+   * Components (software instances)
+   */
+  components?: CreateClusterRequestComponents[];
+  /**
+   * @remarks
+   * Cluster number
+   * 
+   * @example
+   * A1
+   */
+  hpnZone?: string;
+  /**
+   * @remarks
+   * Whether to allow skipping failed nodes, default value is False
+   * 
+   * @example
+   * False
+   */
+  ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * Network information
+   */
+  networks?: CreateClusterRequestNetworks;
+  /**
+   * @remarks
+   * Node VSwitches
+   */
+  nimizVSwitches?: string[];
+  /**
+   * @remarks
+   * Node group list
+   */
+  nodeGroups?: CreateClusterRequestNodeGroups[];
+  /**
+   * @remarks
+   * Open Eni Jumbo Frame
+   * 
+   * @example
+   * false
+   */
+  openEniJumboFrame?: boolean;
+  /**
+   * @remarks
+   * Resource group ID
+   * 
+   * @example
+   * rg-aek2xdkc6icwfha
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Resource tags
+   */
+  tag?: CreateClusterRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterDescription: 'ClusterDescription',
+      clusterName: 'ClusterName',
+      clusterType: 'ClusterType',
+      components: 'Components',
+      hpnZone: 'HpnZone',
+      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      networks: 'Networks',
+      nimizVSwitches: 'NimizVSwitches',
+      nodeGroups: 'NodeGroups',
+      openEniJumboFrame: 'OpenEniJumboFrame',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterDescription: 'string',
+      clusterName: 'string',
+      clusterType: 'string',
+      components: { 'type': 'array', 'itemType': CreateClusterRequestComponents },
+      hpnZone: 'string',
+      ignoreFailedNodeTasks: 'boolean',
+      networks: CreateClusterRequestNetworks,
+      nimizVSwitches: { 'type': 'array', 'itemType': 'string' },
+      nodeGroups: { 'type': 'array', 'itemType': CreateClusterRequestNodeGroups },
+      openEniJumboFrame: 'boolean',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateClusterRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.components)) {
+      $dara.Model.validateArray(this.components);
+    }
+    if(this.networks && typeof (this.networks as any).validate === 'function') {
+      (this.networks as any).validate();
+    }
+    if(Array.isArray(this.nimizVSwitches)) {
+      $dara.Model.validateArray(this.nimizVSwitches);
+    }
+    if(Array.isArray(this.nodeGroups)) {
+      $dara.Model.validateArray(this.nodeGroups);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster description
+   * 
+   * @example
+   * Cluster description
+   */
+  clusterDescription?: string;
+  /**
+   * @remarks
+   * Cluster name
+   * 
+   * @example
+   * Standard_Cluster
+   */
+  clusterName?: string;
+  /**
+   * @remarks
+   * Cluster type
+   * 
+   * @example
+   * Lite
+   */
+  clusterType?: string;
+  /**
+   * @remarks
+   * Components (software instances)
+   */
+  componentsShrink?: string;
+  /**
+   * @remarks
+   * Cluster number
+   * 
+   * @example
+   * A1
+   */
+  hpnZone?: string;
+  /**
+   * @remarks
+   * Whether to allow skipping failed nodes, default value is False
+   * 
+   * @example
+   * False
+   */
+  ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * Network information
+   */
+  networksShrink?: string;
+  /**
+   * @remarks
+   * Node VSwitches
+   */
+  nimizVSwitchesShrink?: string;
+  /**
+   * @remarks
+   * Node group list
+   */
+  nodeGroupsShrink?: string;
+  /**
+   * @remarks
+   * Open Eni Jumbo Frame
+   * 
+   * @example
+   * false
+   */
+  openEniJumboFrame?: boolean;
+  /**
+   * @remarks
+   * Resource group ID
+   * 
+   * @example
+   * rg-aek2xdkc6icwfha
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Resource tags
+   */
+  tag?: CreateClusterShrinkRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterDescription: 'ClusterDescription',
+      clusterName: 'ClusterName',
+      clusterType: 'ClusterType',
+      componentsShrink: 'Components',
+      hpnZone: 'HpnZone',
+      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      networksShrink: 'Networks',
+      nimizVSwitchesShrink: 'NimizVSwitches',
+      nodeGroupsShrink: 'NodeGroups',
+      openEniJumboFrame: 'OpenEniJumboFrame',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterDescription: 'string',
+      clusterName: 'string',
+      clusterType: 'string',
+      componentsShrink: 'string',
+      hpnZone: 'string',
+      ignoreFailedNodeTasks: 'boolean',
+      networksShrink: 'string',
+      nimizVSwitchesShrink: 'string',
+      nodeGroupsShrink: 'string',
+      openEniJumboFrame: 'boolean',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateClusterShrinkRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i116913051663373010974
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 3C683243-7915-57FB-9570-A2932C1C0F78
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Task Id
+   * 
+   * @example
+   * i159809891662373011015
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateClusterResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnosticTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Log information
+   */
+  aiJobLogInfo?: CreateDiagnosticTaskRequestAiJobLogInfo;
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i118913031696573280136
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Diagnostic type.
+   * 
+   * @example
+   * CheckByAiJobLogs
+   */
+  diagnosticType?: string;
+  /**
+   * @remarks
+   * List of node IDs
+   */
+  nodeIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      aiJobLogInfo: 'AiJobLogInfo',
+      clusterId: 'ClusterId',
+      diagnosticType: 'DiagnosticType',
+      nodeIds: 'NodeIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiJobLogInfo: CreateDiagnosticTaskRequestAiJobLogInfo,
+      clusterId: 'string',
+      diagnosticType: 'string',
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.aiJobLogInfo && typeof (this.aiJobLogInfo as any).validate === 'function') {
+      (this.aiJobLogInfo as any).validate();
+    }
+    if(Array.isArray(this.nodeIds)) {
+      $dara.Model.validateArray(this.nodeIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnosticTaskShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Log information
+   */
+  aiJobLogInfoShrink?: string;
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i118913031696573280136
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Diagnostic type.
+   * 
+   * @example
+   * CheckByAiJobLogs
+   */
+  diagnosticType?: string;
+  /**
+   * @remarks
+   * List of node IDs
+   */
+  nodeIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aiJobLogInfoShrink: 'AiJobLogInfo',
+      clusterId: 'ClusterId',
+      diagnosticType: 'DiagnosticType',
+      nodeIdsShrink: 'NodeIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiJobLogInfoShrink: 'string',
+      clusterId: 'string',
+      diagnosticType: 'string',
+      nodeIdsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnosticTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Diagnosis ID
+   * 
+   * @example
+   * diag-i150553931717380274931
+   */
+  diagnosticId?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * A511C02A-0127-51AA-A9F9-966382C9A1B5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnosticId: 'DiagnosticId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnosticId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnosticTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDiagnosticTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDiagnosticTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClusterRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i116913051662373010974
+   */
+  clusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClusterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request Id
+   * 
+   * @example
+   * 0FC4A1C7-421C-5EAB-9361-4C0338EFA287
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClusterResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteClusterResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i119982311660892626523
+   */
+  clusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster Description
+   * 
+   * @example
+   * Default cluster
+   */
+  clusterDescription?: string;
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i116913051662373010974
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Cluster Name
+   * 
+   * @example
+   * Eflo-YJ-Test-Cluster
+   */
+  clusterName?: string;
+  /**
+   * @remarks
+   * Cluster Type
+   * 
+   * @example
+   * AckEdgePro
+   */
+  clusterType?: string;
+  /**
+   * @remarks
+   * Component Information
+   */
+  components?: DescribeClusterResponseBodyComponents[];
+  /**
+   * @remarks
+   * Type of IP in the compute network
+   * 
+   * @example
+   * IPv4
+   */
+  computingIpVersion?: string;
+  /**
+   * @remarks
+   * Creation Time
+   * 
+   * @example
+   * 2022-06-08T07:05:11Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Cluster Number
+   * 
+   * @example
+   * A2
+   */
+  hpnZone?: string;
+  /**
+   * @remarks
+   * Network Information
+   */
+  networks?: DescribeClusterResponseBodyNetworks[];
+  /**
+   * @remarks
+   * Number of Nodes
+   * 
+   * @example
+   * 2
+   */
+  nodeCount?: number;
+  /**
+   * @remarks
+   * Number of Node Groups
+   * 
+   * @example
+   * 2
+   */
+  nodeGroupCount?: number;
+  /**
+   * @remarks
+   * Open Eni Jumbo Frame
+   * 
+   * @example
+   * close
+   */
+  openEniJumboFrame?: string;
+  /**
+   * @remarks
+   * Cluster State
+   * 
+   * @example
+   * running
+   */
+  operatingState?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 887FA855-89F4-5DB3-B305-C5879EC480E6
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Resource Group ID
+   * 
+   * @example
+   * rg-aek2k3rqlvv6ytq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Task ID
+   * 
+   * @example
+   * i152609221670466904596
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * Update Time
+   * 
+   * @example
+   * 2022-08-23T06:36:17.000Z
+   */
+  updateTime?: string;
+  /**
+   * @remarks
+   * VPC ID
+   * 
+   * @example
+   * vpc-0jlkqysom5dmcviymep3f
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterDescription: 'ClusterDescription',
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      clusterType: 'ClusterType',
+      components: 'Components',
+      computingIpVersion: 'ComputingIpVersion',
+      createTime: 'CreateTime',
+      hpnZone: 'HpnZone',
+      networks: 'Networks',
+      nodeCount: 'NodeCount',
+      nodeGroupCount: 'NodeGroupCount',
+      openEniJumboFrame: 'OpenEniJumboFrame',
+      operatingState: 'OperatingState',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      taskId: 'TaskId',
+      updateTime: 'UpdateTime',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterDescription: 'string',
+      clusterId: 'string',
+      clusterName: 'string',
+      clusterType: 'string',
+      components: { 'type': 'array', 'itemType': DescribeClusterResponseBodyComponents },
+      computingIpVersion: 'string',
+      createTime: 'string',
+      hpnZone: 'string',
+      networks: { 'type': 'array', 'itemType': DescribeClusterResponseBodyNetworks },
+      nodeCount: 'number',
+      nodeGroupCount: 'number',
+      openEniJumboFrame: 'string',
+      operatingState: 'string',
+      requestId: 'string',
+      resourceGroupId: 'string',
+      taskId: 'string',
+      updateTime: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.components)) {
+      $dara.Model.validateArray(this.components);
+    }
+    if(Array.isArray(this.networks)) {
+      $dara.Model.validateArray(this.networks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeClusterResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInvocationsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Sets the encoding method for the `CommandContent` and `Output` fields in the returned data. Possible values:
+   * 
+   * - PlainText: Returns the original command content and output information.
+   * - Base64: Returns the Base64-encoded command content and output information.
+   * 
+   * Default value: Base64.
+   * 
+   * @example
+   * PlainText
+   */
+  contentEncoding?: string;
+  /**
+   * @remarks
+   * Indicates whether to return the output information of the command execution in the result.
+   * 
+   * - true: Return. In this case, you must specify at least the `InvokeId` or `InstanceId` parameter.
+   * - false: Do not return.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
+  includeOutput?: boolean;
+  /**
+   * @remarks
+   * Command execution ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t-cd03crwys0lrls0
+   */
+  invokeId?: string;
+  /**
+   * @remarks
+   * Instance ID
+   * 
+   * @example
+   * e01-cn-zvp2tgykr08
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentEncoding: 'ContentEncoding',
+      includeOutput: 'IncludeOutput',
+      invokeId: 'InvokeId',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentEncoding: 'string',
+      includeOutput: 'boolean',
+      invokeId: 'string',
+      nodeId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInvocationsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Script execution record object.
+   */
+  invocations?: DescribeInvocationsResponseBodyInvocations;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      invocations: 'Invocations',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invocations: DescribeInvocationsResponseBodyInvocations,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.invocations && typeof (this.invocations as any).validate === 'function') {
+      (this.invocations as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInvocationsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInvocationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInvocationsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNodeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Node ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mock-sn-2060
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNodeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i116913051662373010974
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Cluster name
+   * 
+   * @example
+   * Standard_Cluster
+   */
+  clusterName?: string;
+  /**
+   * @remarks
+   * Creation time
+   * 
+   * @example
+   * 2022-09-30T03:35:53Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Expiration time
+   * 
+   * @example
+   * 2022-06-23T16:00:00Z
+   */
+  expiredTime?: string;
+  /**
+   * @remarks
+   * Hostname
+   * 
+   * @example
+   * 31d38530-241e-11ed-bc63-acde48001122
+   */
+  hostname?: string;
+  /**
+   * @remarks
+   * Cluster number
+   * 
+   * @example
+   * A1
+   */
+  hpnZone?: string;
+  /**
+   * @remarks
+   * Image ID
+   * 
+   * @example
+   * i190297201634099844192
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * Image name
+   * 
+   * @example
+   * Centos7.9_all_0811
+   */
+  imageName?: string;
+  /**
+   * @remarks
+   * Machine type
+   * 
+   * @example
+   * efg1.nvga1
+   */
+  machineType?: string;
+  /**
+   * @remarks
+   * Network information
+   */
+  networks?: DescribeNodeResponseBodyNetworks[];
+  /**
+   * @remarks
+   * Node group ID
+   * 
+   * @example
+   * ng-ec3c96ff0aa4c60d
+   */
+  nodeGroupId?: string;
+  /**
+   * @remarks
+   * Node group name
+   * 
+   * @example
+   * emr-default
+   */
+  nodeGroupName?: string;
+  /**
+   * @remarks
+   * Node ID
+   * 
+   * @example
+   * e01-cn-zvp2tgykr08
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * Node status
+   * 
+   * @example
+   * Using
+   */
+  operatingState?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * AC4F0004-7BCE-52E0-891B-CAC7D64E3368
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * 资源组ID
+   * 
+   * @example
+   * rg-acfmywpvugkh7kq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Unique machine identifier
+   * 
+   * @example
+   * sag42ckf4jx
+   */
+  sn?: string;
+  /**
+   * @remarks
+   * Zone ID
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      createTime: 'CreateTime',
+      expiredTime: 'ExpiredTime',
+      hostname: 'Hostname',
+      hpnZone: 'HpnZone',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      machineType: 'MachineType',
+      networks: 'Networks',
+      nodeGroupId: 'NodeGroupId',
+      nodeGroupName: 'NodeGroupName',
+      nodeId: 'NodeId',
+      operatingState: 'OperatingState',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      sn: 'Sn',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterName: 'string',
+      createTime: 'string',
+      expiredTime: 'string',
+      hostname: 'string',
+      hpnZone: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      machineType: 'string',
+      networks: { 'type': 'array', 'itemType': DescribeNodeResponseBodyNetworks },
+      nodeGroupId: 'string',
+      nodeGroupName: 'string',
+      nodeId: 'string',
+      operatingState: 'string',
+      requestId: 'string',
+      resourceGroupId: 'string',
+      sn: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.networks)) {
+      $dara.Model.validateArray(this.networks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNodeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNodeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter the returned results based on Chinese, English, and Japanese. For more information, see RFC7231. Valid values:
+   * 
+   * zh-CN
+   * en-US
+   * Default value: zh-CN
+   * 
+   * @example
+   * zh-CN
+   */
+  acceptLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of region information.
+   */
+  regions?: DescribeRegionsResponseBodyRegions[];
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 1D2FBB36-C39B-5EBB-9928-FCC1A236D65D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRegionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSendFileResultsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Command execution ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t-bj038i0d6r8zoqo
+   */
+  invokeId?: string;
+  /**
+   * @remarks
+   * Node ID
+   * 
+   * @example
+   * e01-cn-zvp2tgykr08
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      invokeId: 'InvokeId',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invokeId: 'string',
+      nodeId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSendFileResultsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Record of file distribution.
+   */
+  invocations?: DescribeSendFileResultsResponseBodyInvocations;
+  /**
+   * @remarks
+   * ID of the request
+   * 
+   * @example
+   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Total number of commands.
+   * 
+   * @example
+   * 1
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      invocations: 'Invocations',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invocations: DescribeSendFileResultsResponseBodyInvocations,
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  validate() {
+    if(this.invocations && typeof (this.invocations as any).validate === 'function') {
+      (this.invocations as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSendFileResultsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSendFileResultsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSendFileResultsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Task ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i156331731670384438138
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i119982311660892626523
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Cluster Name
+   * 
+   * @example
+   * Standard_Cluster
+   */
+  clusterName?: string;
+  /**
+   * @remarks
+   * Start Time
+   * 
+   * @example
+   * 2022-11-30T02:00:00.852Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Task Failure Message
+   * 
+   * @example
+   * Releasing [prod_main_mid_26e234cf] in region [cn-beijing] with weight [0]
+   */
+  message?: string;
+  /**
+   * @remarks
+   * List of node IDs
+   */
+  nodeIds?: string[];
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * A7FD7411-9395-52E8-AF42-EB3A4A55446D
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Execution Steps
+   */
+  steps?: DescribeTaskResponseBodySteps[];
+  /**
+   * @remarks
+   * Task State
+   * 
+   * @example
+   * running
+   */
+  taskState?: string;
+  /**
+   * @remarks
+   * Task Type
+   * 
+   * @example
+   * cut_cluster
+   */
+  taskType?: string;
+  /**
+   * @remarks
+   * Update Time
+   * 
+   * @example
+   * 2022-11-30T03:40:14.852Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      createTime: 'CreateTime',
+      message: 'Message',
+      nodeIds: 'NodeIds',
+      requestId: 'RequestId',
+      steps: 'Steps',
+      taskState: 'TaskState',
+      taskType: 'TaskType',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterName: 'string',
+      createTime: 'string',
+      message: 'string',
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      steps: { 'type': 'array', 'itemType': DescribeTaskResponseBodySteps },
+      taskState: 'string',
+      taskType: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeIds)) {
+      $dara.Model.validateArray(this.nodeIds);
+    }
+    if(Array.isArray(this.steps)) {
+      $dara.Model.validateArray(this.steps);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeZonesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter the returned results based on Chinese or English. For more information, see RFC7231. Valid values:
+   * 
+   * zh-CN
+   * en-US
+   * Default value: zh-CN
+   * 
+   * @example
+   * zh-CN
+   */
+  acceptLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeZonesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * E9116F2D-82F8-501E-9ADB-2BE0C02B6A84
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * List of available zones
+   */
+  zones?: DescribeZonesResponseBodyZones[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      zones: 'Zones',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      zones: { 'type': 'array', 'itemType': DescribeZonesResponseBodyZones },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.zones)) {
+      $dara.Model.validateArray(this.zones);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeZonesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeZonesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeZonesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtendClusterRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i15b480fbd2fcdbc2869cd80
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
+   * @example
+   * False
+   */
+  ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * IP allocation policy combination: Each policy can only choose one type, and multiple policies can be combined
+   */
+  ipAllocationPolicy?: ExtendClusterRequestIpAllocationPolicy[];
+  /**
+   * @remarks
+   * Node Group
+   */
+  nodeGroups?: ExtendClusterRequestNodeGroups[];
+  /**
+   * @remarks
+   * VSwitch availability zone ID
+   * 
+   * @example
+   * cn-shanghai-b
+   */
+  vSwitchZoneId?: string;
+  /**
+   * @remarks
+   * List of cluster subnets
+   */
+  vpdSubnets?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      ipAllocationPolicy: 'IpAllocationPolicy',
+      nodeGroups: 'NodeGroups',
+      vSwitchZoneId: 'VSwitchZoneId',
+      vpdSubnets: 'VpdSubnets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      ignoreFailedNodeTasks: 'boolean',
+      ipAllocationPolicy: { 'type': 'array', 'itemType': ExtendClusterRequestIpAllocationPolicy },
+      nodeGroups: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroups },
+      vSwitchZoneId: 'string',
+      vpdSubnets: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipAllocationPolicy)) {
+      $dara.Model.validateArray(this.ipAllocationPolicy);
+    }
+    if(Array.isArray(this.nodeGroups)) {
+      $dara.Model.validateArray(this.nodeGroups);
+    }
+    if(Array.isArray(this.vpdSubnets)) {
+      $dara.Model.validateArray(this.vpdSubnets);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtendClusterShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i15b480fbd2fcdbc2869cd80
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
+   * @example
+   * False
+   */
+  ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * IP allocation policy combination: Each policy can only choose one type, and multiple policies can be combined
+   */
+  ipAllocationPolicyShrink?: string;
+  /**
+   * @remarks
+   * Node Group
+   */
+  nodeGroupsShrink?: string;
+  /**
+   * @remarks
+   * VSwitch availability zone ID
+   * 
+   * @example
+   * cn-shanghai-b
+   */
+  vSwitchZoneId?: string;
+  /**
+   * @remarks
+   * List of cluster subnets
+   */
+  vpdSubnetsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      ipAllocationPolicyShrink: 'IpAllocationPolicy',
+      nodeGroupsShrink: 'NodeGroups',
+      vSwitchZoneId: 'VSwitchZoneId',
+      vpdSubnetsShrink: 'VpdSubnets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      ignoreFailedNodeTasks: 'boolean',
+      ipAllocationPolicyShrink: 'string',
+      nodeGroupsShrink: 'string',
+      vSwitchZoneId: 'string',
+      vpdSubnetsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtendClusterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 03668372-18FF-5959-98D9-6B36A4643C7A
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Task ID
+   * 
+   * @example
+   * i158475611663639202234
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtendClusterResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExtendClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExtendClusterResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterNodesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i15b480fbd2fcdbc2869cd80
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Number of items per page in a paginated query, with a default value of 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * Query token (Token), which is the value of the NextToken parameter returned by the previous API call.
+   * 
+   * @example
+   * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Node group ID
+   * 
+   * @example
+   * ng-ec3c96ff0aa4c60d
+   */
+  nodeGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      nodeGroupId: 'NodeGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      nodeGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterNodesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The query token value returned by this call.
+   * 
+   * @example
+   * AAAAAXW/ZB9TBvH+0ZK0phtCibQgQmu1RbqplAI6Velo2OKR
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * List of nodes
+   */
+  nodes?: ListClusterNodesResponseBodyNodes[];
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 2BA76272-6608-5AEC-BBA8-B6F0D3D14CDB
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      nodes: 'Nodes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      nodes: { 'type': 'array', 'itemType': ListClusterNodesResponseBodyNodes },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodes)) {
+      $dara.Model.validateArray(this.nodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterNodesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListClusterNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListClusterNodesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Number of items per page for paginated queries, with a default value of 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * Query token, which is the value of the NextToken parameter returned by the previous API call.
+   * 
+   * @example
+   * a3f2224a5ec7224116c4f5246120abe4
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Resource group ID
+   * 
+   * @example
+   * rg-aek2bg6wyoox6jq
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster information
+   */
+  clusters?: ListClustersResponseBodyClusters[];
+  /**
+   * @remarks
+   * The query token value returned by this call.
+   * 
+   * @example
+   * f4f9a292c17072a2
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 2FE2B22C-CF9D-59DE-BF63-DC9B9B33A9D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusters: 'Clusters',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusters: { 'type': 'array', 'itemType': ListClustersResponseBodyClusters },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.clusters)) {
+      $dara.Model.validateArray(this.clusters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListClustersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListClustersResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFreeNodesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster number
+   * 
+   * @example
+   * A1
+   */
+  hpnZone?: string;
+  /**
+   * @remarks
+   * Machine type
+   * 
+   * @example
+   * mock-machine-type2
+   */
+  machineType?: string;
+  /**
+   * @remarks
+   * Number of items per page for paginated queries, default is 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * Query token (Token), the value should be the NextToken parameter value returned from the previous API call.
+   * 
+   * @example
+   * a3f2224a5ec7224116c4f5246120abe4
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Resource group ID
+   * 
+   * @example
+   * rg-acfmxno4vh5muoq
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hpnZone: 'HpnZone',
+      machineType: 'MachineType',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hpnZone: 'string',
+      machineType: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFreeNodesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The query token value returned by this call.
+   * 
+   * @example
+   * a3f2224a5ec7224116c4f5246120abe4
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * List of nodes
+   */
+  nodes?: ListFreeNodesResponseBodyNodes[];
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * AA14CB86-70C4-5CB7-9E7B-6CCA77F3512B
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      nodes: 'Nodes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      nodes: { 'type': 'array', 'itemType': ListFreeNodesResponseBodyNodes },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodes)) {
+      $dara.Model.validateArray(this.nodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFreeNodesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFreeNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListFreeNodesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineTypesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Machine name
+   * 
+   * @example
+   * efg1.nvga1
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineTypesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the machine types
+   */
+  machineTypes?: ListMachineTypesResponseBodyMachineTypes[];
+  /**
+   * @remarks
+   * NextToken for the next page, include this value when requesting the next page
+   * 
+   * @example
+   * a3f2224a5ec7224116c4f5246120abe4
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F16BA4D8-FF50-53B6-A026-F443FE31006C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      machineTypes: 'MachineTypes',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      machineTypes: { 'type': 'array', 'itemType': ListMachineTypesResponseBodyMachineTypes },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.machineTypes)) {
+      $dara.Model.validateArray(this.machineTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineTypesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMachineTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMachineTypesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeGroupsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i119982311660892626523
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Number of items per page in a paginated query. The maximum value is 100.
+   * 
+   * Default value:
+   * 
+   * - If no value is set or the set value is less than 20, the default value is 20.
+   * - If the set value is greater than 100, the default value is 100.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * NextToken for the next page, include this value when requesting the next page
+   * 
+   * @example
+   * a3f2224a5ec7224116c4f5246120abe4
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Node group ID
+   * 
+   * @example
+   * ng-ec3c96ff0aa4c60d
+   */
+  nodeGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      nodeGroupId: 'NodeGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      nodeGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster group information
+   */
+  groups?: ListNodeGroupsResponseBodyGroups[];
+  /**
+   * @remarks
+   * NextToken for the next page, include this value when requesting the next page
+   * 
+   * @example
+   * 563d42ae0b17572449ec8c97f7f66069
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * ID of the request
+   * 
+   * @example
+   * 887FA855-89F4-5DB3-B305-C5879EC480E6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groups: 'Groups',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groups: { 'type': 'array', 'itemType': ListNodeGroupsResponseBodyGroups },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.groups)) {
+      $dara.Model.validateArray(this.groups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeGroupsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNodeGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNodeGroupsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Query token (Token), the value should be the NextToken returned from the previous API call
+   * 
+   * @example
+   * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Region ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * List of resource IDs
+   * 
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * Resource type
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Node
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * List of tags
+   */
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * NextToken for the next page, include this returned value when requesting the next page
+   * 
+   * @example
+   * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 8F208B6D-4C42-5FD3-B6BE-E826E92A44DD
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Tagged resources.
+   */
+  tagResources?: ListTagResourcesResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: ListTagResourcesResponseBodyTagResources,
+    };
+  }
+
+  validate() {
+    if(this.tagResources && typeof (this.tagResources as any).validate === 'function') {
+      (this.tagResources as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootNodesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i15b480fbd2fcdbc2869cd80
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
+   * @example
+   * False
+   */
+  ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * List of nodes
+   */
+  nodes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      ignoreFailedNodeTasks: 'boolean',
+      nodes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodes)) {
+      $dara.Model.validateArray(this.nodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootNodesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i15b480fbd2fcdbc2869cd80
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
+   * @example
+   * False
+   */
+  ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * List of nodes
+   */
+  nodesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      nodesShrink: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      ignoreFailedNodeTasks: 'boolean',
+      nodesShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootNodesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Task Id
+   * 
+   * @example
+   * i158475611663639202234
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootNodesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RebootNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RebootNodesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReimageNodesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i15dfa12e8f27c44f4a006c2c8bb
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
+   * @example
+   * False
+   */
+  ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * Node list
+   */
+  nodes?: ReimageNodesRequestNodes[];
+  /**
+   * @remarks
+   * Custom data
+   * 
+   * @example
+   * #!/bin/sh
+   * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      nodes: 'Nodes',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      ignoreFailedNodeTasks: 'boolean',
+      nodes: { 'type': 'array', 'itemType': ReimageNodesRequestNodes },
+      userData: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodes)) {
+      $dara.Model.validateArray(this.nodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReimageNodesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i15dfa12e8f27c44f4a006c2c8bb
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
+   * @example
+   * False
+   */
+  ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * Node list
+   */
+  nodesShrink?: string;
+  /**
+   * @remarks
+   * Custom data
+   * 
+   * @example
+   * #!/bin/sh
+   * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      nodesShrink: 'Nodes',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      ignoreFailedNodeTasks: 'boolean',
+      nodesShrink: 'string',
+      userData: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReimageNodesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 15FBCD9B-C93F-54E8-A168-AADE7E66DAD2
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Task ID
+   * 
+   * @example
+   * i158782151663841517926
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReimageNodesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReimageNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReimageNodesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommandRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Ensures idempotence of the request. Generate a unique parameter value from your client to ensure that the value is unique across different requests. 
+   * ClientToken supports only ASCII characters and cannot exceed 64 characters. For more information, see How to Ensure Idempotence.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Command content. Please note the following:
+   * 
+   * - Specify `EnableParameter=true` to enable custom parameters in the command content.
+   * - Define custom parameters using the {{}} format; spaces and newlines within `{{}}` will be ignored.
+   * - The number of custom parameters cannot exceed 20.
+   * - Custom parameter names can only contain a-zA-Z0-9-_, and are case-insensitive.
+   * - A single custom parameter name cannot exceed 64 bytes.
+   * 
+   * @example
+   * ZWNobyAxMjM=
+   */
+  commandContent?: string;
+  /**
+   * @remarks
+   * Command ID
+   * 
+   * @example
+   * c-e996287206324975b5fbe1d***
+   */
+  commandId?: string;
+  /**
+   * @remarks
+   * Encoding method for the script content. Valid values:
+   * 
+   * - PlainText: No encoding, transmitted in plain text.
+   * - Base64: Base64 encoding.
+   * 
+   * Default value: PlainText. If an invalid value is provided, it will be treated as PlainText.
+   * 
+   * @example
+   * Base64
+   */
+  contentEncoding?: string;
+  /**
+   * @remarks
+   * Command description.
+   * 
+   * @example
+   * testDescription
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Whether the command contains custom parameters.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  enableParameter?: boolean;
+  /**
+   * @remarks
+   * Execution time for scheduled commands. Currently, three types of scheduling methods are supported: fixed interval (based on Rate expression), one-time execution at a specific time, and clock-based scheduling (based on Cron expression).
+   * 
+   * Fixed interval execution: Based on the Rate expression, the command is executed at the set interval. The interval can be set in seconds (s), minutes (m), hours (h), and days (d), suitable for scenarios where tasks need to be executed at fixed intervals. The format is rate(<interval value><interval unit>), such as rate(5m) for every 5 minutes. The following restrictions apply to fixed interval execution:
+   * - The interval should not exceed 7 days and should be no less than 60 seconds, and it must be greater than the timeout of the scheduled task.
+   * - The interval is based on a fixed frequency and is independent of the actual execution time of the task. For example, if the command is set to execute every 5 minutes and the task takes 2 minutes to complete, the next round will start 3 minutes after the completion of the task.
+   * - The task will not be executed immediately upon creation. For example, if the command is set to execute every 5 minutes, it will not be executed immediately upon creation but will start 5 minutes after the task is created.
+   * One-time execution at a specific time: Executes the command once at the specified time and timezone. The format is at(yyyy-MM-dd HH:mm:ss <timezone>), which is at(year-month-day hour:minute:second <timezone>). If no timezone is specified, UTC is used by default. Timezones support the following three formats:
+   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
+   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
+   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
+   * 
+   * For example, to execute once at 13:15:30 on June 6, 2022, in Shanghai, China, the format would be: at(2022-06-06 13:15:30 Asia/Shanghai); to execute once at 13:15:30 on June 6, 2022, in the GMT-7:00 timezone, the format would be: at(2022-06-06 13:15:30 GMT-7:00).
+   * 
+   * Clock-based scheduling (based on Cron expression): Based on the Cron expression, the command is executed according to the set schedule. The format is <second> <minute> <hour> <day> <month> <weekday> <year (optional)> <timezone>, i.e., <Cron expression> <timezone>. In the specified timezone, the scheduled task execution time is calculated based on the Cron expression and then executed. If no timezone is specified, the system\\"s internal timezone of the instance running the scheduled task is used by default. For more information about Cron expressions, see Cron Expressions. Timezones support the following three formats:
+   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
+   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
+   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
+   * 
+   * For example, to execute the command at 10:15 AM every day in 2022 in Shanghai, China, the format would be 0 15 10 ? * * 2022 Asia/Shanghai; to execute the command every 30 minutes between 10:00 AM and 11:30 AM every day in 2022 in the GMT+8:00 timezone, the format would be 0 0/30 10-11 * * ? 2022 GMT+8:00; to execute the command every 5 minutes between 2:00 PM and 2:55 PM every day in October every two years starting from 2022 in UTC, the format would be 0 0/5 14 * 10 ? 2022/2 UTC.
+   */
+  frequency?: string;
+  /**
+   * @remarks
+   * Bootstrap for script execution. The length must not exceed 1 KB.
+   * 
+   * @example
+   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+   */
+  launcher?: string;
+  /**
+   * @remarks
+   * Command name.
+   * 
+   * @example
+   * testName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * List of nodes.
+   */
+  nodeIdList?: string[];
+  /**
+   * @remarks
+   * When the command contains custom parameters, you need to pass in key-value pairs of these custom parameters when executing the command. For example, if the command content is `echo {{name}}`, you can pass in the key-value pair `{"name":"Jack"}` through the `Parameter` parameter. The custom parameter will automatically replace the variable value `name`, resulting in a new command, which actually executes as `echo Jack`.
+   * 
+   * The number of custom parameters ranges from 0 to 10, and you should note:
+   * 
+   * - Keys cannot be empty strings and support up to 64 characters at most.
+   * - Values can be empty strings.
+   * - When combined with the original command content and Base64 encoded, if the command is saved, the size after Base64 encoding must not exceed 18 KB; if the command is not saved, the size after Base64 encoding must not exceed 24 KB. You can set whether to keep the command via `KeepCommand`.
+   * - The set of custom parameter names must be a subset of the parameter set defined during command creation. For parameters that are not passed in, you can use an empty string as a substitute.
+   * 
+   * The default value is empty, indicating that the parameter is not set, thus disabling custom parameters.
+   * 
+   * @example
+   * {"name":"Jack", "accessKey":"LTAIdyvdIqaRY****"}
+   */
+  parameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * Set the command execution mode. Valid values:
+   * 
+   * - Once: Execute the command immediately.
+   * - Period: Execute the command at a scheduled time. When this parameter is set to `Period`, you must also specify the `Frequency` parameter.
+   * - NextRebootOnly: Automatically execute the command when the instance starts next time.
+   * - EveryReboot: Automatically execute the command every time the instance starts.
+   * 
+   * Default value:
+   * - If the `Frequency` parameter is not specified, the default value is `Once`.
+   * - If the `Frequency` parameter is specified, regardless of whether this parameter is already set, it will be processed as `Period`.
+   * 
+   * @example
+   * Once
+   */
+  repeatMode?: string;
+  /**
+   * @remarks
+   * The mode when stopping a task (manually or due to execution timeout). Possible values:
+   * Process: Stops the current script process. ProcessTree: Stops the current process tree (a collection of the script process and all its child processes).
+   * 
+   * @example
+   * ProcessTree
+   */
+  terminationMode?: string;
+  /**
+   * @remarks
+   * Timeout for executing the command, in seconds. If the command cannot run due to process issues, missing modules, or the absence of the Cloud Assistant Agent, a timeout will occur. After a timeout, the command process will be forcibly terminated. Default value: 60.
+   * 
+   * @example
+   * 3600
+   */
+  timeout?: number;
+  /**
+   * @remarks
+   * The username to execute the command in the instance. The length must not exceed 255 characters.
+   *     For Linux systems, the command is executed by the root user by default.
+   * 
+   * @example
+   * root
+   */
+  username?: string;
+  /**
+   * @remarks
+   * You can customize the execution path of the command. The default paths are as follows:
+   * 
+   * - Linux instances: The default execution path is under the /home directory of the root user.
+   * 
+   * @example
+   * /home/user
+   */
+  workingDir?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      commandContent: 'CommandContent',
+      commandId: 'CommandId',
+      contentEncoding: 'ContentEncoding',
+      description: 'Description',
+      enableParameter: 'EnableParameter',
+      frequency: 'Frequency',
+      launcher: 'Launcher',
+      name: 'Name',
+      nodeIdList: 'NodeIdList',
+      parameters: 'Parameters',
+      repeatMode: 'RepeatMode',
+      terminationMode: 'TerminationMode',
+      timeout: 'Timeout',
+      username: 'Username',
+      workingDir: 'WorkingDir',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      commandContent: 'string',
+      commandId: 'string',
+      contentEncoding: 'string',
+      description: 'string',
+      enableParameter: 'boolean',
+      frequency: 'string',
+      launcher: 'string',
+      name: 'string',
+      nodeIdList: { 'type': 'array', 'itemType': 'string' },
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      repeatMode: 'string',
+      terminationMode: 'string',
+      timeout: 'number',
+      username: 'string',
+      workingDir: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeIdList)) {
+      $dara.Model.validateArray(this.nodeIdList);
+    }
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommandShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Ensures idempotence of the request. Generate a unique parameter value from your client to ensure that the value is unique across different requests. 
+   * ClientToken supports only ASCII characters and cannot exceed 64 characters. For more information, see How to Ensure Idempotence.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Command content. Please note the following:
+   * 
+   * - Specify `EnableParameter=true` to enable custom parameters in the command content.
+   * - Define custom parameters using the {{}} format; spaces and newlines within `{{}}` will be ignored.
+   * - The number of custom parameters cannot exceed 20.
+   * - Custom parameter names can only contain a-zA-Z0-9-_, and are case-insensitive.
+   * - A single custom parameter name cannot exceed 64 bytes.
+   * 
+   * @example
+   * ZWNobyAxMjM=
+   */
+  commandContent?: string;
+  /**
+   * @remarks
+   * Command ID
+   * 
+   * @example
+   * c-e996287206324975b5fbe1d***
+   */
+  commandId?: string;
+  /**
+   * @remarks
+   * Encoding method for the script content. Valid values:
+   * 
+   * - PlainText: No encoding, transmitted in plain text.
+   * - Base64: Base64 encoding.
+   * 
+   * Default value: PlainText. If an invalid value is provided, it will be treated as PlainText.
+   * 
+   * @example
+   * Base64
+   */
+  contentEncoding?: string;
+  /**
+   * @remarks
+   * Command description.
+   * 
+   * @example
+   * testDescription
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Whether the command contains custom parameters.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  enableParameter?: boolean;
+  /**
+   * @remarks
+   * Execution time for scheduled commands. Currently, three types of scheduling methods are supported: fixed interval (based on Rate expression), one-time execution at a specific time, and clock-based scheduling (based on Cron expression).
+   * 
+   * Fixed interval execution: Based on the Rate expression, the command is executed at the set interval. The interval can be set in seconds (s), minutes (m), hours (h), and days (d), suitable for scenarios where tasks need to be executed at fixed intervals. The format is rate(<interval value><interval unit>), such as rate(5m) for every 5 minutes. The following restrictions apply to fixed interval execution:
+   * - The interval should not exceed 7 days and should be no less than 60 seconds, and it must be greater than the timeout of the scheduled task.
+   * - The interval is based on a fixed frequency and is independent of the actual execution time of the task. For example, if the command is set to execute every 5 minutes and the task takes 2 minutes to complete, the next round will start 3 minutes after the completion of the task.
+   * - The task will not be executed immediately upon creation. For example, if the command is set to execute every 5 minutes, it will not be executed immediately upon creation but will start 5 minutes after the task is created.
+   * One-time execution at a specific time: Executes the command once at the specified time and timezone. The format is at(yyyy-MM-dd HH:mm:ss <timezone>), which is at(year-month-day hour:minute:second <timezone>). If no timezone is specified, UTC is used by default. Timezones support the following three formats:
+   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
+   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
+   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
+   * 
+   * For example, to execute once at 13:15:30 on June 6, 2022, in Shanghai, China, the format would be: at(2022-06-06 13:15:30 Asia/Shanghai); to execute once at 13:15:30 on June 6, 2022, in the GMT-7:00 timezone, the format would be: at(2022-06-06 13:15:30 GMT-7:00).
+   * 
+   * Clock-based scheduling (based on Cron expression): Based on the Cron expression, the command is executed according to the set schedule. The format is <second> <minute> <hour> <day> <month> <weekday> <year (optional)> <timezone>, i.e., <Cron expression> <timezone>. In the specified timezone, the scheduled task execution time is calculated based on the Cron expression and then executed. If no timezone is specified, the system\\"s internal timezone of the instance running the scheduled task is used by default. For more information about Cron expressions, see Cron Expressions. Timezones support the following three formats:
+   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
+   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
+   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
+   * 
+   * For example, to execute the command at 10:15 AM every day in 2022 in Shanghai, China, the format would be 0 15 10 ? * * 2022 Asia/Shanghai; to execute the command every 30 minutes between 10:00 AM and 11:30 AM every day in 2022 in the GMT+8:00 timezone, the format would be 0 0/30 10-11 * * ? 2022 GMT+8:00; to execute the command every 5 minutes between 2:00 PM and 2:55 PM every day in October every two years starting from 2022 in UTC, the format would be 0 0/5 14 * 10 ? 2022/2 UTC.
+   */
+  frequency?: string;
+  /**
+   * @remarks
+   * Bootstrap for script execution. The length must not exceed 1 KB.
+   * 
+   * @example
+   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+   */
+  launcher?: string;
+  /**
+   * @remarks
+   * Command name.
+   * 
+   * @example
+   * testName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * List of nodes.
+   */
+  nodeIdListShrink?: string;
+  /**
+   * @remarks
+   * When the command contains custom parameters, you need to pass in key-value pairs of these custom parameters when executing the command. For example, if the command content is `echo {{name}}`, you can pass in the key-value pair `{"name":"Jack"}` through the `Parameter` parameter. The custom parameter will automatically replace the variable value `name`, resulting in a new command, which actually executes as `echo Jack`.
+   * 
+   * The number of custom parameters ranges from 0 to 10, and you should note:
+   * 
+   * - Keys cannot be empty strings and support up to 64 characters at most.
+   * - Values can be empty strings.
+   * - When combined with the original command content and Base64 encoded, if the command is saved, the size after Base64 encoding must not exceed 18 KB; if the command is not saved, the size after Base64 encoding must not exceed 24 KB. You can set whether to keep the command via `KeepCommand`.
+   * - The set of custom parameter names must be a subset of the parameter set defined during command creation. For parameters that are not passed in, you can use an empty string as a substitute.
+   * 
+   * The default value is empty, indicating that the parameter is not set, thus disabling custom parameters.
+   * 
+   * @example
+   * {"name":"Jack", "accessKey":"LTAIdyvdIqaRY****"}
+   */
+  parametersShrink?: string;
+  /**
+   * @remarks
+   * Set the command execution mode. Valid values:
+   * 
+   * - Once: Execute the command immediately.
+   * - Period: Execute the command at a scheduled time. When this parameter is set to `Period`, you must also specify the `Frequency` parameter.
+   * - NextRebootOnly: Automatically execute the command when the instance starts next time.
+   * - EveryReboot: Automatically execute the command every time the instance starts.
+   * 
+   * Default value:
+   * - If the `Frequency` parameter is not specified, the default value is `Once`.
+   * - If the `Frequency` parameter is specified, regardless of whether this parameter is already set, it will be processed as `Period`.
+   * 
+   * @example
+   * Once
+   */
+  repeatMode?: string;
+  /**
+   * @remarks
+   * The mode when stopping a task (manually or due to execution timeout). Possible values:
+   * Process: Stops the current script process. ProcessTree: Stops the current process tree (a collection of the script process and all its child processes).
+   * 
+   * @example
+   * ProcessTree
+   */
+  terminationMode?: string;
+  /**
+   * @remarks
+   * Timeout for executing the command, in seconds. If the command cannot run due to process issues, missing modules, or the absence of the Cloud Assistant Agent, a timeout will occur. After a timeout, the command process will be forcibly terminated. Default value: 60.
+   * 
+   * @example
+   * 3600
+   */
+  timeout?: number;
+  /**
+   * @remarks
+   * The username to execute the command in the instance. The length must not exceed 255 characters.
+   *     For Linux systems, the command is executed by the root user by default.
+   * 
+   * @example
+   * root
+   */
+  username?: string;
+  /**
+   * @remarks
+   * You can customize the execution path of the command. The default paths are as follows:
+   * 
+   * - Linux instances: The default execution path is under the /home directory of the root user.
+   * 
+   * @example
+   * /home/user
+   */
+  workingDir?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      commandContent: 'CommandContent',
+      commandId: 'CommandId',
+      contentEncoding: 'ContentEncoding',
+      description: 'Description',
+      enableParameter: 'EnableParameter',
+      frequency: 'Frequency',
+      launcher: 'Launcher',
+      name: 'Name',
+      nodeIdListShrink: 'NodeIdList',
+      parametersShrink: 'Parameters',
+      repeatMode: 'RepeatMode',
+      terminationMode: 'TerminationMode',
+      timeout: 'Timeout',
+      username: 'Username',
+      workingDir: 'WorkingDir',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      commandContent: 'string',
+      commandId: 'string',
+      contentEncoding: 'string',
+      description: 'string',
+      enableParameter: 'boolean',
+      frequency: 'string',
+      launcher: 'string',
+      name: 'string',
+      nodeIdListShrink: 'string',
+      parametersShrink: 'string',
+      repeatMode: 'string',
+      terminationMode: 'string',
+      timeout: 'number',
+      username: 'string',
+      workingDir: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommandResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * ID of the command execution.
+   * 
+   * @example
+   * t-7d2a745b412b4601b2d47f6a768d*
+   */
+  invokeId?: string;
+  /**
+   * @remarks
+   * ID of the request
+   * 
+   * @example
+   * 2FE2B22C-CF9D-59DE-BF63-DC9B9B33A9D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      invokeId: 'InvokeId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invokeId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommandResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunCommandResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunCommandResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendFileRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the file. After Base64 encoding, the size cannot exceed 32 KB.
+   * 
+   * - When the `ContentType` parameter is `PlainText`, this field is plain text.
+   * - When the `ContentType` parameter is `Base64`, this field is Base64 encoded text.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * #!/bin/bash echo "Current User is :" echo $(ps | grep "$$" | awk \\"{print $2}\\") -------- oss://bucketName/objectName
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The content type of the file.
+   * 
+   * PlainText: Plain text.
+   * Base64: Base64 encoded.
+   * The default value is PlainText.
+   * 
+   * @example
+   * PlainText
+   */
+  contentType?: string;
+  /**
+   * @remarks
+   * Description information. Supports all character sets, and the length must not exceed 512 characters.
+   * 
+   * @example
+   * This is a test file.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The group of the file. Applies only to Linux instances, and the default is root. The length must not exceed 64 characters.
+   * 
+   * Note
+   * When using other groups, ensure that the group exists in the instance.
+   * 
+   * @example
+   * test
+   */
+  fileGroup?: string;
+  /**
+   * @remarks
+   * The permissions of the file. Applies only to Linux instances, and the setting method is the same as the chmod command.
+   * 
+   * The default value is 0644, which means the user has read and write permissions, while the group and other users have read-only permissions.
+   * 
+   * @example
+   * 0644
+   */
+  fileMode?: string;
+  /**
+   * @remarks
+   * The owner of the file. Applies only to Linux instances, and the default is root.
+   * 
+   * @example
+   * root
+   */
+  fileOwner?: string;
+  /**
+   * @remarks
+   * The name of the file. Supports all character sets, and the length must not exceed 255 characters.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * file.txt
+   */
+  name?: string;
+  /**
+   * @remarks
+   * List of nodes.
+   * 
+   * This parameter is required.
+   */
+  nodeIdList?: string[];
+  /**
+   * @remarks
+   * Whether to overwrite the file if a file with the same name already exists in the target directory.
+   * - true: Overwrite.
+   * - false: Do not overwrite.
+   * 
+   * The default value is false.
+   * 
+   * @example
+   * True
+   */
+  overwrite?: boolean;
+  /**
+   * @remarks
+   * The directory in the target Lingjun node where the file will be sent. If it does not exist, it will be automatically created.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /home
+   */
+  targetDir?: string;
+  /**
+   * @remarks
+   * The timeout for sending the file. Unit: seconds.
+   * 
+   * - A timeout may occur due to process reasons, missing modules, or missing Cloud Assistant Agent.
+   * - If the set timeout is less than 10 seconds, to ensure successful delivery, the system will automatically set the timeout to 10 seconds.
+   * 
+   * The default value is 60.
+   * 
+   * @example
+   * 600
+   */
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      contentType: 'ContentType',
+      description: 'Description',
+      fileGroup: 'FileGroup',
+      fileMode: 'FileMode',
+      fileOwner: 'FileOwner',
+      name: 'Name',
+      nodeIdList: 'NodeIdList',
+      overwrite: 'Overwrite',
+      targetDir: 'TargetDir',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      contentType: 'string',
+      description: 'string',
+      fileGroup: 'string',
+      fileMode: 'string',
+      fileOwner: 'string',
+      name: 'string',
+      nodeIdList: { 'type': 'array', 'itemType': 'string' },
+      overwrite: 'boolean',
+      targetDir: 'string',
+      timeout: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeIdList)) {
+      $dara.Model.validateArray(this.nodeIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendFileShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the file. After Base64 encoding, the size cannot exceed 32 KB.
+   * 
+   * - When the `ContentType` parameter is `PlainText`, this field is plain text.
+   * - When the `ContentType` parameter is `Base64`, this field is Base64 encoded text.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * #!/bin/bash echo "Current User is :" echo $(ps | grep "$$" | awk \\"{print $2}\\") -------- oss://bucketName/objectName
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The content type of the file.
+   * 
+   * PlainText: Plain text.
+   * Base64: Base64 encoded.
+   * The default value is PlainText.
+   * 
+   * @example
+   * PlainText
+   */
+  contentType?: string;
+  /**
+   * @remarks
+   * Description information. Supports all character sets, and the length must not exceed 512 characters.
+   * 
+   * @example
+   * This is a test file.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The group of the file. Applies only to Linux instances, and the default is root. The length must not exceed 64 characters.
+   * 
+   * Note
+   * When using other groups, ensure that the group exists in the instance.
+   * 
+   * @example
+   * test
+   */
+  fileGroup?: string;
+  /**
+   * @remarks
+   * The permissions of the file. Applies only to Linux instances, and the setting method is the same as the chmod command.
+   * 
+   * The default value is 0644, which means the user has read and write permissions, while the group and other users have read-only permissions.
+   * 
+   * @example
+   * 0644
+   */
+  fileMode?: string;
+  /**
+   * @remarks
+   * The owner of the file. Applies only to Linux instances, and the default is root.
+   * 
+   * @example
+   * root
+   */
+  fileOwner?: string;
+  /**
+   * @remarks
+   * The name of the file. Supports all character sets, and the length must not exceed 255 characters.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * file.txt
+   */
+  name?: string;
+  /**
+   * @remarks
+   * List of nodes.
+   * 
+   * This parameter is required.
+   */
+  nodeIdListShrink?: string;
+  /**
+   * @remarks
+   * Whether to overwrite the file if a file with the same name already exists in the target directory.
+   * - true: Overwrite.
+   * - false: Do not overwrite.
+   * 
+   * The default value is false.
+   * 
+   * @example
+   * True
+   */
+  overwrite?: boolean;
+  /**
+   * @remarks
+   * The directory in the target Lingjun node where the file will be sent. If it does not exist, it will be automatically created.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /home
+   */
+  targetDir?: string;
+  /**
+   * @remarks
+   * The timeout for sending the file. Unit: seconds.
+   * 
+   * - A timeout may occur due to process reasons, missing modules, or missing Cloud Assistant Agent.
+   * - If the set timeout is less than 10 seconds, to ensure successful delivery, the system will automatically set the timeout to 10 seconds.
+   * 
+   * The default value is 60.
+   * 
+   * @example
+   * 600
+   */
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      contentType: 'ContentType',
+      description: 'Description',
+      fileGroup: 'FileGroup',
+      fileMode: 'FileMode',
+      fileOwner: 'FileOwner',
+      name: 'Name',
+      nodeIdListShrink: 'NodeIdList',
+      overwrite: 'Overwrite',
+      targetDir: 'TargetDir',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      contentType: 'string',
+      description: 'string',
+      fileGroup: 'string',
+      fileMode: 'string',
+      fileOwner: 'string',
+      name: 'string',
+      nodeIdListShrink: 'string',
+      overwrite: 'boolean',
+      targetDir: 'string',
+      timeout: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendFileResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Command execution ID.
+   * 
+   * @example
+   * t-hz03la52z1zkvls
+   */
+  invokeId?: string;
+  /**
+   * @remarks
+   * ID of the request
+   * 
+   * @example
+   * 3C683243-7915-57FB-9570-A2932C1C0F78
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      invokeId: 'InvokeId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invokeId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendFileResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendFileResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ShrinkClusterRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i15dfa12e8f27c44f4a006c2c8bb
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
+   * @example
+   * False
+   */
+  ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * Node group information
+   */
+  nodeGroups?: ShrinkClusterRequestNodeGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      nodeGroups: 'NodeGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      ignoreFailedNodeTasks: 'boolean',
+      nodeGroups: { 'type': 'array', 'itemType': ShrinkClusterRequestNodeGroups },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeGroups)) {
+      $dara.Model.validateArray(this.nodeGroups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ShrinkClusterShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID
+   * 
+   * @example
+   * i15dfa12e8f27c44f4a006c2c8bb
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False
+   * 
+   * @example
+   * False
+   */
+  ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * Node group information
+   */
+  nodeGroupsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      nodeGroupsShrink: 'NodeGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      ignoreFailedNodeTasks: 'boolean',
+      nodeGroupsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ShrinkClusterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * CC9FEF89-9BE5-5E03-845E-238B48D7599B
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * task id
+   * 
+   * @example
+   * i159136551662516768776
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ShrinkClusterResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ShrinkClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ShrinkClusterResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopInvocationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Command execution ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * f-hz044748dzepds0
+   */
+  invokeId?: string;
+  /**
+   * @remarks
+   * List of nodes.
+   */
+  nodeIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      invokeId: 'InvokeId',
+      nodeIdList: 'NodeIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invokeId: 'string',
+      nodeIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeIdList)) {
+      $dara.Model.validateArray(this.nodeIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopInvocationShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Command execution ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * f-hz044748dzepds0
+   */
+  invokeId?: string;
+  /**
+   * @remarks
+   * List of nodes.
+   */
+  nodeIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      invokeId: 'InvokeId',
+      nodeIdListShrink: 'NodeIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invokeId: 'string',
+      nodeIdListShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopInvocationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A7FD7411-9395-52E8-AF42-EB3A4A55446D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopInvocationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopInvocationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopInvocationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopNodesRequest extends $dara.Model {
+  /**
+   * @example
+   * False
+   */
+  ignoreFailedNodeTasks?: boolean;
+  nodes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ignoreFailedNodeTasks: 'boolean',
+      nodes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodes)) {
+      $dara.Model.validateArray(this.nodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopNodesShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * False
+   */
+  ignoreFailedNodeTasks?: boolean;
+  nodesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      nodesShrink: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ignoreFailedNodeTasks: 'boolean',
+      nodesShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopNodesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
+   */
+  requestId?: string;
+  /**
+   * @example
+   * i155847351716171893489
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopNodesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopNodesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Region ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * List of resource IDs
+   * 
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * Resource type
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Cluster
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * Tags
+   * 
+   * This parameter is required.
+   */
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * ID of the request
+   * 
+   * @example
+   * E7BB53E1-0B08-5C4E-BA66-9225548C3151
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to remove all, only effective when TagKey.N is empty. Valid values:
+   * 
+   * - True, remove all
+   * - False, do not remove all
+   * 
+   * Default is False
+   * 
+   * @example
+   * False
+   */
+  all?: boolean;
+  /**
+   * @remarks
+   * Region ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * List of resource IDs
+   * 
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * Resource type
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Cluster
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * List of tag keys
+   */
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tagKey)) {
+      $dara.Model.validateArray(this.tagKey);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * request id
+   * 
+   * @example
+   * 81F648D0-5570-5351-AE98-6F501C7E957F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -7819,7 +8979,7 @@ export class TagResourcesRequestTag extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -7828,15 +8988,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -7846,21 +9006,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ApproveOperationResponse
    */
-  async approveOperationWithOptions(request: ApproveOperationRequest, runtime: $Util.RuntimeOptions): Promise<ApproveOperationResponse> {
-    Util.validateModel(request);
+  async approveOperationWithOptions(request: ApproveOperationRequest, runtime: $dara.RuntimeOptions): Promise<ApproveOperationResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       body["NodeId"] = request.nodeId;
     }
 
-    if (!Util.isUnset(request.operationType)) {
+    if (!$dara.isNull(request.operationType)) {
       body["OperationType"] = request.operationType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ApproveOperation",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -7871,7 +9031,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ApproveOperationResponse>(await this.callApi(params, req, runtime), new ApproveOperationResponse({}));
+    return $dara.cast<ApproveOperationResponse>(await this.callApi(params, req, runtime), new ApproveOperationResponse({}));
   }
 
   /**
@@ -7881,7 +9041,7 @@ export default class Client extends OpenApi {
    * @returns ApproveOperationResponse
    */
   async approveOperation(request: ApproveOperationRequest): Promise<ApproveOperationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.approveOperationWithOptions(request, runtime);
   }
 
@@ -7892,25 +9052,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeResourceGroupResponse
    */
-  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
-    Util.validateModel(request);
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceRegionId)) {
+    if (!$dara.isNull(request.resourceRegionId)) {
       query["ResourceRegionId"] = request.resourceRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChangeResourceGroup",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -7921,7 +9081,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
   /**
@@ -7931,7 +9091,7 @@ export default class Client extends OpenApi {
    * @returns ChangeResourceGroupResponse
    */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
@@ -7942,81 +9102,81 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateClusterResponse
    */
-  async createClusterWithOptions(tmpReq: CreateClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
-    Util.validateModel(tmpReq);
+  async createClusterWithOptions(tmpReq: CreateClusterRequest, runtime: $dara.RuntimeOptions): Promise<CreateClusterResponse> {
+    tmpReq.validate();
     let request = new CreateClusterShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.components)) {
+    if (!$dara.isNull(tmpReq.components)) {
       request.componentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.components, "Components", "json");
     }
 
-    if (!Util.isUnset(tmpReq.networks)) {
+    if (!$dara.isNull(tmpReq.networks)) {
       request.networksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networks, "Networks", "json");
     }
 
-    if (!Util.isUnset(tmpReq.nimizVSwitches)) {
+    if (!$dara.isNull(tmpReq.nimizVSwitches)) {
       request.nimizVSwitchesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nimizVSwitches, "NimizVSwitches", "json");
     }
 
-    if (!Util.isUnset(tmpReq.nodeGroups)) {
+    if (!$dara.isNull(tmpReq.nodeGroups)) {
       request.nodeGroupsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeGroups, "NodeGroups", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clusterDescription)) {
+    if (!$dara.isNull(request.clusterDescription)) {
       body["ClusterDescription"] = request.clusterDescription;
     }
 
-    if (!Util.isUnset(request.clusterName)) {
+    if (!$dara.isNull(request.clusterName)) {
       body["ClusterName"] = request.clusterName;
     }
 
-    if (!Util.isUnset(request.clusterType)) {
+    if (!$dara.isNull(request.clusterType)) {
       body["ClusterType"] = request.clusterType;
     }
 
-    if (!Util.isUnset(request.componentsShrink)) {
+    if (!$dara.isNull(request.componentsShrink)) {
       body["Components"] = request.componentsShrink;
     }
 
-    if (!Util.isUnset(request.hpnZone)) {
+    if (!$dara.isNull(request.hpnZone)) {
       body["HpnZone"] = request.hpnZone;
     }
 
-    if (!Util.isUnset(request.ignoreFailedNodeTasks)) {
+    if (!$dara.isNull(request.ignoreFailedNodeTasks)) {
       body["IgnoreFailedNodeTasks"] = request.ignoreFailedNodeTasks;
     }
 
-    if (!Util.isUnset(request.networksShrink)) {
+    if (!$dara.isNull(request.networksShrink)) {
       body["Networks"] = request.networksShrink;
     }
 
-    if (!Util.isUnset(request.nimizVSwitchesShrink)) {
+    if (!$dara.isNull(request.nimizVSwitchesShrink)) {
       body["NimizVSwitches"] = request.nimizVSwitchesShrink;
     }
 
-    if (!Util.isUnset(request.nodeGroupsShrink)) {
+    if (!$dara.isNull(request.nodeGroupsShrink)) {
       body["NodeGroups"] = request.nodeGroupsShrink;
     }
 
-    if (!Util.isUnset(request.openEniJumboFrame)) {
+    if (!$dara.isNull(request.openEniJumboFrame)) {
       body["OpenEniJumboFrame"] = request.openEniJumboFrame;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateCluster",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8027,7 +9187,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
+    return $dara.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
   }
 
   /**
@@ -8037,7 +9197,7 @@ export default class Client extends OpenApi {
    * @returns CreateClusterResponse
    */
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createClusterWithOptions(request, runtime);
   }
 
@@ -8048,39 +9208,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDiagnosticTaskResponse
    */
-  async createDiagnosticTaskWithOptions(tmpReq: CreateDiagnosticTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiagnosticTaskResponse> {
-    Util.validateModel(tmpReq);
+  async createDiagnosticTaskWithOptions(tmpReq: CreateDiagnosticTaskRequest, runtime: $dara.RuntimeOptions): Promise<CreateDiagnosticTaskResponse> {
+    tmpReq.validate();
     let request = new CreateDiagnosticTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.aiJobLogInfo)) {
+    if (!$dara.isNull(tmpReq.aiJobLogInfo)) {
       request.aiJobLogInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aiJobLogInfo, "AiJobLogInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.nodeIds)) {
+    if (!$dara.isNull(tmpReq.nodeIds)) {
       request.nodeIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeIds, "NodeIds", "simple");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.aiJobLogInfoShrink)) {
+    if (!$dara.isNull(request.aiJobLogInfoShrink)) {
       body["AiJobLogInfo"] = request.aiJobLogInfoShrink;
     }
 
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.diagnosticType)) {
+    if (!$dara.isNull(request.diagnosticType)) {
       body["DiagnosticType"] = request.diagnosticType;
     }
 
-    if (!Util.isUnset(request.nodeIdsShrink)) {
+    if (!$dara.isNull(request.nodeIdsShrink)) {
       body["NodeIds"] = request.nodeIdsShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateDiagnosticTask",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8091,7 +9251,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateDiagnosticTaskResponse>(await this.callApi(params, req, runtime), new CreateDiagnosticTaskResponse({}));
+    return $dara.cast<CreateDiagnosticTaskResponse>(await this.callApi(params, req, runtime), new CreateDiagnosticTaskResponse({}));
   }
 
   /**
@@ -8101,7 +9261,7 @@ export default class Client extends OpenApi {
    * @returns CreateDiagnosticTaskResponse
    */
   async createDiagnosticTask(request: CreateDiagnosticTaskRequest): Promise<CreateDiagnosticTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createDiagnosticTaskWithOptions(request, runtime);
   }
 
@@ -8112,17 +9272,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteClusterResponse
    */
-  async deleteClusterWithOptions(request: DeleteClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
-    Util.validateModel(request);
+  async deleteClusterWithOptions(request: DeleteClusterRequest, runtime: $dara.RuntimeOptions): Promise<DeleteClusterResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteCluster",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8133,7 +9293,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
+    return $dara.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
   }
 
   /**
@@ -8143,7 +9303,7 @@ export default class Client extends OpenApi {
    * @returns DeleteClusterResponse
    */
   async deleteCluster(request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteClusterWithOptions(request, runtime);
   }
 
@@ -8154,17 +9314,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeClusterResponse
    */
-  async describeClusterWithOptions(request: DescribeClusterRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterResponse> {
-    Util.validateModel(request);
+  async describeClusterWithOptions(request: DescribeClusterRequest, runtime: $dara.RuntimeOptions): Promise<DescribeClusterResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeCluster",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8175,7 +9335,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeClusterResponse>(await this.callApi(params, req, runtime), new DescribeClusterResponse({}));
+    return $dara.cast<DescribeClusterResponse>(await this.callApi(params, req, runtime), new DescribeClusterResponse({}));
   }
 
   /**
@@ -8185,7 +9345,7 @@ export default class Client extends OpenApi {
    * @returns DescribeClusterResponse
    */
   async describeCluster(request: DescribeClusterRequest): Promise<DescribeClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeClusterWithOptions(request, runtime);
   }
 
@@ -8196,29 +9356,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInvocationsResponse
    */
-  async describeInvocationsWithOptions(request: DescribeInvocationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInvocationsResponse> {
-    Util.validateModel(request);
+  async describeInvocationsWithOptions(request: DescribeInvocationsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInvocationsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.contentEncoding)) {
+    if (!$dara.isNull(request.contentEncoding)) {
       body["ContentEncoding"] = request.contentEncoding;
     }
 
-    if (!Util.isUnset(request.includeOutput)) {
+    if (!$dara.isNull(request.includeOutput)) {
       body["IncludeOutput"] = request.includeOutput;
     }
 
-    if (!Util.isUnset(request.invokeId)) {
+    if (!$dara.isNull(request.invokeId)) {
       body["InvokeId"] = request.invokeId;
     }
 
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       body["NodeId"] = request.nodeId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeInvocations",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8229,7 +9389,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeInvocationsResponse>(await this.callApi(params, req, runtime), new DescribeInvocationsResponse({}));
+    return $dara.cast<DescribeInvocationsResponse>(await this.callApi(params, req, runtime), new DescribeInvocationsResponse({}));
   }
 
   /**
@@ -8239,7 +9399,7 @@ export default class Client extends OpenApi {
    * @returns DescribeInvocationsResponse
    */
   async describeInvocations(request: DescribeInvocationsRequest): Promise<DescribeInvocationsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInvocationsWithOptions(request, runtime);
   }
 
@@ -8250,17 +9410,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeNodeResponse
    */
-  async describeNodeWithOptions(request: DescribeNodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNodeResponse> {
-    Util.validateModel(request);
+  async describeNodeWithOptions(request: DescribeNodeRequest, runtime: $dara.RuntimeOptions): Promise<DescribeNodeResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       body["NodeId"] = request.nodeId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeNode",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8271,7 +9431,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNodeResponse>(await this.callApi(params, req, runtime), new DescribeNodeResponse({}));
+    return $dara.cast<DescribeNodeResponse>(await this.callApi(params, req, runtime), new DescribeNodeResponse({}));
   }
 
   /**
@@ -8281,7 +9441,7 @@ export default class Client extends OpenApi {
    * @returns DescribeNodeResponse
    */
   async describeNode(request: DescribeNodeRequest): Promise<DescribeNodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeNodeWithOptions(request, runtime);
   }
 
@@ -8292,17 +9452,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.acceptLanguage)) {
+    if (!$dara.isNull(request.acceptLanguage)) {
       body["AcceptLanguage"] = request.acceptLanguage;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRegions",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8313,7 +9473,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   /**
@@ -8323,7 +9483,7 @@ export default class Client extends OpenApi {
    * @returns DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
@@ -8334,21 +9494,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSendFileResultsResponse
    */
-  async describeSendFileResultsWithOptions(request: DescribeSendFileResultsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSendFileResultsResponse> {
-    Util.validateModel(request);
+  async describeSendFileResultsWithOptions(request: DescribeSendFileResultsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSendFileResultsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.invokeId)) {
+    if (!$dara.isNull(request.invokeId)) {
       body["InvokeId"] = request.invokeId;
     }
 
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       body["NodeId"] = request.nodeId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeSendFileResults",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8359,7 +9519,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSendFileResultsResponse>(await this.callApi(params, req, runtime), new DescribeSendFileResultsResponse({}));
+    return $dara.cast<DescribeSendFileResultsResponse>(await this.callApi(params, req, runtime), new DescribeSendFileResultsResponse({}));
   }
 
   /**
@@ -8369,7 +9529,7 @@ export default class Client extends OpenApi {
    * @returns DescribeSendFileResultsResponse
    */
   async describeSendFileResults(request: DescribeSendFileResultsRequest): Promise<DescribeSendFileResultsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSendFileResultsWithOptions(request, runtime);
   }
 
@@ -8380,17 +9540,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTaskResponse
    */
-  async describeTaskWithOptions(request: DescribeTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTaskResponse> {
-    Util.validateModel(request);
+  async describeTaskWithOptions(request: DescribeTaskRequest, runtime: $dara.RuntimeOptions): Promise<DescribeTaskResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeTask",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8401,7 +9561,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeTaskResponse>(await this.callApi(params, req, runtime), new DescribeTaskResponse({}));
+    return $dara.cast<DescribeTaskResponse>(await this.callApi(params, req, runtime), new DescribeTaskResponse({}));
   }
 
   /**
@@ -8411,7 +9571,7 @@ export default class Client extends OpenApi {
    * @returns DescribeTaskResponse
    */
   async describeTask(request: DescribeTaskRequest): Promise<DescribeTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeTaskWithOptions(request, runtime);
   }
 
@@ -8422,17 +9582,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeZonesResponse
    */
-  async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
-    Util.validateModel(request);
+  async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeZonesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.acceptLanguage)) {
+    if (!$dara.isNull(request.acceptLanguage)) {
       body["AcceptLanguage"] = request.acceptLanguage;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeZones",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8443,7 +9603,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
+    return $dara.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
   /**
@@ -8453,7 +9613,7 @@ export default class Client extends OpenApi {
    * @returns DescribeZonesResponse
    */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
   }
 
@@ -8464,51 +9624,51 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExtendClusterResponse
    */
-  async extendClusterWithOptions(tmpReq: ExtendClusterRequest, runtime: $Util.RuntimeOptions): Promise<ExtendClusterResponse> {
-    Util.validateModel(tmpReq);
+  async extendClusterWithOptions(tmpReq: ExtendClusterRequest, runtime: $dara.RuntimeOptions): Promise<ExtendClusterResponse> {
+    tmpReq.validate();
     let request = new ExtendClusterShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.ipAllocationPolicy)) {
+    if (!$dara.isNull(tmpReq.ipAllocationPolicy)) {
       request.ipAllocationPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipAllocationPolicy, "IpAllocationPolicy", "json");
     }
 
-    if (!Util.isUnset(tmpReq.nodeGroups)) {
+    if (!$dara.isNull(tmpReq.nodeGroups)) {
       request.nodeGroupsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeGroups, "NodeGroups", "json");
     }
 
-    if (!Util.isUnset(tmpReq.vpdSubnets)) {
+    if (!$dara.isNull(tmpReq.vpdSubnets)) {
       request.vpdSubnetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vpdSubnets, "VpdSubnets", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.ignoreFailedNodeTasks)) {
+    if (!$dara.isNull(request.ignoreFailedNodeTasks)) {
       body["IgnoreFailedNodeTasks"] = request.ignoreFailedNodeTasks;
     }
 
-    if (!Util.isUnset(request.ipAllocationPolicyShrink)) {
+    if (!$dara.isNull(request.ipAllocationPolicyShrink)) {
       body["IpAllocationPolicy"] = request.ipAllocationPolicyShrink;
     }
 
-    if (!Util.isUnset(request.nodeGroupsShrink)) {
+    if (!$dara.isNull(request.nodeGroupsShrink)) {
       body["NodeGroups"] = request.nodeGroupsShrink;
     }
 
-    if (!Util.isUnset(request.vSwitchZoneId)) {
+    if (!$dara.isNull(request.vSwitchZoneId)) {
       body["VSwitchZoneId"] = request.vSwitchZoneId;
     }
 
-    if (!Util.isUnset(request.vpdSubnetsShrink)) {
+    if (!$dara.isNull(request.vpdSubnetsShrink)) {
       body["VpdSubnets"] = request.vpdSubnetsShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ExtendCluster",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8519,7 +9679,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExtendClusterResponse>(await this.callApi(params, req, runtime), new ExtendClusterResponse({}));
+    return $dara.cast<ExtendClusterResponse>(await this.callApi(params, req, runtime), new ExtendClusterResponse({}));
   }
 
   /**
@@ -8529,7 +9689,7 @@ export default class Client extends OpenApi {
    * @returns ExtendClusterResponse
    */
   async extendCluster(request: ExtendClusterRequest): Promise<ExtendClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.extendClusterWithOptions(request, runtime);
   }
 
@@ -8540,29 +9700,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListClusterNodesResponse
    */
-  async listClusterNodesWithOptions(request: ListClusterNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterNodesResponse> {
-    Util.validateModel(request);
+  async listClusterNodesWithOptions(request: ListClusterNodesRequest, runtime: $dara.RuntimeOptions): Promise<ListClusterNodesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.nodeGroupId)) {
+    if (!$dara.isNull(request.nodeGroupId)) {
       body["NodeGroupId"] = request.nodeGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListClusterNodes",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8573,7 +9733,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListClusterNodesResponse>(await this.callApi(params, req, runtime), new ListClusterNodesResponse({}));
+    return $dara.cast<ListClusterNodesResponse>(await this.callApi(params, req, runtime), new ListClusterNodesResponse({}));
   }
 
   /**
@@ -8583,7 +9743,7 @@ export default class Client extends OpenApi {
    * @returns ListClusterNodesResponse
    */
   async listClusterNodes(request: ListClusterNodesRequest): Promise<ListClusterNodesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listClusterNodesWithOptions(request, runtime);
   }
 
@@ -8594,25 +9754,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListClustersResponse
    */
-  async listClustersWithOptions(request: ListClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListClustersResponse> {
-    Util.validateModel(request);
+  async listClustersWithOptions(request: ListClustersRequest, runtime: $dara.RuntimeOptions): Promise<ListClustersResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListClusters",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8623,7 +9783,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
+    return $dara.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
   }
 
   /**
@@ -8633,7 +9793,7 @@ export default class Client extends OpenApi {
    * @returns ListClustersResponse
    */
   async listClusters(request: ListClustersRequest): Promise<ListClustersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listClustersWithOptions(request, runtime);
   }
 
@@ -8644,33 +9804,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFreeNodesResponse
    */
-  async listFreeNodesWithOptions(request: ListFreeNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListFreeNodesResponse> {
-    Util.validateModel(request);
+  async listFreeNodesWithOptions(request: ListFreeNodesRequest, runtime: $dara.RuntimeOptions): Promise<ListFreeNodesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.hpnZone)) {
+    if (!$dara.isNull(request.hpnZone)) {
       body["HpnZone"] = request.hpnZone;
     }
 
-    if (!Util.isUnset(request.machineType)) {
+    if (!$dara.isNull(request.machineType)) {
       body["MachineType"] = request.machineType;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListFreeNodes",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8681,7 +9841,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListFreeNodesResponse>(await this.callApi(params, req, runtime), new ListFreeNodesResponse({}));
+    return $dara.cast<ListFreeNodesResponse>(await this.callApi(params, req, runtime), new ListFreeNodesResponse({}));
   }
 
   /**
@@ -8691,28 +9851,28 @@ export default class Client extends OpenApi {
    * @returns ListFreeNodesResponse
    */
   async listFreeNodes(request: ListFreeNodesRequest): Promise<ListFreeNodesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listFreeNodesWithOptions(request, runtime);
   }
 
   /**
-   * 查询用户可用的机型列表
+   * Query the list of machine types available to the user
    * 
    * @param request - ListMachineTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMachineTypesResponse
    */
-  async listMachineTypesWithOptions(request: ListMachineTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListMachineTypesResponse> {
-    Util.validateModel(request);
+  async listMachineTypesWithOptions(request: ListMachineTypesRequest, runtime: $dara.RuntimeOptions): Promise<ListMachineTypesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMachineTypes",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8723,17 +9883,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMachineTypesResponse>(await this.callApi(params, req, runtime), new ListMachineTypesResponse({}));
+    return $dara.cast<ListMachineTypesResponse>(await this.callApi(params, req, runtime), new ListMachineTypesResponse({}));
   }
 
   /**
-   * 查询用户可用的机型列表
+   * Query the list of machine types available to the user
    * 
    * @param request - ListMachineTypesRequest
    * @returns ListMachineTypesResponse
    */
   async listMachineTypes(request: ListMachineTypesRequest): Promise<ListMachineTypesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMachineTypesWithOptions(request, runtime);
   }
 
@@ -8744,29 +9904,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNodeGroupsResponse
    */
-  async listNodeGroupsWithOptions(request: ListNodeGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListNodeGroupsResponse> {
-    Util.validateModel(request);
+  async listNodeGroupsWithOptions(request: ListNodeGroupsRequest, runtime: $dara.RuntimeOptions): Promise<ListNodeGroupsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.nodeGroupId)) {
+    if (!$dara.isNull(request.nodeGroupId)) {
       body["NodeGroupId"] = request.nodeGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListNodeGroups",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8777,7 +9937,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListNodeGroupsResponse>(await this.callApi(params, req, runtime), new ListNodeGroupsResponse({}));
+    return $dara.cast<ListNodeGroupsResponse>(await this.callApi(params, req, runtime), new ListNodeGroupsResponse({}));
   }
 
   /**
@@ -8787,7 +9947,7 @@ export default class Client extends OpenApi {
    * @returns ListNodeGroupsResponse
    */
   async listNodeGroups(request: ListNodeGroupsRequest): Promise<ListNodeGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listNodeGroupsWithOptions(request, runtime);
   }
 
@@ -8798,33 +9958,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8835,7 +9995,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   /**
@@ -8845,7 +10005,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
@@ -8856,31 +10016,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RebootNodesResponse
    */
-  async rebootNodesWithOptions(tmpReq: RebootNodesRequest, runtime: $Util.RuntimeOptions): Promise<RebootNodesResponse> {
-    Util.validateModel(tmpReq);
+  async rebootNodesWithOptions(tmpReq: RebootNodesRequest, runtime: $dara.RuntimeOptions): Promise<RebootNodesResponse> {
+    tmpReq.validate();
     let request = new RebootNodesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.nodes)) {
+    if (!$dara.isNull(tmpReq.nodes)) {
       request.nodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodes, "Nodes", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.ignoreFailedNodeTasks)) {
+    if (!$dara.isNull(request.ignoreFailedNodeTasks)) {
       body["IgnoreFailedNodeTasks"] = request.ignoreFailedNodeTasks;
     }
 
-    if (!Util.isUnset(request.nodesShrink)) {
+    if (!$dara.isNull(request.nodesShrink)) {
       body["Nodes"] = request.nodesShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RebootNodes",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8891,7 +10051,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RebootNodesResponse>(await this.callApi(params, req, runtime), new RebootNodesResponse({}));
+    return $dara.cast<RebootNodesResponse>(await this.callApi(params, req, runtime), new RebootNodesResponse({}));
   }
 
   /**
@@ -8901,7 +10061,7 @@ export default class Client extends OpenApi {
    * @returns RebootNodesResponse
    */
   async rebootNodes(request: RebootNodesRequest): Promise<RebootNodesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.rebootNodesWithOptions(request, runtime);
   }
 
@@ -8912,35 +10072,35 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReimageNodesResponse
    */
-  async reimageNodesWithOptions(tmpReq: ReimageNodesRequest, runtime: $Util.RuntimeOptions): Promise<ReimageNodesResponse> {
-    Util.validateModel(tmpReq);
+  async reimageNodesWithOptions(tmpReq: ReimageNodesRequest, runtime: $dara.RuntimeOptions): Promise<ReimageNodesResponse> {
+    tmpReq.validate();
     let request = new ReimageNodesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.nodes)) {
+    if (!$dara.isNull(tmpReq.nodes)) {
       request.nodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodes, "Nodes", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.ignoreFailedNodeTasks)) {
+    if (!$dara.isNull(request.ignoreFailedNodeTasks)) {
       body["IgnoreFailedNodeTasks"] = request.ignoreFailedNodeTasks;
     }
 
-    if (!Util.isUnset(request.nodesShrink)) {
+    if (!$dara.isNull(request.nodesShrink)) {
       body["Nodes"] = request.nodesShrink;
     }
 
-    if (!Util.isUnset(request.userData)) {
+    if (!$dara.isNull(request.userData)) {
       body["UserData"] = request.userData;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReimageNodes",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -8951,7 +10111,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReimageNodesResponse>(await this.callApi(params, req, runtime), new ReimageNodesResponse({}));
+    return $dara.cast<ReimageNodesResponse>(await this.callApi(params, req, runtime), new ReimageNodesResponse({}));
   }
 
   /**
@@ -8961,7 +10121,7 @@ export default class Client extends OpenApi {
    * @returns ReimageNodesResponse
    */
   async reimageNodes(request: ReimageNodesRequest): Promise<ReimageNodesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.reimageNodesWithOptions(request, runtime);
   }
 
@@ -8972,87 +10132,87 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunCommandResponse
    */
-  async runCommandWithOptions(tmpReq: RunCommandRequest, runtime: $Util.RuntimeOptions): Promise<RunCommandResponse> {
-    Util.validateModel(tmpReq);
+  async runCommandWithOptions(tmpReq: RunCommandRequest, runtime: $dara.RuntimeOptions): Promise<RunCommandResponse> {
+    tmpReq.validate();
     let request = new RunCommandShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.nodeIdList)) {
+    if (!$dara.isNull(tmpReq.nodeIdList)) {
       request.nodeIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeIdList, "NodeIdList", "json");
     }
 
-    if (!Util.isUnset(tmpReq.parameters)) {
+    if (!$dara.isNull(tmpReq.parameters)) {
       request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.commandContent)) {
+    if (!$dara.isNull(request.commandContent)) {
       body["CommandContent"] = request.commandContent;
     }
 
-    if (!Util.isUnset(request.commandId)) {
+    if (!$dara.isNull(request.commandId)) {
       body["CommandId"] = request.commandId;
     }
 
-    if (!Util.isUnset(request.contentEncoding)) {
+    if (!$dara.isNull(request.contentEncoding)) {
       body["ContentEncoding"] = request.contentEncoding;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.enableParameter)) {
+    if (!$dara.isNull(request.enableParameter)) {
       body["EnableParameter"] = request.enableParameter;
     }
 
-    if (!Util.isUnset(request.frequency)) {
+    if (!$dara.isNull(request.frequency)) {
       body["Frequency"] = request.frequency;
     }
 
-    if (!Util.isUnset(request.launcher)) {
+    if (!$dara.isNull(request.launcher)) {
       body["Launcher"] = request.launcher;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.nodeIdListShrink)) {
+    if (!$dara.isNull(request.nodeIdListShrink)) {
       body["NodeIdList"] = request.nodeIdListShrink;
     }
 
-    if (!Util.isUnset(request.parametersShrink)) {
+    if (!$dara.isNull(request.parametersShrink)) {
       body["Parameters"] = request.parametersShrink;
     }
 
-    if (!Util.isUnset(request.repeatMode)) {
+    if (!$dara.isNull(request.repeatMode)) {
       body["RepeatMode"] = request.repeatMode;
     }
 
-    if (!Util.isUnset(request.terminationMode)) {
+    if (!$dara.isNull(request.terminationMode)) {
       body["TerminationMode"] = request.terminationMode;
     }
 
-    if (!Util.isUnset(request.timeout)) {
+    if (!$dara.isNull(request.timeout)) {
       body["Timeout"] = request.timeout;
     }
 
-    if (!Util.isUnset(request.username)) {
+    if (!$dara.isNull(request.username)) {
       body["Username"] = request.username;
     }
 
-    if (!Util.isUnset(request.workingDir)) {
+    if (!$dara.isNull(request.workingDir)) {
       body["WorkingDir"] = request.workingDir;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunCommand",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -9063,7 +10223,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunCommandResponse>(await this.callApi(params, req, runtime), new RunCommandResponse({}));
+    return $dara.cast<RunCommandResponse>(await this.callApi(params, req, runtime), new RunCommandResponse({}));
   }
 
   /**
@@ -9073,7 +10233,7 @@ export default class Client extends OpenApi {
    * @returns RunCommandResponse
    */
   async runCommand(request: RunCommandRequest): Promise<RunCommandResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.runCommandWithOptions(request, runtime);
   }
 
@@ -9084,63 +10244,63 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendFileResponse
    */
-  async sendFileWithOptions(tmpReq: SendFileRequest, runtime: $Util.RuntimeOptions): Promise<SendFileResponse> {
-    Util.validateModel(tmpReq);
+  async sendFileWithOptions(tmpReq: SendFileRequest, runtime: $dara.RuntimeOptions): Promise<SendFileResponse> {
+    tmpReq.validate();
     let request = new SendFileShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.nodeIdList)) {
+    if (!$dara.isNull(tmpReq.nodeIdList)) {
       request.nodeIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeIdList, "NodeIdList", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.content)) {
+    if (!$dara.isNull(request.content)) {
       body["Content"] = request.content;
     }
 
-    if (!Util.isUnset(request.contentType)) {
+    if (!$dara.isNull(request.contentType)) {
       body["ContentType"] = request.contentType;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.fileGroup)) {
+    if (!$dara.isNull(request.fileGroup)) {
       body["FileGroup"] = request.fileGroup;
     }
 
-    if (!Util.isUnset(request.fileMode)) {
+    if (!$dara.isNull(request.fileMode)) {
       body["FileMode"] = request.fileMode;
     }
 
-    if (!Util.isUnset(request.fileOwner)) {
+    if (!$dara.isNull(request.fileOwner)) {
       body["FileOwner"] = request.fileOwner;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.nodeIdListShrink)) {
+    if (!$dara.isNull(request.nodeIdListShrink)) {
       body["NodeIdList"] = request.nodeIdListShrink;
     }
 
-    if (!Util.isUnset(request.overwrite)) {
+    if (!$dara.isNull(request.overwrite)) {
       body["Overwrite"] = request.overwrite;
     }
 
-    if (!Util.isUnset(request.targetDir)) {
+    if (!$dara.isNull(request.targetDir)) {
       body["TargetDir"] = request.targetDir;
     }
 
-    if (!Util.isUnset(request.timeout)) {
+    if (!$dara.isNull(request.timeout)) {
       body["Timeout"] = request.timeout;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendFile",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -9151,7 +10311,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendFileResponse>(await this.callApi(params, req, runtime), new SendFileResponse({}));
+    return $dara.cast<SendFileResponse>(await this.callApi(params, req, runtime), new SendFileResponse({}));
   }
 
   /**
@@ -9161,7 +10321,7 @@ export default class Client extends OpenApi {
    * @returns SendFileResponse
    */
   async sendFile(request: SendFileRequest): Promise<SendFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendFileWithOptions(request, runtime);
   }
 
@@ -9172,31 +10332,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ShrinkClusterResponse
    */
-  async shrinkClusterWithOptions(tmpReq: ShrinkClusterRequest, runtime: $Util.RuntimeOptions): Promise<ShrinkClusterResponse> {
-    Util.validateModel(tmpReq);
+  async shrinkClusterWithOptions(tmpReq: ShrinkClusterRequest, runtime: $dara.RuntimeOptions): Promise<ShrinkClusterResponse> {
+    tmpReq.validate();
     let request = new ShrinkClusterShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.nodeGroups)) {
+    if (!$dara.isNull(tmpReq.nodeGroups)) {
       request.nodeGroupsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeGroups, "NodeGroups", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.ignoreFailedNodeTasks)) {
+    if (!$dara.isNull(request.ignoreFailedNodeTasks)) {
       body["IgnoreFailedNodeTasks"] = request.ignoreFailedNodeTasks;
     }
 
-    if (!Util.isUnset(request.nodeGroupsShrink)) {
+    if (!$dara.isNull(request.nodeGroupsShrink)) {
       body["NodeGroups"] = request.nodeGroupsShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ShrinkCluster",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -9207,7 +10367,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ShrinkClusterResponse>(await this.callApi(params, req, runtime), new ShrinkClusterResponse({}));
+    return $dara.cast<ShrinkClusterResponse>(await this.callApi(params, req, runtime), new ShrinkClusterResponse({}));
   }
 
   /**
@@ -9217,7 +10377,7 @@ export default class Client extends OpenApi {
    * @returns ShrinkClusterResponse
    */
   async shrinkCluster(request: ShrinkClusterRequest): Promise<ShrinkClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.shrinkClusterWithOptions(request, runtime);
   }
 
@@ -9228,27 +10388,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopInvocationResponse
    */
-  async stopInvocationWithOptions(tmpReq: StopInvocationRequest, runtime: $Util.RuntimeOptions): Promise<StopInvocationResponse> {
-    Util.validateModel(tmpReq);
+  async stopInvocationWithOptions(tmpReq: StopInvocationRequest, runtime: $dara.RuntimeOptions): Promise<StopInvocationResponse> {
+    tmpReq.validate();
     let request = new StopInvocationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.nodeIdList)) {
+    if (!$dara.isNull(tmpReq.nodeIdList)) {
       request.nodeIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeIdList, "NodeIdList", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.invokeId)) {
+    if (!$dara.isNull(request.invokeId)) {
       body["InvokeId"] = request.invokeId;
     }
 
-    if (!Util.isUnset(request.nodeIdListShrink)) {
+    if (!$dara.isNull(request.nodeIdListShrink)) {
       body["NodeIdList"] = request.nodeIdListShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopInvocation",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -9259,7 +10419,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StopInvocationResponse>(await this.callApi(params, req, runtime), new StopInvocationResponse({}));
+    return $dara.cast<StopInvocationResponse>(await this.callApi(params, req, runtime), new StopInvocationResponse({}));
   }
 
   /**
@@ -9269,8 +10429,60 @@ export default class Client extends OpenApi {
    * @returns StopInvocationResponse
    */
   async stopInvocation(request: StopInvocationRequest): Promise<StopInvocationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.stopInvocationWithOptions(request, runtime);
+  }
+
+  /**
+   * 关机节点
+   * 
+   * @param tmpReq - StopNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopNodesResponse
+   */
+  async stopNodesWithOptions(tmpReq: StopNodesRequest, runtime: $dara.RuntimeOptions): Promise<StopNodesResponse> {
+    tmpReq.validate();
+    let request = new StopNodesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.nodes)) {
+      request.nodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodes, "Nodes", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ignoreFailedNodeTasks)) {
+      body["IgnoreFailedNodeTasks"] = request.ignoreFailedNodeTasks;
+    }
+
+    if (!$dara.isNull(request.nodesShrink)) {
+      body["Nodes"] = request.nodesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopNodes",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<StopNodesResponse>(await this.callApi(params, req, runtime), new StopNodesResponse({}));
+  }
+
+  /**
+   * 关机节点
+   * 
+   * @param request - StopNodesRequest
+   * @returns StopNodesResponse
+   */
+  async stopNodes(request: StopNodesRequest): Promise<StopNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopNodesWithOptions(request, runtime);
   }
 
   /**
@@ -9280,29 +10492,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -9313,7 +10525,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   /**
@@ -9323,7 +10535,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
@@ -9334,33 +10546,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2022-12-15",
       protocol: "HTTPS",
@@ -9371,7 +10583,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   /**
@@ -9381,7 +10593,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
