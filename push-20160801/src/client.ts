@@ -1,3651 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class BindAliasRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test_alias
-   */
-  aliasName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e2ba19de97604f55b16557673****
-   */
-  deviceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliasName: 'AliasName',
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliasName: 'string',
-      appKey: 'number',
-      deviceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindAliasResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 159E4422-6624-4750-8943-DFD98D34858C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindAliasResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BindAliasResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BindAliasResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindPhoneRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 27725900
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eb5f741d83d04d34807d229999eefa52
-   */
-  deviceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1381111****
-   */
-  phoneNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-      phoneNumber: 'PhoneNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceId: 'string',
-      phoneNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindPhoneResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 0D1126F0-F8FF-513D-BAFA-F140447BDED4
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindPhoneResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BindPhoneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BindPhoneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindTagRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e2ba19de97604f55b16557673****
-   */
-  clientKey?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DEVICE
-   */
-  keyType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test_tag,test_tag2
-   */
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      clientKey: 'ClientKey',
-      keyType: 'KeyType',
-      tagName: 'TagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      clientKey: 'string',
-      keyType: 'string',
-      tagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindTagResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 82FD0A09-5BB8-40FB-8221-9A11FE92D620
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindTagResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BindTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BindTagResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelPushRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 501029
-   */
-  messageId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      messageId: 'MessageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      messageId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelPushResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelPushResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelPushResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelPushResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCertificateRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCertificateResponseBody extends $tea.Model {
-  /**
-   * @example
-   * false
-   */
-  android?: boolean;
-  developmentCertInfo?: CheckCertificateResponseBodyDevelopmentCertInfo;
-  /**
-   * @example
-   * true
-   */
-  IOS?: boolean;
-  productionCertInfo?: CheckCertificateResponseBodyProductionCertInfo;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      android: 'Android',
-      developmentCertInfo: 'DevelopmentCertInfo',
-      IOS: 'IOS',
-      productionCertInfo: 'ProductionCertInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      android: 'boolean',
-      developmentCertInfo: CheckCertificateResponseBodyDevelopmentCertInfo,
-      IOS: 'boolean',
-      productionCertInfo: CheckCertificateResponseBodyProductionCertInfo,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCertificateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDeviceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23419851
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ae296f3b04a58a05b30c95f****
-   */
-  deviceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDeviceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * ture
-   */
-  available?: boolean;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      available: 'Available',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      available: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDeviceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckDeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckDeviceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDevicesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23419851
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ae296f3b04a58a05b30c95f****,ae296f3b04a58a05b30c95f****,ae296f3b04a58a05b30c95f****
-   */
-  deviceIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceIds: 'DeviceIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDevicesResponseBody extends $tea.Model {
-  deviceCheckInfos?: CheckDevicesResponseBodyDeviceCheckInfos;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceCheckInfos: 'DeviceCheckInfos',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceCheckInfos: CheckDevicesResponseBodyDeviceCheckInfos,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDevicesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckDevicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckDevicesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompleteContinuouslyPushRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 4010290149170430
-   */
-  messageId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      messageId: 'MessageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      messageId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompleteContinuouslyPushResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 4010290149170430
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompleteContinuouslyPushResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CompleteContinuouslyPushResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CompleteContinuouslyPushResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContinuouslyPushRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 500131
-   */
-  messageId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DEVICE
-   */
-  target?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a692961a92534047ad3625****
-   */
-  targetValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      messageId: 'MessageId',
-      target: 'Target',
-      targetValue: 'TargetValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      messageId: 'string',
-      target: 'string',
-      targetValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContinuouslyPushResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 500131
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContinuouslyPushResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ContinuouslyPushResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ContinuouslyPushResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSummaryAppsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  summaryAppInfos?: ListSummaryAppsResponseBodySummaryAppInfos;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      summaryAppInfos: 'SummaryAppInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      summaryAppInfos: ListSummaryAppsResponseBodySummaryAppInfos,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSummaryAppsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListSummaryAppsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListSummaryAppsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 6EEF262B-EA7D-41DC-89B9-20F3D1E28194
-   */
-  requestId?: string;
-  tagInfos?: ListTagsResponseBodyTagInfos;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tagInfos: 'TagInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tagInfos: ListTagsResponseBodyTagInfos,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MassPushRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  pushTask?: MassPushRequestPushTask[];
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      pushTask: 'PushTask',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      pushTask: { 'type': 'array', 'itemType': MassPushRequestPushTask },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MassPushResponseBody extends $tea.Model {
-  messageIds?: MassPushResponseBodyMessageIds;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageIds: 'MessageIds',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageIds: MassPushResponseBodyMessageIds,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MassPushResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: MassPushResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: MassPushResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushRequest extends $tea.Model {
-  /**
-   * @example
-   * com.alibaba.cloudpushdemo.bizactivity
-   */
-  androidActivity?: string;
-  androidBadgeAddNum?: number;
-  androidBadgeClass?: string;
-  androidBadgeSetNum?: number;
-  androidBigBody?: string;
-  /**
-   * @example
-   * https://imag.example.com/image.png
-   */
-  androidBigPictureUrl?: string;
-  androidBigTitle?: string;
-  /**
-   * @example
-   * {"key1":"value1","api_name":"PushNoticeToAndroidRequest"}
-   */
-  androidExtParameters?: string;
-  androidHonorTargetUserType?: number;
-  /**
-   * @example
-   * RCP4C123456
-   */
-  androidHuaweiReceiptId?: string;
-  /**
-   * @example
-   * 0
-   */
-  androidHuaweiTargetUserType?: number;
-  /**
-   * @example
-   * https://imag.example.com/image.png
-   */
-  androidImageUrl?: string;
-  androidInboxBody?: string;
-  /**
-   * @example
-   * VOIP
-   */
-  androidMessageHuaweiCategory?: string;
-  /**
-   * @example
-   * HIGH
-   */
-  androidMessageHuaweiUrgency?: string;
-  androidMessageOppoCategory?: string;
-  androidMessageOppoNotifyLevel?: number;
-  /**
-   * @example
-   * TODO
-   */
-  androidMessageVivoCategory?: string;
-  androidMusic?: string;
-  /**
-   * @example
-   * 0
-   */
-  androidNotificationBarPriority?: number;
-  /**
-   * @example
-   * 2
-   */
-  androidNotificationBarType?: number;
-  /**
-   * @example
-   * 1
-   */
-  androidNotificationChannel?: string;
-  /**
-   * @example
-   * group-1
-   */
-  androidNotificationGroup?: string;
-  /**
-   * @example
-   * LOW
-   */
-  androidNotificationHonorChannel?: string;
-  /**
-   * @example
-   * LOW
-   */
-  androidNotificationHuaweiChannel?: string;
-  /**
-   * @example
-   * 100001
-   */
-  androidNotificationNotifyId?: number;
-  androidNotificationThreadId?: string;
-  /**
-   * @example
-   * classification
-   */
-  androidNotificationVivoChannel?: string;
-  /**
-   * @example
-   * michannel
-   */
-  androidNotificationXiaomiChannel?: string;
-  /**
-   * @example
-   * BOTH
-   */
-  androidNotifyType?: string;
-  /**
-   * @example
-   * APPLICATION
-   */
-  androidOpenType?: string;
-  /**
-   * @example
-   * https://xxxx.xxx
-   */
-  androidOpenUrl?: string;
-  /**
-   * @example
-   * com.alibaba.cloudpushdemo.bizactivity
-   */
-  androidPopupActivity?: string;
-  /**
-   * @example
-   * hello
-   */
-  androidPopupBody?: string;
-  /**
-   * @example
-   * hello
-   */
-  androidPopupTitle?: string;
-  /**
-   * @example
-   * true
-   */
-  androidRemind?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  androidRenderStyle?: number;
-  androidTargetUserType?: number;
-  /**
-   * @example
-   * 0
-   */
-  androidVivoPushMode?: number;
-  androidVivoReceiptId?: string;
-  /**
-   * @deprecated
-   */
-  androidXiaoMiActivity?: string;
-  /**
-   * @deprecated
-   */
-  androidXiaoMiNotifyBody?: string;
-  /**
-   * @deprecated
-   */
-  androidXiaoMiNotifyTitle?: string;
-  /**
-   * @example
-   * https://f6.market.xiaomi.com/download/MiPass/aaa/bbb.png
-   */
-  androidXiaomiBigPictureUrl?: string;
-  /**
-   * @example
-   * https://imag.example.com/image.png
-   */
-  androidXiaomiImageUrl?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * hello
-   */
-  body?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  deviceType?: string;
-  /**
-   * @example
-   * 2019-02-20T00:00:00Z
-   */
-  expireTime?: string;
-  harmonyAction?: string;
-  harmonyActionType?: string;
-  harmonyBadgeAddNum?: number;
-  harmonyBadgeSetNum?: number;
-  harmonyCategory?: string;
-  harmonyExtParameters?: string;
-  harmonyExtensionExtraData?: string;
-  harmonyExtensionPush?: boolean;
-  harmonyImageUrl?: string;
-  harmonyInboxContent?: string;
-  harmonyNotificationSlotType?: string;
-  harmonyNotifyId?: number;
-  harmonyReceiptId?: string;
-  harmonyRemind?: boolean;
-  harmonyRemindBody?: string;
-  harmonyRemindTitle?: string;
-  harmonyRenderStyle?: string;
-  harmonyTestMessage?: boolean;
-  harmonyUri?: string;
-  /**
-   * @example
-   * 123
-   */
-  jobKey?: string;
-  /**
-   * @example
-   * 2019-02-20T00:00:00Z
-   */
-  pushTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * MESSAGE
-   */
-  pushType?: string;
-  /**
-   * @example
-   * accs,huawei,xiaomi
-   */
-  sendChannels?: string;
-  /**
-   * @example
-   * 0
-   * 
-   * @deprecated
-   */
-  sendSpeed?: number;
-  /**
-   * @example
-   * 15
-   */
-  smsDelaySecs?: number;
-  /**
-   * @example
-   * key1=value1
-   */
-  smsParams?: string;
-  /**
-   * @example
-   * 0
-   */
-  smsSendPolicy?: number;
-  smsSignName?: string;
-  smsTemplateName?: string;
-  /**
-   * @example
-   * false
-   */
-  storeOffline?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  target?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  targetValue?: string;
-  /**
-   * @example
-   * title
-   */
-  title?: string;
-  /**
-   * @example
-   * false
-   */
-  trim?: boolean;
-  /**
-   * @example
-   * DEV
-   */
-  iOSApnsEnv?: string;
-  /**
-   * @example
-   * 0
-   */
-  iOSBadge?: number;
-  /**
-   * @example
-   * true
-   */
-  iOSBadgeAutoIncrement?: boolean;
-  /**
-   * @example
-   * {“attachment”: “https://xxxx.xxx/notification_pic.png"}
-   */
-  iOSExtParameters?: string;
-  /**
-   * @example
-   * active
-   */
-  iOSInterruptionLevel?: string;
-  /**
-   * @example
-   * ""
-   */
-  iOSMusic?: string;
-  /**
-   * @example
-   * true
-   */
-  iOSMutableContent?: boolean;
-  /**
-   * @example
-   * ios
-   */
-  iOSNotificationCategory?: string;
-  /**
-   * @example
-   * ZD2011
-   */
-  iOSNotificationCollapseId?: string;
-  /**
-   * @example
-   * abc
-   */
-  iOSNotificationThreadId?: string;
-  /**
-   * @example
-   * 0.01
-   */
-  iOSRelevanceScore?: number;
-  /**
-   * @example
-   * true
-   */
-  iOSRemind?: boolean;
-  iOSRemindBody?: string;
-  /**
-   * @example
-   * true
-   */
-  iOSSilentNotification?: boolean;
-  /**
-   * @example
-   * su\\"b
-   */
-  iOSSubtitle?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidActivity: 'AndroidActivity',
-      androidBadgeAddNum: 'AndroidBadgeAddNum',
-      androidBadgeClass: 'AndroidBadgeClass',
-      androidBadgeSetNum: 'AndroidBadgeSetNum',
-      androidBigBody: 'AndroidBigBody',
-      androidBigPictureUrl: 'AndroidBigPictureUrl',
-      androidBigTitle: 'AndroidBigTitle',
-      androidExtParameters: 'AndroidExtParameters',
-      androidHonorTargetUserType: 'AndroidHonorTargetUserType',
-      androidHuaweiReceiptId: 'AndroidHuaweiReceiptId',
-      androidHuaweiTargetUserType: 'AndroidHuaweiTargetUserType',
-      androidImageUrl: 'AndroidImageUrl',
-      androidInboxBody: 'AndroidInboxBody',
-      androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
-      androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
-      androidMessageOppoCategory: 'AndroidMessageOppoCategory',
-      androidMessageOppoNotifyLevel: 'AndroidMessageOppoNotifyLevel',
-      androidMessageVivoCategory: 'AndroidMessageVivoCategory',
-      androidMusic: 'AndroidMusic',
-      androidNotificationBarPriority: 'AndroidNotificationBarPriority',
-      androidNotificationBarType: 'AndroidNotificationBarType',
-      androidNotificationChannel: 'AndroidNotificationChannel',
-      androidNotificationGroup: 'AndroidNotificationGroup',
-      androidNotificationHonorChannel: 'AndroidNotificationHonorChannel',
-      androidNotificationHuaweiChannel: 'AndroidNotificationHuaweiChannel',
-      androidNotificationNotifyId: 'AndroidNotificationNotifyId',
-      androidNotificationThreadId: 'AndroidNotificationThreadId',
-      androidNotificationVivoChannel: 'AndroidNotificationVivoChannel',
-      androidNotificationXiaomiChannel: 'AndroidNotificationXiaomiChannel',
-      androidNotifyType: 'AndroidNotifyType',
-      androidOpenType: 'AndroidOpenType',
-      androidOpenUrl: 'AndroidOpenUrl',
-      androidPopupActivity: 'AndroidPopupActivity',
-      androidPopupBody: 'AndroidPopupBody',
-      androidPopupTitle: 'AndroidPopupTitle',
-      androidRemind: 'AndroidRemind',
-      androidRenderStyle: 'AndroidRenderStyle',
-      androidTargetUserType: 'AndroidTargetUserType',
-      androidVivoPushMode: 'AndroidVivoPushMode',
-      androidVivoReceiptId: 'AndroidVivoReceiptId',
-      androidXiaoMiActivity: 'AndroidXiaoMiActivity',
-      androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
-      androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
-      androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
-      androidXiaomiImageUrl: 'AndroidXiaomiImageUrl',
-      appKey: 'AppKey',
-      body: 'Body',
-      deviceType: 'DeviceType',
-      expireTime: 'ExpireTime',
-      harmonyAction: 'HarmonyAction',
-      harmonyActionType: 'HarmonyActionType',
-      harmonyBadgeAddNum: 'HarmonyBadgeAddNum',
-      harmonyBadgeSetNum: 'HarmonyBadgeSetNum',
-      harmonyCategory: 'HarmonyCategory',
-      harmonyExtParameters: 'HarmonyExtParameters',
-      harmonyExtensionExtraData: 'HarmonyExtensionExtraData',
-      harmonyExtensionPush: 'HarmonyExtensionPush',
-      harmonyImageUrl: 'HarmonyImageUrl',
-      harmonyInboxContent: 'HarmonyInboxContent',
-      harmonyNotificationSlotType: 'HarmonyNotificationSlotType',
-      harmonyNotifyId: 'HarmonyNotifyId',
-      harmonyReceiptId: 'HarmonyReceiptId',
-      harmonyRemind: 'HarmonyRemind',
-      harmonyRemindBody: 'HarmonyRemindBody',
-      harmonyRemindTitle: 'HarmonyRemindTitle',
-      harmonyRenderStyle: 'HarmonyRenderStyle',
-      harmonyTestMessage: 'HarmonyTestMessage',
-      harmonyUri: 'HarmonyUri',
-      jobKey: 'JobKey',
-      pushTime: 'PushTime',
-      pushType: 'PushType',
-      sendChannels: 'SendChannels',
-      sendSpeed: 'SendSpeed',
-      smsDelaySecs: 'SmsDelaySecs',
-      smsParams: 'SmsParams',
-      smsSendPolicy: 'SmsSendPolicy',
-      smsSignName: 'SmsSignName',
-      smsTemplateName: 'SmsTemplateName',
-      storeOffline: 'StoreOffline',
-      target: 'Target',
-      targetValue: 'TargetValue',
-      title: 'Title',
-      trim: 'Trim',
-      iOSApnsEnv: 'iOSApnsEnv',
-      iOSBadge: 'iOSBadge',
-      iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
-      iOSExtParameters: 'iOSExtParameters',
-      iOSInterruptionLevel: 'iOSInterruptionLevel',
-      iOSMusic: 'iOSMusic',
-      iOSMutableContent: 'iOSMutableContent',
-      iOSNotificationCategory: 'iOSNotificationCategory',
-      iOSNotificationCollapseId: 'iOSNotificationCollapseId',
-      iOSNotificationThreadId: 'iOSNotificationThreadId',
-      iOSRelevanceScore: 'iOSRelevanceScore',
-      iOSRemind: 'iOSRemind',
-      iOSRemindBody: 'iOSRemindBody',
-      iOSSilentNotification: 'iOSSilentNotification',
-      iOSSubtitle: 'iOSSubtitle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidActivity: 'string',
-      androidBadgeAddNum: 'number',
-      androidBadgeClass: 'string',
-      androidBadgeSetNum: 'number',
-      androidBigBody: 'string',
-      androidBigPictureUrl: 'string',
-      androidBigTitle: 'string',
-      androidExtParameters: 'string',
-      androidHonorTargetUserType: 'number',
-      androidHuaweiReceiptId: 'string',
-      androidHuaweiTargetUserType: 'number',
-      androidImageUrl: 'string',
-      androidInboxBody: 'string',
-      androidMessageHuaweiCategory: 'string',
-      androidMessageHuaweiUrgency: 'string',
-      androidMessageOppoCategory: 'string',
-      androidMessageOppoNotifyLevel: 'number',
-      androidMessageVivoCategory: 'string',
-      androidMusic: 'string',
-      androidNotificationBarPriority: 'number',
-      androidNotificationBarType: 'number',
-      androidNotificationChannel: 'string',
-      androidNotificationGroup: 'string',
-      androidNotificationHonorChannel: 'string',
-      androidNotificationHuaweiChannel: 'string',
-      androidNotificationNotifyId: 'number',
-      androidNotificationThreadId: 'string',
-      androidNotificationVivoChannel: 'string',
-      androidNotificationXiaomiChannel: 'string',
-      androidNotifyType: 'string',
-      androidOpenType: 'string',
-      androidOpenUrl: 'string',
-      androidPopupActivity: 'string',
-      androidPopupBody: 'string',
-      androidPopupTitle: 'string',
-      androidRemind: 'boolean',
-      androidRenderStyle: 'number',
-      androidTargetUserType: 'number',
-      androidVivoPushMode: 'number',
-      androidVivoReceiptId: 'string',
-      androidXiaoMiActivity: 'string',
-      androidXiaoMiNotifyBody: 'string',
-      androidXiaoMiNotifyTitle: 'string',
-      androidXiaomiBigPictureUrl: 'string',
-      androidXiaomiImageUrl: 'string',
-      appKey: 'number',
-      body: 'string',
-      deviceType: 'string',
-      expireTime: 'string',
-      harmonyAction: 'string',
-      harmonyActionType: 'string',
-      harmonyBadgeAddNum: 'number',
-      harmonyBadgeSetNum: 'number',
-      harmonyCategory: 'string',
-      harmonyExtParameters: 'string',
-      harmonyExtensionExtraData: 'string',
-      harmonyExtensionPush: 'boolean',
-      harmonyImageUrl: 'string',
-      harmonyInboxContent: 'string',
-      harmonyNotificationSlotType: 'string',
-      harmonyNotifyId: 'number',
-      harmonyReceiptId: 'string',
-      harmonyRemind: 'boolean',
-      harmonyRemindBody: 'string',
-      harmonyRemindTitle: 'string',
-      harmonyRenderStyle: 'string',
-      harmonyTestMessage: 'boolean',
-      harmonyUri: 'string',
-      jobKey: 'string',
-      pushTime: 'string',
-      pushType: 'string',
-      sendChannels: 'string',
-      sendSpeed: 'number',
-      smsDelaySecs: 'number',
-      smsParams: 'string',
-      smsSendPolicy: 'number',
-      smsSignName: 'string',
-      smsTemplateName: 'string',
-      storeOffline: 'boolean',
-      target: 'string',
-      targetValue: 'string',
-      title: 'string',
-      trim: 'boolean',
-      iOSApnsEnv: 'string',
-      iOSBadge: 'number',
-      iOSBadgeAutoIncrement: 'boolean',
-      iOSExtParameters: 'string',
-      iOSInterruptionLevel: 'string',
-      iOSMusic: 'string',
-      iOSMutableContent: 'boolean',
-      iOSNotificationCategory: 'string',
-      iOSNotificationCollapseId: 'string',
-      iOSNotificationThreadId: 'string',
-      iOSRelevanceScore: 'number',
-      iOSRemind: 'boolean',
-      iOSRemindBody: 'string',
-      iOSSilentNotification: 'boolean',
-      iOSSubtitle: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 501029
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMessageToAndroidRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * my body
-   */
-  body?: string;
-  /**
-   * @example
-   * 123
-   */
-  jobKey?: string;
-  storeOffline?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  target?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * all
-   */
-  targetValue?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * my title
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      body: 'Body',
-      jobKey: 'JobKey',
-      storeOffline: 'StoreOffline',
-      target: 'Target',
-      targetValue: 'TargetValue',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      body: 'string',
-      jobKey: 'string',
-      storeOffline: 'boolean',
-      target: 'string',
-      targetValue: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMessageToAndroidResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 501029
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMessageToAndroidResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushMessageToAndroidResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushMessageToAndroidResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMessageToiOSRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 24780725
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * my body
-   */
-  body?: string;
-  /**
-   * @example
-   * 123
-   */
-  jobKey?: string;
-  storeOffline?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  target?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * all
-   */
-  targetValue?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * my title
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      body: 'Body',
-      jobKey: 'JobKey',
-      storeOffline: 'StoreOffline',
-      target: 'Target',
-      targetValue: 'TargetValue',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      body: 'string',
-      jobKey: 'string',
-      storeOffline: 'boolean',
-      target: 'string',
-      targetValue: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMessageToiOSResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 501029
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMessageToiOSResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushMessageToiOSResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushMessageToiOSResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNoticeToAndroidRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * body
-   */
-  body?: string;
-  /**
-   * @example
-   * {"key1":"value1","api_name":"PushNoticeToAndroidRequest"}
-   */
-  extParameters?: string;
-  /**
-   * @example
-   * 123
-   */
-  jobKey?: string;
-  storeOffline?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  target?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  targetValue?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * title
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      body: 'Body',
-      extParameters: 'ExtParameters',
-      jobKey: 'JobKey',
-      storeOffline: 'StoreOffline',
-      target: 'Target',
-      targetValue: 'TargetValue',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      body: 'string',
-      extParameters: 'string',
-      jobKey: 'string',
-      storeOffline: 'boolean',
-      target: 'string',
-      targetValue: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNoticeToAndroidResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 501029
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNoticeToAndroidResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushNoticeToAndroidResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushNoticeToAndroidResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNoticeToiOSRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DEV
-   */
-  apnsEnv?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 24780725
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Hello World
-   */
-  body?: string;
-  /**
-   * @example
-   * {"k1":"ios","k2":"v2"}
-   */
-  extParameters?: string;
-  /**
-   * @example
-   * 123
-   */
-  jobKey?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  target?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  targetValue?: string;
-  /**
-   * @example
-   * title
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apnsEnv: 'ApnsEnv',
-      appKey: 'AppKey',
-      body: 'Body',
-      extParameters: 'ExtParameters',
-      jobKey: 'JobKey',
-      target: 'Target',
-      targetValue: 'TargetValue',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apnsEnv: 'string',
-      appKey: 'number',
-      body: 'string',
-      extParameters: 'string',
-      jobKey: 'string',
-      target: 'string',
-      targetValue: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNoticeToiOSResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 501029
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNoticeToiOSResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushNoticeToiOSResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushNoticeToiOSResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAliasesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e2ba19de97604f55b165576****
-   */
-  deviceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAliasesResponseBody extends $tea.Model {
-  aliasInfos?: QueryAliasesResponseBodyAliasInfos;
-  /**
-   * @example
-   * 159E4422-6624-4750-8943-DFD98D34858C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliasInfos: 'AliasInfos',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliasInfos: QueryAliasesResponseBodyAliasInfos,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAliasesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryAliasesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryAliasesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceInfoRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23419851
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a64ae296f3b04a58a05b30c9****
-   */
-  deviceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceInfoResponseBody extends $tea.Model {
-  deviceInfo?: QueryDeviceInfoResponseBodyDeviceInfo;
-  /**
-   * @example
-   * 6EEF262B-EA7D-41DC-89B9-20F3D1E28194
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: QueryDeviceInfoResponseBodyDeviceInfo,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDeviceInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDeviceInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceStatRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @example
-   * iOS
-   */
-  deviceType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2016-07-29T00:00:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * TOTAL
-   */
-  queryType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2016-07-28T00:00:00Z
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceType: 'DeviceType',
-      endTime: 'EndTime',
-      queryType: 'QueryType',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceType: 'string',
-      endTime: 'string',
-      queryType: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceStatResponseBody extends $tea.Model {
-  appDeviceStats?: QueryDeviceStatResponseBodyAppDeviceStats;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appDeviceStats: 'AppDeviceStats',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appDeviceStats: QueryDeviceStatResponseBodyAppDeviceStats,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceStatResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDeviceStatResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDeviceStatResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * accountName
-   */
-  account?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      appKey: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAccountResponseBody extends $tea.Model {
-  deviceIds?: QueryDevicesByAccountResponseBodyDeviceIds;
-  /**
-   * @example
-   * A8A24108-2AD0-4F6E-81C7-A8A24C2C2AD0
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceIds: 'DeviceIds',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceIds: QueryDevicesByAccountResponseBodyDeviceIds,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDevicesByAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDevicesByAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAliasRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * aliasName
-   */
-  alias?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  static names(): { [key: string]: string } {
-    return {
-      alias: 'Alias',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alias: 'string',
-      appKey: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAliasResponseBody extends $tea.Model {
-  deviceIds?: QueryDevicesByAliasResponseBodyDeviceIds;
-  /**
-   * @example
-   * 6A9FD644-35A5-40E4-89B0-2021CAEDC1B4
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceIds: 'DeviceIds',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceIds: QueryDevicesByAliasResponseBodyDeviceIds,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAliasResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDevicesByAliasResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDevicesByAliasResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushRecordsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 333526247
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2021-09-29T06:24:58Z
-   */
-  endTime?: string;
-  keyword?: string;
-  /**
-   * @example
-   * FFPpkmhCPm*****************xjk=
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 8
-   */
-  page?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * NOTICE
-   */
-  pushType?: string;
-  /**
-   * @example
-   * API
-   */
-  source?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2021-09-15T02:05:24Z
-   */
-  startTime?: string;
-  /**
-   * @example
-   * DEVICE
-   */
-  target?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      endTime: 'EndTime',
-      keyword: 'Keyword',
-      nextToken: 'NextToken',
-      page: 'Page',
-      pageSize: 'PageSize',
-      pushType: 'PushType',
-      source: 'Source',
-      startTime: 'StartTime',
-      target: 'Target',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      endTime: 'string',
-      keyword: 'string',
-      nextToken: 'string',
-      page: 'number',
-      pageSize: 'number',
-      pushType: 'string',
-      source: 'string',
-      startTime: 'string',
-      target: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushRecordsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * i91D***********kXIh/dVBEQ==
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 11
-   */
-  page?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  pushInfos?: QueryPushRecordsResponseBodyPushInfos;
-  /**
-   * @example
-   * 9B24B396-249D-55E4-8CA1-66C9B50BB734
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 193
-   */
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      page: 'Page',
-      pageSize: 'PageSize',
-      pushInfos: 'PushInfos',
-      requestId: 'RequestId',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      page: 'number',
-      pageSize: 'number',
-      pushInfos: QueryPushRecordsResponseBodyPushInfos,
-      requestId: 'string',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushRecordsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryPushRecordsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryPushRecordsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByAppRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2016-07-29T00:00:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DAY
-   */
-  granularity?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2016-07-25T00:00:00Z
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      endTime: 'EndTime',
-      granularity: 'Granularity',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      endTime: 'string',
-      granularity: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByAppResponseBody extends $tea.Model {
-  appPushStats?: QueryPushStatByAppResponseBodyAppPushStats;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appPushStats: 'AppPushStats',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appPushStats: QueryPushStatByAppResponseBodyAppPushStats,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByAppResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryPushStatByAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryPushStatByAppResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByMsgRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 510427
-   */
-  messageId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      messageId: 'MessageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      messageId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByMsgResponseBody extends $tea.Model {
-  pushStats?: QueryPushStatByMsgResponseBodyPushStats;
-  /**
-   * @example
-   * CF195C34-98FB-491A-98D7-19CBC1FA880B
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pushStats: 'PushStats',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pushStats: QueryPushStatByMsgResponseBodyPushStats,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByMsgResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryPushStatByMsgResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryPushStatByMsgResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTagsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e2ba19de97604f55b165576****
-   */
-  clientKey?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DEVICE
-   */
-  keyType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      clientKey: 'ClientKey',
-      keyType: 'KeyType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      clientKey: 'string',
-      keyType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTagsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * D68AE5C6-8AAF-46C9-B627-3FDACD1A4168
-   */
-  requestId?: string;
-  tagInfos?: QueryTagsResponseBodyTagInfos;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tagInfos: 'TagInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tagInfos: QueryTagsResponseBodyTagInfos,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTagsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryTagsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryTagsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryUniqueDeviceStatRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2016-07-26T00:00:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DAY
-   */
-  granularity?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2016-07-25T00:00:00Z
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      endTime: 'EndTime',
-      granularity: 'Granularity',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      endTime: 'string',
-      granularity: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryUniqueDeviceStatResponseBody extends $tea.Model {
-  appDeviceStats?: QueryUniqueDeviceStatResponseBodyAppDeviceStats;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appDeviceStats: 'AppDeviceStats',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appDeviceStats: QueryUniqueDeviceStatResponseBodyAppDeviceStats,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryUniqueDeviceStatResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryUniqueDeviceStatResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryUniqueDeviceStatResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveTagRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test_tag
-   */
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      tagName: 'TagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      tagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveTagResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 23000F3C-0EFE-4C89-82EE-E04F42D37B3C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveTagResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RemoveTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RemoveTagResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindAliasRequest extends $tea.Model {
-  /**
-   * @example
-   * test_alias
-   */
-  aliasName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e2ba19de97604f55b16557673****
-   */
-  deviceId?: string;
-  /**
-   * @example
-   * true
-   */
-  unbindAll?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      aliasName: 'AliasName',
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-      unbindAll: 'UnbindAll',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliasName: 'string',
-      appKey: 'number',
-      deviceId: 'string',
-      unbindAll: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindAliasResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 159E4422-6624-4750-8943-DFD98D34858C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindAliasResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnbindAliasResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnbindAliasResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindPhoneRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eb5f741d83d04d34807d229999eefa52
-   */
-  deviceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindPhoneResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 0D1126F0-F8FF-513D-BAFA-F140447BDED4
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindPhoneResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnbindPhoneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnbindPhoneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindTagRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e2ba19de97604f55b16557673****
-   */
-  clientKey?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DEVICE
-   */
-  keyType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test_tag1,test_tag2
-   */
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      clientKey: 'ClientKey',
-      keyType: 'KeyType',
-      tagName: 'TagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      clientKey: 'string',
-      keyType: 'string',
-      tagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindTagResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 159E4422-6624-4750-8943-DFD98D34858C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindTagResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnbindTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnbindTagResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCertificateResponseBodyDevelopmentCertInfo extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class CheckCertificateResponseBodyDevelopmentCertInfo extends $dara.Model {
   /**
    * @example
    * 1470024000000
@@ -3670,12 +30,16 @@ export class CheckCertificateResponseBodyDevelopmentCertInfo extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckCertificateResponseBodyProductionCertInfo extends $tea.Model {
+export class CheckCertificateResponseBodyProductionCertInfo extends $dara.Model {
   /**
    * @example
    * 1764561600000
@@ -3700,12 +64,16 @@ export class CheckCertificateResponseBodyProductionCertInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckDevicesResponseBodyDeviceCheckInfosDeviceCheckInfo extends $tea.Model {
+export class CheckDevicesResponseBodyDeviceCheckInfosDeviceCheckInfo extends $dara.Model {
   /**
    * @example
    * true
@@ -3730,12 +98,16 @@ export class CheckDevicesResponseBodyDeviceCheckInfosDeviceCheckInfo extends $te
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckDevicesResponseBodyDeviceCheckInfos extends $tea.Model {
+export class CheckDevicesResponseBodyDeviceCheckInfos extends $dara.Model {
   deviceCheckInfo?: CheckDevicesResponseBodyDeviceCheckInfosDeviceCheckInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -3749,12 +121,19 @@ export class CheckDevicesResponseBodyDeviceCheckInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.deviceCheckInfo)) {
+      $dara.Model.validateArray(this.deviceCheckInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSummaryAppsResponseBodySummaryAppInfosSummaryAppInfo extends $tea.Model {
+export class ListSummaryAppsResponseBodySummaryAppInfosSummaryAppInfo extends $dara.Model {
   /**
    * @example
    * 23****07
@@ -3779,12 +158,16 @@ export class ListSummaryAppsResponseBodySummaryAppInfosSummaryAppInfo extends $t
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSummaryAppsResponseBodySummaryAppInfos extends $tea.Model {
+export class ListSummaryAppsResponseBodySummaryAppInfos extends $dara.Model {
   summaryAppInfo?: ListSummaryAppsResponseBodySummaryAppInfosSummaryAppInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -3798,12 +181,19 @@ export class ListSummaryAppsResponseBodySummaryAppInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.summaryAppInfo)) {
+      $dara.Model.validateArray(this.summaryAppInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagsResponseBodyTagInfosTagInfo extends $tea.Model {
+export class ListTagsResponseBodyTagInfosTagInfo extends $dara.Model {
   /**
    * @example
    * test_tag2
@@ -3821,12 +211,16 @@ export class ListTagsResponseBodyTagInfosTagInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagsResponseBodyTagInfos extends $tea.Model {
+export class ListTagsResponseBodyTagInfos extends $dara.Model {
   tagInfo?: ListTagsResponseBodyTagInfosTagInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -3840,12 +234,19 @@ export class ListTagsResponseBodyTagInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagInfo)) {
+      $dara.Model.validateArray(this.tagInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MassPushRequestPushTask extends $tea.Model {
+export class MassPushRequestPushTask extends $dara.Model {
   /**
    * @example
    * com.alibaba.cloudpushdemo.bizactivity
@@ -4390,12 +791,16 @@ export class MassPushRequestPushTask extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MassPushResponseBodyMessageIds extends $tea.Model {
+export class MassPushResponseBodyMessageIds extends $dara.Model {
   messageId?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4409,12 +814,19 @@ export class MassPushResponseBodyMessageIds extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageId)) {
+      $dara.Model.validateArray(this.messageId);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryAliasesResponseBodyAliasInfosAliasInfo extends $tea.Model {
+export class QueryAliasesResponseBodyAliasInfosAliasInfo extends $dara.Model {
   /**
    * @example
    * test_alias1
@@ -4432,12 +844,16 @@ export class QueryAliasesResponseBodyAliasInfosAliasInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryAliasesResponseBodyAliasInfos extends $tea.Model {
+export class QueryAliasesResponseBodyAliasInfos extends $dara.Model {
   aliasInfo?: QueryAliasesResponseBodyAliasInfosAliasInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -4451,12 +867,19 @@ export class QueryAliasesResponseBodyAliasInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.aliasInfo)) {
+      $dara.Model.validateArray(this.aliasInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryDeviceInfoResponseBodyDeviceInfo extends $tea.Model {
+export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
   /**
    * @example
    * test@aliyun.com
@@ -4543,12 +966,16 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extends $tea.Model {
+export class QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extends $dara.Model {
   /**
    * @example
    * 100
@@ -4580,12 +1007,16 @@ export class QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryDeviceStatResponseBodyAppDeviceStats extends $tea.Model {
+export class QueryDeviceStatResponseBodyAppDeviceStats extends $dara.Model {
   appDeviceStat?: QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat[];
   static names(): { [key: string]: string } {
     return {
@@ -4599,12 +1030,19 @@ export class QueryDeviceStatResponseBodyAppDeviceStats extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.appDeviceStat)) {
+      $dara.Model.validateArray(this.appDeviceStat);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryDevicesByAccountResponseBodyDeviceIds extends $tea.Model {
+export class QueryDevicesByAccountResponseBodyDeviceIds extends $dara.Model {
   deviceId?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4618,12 +1056,19 @@ export class QueryDevicesByAccountResponseBodyDeviceIds extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.deviceId)) {
+      $dara.Model.validateArray(this.deviceId);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryDevicesByAliasResponseBodyDeviceIds extends $tea.Model {
+export class QueryDevicesByAliasResponseBodyDeviceIds extends $dara.Model {
   deviceId?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4637,12 +1082,19 @@ export class QueryDevicesByAliasResponseBodyDeviceIds extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.deviceId)) {
+      $dara.Model.validateArray(this.deviceId);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPushRecordsResponseBodyPushInfosPushInfo extends $tea.Model {
+export class QueryPushRecordsResponseBodyPushInfosPushInfo extends $dara.Model {
   /**
    * @example
    * 333526247
@@ -4723,12 +1175,16 @@ export class QueryPushRecordsResponseBodyPushInfosPushInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPushRecordsResponseBodyPushInfos extends $tea.Model {
+export class QueryPushRecordsResponseBodyPushInfos extends $dara.Model {
   pushInfo?: QueryPushRecordsResponseBodyPushInfosPushInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -4742,12 +1198,19 @@ export class QueryPushRecordsResponseBodyPushInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.pushInfo)) {
+      $dara.Model.validateArray(this.pushInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPushStatByAppResponseBodyAppPushStatsAppPushStat extends $tea.Model {
+export class QueryPushStatByAppResponseBodyAppPushStatsAppPushStat extends $dara.Model {
   /**
    * @example
    * 120
@@ -4835,12 +1298,16 @@ export class QueryPushStatByAppResponseBodyAppPushStatsAppPushStat extends $tea.
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPushStatByAppResponseBodyAppPushStats extends $tea.Model {
+export class QueryPushStatByAppResponseBodyAppPushStats extends $dara.Model {
   appPushStat?: QueryPushStatByAppResponseBodyAppPushStatsAppPushStat[];
   static names(): { [key: string]: string } {
     return {
@@ -4854,12 +1321,19 @@ export class QueryPushStatByAppResponseBodyAppPushStats extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.appPushStat)) {
+      $dara.Model.validateArray(this.appPushStat);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPushStatByMsgResponseBodyPushStatsPushStat extends $tea.Model {
+export class QueryPushStatByMsgResponseBodyPushStatsPushStat extends $dara.Model {
   /**
    * @example
    * 120
@@ -4947,12 +1421,16 @@ export class QueryPushStatByMsgResponseBodyPushStatsPushStat extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPushStatByMsgResponseBodyPushStats extends $tea.Model {
+export class QueryPushStatByMsgResponseBodyPushStats extends $dara.Model {
   pushStat?: QueryPushStatByMsgResponseBodyPushStatsPushStat[];
   static names(): { [key: string]: string } {
     return {
@@ -4966,12 +1444,19 @@ export class QueryPushStatByMsgResponseBodyPushStats extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.pushStat)) {
+      $dara.Model.validateArray(this.pushStat);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTagsResponseBodyTagInfosTagInfo extends $tea.Model {
+export class QueryTagsResponseBodyTagInfosTagInfo extends $dara.Model {
   /**
    * @example
    * test_tag2
@@ -4989,12 +1474,16 @@ export class QueryTagsResponseBodyTagInfosTagInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTagsResponseBodyTagInfos extends $tea.Model {
+export class QueryTagsResponseBodyTagInfos extends $dara.Model {
   tagInfo?: QueryTagsResponseBodyTagInfosTagInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -5008,12 +1497,19 @@ export class QueryTagsResponseBodyTagInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagInfo)) {
+      $dara.Model.validateArray(this.tagInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryUniqueDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extends $tea.Model {
+export class QueryUniqueDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extends $dara.Model {
   /**
    * @example
    * 100
@@ -5038,12 +1534,16 @@ export class QueryUniqueDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extend
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryUniqueDeviceStatResponseBodyAppDeviceStats extends $tea.Model {
+export class QueryUniqueDeviceStatResponseBodyAppDeviceStats extends $dara.Model {
   appDeviceStat?: QueryUniqueDeviceStatResponseBodyAppDeviceStatsAppDeviceStat[];
   static names(): { [key: string]: string } {
     return {
@@ -5057,6 +1557,4262 @@ export class QueryUniqueDeviceStatResponseBodyAppDeviceStats extends $tea.Model 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.appDeviceStat)) {
+      $dara.Model.validateArray(this.appDeviceStat);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindAliasRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_alias
+   */
+  aliasName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e2ba19de97604f55b16557673****
+   */
+  deviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasName: 'AliasName',
+      appKey: 'AppKey',
+      deviceId: 'DeviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasName: 'string',
+      appKey: 'number',
+      deviceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindAliasResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 159E4422-6624-4750-8943-DFD98D34858C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindAliasResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindAliasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BindAliasResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindPhoneRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 27725900
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eb5f741d83d04d34807d229999eefa52
+   */
+  deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1381111****
+   */
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      deviceId: 'DeviceId',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      deviceId: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindPhoneResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0D1126F0-F8FF-513D-BAFA-F140447BDED4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindPhoneResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindPhoneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BindPhoneResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindTagRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e2ba19de97604f55b16557673****
+   */
+  clientKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEVICE
+   */
+  keyType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_tag,test_tag2
+   */
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      clientKey: 'ClientKey',
+      keyType: 'KeyType',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      clientKey: 'string',
+      keyType: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindTagResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 82FD0A09-5BB8-40FB-8221-9A11FE92D620
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindTagResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BindTagResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelPushRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 501029
+   */
+  messageId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      messageId: 'MessageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      messageId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelPushResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelPushResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelPushResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelPushResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCertificateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCertificateResponseBody extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  android?: boolean;
+  developmentCertInfo?: CheckCertificateResponseBodyDevelopmentCertInfo;
+  /**
+   * @example
+   * true
+   */
+  IOS?: boolean;
+  productionCertInfo?: CheckCertificateResponseBodyProductionCertInfo;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      android: 'Android',
+      developmentCertInfo: 'DevelopmentCertInfo',
+      IOS: 'IOS',
+      productionCertInfo: 'ProductionCertInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      android: 'boolean',
+      developmentCertInfo: CheckCertificateResponseBodyDevelopmentCertInfo,
+      IOS: 'boolean',
+      productionCertInfo: CheckCertificateResponseBodyProductionCertInfo,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.developmentCertInfo && typeof (this.developmentCertInfo as any).validate === 'function') {
+      (this.developmentCertInfo as any).validate();
+    }
+    if(this.productionCertInfo && typeof (this.productionCertInfo as any).validate === 'function') {
+      (this.productionCertInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCertificateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckCertificateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckDeviceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23419851
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ae296f3b04a58a05b30c95f****
+   */
+  deviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      deviceId: 'DeviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      deviceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckDeviceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ture
+   */
+  available?: boolean;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      available: 'Available',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      available: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckDeviceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckDeviceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckDevicesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23419851
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ae296f3b04a58a05b30c95f****,ae296f3b04a58a05b30c95f****,ae296f3b04a58a05b30c95f****
+   */
+  deviceIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      deviceIds: 'DeviceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      deviceIds: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckDevicesResponseBody extends $dara.Model {
+  deviceCheckInfos?: CheckDevicesResponseBodyDeviceCheckInfos;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceCheckInfos: 'DeviceCheckInfos',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceCheckInfos: CheckDevicesResponseBodyDeviceCheckInfos,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.deviceCheckInfos && typeof (this.deviceCheckInfos as any).validate === 'function') {
+      (this.deviceCheckInfos as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckDevicesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckDevicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckDevicesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompleteContinuouslyPushRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4010290149170430
+   */
+  messageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      messageId: 'MessageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      messageId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompleteContinuouslyPushResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 4010290149170430
+   */
+  messageId?: string;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageId: 'MessageId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompleteContinuouslyPushResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CompleteContinuouslyPushResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CompleteContinuouslyPushResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContinuouslyPushRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 500131
+   */
+  messageId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEVICE
+   */
+  target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a692961a92534047ad3625****
+   */
+  targetValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      messageId: 'MessageId',
+      target: 'Target',
+      targetValue: 'TargetValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      messageId: 'string',
+      target: 'string',
+      targetValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContinuouslyPushResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  messageId?: string;
+  /**
+   * @example
+   * 500131
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageId: 'MessageId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContinuouslyPushResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ContinuouslyPushResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ContinuouslyPushResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSummaryAppsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  summaryAppInfos?: ListSummaryAppsResponseBodySummaryAppInfos;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      summaryAppInfos: 'SummaryAppInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      summaryAppInfos: ListSummaryAppsResponseBodySummaryAppInfos,
+    };
+  }
+
+  validate() {
+    if(this.summaryAppInfos && typeof (this.summaryAppInfos as any).validate === 'function') {
+      (this.summaryAppInfos as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSummaryAppsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSummaryAppsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSummaryAppsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 6EEF262B-EA7D-41DC-89B9-20F3D1E28194
+   */
+  requestId?: string;
+  tagInfos?: ListTagsResponseBodyTagInfos;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tagInfos: 'TagInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tagInfos: ListTagsResponseBodyTagInfos,
+    };
+  }
+
+  validate() {
+    if(this.tagInfos && typeof (this.tagInfos as any).validate === 'function') {
+      (this.tagInfos as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MassPushRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  idempotentToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  pushTask?: MassPushRequestPushTask[];
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      idempotentToken: 'IdempotentToken',
+      pushTask: 'PushTask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      idempotentToken: 'string',
+      pushTask: { 'type': 'array', 'itemType': MassPushRequestPushTask },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.pushTask)) {
+      $dara.Model.validateArray(this.pushTask);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MassPushResponseBody extends $dara.Model {
+  messageIds?: MassPushResponseBodyMessageIds;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageIds: 'MessageIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageIds: MassPushResponseBodyMessageIds,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.messageIds && typeof (this.messageIds as any).validate === 'function') {
+      (this.messageIds as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MassPushResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MassPushResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MassPushResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushRequest extends $dara.Model {
+  /**
+   * @example
+   * com.alibaba.cloudpushdemo.bizactivity
+   */
+  androidActivity?: string;
+  androidBadgeAddNum?: number;
+  androidBadgeClass?: string;
+  androidBadgeSetNum?: number;
+  androidBigBody?: string;
+  /**
+   * @example
+   * https://imag.example.com/image.png
+   */
+  androidBigPictureUrl?: string;
+  androidBigTitle?: string;
+  /**
+   * @example
+   * {"key1":"value1","api_name":"PushNoticeToAndroidRequest"}
+   */
+  androidExtParameters?: string;
+  androidHonorTargetUserType?: number;
+  /**
+   * @example
+   * RCP4C123456
+   */
+  androidHuaweiReceiptId?: string;
+  /**
+   * @example
+   * 0
+   */
+  androidHuaweiTargetUserType?: number;
+  /**
+   * @example
+   * https://imag.example.com/image.png
+   */
+  androidImageUrl?: string;
+  androidInboxBody?: string;
+  /**
+   * @example
+   * VOIP
+   */
+  androidMessageHuaweiCategory?: string;
+  /**
+   * @example
+   * HIGH
+   */
+  androidMessageHuaweiUrgency?: string;
+  androidMessageOppoCategory?: string;
+  androidMessageOppoNotifyLevel?: number;
+  /**
+   * @example
+   * TODO
+   */
+  androidMessageVivoCategory?: string;
+  androidMusic?: string;
+  /**
+   * @example
+   * 0
+   */
+  androidNotificationBarPriority?: number;
+  /**
+   * @example
+   * 2
+   */
+  androidNotificationBarType?: number;
+  /**
+   * @example
+   * 1
+   */
+  androidNotificationChannel?: string;
+  /**
+   * @example
+   * group-1
+   */
+  androidNotificationGroup?: string;
+  /**
+   * @example
+   * LOW
+   */
+  androidNotificationHonorChannel?: string;
+  /**
+   * @example
+   * LOW
+   */
+  androidNotificationHuaweiChannel?: string;
+  /**
+   * @example
+   * 100001
+   */
+  androidNotificationNotifyId?: number;
+  androidNotificationThreadId?: string;
+  /**
+   * @example
+   * classification
+   */
+  androidNotificationVivoChannel?: string;
+  /**
+   * @example
+   * michannel
+   */
+  androidNotificationXiaomiChannel?: string;
+  /**
+   * @example
+   * BOTH
+   */
+  androidNotifyType?: string;
+  /**
+   * @example
+   * APPLICATION
+   */
+  androidOpenType?: string;
+  /**
+   * @example
+   * https://xxxx.xxx
+   */
+  androidOpenUrl?: string;
+  /**
+   * @example
+   * com.alibaba.cloudpushdemo.bizactivity
+   */
+  androidPopupActivity?: string;
+  /**
+   * @example
+   * hello
+   */
+  androidPopupBody?: string;
+  /**
+   * @example
+   * hello
+   */
+  androidPopupTitle?: string;
+  /**
+   * @example
+   * true
+   */
+  androidRemind?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  androidRenderStyle?: number;
+  androidTargetUserType?: number;
+  /**
+   * @example
+   * 0
+   */
+  androidVivoPushMode?: number;
+  androidVivoReceiptId?: string;
+  /**
+   * @deprecated
+   */
+  androidXiaoMiActivity?: string;
+  /**
+   * @deprecated
+   */
+  androidXiaoMiNotifyBody?: string;
+  /**
+   * @deprecated
+   */
+  androidXiaoMiNotifyTitle?: string;
+  /**
+   * @example
+   * https://f6.market.xiaomi.com/download/MiPass/aaa/bbb.png
+   */
+  androidXiaomiBigPictureUrl?: string;
+  /**
+   * @example
+   * https://imag.example.com/image.png
+   */
+  androidXiaomiImageUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hello
+   */
+  body?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
+  deviceType?: string;
+  /**
+   * @example
+   * 2019-02-20T00:00:00Z
+   */
+  expireTime?: string;
+  harmonyAction?: string;
+  harmonyActionType?: string;
+  harmonyBadgeAddNum?: number;
+  harmonyBadgeSetNum?: number;
+  harmonyCategory?: string;
+  harmonyExtParameters?: string;
+  harmonyExtensionExtraData?: string;
+  harmonyExtensionPush?: boolean;
+  harmonyImageUrl?: string;
+  harmonyInboxContent?: string;
+  harmonyNotificationSlotType?: string;
+  harmonyNotifyId?: number;
+  harmonyReceiptId?: string;
+  harmonyRemind?: boolean;
+  harmonyRemindBody?: string;
+  harmonyRemindTitle?: string;
+  harmonyRenderStyle?: string;
+  harmonyTestMessage?: boolean;
+  harmonyUri?: string;
+  idempotentToken?: string;
+  /**
+   * @example
+   * 123
+   */
+  jobKey?: string;
+  /**
+   * @example
+   * 2019-02-20T00:00:00Z
+   */
+  pushTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MESSAGE
+   */
+  pushType?: string;
+  /**
+   * @example
+   * accs,huawei,xiaomi
+   */
+  sendChannels?: string;
+  /**
+   * @example
+   * 0
+   * 
+   * @deprecated
+   */
+  sendSpeed?: number;
+  /**
+   * @example
+   * 15
+   */
+  smsDelaySecs?: number;
+  /**
+   * @example
+   * key1=value1
+   */
+  smsParams?: string;
+  /**
+   * @example
+   * 0
+   */
+  smsSendPolicy?: number;
+  smsSignName?: string;
+  smsTemplateName?: string;
+  /**
+   * @example
+   * false
+   */
+  storeOffline?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
+  target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
+  targetValue?: string;
+  /**
+   * @example
+   * title
+   */
+  title?: string;
+  /**
+   * @example
+   * false
+   */
+  trim?: boolean;
+  /**
+   * @example
+   * DEV
+   */
+  iOSApnsEnv?: string;
+  /**
+   * @example
+   * 0
+   */
+  iOSBadge?: number;
+  /**
+   * @example
+   * true
+   */
+  iOSBadgeAutoIncrement?: boolean;
+  /**
+   * @example
+   * {“attachment”: “https://xxxx.xxx/notification_pic.png"}
+   */
+  iOSExtParameters?: string;
+  /**
+   * @example
+   * active
+   */
+  iOSInterruptionLevel?: string;
+  /**
+   * @example
+   * ""
+   */
+  iOSMusic?: string;
+  /**
+   * @example
+   * true
+   */
+  iOSMutableContent?: boolean;
+  /**
+   * @example
+   * ios
+   */
+  iOSNotificationCategory?: string;
+  /**
+   * @example
+   * ZD2011
+   */
+  iOSNotificationCollapseId?: string;
+  /**
+   * @example
+   * abc
+   */
+  iOSNotificationThreadId?: string;
+  /**
+   * @example
+   * 0.01
+   */
+  iOSRelevanceScore?: number;
+  /**
+   * @example
+   * true
+   */
+  iOSRemind?: boolean;
+  iOSRemindBody?: string;
+  /**
+   * @example
+   * true
+   */
+  iOSSilentNotification?: boolean;
+  /**
+   * @example
+   * su\\"b
+   */
+  iOSSubtitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      androidActivity: 'AndroidActivity',
+      androidBadgeAddNum: 'AndroidBadgeAddNum',
+      androidBadgeClass: 'AndroidBadgeClass',
+      androidBadgeSetNum: 'AndroidBadgeSetNum',
+      androidBigBody: 'AndroidBigBody',
+      androidBigPictureUrl: 'AndroidBigPictureUrl',
+      androidBigTitle: 'AndroidBigTitle',
+      androidExtParameters: 'AndroidExtParameters',
+      androidHonorTargetUserType: 'AndroidHonorTargetUserType',
+      androidHuaweiReceiptId: 'AndroidHuaweiReceiptId',
+      androidHuaweiTargetUserType: 'AndroidHuaweiTargetUserType',
+      androidImageUrl: 'AndroidImageUrl',
+      androidInboxBody: 'AndroidInboxBody',
+      androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
+      androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
+      androidMessageOppoCategory: 'AndroidMessageOppoCategory',
+      androidMessageOppoNotifyLevel: 'AndroidMessageOppoNotifyLevel',
+      androidMessageVivoCategory: 'AndroidMessageVivoCategory',
+      androidMusic: 'AndroidMusic',
+      androidNotificationBarPriority: 'AndroidNotificationBarPriority',
+      androidNotificationBarType: 'AndroidNotificationBarType',
+      androidNotificationChannel: 'AndroidNotificationChannel',
+      androidNotificationGroup: 'AndroidNotificationGroup',
+      androidNotificationHonorChannel: 'AndroidNotificationHonorChannel',
+      androidNotificationHuaweiChannel: 'AndroidNotificationHuaweiChannel',
+      androidNotificationNotifyId: 'AndroidNotificationNotifyId',
+      androidNotificationThreadId: 'AndroidNotificationThreadId',
+      androidNotificationVivoChannel: 'AndroidNotificationVivoChannel',
+      androidNotificationXiaomiChannel: 'AndroidNotificationXiaomiChannel',
+      androidNotifyType: 'AndroidNotifyType',
+      androidOpenType: 'AndroidOpenType',
+      androidOpenUrl: 'AndroidOpenUrl',
+      androidPopupActivity: 'AndroidPopupActivity',
+      androidPopupBody: 'AndroidPopupBody',
+      androidPopupTitle: 'AndroidPopupTitle',
+      androidRemind: 'AndroidRemind',
+      androidRenderStyle: 'AndroidRenderStyle',
+      androidTargetUserType: 'AndroidTargetUserType',
+      androidVivoPushMode: 'AndroidVivoPushMode',
+      androidVivoReceiptId: 'AndroidVivoReceiptId',
+      androidXiaoMiActivity: 'AndroidXiaoMiActivity',
+      androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
+      androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
+      androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
+      androidXiaomiImageUrl: 'AndroidXiaomiImageUrl',
+      appKey: 'AppKey',
+      body: 'Body',
+      deviceType: 'DeviceType',
+      expireTime: 'ExpireTime',
+      harmonyAction: 'HarmonyAction',
+      harmonyActionType: 'HarmonyActionType',
+      harmonyBadgeAddNum: 'HarmonyBadgeAddNum',
+      harmonyBadgeSetNum: 'HarmonyBadgeSetNum',
+      harmonyCategory: 'HarmonyCategory',
+      harmonyExtParameters: 'HarmonyExtParameters',
+      harmonyExtensionExtraData: 'HarmonyExtensionExtraData',
+      harmonyExtensionPush: 'HarmonyExtensionPush',
+      harmonyImageUrl: 'HarmonyImageUrl',
+      harmonyInboxContent: 'HarmonyInboxContent',
+      harmonyNotificationSlotType: 'HarmonyNotificationSlotType',
+      harmonyNotifyId: 'HarmonyNotifyId',
+      harmonyReceiptId: 'HarmonyReceiptId',
+      harmonyRemind: 'HarmonyRemind',
+      harmonyRemindBody: 'HarmonyRemindBody',
+      harmonyRemindTitle: 'HarmonyRemindTitle',
+      harmonyRenderStyle: 'HarmonyRenderStyle',
+      harmonyTestMessage: 'HarmonyTestMessage',
+      harmonyUri: 'HarmonyUri',
+      idempotentToken: 'IdempotentToken',
+      jobKey: 'JobKey',
+      pushTime: 'PushTime',
+      pushType: 'PushType',
+      sendChannels: 'SendChannels',
+      sendSpeed: 'SendSpeed',
+      smsDelaySecs: 'SmsDelaySecs',
+      smsParams: 'SmsParams',
+      smsSendPolicy: 'SmsSendPolicy',
+      smsSignName: 'SmsSignName',
+      smsTemplateName: 'SmsTemplateName',
+      storeOffline: 'StoreOffline',
+      target: 'Target',
+      targetValue: 'TargetValue',
+      title: 'Title',
+      trim: 'Trim',
+      iOSApnsEnv: 'iOSApnsEnv',
+      iOSBadge: 'iOSBadge',
+      iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
+      iOSExtParameters: 'iOSExtParameters',
+      iOSInterruptionLevel: 'iOSInterruptionLevel',
+      iOSMusic: 'iOSMusic',
+      iOSMutableContent: 'iOSMutableContent',
+      iOSNotificationCategory: 'iOSNotificationCategory',
+      iOSNotificationCollapseId: 'iOSNotificationCollapseId',
+      iOSNotificationThreadId: 'iOSNotificationThreadId',
+      iOSRelevanceScore: 'iOSRelevanceScore',
+      iOSRemind: 'iOSRemind',
+      iOSRemindBody: 'iOSRemindBody',
+      iOSSilentNotification: 'iOSSilentNotification',
+      iOSSubtitle: 'iOSSubtitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      androidActivity: 'string',
+      androidBadgeAddNum: 'number',
+      androidBadgeClass: 'string',
+      androidBadgeSetNum: 'number',
+      androidBigBody: 'string',
+      androidBigPictureUrl: 'string',
+      androidBigTitle: 'string',
+      androidExtParameters: 'string',
+      androidHonorTargetUserType: 'number',
+      androidHuaweiReceiptId: 'string',
+      androidHuaweiTargetUserType: 'number',
+      androidImageUrl: 'string',
+      androidInboxBody: 'string',
+      androidMessageHuaweiCategory: 'string',
+      androidMessageHuaweiUrgency: 'string',
+      androidMessageOppoCategory: 'string',
+      androidMessageOppoNotifyLevel: 'number',
+      androidMessageVivoCategory: 'string',
+      androidMusic: 'string',
+      androidNotificationBarPriority: 'number',
+      androidNotificationBarType: 'number',
+      androidNotificationChannel: 'string',
+      androidNotificationGroup: 'string',
+      androidNotificationHonorChannel: 'string',
+      androidNotificationHuaweiChannel: 'string',
+      androidNotificationNotifyId: 'number',
+      androidNotificationThreadId: 'string',
+      androidNotificationVivoChannel: 'string',
+      androidNotificationXiaomiChannel: 'string',
+      androidNotifyType: 'string',
+      androidOpenType: 'string',
+      androidOpenUrl: 'string',
+      androidPopupActivity: 'string',
+      androidPopupBody: 'string',
+      androidPopupTitle: 'string',
+      androidRemind: 'boolean',
+      androidRenderStyle: 'number',
+      androidTargetUserType: 'number',
+      androidVivoPushMode: 'number',
+      androidVivoReceiptId: 'string',
+      androidXiaoMiActivity: 'string',
+      androidXiaoMiNotifyBody: 'string',
+      androidXiaoMiNotifyTitle: 'string',
+      androidXiaomiBigPictureUrl: 'string',
+      androidXiaomiImageUrl: 'string',
+      appKey: 'number',
+      body: 'string',
+      deviceType: 'string',
+      expireTime: 'string',
+      harmonyAction: 'string',
+      harmonyActionType: 'string',
+      harmonyBadgeAddNum: 'number',
+      harmonyBadgeSetNum: 'number',
+      harmonyCategory: 'string',
+      harmonyExtParameters: 'string',
+      harmonyExtensionExtraData: 'string',
+      harmonyExtensionPush: 'boolean',
+      harmonyImageUrl: 'string',
+      harmonyInboxContent: 'string',
+      harmonyNotificationSlotType: 'string',
+      harmonyNotifyId: 'number',
+      harmonyReceiptId: 'string',
+      harmonyRemind: 'boolean',
+      harmonyRemindBody: 'string',
+      harmonyRemindTitle: 'string',
+      harmonyRenderStyle: 'string',
+      harmonyTestMessage: 'boolean',
+      harmonyUri: 'string',
+      idempotentToken: 'string',
+      jobKey: 'string',
+      pushTime: 'string',
+      pushType: 'string',
+      sendChannels: 'string',
+      sendSpeed: 'number',
+      smsDelaySecs: 'number',
+      smsParams: 'string',
+      smsSendPolicy: 'number',
+      smsSignName: 'string',
+      smsTemplateName: 'string',
+      storeOffline: 'boolean',
+      target: 'string',
+      targetValue: 'string',
+      title: 'string',
+      trim: 'boolean',
+      iOSApnsEnv: 'string',
+      iOSBadge: 'number',
+      iOSBadgeAutoIncrement: 'boolean',
+      iOSExtParameters: 'string',
+      iOSInterruptionLevel: 'string',
+      iOSMusic: 'string',
+      iOSMutableContent: 'boolean',
+      iOSNotificationCategory: 'string',
+      iOSNotificationCollapseId: 'string',
+      iOSNotificationThreadId: 'string',
+      iOSRelevanceScore: 'number',
+      iOSRemind: 'boolean',
+      iOSRemindBody: 'string',
+      iOSSilentNotification: 'boolean',
+      iOSSubtitle: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 501029
+   */
+  messageId?: string;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageId: 'MessageId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PushResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushMessageToAndroidRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my body
+   */
+  body?: string;
+  /**
+   * @example
+   * 123
+   */
+  jobKey?: string;
+  storeOffline?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
+  target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * all
+   */
+  targetValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my title
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      body: 'Body',
+      jobKey: 'JobKey',
+      storeOffline: 'StoreOffline',
+      target: 'Target',
+      targetValue: 'TargetValue',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      body: 'string',
+      jobKey: 'string',
+      storeOffline: 'boolean',
+      target: 'string',
+      targetValue: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushMessageToAndroidResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 501029
+   */
+  messageId?: string;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageId: 'MessageId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushMessageToAndroidResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushMessageToAndroidResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PushMessageToAndroidResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushMessageToiOSRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 24780725
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my body
+   */
+  body?: string;
+  /**
+   * @example
+   * 123
+   */
+  jobKey?: string;
+  storeOffline?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
+  target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * all
+   */
+  targetValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my title
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      body: 'Body',
+      jobKey: 'JobKey',
+      storeOffline: 'StoreOffline',
+      target: 'Target',
+      targetValue: 'TargetValue',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      body: 'string',
+      jobKey: 'string',
+      storeOffline: 'boolean',
+      target: 'string',
+      targetValue: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushMessageToiOSResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 501029
+   */
+  messageId?: string;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageId: 'MessageId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushMessageToiOSResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushMessageToiOSResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PushMessageToiOSResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushNoticeToAndroidRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * body
+   */
+  body?: string;
+  /**
+   * @example
+   * {"key1":"value1","api_name":"PushNoticeToAndroidRequest"}
+   */
+  extParameters?: string;
+  /**
+   * @example
+   * 123
+   */
+  jobKey?: string;
+  storeOffline?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
+  target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
+  targetValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * title
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      body: 'Body',
+      extParameters: 'ExtParameters',
+      jobKey: 'JobKey',
+      storeOffline: 'StoreOffline',
+      target: 'Target',
+      targetValue: 'TargetValue',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      body: 'string',
+      extParameters: 'string',
+      jobKey: 'string',
+      storeOffline: 'boolean',
+      target: 'string',
+      targetValue: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushNoticeToAndroidResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 501029
+   */
+  messageId?: string;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageId: 'MessageId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushNoticeToAndroidResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushNoticeToAndroidResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PushNoticeToAndroidResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushNoticeToiOSRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEV
+   */
+  apnsEnv?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 24780725
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Hello World
+   */
+  body?: string;
+  /**
+   * @example
+   * {"k1":"ios","k2":"v2"}
+   */
+  extParameters?: string;
+  /**
+   * @example
+   * 123
+   */
+  jobKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
+  target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
+  targetValue?: string;
+  /**
+   * @example
+   * title
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apnsEnv: 'ApnsEnv',
+      appKey: 'AppKey',
+      body: 'Body',
+      extParameters: 'ExtParameters',
+      jobKey: 'JobKey',
+      target: 'Target',
+      targetValue: 'TargetValue',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apnsEnv: 'string',
+      appKey: 'number',
+      body: 'string',
+      extParameters: 'string',
+      jobKey: 'string',
+      target: 'string',
+      targetValue: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushNoticeToiOSResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  messageId?: string;
+  /**
+   * @example
+   * 501029
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageId: 'MessageId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushNoticeToiOSResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushNoticeToiOSResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PushNoticeToiOSResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAliasesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e2ba19de97604f55b165576****
+   */
+  deviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      deviceId: 'DeviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      deviceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAliasesResponseBody extends $dara.Model {
+  aliasInfos?: QueryAliasesResponseBodyAliasInfos;
+  /**
+   * @example
+   * 159E4422-6624-4750-8943-DFD98D34858C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasInfos: 'AliasInfos',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasInfos: QueryAliasesResponseBodyAliasInfos,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.aliasInfos && typeof (this.aliasInfos as any).validate === 'function') {
+      (this.aliasInfos as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAliasesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAliasesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryAliasesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23419851
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a64ae296f3b04a58a05b30c9****
+   */
+  deviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      deviceId: 'DeviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      deviceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceInfoResponseBody extends $dara.Model {
+  deviceInfo?: QueryDeviceInfoResponseBodyDeviceInfo;
+  /**
+   * @example
+   * 6EEF262B-EA7D-41DC-89B9-20F3D1E28194
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceInfo: 'DeviceInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceInfo: QueryDeviceInfoResponseBodyDeviceInfo,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.deviceInfo && typeof (this.deviceInfo as any).validate === 'function') {
+      (this.deviceInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDeviceInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDeviceInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceStatRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @example
+   * iOS
+   */
+  deviceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-07-29T00:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * TOTAL
+   */
+  queryType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-07-28T00:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      deviceType: 'DeviceType',
+      endTime: 'EndTime',
+      queryType: 'QueryType',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      deviceType: 'string',
+      endTime: 'string',
+      queryType: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceStatResponseBody extends $dara.Model {
+  appDeviceStats?: QueryDeviceStatResponseBodyAppDeviceStats;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appDeviceStats: 'AppDeviceStats',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appDeviceStats: QueryDeviceStatResponseBodyAppDeviceStats,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.appDeviceStats && typeof (this.appDeviceStats as any).validate === 'function') {
+      (this.appDeviceStats as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceStatResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDeviceStatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDeviceStatResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesByAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * accountName
+   */
+  account?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+      appKey: 'AppKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      appKey: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesByAccountResponseBody extends $dara.Model {
+  deviceIds?: QueryDevicesByAccountResponseBodyDeviceIds;
+  /**
+   * @example
+   * A8A24108-2AD0-4F6E-81C7-A8A24C2C2AD0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceIds: 'DeviceIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceIds: QueryDevicesByAccountResponseBodyDeviceIds,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.deviceIds && typeof (this.deviceIds as any).validate === 'function') {
+      (this.deviceIds as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesByAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDevicesByAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDevicesByAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesByAliasRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aliasName
+   */
+  alias?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      appKey: 'AppKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      appKey: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesByAliasResponseBody extends $dara.Model {
+  deviceIds?: QueryDevicesByAliasResponseBodyDeviceIds;
+  /**
+   * @example
+   * 6A9FD644-35A5-40E4-89B0-2021CAEDC1B4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceIds: 'DeviceIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceIds: QueryDevicesByAliasResponseBodyDeviceIds,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.deviceIds && typeof (this.deviceIds as any).validate === 'function') {
+      (this.deviceIds as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesByAliasResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDevicesByAliasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDevicesByAliasResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPushRecordsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 333526247
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-29T06:24:58Z
+   */
+  endTime?: string;
+  keyword?: string;
+  /**
+   * @example
+   * FFPpkmhCPm*****************xjk=
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 8
+   */
+  page?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * NOTICE
+   */
+  pushType?: string;
+  /**
+   * @example
+   * API
+   */
+  source?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-15T02:05:24Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * DEVICE
+   */
+  target?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      endTime: 'EndTime',
+      keyword: 'Keyword',
+      nextToken: 'NextToken',
+      page: 'Page',
+      pageSize: 'PageSize',
+      pushType: 'PushType',
+      source: 'Source',
+      startTime: 'StartTime',
+      target: 'Target',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      endTime: 'string',
+      keyword: 'string',
+      nextToken: 'string',
+      page: 'number',
+      pageSize: 'number',
+      pushType: 'string',
+      source: 'string',
+      startTime: 'string',
+      target: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPushRecordsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * i91D***********kXIh/dVBEQ==
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 11
+   */
+  page?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  pushInfos?: QueryPushRecordsResponseBodyPushInfos;
+  /**
+   * @example
+   * 9B24B396-249D-55E4-8CA1-66C9B50BB734
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 193
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      page: 'Page',
+      pageSize: 'PageSize',
+      pushInfos: 'PushInfos',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      page: 'number',
+      pageSize: 'number',
+      pushInfos: QueryPushRecordsResponseBodyPushInfos,
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(this.pushInfos && typeof (this.pushInfos as any).validate === 'function') {
+      (this.pushInfos as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPushRecordsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPushRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryPushRecordsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPushStatByAppRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-07-29T00:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DAY
+   */
+  granularity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-07-25T00:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      endTime: 'EndTime',
+      granularity: 'Granularity',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      endTime: 'string',
+      granularity: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPushStatByAppResponseBody extends $dara.Model {
+  appPushStats?: QueryPushStatByAppResponseBodyAppPushStats;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appPushStats: 'AppPushStats',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appPushStats: QueryPushStatByAppResponseBodyAppPushStats,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.appPushStats && typeof (this.appPushStats as any).validate === 'function') {
+      (this.appPushStats as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPushStatByAppResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPushStatByAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryPushStatByAppResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPushStatByMsgRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 510427
+   */
+  messageId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      messageId: 'MessageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      messageId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPushStatByMsgResponseBody extends $dara.Model {
+  pushStats?: QueryPushStatByMsgResponseBodyPushStats;
+  /**
+   * @example
+   * CF195C34-98FB-491A-98D7-19CBC1FA880B
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pushStats: 'PushStats',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pushStats: QueryPushStatByMsgResponseBodyPushStats,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.pushStats && typeof (this.pushStats as any).validate === 'function') {
+      (this.pushStats as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPushStatByMsgResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPushStatByMsgResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryPushStatByMsgResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e2ba19de97604f55b165576****
+   */
+  clientKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEVICE
+   */
+  keyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      clientKey: 'ClientKey',
+      keyType: 'KeyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      clientKey: 'string',
+      keyType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * D68AE5C6-8AAF-46C9-B627-3FDACD1A4168
+   */
+  requestId?: string;
+  tagInfos?: QueryTagsResponseBodyTagInfos;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tagInfos: 'TagInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tagInfos: QueryTagsResponseBodyTagInfos,
+    };
+  }
+
+  validate() {
+    if(this.tagInfos && typeof (this.tagInfos as any).validate === 'function') {
+      (this.tagInfos as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTagsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUniqueDeviceStatRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-07-26T00:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DAY
+   */
+  granularity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-07-25T00:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      endTime: 'EndTime',
+      granularity: 'Granularity',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      endTime: 'string',
+      granularity: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUniqueDeviceStatResponseBody extends $dara.Model {
+  appDeviceStats?: QueryUniqueDeviceStatResponseBodyAppDeviceStats;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appDeviceStats: 'AppDeviceStats',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appDeviceStats: QueryUniqueDeviceStatResponseBodyAppDeviceStats,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.appDeviceStats && typeof (this.appDeviceStats as any).validate === 'function') {
+      (this.appDeviceStats as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUniqueDeviceStatResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryUniqueDeviceStatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryUniqueDeviceStatResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveTagRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_tag
+   */
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveTagResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 23000F3C-0EFE-4C89-82EE-E04F42D37B3C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveTagResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveTagResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindAliasRequest extends $dara.Model {
+  /**
+   * @example
+   * test_alias
+   */
+  aliasName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e2ba19de97604f55b16557673****
+   */
+  deviceId?: string;
+  /**
+   * @example
+   * true
+   */
+  unbindAll?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      aliasName: 'AliasName',
+      appKey: 'AppKey',
+      deviceId: 'DeviceId',
+      unbindAll: 'UnbindAll',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasName: 'string',
+      appKey: 'number',
+      deviceId: 'string',
+      unbindAll: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindAliasResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 159E4422-6624-4750-8943-DFD98D34858C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindAliasResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindAliasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindAliasResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindPhoneRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eb5f741d83d04d34807d229999eefa52
+   */
+  deviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      deviceId: 'DeviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      deviceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindPhoneResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0D1126F0-F8FF-513D-BAFA-F140447BDED4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindPhoneResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindPhoneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindPhoneResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindTagRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e2ba19de97604f55b16557673****
+   */
+  clientKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEVICE
+   */
+  keyType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_tag1,test_tag2
+   */
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      clientKey: 'ClientKey',
+      keyType: 'KeyType',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      clientKey: 'string',
+      keyType: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindTagResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 159E4422-6624-4750-8943-DFD98D34858C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindTagResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindTagResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -5065,7 +5821,7 @@ export class QueryUniqueDeviceStatResponseBodyAppDeviceStats extends $tea.Model 
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
@@ -5130,15 +5886,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -5148,25 +5904,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindAliasResponse
    */
-  async bindAliasWithOptions(request: BindAliasRequest, runtime: $Util.RuntimeOptions): Promise<BindAliasResponse> {
-    Util.validateModel(request);
+  async bindAliasWithOptions(request: BindAliasRequest, runtime: $dara.RuntimeOptions): Promise<BindAliasResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.aliasName)) {
+    if (!$dara.isNull(request.aliasName)) {
       query["AliasName"] = request.aliasName;
     }
 
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.deviceId)) {
+    if (!$dara.isNull(request.deviceId)) {
       query["DeviceId"] = request.deviceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindAlias",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -5177,7 +5933,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindAliasResponse>(await this.callApi(params, req, runtime), new BindAliasResponse({}));
+    return $dara.cast<BindAliasResponse>(await this.callApi(params, req, runtime), new BindAliasResponse({}));
   }
 
   /**
@@ -5187,7 +5943,7 @@ export default class Client extends OpenApi {
    * @returns BindAliasResponse
    */
   async bindAlias(request: BindAliasRequest): Promise<BindAliasResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindAliasWithOptions(request, runtime);
   }
 
@@ -5198,25 +5954,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindPhoneResponse
    */
-  async bindPhoneWithOptions(request: BindPhoneRequest, runtime: $Util.RuntimeOptions): Promise<BindPhoneResponse> {
-    Util.validateModel(request);
+  async bindPhoneWithOptions(request: BindPhoneRequest, runtime: $dara.RuntimeOptions): Promise<BindPhoneResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.deviceId)) {
+    if (!$dara.isNull(request.deviceId)) {
       query["DeviceId"] = request.deviceId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindPhone",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -5227,7 +5983,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindPhoneResponse>(await this.callApi(params, req, runtime), new BindPhoneResponse({}));
+    return $dara.cast<BindPhoneResponse>(await this.callApi(params, req, runtime), new BindPhoneResponse({}));
   }
 
   /**
@@ -5237,7 +5993,7 @@ export default class Client extends OpenApi {
    * @returns BindPhoneResponse
    */
   async bindPhone(request: BindPhoneRequest): Promise<BindPhoneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindPhoneWithOptions(request, runtime);
   }
 
@@ -5248,29 +6004,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindTagResponse
    */
-  async bindTagWithOptions(request: BindTagRequest, runtime: $Util.RuntimeOptions): Promise<BindTagResponse> {
-    Util.validateModel(request);
+  async bindTagWithOptions(request: BindTagRequest, runtime: $dara.RuntimeOptions): Promise<BindTagResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.clientKey)) {
+    if (!$dara.isNull(request.clientKey)) {
       query["ClientKey"] = request.clientKey;
     }
 
-    if (!Util.isUnset(request.keyType)) {
+    if (!$dara.isNull(request.keyType)) {
       query["KeyType"] = request.keyType;
     }
 
-    if (!Util.isUnset(request.tagName)) {
+    if (!$dara.isNull(request.tagName)) {
       query["TagName"] = request.tagName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindTag",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -5281,7 +6037,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindTagResponse>(await this.callApi(params, req, runtime), new BindTagResponse({}));
+    return $dara.cast<BindTagResponse>(await this.callApi(params, req, runtime), new BindTagResponse({}));
   }
 
   /**
@@ -5291,7 +6047,7 @@ export default class Client extends OpenApi {
    * @returns BindTagResponse
    */
   async bindTag(request: BindTagRequest): Promise<BindTagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindTagWithOptions(request, runtime);
   }
 
@@ -5302,21 +6058,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelPushResponse
    */
-  async cancelPushWithOptions(request: CancelPushRequest, runtime: $Util.RuntimeOptions): Promise<CancelPushResponse> {
-    Util.validateModel(request);
+  async cancelPushWithOptions(request: CancelPushRequest, runtime: $dara.RuntimeOptions): Promise<CancelPushResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.messageId)) {
+    if (!$dara.isNull(request.messageId)) {
       query["MessageId"] = request.messageId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelPush",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -5327,7 +6083,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelPushResponse>(await this.callApi(params, req, runtime), new CancelPushResponse({}));
+    return $dara.cast<CancelPushResponse>(await this.callApi(params, req, runtime), new CancelPushResponse({}));
   }
 
   /**
@@ -5337,7 +6093,7 @@ export default class Client extends OpenApi {
    * @returns CancelPushResponse
    */
   async cancelPush(request: CancelPushRequest): Promise<CancelPushResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelPushWithOptions(request, runtime);
   }
 
@@ -5346,17 +6102,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckCertificateResponse
    */
-  async checkCertificateWithOptions(request: CheckCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CheckCertificateResponse> {
-    Util.validateModel(request);
+  async checkCertificateWithOptions(request: CheckCertificateRequest, runtime: $dara.RuntimeOptions): Promise<CheckCertificateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckCertificate",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -5367,7 +6123,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckCertificateResponse>(await this.callApi(params, req, runtime), new CheckCertificateResponse({}));
+    return $dara.cast<CheckCertificateResponse>(await this.callApi(params, req, runtime), new CheckCertificateResponse({}));
   }
 
   /**
@@ -5375,7 +6131,7 @@ export default class Client extends OpenApi {
    * @returns CheckCertificateResponse
    */
   async checkCertificate(request: CheckCertificateRequest): Promise<CheckCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkCertificateWithOptions(request, runtime);
   }
 
@@ -5389,21 +6145,21 @@ export default class Client extends OpenApi {
    * @returns CheckDeviceResponse
    */
   // Deprecated
-  async checkDeviceWithOptions(request: CheckDeviceRequest, runtime: $Util.RuntimeOptions): Promise<CheckDeviceResponse> {
-    Util.validateModel(request);
+  async checkDeviceWithOptions(request: CheckDeviceRequest, runtime: $dara.RuntimeOptions): Promise<CheckDeviceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.deviceId)) {
+    if (!$dara.isNull(request.deviceId)) {
       query["DeviceId"] = request.deviceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckDevice",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -5414,7 +6170,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckDeviceResponse>(await this.callApi(params, req, runtime), new CheckDeviceResponse({}));
+    return $dara.cast<CheckDeviceResponse>(await this.callApi(params, req, runtime), new CheckDeviceResponse({}));
   }
 
   /**
@@ -5427,7 +6183,7 @@ export default class Client extends OpenApi {
    */
   // Deprecated
   async checkDevice(request: CheckDeviceRequest): Promise<CheckDeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkDeviceWithOptions(request, runtime);
   }
 
@@ -5438,21 +6194,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckDevicesResponse
    */
-  async checkDevicesWithOptions(request: CheckDevicesRequest, runtime: $Util.RuntimeOptions): Promise<CheckDevicesResponse> {
-    Util.validateModel(request);
+  async checkDevicesWithOptions(request: CheckDevicesRequest, runtime: $dara.RuntimeOptions): Promise<CheckDevicesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.deviceIds)) {
+    if (!$dara.isNull(request.deviceIds)) {
       query["DeviceIds"] = request.deviceIds;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckDevices",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -5463,7 +6219,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckDevicesResponse>(await this.callApi(params, req, runtime), new CheckDevicesResponse({}));
+    return $dara.cast<CheckDevicesResponse>(await this.callApi(params, req, runtime), new CheckDevicesResponse({}));
   }
 
   /**
@@ -5473,7 +6229,7 @@ export default class Client extends OpenApi {
    * @returns CheckDevicesResponse
    */
   async checkDevices(request: CheckDevicesRequest): Promise<CheckDevicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkDevicesWithOptions(request, runtime);
   }
 
@@ -5484,21 +6240,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CompleteContinuouslyPushResponse
    */
-  async completeContinuouslyPushWithOptions(request: CompleteContinuouslyPushRequest, runtime: $Util.RuntimeOptions): Promise<CompleteContinuouslyPushResponse> {
-    Util.validateModel(request);
+  async completeContinuouslyPushWithOptions(request: CompleteContinuouslyPushRequest, runtime: $dara.RuntimeOptions): Promise<CompleteContinuouslyPushResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.messageId)) {
+    if (!$dara.isNull(request.messageId)) {
       query["MessageId"] = request.messageId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CompleteContinuouslyPush",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -5509,7 +6265,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CompleteContinuouslyPushResponse>(await this.callApi(params, req, runtime), new CompleteContinuouslyPushResponse({}));
+    return $dara.cast<CompleteContinuouslyPushResponse>(await this.callApi(params, req, runtime), new CompleteContinuouslyPushResponse({}));
   }
 
   /**
@@ -5519,7 +6275,7 @@ export default class Client extends OpenApi {
    * @returns CompleteContinuouslyPushResponse
    */
   async completeContinuouslyPush(request: CompleteContinuouslyPushRequest): Promise<CompleteContinuouslyPushResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.completeContinuouslyPushWithOptions(request, runtime);
   }
 
@@ -5530,29 +6286,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ContinuouslyPushResponse
    */
-  async continuouslyPushWithOptions(request: ContinuouslyPushRequest, runtime: $Util.RuntimeOptions): Promise<ContinuouslyPushResponse> {
-    Util.validateModel(request);
+  async continuouslyPushWithOptions(request: ContinuouslyPushRequest, runtime: $dara.RuntimeOptions): Promise<ContinuouslyPushResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.messageId)) {
+    if (!$dara.isNull(request.messageId)) {
       query["MessageId"] = request.messageId;
     }
 
-    if (!Util.isUnset(request.target)) {
+    if (!$dara.isNull(request.target)) {
       query["Target"] = request.target;
     }
 
-    if (!Util.isUnset(request.targetValue)) {
+    if (!$dara.isNull(request.targetValue)) {
       query["TargetValue"] = request.targetValue;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ContinuouslyPush",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -5563,7 +6319,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ContinuouslyPushResponse>(await this.callApi(params, req, runtime), new ContinuouslyPushResponse({}));
+    return $dara.cast<ContinuouslyPushResponse>(await this.callApi(params, req, runtime), new ContinuouslyPushResponse({}));
   }
 
   /**
@@ -5573,7 +6329,7 @@ export default class Client extends OpenApi {
    * @returns ContinuouslyPushResponse
    */
   async continuouslyPush(request: ContinuouslyPushRequest): Promise<ContinuouslyPushResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.continuouslyPushWithOptions(request, runtime);
   }
 
@@ -5587,9 +6343,9 @@ export default class Client extends OpenApi {
    * @returns ListSummaryAppsResponse
    */
   // Deprecated
-  async listSummaryAppsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListSummaryAppsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async listSummaryAppsWithOptions(runtime: $dara.RuntimeOptions): Promise<ListSummaryAppsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "ListSummaryApps",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -5600,7 +6356,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListSummaryAppsResponse>(await this.callApi(params, req, runtime), new ListSummaryAppsResponse({}));
+    return $dara.cast<ListSummaryAppsResponse>(await this.callApi(params, req, runtime), new ListSummaryAppsResponse({}));
   }
 
   /**
@@ -5611,7 +6367,7 @@ export default class Client extends OpenApi {
    */
   // Deprecated
   async listSummaryApps(): Promise<ListSummaryAppsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listSummaryAppsWithOptions(runtime);
   }
 
@@ -5622,17 +6378,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagsResponse
    */
-  async listTagsWithOptions(request: ListTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsResponse> {
-    Util.validateModel(request);
+  async listTagsWithOptions(request: ListTagsRequest, runtime: $dara.RuntimeOptions): Promise<ListTagsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTags",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -5643,7 +6399,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagsResponse>(await this.callApi(params, req, runtime), new ListTagsResponse({}));
+    return $dara.cast<ListTagsResponse>(await this.callApi(params, req, runtime), new ListTagsResponse({}));
   }
 
   /**
@@ -5653,7 +6409,7 @@ export default class Client extends OpenApi {
    * @returns ListTagsResponse
    */
   async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagsWithOptions(request, runtime);
   }
 
@@ -5664,23 +6420,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns MassPushResponse
    */
-  async massPushWithOptions(request: MassPushRequest, runtime: $Util.RuntimeOptions): Promise<MassPushResponse> {
-    Util.validateModel(request);
+  async massPushWithOptions(request: MassPushRequest, runtime: $dara.RuntimeOptions): Promise<MassPushResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
+    if (!$dara.isNull(request.idempotentToken)) {
+      query["IdempotentToken"] = request.idempotentToken;
+    }
+
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pushTask)) {
+    if (!$dara.isNull(request.pushTask)) {
       body["PushTask"] = request.pushTask;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "MassPush",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -5691,7 +6451,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<MassPushResponse>(await this.callApi(params, req, runtime), new MassPushResponse({}));
+    return $dara.cast<MassPushResponse>(await this.callApi(params, req, runtime), new MassPushResponse({}));
   }
 
   /**
@@ -5701,7 +6461,7 @@ export default class Client extends OpenApi {
    * @returns MassPushResponse
    */
   async massPush(request: MassPushRequest): Promise<MassPushResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.massPushWithOptions(request, runtime);
   }
 
@@ -5712,405 +6472,409 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushResponse
    */
-  async pushWithOptions(request: PushRequest, runtime: $Util.RuntimeOptions): Promise<PushResponse> {
-    Util.validateModel(request);
+  async pushWithOptions(request: PushRequest, runtime: $dara.RuntimeOptions): Promise<PushResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.androidActivity)) {
+    if (!$dara.isNull(request.androidActivity)) {
       query["AndroidActivity"] = request.androidActivity;
     }
 
-    if (!Util.isUnset(request.androidBadgeAddNum)) {
+    if (!$dara.isNull(request.androidBadgeAddNum)) {
       query["AndroidBadgeAddNum"] = request.androidBadgeAddNum;
     }
 
-    if (!Util.isUnset(request.androidBadgeClass)) {
+    if (!$dara.isNull(request.androidBadgeClass)) {
       query["AndroidBadgeClass"] = request.androidBadgeClass;
     }
 
-    if (!Util.isUnset(request.androidBadgeSetNum)) {
+    if (!$dara.isNull(request.androidBadgeSetNum)) {
       query["AndroidBadgeSetNum"] = request.androidBadgeSetNum;
     }
 
-    if (!Util.isUnset(request.androidBigBody)) {
+    if (!$dara.isNull(request.androidBigBody)) {
       query["AndroidBigBody"] = request.androidBigBody;
     }
 
-    if (!Util.isUnset(request.androidBigPictureUrl)) {
+    if (!$dara.isNull(request.androidBigPictureUrl)) {
       query["AndroidBigPictureUrl"] = request.androidBigPictureUrl;
     }
 
-    if (!Util.isUnset(request.androidBigTitle)) {
+    if (!$dara.isNull(request.androidBigTitle)) {
       query["AndroidBigTitle"] = request.androidBigTitle;
     }
 
-    if (!Util.isUnset(request.androidExtParameters)) {
+    if (!$dara.isNull(request.androidExtParameters)) {
       query["AndroidExtParameters"] = request.androidExtParameters;
     }
 
-    if (!Util.isUnset(request.androidHonorTargetUserType)) {
+    if (!$dara.isNull(request.androidHonorTargetUserType)) {
       query["AndroidHonorTargetUserType"] = request.androidHonorTargetUserType;
     }
 
-    if (!Util.isUnset(request.androidHuaweiReceiptId)) {
+    if (!$dara.isNull(request.androidHuaweiReceiptId)) {
       query["AndroidHuaweiReceiptId"] = request.androidHuaweiReceiptId;
     }
 
-    if (!Util.isUnset(request.androidHuaweiTargetUserType)) {
+    if (!$dara.isNull(request.androidHuaweiTargetUserType)) {
       query["AndroidHuaweiTargetUserType"] = request.androidHuaweiTargetUserType;
     }
 
-    if (!Util.isUnset(request.androidImageUrl)) {
+    if (!$dara.isNull(request.androidImageUrl)) {
       query["AndroidImageUrl"] = request.androidImageUrl;
     }
 
-    if (!Util.isUnset(request.androidInboxBody)) {
+    if (!$dara.isNull(request.androidInboxBody)) {
       query["AndroidInboxBody"] = request.androidInboxBody;
     }
 
-    if (!Util.isUnset(request.androidMessageHuaweiCategory)) {
+    if (!$dara.isNull(request.androidMessageHuaweiCategory)) {
       query["AndroidMessageHuaweiCategory"] = request.androidMessageHuaweiCategory;
     }
 
-    if (!Util.isUnset(request.androidMessageHuaweiUrgency)) {
+    if (!$dara.isNull(request.androidMessageHuaweiUrgency)) {
       query["AndroidMessageHuaweiUrgency"] = request.androidMessageHuaweiUrgency;
     }
 
-    if (!Util.isUnset(request.androidMessageOppoCategory)) {
+    if (!$dara.isNull(request.androidMessageOppoCategory)) {
       query["AndroidMessageOppoCategory"] = request.androidMessageOppoCategory;
     }
 
-    if (!Util.isUnset(request.androidMessageOppoNotifyLevel)) {
+    if (!$dara.isNull(request.androidMessageOppoNotifyLevel)) {
       query["AndroidMessageOppoNotifyLevel"] = request.androidMessageOppoNotifyLevel;
     }
 
-    if (!Util.isUnset(request.androidMessageVivoCategory)) {
+    if (!$dara.isNull(request.androidMessageVivoCategory)) {
       query["AndroidMessageVivoCategory"] = request.androidMessageVivoCategory;
     }
 
-    if (!Util.isUnset(request.androidMusic)) {
+    if (!$dara.isNull(request.androidMusic)) {
       query["AndroidMusic"] = request.androidMusic;
     }
 
-    if (!Util.isUnset(request.androidNotificationBarPriority)) {
+    if (!$dara.isNull(request.androidNotificationBarPriority)) {
       query["AndroidNotificationBarPriority"] = request.androidNotificationBarPriority;
     }
 
-    if (!Util.isUnset(request.androidNotificationBarType)) {
+    if (!$dara.isNull(request.androidNotificationBarType)) {
       query["AndroidNotificationBarType"] = request.androidNotificationBarType;
     }
 
-    if (!Util.isUnset(request.androidNotificationChannel)) {
+    if (!$dara.isNull(request.androidNotificationChannel)) {
       query["AndroidNotificationChannel"] = request.androidNotificationChannel;
     }
 
-    if (!Util.isUnset(request.androidNotificationGroup)) {
+    if (!$dara.isNull(request.androidNotificationGroup)) {
       query["AndroidNotificationGroup"] = request.androidNotificationGroup;
     }
 
-    if (!Util.isUnset(request.androidNotificationHonorChannel)) {
+    if (!$dara.isNull(request.androidNotificationHonorChannel)) {
       query["AndroidNotificationHonorChannel"] = request.androidNotificationHonorChannel;
     }
 
-    if (!Util.isUnset(request.androidNotificationHuaweiChannel)) {
+    if (!$dara.isNull(request.androidNotificationHuaweiChannel)) {
       query["AndroidNotificationHuaweiChannel"] = request.androidNotificationHuaweiChannel;
     }
 
-    if (!Util.isUnset(request.androidNotificationNotifyId)) {
+    if (!$dara.isNull(request.androidNotificationNotifyId)) {
       query["AndroidNotificationNotifyId"] = request.androidNotificationNotifyId;
     }
 
-    if (!Util.isUnset(request.androidNotificationThreadId)) {
+    if (!$dara.isNull(request.androidNotificationThreadId)) {
       query["AndroidNotificationThreadId"] = request.androidNotificationThreadId;
     }
 
-    if (!Util.isUnset(request.androidNotificationVivoChannel)) {
+    if (!$dara.isNull(request.androidNotificationVivoChannel)) {
       query["AndroidNotificationVivoChannel"] = request.androidNotificationVivoChannel;
     }
 
-    if (!Util.isUnset(request.androidNotificationXiaomiChannel)) {
+    if (!$dara.isNull(request.androidNotificationXiaomiChannel)) {
       query["AndroidNotificationXiaomiChannel"] = request.androidNotificationXiaomiChannel;
     }
 
-    if (!Util.isUnset(request.androidNotifyType)) {
+    if (!$dara.isNull(request.androidNotifyType)) {
       query["AndroidNotifyType"] = request.androidNotifyType;
     }
 
-    if (!Util.isUnset(request.androidOpenType)) {
+    if (!$dara.isNull(request.androidOpenType)) {
       query["AndroidOpenType"] = request.androidOpenType;
     }
 
-    if (!Util.isUnset(request.androidOpenUrl)) {
+    if (!$dara.isNull(request.androidOpenUrl)) {
       query["AndroidOpenUrl"] = request.androidOpenUrl;
     }
 
-    if (!Util.isUnset(request.androidPopupActivity)) {
+    if (!$dara.isNull(request.androidPopupActivity)) {
       query["AndroidPopupActivity"] = request.androidPopupActivity;
     }
 
-    if (!Util.isUnset(request.androidPopupBody)) {
+    if (!$dara.isNull(request.androidPopupBody)) {
       query["AndroidPopupBody"] = request.androidPopupBody;
     }
 
-    if (!Util.isUnset(request.androidPopupTitle)) {
+    if (!$dara.isNull(request.androidPopupTitle)) {
       query["AndroidPopupTitle"] = request.androidPopupTitle;
     }
 
-    if (!Util.isUnset(request.androidRemind)) {
+    if (!$dara.isNull(request.androidRemind)) {
       query["AndroidRemind"] = request.androidRemind;
     }
 
-    if (!Util.isUnset(request.androidRenderStyle)) {
+    if (!$dara.isNull(request.androidRenderStyle)) {
       query["AndroidRenderStyle"] = request.androidRenderStyle;
     }
 
-    if (!Util.isUnset(request.androidTargetUserType)) {
+    if (!$dara.isNull(request.androidTargetUserType)) {
       query["AndroidTargetUserType"] = request.androidTargetUserType;
     }
 
-    if (!Util.isUnset(request.androidVivoPushMode)) {
+    if (!$dara.isNull(request.androidVivoPushMode)) {
       query["AndroidVivoPushMode"] = request.androidVivoPushMode;
     }
 
-    if (!Util.isUnset(request.androidVivoReceiptId)) {
+    if (!$dara.isNull(request.androidVivoReceiptId)) {
       query["AndroidVivoReceiptId"] = request.androidVivoReceiptId;
     }
 
-    if (!Util.isUnset(request.androidXiaoMiActivity)) {
+    if (!$dara.isNull(request.androidXiaoMiActivity)) {
       query["AndroidXiaoMiActivity"] = request.androidXiaoMiActivity;
     }
 
-    if (!Util.isUnset(request.androidXiaoMiNotifyBody)) {
+    if (!$dara.isNull(request.androidXiaoMiNotifyBody)) {
       query["AndroidXiaoMiNotifyBody"] = request.androidXiaoMiNotifyBody;
     }
 
-    if (!Util.isUnset(request.androidXiaoMiNotifyTitle)) {
+    if (!$dara.isNull(request.androidXiaoMiNotifyTitle)) {
       query["AndroidXiaoMiNotifyTitle"] = request.androidXiaoMiNotifyTitle;
     }
 
-    if (!Util.isUnset(request.androidXiaomiBigPictureUrl)) {
+    if (!$dara.isNull(request.androidXiaomiBigPictureUrl)) {
       query["AndroidXiaomiBigPictureUrl"] = request.androidXiaomiBigPictureUrl;
     }
 
-    if (!Util.isUnset(request.androidXiaomiImageUrl)) {
+    if (!$dara.isNull(request.androidXiaomiImageUrl)) {
       query["AndroidXiaomiImageUrl"] = request.androidXiaomiImageUrl;
     }
 
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.body)) {
+    if (!$dara.isNull(request.body)) {
       query["Body"] = request.body;
     }
 
-    if (!Util.isUnset(request.deviceType)) {
+    if (!$dara.isNull(request.deviceType)) {
       query["DeviceType"] = request.deviceType;
     }
 
-    if (!Util.isUnset(request.expireTime)) {
+    if (!$dara.isNull(request.expireTime)) {
       query["ExpireTime"] = request.expireTime;
     }
 
-    if (!Util.isUnset(request.harmonyAction)) {
+    if (!$dara.isNull(request.harmonyAction)) {
       query["HarmonyAction"] = request.harmonyAction;
     }
 
-    if (!Util.isUnset(request.harmonyActionType)) {
+    if (!$dara.isNull(request.harmonyActionType)) {
       query["HarmonyActionType"] = request.harmonyActionType;
     }
 
-    if (!Util.isUnset(request.harmonyBadgeAddNum)) {
+    if (!$dara.isNull(request.harmonyBadgeAddNum)) {
       query["HarmonyBadgeAddNum"] = request.harmonyBadgeAddNum;
     }
 
-    if (!Util.isUnset(request.harmonyBadgeSetNum)) {
+    if (!$dara.isNull(request.harmonyBadgeSetNum)) {
       query["HarmonyBadgeSetNum"] = request.harmonyBadgeSetNum;
     }
 
-    if (!Util.isUnset(request.harmonyCategory)) {
+    if (!$dara.isNull(request.harmonyCategory)) {
       query["HarmonyCategory"] = request.harmonyCategory;
     }
 
-    if (!Util.isUnset(request.harmonyExtParameters)) {
+    if (!$dara.isNull(request.harmonyExtParameters)) {
       query["HarmonyExtParameters"] = request.harmonyExtParameters;
     }
 
-    if (!Util.isUnset(request.harmonyExtensionExtraData)) {
+    if (!$dara.isNull(request.harmonyExtensionExtraData)) {
       query["HarmonyExtensionExtraData"] = request.harmonyExtensionExtraData;
     }
 
-    if (!Util.isUnset(request.harmonyExtensionPush)) {
+    if (!$dara.isNull(request.harmonyExtensionPush)) {
       query["HarmonyExtensionPush"] = request.harmonyExtensionPush;
     }
 
-    if (!Util.isUnset(request.harmonyImageUrl)) {
+    if (!$dara.isNull(request.harmonyImageUrl)) {
       query["HarmonyImageUrl"] = request.harmonyImageUrl;
     }
 
-    if (!Util.isUnset(request.harmonyInboxContent)) {
+    if (!$dara.isNull(request.harmonyInboxContent)) {
       query["HarmonyInboxContent"] = request.harmonyInboxContent;
     }
 
-    if (!Util.isUnset(request.harmonyNotificationSlotType)) {
+    if (!$dara.isNull(request.harmonyNotificationSlotType)) {
       query["HarmonyNotificationSlotType"] = request.harmonyNotificationSlotType;
     }
 
-    if (!Util.isUnset(request.harmonyNotifyId)) {
+    if (!$dara.isNull(request.harmonyNotifyId)) {
       query["HarmonyNotifyId"] = request.harmonyNotifyId;
     }
 
-    if (!Util.isUnset(request.harmonyReceiptId)) {
+    if (!$dara.isNull(request.harmonyReceiptId)) {
       query["HarmonyReceiptId"] = request.harmonyReceiptId;
     }
 
-    if (!Util.isUnset(request.harmonyRemind)) {
+    if (!$dara.isNull(request.harmonyRemind)) {
       query["HarmonyRemind"] = request.harmonyRemind;
     }
 
-    if (!Util.isUnset(request.harmonyRemindBody)) {
+    if (!$dara.isNull(request.harmonyRemindBody)) {
       query["HarmonyRemindBody"] = request.harmonyRemindBody;
     }
 
-    if (!Util.isUnset(request.harmonyRemindTitle)) {
+    if (!$dara.isNull(request.harmonyRemindTitle)) {
       query["HarmonyRemindTitle"] = request.harmonyRemindTitle;
     }
 
-    if (!Util.isUnset(request.harmonyRenderStyle)) {
+    if (!$dara.isNull(request.harmonyRenderStyle)) {
       query["HarmonyRenderStyle"] = request.harmonyRenderStyle;
     }
 
-    if (!Util.isUnset(request.harmonyTestMessage)) {
+    if (!$dara.isNull(request.harmonyTestMessage)) {
       query["HarmonyTestMessage"] = request.harmonyTestMessage;
     }
 
-    if (!Util.isUnset(request.harmonyUri)) {
+    if (!$dara.isNull(request.harmonyUri)) {
       query["HarmonyUri"] = request.harmonyUri;
     }
 
-    if (!Util.isUnset(request.jobKey)) {
+    if (!$dara.isNull(request.idempotentToken)) {
+      query["IdempotentToken"] = request.idempotentToken;
+    }
+
+    if (!$dara.isNull(request.jobKey)) {
       query["JobKey"] = request.jobKey;
     }
 
-    if (!Util.isUnset(request.pushTime)) {
+    if (!$dara.isNull(request.pushTime)) {
       query["PushTime"] = request.pushTime;
     }
 
-    if (!Util.isUnset(request.pushType)) {
+    if (!$dara.isNull(request.pushType)) {
       query["PushType"] = request.pushType;
     }
 
-    if (!Util.isUnset(request.sendChannels)) {
+    if (!$dara.isNull(request.sendChannels)) {
       query["SendChannels"] = request.sendChannels;
     }
 
-    if (!Util.isUnset(request.sendSpeed)) {
+    if (!$dara.isNull(request.sendSpeed)) {
       query["SendSpeed"] = request.sendSpeed;
     }
 
-    if (!Util.isUnset(request.smsDelaySecs)) {
+    if (!$dara.isNull(request.smsDelaySecs)) {
       query["SmsDelaySecs"] = request.smsDelaySecs;
     }
 
-    if (!Util.isUnset(request.smsParams)) {
+    if (!$dara.isNull(request.smsParams)) {
       query["SmsParams"] = request.smsParams;
     }
 
-    if (!Util.isUnset(request.smsSendPolicy)) {
+    if (!$dara.isNull(request.smsSendPolicy)) {
       query["SmsSendPolicy"] = request.smsSendPolicy;
     }
 
-    if (!Util.isUnset(request.smsSignName)) {
+    if (!$dara.isNull(request.smsSignName)) {
       query["SmsSignName"] = request.smsSignName;
     }
 
-    if (!Util.isUnset(request.smsTemplateName)) {
+    if (!$dara.isNull(request.smsTemplateName)) {
       query["SmsTemplateName"] = request.smsTemplateName;
     }
 
-    if (!Util.isUnset(request.storeOffline)) {
+    if (!$dara.isNull(request.storeOffline)) {
       query["StoreOffline"] = request.storeOffline;
     }
 
-    if (!Util.isUnset(request.target)) {
+    if (!$dara.isNull(request.target)) {
       query["Target"] = request.target;
     }
 
-    if (!Util.isUnset(request.targetValue)) {
+    if (!$dara.isNull(request.targetValue)) {
       query["TargetValue"] = request.targetValue;
     }
 
-    if (!Util.isUnset(request.title)) {
+    if (!$dara.isNull(request.title)) {
       query["Title"] = request.title;
     }
 
-    if (!Util.isUnset(request.trim)) {
+    if (!$dara.isNull(request.trim)) {
       query["Trim"] = request.trim;
     }
 
-    if (!Util.isUnset(request.iOSApnsEnv)) {
+    if (!$dara.isNull(request.iOSApnsEnv)) {
       query["iOSApnsEnv"] = request.iOSApnsEnv;
     }
 
-    if (!Util.isUnset(request.iOSBadge)) {
+    if (!$dara.isNull(request.iOSBadge)) {
       query["iOSBadge"] = request.iOSBadge;
     }
 
-    if (!Util.isUnset(request.iOSBadgeAutoIncrement)) {
+    if (!$dara.isNull(request.iOSBadgeAutoIncrement)) {
       query["iOSBadgeAutoIncrement"] = request.iOSBadgeAutoIncrement;
     }
 
-    if (!Util.isUnset(request.iOSExtParameters)) {
+    if (!$dara.isNull(request.iOSExtParameters)) {
       query["iOSExtParameters"] = request.iOSExtParameters;
     }
 
-    if (!Util.isUnset(request.iOSInterruptionLevel)) {
+    if (!$dara.isNull(request.iOSInterruptionLevel)) {
       query["iOSInterruptionLevel"] = request.iOSInterruptionLevel;
     }
 
-    if (!Util.isUnset(request.iOSMusic)) {
+    if (!$dara.isNull(request.iOSMusic)) {
       query["iOSMusic"] = request.iOSMusic;
     }
 
-    if (!Util.isUnset(request.iOSMutableContent)) {
+    if (!$dara.isNull(request.iOSMutableContent)) {
       query["iOSMutableContent"] = request.iOSMutableContent;
     }
 
-    if (!Util.isUnset(request.iOSNotificationCategory)) {
+    if (!$dara.isNull(request.iOSNotificationCategory)) {
       query["iOSNotificationCategory"] = request.iOSNotificationCategory;
     }
 
-    if (!Util.isUnset(request.iOSNotificationCollapseId)) {
+    if (!$dara.isNull(request.iOSNotificationCollapseId)) {
       query["iOSNotificationCollapseId"] = request.iOSNotificationCollapseId;
     }
 
-    if (!Util.isUnset(request.iOSNotificationThreadId)) {
+    if (!$dara.isNull(request.iOSNotificationThreadId)) {
       query["iOSNotificationThreadId"] = request.iOSNotificationThreadId;
     }
 
-    if (!Util.isUnset(request.iOSRelevanceScore)) {
+    if (!$dara.isNull(request.iOSRelevanceScore)) {
       query["iOSRelevanceScore"] = request.iOSRelevanceScore;
     }
 
-    if (!Util.isUnset(request.iOSRemind)) {
+    if (!$dara.isNull(request.iOSRemind)) {
       query["iOSRemind"] = request.iOSRemind;
     }
 
-    if (!Util.isUnset(request.iOSRemindBody)) {
+    if (!$dara.isNull(request.iOSRemindBody)) {
       query["iOSRemindBody"] = request.iOSRemindBody;
     }
 
-    if (!Util.isUnset(request.iOSSilentNotification)) {
+    if (!$dara.isNull(request.iOSSilentNotification)) {
       query["iOSSilentNotification"] = request.iOSSilentNotification;
     }
 
-    if (!Util.isUnset(request.iOSSubtitle)) {
+    if (!$dara.isNull(request.iOSSubtitle)) {
       query["iOSSubtitle"] = request.iOSSubtitle;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "Push",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6121,7 +6885,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PushResponse>(await this.callApi(params, req, runtime), new PushResponse({}));
+    return $dara.cast<PushResponse>(await this.callApi(params, req, runtime), new PushResponse({}));
   }
 
   /**
@@ -6131,7 +6895,7 @@ export default class Client extends OpenApi {
    * @returns PushResponse
    */
   async push(request: PushRequest): Promise<PushResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pushWithOptions(request, runtime);
   }
 
@@ -6142,41 +6906,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushMessageToAndroidResponse
    */
-  async pushMessageToAndroidWithOptions(request: PushMessageToAndroidRequest, runtime: $Util.RuntimeOptions): Promise<PushMessageToAndroidResponse> {
-    Util.validateModel(request);
+  async pushMessageToAndroidWithOptions(request: PushMessageToAndroidRequest, runtime: $dara.RuntimeOptions): Promise<PushMessageToAndroidResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.body)) {
+    if (!$dara.isNull(request.body)) {
       query["Body"] = request.body;
     }
 
-    if (!Util.isUnset(request.jobKey)) {
+    if (!$dara.isNull(request.jobKey)) {
       query["JobKey"] = request.jobKey;
     }
 
-    if (!Util.isUnset(request.storeOffline)) {
+    if (!$dara.isNull(request.storeOffline)) {
       query["StoreOffline"] = request.storeOffline;
     }
 
-    if (!Util.isUnset(request.target)) {
+    if (!$dara.isNull(request.target)) {
       query["Target"] = request.target;
     }
 
-    if (!Util.isUnset(request.targetValue)) {
+    if (!$dara.isNull(request.targetValue)) {
       query["TargetValue"] = request.targetValue;
     }
 
-    if (!Util.isUnset(request.title)) {
+    if (!$dara.isNull(request.title)) {
       query["Title"] = request.title;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PushMessageToAndroid",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6187,7 +6951,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PushMessageToAndroidResponse>(await this.callApi(params, req, runtime), new PushMessageToAndroidResponse({}));
+    return $dara.cast<PushMessageToAndroidResponse>(await this.callApi(params, req, runtime), new PushMessageToAndroidResponse({}));
   }
 
   /**
@@ -6197,7 +6961,7 @@ export default class Client extends OpenApi {
    * @returns PushMessageToAndroidResponse
    */
   async pushMessageToAndroid(request: PushMessageToAndroidRequest): Promise<PushMessageToAndroidResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pushMessageToAndroidWithOptions(request, runtime);
   }
 
@@ -6208,41 +6972,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushMessageToiOSResponse
    */
-  async pushMessageToiOSWithOptions(request: PushMessageToiOSRequest, runtime: $Util.RuntimeOptions): Promise<PushMessageToiOSResponse> {
-    Util.validateModel(request);
+  async pushMessageToiOSWithOptions(request: PushMessageToiOSRequest, runtime: $dara.RuntimeOptions): Promise<PushMessageToiOSResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.body)) {
+    if (!$dara.isNull(request.body)) {
       query["Body"] = request.body;
     }
 
-    if (!Util.isUnset(request.jobKey)) {
+    if (!$dara.isNull(request.jobKey)) {
       query["JobKey"] = request.jobKey;
     }
 
-    if (!Util.isUnset(request.storeOffline)) {
+    if (!$dara.isNull(request.storeOffline)) {
       query["StoreOffline"] = request.storeOffline;
     }
 
-    if (!Util.isUnset(request.target)) {
+    if (!$dara.isNull(request.target)) {
       query["Target"] = request.target;
     }
 
-    if (!Util.isUnset(request.targetValue)) {
+    if (!$dara.isNull(request.targetValue)) {
       query["TargetValue"] = request.targetValue;
     }
 
-    if (!Util.isUnset(request.title)) {
+    if (!$dara.isNull(request.title)) {
       query["Title"] = request.title;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PushMessageToiOS",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6253,7 +7017,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PushMessageToiOSResponse>(await this.callApi(params, req, runtime), new PushMessageToiOSResponse({}));
+    return $dara.cast<PushMessageToiOSResponse>(await this.callApi(params, req, runtime), new PushMessageToiOSResponse({}));
   }
 
   /**
@@ -6263,7 +7027,7 @@ export default class Client extends OpenApi {
    * @returns PushMessageToiOSResponse
    */
   async pushMessageToiOS(request: PushMessageToiOSRequest): Promise<PushMessageToiOSResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pushMessageToiOSWithOptions(request, runtime);
   }
 
@@ -6274,45 +7038,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushNoticeToAndroidResponse
    */
-  async pushNoticeToAndroidWithOptions(request: PushNoticeToAndroidRequest, runtime: $Util.RuntimeOptions): Promise<PushNoticeToAndroidResponse> {
-    Util.validateModel(request);
+  async pushNoticeToAndroidWithOptions(request: PushNoticeToAndroidRequest, runtime: $dara.RuntimeOptions): Promise<PushNoticeToAndroidResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.body)) {
+    if (!$dara.isNull(request.body)) {
       query["Body"] = request.body;
     }
 
-    if (!Util.isUnset(request.extParameters)) {
+    if (!$dara.isNull(request.extParameters)) {
       query["ExtParameters"] = request.extParameters;
     }
 
-    if (!Util.isUnset(request.jobKey)) {
+    if (!$dara.isNull(request.jobKey)) {
       query["JobKey"] = request.jobKey;
     }
 
-    if (!Util.isUnset(request.storeOffline)) {
+    if (!$dara.isNull(request.storeOffline)) {
       query["StoreOffline"] = request.storeOffline;
     }
 
-    if (!Util.isUnset(request.target)) {
+    if (!$dara.isNull(request.target)) {
       query["Target"] = request.target;
     }
 
-    if (!Util.isUnset(request.targetValue)) {
+    if (!$dara.isNull(request.targetValue)) {
       query["TargetValue"] = request.targetValue;
     }
 
-    if (!Util.isUnset(request.title)) {
+    if (!$dara.isNull(request.title)) {
       query["Title"] = request.title;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PushNoticeToAndroid",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6323,7 +7087,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PushNoticeToAndroidResponse>(await this.callApi(params, req, runtime), new PushNoticeToAndroidResponse({}));
+    return $dara.cast<PushNoticeToAndroidResponse>(await this.callApi(params, req, runtime), new PushNoticeToAndroidResponse({}));
   }
 
   /**
@@ -6333,7 +7097,7 @@ export default class Client extends OpenApi {
    * @returns PushNoticeToAndroidResponse
    */
   async pushNoticeToAndroid(request: PushNoticeToAndroidRequest): Promise<PushNoticeToAndroidResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pushNoticeToAndroidWithOptions(request, runtime);
   }
 
@@ -6344,45 +7108,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushNoticeToiOSResponse
    */
-  async pushNoticeToiOSWithOptions(request: PushNoticeToiOSRequest, runtime: $Util.RuntimeOptions): Promise<PushNoticeToiOSResponse> {
-    Util.validateModel(request);
+  async pushNoticeToiOSWithOptions(request: PushNoticeToiOSRequest, runtime: $dara.RuntimeOptions): Promise<PushNoticeToiOSResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.apnsEnv)) {
+    if (!$dara.isNull(request.apnsEnv)) {
       query["ApnsEnv"] = request.apnsEnv;
     }
 
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.body)) {
+    if (!$dara.isNull(request.body)) {
       query["Body"] = request.body;
     }
 
-    if (!Util.isUnset(request.extParameters)) {
+    if (!$dara.isNull(request.extParameters)) {
       query["ExtParameters"] = request.extParameters;
     }
 
-    if (!Util.isUnset(request.jobKey)) {
+    if (!$dara.isNull(request.jobKey)) {
       query["JobKey"] = request.jobKey;
     }
 
-    if (!Util.isUnset(request.target)) {
+    if (!$dara.isNull(request.target)) {
       query["Target"] = request.target;
     }
 
-    if (!Util.isUnset(request.targetValue)) {
+    if (!$dara.isNull(request.targetValue)) {
       query["TargetValue"] = request.targetValue;
     }
 
-    if (!Util.isUnset(request.title)) {
+    if (!$dara.isNull(request.title)) {
       query["Title"] = request.title;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PushNoticeToiOS",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6393,7 +7157,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PushNoticeToiOSResponse>(await this.callApi(params, req, runtime), new PushNoticeToiOSResponse({}));
+    return $dara.cast<PushNoticeToiOSResponse>(await this.callApi(params, req, runtime), new PushNoticeToiOSResponse({}));
   }
 
   /**
@@ -6403,7 +7167,7 @@ export default class Client extends OpenApi {
    * @returns PushNoticeToiOSResponse
    */
   async pushNoticeToiOS(request: PushNoticeToiOSRequest): Promise<PushNoticeToiOSResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pushNoticeToiOSWithOptions(request, runtime);
   }
 
@@ -6414,21 +7178,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryAliasesResponse
    */
-  async queryAliasesWithOptions(request: QueryAliasesRequest, runtime: $Util.RuntimeOptions): Promise<QueryAliasesResponse> {
-    Util.validateModel(request);
+  async queryAliasesWithOptions(request: QueryAliasesRequest, runtime: $dara.RuntimeOptions): Promise<QueryAliasesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.deviceId)) {
+    if (!$dara.isNull(request.deviceId)) {
       query["DeviceId"] = request.deviceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryAliases",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6439,7 +7203,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryAliasesResponse>(await this.callApi(params, req, runtime), new QueryAliasesResponse({}));
+    return $dara.cast<QueryAliasesResponse>(await this.callApi(params, req, runtime), new QueryAliasesResponse({}));
   }
 
   /**
@@ -6449,7 +7213,7 @@ export default class Client extends OpenApi {
    * @returns QueryAliasesResponse
    */
   async queryAliases(request: QueryAliasesRequest): Promise<QueryAliasesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryAliasesWithOptions(request, runtime);
   }
 
@@ -6460,21 +7224,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDeviceInfoResponse
    */
-  async queryDeviceInfoWithOptions(request: QueryDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceInfoResponse> {
-    Util.validateModel(request);
+  async queryDeviceInfoWithOptions(request: QueryDeviceInfoRequest, runtime: $dara.RuntimeOptions): Promise<QueryDeviceInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.deviceId)) {
+    if (!$dara.isNull(request.deviceId)) {
       query["DeviceId"] = request.deviceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDeviceInfo",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6485,7 +7249,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDeviceInfoResponse>(await this.callApi(params, req, runtime), new QueryDeviceInfoResponse({}));
+    return $dara.cast<QueryDeviceInfoResponse>(await this.callApi(params, req, runtime), new QueryDeviceInfoResponse({}));
   }
 
   /**
@@ -6495,7 +7259,7 @@ export default class Client extends OpenApi {
    * @returns QueryDeviceInfoResponse
    */
   async queryDeviceInfo(request: QueryDeviceInfoRequest): Promise<QueryDeviceInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDeviceInfoWithOptions(request, runtime);
   }
 
@@ -6506,33 +7270,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDeviceStatResponse
    */
-  async queryDeviceStatWithOptions(request: QueryDeviceStatRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceStatResponse> {
-    Util.validateModel(request);
+  async queryDeviceStatWithOptions(request: QueryDeviceStatRequest, runtime: $dara.RuntimeOptions): Promise<QueryDeviceStatResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.deviceType)) {
+    if (!$dara.isNull(request.deviceType)) {
       query["DeviceType"] = request.deviceType;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.queryType)) {
+    if (!$dara.isNull(request.queryType)) {
       query["QueryType"] = request.queryType;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDeviceStat",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6543,7 +7307,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDeviceStatResponse>(await this.callApi(params, req, runtime), new QueryDeviceStatResponse({}));
+    return $dara.cast<QueryDeviceStatResponse>(await this.callApi(params, req, runtime), new QueryDeviceStatResponse({}));
   }
 
   /**
@@ -6553,7 +7317,7 @@ export default class Client extends OpenApi {
    * @returns QueryDeviceStatResponse
    */
   async queryDeviceStat(request: QueryDeviceStatRequest): Promise<QueryDeviceStatResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDeviceStatWithOptions(request, runtime);
   }
 
@@ -6564,21 +7328,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDevicesByAccountResponse
    */
-  async queryDevicesByAccountWithOptions(request: QueryDevicesByAccountRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicesByAccountResponse> {
-    Util.validateModel(request);
+  async queryDevicesByAccountWithOptions(request: QueryDevicesByAccountRequest, runtime: $dara.RuntimeOptions): Promise<QueryDevicesByAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.account)) {
+    if (!$dara.isNull(request.account)) {
       query["Account"] = request.account;
     }
 
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDevicesByAccount",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6589,7 +7353,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDevicesByAccountResponse>(await this.callApi(params, req, runtime), new QueryDevicesByAccountResponse({}));
+    return $dara.cast<QueryDevicesByAccountResponse>(await this.callApi(params, req, runtime), new QueryDevicesByAccountResponse({}));
   }
 
   /**
@@ -6599,7 +7363,7 @@ export default class Client extends OpenApi {
    * @returns QueryDevicesByAccountResponse
    */
   async queryDevicesByAccount(request: QueryDevicesByAccountRequest): Promise<QueryDevicesByAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDevicesByAccountWithOptions(request, runtime);
   }
 
@@ -6610,21 +7374,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDevicesByAliasResponse
    */
-  async queryDevicesByAliasWithOptions(request: QueryDevicesByAliasRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicesByAliasResponse> {
-    Util.validateModel(request);
+  async queryDevicesByAliasWithOptions(request: QueryDevicesByAliasRequest, runtime: $dara.RuntimeOptions): Promise<QueryDevicesByAliasResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.alias)) {
+    if (!$dara.isNull(request.alias)) {
       query["Alias"] = request.alias;
     }
 
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDevicesByAlias",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6635,7 +7399,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDevicesByAliasResponse>(await this.callApi(params, req, runtime), new QueryDevicesByAliasResponse({}));
+    return $dara.cast<QueryDevicesByAliasResponse>(await this.callApi(params, req, runtime), new QueryDevicesByAliasResponse({}));
   }
 
   /**
@@ -6645,7 +7409,7 @@ export default class Client extends OpenApi {
    * @returns QueryDevicesByAliasResponse
    */
   async queryDevicesByAlias(request: QueryDevicesByAliasRequest): Promise<QueryDevicesByAliasResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDevicesByAliasWithOptions(request, runtime);
   }
 
@@ -6654,53 +7418,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPushRecordsResponse
    */
-  async queryPushRecordsWithOptions(request: QueryPushRecordsRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushRecordsResponse> {
-    Util.validateModel(request);
+  async queryPushRecordsWithOptions(request: QueryPushRecordsRequest, runtime: $dara.RuntimeOptions): Promise<QueryPushRecordsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.keyword)) {
+    if (!$dara.isNull(request.keyword)) {
       query["Keyword"] = request.keyword;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.page)) {
+    if (!$dara.isNull(request.page)) {
       query["Page"] = request.page;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.pushType)) {
+    if (!$dara.isNull(request.pushType)) {
       query["PushType"] = request.pushType;
     }
 
-    if (!Util.isUnset(request.source)) {
+    if (!$dara.isNull(request.source)) {
       query["Source"] = request.source;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.target)) {
+    if (!$dara.isNull(request.target)) {
       query["Target"] = request.target;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryPushRecords",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6711,7 +7475,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryPushRecordsResponse>(await this.callApi(params, req, runtime), new QueryPushRecordsResponse({}));
+    return $dara.cast<QueryPushRecordsResponse>(await this.callApi(params, req, runtime), new QueryPushRecordsResponse({}));
   }
 
   /**
@@ -6719,7 +7483,7 @@ export default class Client extends OpenApi {
    * @returns QueryPushRecordsResponse
    */
   async queryPushRecords(request: QueryPushRecordsRequest): Promise<QueryPushRecordsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPushRecordsWithOptions(request, runtime);
   }
 
@@ -6730,29 +7494,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPushStatByAppResponse
    */
-  async queryPushStatByAppWithOptions(request: QueryPushStatByAppRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushStatByAppResponse> {
-    Util.validateModel(request);
+  async queryPushStatByAppWithOptions(request: QueryPushStatByAppRequest, runtime: $dara.RuntimeOptions): Promise<QueryPushStatByAppResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.granularity)) {
+    if (!$dara.isNull(request.granularity)) {
       query["Granularity"] = request.granularity;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryPushStatByApp",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6763,7 +7527,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryPushStatByAppResponse>(await this.callApi(params, req, runtime), new QueryPushStatByAppResponse({}));
+    return $dara.cast<QueryPushStatByAppResponse>(await this.callApi(params, req, runtime), new QueryPushStatByAppResponse({}));
   }
 
   /**
@@ -6773,7 +7537,7 @@ export default class Client extends OpenApi {
    * @returns QueryPushStatByAppResponse
    */
   async queryPushStatByApp(request: QueryPushStatByAppRequest): Promise<QueryPushStatByAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPushStatByAppWithOptions(request, runtime);
   }
 
@@ -6784,21 +7548,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPushStatByMsgResponse
    */
-  async queryPushStatByMsgWithOptions(request: QueryPushStatByMsgRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushStatByMsgResponse> {
-    Util.validateModel(request);
+  async queryPushStatByMsgWithOptions(request: QueryPushStatByMsgRequest, runtime: $dara.RuntimeOptions): Promise<QueryPushStatByMsgResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.messageId)) {
+    if (!$dara.isNull(request.messageId)) {
       query["MessageId"] = request.messageId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryPushStatByMsg",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6809,7 +7573,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryPushStatByMsgResponse>(await this.callApi(params, req, runtime), new QueryPushStatByMsgResponse({}));
+    return $dara.cast<QueryPushStatByMsgResponse>(await this.callApi(params, req, runtime), new QueryPushStatByMsgResponse({}));
   }
 
   /**
@@ -6819,7 +7583,7 @@ export default class Client extends OpenApi {
    * @returns QueryPushStatByMsgResponse
    */
   async queryPushStatByMsg(request: QueryPushStatByMsgRequest): Promise<QueryPushStatByMsgResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPushStatByMsgWithOptions(request, runtime);
   }
 
@@ -6830,25 +7594,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTagsResponse
    */
-  async queryTagsWithOptions(request: QueryTagsRequest, runtime: $Util.RuntimeOptions): Promise<QueryTagsResponse> {
-    Util.validateModel(request);
+  async queryTagsWithOptions(request: QueryTagsRequest, runtime: $dara.RuntimeOptions): Promise<QueryTagsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.clientKey)) {
+    if (!$dara.isNull(request.clientKey)) {
       query["ClientKey"] = request.clientKey;
     }
 
-    if (!Util.isUnset(request.keyType)) {
+    if (!$dara.isNull(request.keyType)) {
       query["KeyType"] = request.keyType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryTags",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6859,7 +7623,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryTagsResponse>(await this.callApi(params, req, runtime), new QueryTagsResponse({}));
+    return $dara.cast<QueryTagsResponse>(await this.callApi(params, req, runtime), new QueryTagsResponse({}));
   }
 
   /**
@@ -6869,7 +7633,7 @@ export default class Client extends OpenApi {
    * @returns QueryTagsResponse
    */
   async queryTags(request: QueryTagsRequest): Promise<QueryTagsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTagsWithOptions(request, runtime);
   }
 
@@ -6880,29 +7644,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryUniqueDeviceStatResponse
    */
-  async queryUniqueDeviceStatWithOptions(request: QueryUniqueDeviceStatRequest, runtime: $Util.RuntimeOptions): Promise<QueryUniqueDeviceStatResponse> {
-    Util.validateModel(request);
+  async queryUniqueDeviceStatWithOptions(request: QueryUniqueDeviceStatRequest, runtime: $dara.RuntimeOptions): Promise<QueryUniqueDeviceStatResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.granularity)) {
+    if (!$dara.isNull(request.granularity)) {
       query["Granularity"] = request.granularity;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryUniqueDeviceStat",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6913,7 +7677,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryUniqueDeviceStatResponse>(await this.callApi(params, req, runtime), new QueryUniqueDeviceStatResponse({}));
+    return $dara.cast<QueryUniqueDeviceStatResponse>(await this.callApi(params, req, runtime), new QueryUniqueDeviceStatResponse({}));
   }
 
   /**
@@ -6923,7 +7687,7 @@ export default class Client extends OpenApi {
    * @returns QueryUniqueDeviceStatResponse
    */
   async queryUniqueDeviceStat(request: QueryUniqueDeviceStatRequest): Promise<QueryUniqueDeviceStatResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryUniqueDeviceStatWithOptions(request, runtime);
   }
 
@@ -6934,21 +7698,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveTagResponse
    */
-  async removeTagWithOptions(request: RemoveTagRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTagResponse> {
-    Util.validateModel(request);
+  async removeTagWithOptions(request: RemoveTagRequest, runtime: $dara.RuntimeOptions): Promise<RemoveTagResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.tagName)) {
+    if (!$dara.isNull(request.tagName)) {
       query["TagName"] = request.tagName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RemoveTag",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -6959,7 +7723,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RemoveTagResponse>(await this.callApi(params, req, runtime), new RemoveTagResponse({}));
+    return $dara.cast<RemoveTagResponse>(await this.callApi(params, req, runtime), new RemoveTagResponse({}));
   }
 
   /**
@@ -6969,7 +7733,7 @@ export default class Client extends OpenApi {
    * @returns RemoveTagResponse
    */
   async removeTag(request: RemoveTagRequest): Promise<RemoveTagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.removeTagWithOptions(request, runtime);
   }
 
@@ -6980,29 +7744,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindAliasResponse
    */
-  async unbindAliasWithOptions(request: UnbindAliasRequest, runtime: $Util.RuntimeOptions): Promise<UnbindAliasResponse> {
-    Util.validateModel(request);
+  async unbindAliasWithOptions(request: UnbindAliasRequest, runtime: $dara.RuntimeOptions): Promise<UnbindAliasResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.aliasName)) {
+    if (!$dara.isNull(request.aliasName)) {
       query["AliasName"] = request.aliasName;
     }
 
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.deviceId)) {
+    if (!$dara.isNull(request.deviceId)) {
       query["DeviceId"] = request.deviceId;
     }
 
-    if (!Util.isUnset(request.unbindAll)) {
+    if (!$dara.isNull(request.unbindAll)) {
       query["UnbindAll"] = request.unbindAll;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnbindAlias",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -7013,7 +7777,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnbindAliasResponse>(await this.callApi(params, req, runtime), new UnbindAliasResponse({}));
+    return $dara.cast<UnbindAliasResponse>(await this.callApi(params, req, runtime), new UnbindAliasResponse({}));
   }
 
   /**
@@ -7023,7 +7787,7 @@ export default class Client extends OpenApi {
    * @returns UnbindAliasResponse
    */
   async unbindAlias(request: UnbindAliasRequest): Promise<UnbindAliasResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindAliasWithOptions(request, runtime);
   }
 
@@ -7034,21 +7798,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindPhoneResponse
    */
-  async unbindPhoneWithOptions(request: UnbindPhoneRequest, runtime: $Util.RuntimeOptions): Promise<UnbindPhoneResponse> {
-    Util.validateModel(request);
+  async unbindPhoneWithOptions(request: UnbindPhoneRequest, runtime: $dara.RuntimeOptions): Promise<UnbindPhoneResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.deviceId)) {
+    if (!$dara.isNull(request.deviceId)) {
       query["DeviceId"] = request.deviceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnbindPhone",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -7059,7 +7823,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnbindPhoneResponse>(await this.callApi(params, req, runtime), new UnbindPhoneResponse({}));
+    return $dara.cast<UnbindPhoneResponse>(await this.callApi(params, req, runtime), new UnbindPhoneResponse({}));
   }
 
   /**
@@ -7069,7 +7833,7 @@ export default class Client extends OpenApi {
    * @returns UnbindPhoneResponse
    */
   async unbindPhone(request: UnbindPhoneRequest): Promise<UnbindPhoneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindPhoneWithOptions(request, runtime);
   }
 
@@ -7080,29 +7844,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindTagResponse
    */
-  async unbindTagWithOptions(request: UnbindTagRequest, runtime: $Util.RuntimeOptions): Promise<UnbindTagResponse> {
-    Util.validateModel(request);
+  async unbindTagWithOptions(request: UnbindTagRequest, runtime: $dara.RuntimeOptions): Promise<UnbindTagResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.clientKey)) {
+    if (!$dara.isNull(request.clientKey)) {
       query["ClientKey"] = request.clientKey;
     }
 
-    if (!Util.isUnset(request.keyType)) {
+    if (!$dara.isNull(request.keyType)) {
       query["KeyType"] = request.keyType;
     }
 
-    if (!Util.isUnset(request.tagName)) {
+    if (!$dara.isNull(request.tagName)) {
       query["TagName"] = request.tagName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnbindTag",
       version: "2016-08-01",
       protocol: "HTTPS",
@@ -7113,7 +7877,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnbindTagResponse>(await this.callApi(params, req, runtime), new UnbindTagResponse({}));
+    return $dara.cast<UnbindTagResponse>(await this.callApi(params, req, runtime), new UnbindTagResponse({}));
   }
 
   /**
@@ -7123,7 +7887,7 @@ export default class Client extends OpenApi {
    * @returns UnbindTagResponse
    */
   async unbindTag(request: UnbindTagRequest): Promise<UnbindTagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindTagWithOptions(request, runtime);
   }
 
