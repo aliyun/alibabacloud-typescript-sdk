@@ -13852,6 +13852,108 @@ export class UpdateMessageContactResponse extends $dara.Model {
   }
 }
 
+export class UpdatePayerForAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 138660628348****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12323344****
+   */
+  payerAccountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      payerAccountId: 'PayerAccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      payerAccountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePayerForAccountResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePayerForAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePayerForAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePayerForAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -17356,6 +17458,52 @@ export default class Client extends OpenApi {
   async updateMessageContact(request: UpdateMessageContactRequest): Promise<UpdateMessageContactResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateMessageContactWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新成员的结算账号
+   * 
+   * @param request - UpdatePayerForAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePayerForAccountResponse
+   */
+  async updatePayerForAccountWithOptions(request: UpdatePayerForAccountRequest, runtime: $dara.RuntimeOptions): Promise<UpdatePayerForAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!$dara.isNull(request.payerAccountId)) {
+      query["PayerAccountId"] = request.payerAccountId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePayerForAccount",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<UpdatePayerForAccountResponse>(await this.callApi(params, req, runtime), new UpdatePayerForAccountResponse({}));
+  }
+
+  /**
+   * 更新成员的结算账号
+   * 
+   * @param request - UpdatePayerForAccountRequest
+   * @returns UpdatePayerForAccountResponse
+   */
+  async updatePayerForAccount(request: UpdatePayerForAccountRequest): Promise<UpdatePayerForAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updatePayerForAccountWithOptions(request, runtime);
   }
 
 }
