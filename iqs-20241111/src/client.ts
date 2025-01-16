@@ -1,13 +1,206 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class AISearchQuery extends $tea.Model {
+export class QueryContextOriginalQuery extends $dara.Model {
+  industry?: string;
+  page?: string;
+  query?: string;
+  timeRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      industry: 'industry',
+      page: 'page',
+      query: 'query',
+      timeRange: 'timeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      industry: 'string',
+      page: 'string',
+      query: 'string',
+      timeRange: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryContextRewrite extends $dara.Model {
+  enabled?: boolean;
+  timeRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      timeRange: 'timeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      timeRange: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AiSearchResponseBodyHeaderQueryContextOriginalQuery extends $dara.Model {
+  industry?: string;
+  page?: number;
+  query?: string;
+  timeRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      industry: 'industry',
+      page: 'page',
+      query: 'query',
+      timeRange: 'timeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      industry: 'string',
+      page: 'number',
+      query: 'string',
+      timeRange: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AiSearchResponseBodyHeaderQueryContextRewrite extends $dara.Model {
+  enabled?: boolean;
+  timeRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      timeRange: 'timeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      timeRange: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AiSearchResponseBodyHeaderQueryContext extends $dara.Model {
+  originalQuery?: AiSearchResponseBodyHeaderQueryContextOriginalQuery;
+  rewrite?: AiSearchResponseBodyHeaderQueryContextRewrite;
+  static names(): { [key: string]: string } {
+    return {
+      originalQuery: 'originalQuery',
+      rewrite: 'rewrite',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originalQuery: AiSearchResponseBodyHeaderQueryContextOriginalQuery,
+      rewrite: AiSearchResponseBodyHeaderQueryContextRewrite,
+    };
+  }
+
+  validate() {
+    if(this.originalQuery && typeof (this.originalQuery as any).validate === 'function') {
+      (this.originalQuery as any).validate();
+    }
+    if(this.rewrite && typeof (this.rewrite as any).validate === 'function') {
+      (this.rewrite as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AiSearchResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * on_common_search_end
+   */
+  event?: string;
+  /**
+   * @example
+   * 988021f0-951a-43d0-ba4d-785359e7e7be
+   */
+  eventId?: string;
+  queryContext?: AiSearchResponseBodyHeaderQueryContext;
+  /**
+   * @example
+   * 1293
+   */
+  responseTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'event',
+      eventId: 'eventId',
+      queryContext: 'queryContext',
+      responseTime: 'responseTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: 'string',
+      eventId: 'string',
+      queryContext: AiSearchResponseBodyHeaderQueryContext,
+      responseTime: 'number',
+    };
+  }
+
+  validate() {
+    if(this.queryContext && typeof (this.queryContext as any).validate === 'function') {
+      (this.queryContext as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AISearchQuery extends $dara.Model {
   card?: string;
   cardQuery?: string;
   page?: number;
@@ -42,12 +235,16 @@ export class AISearchQuery extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenericSearchResult extends $tea.Model {
+export class GenericSearchResult extends $dara.Model {
   pageItems?: ScorePageItem[];
   queryContext?: QueryContext;
   /**
@@ -80,12 +277,31 @@ export class GenericSearchResult extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.pageItems)) {
+      $dara.Model.validateArray(this.pageItems);
+    }
+    if(this.queryContext && typeof (this.queryContext as any).validate === 'function') {
+      (this.queryContext as any).validate();
+    }
+    if(Array.isArray(this.sceneItems)) {
+      $dara.Model.validateArray(this.sceneItems);
+    }
+    if(this.searchInformation && typeof (this.searchInformation as any).validate === 'function') {
+      (this.searchInformation as any).validate();
+    }
+    if(Array.isArray(this.weiboItems)) {
+      $dara.Model.validateArray(this.weiboItems);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class IncludeImage extends $tea.Model {
+export class IncludeImage extends $dara.Model {
   /**
    * @example
    * 324
@@ -117,12 +333,16 @@ export class IncludeImage extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryContext extends $tea.Model {
+export class QueryContext extends $dara.Model {
   originalQuery?: QueryContextOriginalQuery;
   rewrite?: QueryContextRewrite;
   static names(): { [key: string]: string } {
@@ -139,12 +359,22 @@ export class QueryContext extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.originalQuery && typeof (this.originalQuery as any).validate === 'function') {
+      (this.originalQuery as any).validate();
+    }
+    if(this.rewrite && typeof (this.rewrite as any).validate === 'function') {
+      (this.rewrite as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SceneItem extends $tea.Model {
+export class SceneItem extends $dara.Model {
   detail?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -161,12 +391,16 @@ export class SceneItem extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ScorePageItem extends $tea.Model {
+export class ScorePageItem extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -227,6 +461,7 @@ export class ScorePageItem extends $tea.Model {
    * 		大家	比较	感	兴趣	的	性能	方面	，	2	.	78	s	的	0	-	100	km	/	h	加速	，	265	km	/	h	的	最高	时速
    */
   mainText?: string;
+  markdownText?: string;
   /**
    * @example
    * text/html
@@ -270,6 +505,7 @@ export class ScorePageItem extends $tea.Model {
       images: 'images',
       link: 'link',
       mainText: 'mainText',
+      markdownText: 'markdownText',
       mime: 'mime',
       pageMap: 'pageMap',
       publishTime: 'publishTime',
@@ -290,6 +526,7 @@ export class ScorePageItem extends $tea.Model {
       images: { 'type': 'array', 'itemType': IncludeImage },
       link: 'string',
       mainText: 'string',
+      markdownText: 'string',
       mime: 'string',
       pageMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       publishTime: 'number',
@@ -299,12 +536,22 @@ export class ScorePageItem extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.images)) {
+      $dara.Model.validateArray(this.images);
+    }
+    if(this.pageMap) {
+      $dara.Model.validateMap(this.pageMap);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SearchInformation extends $tea.Model {
+export class SearchInformation extends $dara.Model {
   searchTime?: number;
   total?: number;
   static names(): { [key: string]: string } {
@@ -321,12 +568,16 @@ export class SearchInformation extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class WeiboItem extends $tea.Model {
+export class WeiboItem extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -394,12 +645,19 @@ export class WeiboItem extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.images)) {
+      $dara.Model.validateArray(this.images);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AiSearchRequest extends $tea.Model {
+export class AiSearchRequest extends $dara.Model {
   /**
    * @example
    * finance
@@ -445,12 +703,16 @@ export class AiSearchRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AiSearchResponseBody extends $tea.Model {
+export class AiSearchResponseBody extends $dara.Model {
   header?: AiSearchResponseBodyHeader;
   /**
    * @example
@@ -481,12 +743,19 @@ export class AiSearchResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AiSearchResponse extends $tea.Model {
+export class AiSearchResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AiSearchResponseBody;
@@ -506,12 +775,22 @@ export class AiSearchResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenericAdvancedSearchRequest extends $tea.Model {
+export class GenericAdvancedSearchRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -543,12 +822,16 @@ export class GenericAdvancedSearchRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenericAdvancedSearchResponse extends $tea.Model {
+export class GenericAdvancedSearchResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GenericSearchResult;
@@ -568,12 +851,22 @@ export class GenericAdvancedSearchResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenericSearchRequest extends $tea.Model {
+export class GenericSearchRequest extends $dara.Model {
   industry?: string;
   /**
    * @example
@@ -611,12 +904,16 @@ export class GenericSearchRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenericSearchResponse extends $tea.Model {
+export class GenericSearchResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GenericSearchResult;
@@ -636,166 +933,14 @@ export class GenericSearchResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryContextOriginalQuery extends $tea.Model {
-  industry?: string;
-  page?: string;
-  query?: string;
-  timeRange?: string;
-  static names(): { [key: string]: string } {
-    return {
-      industry: 'industry',
-      page: 'page',
-      query: 'query',
-      timeRange: 'timeRange',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      industry: 'string',
-      page: 'string',
-      query: 'string',
-      timeRange: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryContextRewrite extends $tea.Model {
-  enabled?: boolean;
-  timeRange?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enabled: 'enabled',
-      timeRange: 'timeRange',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enabled: 'boolean',
-      timeRange: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AiSearchResponseBodyHeaderQueryContextOriginalQuery extends $tea.Model {
-  industry?: string;
-  page?: number;
-  query?: string;
-  timeRange?: string;
-  static names(): { [key: string]: string } {
-    return {
-      industry: 'industry',
-      page: 'page',
-      query: 'query',
-      timeRange: 'timeRange',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      industry: 'string',
-      page: 'number',
-      query: 'string',
-      timeRange: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AiSearchResponseBodyHeaderQueryContextRewrite extends $tea.Model {
-  enabled?: boolean;
-  timeRange?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enabled: 'enabled',
-      timeRange: 'timeRange',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enabled: 'boolean',
-      timeRange: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AiSearchResponseBodyHeaderQueryContext extends $tea.Model {
-  originalQuery?: AiSearchResponseBodyHeaderQueryContextOriginalQuery;
-  rewrite?: AiSearchResponseBodyHeaderQueryContextRewrite;
-  static names(): { [key: string]: string } {
-    return {
-      originalQuery: 'originalQuery',
-      rewrite: 'rewrite',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      originalQuery: AiSearchResponseBodyHeaderQueryContextOriginalQuery,
-      rewrite: AiSearchResponseBodyHeaderQueryContextRewrite,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AiSearchResponseBodyHeader extends $tea.Model {
-  /**
-   * @example
-   * on_common_search_end
-   */
-  event?: string;
-  /**
-   * @example
-   * 988021f0-951a-43d0-ba4d-785359e7e7be
-   */
-  eventId?: string;
-  queryContext?: AiSearchResponseBodyHeaderQueryContext;
-  /**
-   * @example
-   * 1293
-   */
-  responseTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      event: 'event',
-      eventId: 'eventId',
-      queryContext: 'queryContext',
-      responseTime: 'responseTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      event: 'string',
-      eventId: 'string',
-      queryContext: AiSearchResponseBodyHeaderQueryContext,
-      responseTime: 'number',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -806,7 +951,7 @@ export class AiSearchResponseBodyHeader extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -815,15 +960,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -834,34 +979,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AiSearchResponse
    */
-  async aiSearchWithOptions(request: AiSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AiSearchResponse> {
-    Util.validateModel(request);
+  async aiSearchWithOptions(request: AiSearchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<AiSearchResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.industry)) {
+    if (!$dara.isNull(request.industry)) {
       query["industry"] = request.industry;
     }
 
-    if (!Util.isUnset(request.page)) {
+    if (!$dara.isNull(request.page)) {
       query["page"] = request.page;
     }
 
-    if (!Util.isUnset(request.query)) {
+    if (!$dara.isNull(request.query)) {
       query["query"] = request.query;
     }
 
-    if (!Util.isUnset(request.sessionId)) {
+    if (!$dara.isNull(request.sessionId)) {
       query["sessionId"] = request.sessionId;
     }
 
-    if (!Util.isUnset(request.timeRange)) {
+    if (!$dara.isNull(request.timeRange)) {
       query["timeRange"] = request.timeRange;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AiSearch",
       version: "2024-11-11",
       protocol: "HTTPS",
@@ -872,7 +1017,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<AiSearchResponse>(await this.callApi(params, req, runtime), new AiSearchResponse({}));
+    return $dara.cast<AiSearchResponse>(await this.callApi(params, req, runtime), new AiSearchResponse({}));
   }
 
   /**
@@ -882,7 +1027,7 @@ export default class Client extends OpenApi {
    * @returns AiSearchResponse
    */
   async aiSearch(request: AiSearchRequest): Promise<AiSearchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.aiSearchWithOptions(request, headers, runtime);
   }
@@ -895,26 +1040,26 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenericAdvancedSearchResponse
    */
-  async genericAdvancedSearchWithOptions(request: GenericAdvancedSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenericAdvancedSearchResponse> {
-    Util.validateModel(request);
+  async genericAdvancedSearchWithOptions(request: GenericAdvancedSearchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GenericAdvancedSearchResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.query)) {
+    if (!$dara.isNull(request.query)) {
       query["query"] = request.query;
     }
 
-    if (!Util.isUnset(request.sessionId)) {
+    if (!$dara.isNull(request.sessionId)) {
       query["sessionId"] = request.sessionId;
     }
 
-    if (!Util.isUnset(request.timeRange)) {
+    if (!$dara.isNull(request.timeRange)) {
       query["timeRange"] = request.timeRange;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GenericAdvancedSearch",
       version: "2024-11-11",
       protocol: "HTTPS",
@@ -925,7 +1070,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GenericAdvancedSearchResponse>(await this.callApi(params, req, runtime), new GenericAdvancedSearchResponse({}));
+    return $dara.cast<GenericAdvancedSearchResponse>(await this.callApi(params, req, runtime), new GenericAdvancedSearchResponse({}));
   }
 
   /**
@@ -935,7 +1080,7 @@ export default class Client extends OpenApi {
    * @returns GenericAdvancedSearchResponse
    */
   async genericAdvancedSearch(request: GenericAdvancedSearchRequest): Promise<GenericAdvancedSearchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.genericAdvancedSearchWithOptions(request, headers, runtime);
   }
@@ -948,34 +1093,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenericSearchResponse
    */
-  async genericSearchWithOptions(request: GenericSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenericSearchResponse> {
-    Util.validateModel(request);
+  async genericSearchWithOptions(request: GenericSearchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GenericSearchResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.industry)) {
+    if (!$dara.isNull(request.industry)) {
       query["industry"] = request.industry;
     }
 
-    if (!Util.isUnset(request.page)) {
+    if (!$dara.isNull(request.page)) {
       query["page"] = request.page;
     }
 
-    if (!Util.isUnset(request.query)) {
+    if (!$dara.isNull(request.query)) {
       query["query"] = request.query;
     }
 
-    if (!Util.isUnset(request.sessionId)) {
+    if (!$dara.isNull(request.sessionId)) {
       query["sessionId"] = request.sessionId;
     }
 
-    if (!Util.isUnset(request.timeRange)) {
+    if (!$dara.isNull(request.timeRange)) {
       query["timeRange"] = request.timeRange;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GenericSearch",
       version: "2024-11-11",
       protocol: "HTTPS",
@@ -986,7 +1131,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GenericSearchResponse>(await this.callApi(params, req, runtime), new GenericSearchResponse({}));
+    return $dara.cast<GenericSearchResponse>(await this.callApi(params, req, runtime), new GenericSearchResponse({}));
   }
 
   /**
@@ -996,7 +1141,7 @@ export default class Client extends OpenApi {
    * @returns GenericSearchResponse
    */
   async genericSearch(request: GenericSearchRequest): Promise<GenericSearchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.genericSearchWithOptions(request, headers, runtime);
   }
