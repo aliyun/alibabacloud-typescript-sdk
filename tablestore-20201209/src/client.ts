@@ -1,13 +1,468 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class ChangeResourceGroupRequest extends $tea.Model {
+export class CreateInstanceRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * p_instance
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0woauavextilfqr61
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegions extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the region.
+   * 
+   * @example
+   * yunjiankong.cloud.region.cn-hangzhou
+   */
+  i18nKey?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      i18nKey: 'I18nKey',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      i18nKey: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tag
+   */
+  key?: string;
+  /**
+   * @remarks
+   * (Deprecated) The tag key.
+   * 
+   * @example
+   * keyTestA
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * (Deprecated) The tag value.
+   * 
+   * @example
+   * 00004a20240452b0
+   */
+  tagValue?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * 333
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstances extends $dara.Model {
+  /**
+   * @remarks
+   * The instance alias.
+   * 
+   * @example
+   * instance-test
+   */
+  aliasName?: string;
+  /**
+   * @remarks
+   * The time when the instance was created.
+   * 
+   * @example
+   * 2019-04-07T09:19:21Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * Description of the test instance.
+   */
+  instanceDescription?: string;
+  /**
+   * @remarks
+   * The name of the instance, which is used to uniquely identify the instance.
+   * 
+   * @example
+   * instance-test
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The type of the instance.
+   * 
+   * *   SSD: high-performance instance
+   * *   HYBRID: capacity instance
+   * 
+   * @example
+   * HYBRID
+   */
+  instanceSpecification?: string;
+  /**
+   * @remarks
+   * The instance status.
+   * 
+   * @example
+   * normal
+   */
+  instanceStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether zone-redundant storage (ZRS) is enabled for the instance.
+   * 
+   * *   true: ZRS is enabled for the instance.
+   * *   false: Locally redundant storage (LRS) is enabled for the instance.
+   */
+  isMultiAZ?: boolean;
+  /**
+   * @remarks
+   * The billing method.
+   * 
+   * *   Subscription: subscription
+   * *   PayAsYouGo: pay as you go
+   * 
+   * @example
+   * Subscription
+   */
+  paymentType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-huhehaote
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxh4em5jnbcd
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * ots_standard_public_cn-g4t3igqjj002
+   */
+  SPInstanceId?: string;
+  /**
+   * @remarks
+   * The storage type.
+   * 
+   * *   SSD: high-performance
+   * *   HYBRID: capacity
+   * 
+   * @example
+   * HYBRID
+   */
+  storageType?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 13542356466
+   */
+  userId?: string;
+  /**
+   * @remarks
+   * The VCU quota.
+   * 
+   * @example
+   * 3
+   */
+  VCUQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aliasName: 'AliasName',
+      createTime: 'CreateTime',
+      instanceDescription: 'InstanceDescription',
+      instanceName: 'InstanceName',
+      instanceSpecification: 'InstanceSpecification',
+      instanceStatus: 'InstanceStatus',
+      isMultiAZ: 'IsMultiAZ',
+      paymentType: 'PaymentType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      SPInstanceId: 'SPInstanceId',
+      storageType: 'StorageType',
+      userId: 'UserId',
+      VCUQuota: 'VCUQuota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasName: 'string',
+      createTime: 'string',
+      instanceDescription: 'string',
+      instanceName: 'string',
+      instanceSpecification: 'string',
+      instanceStatus: 'string',
+      isMultiAZ: 'boolean',
+      paymentType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      SPInstanceId: 'string',
+      storageType: 'string',
+      userId: 'string',
+      VCUQuota: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * Owner
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * Tester
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
+  /**
+   * @remarks
+   * The resource ID, which is the instance name.
+   * 
+   * @example
+   * instance-test
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ALIYUN::OTS::INSTANCE
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * Owner
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * Tester
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * created
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * job-0007z8j1omiabo5i872l
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the new resource group.
@@ -42,12 +497,16 @@ export class ChangeResourceGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChangeResourceGroupResponseBody extends $tea.Model {
+export class ChangeResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID, which can be used to troubleshoot issues.
@@ -68,12 +527,16 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChangeResourceGroupResponse extends $tea.Model {
+export class ChangeResourceGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ChangeResourceGroupResponseBody;
@@ -93,12 +556,22 @@ export class ChangeResourceGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckInstancePolicyRequest extends $tea.Model {
+export class CheckInstancePolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the instance.
@@ -162,12 +635,16 @@ export class CheckInstancePolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckInstancePolicyResponseBody extends $tea.Model {
+export class CheckInstancePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -208,12 +685,16 @@ export class CheckInstancePolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckInstancePolicyResponse extends $tea.Model {
+export class CheckInstancePolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CheckInstancePolicyResponseBody;
@@ -233,12 +714,22 @@ export class CheckInstancePolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceRequest extends $tea.Model {
+export class CreateInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the instance.
@@ -394,12 +885,25 @@ export class CreateInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.networkSourceACL)) {
+      $dara.Model.validateArray(this.networkSourceACL);
+    }
+    if(Array.isArray(this.networkTypeACL)) {
+      $dara.Model.validateArray(this.networkTypeACL);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceResponseBody extends $tea.Model {
+export class CreateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -440,12 +944,16 @@ export class CreateInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceResponse extends $tea.Model {
+export class CreateInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateInstanceResponseBody;
@@ -465,12 +973,22 @@ export class CreateInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstanceRequest extends $tea.Model {
+export class DeleteInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the instance.
@@ -493,12 +1011,16 @@ export class DeleteInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstanceResponseBody extends $tea.Model {
+export class DeleteInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID, which can be used to troubleshoot issues.
@@ -519,12 +1041,16 @@ export class DeleteInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstanceResponse extends $tea.Model {
+export class DeleteInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteInstanceResponseBody;
@@ -544,12 +1070,22 @@ export class DeleteInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstancePolicyRequest extends $tea.Model {
+export class DeleteInstancePolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the instance.
@@ -584,12 +1120,16 @@ export class DeleteInstancePolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstancePolicyResponseBody extends $tea.Model {
+export class DeleteInstancePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -630,12 +1170,16 @@ export class DeleteInstancePolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstancePolicyResponse extends $tea.Model {
+export class DeleteInstancePolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteInstancePolicyResponseBody;
@@ -655,12 +1199,22 @@ export class DeleteInstancePolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsRequest extends $tea.Model {
+export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -683,12 +1237,16 @@ export class DescribeRegionsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponseBody extends $tea.Model {
+export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The regions.
@@ -716,12 +1274,19 @@ export class DescribeRegionsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponse extends $tea.Model {
+export class DescribeRegionsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeRegionsResponseBody;
@@ -741,12 +1306,22 @@ export class DescribeRegionsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceRequest extends $tea.Model {
+export class GetInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the instance.
@@ -769,15 +1344,19 @@ export class GetInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBody extends $tea.Model {
+export class GetInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The alias of the instance.
+   * The instance alias.
    * 
    * @example
    * instance-test
@@ -791,6 +1370,7 @@ export class GetInstanceResponseBody extends $tea.Model {
    * 2019-12-23T07:24:33Z
    */
   createTime?: string;
+  elasticVCUUpperLimit?: number;
   /**
    * @remarks
    * The description of the instance.
@@ -830,6 +1410,13 @@ export class GetInstanceResponseBody extends $tea.Model {
    * normal
    */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether zone-redundant storage (ZRS) is enabled for the instance.
+   * 
+   * *   true: ZRS is enabled for the instance.
+   * *   false: Locally redundant storage (LRS) is enabled for the instance.
+   */
   isMultiAZ?: boolean;
   /**
    * @remarks
@@ -991,6 +1578,7 @@ export class GetInstanceResponseBody extends $tea.Model {
     return {
       aliasName: 'AliasName',
       createTime: 'CreateTime',
+      elasticVCUUpperLimit: 'ElasticVCUUpperLimit',
       instanceDescription: 'InstanceDescription',
       instanceName: 'InstanceName',
       instanceSpecification: 'InstanceSpecification',
@@ -1018,6 +1606,7 @@ export class GetInstanceResponseBody extends $tea.Model {
     return {
       aliasName: 'string',
       createTime: 'string',
+      elasticVCUUpperLimit: 'number',
       instanceDescription: 'string',
       instanceName: 'string',
       instanceSpecification: 'string',
@@ -1041,12 +1630,25 @@ export class GetInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.networkSourceACL)) {
+      $dara.Model.validateArray(this.networkSourceACL);
+    }
+    if(Array.isArray(this.networkTypeACL)) {
+      $dara.Model.validateArray(this.networkTypeACL);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponse extends $tea.Model {
+export class GetInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetInstanceResponseBody;
@@ -1066,12 +1668,22 @@ export class GetInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesRequest extends $tea.Model {
+export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the instance. Fuzzy search is supported.
@@ -1143,12 +1755,19 @@ export class ListInstancesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceNameList)) {
+      $dara.Model.validateArray(this.instanceNameList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesShrinkRequest extends $tea.Model {
+export class ListInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the instance. Fuzzy search is supported.
@@ -1220,15 +1839,19 @@ export class ListInstancesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesResponseBody extends $tea.Model {
+export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instances.
+   * The details about the instances.
    */
   instances?: ListInstancesResponseBodyInstances[];
   /**
@@ -1273,12 +1896,19 @@ export class ListInstancesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesResponse extends $tea.Model {
+export class ListInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListInstancesResponseBody;
@@ -1298,12 +1928,22 @@ export class ListInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequest extends $tea.Model {
+export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of tagged resources that you want to return. Valid values: 0 to 200. If you do not specify this parameter or set the parameter to 0, the default value of 100 is used.
@@ -1360,12 +2000,22 @@ export class ListTagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesShrinkRequest extends $tea.Model {
+export class ListTagResourcesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of tagged resources that you want to return. Valid values: 0 to 200. If you do not specify this parameter or set the parameter to 0, the default value of 100 is used.
@@ -1422,12 +2072,16 @@ export class ListTagResourcesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBody extends $tea.Model {
+export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The maximum number of tagged resources that are returned for the query.
@@ -1475,12 +2129,19 @@ export class ListTagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagResources)) {
+      $dara.Model.validateArray(this.tagResources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponse extends $tea.Model {
+export class ListTagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagResourcesResponseBody;
@@ -1500,12 +2161,22 @@ export class ListTagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequest extends $tea.Model {
+export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The resource IDs, which are instance names.
@@ -1548,12 +2219,22 @@ export class TagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponseBody extends $tea.Model {
+export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID, which can be used to troubleshoot issues.
@@ -1574,12 +2255,16 @@ export class TagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponse extends $tea.Model {
+export class TagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: TagResourcesResponseBody;
@@ -1599,12 +2284,22 @@ export class TagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesRequest extends $tea.Model {
+export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to remove all tags from the resources. Default value: false. Valid values:
@@ -1654,12 +2349,22 @@ export class UntagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
+    }
+    if(Array.isArray(this.tagKeys)) {
+      $dara.Model.validateArray(this.tagKeys);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesResponseBody extends $tea.Model {
+export class UntagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID, which can be used to troubleshoot issues.
@@ -1680,12 +2385,16 @@ export class UntagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesResponse extends $tea.Model {
+export class UntagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UntagResourcesResponseBody;
@@ -1705,12 +2414,22 @@ export class UntagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceRequest extends $tea.Model {
+export class UpdateInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The alias of the instance.
@@ -1783,12 +2502,22 @@ export class UpdateInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.networkSourceACL)) {
+      $dara.Model.validateArray(this.networkSourceACL);
+    }
+    if(Array.isArray(this.networkTypeACL)) {
+      $dara.Model.validateArray(this.networkTypeACL);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceResponseBody extends $tea.Model {
+export class UpdateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID, which can be used to troubleshoot issues.
@@ -1809,12 +2538,16 @@ export class UpdateInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceResponse extends $tea.Model {
+export class UpdateInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateInstanceResponseBody;
@@ -1834,12 +2567,22 @@ export class UpdateInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceElasticVCUUpperLimitRequest extends $tea.Model {
+export class UpdateInstanceElasticVCUUpperLimitRequest extends $dara.Model {
   /**
    * @remarks
    * The upper limit for the VCUs of the instance.
@@ -1876,12 +2619,16 @@ export class UpdateInstanceElasticVCUUpperLimitRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceElasticVCUUpperLimitResponseBody extends $tea.Model {
+export class UpdateInstanceElasticVCUUpperLimitResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID, which can be used to troubleshoot issues.
@@ -1902,12 +2649,16 @@ export class UpdateInstanceElasticVCUUpperLimitResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceElasticVCUUpperLimitResponse extends $tea.Model {
+export class UpdateInstanceElasticVCUUpperLimitResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateInstanceElasticVCUUpperLimitResponseBody;
@@ -1927,12 +2678,22 @@ export class UpdateInstanceElasticVCUUpperLimitResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstancePolicyRequest extends $tea.Model {
+export class UpdateInstancePolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the instance.
@@ -2008,12 +2769,16 @@ export class UpdateInstancePolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstancePolicyResponseBody extends $tea.Model {
+export class UpdateInstancePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -2054,12 +2819,16 @@ export class UpdateInstancePolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstancePolicyResponse extends $tea.Model {
+export class UpdateInstancePolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateInstancePolicyResponseBody;
@@ -2079,426 +2848,14 @@ export class UpdateInstancePolicyResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key. The tag key can be up to 64 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * p_instance
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value. The tag value can be up to 64 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0woauavextilfqr61
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the region.
-   * 
-   * @example
-   * yunjiankong.cloud.region.cn-hangzhou
-   */
-  i18nKey?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      i18nKey: 'I18nKey',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      i18nKey: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * tag
-   */
-  key?: string;
-  /**
-   * @remarks
-   * (Deprecated) The tag key.
-   * 
-   * @example
-   * keyTestA
-   */
-  tagKey?: string;
-  /**
-   * @remarks
-   * (Deprecated) The tag value.
-   * 
-   * @example
-   * 00004a20240452b0
-   */
-  tagValue?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * 333
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      tagKey: 'string',
-      tagValue: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstances extends $tea.Model {
-  /**
-   * @remarks
-   * The instance alias.
-   * 
-   * @example
-   * instance-test
-   */
-  aliasName?: string;
-  /**
-   * @remarks
-   * The time when the instance was created.
-   * 
-   * @example
-   * 2019-04-07T09:19:21Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The instance description.
-   * 
-   * @example
-   * Description of the test instance.
-   */
-  instanceDescription?: string;
-  /**
-   * @remarks
-   * The name of the instance, which is used to uniquely identify the instance.
-   * 
-   * @example
-   * instance-test
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * The type of the instance.
-   * 
-   * *   SSD: high-performance instance
-   * *   HYBRID: capacity instance
-   * 
-   * @example
-   * HYBRID
-   */
-  instanceSpecification?: string;
-  /**
-   * @remarks
-   * The instance status.
-   * 
-   * @example
-   * normal
-   */
-  instanceStatus?: string;
-  isMultiAZ?: boolean;
-  /**
-   * @remarks
-   * The billing method.
-   * 
-   * *   Subscription: subscription
-   * *   PayAsYouGo: pay as you go
-   * 
-   * @example
-   * Subscription
-   */
-  paymentType?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-huhehaote
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-acfmxh4em5jnbcd
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * ots_standard_public_cn-g4t3igqjj002
-   */
-  SPInstanceId?: string;
-  /**
-   * @remarks
-   * The storage type.
-   * 
-   * *   SSD: high-performance
-   * *   HYBRID: capacity
-   * 
-   * @example
-   * HYBRID
-   */
-  storageType?: string;
-  /**
-   * @remarks
-   * The user ID.
-   * 
-   * @example
-   * 13542356466
-   */
-  userId?: string;
-  /**
-   * @remarks
-   * The VCU quota.
-   * 
-   * @example
-   * 3
-   */
-  VCUQuota?: number;
-  static names(): { [key: string]: string } {
-    return {
-      aliasName: 'AliasName',
-      createTime: 'CreateTime',
-      instanceDescription: 'InstanceDescription',
-      instanceName: 'InstanceName',
-      instanceSpecification: 'InstanceSpecification',
-      instanceStatus: 'InstanceStatus',
-      isMultiAZ: 'IsMultiAZ',
-      paymentType: 'PaymentType',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      SPInstanceId: 'SPInstanceId',
-      storageType: 'StorageType',
-      userId: 'UserId',
-      VCUQuota: 'VCUQuota',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliasName: 'string',
-      createTime: 'string',
-      instanceDescription: 'string',
-      instanceName: 'string',
-      instanceSpecification: 'string',
-      instanceStatus: 'string',
-      isMultiAZ: 'boolean',
-      paymentType: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      SPInstanceId: 'string',
-      storageType: 'string',
-      userId: 'string',
-      VCUQuota: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequestTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * Owner
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * Tester
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  /**
-   * @remarks
-   * The resource ID, which is the instance name.
-   * 
-   * @example
-   * instance-test
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The type of the resource.
-   * 
-   * @example
-   * ALIYUN::OTS::INSTANCE
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * Owner
-   */
-  tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * Tester
-   */
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceType: 'string',
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequestTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * created
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * job-0007z8j1omiabo5i872l
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -2509,7 +2866,7 @@ export class TagResourcesRequestTags extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -2518,15 +2875,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -2537,22 +2894,22 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeResourceGroupResponse
    */
-  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
-    Util.validateModel(request);
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.newResourceGroupId)) {
+    if (!$dara.isNull(request.newResourceGroupId)) {
       body["NewResourceGroupId"] = request.newResourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       body["ResourceId"] = request.resourceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChangeResourceGroup",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -2563,7 +2920,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
   /**
@@ -2573,7 +2930,7 @@ export default class Client extends OpenApi {
    * @returns ChangeResourceGroupResponse
    */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.changeResourceGroupWithOptions(request, headers, runtime);
   }
@@ -2586,22 +2943,22 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckInstancePolicyResponse
    */
-  async checkInstancePolicyWithOptions(request: CheckInstancePolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckInstancePolicyResponse> {
-    Util.validateModel(request);
+  async checkInstancePolicyWithOptions(request: CheckInstancePolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CheckInstancePolicyResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.policy)) {
+    if (!$dara.isNull(request.policy)) {
       body["Policy"] = request.policy;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckInstancePolicy",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -2612,7 +2969,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CheckInstancePolicyResponse>(await this.callApi(params, req, runtime), new CheckInstancePolicyResponse({}));
+    return $dara.cast<CheckInstancePolicyResponse>(await this.callApi(params, req, runtime), new CheckInstancePolicyResponse({}));
   }
 
   /**
@@ -2622,7 +2979,7 @@ export default class Client extends OpenApi {
    * @returns CheckInstancePolicyResponse
    */
   async checkInstancePolicy(request: CheckInstancePolicyRequest): Promise<CheckInstancePolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.checkInstancePolicyWithOptions(request, headers, runtime);
   }
@@ -2640,54 +2997,54 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateInstanceResponse
    */
-  async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
-    Util.validateModel(request);
+  async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clusterType)) {
+    if (!$dara.isNull(request.clusterType)) {
       body["ClusterType"] = request.clusterType;
     }
 
-    if (!Util.isUnset(request.disableReplication)) {
+    if (!$dara.isNull(request.disableReplication)) {
       body["DisableReplication"] = request.disableReplication;
     }
 
-    if (!Util.isUnset(request.instanceDescription)) {
+    if (!$dara.isNull(request.instanceDescription)) {
       body["InstanceDescription"] = request.instanceDescription;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.network)) {
+    if (!$dara.isNull(request.network)) {
       body["Network"] = request.network;
     }
 
-    if (!Util.isUnset(request.networkSourceACL)) {
+    if (!$dara.isNull(request.networkSourceACL)) {
       body["NetworkSourceACL"] = request.networkSourceACL;
     }
 
-    if (!Util.isUnset(request.networkTypeACL)) {
+    if (!$dara.isNull(request.networkTypeACL)) {
       body["NetworkTypeACL"] = request.networkTypeACL;
     }
 
-    if (!Util.isUnset(request.policy)) {
+    if (!$dara.isNull(request.policy)) {
       body["Policy"] = request.policy;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       body["Tags"] = request.tags;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateInstance",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -2698,7 +3055,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+    return $dara.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
   /**
@@ -2713,7 +3070,7 @@ export default class Client extends OpenApi {
    * @returns CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceWithOptions(request, headers, runtime);
   }
@@ -2731,18 +3088,18 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceResponse
    */
-  async deleteInstanceWithOptions(request: DeleteInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
-    Util.validateModel(request);
+  async deleteInstanceWithOptions(request: DeleteInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteInstance",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -2753,7 +3110,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+    return $dara.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
   /**
@@ -2768,7 +3125,7 @@ export default class Client extends OpenApi {
    * @returns DeleteInstanceResponse
    */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceWithOptions(request, headers, runtime);
   }
@@ -2785,22 +3142,22 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstancePolicyResponse
    */
-  async deleteInstancePolicyWithOptions(request: DeleteInstancePolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstancePolicyResponse> {
-    Util.validateModel(request);
+  async deleteInstancePolicyWithOptions(request: DeleteInstancePolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteInstancePolicyResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.policyVersion)) {
+    if (!$dara.isNull(request.policyVersion)) {
       body["PolicyVersion"] = request.policyVersion;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteInstancePolicy",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -2811,7 +3168,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteInstancePolicyResponse>(await this.callApi(params, req, runtime), new DeleteInstancePolicyResponse({}));
+    return $dara.cast<DeleteInstancePolicyResponse>(await this.callApi(params, req, runtime), new DeleteInstancePolicyResponse({}));
   }
 
   /**
@@ -2825,7 +3182,7 @@ export default class Client extends OpenApi {
    * @returns DeleteInstancePolicyResponse
    */
   async deleteInstancePolicy(request: DeleteInstancePolicyRequest): Promise<DeleteInstancePolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstancePolicyWithOptions(request, headers, runtime);
   }
@@ -2838,18 +3195,18 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRegions",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -2860,7 +3217,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   /**
@@ -2870,7 +3227,7 @@ export default class Client extends OpenApi {
    * @returns DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeRegionsWithOptions(request, headers, runtime);
   }
@@ -2883,18 +3240,18 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceResponse
    */
-  async getInstanceWithOptions(request: GetInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
-    Util.validateModel(request);
+  async getInstanceWithOptions(request: GetInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetInstanceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetInstance",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -2905,7 +3262,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
+    return $dara.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
   }
 
   /**
@@ -2915,7 +3272,7 @@ export default class Client extends OpenApi {
    * @returns GetInstanceResponse
    */
   async getInstance(request: GetInstanceRequest): Promise<GetInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceWithOptions(request, headers, runtime);
   }
@@ -2928,44 +3285,44 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstancesResponse
    */
-  async listInstancesWithOptions(tmpReq: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
-    Util.validateModel(tmpReq);
+  async listInstancesWithOptions(tmpReq: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListInstancesResponse> {
+    tmpReq.validate();
     let request = new ListInstancesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.instanceNameList)) {
+    if (!$dara.isNull(tmpReq.instanceNameList)) {
       request.instanceNameListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceNameList, "InstanceNameList", "simple");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.instanceNameListShrink)) {
+    if (!$dara.isNull(request.instanceNameListShrink)) {
       query["InstanceNameList"] = request.instanceNameListShrink;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListInstances",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -2976,7 +3333,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+    return $dara.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
   /**
@@ -2986,7 +3343,7 @@ export default class Client extends OpenApi {
    * @returns ListInstancesResponse
    */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(request, headers, runtime);
   }
@@ -2999,44 +3356,44 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(tmpReq);
+  async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    tmpReq.validate();
     let request = new ListTagResourcesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.resourceIds)) {
+    if (!$dara.isNull(tmpReq.resourceIds)) {
       request.resourceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceIds, "ResourceIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.tags)) {
+    if (!$dara.isNull(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceIdsShrink)) {
+    if (!$dara.isNull(request.resourceIdsShrink)) {
       query["ResourceIds"] = request.resourceIdsShrink;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagsShrink)) {
+    if (!$dara.isNull(request.tagsShrink)) {
       query["Tags"] = request.tagsShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -3047,7 +3404,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   /**
@@ -3057,7 +3414,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTagResourcesWithOptions(request, headers, runtime);
   }
@@ -3070,26 +3427,26 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceIds)) {
+    if (!$dara.isNull(request.resourceIds)) {
       body["ResourceIds"] = request.resourceIds;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       body["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       body["Tags"] = request.tags;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -3100,7 +3457,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   /**
@@ -3110,7 +3467,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.tagResourcesWithOptions(request, headers, runtime);
   }
@@ -3126,30 +3483,30 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       body["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.resourceIds)) {
+    if (!$dara.isNull(request.resourceIds)) {
       body["ResourceIds"] = request.resourceIds;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       body["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKeys)) {
+    if (!$dara.isNull(request.tagKeys)) {
       body["TagKeys"] = request.tagKeys;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -3160,7 +3517,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   /**
@@ -3173,7 +3530,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.untagResourcesWithOptions(request, headers, runtime);
   }
@@ -3186,38 +3543,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateInstanceResponse
    */
-  async updateInstanceWithOptions(request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
-    Util.validateModel(request);
+  async updateInstanceWithOptions(request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.aliasName)) {
+    if (!$dara.isNull(request.aliasName)) {
       body["AliasName"] = request.aliasName;
     }
 
-    if (!Util.isUnset(request.instanceDescription)) {
+    if (!$dara.isNull(request.instanceDescription)) {
       body["InstanceDescription"] = request.instanceDescription;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.network)) {
+    if (!$dara.isNull(request.network)) {
       body["Network"] = request.network;
     }
 
-    if (!Util.isUnset(request.networkSourceACL)) {
+    if (!$dara.isNull(request.networkSourceACL)) {
       body["NetworkSourceACL"] = request.networkSourceACL;
     }
 
-    if (!Util.isUnset(request.networkTypeACL)) {
+    if (!$dara.isNull(request.networkTypeACL)) {
       body["NetworkTypeACL"] = request.networkTypeACL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateInstance",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -3228,7 +3585,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
+    return $dara.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
   }
 
   /**
@@ -3238,7 +3595,7 @@ export default class Client extends OpenApi {
    * @returns UpdateInstanceResponse
    */
   async updateInstance(request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceWithOptions(request, headers, runtime);
   }
@@ -3256,22 +3613,22 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateInstanceElasticVCUUpperLimitResponse
    */
-  async updateInstanceElasticVCUUpperLimitWithOptions(request: UpdateInstanceElasticVCUUpperLimitRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceElasticVCUUpperLimitResponse> {
-    Util.validateModel(request);
+  async updateInstanceElasticVCUUpperLimitWithOptions(request: UpdateInstanceElasticVCUUpperLimitRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateInstanceElasticVCUUpperLimitResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.elasticVCUUpperLimit)) {
+    if (!$dara.isNull(request.elasticVCUUpperLimit)) {
       body["ElasticVCUUpperLimit"] = request.elasticVCUUpperLimit;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateInstanceElasticVCUUpperLimit",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -3282,7 +3639,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateInstanceElasticVCUUpperLimitResponse>(await this.callApi(params, req, runtime), new UpdateInstanceElasticVCUUpperLimitResponse({}));
+    return $dara.cast<UpdateInstanceElasticVCUUpperLimitResponse>(await this.callApi(params, req, runtime), new UpdateInstanceElasticVCUUpperLimitResponse({}));
   }
 
   /**
@@ -3297,7 +3654,7 @@ export default class Client extends OpenApi {
    * @returns UpdateInstanceElasticVCUUpperLimitResponse
    */
   async updateInstanceElasticVCUUpperLimit(request: UpdateInstanceElasticVCUUpperLimitRequest): Promise<UpdateInstanceElasticVCUUpperLimitResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceElasticVCUUpperLimitWithOptions(request, headers, runtime);
   }
@@ -3310,26 +3667,26 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateInstancePolicyResponse
    */
-  async updateInstancePolicyWithOptions(request: UpdateInstancePolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstancePolicyResponse> {
-    Util.validateModel(request);
+  async updateInstancePolicyWithOptions(request: UpdateInstancePolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateInstancePolicyResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.policy)) {
+    if (!$dara.isNull(request.policy)) {
       body["Policy"] = request.policy;
     }
 
-    if (!Util.isUnset(request.policyVersion)) {
+    if (!$dara.isNull(request.policyVersion)) {
       body["PolicyVersion"] = request.policyVersion;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateInstancePolicy",
       version: "2020-12-09",
       protocol: "HTTPS",
@@ -3340,7 +3697,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateInstancePolicyResponse>(await this.callApi(params, req, runtime), new UpdateInstancePolicyResponse({}));
+    return $dara.cast<UpdateInstancePolicyResponse>(await this.callApi(params, req, runtime), new UpdateInstancePolicyResponse({}));
   }
 
   /**
@@ -3350,7 +3707,7 @@ export default class Client extends OpenApi {
    * @returns UpdateInstancePolicyResponse
    */
   async updateInstancePolicy(request: UpdateInstancePolicyRequest): Promise<UpdateInstancePolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstancePolicyWithOptions(request, headers, runtime);
   }
