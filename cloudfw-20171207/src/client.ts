@@ -9136,6 +9136,8 @@ export class AddControlPolicyRequest extends $dara.Model {
    * 
    * @example
    * ANY
+   * 
+   * @deprecated
    */
   applicationName?: string;
   /**
@@ -11915,6 +11917,8 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
    * 
    * @example
    * HTTP
+   * 
+   * @deprecated
    */
   applicationName?: string;
   /**
@@ -24269,8 +24273,6 @@ export class ModifyControlPolicyRequest extends $dara.Model {
    * *   **drop**: denies the traffic.
    * *   **log**: monitors the traffic.
    * 
-   * This parameter is required.
-   * 
    * @example
    * accept
    */
@@ -24312,6 +24314,8 @@ export class ModifyControlPolicyRequest extends $dara.Model {
    * 
    * @example
    * HTTP
+   * 
+   * @deprecated
    */
   applicationName?: string;
   /**
@@ -24324,8 +24328,6 @@ export class ModifyControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the access control policy.
-   * 
-   * This parameter is required.
    * 
    * @example
    * test
@@ -24367,8 +24369,6 @@ export class ModifyControlPolicyRequest extends $dara.Model {
    * *   If **DestinationType** is set to domain, the value of **Destination** is a domain name. Example: \\*.aliyuncs.com.
    * *   If **DestinationType** is set to location, the value of **Destination** is a location. For more information about the location codes, see the "AddControlPolicy" topic. Example: ["BJ11", "ZB"].
    * 
-   * This parameter is required.
-   * 
    * @example
    * 192.0.XX.XX/24
    */
@@ -24382,8 +24382,6 @@ export class ModifyControlPolicyRequest extends $dara.Model {
    * *   **domain**: domain name
    * *   **location**: location
    * 
-   * This parameter is required.
-   * 
    * @example
    * net
    */
@@ -24394,8 +24392,6 @@ export class ModifyControlPolicyRequest extends $dara.Model {
    * 
    * *   **in**: inbound traffic
    * *   **out**: outbound traffic
-   * 
-   * This parameter is required.
    * 
    * @example
    * in
@@ -24446,8 +24442,6 @@ export class ModifyControlPolicyRequest extends $dara.Model {
    * >  The value **ANY** indicates all types of applications.
    * 
    * >  If the traffic direction is outbound and the destination address is a threat intelligence address book of the domain name type or a cloud service address book, you can set Proto to TCP or ANY. If you set Proto to TCP, you can set ApplicationName to HTTP, HTTPS, SMTP, SMTPS, and SSL. If you set Proto to ANY, you can set ApplicationName to ANY.
-   * 
-   * This parameter is required.
    * 
    * @example
    * TCP
@@ -24520,8 +24514,6 @@ export class ModifyControlPolicyRequest extends $dara.Model {
    * *   If **SourceType** is set to group, the value of **Source** is an address book. Example: db_group.
    * *   If **SourceType** is set to location, the value of **Source** is a location. For more information about the location codes, see the "AddControlPolicy" topic. Example: ["BJ11", "ZB"]
    * 
-   * This parameter is required.
-   * 
    * @example
    * 192.0.XX.XX/24
    */
@@ -24533,8 +24525,6 @@ export class ModifyControlPolicyRequest extends $dara.Model {
    * *   **net**: CIDR block
    * *   **group**: address book
    * *   **location**: location
-   * 
-   * This parameter is required.
    * 
    * @example
    * net
@@ -25260,8 +25250,6 @@ export class ModifyNatFirewallControlPolicyRequest extends $dara.Model {
    * *   **drop**: denies the traffic.
    * *   **log**: monitors the traffic.
    * 
-   * This parameter is required.
-   * 
    * @example
    * log
    */
@@ -25288,8 +25276,6 @@ export class ModifyNatFirewallControlPolicyRequest extends $dara.Model {
    * The description of the access control policy. Fuzzy match is supported.
    * 
    * > If you do not specify this parameter, the descriptions of all policies are queried.
-   * 
-   * This parameter is required.
    * 
    * @example
    * test
@@ -25333,8 +25319,6 @@ export class ModifyNatFirewallControlPolicyRequest extends $dara.Model {
    * *   If **DestinationType** is set to domain, the value of **Destination** is a domain name. Example: \\*.aliyuncs.com
    * *   If **DestinationType** is set to location, the value of **Destination** is a location. For more information about the location codes, see the "AddControlPolicy" topic. Example: ["BJ11", "ZB"]
    * 
-   * This parameter is required.
-   * 
    * @example
    * x.x.x.x/32
    */
@@ -25347,8 +25331,6 @@ export class ModifyNatFirewallControlPolicyRequest extends $dara.Model {
    * *   **group**: address book
    * *   **domain**: domain name
    * *   **location**: destination location
-   * 
-   * This parameter is required.
    * 
    * @example
    * net
@@ -25420,8 +25402,6 @@ export class ModifyNatFirewallControlPolicyRequest extends $dara.Model {
    * 
    * >  If the destination address type is a threat intelligence address book of the domain name type or a cloud service address book, you can set Proto to TCP. If you set Proto to TCP, you can set application types to HTTP, HTTPS, SMTP, SMTPS, and SSL.
    * 
-   * This parameter is required.
-   * 
    * @example
    * TCP
    */
@@ -25492,8 +25472,6 @@ export class ModifyNatFirewallControlPolicyRequest extends $dara.Model {
    * *   If **SourceType** is set to `net`, the value of this parameter is a CIDR block. Example: 10.2.XX.XX/24.
    * *   If **SourceType** is set to `group`, the value of this parameter is an address book name. Example: db_group.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 192.168.0.25/32
    */
@@ -25504,8 +25482,6 @@ export class ModifyNatFirewallControlPolicyRequest extends $dara.Model {
    * 
    * *   **net**: CIDR block
    * *   **group**: address book
-   * 
-   * This parameter is required.
    * 
    * @example
    * net
@@ -27031,8 +27007,6 @@ export class ModifyVpcFirewallControlPolicyRequest extends $dara.Model {
    * *   **drop**: blocks the traffic.
    * *   **log**: monitors the traffic.
    * 
-   * This parameter is required.
-   * 
    * @example
    * accept
    */
@@ -27073,6 +27047,8 @@ export class ModifyVpcFirewallControlPolicyRequest extends $dara.Model {
    * 
    * @example
    * HTTP
+   * 
+   * @deprecated
    */
   applicationName?: string;
   /**
@@ -27083,8 +27059,6 @@ export class ModifyVpcFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the access control policy.
-   * 
-   * This parameter is required.
    * 
    * @example
    * test
@@ -27133,8 +27107,6 @@ export class ModifyVpcFirewallControlPolicyRequest extends $dara.Model {
    * 
    *     Example: \\*.aliyuncs.com
    * 
-   * This parameter is required.
-   * 
    * @example
    * 10.2.X.X/XX
    */
@@ -27148,8 +27120,6 @@ export class ModifyVpcFirewallControlPolicyRequest extends $dara.Model {
    * *   **net**: CIDR block
    * *   **group**: address book
    * *   **domain**: domain name
-   * 
-   * This parameter is required.
    * 
    * @example
    * net
@@ -27200,8 +27170,6 @@ export class ModifyVpcFirewallControlPolicyRequest extends $dara.Model {
    * *   TCP
    * *   UDP
    * *   ICMP
-   * 
-   * This parameter is required.
    * 
    * @example
    * TCP
@@ -27280,8 +27248,6 @@ export class ModifyVpcFirewallControlPolicyRequest extends $dara.Model {
    * 
    *     Example: db_group
    * 
-   * This parameter is required.
-   * 
    * @example
    * 10.2.X.X/XX
    */
@@ -27294,8 +27260,6 @@ export class ModifyVpcFirewallControlPolicyRequest extends $dara.Model {
    * 
    * *   **net**: CIDR block
    * *   **group**: address book
-   * 
-   * This parameter is required.
    * 
    * @example
    * net
