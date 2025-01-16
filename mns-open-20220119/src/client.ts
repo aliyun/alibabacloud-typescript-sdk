@@ -6,7 +6,15 @@ import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
 export class CreateQueueRequestTag extends $dara.Model {
+  /**
+   * @example
+   * tag1
+   */
   key?: string;
+  /**
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -214,16 +222,27 @@ export class DeleteQueueResponseBodyData extends $dara.Model {
 
 export class GetEndpointAttributeResponseBodyDataCidrList extends $dara.Model {
   /**
+   * @remarks
+   * The ACL policy. Valid value:
+   * 
+   * *   **allow**: indicates that the current endpoint allows access from the corresponding CIDR block. (Only allow is supported)
+   * 
    * @example
    * allow
    */
   aclStrategy?: string;
   /**
+   * @remarks
+   * The CIDR block.
+   * 
    * @example
    * 172.18.0.0/24
    */
   cidr?: string;
   /**
+   * @remarks
+   * The time when the list was created.
+   * 
    * @example
    * 1701951224000
    */
@@ -254,8 +273,15 @@ export class GetEndpointAttributeResponseBodyDataCidrList extends $dara.Model {
 }
 
 export class GetEndpointAttributeResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The CIDR blocks.
+   */
   cidrList?: GetEndpointAttributeResponseBodyDataCidrList[];
   /**
+   * @remarks
+   * Specifies whether the endpoint is enabled.
+   * 
    * @example
    * true
    */
@@ -287,7 +313,15 @@ export class GetEndpointAttributeResponseBodyData extends $dara.Model {
 }
 
 export class GetQueueAttributesRequestTag extends $dara.Model {
+  /**
+   * @example
+   * tag1
+   */
   key?: string;
+  /**
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -313,7 +347,15 @@ export class GetQueueAttributesRequestTag extends $dara.Model {
 }
 
 export class GetQueueAttributesResponseBodyDataTags extends $dara.Model {
+  /**
+   * @example
+   * tag1
+   */
   tagKey?: string;
+  /**
+   * @example
+   * test
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -341,7 +383,7 @@ export class GetQueueAttributesResponseBodyDataTags extends $dara.Model {
 export class GetQueueAttributesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of messages that are in the Active state in the queue. The value is an approximate number.
+   * The total number of messages that are in the Active state in the queue. The value is an approximate value. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
    * 
    * @example
    * 20
@@ -357,7 +399,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The total number of the messages that are in the Delayed state in the queue. The value is an approximate number.
+   * The total number of messages that are in the Delayed state in the queue. The value is an approximate value. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
    * 
    * @example
    * 0
@@ -373,7 +415,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
   delaySeconds?: number;
   /**
    * @remarks
-   * The total number of the messages that are in the Inactive state in the queue. The value is an approximate number.
+   * The total number of messages that are in the Inactive state in the queue. The value is an approximate value. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
    * 
    * @example
    * 0
@@ -605,7 +647,15 @@ export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
 }
 
 export class GetTopicAttributesRequestTag extends $dara.Model {
+  /**
+   * @example
+   * tag1
+   */
   key?: string;
+  /**
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -631,7 +681,21 @@ export class GetTopicAttributesRequestTag extends $dara.Model {
 }
 
 export class GetTopicAttributesResponseBodyDataTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tag1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -708,6 +772,10 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
    * 86400
    */
   messageRetentionPeriod?: number;
+  /**
+   * @remarks
+   * The tags added to the resources.
+   */
   tags?: GetTopicAttributesResponseBodyDataTags[];
   /**
    * @remarks
@@ -756,7 +824,15 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
 }
 
 export class ListQueueRequestTag extends $dara.Model {
+  /**
+   * @example
+   * tag1
+   */
   key?: string;
+  /**
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -782,7 +858,21 @@ export class ListQueueRequestTag extends $dara.Model {
 }
 
 export class ListQueueResponseBodyDataPageDataTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tag1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -810,7 +900,7 @@ export class ListQueueResponseBodyDataPageDataTags extends $dara.Model {
 export class ListQueueResponseBodyDataPageData extends $dara.Model {
   /**
    * @remarks
-   * The total number of messages that are in the Active state in the queue. The value is an approximate number.
+   * The total number of messages that are in the Active state in the queue. The value is an approximate value. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
    * 
    * @example
    * 20
@@ -826,7 +916,7 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The total number of the messages that are in the Delayed state in the queue. The value is an approximate number.
+   * The total number of messages that are in the Delayed state in the queue. The value is an approximate value. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
    * 
    * @example
    * 0
@@ -842,7 +932,7 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
   delaySeconds?: number;
   /**
    * @remarks
-   * The total number of the messages that are in the Inactive state in the queue. The value is an approximate number.
+   * The total number of messages that are in the Inactive state in the queue. The value is an approximate value. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
    * 
    * @example
    * 0
@@ -899,6 +989,10 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
    * demo-queue
    */
   queueName?: string;
+  /**
+   * @remarks
+   * The tags added to the resources.
+   */
   tags?: ListQueueResponseBodyDataPageDataTags[];
   /**
    * @remarks
@@ -1234,7 +1328,15 @@ export class ListSubscriptionByTopicResponseBodyData extends $dara.Model {
 }
 
 export class ListTopicRequestTag extends $dara.Model {
+  /**
+   * @example
+   * tag1
+   */
   key?: string;
+  /**
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1260,7 +1362,21 @@ export class ListTopicRequestTag extends $dara.Model {
 }
 
 export class ListTopicResponseBodyDataPageDataTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tag1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1337,7 +1453,18 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
    * 86400
    */
   messageRetentionPeriod?: number;
+  /**
+   * @remarks
+   * The tags added to the resources.
+   */
   tags?: ListTopicResponseBodyDataPageDataTags[];
+  /**
+   * @remarks
+   * The internal URL of the message topic. The internal URL can be accessed over an internal network.
+   * 
+   * @example
+   * http:// 111111111****.mns.us-west-1-internal.aliyuncs.com/topics/testTopic
+   */
   topicInnerUrl?: string;
   /**
    * @remarks
@@ -1347,6 +1474,13 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
    * demo-topic
    */
   topicName?: string;
+  /**
+   * @remarks
+   * The URL of the message topic.
+   * 
+   * @example
+   * http:// 111111111****.mns.us-west-1.aliyuncs.com/topics/testTopic
+   */
   topicUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1676,12 +1810,32 @@ export class EventMatchRule extends $dara.Model {
 
 export class AuthorizeEndpointAclRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ACL policy. Valid value:
+   * 
+   * *   **allow**: indicates that the operation is initiated from an endpoint in CIDR whitelist. (Only allow is supported)
+   * 
+   * This parameter is required.
+   * 
    * @example
    * allow
    */
   aclStrategy?: string;
+  /**
+   * @remarks
+   * The CIDR blocks.
+   * 
+   * This parameter is required.
+   */
   cidrList?: string[];
   /**
+   * @remarks
+   * The type of the endpoint. Valid value:
+   * 
+   * *   **public**: indicates public endpoint. (Only public endpoint is supported.)
+   * 
+   * This parameter is required.
+   * 
    * @example
    * public
    */
@@ -1716,12 +1870,32 @@ export class AuthorizeEndpointAclRequest extends $dara.Model {
 
 export class AuthorizeEndpointAclShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ACL policy. Valid value:
+   * 
+   * *   **allow**: indicates that the operation is initiated from an endpoint in CIDR whitelist. (Only allow is supported)
+   * 
+   * This parameter is required.
+   * 
    * @example
    * allow
    */
   aclStrategy?: string;
+  /**
+   * @remarks
+   * The CIDR blocks.
+   * 
+   * This parameter is required.
+   */
   cidrListShrink?: string;
   /**
+   * @remarks
+   * The type of the endpoint. Valid value:
+   * 
+   * *   **public**: indicates public endpoint. (Only public endpoint is supported.)
+   * 
+   * This parameter is required.
+   * 
    * @example
    * public
    */
@@ -1753,26 +1927,41 @@ export class AuthorizeEndpointAclShrinkRequest extends $dara.Model {
 
 export class AuthorizeEndpointAclResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * operation success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The response status.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -1852,10 +2041,12 @@ export class CreateQueueRequest extends $dara.Model {
   delaySeconds?: number;
   /**
    * @remarks
-   * Specifies whether to enable the logging feature. Valid values:
+   * Specifies whether to enable the log management feature. Valid values:
    * 
-   * *   True
-   * *   False (default)
+   * *   true: enabled.
+   * *   false: disabled.
+   * 
+   * Default value: false.
    * 
    * @example
    * true
@@ -2060,10 +2251,10 @@ export class CreateQueueResponse extends $dara.Model {
 export class CreateTopicRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the logging feature. Valid values:
+   * Specifies whether to enable the log management feature. Valid values:
    * 
-   * *   True
-   * *   False (default)
+   * *   true: enabled.
+   * *   false: disabled. Default value: false.
    * 
    * @example
    * true
@@ -2533,6 +2724,13 @@ export class DeleteTopicResponse extends $dara.Model {
 
 export class DisableEndpointRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of the endpoint. Valid value:
+   * 
+   * *   **public**: indicates a public endpoint. (Only public endpoint is supported.)
+   * 
+   * This parameter is required.
+   * 
    * @example
    * public
    */
@@ -2560,26 +2758,41 @@ export class DisableEndpointRequest extends $dara.Model {
 
 export class DisableEndpointResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * operation success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The response status.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -2650,6 +2863,13 @@ export class DisableEndpointResponse extends $dara.Model {
 
 export class EnableEndpointRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of the endpoint. Valid value:
+   * 
+   * *   **public**: indicates a public endpoint. (Only public endpoint is supported.)
+   * 
+   * This parameter is required.
+   * 
    * @example
    * public
    */
@@ -2677,26 +2897,41 @@ export class EnableEndpointRequest extends $dara.Model {
 
 export class EnableEndpointResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * operation success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The response status.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -2767,6 +3002,13 @@ export class EnableEndpointResponse extends $dara.Model {
 
 export class GetEndpointAttributeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of the endpoint. Valid value:
+   * 
+   * *   **public**: indicates a public endpoint. (Only public endpoint is supported.)
+   * 
+   * This parameter is required.
+   * 
    * @example
    * public
    */
@@ -2794,27 +3036,46 @@ export class GetEndpointAttributeRequest extends $dara.Model {
 
 export class GetEndpointAttributeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetEndpointAttributeResponseBodyData;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * operation success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The response status.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -2937,7 +3198,7 @@ export class GetQueueAttributesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: GetQueueAttributesResponseBodyData;
   /**
@@ -3249,7 +3510,7 @@ export class GetTopicAttributesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: GetTopicAttributesResponseBodyData;
   /**
@@ -3420,7 +3681,7 @@ export class ListQueueResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: ListQueueResponseBodyData;
   /**
@@ -3551,7 +3812,7 @@ export class ListSubscriptionByTopicRequest extends $dara.Model {
   subscriptionName?: string;
   /**
    * @remarks
-   * The name of the topic.
+   * The topic name.
    * 
    * @example
    * test
@@ -3766,7 +4027,7 @@ export class ListTopicResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: ListTopicResponseBodyData;
   /**
@@ -3872,12 +4133,32 @@ export class ListTopicResponse extends $dara.Model {
 
 export class RevokeEndpointAclRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ACL policy. Valid value:
+   * 
+   * *   **allow**: indicates that the operation is initiated from an endpoint in CIDR whitelist. (Only allow is supported)
+   * 
+   * This parameter is required.
+   * 
    * @example
    * allow
    */
   aclStrategy?: string;
+  /**
+   * @remarks
+   * The CIDR blocks.
+   * 
+   * This parameter is required.
+   */
   cidrList?: string[];
   /**
+   * @remarks
+   * The type of the endpoint. Valid value:
+   * 
+   * *   **public**: indicates an public endpoint. (Only public endpoint is supported.)
+   * 
+   * This parameter is required.
+   * 
    * @example
    * public
    */
@@ -3912,12 +4193,32 @@ export class RevokeEndpointAclRequest extends $dara.Model {
 
 export class RevokeEndpointAclShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ACL policy. Valid value:
+   * 
+   * *   **allow**: indicates that the operation is initiated from an endpoint in CIDR whitelist. (Only allow is supported)
+   * 
+   * This parameter is required.
+   * 
    * @example
    * allow
    */
   aclStrategy?: string;
+  /**
+   * @remarks
+   * The CIDR blocks.
+   * 
+   * This parameter is required.
+   */
   cidrListShrink?: string;
   /**
+   * @remarks
+   * The type of the endpoint. Valid value:
+   * 
+   * *   **public**: indicates an public endpoint. (Only public endpoint is supported.)
+   * 
+   * This parameter is required.
+   * 
    * @example
    * public
    */
@@ -3949,26 +4250,41 @@ export class RevokeEndpointAclShrinkRequest extends $dara.Model {
 
 export class RevokeEndpointAclResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * operation success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The response status.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -4048,10 +4364,10 @@ export class SetQueueAttributesRequest extends $dara.Model {
   delaySeconds?: number;
   /**
    * @remarks
-   * Specifies whether to enable the logging feature. Valid values:
+   * Specifies whether to enable the log management feature. Valid values:
    * 
-   * *   True
-   * *   False (default)
+   * *   true: enabled.
+   * *   false: disabled. Default value: false.
    * 
    * @example
    * True
@@ -4422,10 +4738,10 @@ export class SetSubscriptionAttributesResponse extends $dara.Model {
 export class SetTopicAttributesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the logging feature. Valid values:
+   * Specifies whether to enable the log management feature. Valid values:
    * 
-   * *   True
-   * *   False (default)
+   * *   true: enabled.
+   * *   false: disabled. Default value: false.
    * 
    * @example
    * True
@@ -5006,7 +5322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AuthorizeEndpointAcl
+   * Adds one or more ACLrules for an endpoint of a specified type.
    * 
    * @param tmpReq - AuthorizeEndpointAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5051,7 +5367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AuthorizeEndpointAcl
+   * Adds one or more ACLrules for an endpoint of a specified type.
    * 
    * @param request - AuthorizeEndpointAclRequest
    * @returns AuthorizeEndpointAclResponse
@@ -5272,7 +5588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DisableEndpoint
+   * You can call this operation to disable an endpoint of a specified type. After the endpoint is disabled, requests from the endpoint are blocked and an error is returned.
    * 
    * @param request - DisableEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5303,7 +5619,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DisableEndpoint
+   * You can call this operation to disable an endpoint of a specified type. After the endpoint is disabled, requests from the endpoint are blocked and an error is returned.
    * 
    * @param request - DisableEndpointRequest
    * @returns DisableEndpointResponse
@@ -5314,7 +5630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * EnableEndpoint
+   * You can call this operation to enable an endpoint of a specified type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
    * 
    * @param request - EnableEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5345,7 +5661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * EnableEndpoint
+   * You can call this operation to enable an endpoint of a specified type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
    * 
    * @param request - EnableEndpointRequest
    * @returns EnableEndpointResponse
@@ -5698,7 +6014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * RevokeEndpointAcl
+   * Deletes one or more ACLs from an endpoint of a specified type.
    * 
    * @param tmpReq - RevokeEndpointAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5743,7 +6059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * RevokeEndpointAcl
+   * Deletes one or more ACLs from an endpoint of a specified type.
    * 
    * @param request - RevokeEndpointAclRequest
    * @returns RevokeEndpointAclResponse
