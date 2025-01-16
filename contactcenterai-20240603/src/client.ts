@@ -1,13 +1,1109 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class AnalyzeConversationRequest extends $tea.Model {
+export class AnalyzeConversationRequestCategoryTags extends $dara.Model {
+  tagDesc?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDesc: 'tagDesc',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDesc: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestDialogueSentences extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      role: 'role',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      role: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestDialogue extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sentences?: AnalyzeConversationRequestDialogueSentences[];
+  /**
+   * @example
+   * session-01
+   */
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sentences: 'sentences',
+      sessionId: 'sessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sentences: { 'type': 'array', 'itemType': AnalyzeConversationRequestDialogueSentences },
+      sessionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sentences)) {
+      $dara.Model.validateArray(this.sentences);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestExamplesSentences extends $dara.Model {
+  chatId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chatId: 'chatId',
+      role: 'role',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chatId: 'string',
+      role: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestExamples extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  output?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sentences?: AnalyzeConversationRequestExamplesSentences[];
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      sentences: 'sentences',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+      sentences: { 'type': 'array', 'itemType': AnalyzeConversationRequestExamplesSentences },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sentences)) {
+      $dara.Model.validateArray(this.sentences);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestFieldsEnumValues extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  enumValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      enumValue: 'enumValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      enumValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestFields extends $dara.Model {
+  /**
+   * @example
+   * phoneNumber
+   */
+  code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desc?: string;
+  enumValues?: AnalyzeConversationRequestFieldsEnumValues[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      desc: 'desc',
+      enumValues: 'enumValues',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      desc: 'string',
+      enumValues: { 'type': 'array', 'itemType': AnalyzeConversationRequestFieldsEnumValues },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.enumValues)) {
+      $dara.Model.validateArray(this.enumValues);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestServiceInspectionInspectionContents extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestServiceInspection extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inspectionContents?: AnalyzeConversationRequestServiceInspectionInspectionContents[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inspectionIntroduction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sceneIntroduction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inspectionContents: 'inspectionContents',
+      inspectionIntroduction: 'inspectionIntroduction',
+      sceneIntroduction: 'sceneIntroduction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inspectionContents: { 'type': 'array', 'itemType': AnalyzeConversationRequestServiceInspectionInspectionContents },
+      inspectionIntroduction: 'string',
+      sceneIntroduction: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inspectionContents)) {
+      $dara.Model.validateArray(this.inspectionContents);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestUserProfiles extends $dara.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestDialogueSentences extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      role: 'role',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      role: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestDialogue extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sentences?: CreateTaskRequestDialogueSentences[];
+  /**
+   * @example
+   * session-01
+   */
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sentences: 'sentences',
+      sessionId: 'sessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sentences: { 'type': 'array', 'itemType': CreateTaskRequestDialogueSentences },
+      sessionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sentences)) {
+      $dara.Model.validateArray(this.sentences);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestExamplesSentences extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      role: 'role',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      role: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestExamples extends $dara.Model {
+  output?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sentences?: CreateTaskRequestExamplesSentences[];
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      sentences: 'sentences',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+      sentences: { 'type': 'array', 'itemType': CreateTaskRequestExamplesSentences },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sentences)) {
+      $dara.Model.validateArray(this.sentences);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestFieldsEnumValues extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  enumValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      enumValue: 'enumValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      enumValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestFields extends $dara.Model {
+  /**
+   * @example
+   * phoneNumber
+   */
+  code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  enumValues?: CreateTaskRequestFieldsEnumValues[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      desc: 'desc',
+      enumValues: 'enumValues',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      desc: 'string',
+      enumValues: { 'type': 'array', 'itemType': CreateTaskRequestFieldsEnumValues },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.enumValues)) {
+      $dara.Model.validateArray(this.enumValues);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestServiceInspectionInspectionContents extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestServiceInspection extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inspectionContents?: CreateTaskRequestServiceInspectionInspectionContents[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inspectionIntroduction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sceneIntroduction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inspectionContents: 'inspectionContents',
+      inspectionIntroduction: 'inspectionIntroduction',
+      sceneIntroduction: 'sceneIntroduction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inspectionContents: { 'type': 'array', 'itemType': CreateTaskRequestServiceInspectionInspectionContents },
+      inspectionIntroduction: 'string',
+      sceneIntroduction: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inspectionContents)) {
+      $dara.Model.validateArray(this.inspectionContents);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestTranscription extends $dara.Model {
+  asrModelCode?: string;
+  /**
+   * @example
+   * 1
+   */
+  autoSplit?: number;
+  /**
+   * @example
+   * 1
+   */
+  clientChannel?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sss.mp3
+   */
+  fileName?: string;
+  level?: string;
+  /**
+   * @example
+   * 1
+   */
+  serviceChannel?: number;
+  serviceChannelKeywords?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * http://1111.com/sss.mp3
+   */
+  voiceFileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asrModelCode: 'asrModelCode',
+      autoSplit: 'autoSplit',
+      clientChannel: 'clientChannel',
+      fileName: 'fileName',
+      level: 'level',
+      serviceChannel: 'serviceChannel',
+      serviceChannelKeywords: 'serviceChannelKeywords',
+      voiceFileUrl: 'voiceFileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asrModelCode: 'string',
+      autoSplit: 'number',
+      clientChannel: 'number',
+      fileName: 'string',
+      level: 'string',
+      serviceChannel: 'number',
+      serviceChannelKeywords: { 'type': 'array', 'itemType': 'string' },
+      voiceFileUrl: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.serviceChannelKeywords)) {
+      $dara.Model.validateArray(this.serviceChannelKeywords);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 20240905-********-93E9-5D45-B4EF-045743A34071
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResultResponseBodyDataAsrResult extends $dara.Model {
+  begin?: number;
+  emotionValue?: number;
+  end?: number;
+  role?: string;
+  speechRate?: number;
+  words?: string;
+  static names(): { [key: string]: string } {
+    return {
+      begin: 'begin',
+      emotionValue: 'emotionValue',
+      end: 'end',
+      role: 'role',
+      speechRate: 'speechRate',
+      words: 'words',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      begin: 'number',
+      emotionValue: 'number',
+      end: 'number',
+      role: 'string',
+      speechRate: 'number',
+      words: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResultResponseBodyData extends $dara.Model {
+  asrResult?: GetTaskResultResponseBodyDataAsrResult[];
+  extra?: string;
+  taskErrorMessage?: string;
+  /**
+   * @example
+   * 20240905-********-93E9-5D45-B4EF-045743A34071
+   */
+  taskId?: string;
+  /**
+   * @example
+   * FINISH
+   */
+  taskStatus?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asrResult: 'asrResult',
+      extra: 'extra',
+      taskErrorMessage: 'taskErrorMessage',
+      taskId: 'taskId',
+      taskStatus: 'taskStatus',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asrResult: { 'type': 'array', 'itemType': GetTaskResultResponseBodyDataAsrResult },
+      extra: 'string',
+      taskErrorMessage: 'string',
+      taskId: 'string',
+      taskStatus: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.asrResult)) {
+      $dara.Model.validateArray(this.asrResult);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCompletionRequestDialogueSentences extends $dara.Model {
+  chatId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chatId: 'ChatId',
+      role: 'Role',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chatId: 'string',
+      role: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCompletionRequestDialogue extends $dara.Model {
+  sentences?: RunCompletionRequestDialogueSentences[];
+  /**
+   * @example
+   * d25zc9c7004f8dad2b454d
+   */
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sentences: 'Sentences',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sentences: { 'type': 'array', 'itemType': RunCompletionRequestDialogueSentences },
+      sessionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sentences)) {
+      $dara.Model.validateArray(this.sentences);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCompletionRequestFieldsEnumValues extends $dara.Model {
+  desc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  enumValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      enumValue: 'EnumValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      enumValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCompletionRequestFields extends $dara.Model {
+  /**
+   * @example
+   * phoneNumber
+   */
+  code?: string;
+  desc?: string;
+  enumValues?: RunCompletionRequestFieldsEnumValues[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      desc: 'Desc',
+      enumValues: 'EnumValues',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      desc: 'string',
+      enumValues: { 'type': 'array', 'itemType': RunCompletionRequestFieldsEnumValues },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.enumValues)) {
+      $dara.Model.validateArray(this.enumValues);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCompletionRequestServiceInspectionInspectionContents extends $dara.Model {
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCompletionRequestServiceInspection extends $dara.Model {
+  inspectionContents?: RunCompletionRequestServiceInspectionInspectionContents[];
+  inspectionIntroduction?: string;
+  sceneIntroduction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inspectionContents: 'InspectionContents',
+      inspectionIntroduction: 'InspectionIntroduction',
+      sceneIntroduction: 'SceneIntroduction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inspectionContents: { 'type': 'array', 'itemType': RunCompletionRequestServiceInspectionInspectionContents },
+      inspectionIntroduction: 'string',
+      sceneIntroduction: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inspectionContents)) {
+      $dara.Model.validateArray(this.inspectionContents);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCompletionMessageRequestMessages extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequest extends $dara.Model {
   categoryTags?: AnalyzeConversationRequestCategoryTags[];
   customPrompt?: string;
   dialogue?: AnalyzeConversationRequestDialogue;
@@ -72,12 +1168,40 @@ export class AnalyzeConversationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.categoryTags)) {
+      $dara.Model.validateArray(this.categoryTags);
+    }
+    if(this.dialogue && typeof (this.dialogue as any).validate === 'function') {
+      (this.dialogue as any).validate();
+    }
+    if(Array.isArray(this.examples)) {
+      $dara.Model.validateArray(this.examples);
+    }
+    if(Array.isArray(this.fields)) {
+      $dara.Model.validateArray(this.fields);
+    }
+    if(Array.isArray(this.resultTypes)) {
+      $dara.Model.validateArray(this.resultTypes);
+    }
+    if(this.serviceInspection && typeof (this.serviceInspection as any).validate === 'function') {
+      (this.serviceInspection as any).validate();
+    }
+    if(Array.isArray(this.timeConstraintList)) {
+      $dara.Model.validateArray(this.timeConstraintList);
+    }
+    if(Array.isArray(this.userProfiles)) {
+      $dara.Model.validateArray(this.userProfiles);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AnalyzeConversationResponseBody extends $tea.Model {
+export class AnalyzeConversationResponseBody extends $dara.Model {
   /**
    * @example
    * InvalidUser.NotFound
@@ -131,12 +1255,16 @@ export class AnalyzeConversationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AnalyzeConversationResponse extends $tea.Model {
+export class AnalyzeConversationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AnalyzeConversationResponseBody;
@@ -156,12 +1284,22 @@ export class AnalyzeConversationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AnalyzeImageRequest extends $tea.Model {
+export class AnalyzeImageRequest extends $dara.Model {
   imageUrls?: string[];
   resultTypes?: string[];
   /**
@@ -188,12 +1326,22 @@ export class AnalyzeImageRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.imageUrls)) {
+      $dara.Model.validateArray(this.imageUrls);
+    }
+    if(Array.isArray(this.resultTypes)) {
+      $dara.Model.validateArray(this.resultTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AnalyzeImageResponseBody extends $tea.Model {
+export class AnalyzeImageResponseBody extends $dara.Model {
   /**
    * @example
    * stop
@@ -249,12 +1397,16 @@ export class AnalyzeImageResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AnalyzeImageResponse extends $tea.Model {
+export class AnalyzeImageResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AnalyzeImageResponseBody;
@@ -274,12 +1426,22 @@ export class AnalyzeImageResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTaskRequest extends $tea.Model {
+export class CreateTaskRequest extends $dara.Model {
   dialogue?: CreateTaskRequestDialogue;
   examples?: CreateTaskRequestExamples;
   fields?: CreateTaskRequestFields[];
@@ -331,12 +1493,37 @@ export class CreateTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.dialogue && typeof (this.dialogue as any).validate === 'function') {
+      (this.dialogue as any).validate();
+    }
+    if(this.examples && typeof (this.examples as any).validate === 'function') {
+      (this.examples as any).validate();
+    }
+    if(Array.isArray(this.fields)) {
+      $dara.Model.validateArray(this.fields);
+    }
+    if(Array.isArray(this.resultTypes)) {
+      $dara.Model.validateArray(this.resultTypes);
+    }
+    if(this.serviceInspection && typeof (this.serviceInspection as any).validate === 'function') {
+      (this.serviceInspection as any).validate();
+    }
+    if(Array.isArray(this.templateIds)) {
+      $dara.Model.validateArray(this.templateIds);
+    }
+    if(this.transcription && typeof (this.transcription as any).validate === 'function') {
+      (this.transcription as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTaskResponseBody extends $tea.Model {
+export class CreateTaskResponseBody extends $dara.Model {
   data?: CreateTaskResponseBodyData;
   /**
    * @example
@@ -364,12 +1551,19 @@ export class CreateTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTaskResponse extends $tea.Model {
+export class CreateTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateTaskResponseBody;
@@ -389,12 +1583,22 @@ export class CreateTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTaskResultRequest extends $tea.Model {
+export class GetTaskResultRequest extends $dara.Model {
   requiredFieldList?: string[];
   /**
    * @example
@@ -415,12 +1619,19 @@ export class GetTaskResultRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.requiredFieldList)) {
+      $dara.Model.validateArray(this.requiredFieldList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTaskResultShrinkRequest extends $tea.Model {
+export class GetTaskResultShrinkRequest extends $dara.Model {
   requiredFieldListShrink?: string;
   /**
    * @example
@@ -441,12 +1652,16 @@ export class GetTaskResultShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTaskResultResponseBody extends $tea.Model {
+export class GetTaskResultResponseBody extends $dara.Model {
   data?: GetTaskResultResponseBodyData;
   /**
    * @example
@@ -474,12 +1689,19 @@ export class GetTaskResultResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTaskResultResponse extends $tea.Model {
+export class GetTaskResultResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetTaskResultResponseBody;
@@ -499,12 +1721,22 @@ export class GetTaskResultResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunCompletionRequest extends $tea.Model {
+export class RunCompletionRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -549,12 +1781,28 @@ export class RunCompletionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.dialogue && typeof (this.dialogue as any).validate === 'function') {
+      (this.dialogue as any).validate();
+    }
+    if(Array.isArray(this.fields)) {
+      $dara.Model.validateArray(this.fields);
+    }
+    if(this.serviceInspection && typeof (this.serviceInspection as any).validate === 'function') {
+      (this.serviceInspection as any).validate();
+    }
+    if(Array.isArray(this.templateIds)) {
+      $dara.Model.validateArray(this.templateIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunCompletionResponseBody extends $tea.Model {
+export class RunCompletionResponseBody extends $dara.Model {
   finishReason?: string;
   /**
    * @example
@@ -587,12 +1835,16 @@ export class RunCompletionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunCompletionResponse extends $tea.Model {
+export class RunCompletionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunCompletionResponseBody;
@@ -612,12 +1864,22 @@ export class RunCompletionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunCompletionMessageRequest extends $tea.Model {
+export class RunCompletionMessageRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -649,12 +1911,19 @@ export class RunCompletionMessageRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunCompletionMessageResponseBody extends $tea.Model {
+export class RunCompletionMessageResponseBody extends $dara.Model {
   finishReason?: string;
   /**
    * @example
@@ -687,12 +1956,16 @@ export class RunCompletionMessageResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunCompletionMessageResponse extends $tea.Model {
+export class RunCompletionMessageResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunCompletionMessageResponseBody;
@@ -712,938 +1985,14 @@ export class RunCompletionMessageResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AnalyzeConversationRequestCategoryTags extends $tea.Model {
-  tagDesc?: string;
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagDesc: 'tagDesc',
-      tagName: 'tagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagDesc: 'string',
-      tagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AnalyzeConversationRequestDialogueSentences extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * user
-   */
-  role?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      role: 'role',
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      role: 'string',
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AnalyzeConversationRequestDialogue extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  sentences?: AnalyzeConversationRequestDialogueSentences[];
-  /**
-   * @example
-   * session-01
-   */
-  sessionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sentences: 'sentences',
-      sessionId: 'sessionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sentences: { 'type': 'array', 'itemType': AnalyzeConversationRequestDialogueSentences },
-      sessionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AnalyzeConversationRequestExamplesSentences extends $tea.Model {
-  chatId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  role?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      chatId: 'chatId',
-      role: 'role',
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chatId: 'string',
-      role: 'string',
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AnalyzeConversationRequestExamples extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  output?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  sentences?: AnalyzeConversationRequestExamplesSentences[];
-  static names(): { [key: string]: string } {
-    return {
-      output: 'output',
-      sentences: 'sentences',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      output: 'string',
-      sentences: { 'type': 'array', 'itemType': AnalyzeConversationRequestExamplesSentences },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AnalyzeConversationRequestFieldsEnumValues extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  desc?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  enumValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      desc: 'desc',
-      enumValue: 'enumValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      desc: 'string',
-      enumValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AnalyzeConversationRequestFields extends $tea.Model {
-  /**
-   * @example
-   * phoneNumber
-   */
-  code?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  desc?: string;
-  enumValues?: AnalyzeConversationRequestFieldsEnumValues[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      desc: 'desc',
-      enumValues: 'enumValues',
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      desc: 'string',
-      enumValues: { 'type': 'array', 'itemType': AnalyzeConversationRequestFieldsEnumValues },
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AnalyzeConversationRequestServiceInspectionInspectionContents extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  content?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'content',
-      title: 'title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AnalyzeConversationRequestServiceInspection extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  inspectionContents?: AnalyzeConversationRequestServiceInspectionInspectionContents[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  inspectionIntroduction?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  sceneIntroduction?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inspectionContents: 'inspectionContents',
-      inspectionIntroduction: 'inspectionIntroduction',
-      sceneIntroduction: 'sceneIntroduction',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inspectionContents: { 'type': 'array', 'itemType': AnalyzeConversationRequestServiceInspectionInspectionContents },
-      inspectionIntroduction: 'string',
-      sceneIntroduction: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AnalyzeConversationRequestUserProfiles extends $tea.Model {
-  name?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'name',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskRequestDialogueSentences extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * user
-   */
-  role?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      role: 'role',
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      role: 'string',
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskRequestDialogue extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  sentences?: CreateTaskRequestDialogueSentences[];
-  /**
-   * @example
-   * session-01
-   */
-  sessionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sentences: 'sentences',
-      sessionId: 'sessionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sentences: { 'type': 'array', 'itemType': CreateTaskRequestDialogueSentences },
-      sessionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskRequestExamplesSentences extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * user
-   */
-  role?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      role: 'role',
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      role: 'string',
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskRequestExamples extends $tea.Model {
-  output?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  sentences?: CreateTaskRequestExamplesSentences[];
-  static names(): { [key: string]: string } {
-    return {
-      output: 'output',
-      sentences: 'sentences',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      output: 'string',
-      sentences: { 'type': 'array', 'itemType': CreateTaskRequestExamplesSentences },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskRequestFieldsEnumValues extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  desc?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  enumValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      desc: 'desc',
-      enumValue: 'enumValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      desc: 'string',
-      enumValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskRequestFields extends $tea.Model {
-  /**
-   * @example
-   * phoneNumber
-   */
-  code?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  desc?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  enumValues?: CreateTaskRequestFieldsEnumValues[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      desc: 'desc',
-      enumValues: 'enumValues',
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      desc: 'string',
-      enumValues: { 'type': 'array', 'itemType': CreateTaskRequestFieldsEnumValues },
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskRequestServiceInspectionInspectionContents extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  content?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'content',
-      title: 'title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskRequestServiceInspection extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  inspectionContents?: CreateTaskRequestServiceInspectionInspectionContents[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  inspectionIntroduction?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  sceneIntroduction?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inspectionContents: 'inspectionContents',
-      inspectionIntroduction: 'inspectionIntroduction',
-      sceneIntroduction: 'sceneIntroduction',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inspectionContents: { 'type': 'array', 'itemType': CreateTaskRequestServiceInspectionInspectionContents },
-      inspectionIntroduction: 'string',
-      sceneIntroduction: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskRequestTranscription extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  autoSplit?: number;
-  /**
-   * @example
-   * 1
-   */
-  clientChannel?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sss.mp3
-   */
-  fileName?: string;
-  /**
-   * @example
-   * 1
-   */
-  serviceChannel?: number;
-  serviceChannelKeywords?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * http://1111.com/sss.mp3
-   */
-  voiceFileUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoSplit: 'autoSplit',
-      clientChannel: 'clientChannel',
-      fileName: 'fileName',
-      serviceChannel: 'serviceChannel',
-      serviceChannelKeywords: 'serviceChannelKeywords',
-      voiceFileUrl: 'voiceFileUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoSplit: 'number',
-      clientChannel: 'number',
-      fileName: 'string',
-      serviceChannel: 'number',
-      serviceChannelKeywords: { 'type': 'array', 'itemType': 'string' },
-      voiceFileUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 20240905-********-93E9-5D45-B4EF-045743A34071
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'taskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskResultResponseBodyDataAsrResult extends $tea.Model {
-  begin?: number;
-  emotionValue?: number;
-  end?: number;
-  role?: string;
-  speechRate?: number;
-  words?: string;
-  static names(): { [key: string]: string } {
-    return {
-      begin: 'begin',
-      emotionValue: 'emotionValue',
-      end: 'end',
-      role: 'role',
-      speechRate: 'speechRate',
-      words: 'words',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      begin: 'number',
-      emotionValue: 'number',
-      end: 'number',
-      role: 'string',
-      speechRate: 'number',
-      words: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskResultResponseBodyData extends $tea.Model {
-  asrResult?: GetTaskResultResponseBodyDataAsrResult[];
-  taskErrorMessage?: string;
-  /**
-   * @example
-   * 20240905-********-93E9-5D45-B4EF-045743A34071
-   */
-  taskId?: string;
-  /**
-   * @example
-   * FINISH
-   */
-  taskStatus?: string;
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      asrResult: 'asrResult',
-      taskErrorMessage: 'taskErrorMessage',
-      taskId: 'taskId',
-      taskStatus: 'taskStatus',
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      asrResult: { 'type': 'array', 'itemType': GetTaskResultResponseBodyDataAsrResult },
-      taskErrorMessage: 'string',
-      taskId: 'string',
-      taskStatus: 'string',
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCompletionRequestDialogueSentences extends $tea.Model {
-  chatId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * user
-   */
-  role?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      chatId: 'ChatId',
-      role: 'Role',
-      text: 'Text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chatId: 'string',
-      role: 'string',
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCompletionRequestDialogue extends $tea.Model {
-  sentences?: RunCompletionRequestDialogueSentences[];
-  /**
-   * @example
-   * d25zc9c7004f8dad2b454d
-   */
-  sessionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sentences: 'Sentences',
-      sessionId: 'SessionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sentences: { 'type': 'array', 'itemType': RunCompletionRequestDialogueSentences },
-      sessionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCompletionRequestFieldsEnumValues extends $tea.Model {
-  desc?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  enumValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      desc: 'Desc',
-      enumValue: 'EnumValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      desc: 'string',
-      enumValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCompletionRequestFields extends $tea.Model {
-  /**
-   * @example
-   * phoneNumber
-   */
-  code?: string;
-  desc?: string;
-  enumValues?: RunCompletionRequestFieldsEnumValues[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      desc: 'Desc',
-      enumValues: 'EnumValues',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      desc: 'string',
-      enumValues: { 'type': 'array', 'itemType': RunCompletionRequestFieldsEnumValues },
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCompletionRequestServiceInspectionInspectionContents extends $tea.Model {
-  content?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCompletionRequestServiceInspection extends $tea.Model {
-  inspectionContents?: RunCompletionRequestServiceInspectionInspectionContents[];
-  inspectionIntroduction?: string;
-  sceneIntroduction?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inspectionContents: 'InspectionContents',
-      inspectionIntroduction: 'InspectionIntroduction',
-      sceneIntroduction: 'SceneIntroduction',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inspectionContents: { 'type': 'array', 'itemType': RunCompletionRequestServiceInspectionInspectionContents },
-      inspectionIntroduction: 'string',
-      sceneIntroduction: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCompletionMessageRequestMessages extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  content?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * user
-   */
-  role?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      role: 'Role',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      role: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -1654,7 +2003,7 @@ export class RunCompletionMessageRequestMessages extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -1663,15 +2012,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -1682,77 +2031,77 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AnalyzeConversationResponse
    */
-  async analyzeConversationWithOptions(workspaceId: string, appId: string, request: AnalyzeConversationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AnalyzeConversationResponse> {
-    Util.validateModel(request);
+  async analyzeConversationWithOptions(workspaceId: string, appId: string, request: AnalyzeConversationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<AnalyzeConversationResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.categoryTags)) {
+    if (!$dara.isNull(request.categoryTags)) {
       body["categoryTags"] = request.categoryTags;
     }
 
-    if (!Util.isUnset(request.customPrompt)) {
+    if (!$dara.isNull(request.customPrompt)) {
       body["customPrompt"] = request.customPrompt;
     }
 
-    if (!Util.isUnset(request.dialogue)) {
+    if (!$dara.isNull(request.dialogue)) {
       body["dialogue"] = request.dialogue;
     }
 
-    if (!Util.isUnset(request.examples)) {
+    if (!$dara.isNull(request.examples)) {
       body["examples"] = request.examples;
     }
 
-    if (!Util.isUnset(request.fields)) {
+    if (!$dara.isNull(request.fields)) {
       body["fields"] = request.fields;
     }
 
-    if (!Util.isUnset(request.modelCode)) {
+    if (!$dara.isNull(request.modelCode)) {
       body["modelCode"] = request.modelCode;
     }
 
-    if (!Util.isUnset(request.resultTypes)) {
+    if (!$dara.isNull(request.resultTypes)) {
       body["resultTypes"] = request.resultTypes;
     }
 
-    if (!Util.isUnset(request.sceneName)) {
+    if (!$dara.isNull(request.sceneName)) {
       body["sceneName"] = request.sceneName;
     }
 
-    if (!Util.isUnset(request.serviceInspection)) {
+    if (!$dara.isNull(request.serviceInspection)) {
       body["serviceInspection"] = request.serviceInspection;
     }
 
-    if (!Util.isUnset(request.sourceCallerUid)) {
+    if (!$dara.isNull(request.sourceCallerUid)) {
       body["sourceCallerUid"] = request.sourceCallerUid;
     }
 
-    if (!Util.isUnset(request.stream)) {
+    if (!$dara.isNull(request.stream)) {
       body["stream"] = request.stream;
     }
 
-    if (!Util.isUnset(request.timeConstraintList)) {
+    if (!$dara.isNull(request.timeConstraintList)) {
       body["timeConstraintList"] = request.timeConstraintList;
     }
 
-    if (!Util.isUnset(request.userProfiles)) {
+    if (!$dara.isNull(request.userProfiles)) {
       body["userProfiles"] = request.userProfiles;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AnalyzeConversation",
       version: "2024-06-03",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/ccai/app/${OpenApiUtil.getEncodeParam(appId)}/analyze_conversation`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ccai/app/${$dara.URL.percentEncode(appId)}/analyze_conversation`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<AnalyzeConversationResponse>(await this.callApi(params, req, runtime), new AnalyzeConversationResponse({}));
+    return $dara.cast<AnalyzeConversationResponse>(await this.callApi(params, req, runtime), new AnalyzeConversationResponse({}));
   }
 
   /**
@@ -1762,7 +2111,7 @@ export default class Client extends OpenApi {
    * @returns AnalyzeConversationResponse
    */
   async analyzeConversation(workspaceId: string, appId: string, request: AnalyzeConversationRequest): Promise<AnalyzeConversationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.analyzeConversationWithOptions(workspaceId, appId, request, headers, runtime);
   }
@@ -1775,37 +2124,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AnalyzeImageResponse
    */
-  async analyzeImageWithOptions(workspaceId: string, appId: string, request: AnalyzeImageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AnalyzeImageResponse> {
-    Util.validateModel(request);
+  async analyzeImageWithOptions(workspaceId: string, appId: string, request: AnalyzeImageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<AnalyzeImageResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageUrls)) {
+    if (!$dara.isNull(request.imageUrls)) {
       body["imageUrls"] = request.imageUrls;
     }
 
-    if (!Util.isUnset(request.resultTypes)) {
+    if (!$dara.isNull(request.resultTypes)) {
       body["resultTypes"] = request.resultTypes;
     }
 
-    if (!Util.isUnset(request.stream)) {
+    if (!$dara.isNull(request.stream)) {
       body["stream"] = request.stream;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AnalyzeImage",
       version: "2024-06-03",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/ccai/app/${OpenApiUtil.getEncodeParam(appId)}/analyzeImage`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ccai/app/${$dara.URL.percentEncode(appId)}/analyzeImage`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<AnalyzeImageResponse>(await this.callApi(params, req, runtime), new AnalyzeImageResponse({}));
+    return $dara.cast<AnalyzeImageResponse>(await this.callApi(params, req, runtime), new AnalyzeImageResponse({}));
   }
 
   /**
@@ -1815,7 +2164,7 @@ export default class Client extends OpenApi {
    * @returns AnalyzeImageResponse
    */
   async analyzeImage(workspaceId: string, appId: string, request: AnalyzeImageRequest): Promise<AnalyzeImageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.analyzeImageWithOptions(workspaceId, appId, request, headers, runtime);
   }
@@ -1828,61 +2177,61 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateTaskResponse
    */
-  async createTaskWithOptions(workspaceId: string, appId: string, request: CreateTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTaskResponse> {
-    Util.validateModel(request);
+  async createTaskWithOptions(workspaceId: string, appId: string, request: CreateTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateTaskResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dialogue)) {
+    if (!$dara.isNull(request.dialogue)) {
       body["dialogue"] = request.dialogue;
     }
 
-    if (!Util.isUnset(request.examples)) {
+    if (!$dara.isNull(request.examples)) {
       body["examples"] = request.examples;
     }
 
-    if (!Util.isUnset(request.fields)) {
+    if (!$dara.isNull(request.fields)) {
       body["fields"] = request.fields;
     }
 
-    if (!Util.isUnset(request.modelCode)) {
+    if (!$dara.isNull(request.modelCode)) {
       body["modelCode"] = request.modelCode;
     }
 
-    if (!Util.isUnset(request.resultTypes)) {
+    if (!$dara.isNull(request.resultTypes)) {
       body["resultTypes"] = request.resultTypes;
     }
 
-    if (!Util.isUnset(request.serviceInspection)) {
+    if (!$dara.isNull(request.serviceInspection)) {
       body["serviceInspection"] = request.serviceInspection;
     }
 
-    if (!Util.isUnset(request.taskType)) {
+    if (!$dara.isNull(request.taskType)) {
       body["taskType"] = request.taskType;
     }
 
-    if (!Util.isUnset(request.templateIds)) {
+    if (!$dara.isNull(request.templateIds)) {
       body["templateIds"] = request.templateIds;
     }
 
-    if (!Util.isUnset(request.transcription)) {
+    if (!$dara.isNull(request.transcription)) {
       body["transcription"] = request.transcription;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateTask",
       version: "2024-06-03",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/ccai/app/${OpenApiUtil.getEncodeParam(appId)}/createTask`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ccai/app/${$dara.URL.percentEncode(appId)}/createTask`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
+    return $dara.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
   }
 
   /**
@@ -1892,7 +2241,7 @@ export default class Client extends OpenApi {
    * @returns CreateTaskResponse
    */
   async createTask(workspaceId: string, appId: string, request: CreateTaskRequest): Promise<CreateTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTaskWithOptions(workspaceId, appId, request, headers, runtime);
   }
@@ -1905,28 +2254,28 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTaskResultResponse
    */
-  async getTaskResultWithOptions(tmpReq: GetTaskResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskResultResponse> {
-    Util.validateModel(tmpReq);
+  async getTaskResultWithOptions(tmpReq: GetTaskResultRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetTaskResultResponse> {
+    tmpReq.validate();
     let request = new GetTaskResultShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.requiredFieldList)) {
+    if (!$dara.isNull(tmpReq.requiredFieldList)) {
       request.requiredFieldListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.requiredFieldList, "requiredFieldList", "simple");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.requiredFieldListShrink)) {
+    if (!$dara.isNull(request.requiredFieldListShrink)) {
       query["requiredFieldList"] = request.requiredFieldListShrink;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["taskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTaskResult",
       version: "2024-06-03",
       protocol: "HTTPS",
@@ -1937,7 +2286,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTaskResultResponse>(await this.callApi(params, req, runtime), new GetTaskResultResponse({}));
+    return $dara.cast<GetTaskResultResponse>(await this.callApi(params, req, runtime), new GetTaskResultResponse({}));
   }
 
   /**
@@ -1947,7 +2296,7 @@ export default class Client extends OpenApi {
    * @returns GetTaskResultResponse
    */
   async getTaskResult(request: GetTaskResultRequest): Promise<GetTaskResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTaskResultWithOptions(request, headers, runtime);
   }
@@ -1960,49 +2309,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunCompletionResponse
    */
-  async runCompletionWithOptions(workspaceId: string, appId: string, request: RunCompletionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunCompletionResponse> {
-    Util.validateModel(request);
+  async runCompletionWithOptions(workspaceId: string, appId: string, request: RunCompletionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunCompletionResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dialogue)) {
+    if (!$dara.isNull(request.dialogue)) {
       body["Dialogue"] = request.dialogue;
     }
 
-    if (!Util.isUnset(request.fields)) {
+    if (!$dara.isNull(request.fields)) {
       body["Fields"] = request.fields;
     }
 
-    if (!Util.isUnset(request.modelCode)) {
+    if (!$dara.isNull(request.modelCode)) {
       body["ModelCode"] = request.modelCode;
     }
 
-    if (!Util.isUnset(request.serviceInspection)) {
+    if (!$dara.isNull(request.serviceInspection)) {
       body["ServiceInspection"] = request.serviceInspection;
     }
 
-    if (!Util.isUnset(request.stream)) {
+    if (!$dara.isNull(request.stream)) {
       body["Stream"] = request.stream;
     }
 
-    if (!Util.isUnset(request.templateIds)) {
+    if (!$dara.isNull(request.templateIds)) {
       body["TemplateIds"] = request.templateIds;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunCompletion",
       version: "2024-06-03",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/ccai/app/${OpenApiUtil.getEncodeParam(appId)}/completion`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ccai/app/${$dara.URL.percentEncode(appId)}/completion`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RunCompletionResponse>(await this.callApi(params, req, runtime), new RunCompletionResponse({}));
+    return $dara.cast<RunCompletionResponse>(await this.callApi(params, req, runtime), new RunCompletionResponse({}));
   }
 
   /**
@@ -2012,7 +2361,7 @@ export default class Client extends OpenApi {
    * @returns RunCompletionResponse
    */
   async runCompletion(workspaceId: string, appId: string, request: RunCompletionRequest): Promise<RunCompletionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runCompletionWithOptions(workspaceId, appId, request, headers, runtime);
   }
@@ -2025,37 +2374,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunCompletionMessageResponse
    */
-  async runCompletionMessageWithOptions(workspaceId: string, appId: string, request: RunCompletionMessageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunCompletionMessageResponse> {
-    Util.validateModel(request);
+  async runCompletionMessageWithOptions(workspaceId: string, appId: string, request: RunCompletionMessageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunCompletionMessageResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.messages)) {
+    if (!$dara.isNull(request.messages)) {
       body["Messages"] = request.messages;
     }
 
-    if (!Util.isUnset(request.modelCode)) {
+    if (!$dara.isNull(request.modelCode)) {
       body["ModelCode"] = request.modelCode;
     }
 
-    if (!Util.isUnset(request.stream)) {
+    if (!$dara.isNull(request.stream)) {
       body["Stream"] = request.stream;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunCompletionMessage",
       version: "2024-06-03",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/ccai/app/${OpenApiUtil.getEncodeParam(appId)}/completion_message`,
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ccai/app/${$dara.URL.percentEncode(appId)}/completion_message`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RunCompletionMessageResponse>(await this.callApi(params, req, runtime), new RunCompletionMessageResponse({}));
+    return $dara.cast<RunCompletionMessageResponse>(await this.callApi(params, req, runtime), new RunCompletionMessageResponse({}));
   }
 
   /**
@@ -2065,7 +2414,7 @@ export default class Client extends OpenApi {
    * @returns RunCompletionMessageResponse
    */
   async runCompletionMessage(workspaceId: string, appId: string, request: RunCompletionMessageRequest): Promise<RunCompletionMessageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runCompletionMessageWithOptions(workspaceId, appId, request, headers, runtime);
   }
