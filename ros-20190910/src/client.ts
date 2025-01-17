@@ -1,13 +1,10197 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class CancelStackOperationRequest extends $tea.Model {
+export class ContinueCreateStackRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The name of template parameter N that you want to use to override a specific parameter. If you do not specify the name and value of a template parameter, ROS uses the name and value specified in the previous operation that was performed to create the stack. Maximum value of N: 200.
+   * 
+   * > This parameter takes effect only when Mode is set to Recreate.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of template parameter N that you want to use to override a specific parameter. Maximum value of N: 200.
+   * 
+   * For ROS stacks, the template parameters that you use to override specific parameters are subject to the following limits:
+   * 
+   * *   You cannot change the condition values in the Conditions section of a template from true to false or from false to true.
+   * *   The template parameters can be referenced only by resources that ROS continues to create.
+   * 
+   * > This parameter takes effect only when Mode is set to Recreate.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContinueCreateStackResponseBodyDryRunResult extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters that can be modified.
+   */
+  parametersAllowedToBeModified?: string[];
+  /**
+   * @remarks
+   * The parameters that can be modified under specific conditions.
+   */
+  parametersConditionallyAllowedToBeModified?: string[];
+  /**
+   * @remarks
+   * The parameters that cannot be modified.
+   */
+  parametersNotAllowedToBeModified?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      parametersAllowedToBeModified: 'ParametersAllowedToBeModified',
+      parametersConditionallyAllowedToBeModified: 'ParametersConditionallyAllowedToBeModified',
+      parametersNotAllowedToBeModified: 'ParametersNotAllowedToBeModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parametersAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersNotAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.parametersAllowedToBeModified)) {
+      $dara.Model.validateArray(this.parametersAllowedToBeModified);
+    }
+    if(Array.isArray(this.parametersConditionallyAllowedToBeModified)) {
+      $dara.Model.validateArray(this.parametersConditionallyAllowedToBeModified);
+    }
+    if(Array.isArray(this.parametersNotAllowedToBeModified)) {
+      $dara.Model.validateArray(this.parametersNotAllowedToBeModified);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChangeSetRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The key of parameter N that is defined in the template. If you do not specify the key and value of a parameter, ROS uses the default name and value that are defined in the template. Maximum value of N: 200.
+   * 
+   * >  Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterKey.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N that is defined in the template. Maximum value of N: 200.
+   * 
+   * >  Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChangeSetRequestResourcesToImport extends $dara.Model {
+  /**
+   * @remarks
+   * The logical ID of resource N. The logical ID is the name of the resource defined in the template.
+   * 
+   * >  This parameter takes effect only when ChangeSetType is set to IMPORT. ResourcesToImport is optional. If you specify ResourcesToImport, you must specify ResourcesToImport.N.LogicalResourceId.
+   * 
+   * @example
+   * Vpc
+   */
+  logicalResourceId?: string;
+  /**
+   * @remarks
+   * The key-value mapping between strings. The key-value mapping is used to identify resource N that you want to import. The key-value mapping must be a JSON string.\\
+   * A key is an identifier property of a resource and a value is the property value. For example, the key of the ALIYUN::ECS::VPC resource is VpcId and the value is `vpc-2zevx9ios****`.
+   * 
+   * You can call the [GetTemplateSummary](https://help.aliyun.com/document_detail/172485.html) operation to query the identifier property of the resource.
+   * 
+   * >  This parameter takes effect only when ChangeSetType is set to IMPORT. ResourcesToImport is optional. If you specify ResourcesToImport, you must specify ResourcesToImport.N.ResourceIdentifier.
+   * 
+   * @example
+   * {"VpcId": "vpc-2zevx9ios******"}
+   */
+  resourceIdentifier?: string;
+  /**
+   * @remarks
+   * The type of resource N. The resource type must be the same as the resource type that is defined in the template.
+   * 
+   * >  This parameter takes effect only when ChangeSetType is set to IMPORT. ResourcesToImport is optional. If you specify ResourcesToImport, you must specify ResourcesToImport.N.ResourceType.
+   * 
+   * @example
+   * ALIYUN::ECS::VPC
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logicalResourceId: 'LogicalResourceId',
+      resourceIdentifier: 'ResourceIdentifier',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logicalResourceId: 'string',
+      resourceIdentifier: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The key of parameter N that is defined in the template. If you do not specify the name and value of a parameter, ROS uses the default name and value that are specified in the template.
+   * 
+   * Maximum value of N: 200.\\
+   * The name must be 1 to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * > The Parameters parameter is optional. If you specify Parameters, you must specify Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * InstanceId
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N that is defined in the template.
+   * 
+   * Maximum value of N: 200.\\
+   * The value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * > The Parameters parameter is optional. If you specify Parameters, you must specify Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-xxxxxx
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N that you want to add to the stack.
+   * 
+   * Valid values of N: 1 to 20.
+   * 
+   * > - The Tags parameter is optional. If you specify Tags, you must specify Tags.N.Key.
+   * > -  The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N that you want to add to the stack.
+   * 
+   * Valid values of N: 1 to 20.
+   * 
+   * > The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackGroupRequestAutoDeployment extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether automatic deployment is enabled.
+   * 
+   * Valid values:
+   * 
+   * *   true: Automatic deployment is enabled. If you add a member account to the folder to which the stack group belongs after you enable automatic deployment, ROS automatically adds the stacks in the stack group to the member account. If you remove a member account from the folder, ROS automatically deletes the stacks from the member account.
+   * *   false: Automatic deployment is disabled. After you disable automatic deployment, the stacks remain unchanged when you add member accounts to or remove member accounts from the folder.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the stacks within a member account are retained when you remove the member account from the folder.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * > You must specify RetainStacksOnAccountRemoval if Enabled is set to true.
+   * 
+   * @example
+   * true
+   */
+  retainStacksOnAccountRemoval?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      retainStacksOnAccountRemoval: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackGroupRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The key of parameter N. If you do not specify the key and value of a parameter, ROS uses the default name and value that are defined in the template.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * > Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterKey.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * > Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackGroupRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the stack group.
+   * 
+   * > Tags is optional. If you want to specify Tags, you must also specify Tags.N.Key.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the stack group.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackGroupShrinkRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The key of parameter N. If you do not specify the key and value of a parameter, ROS uses the default name and value that are defined in the template.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * > Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterKey.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * > Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackGroupShrinkRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the stack group.
+   * 
+   * > Tags is optional. If you want to specify Tags, you must also specify Tags.N.Key.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the stack group.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackInstancesRequestDeploymentTargets extends $dara.Model {
+  accountIds?: string[];
+  /**
+   * @remarks
+   * The folder IDs of the resource directory. You can add up to five folder IDs.
+   * 
+   * You can create stacks within all the member accounts in the specified folders. If you create stacks in the Root folder, the stacks are created within all member accounts in the resource directory.
+   * 
+   * > To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information about a folder](https://help.aliyun.com/document_detail/111223.html).
+   */
+  rdFolderIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      rdFolderIds: 'RdFolderIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(Array.isArray(this.rdFolderIds)) {
+      $dara.Model.validateArray(this.rdFolderIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackInstancesRequestParameterOverrides extends $dara.Model {
+  /**
+   * @remarks
+   * The key of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the name that you specified when you created the stack group.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * >-   ParameterOverrides is optional.
+   * >-   If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the value that you specify when you create the stack group.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * >-  ParameterOverrides is optional.
+   * >-  If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackInstancesShrinkRequestParameterOverrides extends $dara.Model {
+  /**
+   * @remarks
+   * The key of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the name that you specified when you created the stack group.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * >-   ParameterOverrides is optional.
+   * >-   If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the value that you specify when you create the stack group.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * >-  ParameterOverrides is optional.
+   * >-  If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the template.
+   * 
+   * > Tags is optional. If you need to specify Tags, you must also specify Key.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the template.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchRequestPreferenceParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * For more information about the valid values of ParameterKey, see the "**Additional information about request parameters**" section of this topic.
+   * 
+   * > 
+   * 
+   * *   PreferenceParameters is optional. If you specify PreferenceParameters, you must specify ParameterKey and ParameterValue.
+   * 
+   * *   You must set ParameterKey to DeletionPolicy when TemplateScratchType is set to ResourceImport.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DeletionPolicy
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The parameter value. The value is an assignment to the parameter key.
+   * 
+   * For more information about the valid values of ParameterValue, see the "**Additional information about request parameters**" section of this topic.
+   * 
+   * >  PreferenceParameters is optional. If you specify PreferenceParameters, you must specify ParameterKey and ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Retain
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchRequestSourceResourceGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the source resource group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rg-acfmzawhxxc****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The resource types for filtering resources.
+   */
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceTypeFilter)) {
+      $dara.Model.validateArray(this.resourceTypeFilter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchRequestSourceResources extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID of the resource.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * 
+   * > 
+   * 
+   * *   This parameter takes effect only when TemplateScratchType is set to ArchitectureDetection.
+   * 
+   * *   The region ID of a global resource is `global`. For example, the region ID of the ALIYUN::CDN::Domain global resource is `global`.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The related resource type filters.
+   */
+  relatedResourceTypeFilter?: string[];
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp1m6fww66xbntjyc****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ALIYUN::ECS::VPC
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      relatedResourceTypeFilter: 'RelatedResourceTypeFilter',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      relatedResourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.relatedResourceTypeFilter)) {
+      $dara.Model.validateArray(this.relatedResourceTypeFilter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchRequestSourceTag extends $dara.Model {
+  /**
+   * @remarks
+   * The source tags that consist of key-value pairs. If you want to specify only the tag key, you must leave the tag value empty. Example: `{"TagKey": ""}`.
+   * 
+   * You can add up to 10 source tags.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"a": "b"}
+   */
+  resourceTags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The resource types for filtering resources.
+   */
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceTags: 'ResourceTags',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.resourceTags) {
+      $dara.Model.validateMap(this.resourceTags);
+    }
+    if(Array.isArray(this.resourceTypeFilter)) {
+      $dara.Model.validateArray(this.resourceTypeFilter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource scenario.
+   * 
+   * > Tags is optional. If you want to specify Tags, you must specify Key.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the resource scenario.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchShrinkRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource scenario.
+   * 
+   * > Tags is optional. If you want to specify Tags, you must specify Key.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the resource scenario.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStackInstancesRequestDeploymentTargets extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
+   * 
+   * > To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information about a folder](https://help.aliyun.com/document_detail/111223.html).
+   */
+  accountIds?: string[];
+  /**
+   * @remarks
+   * The IDs of the folders in the resource directory. You can add up to five folder IDs.
+   * 
+   * You can create stacks within all the member accounts in the specified folders. If you create stacks in the Root folder, the stacks are created within all member accounts in the resource directory.
+   * 
+   * > To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information about a folder](https://help.aliyun.com/document_detail/111223.html).
+   */
+  rdFolderIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      rdFolderIds: 'RdFolderIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(Array.isArray(this.rdFolderIds)) {
+      $dara.Model.validateArray(this.rdFolderIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegions extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * ccn-cn-shanghai-finance-1
+   */
+  localName?: string;
+  /**
+   * @remarks
+   * The endpoint of the region.
+   * 
+   * @example
+   * ros.aliyuncs.com
+   */
+  regionEndpoint?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'LocalName',
+      regionEndpoint: 'RegionEndpoint',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      regionEndpoint: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectStackResourceDriftResponseBodyPropertyDifferences extends $dara.Model {
+  /**
+   * @remarks
+   * The actual value of the resource property.
+   * 
+   * @example
+   * test1
+   */
+  actualValue?: string;
+  /**
+   * @remarks
+   * The drift type of the resource property. Valid values:
+   * 
+   * *   ADD: The property value has been added to a resource property whose data type was Array or List.
+   * *   REMOVE: The property has been deleted from the current resource configuration.
+   * *   NOT_EQUAL: The current property value differs from the expected value defined in the stack template.
+   * 
+   * @example
+   * NOT_EQUAL
+   */
+  differenceType?: string;
+  /**
+   * @remarks
+   * The expected value of the resource property that is defined in the template.
+   * 
+   * @example
+   * test2
+   */
+  expectedValue?: string;
+  /**
+   * @remarks
+   * The path of the resource property.
+   * 
+   * @example
+   * /ScalingRuleName
+   */
+  propertyPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actualValue: 'ActualValue',
+      differenceType: 'DifferenceType',
+      expectedValue: 'ExpectedValue',
+      propertyPath: 'PropertyPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actualValue: 'string',
+      differenceType: 'string',
+      expectedValue: 'string',
+      propertyPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTemplateByScratchResponseBodyResourcesToImport extends $dara.Model {
+  /**
+   * @remarks
+   * The logical ID of the resource.
+   * 
+   * @example
+   * ECSVPC_001
+   */
+  logicalResourceId?: string;
+  /**
+   * @remarks
+   * The key-value mapping between strings. The value is a JSON string that identifies the resource that you want to import into a stack.\\
+   * A key is an identifier for a resource, and a value is an assignment of data to the key. For example, VpcId is a key that indicates the ID of a virtual private cloud (VPC), and `vpc-bp1m6fww66xbntjyc****"` is a value that is assigned to VpcId.
+   * 
+   * @example
+   * {"VpcId": "vpc-bp1m6fww66xbntjyc****" }
+   */
+  resourceIdentifier?: { [key: string]: any };
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ALIYUN::ECS::VPC
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logicalResourceId: 'LogicalResourceId',
+      resourceIdentifier: 'ResourceIdentifier',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logicalResourceId: 'string',
+      resourceIdentifier: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.resourceIdentifier) {
+      $dara.Model.validateMap(this.resourceIdentifier);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTemplatePolicyResponseBodyPolicyStatement extends $dara.Model {
+  /**
+   * @remarks
+   * The operations that are performed on the specified resource.
+   */
+  action?: string[];
+  /**
+   * @remarks
+   * The condition that is required for the policy to take effect.
+   * 
+   * @example
+   * {
+   *     "StringEquals": {
+   *         "acs:Service": "fc.aliyuncs.com"
+   *     }
+   * }
+   */
+  condition?: { [key: string]: any };
+  /**
+   * @remarks
+   * The effect of the statement. Valid values:
+   * 
+   * *   Allow
+   * *   Deny
+   * 
+   * @example
+   * Allow
+   */
+  effect?: string;
+  /**
+   * @remarks
+   * The objects that the statement covers. An asterisk (\\*) indicates all resources.
+   * 
+   * @example
+   * *
+   */
+  resource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      condition: 'Condition',
+      effect: 'Effect',
+      resource: 'Resource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: { 'type': 'array', 'itemType': 'string' },
+      condition: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      effect: 'string',
+      resource: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.action)) {
+      $dara.Model.validateArray(this.action);
+    }
+    if(this.condition) {
+      $dara.Model.validateMap(this.condition);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTemplatePolicyResponseBodyPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The statements that are contained in the policy.
+   */
+  statement?: GenerateTemplatePolicyResponseBodyPolicyStatement[];
+  /**
+   * @remarks
+   * The version number.
+   * 
+   * @example
+   * 1
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      statement: 'Statement',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      statement: { 'type': 'array', 'itemType': GenerateTemplatePolicyResponseBodyPolicyStatement },
+      version: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.statement)) {
+      $dara.Model.validateArray(this.statement);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChangeSetResponseBodyLogTerraformLogs extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the Terraform command that is run. Valid values:
+   * 
+   * *   apply
+   * *   plan
+   * *   destroy
+   * *   version
+   * 
+   * For more information about Terraform commands, see [Command](https://www.terraform.io/cli/commands).
+   * 
+   * @example
+   * apply
+   */
+  command?: string;
+  /**
+   * @remarks
+   * The content of the output stream that is returned after the command is run.
+   * 
+   * @example
+   * Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The output stream. Valid values:
+   * 
+   * *   stdout: standard output stream
+   * *   stderr: standard error stream
+   * 
+   * @example
+   * stdout
+   */
+  stream?: string;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      content: 'Content',
+      stream: 'Stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      content: 'string',
+      stream: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChangeSetResponseBodyLog extends $dara.Model {
+  /**
+   * @remarks
+   * The Terraform logs. This parameter is returned only for change sets of Terraform stacks.
+   * 
+   * > This parameter is not returned for change sets that are in the Creating state. This parameter indicates the logs of the change set creation operation for Terraform stacks.
+   */
+  terraformLogs?: GetChangeSetResponseBodyLogTerraformLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      terraformLogs: 'TerraformLogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      terraformLogs: { 'type': 'array', 'itemType': GetChangeSetResponseBodyLogTerraformLogs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.terraformLogs)) {
+      $dara.Model.validateArray(this.terraformLogs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChangeSetResponseBodyParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the parameter.
+   * 
+   * @example
+   * ALIYUN::Region
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of the parameter.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiagnosticResponseBodyDiagnosticResult extends $dara.Model {
+  /**
+   * @remarks
+   * The resources that failed to be diagnosed.
+   */
+  failedResources?: { [key: string]: any };
+  /**
+   * @remarks
+   * The information about Resource Orchestration Service (ROS) calling.
+   */
+  rosActionMessages?: { [key: string]: any };
+  /**
+   * @remarks
+   * The stack information.
+   */
+  stackMessages?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      failedResources: 'FailedResources',
+      rosActionMessages: 'RosActionMessages',
+      stackMessages: 'StackMessages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedResources: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      rosActionMessages: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      stackMessages: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  validate() {
+    if(this.failedResources) {
+      $dara.Model.validateMap(this.failedResources);
+    }
+    if(this.rosActionMessages) {
+      $dara.Model.validateMap(this.rosActionMessages);
+    }
+    if(this.stackMessages) {
+      $dara.Model.validateMap(this.stackMessages);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyDriftDetection extends $dara.Model {
+  /**
+   * @remarks
+   * The resource types that are supported by the drift detection feature.
+   */
+  supportedResourceTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedResourceTypes: 'SupportedResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResourceTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supportedResourceTypes)) {
+      $dara.Model.validateArray(this.supportedResourceTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyResourceCleanerSupportedResourceTypes extends $dara.Model {
+  /**
+   * @remarks
+   * The resource type that supports the resource cleaner feature.
+   * 
+   * @example
+   * ECS:Instance
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The names of the side effects that may be caused by the cleanup operation performed on the resources of the specified type.
+   */
+  sideEffects?: string[];
+  /**
+   * @remarks
+   * The names of the filters that are supported by the resource type.
+   */
+  supportedFilters?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      sideEffects: 'SideEffects',
+      supportedFilters: 'SupportedFilters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      sideEffects: { 'type': 'array', 'itemType': 'string' },
+      supportedFilters: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sideEffects)) {
+      $dara.Model.validateArray(this.sideEffects);
+    }
+    if(Array.isArray(this.supportedFilters)) {
+      $dara.Model.validateArray(this.supportedFilters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyResourceCleaner extends $dara.Model {
+  /**
+   * @remarks
+   * The resource types that can be cleaned up.
+   */
+  supportedResourceTypes?: GetFeatureDetailsResponseBodyResourceCleanerSupportedResourceTypes[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedResourceTypes: 'SupportedResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyResourceCleanerSupportedResourceTypes },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supportedResourceTypes)) {
+      $dara.Model.validateArray(this.supportedResourceTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes extends $dara.Model {
+  /**
+   * @remarks
+   * The resource identifiers.
+   */
+  resourceIdentifiers?: string[];
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ALIYUN::ECS::Disk
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceIdentifiers: 'ResourceIdentifiers',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceIdentifiers: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceIdentifiers)) {
+      $dara.Model.validateArray(this.resourceIdentifiers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyResourceImport extends $dara.Model {
+  /**
+   * @remarks
+   * The resource types that are supported by the resource import feature.
+   */
+  supportedResourceTypes?: GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedResourceTypes: 'SupportedResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supportedResourceTypes)) {
+      $dara.Model.validateArray(this.supportedResourceTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes extends $dara.Model {
+  /**
+   * @remarks
+   * The names of properties that are supported by the resource type.
+   */
+  properties?: string[];
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ALIYUN::ECS::Disk
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      properties: 'Properties',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      properties: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.properties)) {
+      $dara.Model.validateArray(this.properties);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTemplateParameterConstraints extends $dara.Model {
+  /**
+   * @remarks
+   * The resource types that support the template parameter constraint feature.
+   */
+  supportedResourceTypes?: GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedResourceTypes: 'SupportedResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supportedResourceTypes)) {
+      $dara.Model.validateArray(this.supportedResourceTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes extends $dara.Model {
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ALIYUN::ECS::Disk
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * Indicates whether the resource scope can be specified by source resource group. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  sourceResourceGroupSupported?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the resource scope can be specified by source resource. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  sourceResourcesSupported?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the resource scope can be specified by source tag, resource group, or resource. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  sourceSupported?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the resource scope can be specified by source tag. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  sourceTagSupported?: boolean;
+  /**
+   * @remarks
+   * The scenario types that are supported.
+   */
+  supportedTemplateScratchTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      sourceResourceGroupSupported: 'SourceResourceGroupSupported',
+      sourceResourcesSupported: 'SourceResourcesSupported',
+      sourceSupported: 'SourceSupported',
+      sourceTagSupported: 'SourceTagSupported',
+      supportedTemplateScratchTypes: 'SupportedTemplateScratchTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      sourceResourceGroupSupported: 'boolean',
+      sourceResourcesSupported: 'boolean',
+      sourceSupported: 'boolean',
+      sourceTagSupported: 'boolean',
+      supportedTemplateScratchTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supportedTemplateScratchTypes)) {
+      $dara.Model.validateArray(this.supportedTemplateScratchTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTemplateScratch extends $dara.Model {
+  /**
+   * @remarks
+   * The resource types that are supported by the scenario feature.
+   */
+  supportedResourceTypes?: GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedResourceTypes: 'SupportedResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supportedResourceTypes)) {
+      $dara.Model.validateArray(this.supportedResourceTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk extends $dara.Model {
+  /**
+   * @remarks
+   * The resource types that support the risk check performed to detect risks caused by a stack deletion operation.
+   */
+  deleteStack?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      deleteStack: 'DeleteStack',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteStack: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.deleteStack)) {
+      $dara.Model.validateArray(this.deleteStack);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes extends $dara.Model {
+  /**
+   * @remarks
+   * The resource types that support the custom tag feature.
+   */
+  customTag?: string[];
+  /**
+   * @remarks
+   * The resource types that support the price inquiry feature.
+   */
+  estimateCost?: string[];
+  /**
+   * @remarks
+   * The resource types that support the resource group feature.
+   */
+  resourceGroup?: string[];
+  /**
+   * @remarks
+   * The resource type that support the risk check feature.
+   */
+  stackOperationRisk?: GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk;
+  /**
+   * @remarks
+   * The resource types that support the system tag `acs:ros:stackId`.
+   */
+  systemTag?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      customTag: 'CustomTag',
+      estimateCost: 'EstimateCost',
+      resourceGroup: 'ResourceGroup',
+      stackOperationRisk: 'StackOperationRisk',
+      systemTag: 'SystemTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customTag: { 'type': 'array', 'itemType': 'string' },
+      estimateCost: { 'type': 'array', 'itemType': 'string' },
+      resourceGroup: { 'type': 'array', 'itemType': 'string' },
+      stackOperationRisk: GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk,
+      systemTag: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.customTag)) {
+      $dara.Model.validateArray(this.customTag);
+    }
+    if(Array.isArray(this.estimateCost)) {
+      $dara.Model.validateArray(this.estimateCost);
+    }
+    if(Array.isArray(this.resourceGroup)) {
+      $dara.Model.validateArray(this.resourceGroup);
+    }
+    if(this.stackOperationRisk && typeof (this.stackOperationRisk as any).validate === 'function') {
+      (this.stackOperationRisk as any).validate();
+    }
+    if(Array.isArray(this.systemTag)) {
+      $dara.Model.validateArray(this.systemTag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTerraformSupportedVersionsProviderVersions extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the provider.
+   * 
+   * @example
+   * alicloud
+   */
+  providerName?: string;
+  /**
+   * @remarks
+   * The provider versions.
+   */
+  supportedVersions?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      providerName: 'ProviderName',
+      supportedVersions: 'SupportedVersions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      providerName: 'string',
+      supportedVersions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supportedVersions)) {
+      $dara.Model.validateArray(this.supportedVersions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTerraformSupportedVersions extends $dara.Model {
+  /**
+   * @remarks
+   * The names and versions of the providers that correspond to the Terraform versions.
+   */
+  providerVersions?: GetFeatureDetailsResponseBodyTerraformSupportedVersionsProviderVersions[];
+  /**
+   * @remarks
+   * The Terraform version.
+   * 
+   * @example
+   * 1.0.11
+   */
+  terraformVersion?: string;
+  /**
+   * @remarks
+   * The Terraform version that is supported by ROS. The parameter value is the same as the value of the Transform parameter in a Terraform template.
+   * 
+   * @example
+   * Aliyun::Terraform-v1.0
+   */
+  transform?: string;
+  /**
+   * @remarks
+   * The Terraform versions that can be updated in ROS.
+   */
+  updateAllowedTransforms?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      providerVersions: 'ProviderVersions',
+      terraformVersion: 'TerraformVersion',
+      transform: 'Transform',
+      updateAllowedTransforms: 'UpdateAllowedTransforms',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      providerVersions: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyTerraformSupportedVersionsProviderVersions },
+      terraformVersion: 'string',
+      transform: 'string',
+      updateAllowedTransforms: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.providerVersions)) {
+      $dara.Model.validateArray(this.providerVersions);
+    }
+    if(Array.isArray(this.updateAllowedTransforms)) {
+      $dara.Model.validateArray(this.updateAllowedTransforms);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTerraform extends $dara.Model {
+  /**
+   * @remarks
+   * The resource types that support the scenario feature.
+   */
+  supportedResourceTypes?: GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes;
+  /**
+   * @remarks
+   * The Terraform versions.
+   */
+  supportedVersions?: GetFeatureDetailsResponseBodyTerraformSupportedVersions[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedResourceTypes: 'SupportedResourceTypes',
+      supportedVersions: 'SupportedVersions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResourceTypes: GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes,
+      supportedVersions: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyTerraformSupportedVersions },
+    };
+  }
+
+  validate() {
+    if(this.supportedResourceTypes && typeof (this.supportedResourceTypes as any).validate === 'function') {
+      (this.supportedResourceTypes as any).validate();
+    }
+    if(Array.isArray(this.supportedVersions)) {
+      $dara.Model.validateArray(this.supportedVersions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the parameter. If you do not specify the name and value of a parameter, Resource Orchestration Service (ROS) uses the default name and value that are specified in the template.
+   * 
+   * > The Parameters parameter is optional. If you specify Parameters, you must specify ParameterKey.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of the parameter.
+   * 
+   * > The Parameters parameter is optional. If you specify Parameters, you must specify ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsRequestServices extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the service or feature. Valid values:
+   * 
+   * *   AHAS: Application High Availability Service
+   * *   ARMS: Application Real-Time Monitoring Service (ARMS)
+   * *   ApiGateway: API Gateway
+   * *   BatchCompute: Batch Compute
+   * *   BrainIndustrial: Industrial Brain
+   * *   CloudStorageGateway: Cloud Storage Gateway (CSG)
+   * *   CMS: CloudMonitor
+   * *   CR: Container Registry
+   * *   CS: Container Service for Kubernetes (ACK)
+   * *   DCDN: Dynamic Content Delivery Network (DCDN)
+   * *   DataHub: DataHub
+   * *   DataWorks: DataWorks
+   * *   EDAS: Enterprise Distributed Application Service (EDAS)
+   * *   EHPC: E-HPC
+   * *   EMAS: Enterprise Mobile Application Studio (EMAS)
+   * *   FC: Function Compute
+   * *   FNF: CloudFlow (SWF)
+   * *   MaxCompute: MaxCompute
+   * *   MNS: Message Service (MNS)
+   * *   HBR: Cloud Backup
+   * *   IMM: Intelligent Media Management (IMM)
+   * *   IOT: IoT Platform
+   * *   KMS: Key Management Service (KMS)
+   * *   NAS: Apsara File Storage NAS (NAS)
+   * *   NLP: Natural Language Processing (NLP)
+   * *   OSS: Object Storage Service (OSS)
+   * *   OTS: Tablestore
+   * *   PrivateLink: PrivateLink
+   * *   PrivateZone: Alibaba Cloud DNS PrivateZone
+   * *   RocketMQ: ApsaraMQ for RocketMQ
+   * *   SAE: Serverless App Engine (SAE)
+   * *   SLS: Simple Log Service (SLS)
+   * *   TrafficMirror: traffic mirroring
+   * *   VS: Video Surveillance System
+   * *   Xtrace: Managed Service for OpenTelemetry
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * EHPC
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the API operation.
+   * 
+   * @example
+   * CreateServiceLinkedRole
+   */
+  apiName?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud service to which the API operation belongs.
+   * 
+   * @example
+   * rds
+   */
+  apiProductId?: string;
+  /**
+   * @remarks
+   * The type of the API operation. Valid values:
+   * 
+   * *   Open: public
+   * *   Inner: private
+   * 
+   * @example
+   * Open
+   */
+  apiType?: string;
+  /**
+   * @remarks
+   * The parameters of the API operation. If a parameter is a variable, use the ${Variable name} format. Only the following variable is supported: ${RegionId}.
+   * 
+   * @example
+   * {   "ServiceLinkedRole": "AliyunServiceRoleForRdsPgsqlOnEcs",   "RegionId": "${RegionId}" }
+   */
+  parameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      apiName: 'ApiName',
+      apiProductId: 'ApiProductId',
+      apiType: 'ApiType',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiName: 'string',
+      apiProductId: 'string',
+      apiType: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  validate() {
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the API operation that is used to create the RAM role.
+   */
+  apiForCreation?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation;
+  /**
+   * @remarks
+   * Indicates whether the RAM role is created. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  created?: boolean;
+  /**
+   * @remarks
+   * The purpose for which the RAM role is used. Default value: Default. A value of Default indicates that the RAM role is the default role of the service.
+   * 
+   * @example
+   * Default
+   */
+  function?: string;
+  /**
+   * @remarks
+   * The name of the role.
+   * 
+   * @example
+   * AliyunServiceRoleForEHPC
+   */
+  roleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiForCreation: 'ApiForCreation',
+      created: 'Created',
+      function: 'Function',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiForCreation: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation,
+      created: 'boolean',
+      function: 'string',
+      roleName: 'string',
+    };
+  }
+
+  validate() {
+    if(this.apiForCreation && typeof (this.apiForCreation as any).validate === 'function') {
+      (this.apiForCreation as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision extends $dara.Model {
+  /**
+   * @remarks
+   * The authorization URL of the RAM role.
+   * 
+   * > This parameter is returned if Created is set to false.
+   * 
+   * @example
+   * https://ehpc.console.aliyun.com/
+   */
+  authorizationURL?: string;
+  /**
+   * @remarks
+   * The RAM roles of the service.
+   */
+  roles?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles[];
+  static names(): { [key: string]: string } {
+    return {
+      authorizationURL: 'AuthorizationURL',
+      roles: 'Roles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationURL: 'string',
+      roles: { 'type': 'array', 'itemType': GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.roles)) {
+      $dara.Model.validateArray(this.roles);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsResponseBodyServiceProvisions extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether automatic activation for the service is defined in the template. Valid values:
+   * 
+   * *   true: Automatic activation for the service is defined in the template.
+   * *   false: Manual activation for the service is defined in the template.
+   * 
+   * @example
+   * false
+   */
+  autoEnableService?: boolean;
+  /**
+   * @remarks
+   * The names of the services on which the service that is queried depends.
+   */
+  dependentServiceNames?: string[];
+  /**
+   * @remarks
+   * The URL that points to the activation page of the service.
+   * 
+   * > This parameter is returned if Status is set to Disabled.
+   * 
+   * @example
+   * https://common-buy.aliyun.com/?commodityCode=nas
+   */
+  enableURL?: string;
+  /**
+   * @remarks
+   * The information about the RAM roles of the service. If this parameter is empty, no RAM role is associated with the service.
+   */
+  roleProvision?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * EHPC
+   */
+  serviceName?: string;
+  /**
+   * @remarks
+   * The activation status of the service. Valid values:
+   * 
+   * *   Enabled: The service is activated.
+   * *   Disabled: The service is not activated.
+   * *   Unknown: The activation status of the service is unknown.
+   * 
+   * @example
+   * Enabled
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The reason why the service is in the Disabled or Unknown state.
+   * 
+   * > This parameter is returned if Status is set to Disabled or Unknown.
+   * 
+   * @example
+   * No permission.
+   */
+  statusReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoEnableService: 'AutoEnableService',
+      dependentServiceNames: 'DependentServiceNames',
+      enableURL: 'EnableURL',
+      roleProvision: 'RoleProvision',
+      serviceName: 'ServiceName',
+      status: 'Status',
+      statusReason: 'StatusReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoEnableService: 'boolean',
+      dependentServiceNames: { 'type': 'array', 'itemType': 'string' },
+      enableURL: 'string',
+      roleProvision: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision,
+      serviceName: 'string',
+      status: 'string',
+      statusReason: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dependentServiceNames)) {
+      $dara.Model.validateArray(this.dependentServiceNames);
+    }
+    if(this.roleProvision && typeof (this.roleProvision as any).validate === 'function') {
+      (this.roleProvision as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyLogResourceLogsLogs extends $dara.Model {
+  /**
+   * @remarks
+   * The content of a resource log.
+   * 
+   * @example
+   * []
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The keywords of a resource log.
+   */
+  keys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      keys: 'Keys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      keys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.keys)) {
+      $dara.Model.validateArray(this.keys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyLogResourceLogs extends $dara.Model {
+  /**
+   * @remarks
+   * All the logs that are associated with the resources.
+   */
+  logs?: GetStackResponseBodyLogResourceLogsLogs[];
+  /**
+   * @remarks
+   * The name of the resource that is defined in the template.
+   * 
+   * @example
+   * MyResourceCleaner
+   */
+  resourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logs: 'Logs',
+      resourceName: 'ResourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logs: { 'type': 'array', 'itemType': GetStackResponseBodyLogResourceLogsLogs },
+      resourceName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.logs)) {
+      $dara.Model.validateArray(this.logs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyLogTerraformLogs extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the Terraform command that is run. Valid values:
+   * 
+   * *   apply
+   * *   plan
+   * *   destroy
+   * *   version
+   * 
+   * For more information about Terraform commands, see [Basic CLI Features](https://www.terraform.io/cli/commands).
+   * 
+   * @example
+   * apply
+   */
+  command?: string;
+  /**
+   * @remarks
+   * The content of the output stream that is returned after the command is run.
+   * 
+   * @example
+   * Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The output stream. Valid values:
+   * 
+   * *   stdout: standard output stream
+   * *   stderr: standard error stream
+   * 
+   * @example
+   * stdout
+   */
+  stream?: string;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      content: 'Content',
+      stream: 'Stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      content: 'string',
+      stream: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyLog extends $dara.Model {
+  /**
+   * @remarks
+   * The logs of resources in the stack. This parameter is returned if LogOption is set to Resource or All.
+   * 
+   * >  The logs are returned only for resources of specific types, such as the `ALIYUN::ROS::ResourceCleaner` type.
+   */
+  resourceLogs?: GetStackResponseBodyLogResourceLogs[];
+  /**
+   * @remarks
+   * The logs generated when the Terraform stack is run. This parameter is returned only for a Terraform stack. This parameter is returned if LogOption is left empty or set to Stack or All.
+   * 
+   * >  This parameter is not returned for a running stack. The logs are generated from the most recent operation on the stack, such as the creation, resumed creation, update, or deletion operation.
+   */
+  terraformLogs?: GetStackResponseBodyLogTerraformLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceLogs: 'ResourceLogs',
+      terraformLogs: 'TerraformLogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceLogs: { 'type': 'array', 'itemType': GetStackResponseBodyLogResourceLogs },
+      terraformLogs: { 'type': 'array', 'itemType': GetStackResponseBodyLogTerraformLogs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceLogs)) {
+      $dara.Model.validateArray(this.resourceLogs);
+    }
+    if(Array.isArray(this.terraformLogs)) {
+      $dara.Model.validateArray(this.terraformLogs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyOperationInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the API operation that belongs to another Alibaba Cloud service.
+   * 
+   * @example
+   * DeleteSecurityGroup
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * DependencyViolation
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The logical ID of the resource on which the operation error occurs.
+   * 
+   * @example
+   * EcsSecurityGroup
+   */
+  logicalResourceId?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * There is still instance(s) in the specified security group.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request that is initiated to call the API operation of another Alibaba Cloud service.
+   * 
+   * @example
+   * 071D6166-3F6B-5C7B-A1F0-0113FBB643A8
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The type of the resource on which the operation error occurs.
+   * 
+   * @example
+   * ALIYUN::ECS::SecurityGroup
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      code: 'Code',
+      logicalResourceId: 'LogicalResourceId',
+      message: 'Message',
+      requestId: 'RequestId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      code: 'string',
+      logicalResourceId: 'string',
+      message: 'string',
+      requestId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * @example
+   * ALIYUN::Region
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The parameter value.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyResourceProgressInProgressResourceDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The desired progress value of the resource.
+   * 
+   * @example
+   * 10
+   */
+  progressTargetValue?: number;
+  /**
+   * @remarks
+   * The current progress value of the resource.
+   * 
+   * @example
+   * 5
+   */
+  progressValue?: number;
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * WaitCondition
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ALIYUN::ROS::WaitCondition
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      progressTargetValue: 'ProgressTargetValue',
+      progressValue: 'ProgressValue',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      progressTargetValue: 'number',
+      progressValue: 'number',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyResourceProgress extends $dara.Model {
+  /**
+   * @remarks
+   * The number of resources that failed to be created.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * 
+   * @example
+   * 0
+   */
+  failedResourceCount?: number;
+  /**
+   * @remarks
+   * The number of resources that are being created.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * 
+   * @example
+   * 1
+   */
+  inProgressResourceCount?: number;
+  /**
+   * @remarks
+   * The progress details of resources that are being created.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   */
+  inProgressResourceDetails?: GetStackResponseBodyResourceProgressInProgressResourceDetails[];
+  /**
+   * @remarks
+   * The number of resources to be created.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * 
+   * @example
+   * 0
+   */
+  pendingResourceCount?: number;
+  /**
+   * @remarks
+   * The creation or rollback progress of the stack, in percentage. Valid values: 0 to 100.
+   * 
+   * The value progressively increases from 0 to 100 during a stack creation operation. If the stack is created, the value reaches 100. If the stack fails to be created, a rollback is started for the stack resources, and the value progressively increases from the percentage of the remaining progress (100 - Progress value generated when the stack fails to be created). The value increases to 100 when the stack resources are rolled back. This parameter indicates the creation progress during a stack creation operation and indicates the rollback progress during a stack rollback operation.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `PercentageOnly`.
+   * 
+   * @example
+   * 100
+   */
+  stackActionProgress?: number;
+  /**
+   * @remarks
+   * The overall creation progress of the stack, in percentage. Valid values: 0 to 100.
+   * 
+   * The value progressively increases from 0 to 100 during a stack creation operation. If the stack is created, the value reaches 100. If the stack fails to be created, a rollback is started for the stack resources, and the value progressively decreases. The value decreases to 0 when the stack resources are rolled back. This parameter indicates only the overall creation progress, regardless of whether during a stack creation or rollback operation.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `PercentageOnly`.
+   * 
+   * @example
+   * 100
+   */
+  stackOperationProgress?: number;
+  /**
+   * @remarks
+   * The number of resources that are created.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * 
+   * @example
+   * 1
+   */
+  successResourceCount?: number;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * 
+   * @example
+   * 2
+   */
+  totalResourceCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedResourceCount: 'FailedResourceCount',
+      inProgressResourceCount: 'InProgressResourceCount',
+      inProgressResourceDetails: 'InProgressResourceDetails',
+      pendingResourceCount: 'PendingResourceCount',
+      stackActionProgress: 'StackActionProgress',
+      stackOperationProgress: 'StackOperationProgress',
+      successResourceCount: 'SuccessResourceCount',
+      totalResourceCount: 'TotalResourceCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedResourceCount: 'number',
+      inProgressResourceCount: 'number',
+      inProgressResourceDetails: { 'type': 'array', 'itemType': GetStackResponseBodyResourceProgressInProgressResourceDetails },
+      pendingResourceCount: 'number',
+      stackActionProgress: 'number',
+      stackOperationProgress: 'number',
+      successResourceCount: 'number',
+      totalResourceCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inProgressResourceDetails)) {
+      $dara.Model.validateArray(this.inProgressResourceDetails);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the stack.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the stack.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackGroupResponseBodyStackGroupAutoDeployment extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether stacks in the member account are retained when the member account is deleted from the folder.
+   * 
+   * Valid values:
+   * 
+   * *   true: The stacks are retained.
+   * *   false: The stacks are deleted.
+   * 
+   * >  This parameter is returned only when the Enabled parameter is set to true.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The folder IDs of the resource directory. This parameter is used to deploy stack instances within all the accounts in the folders.
+   * 
+   * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
+   * 
+   * @example
+   * true
+   */
+  retainStacksOnAccountRemoval?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      retainStacksOnAccountRemoval: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackGroupResponseBodyStackGroupParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of the parameter.
+   * 
+   * @example
+   * 12
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The number of stack instances that have drifted.
+   * 
+   * @example
+   * 0
+   */
+  cancelledStackInstancesCount?: number;
+  /**
+   * @remarks
+   * The drift status of the stack group.
+   * 
+   * Valid values:
+   * 
+   * *   DRIFTED: At least one stack instance in the stack group has drifted.
+   * *   NOT_CHECKED: No drift detection is completed on the stack group.
+   * *   IN_SYNC: All the stack instances in the stack group are being synchronized.
+   * 
+   * @example
+   * COMPLETED
+   */
+  driftDetectionStatus?: string;
+  /**
+   * @remarks
+   * The number of stack instances.
+   * 
+   * @example
+   * 2020-02-27T07:47:47
+   */
+  driftDetectionTime?: string;
+  /**
+   * @remarks
+   * The ID of the resource group. This parameter is specified when you create the stack group.
+   * 
+   * @example
+   * 1
+   */
+  driftedStackInstancesCount?: number;
+  /**
+   * @remarks
+   * The status of drift detection on the stack group.
+   * 
+   * Valid values:
+   * 
+   * *   COMPLETED: Drift detection is performed and completed on all stack instances.
+   * *   FAILED: Drift detection is performed. The number of stack instances that failed the drift detection exceeds the specified threshold.
+   * *   PARTIAL_SUCCESS: Drift detection is performed. The number of stack instances that failed the drift detection does not exceed the specified threshold.
+   * *   IN_PROGRESS: Drift detection is being performed on the stack group.
+   * *   STOPPED: Drift detection is canceled for the stack group.
+   * 
+   * @example
+   * 0
+   */
+  failedStackInstancesCount?: number;
+  /**
+   * @remarks
+   * The number of stack instances that were being synchronized.
+   * 
+   * @example
+   * 0
+   */
+  inProgressStackInstancesCount?: number;
+  /**
+   * @remarks
+   * The number of stack instances for which drift detection was canceled.
+   * 
+   * @example
+   * 1
+   */
+  inSyncStackInstancesCount?: number;
+  /**
+   * @remarks
+   * The number of stack instances on which drift detection was being performed.
+   * 
+   * @example
+   * DRIFTED
+   */
+  stackGroupDriftStatus?: string;
+  /**
+   * @remarks
+   * The number of stack instances that failed drift detection.
+   * 
+   * @example
+   * 2
+   */
+  totalStackInstancesCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cancelledStackInstancesCount: 'CancelledStackInstancesCount',
+      driftDetectionStatus: 'DriftDetectionStatus',
+      driftDetectionTime: 'DriftDetectionTime',
+      driftedStackInstancesCount: 'DriftedStackInstancesCount',
+      failedStackInstancesCount: 'FailedStackInstancesCount',
+      inProgressStackInstancesCount: 'InProgressStackInstancesCount',
+      inSyncStackInstancesCount: 'InSyncStackInstancesCount',
+      stackGroupDriftStatus: 'StackGroupDriftStatus',
+      totalStackInstancesCount: 'TotalStackInstancesCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cancelledStackInstancesCount: 'number',
+      driftDetectionStatus: 'string',
+      driftDetectionTime: 'string',
+      driftedStackInstancesCount: 'number',
+      failedStackInstancesCount: 'number',
+      inProgressStackInstancesCount: 'number',
+      inSyncStackInstancesCount: 'number',
+      stackGroupDriftStatus: 'string',
+      totalStackInstancesCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackGroupResponseBodyStackGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters of the stack group.
+   * 
+   * @example
+   * AliyunROSStackGroupAdministrationRole
+   */
+  administrationRoleName?: string;
+  /**
+   * @remarks
+   * Indicates whether automatic deployment is enabled.
+   * 
+   * Valid values:
+   * 
+   * *   true: Automatic deployment is enabled. If a member account is added to the folder to which the stack group belongs after automatic deployment is enabled, the stack group deploys its stack instances in the specified region where the added account is deployed. If the account is deleted from the folder, the stack instances in the specified region are deleted from the stack group.
+   * *   false: Automatic deployment is disabled. After automatic deployment is disabled, the stack instances remain unchanged when the member account in the folder is changed.
+   */
+  autoDeployment?: GetStackGroupResponseBodyStackGroupAutoDeployment;
+  createTime?: string;
+  /**
+   * @remarks
+   * The name of the stack group.
+   * 
+   * @example
+   * StackGroup Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The template body.
+   * 
+   * @example
+   * AliyunROSStackGroupExecutionRole
+   */
+  executionRoleName?: string;
+  /**
+   * @remarks
+   * The key of the parameter.
+   */
+  parameters?: GetStackGroupResponseBodyStackGroupParameters[];
+  /**
+   * @remarks
+   * The information about automatic deployment settings.
+   * 
+   * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
+   * 
+   * @example
+   * SELF_MANAGED
+   */
+  permissionModel?: string;
+  /**
+   * @remarks
+   * The folder IDs of the resource directory. This parameter is used to deploy stack instances within all the accounts in the folders.
+   * 
+   * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
+   */
+  rdFolderIds?: string[];
+  /**
+   * @remarks
+   * The permission model.
+   * 
+   * Valid values:
+   * 
+   * *   SELF_MANAGED: the self-managed permission model
+   * *   SERVICE_MANAGED: the service-managed permission model
+   * 
+   * >  For more information about the permission models of stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
+   * 
+   * @example
+   * rg-acfmxazb4ph6aiy****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The time when drift detection was performed on the stack group.
+   */
+  stackGroupDriftDetectionDetail?: GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail;
+  /**
+   * @remarks
+   * The status of the stack group.
+   * 
+   * Valid values:
+   * 
+   * *   ACTIVE
+   * *   DELETED
+   * 
+   * @example
+   * fd0ddef9-9540-4b42-a464-94f77835****
+   */
+  stackGroupId?: string;
+  /**
+   * @remarks
+   * The name of the RAM role that is specified for the execution account when you create the self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role. If this parameter is not specified, the default value AliyunROSStackGroupExecutionRole is returned.
+   * 
+   * @example
+   * MyStackGroup
+   */
+  stackGroupName?: string;
+  /**
+   * @remarks
+   * The name of the RAM role that is specified for the administrator account in Resource Orchestration Service (ROS) when you create the self-managed stack group. If this parameter is not specified, the default value AliyunROSStackGroupAdministrationRole is returned.
+   * 
+   * @example
+   * ACTIVE
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The structure that contains the template body.
+   * 
+   * > We recommend that you use TemplateContent instead of TemplateBody.
+   * 
+   * @example
+   * {"ROSTemplateFormatVersion": "2015-09-01"}
+   */
+  templateBody?: string;
+  /**
+   * @remarks
+   * The JSON-formatted structure that contains the template body. For more information, see [Template syntax](https://help.aliyun.com/document_detail/28857.html).
+   * 
+   * @example
+   * {
+   *       "ROSTemplateFormatVersion": "2015-09-01"
+   * }
+   */
+  templateContent?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      administrationRoleName: 'AdministrationRoleName',
+      autoDeployment: 'AutoDeployment',
+      createTime: 'CreateTime',
+      description: 'Description',
+      executionRoleName: 'ExecutionRoleName',
+      parameters: 'Parameters',
+      permissionModel: 'PermissionModel',
+      rdFolderIds: 'RdFolderIds',
+      resourceGroupId: 'ResourceGroupId',
+      stackGroupDriftDetectionDetail: 'StackGroupDriftDetectionDetail',
+      stackGroupId: 'StackGroupId',
+      stackGroupName: 'StackGroupName',
+      status: 'Status',
+      templateBody: 'TemplateBody',
+      templateContent: 'TemplateContent',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      administrationRoleName: 'string',
+      autoDeployment: GetStackGroupResponseBodyStackGroupAutoDeployment,
+      createTime: 'string',
+      description: 'string',
+      executionRoleName: 'string',
+      parameters: { 'type': 'array', 'itemType': GetStackGroupResponseBodyStackGroupParameters },
+      permissionModel: 'string',
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+      resourceGroupId: 'string',
+      stackGroupDriftDetectionDetail: GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail,
+      stackGroupId: 'string',
+      stackGroupName: 'string',
+      status: 'string',
+      templateBody: 'string',
+      templateContent: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.autoDeployment && typeof (this.autoDeployment as any).validate === 'function') {
+      (this.autoDeployment as any).validate();
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(Array.isArray(this.rdFolderIds)) {
+      $dara.Model.validateArray(this.rdFolderIds);
+    }
+    if(this.stackGroupDriftDetectionDetail && typeof (this.stackGroupDriftDetectionDetail as any).validate === 'function') {
+      (this.stackGroupDriftDetectionDetail as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the members in the resource directory.
+   * 
+   * > This parameter is returned only if AccountIds is specified when the [UpdateStackInstances](https://help.aliyun.com/document_detail/151716.html) operation is called to update stack instances.
+   */
+  accountIds?: string[];
+  /**
+   * @remarks
+   * The IDs of the folders in the resource directory.
+   */
+  rdFolderIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      rdFolderIds: 'RdFolderIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(Array.isArray(this.rdFolderIds)) {
+      $dara.Model.validateArray(this.rdFolderIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences extends $dara.Model {
+  /**
+   * @remarks
+   * The number of accounts within which stack operation failures are allowed to occur in each region. If the value of this parameter is exceeded in a region, Resource Orchestration Service (ROS) stops the operation in the region. If the operation is stopped in one region, the operation is no longer performed in other regions.
+   * 
+   * Valid values: 0 to 20.
+   * 
+   * > Only one of FailureToleranceCount and FailureTolerancePercentage can be returned.
+   * 
+   * @example
+   * 1
+   */
+  failureToleranceCount?: number;
+  /**
+   * @remarks
+   * The percentage of the number of accounts within which stack operation failures are allowed to occur to the total number of accounts in each region. If the value of this parameter is exceeded in a region, ROS stops the operation in the region.
+   * 
+   * Valid values: 0 to 100.
+   * 
+   * > Only one of FailureToleranceCount and FailureTolerancePercentage can be returned.
+   * 
+   * @example
+   * 10
+   */
+  failureTolerancePercentage?: number;
+  /**
+   * @remarks
+   * The maximum number of accounts within which stacks are deployed at the same time in each region.
+   * 
+   * Valid values: 1 to 20.
+   * 
+   * > Only one of MaxConcurrentCount and MaxConcurrentPercentage can be returned.
+   * 
+   * @example
+   * 1
+   */
+  maxConcurrentCount?: number;
+  /**
+   * @remarks
+   * The percentage of the maximum number of accounts within which stacks are deployed at the same time to the total number of accounts in each region.
+   * 
+   * Valid values: 1 to 100.
+   * 
+   * > Only one of MaxConcurrentCount and MaxConcurrentPercentage can be returned.
+   * 
+   * @example
+   * 10
+   */
+  maxConcurrentPercentage?: number;
+  /**
+   * @remarks
+   * The regions in the order of operation execution.
+   */
+  regionIdsOrder?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      failureToleranceCount: 'FailureToleranceCount',
+      failureTolerancePercentage: 'FailureTolerancePercentage',
+      maxConcurrentCount: 'MaxConcurrentCount',
+      maxConcurrentPercentage: 'MaxConcurrentPercentage',
+      regionIdsOrder: 'RegionIdsOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failureToleranceCount: 'number',
+      failureTolerancePercentage: 'number',
+      maxConcurrentCount: 'number',
+      maxConcurrentPercentage: 'number',
+      regionIdsOrder: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regionIdsOrder)) {
+      $dara.Model.validateArray(this.regionIdsOrder);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDriftDetectionDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The number of stack instances for which drift detection was canceled.
+   * 
+   * @example
+   * 0
+   */
+  cancelledStackInstancesCount?: number;
+  /**
+   * @remarks
+   * The drift detection state.
+   * 
+   * Valid values:
+   * 
+   * *   COMPLETED: Drift detection is performed on the stack group and all stack instances passed the drift detection.
+   * *   FAILED: Drift detection is performed on the stack group. The number of stack instances that failed the drift detection exceeds the specified threshold.
+   * *   PARTIAL_SUCCESS: Drift detection is performed on the stack group. The number of stack instances that failed the drift detection does not exceed the specified threshold.
+   * *   IN_PROGRESS: Drift detection is being performed on the stack group.
+   * *   STOPPED: Drift detection is canceled for the stack group.
+   * 
+   * @example
+   * COMPLETED
+   */
+  driftDetectionStatus?: string;
+  /**
+   * @remarks
+   * The time when drift detection was performed.
+   * 
+   * @example
+   * 2020-02-27T07:47:47
+   */
+  driftDetectionTime?: string;
+  /**
+   * @remarks
+   * The number of stack instances that have drifted.
+   * 
+   * @example
+   * 1
+   */
+  driftedStackInstancesCount?: number;
+  /**
+   * @remarks
+   * The number of stack instances that failed drift detection.
+   * 
+   * @example
+   * 0
+   */
+  failedStackInstancesCount?: number;
+  /**
+   * @remarks
+   * The number of stack instances on which drift detection was being performed.
+   * 
+   * @example
+   * 0
+   */
+  inProgressStackInstancesCount?: number;
+  /**
+   * @remarks
+   * The number of stack instances that were being synchronized.
+   * 
+   * @example
+   * 1
+   */
+  inSyncStackInstancesCount?: number;
+  /**
+   * @remarks
+   * The drift state of the stack group.
+   * 
+   * Valid values:
+   * 
+   * *   DRIFTED: At least one stack instance in the stack group has drifted.
+   * *   NOT_CHECKED: No successful drift detection is performed in the stack group.
+   * *   IN_SYNC: All the stack instances in the stack group are being synchronized.
+   * 
+   * @example
+   * DRIFTED
+   */
+  stackGroupDriftStatus?: string;
+  /**
+   * @remarks
+   * The number of stack instances.
+   * 
+   * @example
+   * 2
+   */
+  totalStackInstancesCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cancelledStackInstancesCount: 'CancelledStackInstancesCount',
+      driftDetectionStatus: 'DriftDetectionStatus',
+      driftDetectionTime: 'DriftDetectionTime',
+      driftedStackInstancesCount: 'DriftedStackInstancesCount',
+      failedStackInstancesCount: 'FailedStackInstancesCount',
+      inProgressStackInstancesCount: 'InProgressStackInstancesCount',
+      inSyncStackInstancesCount: 'InSyncStackInstancesCount',
+      stackGroupDriftStatus: 'StackGroupDriftStatus',
+      totalStackInstancesCount: 'TotalStackInstancesCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cancelledStackInstancesCount: 'number',
+      driftDetectionStatus: 'string',
+      driftDetectionTime: 'string',
+      driftedStackInstancesCount: 'number',
+      failedStackInstancesCount: 'number',
+      inProgressStackInstancesCount: 'number',
+      inSyncStackInstancesCount: 'number',
+      stackGroupDriftStatus: 'string',
+      totalStackInstancesCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackGroupOperationResponseBodyStackGroupOperation extends $dara.Model {
+  /**
+   * @remarks
+   * The operation type.
+   * 
+   * Valid values:
+   * 
+   * *   CREATE
+   * *   UPDATE
+   * *   DELETE
+   * *   DETECT_DRIFT
+   * 
+   * @example
+   * DELETE
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The name of the RAM role that you specify for the administrator account when you create the self-managed stack group. ROS assumes the administrator role to perform operations. If this parameter is not specified, the default value AliyunROSStackGroupAdministrationRole is returned.
+   * 
+   * @example
+   * AliyunROSStackGroupAdministrationRole
+   */
+  administrationRoleName?: string;
+  /**
+   * @remarks
+   * The time when the operation was initiated.
+   * 
+   * @example
+   * 2020-01-20T09:22:3
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The destinations to deploy stack instances when the stack is granted service-managed permissions.
+   */
+  deploymentTargets?: GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets;
+  /**
+   * @remarks
+   * The time when the operation ended.
+   * 
+   * @example
+   * 2020-01-20T09:22:4
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The name of the RAM role that you specify for the execution account when you create the self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role to perform operations. If this parameter is not specified, the default value AliyunROSStackGroupExecutionRole is returned.
+   * 
+   * @example
+   * AliyunROSStackGroupExecutionRole
+   */
+  executionRoleName?: string;
+  /**
+   * @remarks
+   * The description of the operation.
+   * 
+   * > This parameter is returned only if OperationDescription is specified when the [CreateStackInstances](https://help.aliyun.com/document_detail/151338.html) operation is called to create stack instances.
+   * 
+   * @example
+   * Create stack instance in hangzhou
+   */
+  operationDescription?: string;
+  /**
+   * @remarks
+   * The operation ID.
+   * 
+   * @example
+   * 6da106ca-1784-4a6f-a7e1-e723863d****
+   */
+  operationId?: string;
+  /**
+   * @remarks
+   * The operation settings.
+   */
+  operationPreferences?: GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences;
+  /**
+   * @remarks
+   * Indicates whether stacks are retained when the associated stack instances are deleted. When you delete a stack instance, you can choose to delete or retain the stack with which the stack instance is associated.
+   * 
+   * Valid values:
+   * 
+   * *   true: Stacks are retained when the associated stack instances are deleted.
+   * *   false: Stacks are deleted when the associated stack instances are deleted. Proceed with caution.
+   * 
+   * > This parameter is returned only if you delete stack instances.
+   * 
+   * @example
+   * true
+   */
+  retainStacks?: boolean;
+  /**
+   * @remarks
+   * The information about drift detection.
+   * 
+   * > This parameter is returned only if drift detection is performed.
+   */
+  stackGroupDriftDetectionDetail?: GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDriftDetectionDetail;
+  /**
+   * @remarks
+   * The ID of the stack group.
+   * 
+   * @example
+   * fd0ddef9-9540-4b42-a464-94f77835****
+   */
+  stackGroupId?: string;
+  /**
+   * @remarks
+   * The name of the stack group.
+   * 
+   * @example
+   * MyStackGroup
+   */
+  stackGroupName?: string;
+  /**
+   * @remarks
+   * The state of the operation.
+   * 
+   * Valid values:
+   * 
+   * *   RUNNING
+   * *   SUCCEEDED
+   * *   FAILED
+   * *   STOPPING
+   * *   STOPPED
+   * 
+   * @example
+   * SUCCEEDED
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      administrationRoleName: 'AdministrationRoleName',
+      createTime: 'CreateTime',
+      deploymentTargets: 'DeploymentTargets',
+      endTime: 'EndTime',
+      executionRoleName: 'ExecutionRoleName',
+      operationDescription: 'OperationDescription',
+      operationId: 'OperationId',
+      operationPreferences: 'OperationPreferences',
+      retainStacks: 'RetainStacks',
+      stackGroupDriftDetectionDetail: 'StackGroupDriftDetectionDetail',
+      stackGroupId: 'StackGroupId',
+      stackGroupName: 'StackGroupName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      administrationRoleName: 'string',
+      createTime: 'string',
+      deploymentTargets: GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets,
+      endTime: 'string',
+      executionRoleName: 'string',
+      operationDescription: 'string',
+      operationId: 'string',
+      operationPreferences: GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences,
+      retainStacks: 'boolean',
+      stackGroupDriftDetectionDetail: GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDriftDetectionDetail,
+      stackGroupId: 'string',
+      stackGroupName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.deploymentTargets && typeof (this.deploymentTargets as any).validate === 'function') {
+      (this.deploymentTargets as any).validate();
+    }
+    if(this.operationPreferences && typeof (this.operationPreferences as any).validate === 'function') {
+      (this.operationPreferences as any).validate();
+    }
+    if(this.stackGroupDriftDetectionDetail && typeof (this.stackGroupDriftDetectionDetail as any).validate === 'function') {
+      (this.stackGroupDriftDetectionDetail as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackInstanceResponseBodyStackInstanceParameterOverrides extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the parameter that is used to override a specific parameter.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of the parameter that is used to override a specific parameter.
+   * 
+   * @example
+   * 1
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackInstanceResponseBodyStackInstance extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the destination account to which the stack belongs.
+   * 
+   * @example
+   * 151266687691****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * The time when the most recent successful drift detection was performed on the stack group.
+   * 
+   * > This parameter is returned only if drift detection is performed on the stack group.
+   * 
+   * @example
+   * 2020-02-27T07:47:47
+   */
+  driftDetectionTime?: string;
+  /**
+   * @remarks
+   * The outputs of the stack.
+   * 
+   * >  This parameter is returned if OutputOption is set to Enabled.
+   */
+  outputs?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The parameters that are used to override specific parameters.
+   */
+  parameterOverrides?: GetStackInstanceResponseBodyStackInstanceParameterOverrides[];
+  /**
+   * @remarks
+   * The ID of the folder in the resource directory.
+   * 
+   * > This parameter is returned only if the stack group is granted service-managed permissions.
+   * 
+   * @example
+   * fd-4PvlVLOL8v
+   */
+  rdFolderId?: string;
+  /**
+   * @remarks
+   * The region ID of the stack.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The state of the stack when the most recent successful drift detection was performed on the stack group.
+   * 
+   * Valid values:
+   * 
+   * *   DRIFTED: The stack has drifted.
+   * *   NOT_CHECKED: No successful drift detection is performed on the stack.
+   * *   IN_SYNC: The stack is being synchronized.
+   * 
+   * > This parameter is returned only if drift detection is performed on the stack group.
+   * 
+   * @example
+   * IN_SYNC
+   */
+  stackDriftStatus?: string;
+  /**
+   * @remarks
+   * The ID of the stack group.
+   * 
+   * @example
+   * fd0ddef9-9540-4b42-a464-94f77835****
+   */
+  stackGroupId?: string;
+  /**
+   * @remarks
+   * The name of the stack group.
+   * 
+   * @example
+   * MyStackGroup
+   */
+  stackGroupName?: string;
+  /**
+   * @remarks
+   * The stack ID.
+   * 
+   * > This parameter is returned only if the stack is in the CURRENT state.
+   * 
+   * @example
+   * 35ad60e3-6a92-42d8-8812-f0700d45****
+   */
+  stackId?: string;
+  /**
+   * @remarks
+   * The state of the stack.
+   * 
+   * Valid values:
+   * 
+   * *   CURRENT: The stack is up-to-date with the stack group.
+   * 
+   * *   OUTDATED: The stack is not up-to-date with the stack group. Stacks are in the OUTDATED state due to the following possible reasons:
+   * 
+   *     *   When the CreateStackInstances operation is called to create stacks, the stacks fail to be created.
+   *     *   When the UpdateStackInstances or UpdateStackGroup operation is called to update stacks, the stacks fail to be updated, or only specific stacks are updated.
+   *     *   The creation or update operation is not complete.
+   * 
+   * @example
+   * CURRENT
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The reason why the stack instance is in the OUTDATED state.
+   * 
+   * > This parameter is returned only if the stack instance is in the OUTDATED state.
+   * 
+   * @example
+   * User initiated stop
+   */
+  statusReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      driftDetectionTime: 'DriftDetectionTime',
+      outputs: 'Outputs',
+      parameterOverrides: 'ParameterOverrides',
+      rdFolderId: 'RdFolderId',
+      regionId: 'RegionId',
+      stackDriftStatus: 'StackDriftStatus',
+      stackGroupId: 'StackGroupId',
+      stackGroupName: 'StackGroupName',
+      stackId: 'StackId',
+      status: 'Status',
+      statusReason: 'StatusReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      driftDetectionTime: 'string',
+      outputs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      parameterOverrides: { 'type': 'array', 'itemType': GetStackInstanceResponseBodyStackInstanceParameterOverrides },
+      rdFolderId: 'string',
+      regionId: 'string',
+      stackDriftStatus: 'string',
+      stackGroupId: 'string',
+      stackGroupName: 'string',
+      stackId: 'string',
+      status: 'string',
+      statusReason: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.outputs)) {
+      $dara.Model.validateArray(this.outputs);
+    }
+    if(Array.isArray(this.parameterOverrides)) {
+      $dara.Model.validateArray(this.parameterOverrides);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResourceResponseBodyModuleInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The concatenated logical IDs of one or more modules that contain the resource. The modules are listed from the outermost layer and separated by forward slashes (`/`).
+   * 
+   * In the following example, the resource is created from Module B nested within Parent Module A:
+   * 
+   * `moduleA/moduleB`
+   * 
+   * @example
+   * moduleA/moduleB
+   */
+  logicalIdHierarchy?: string;
+  /**
+   * @remarks
+   * The concatenated types of one or more modules that contain the resource. The module types are listed from the outermost layer and separated by forward slashes (`/`).
+   * 
+   * In the following example, the resource is created from a module of the `MODULE::ROS::Child::Example` type that is nested within a parent module of the `MODULE::ROS::Parent::Example` type:
+   * 
+   * `MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example`
+   * 
+   * @example
+   * MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example
+   */
+  typeHierarchy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logicalIdHierarchy: 'LogicalIdHierarchy',
+      typeHierarchy: 'TypeHierarchy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logicalIdHierarchy: 'string',
+      typeHierarchy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateResponseBodyPermissions extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account with which the template is shared.
+   * 
+   * @example
+   * 142437958638****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * The sharing option.
+   * 
+   * The value ShareToAccounts indicates that the template is shared with one or more Alibaba Cloud accounts.
+   * 
+   * @example
+   * ShareToAccounts
+   */
+  shareOption?: string;
+  /**
+   * @remarks
+   * The service that is used for resource sharing. Valid values:
+   * 
+   * - ROS: Resources are shared from ROS by using the ROS console or calling the ROS API.
+   * - ResourceDirectory: Resources are shared with accounts in a resource directory from Resource Management by using the resource sharing feature.
+   * > -  The number of accounts with which resources are shared from ROS is independent of the number of accounts with which resources are shared from the resource directory.
+   * > -  The shared resources from ROS cannot override or overwrite the shared resources from the resource directory.
+   * > -  The shared resources from the resource directory can overwrite the shared resources from ROS.
+   * 
+   * @example
+   * ROS
+   */
+  shareSource?: string;
+  /**
+   * @remarks
+   * The version of the shared template. This parameter is returned only if you set ShareOption to ShareToAccounts and set VersionOption to Specified or Current.
+   * 
+   * Valid values: v1 to v100.
+   * 
+   * @example
+   * v1
+   */
+  templateVersion?: string;
+  /**
+   * @remarks
+   * The version option for the shared template. This parameter is returned only if you set ShareOption to ShareToAccounts.
+   * 
+   * Valid values:
+   * 
+   * *   AllVersions: All template versions are shared.
+   * *   Latest: Only the latest template version is shared. When the version of the template is updated, Resource Orchestration Service (ROS) updates the shared version to the latest version.
+   * *   Current: Only the latest template version is shared. When the version of the template is updated, ROS does not update the shared version.
+   * *   Specified: Only the specified template version is shared.
+   * 
+   * @example
+   * AllVersions
+   */
+  versionOption?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      shareOption: 'ShareOption',
+      shareSource: 'ShareSource',
+      templateVersion: 'TemplateVersion',
+      versionOption: 'VersionOption',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      shareOption: 'string',
+      shareSource: 'string',
+      templateVersion: 'string',
+      versionOption: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the template.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the template.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateEstimateCostRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Name
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * Details of the resource.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DemoEip
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The name of parameter N in the template.
+   * 
+   * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterKey parameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ZoneInfo
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N in the template.
+   * 
+   * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterValue parameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsShrinkRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The name of parameter N in the template.
+   * 
+   * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterKey parameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ZoneInfo
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N in the template.
+   * 
+   * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterValue parameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the resource property.
+   * 
+   * @example
+   * InstanceName
+   */
+  propertyName?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ALIYUN::ECS::InstanceGroup
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyName: 'PropertyName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints extends $dara.Model {
+  /**
+   * @remarks
+   * The values of the parameter.
+   */
+  allowedValues?: any[];
+  behavior?: string;
+  behaviorReason?: string;
+  /**
+   * @remarks
+   * The name of the resource property.
+   * 
+   * @example
+   * ZoneId
+   */
+  propertyName?: string;
+  /**
+   * @remarks
+   * The name of the resource that is defined in the template.
+   * 
+   * @example
+   * MyECS
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ALIYUN::ECS::InstanceGroup
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedValues: 'AllowedValues',
+      behavior: 'Behavior',
+      behaviorReason: 'BehaviorReason',
+      propertyName: 'PropertyName',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedValues: { 'type': 'array', 'itemType': 'any' },
+      behavior: 'string',
+      behaviorReason: 'string',
+      propertyName: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowedValues)) {
+      $dara.Model.validateArray(this.allowedValues);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors extends $dara.Model {
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * ALIYUN::ECS::InstanceGroup
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * MyECS
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * InstanceType is needed while query DataDisk
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails extends $dara.Model {
+  errorMessage?: string;
+  resourceName?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsResponseBodyParameterConstraints extends $dara.Model {
+  /**
+   * @remarks
+   * The values of the parameter.
+   */
+  allowedValues?: string[];
+  /**
+   * @remarks
+   * The names of the associated parameters.
+   */
+  associationParameterNames?: string[];
+  /**
+   * @remarks
+   * The behavior of the parameter. Valid values:
+   * 
+   * *   NoLimit: No limit is imposed on the value of this parameter.
+   * *   NotSupport: The value of this parameter cannot be queried.
+   * *   QueryError: This parameter failed to be queried.
+   * 
+   * > If AllowedValues is not returned, Behavior and BehaviorReason are returned.
+   * 
+   * @example
+   * NoLimit
+   */
+  behavior?: string;
+  /**
+   * @remarks
+   * The reason why the behavior of the parameter is returned.
+   * 
+   * @example
+   * No resource property refer to the parameter
+   */
+  behaviorReason?: string;
+  /**
+   * @remarks
+   * The values that do not conform to the parameter constraints.
+   * 
+   * > If AllowedValues is returned, IllegalValueByParameterConstraints and IllegalValueByRules are returned at the same time.
+   */
+  illegalValueByParameterConstraints?: any[];
+  /**
+   * @remarks
+   * The values that do not match the rules in the template.
+   * 
+   * > If AllowedValues is returned, IllegalValueByParameterConstraints and IllegalValueByRules are returned at the same time.
+   */
+  illegalValueByRules?: any[];
+  /**
+   * @remarks
+   * The unsupported resource in the template.
+   */
+  notSupportResources?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources[];
+  /**
+   * @remarks
+   * The original constraint information.
+   */
+  originalConstraints?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints[];
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * ZoneInfo
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The error that is returned when the request fails.
+   */
+  queryErrors?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors[];
+  queryTimeoutDetails?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails[];
+  /**
+   * @remarks
+   * The data type of the parameter.
+   * 
+   * @example
+   * String
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedValues: 'AllowedValues',
+      associationParameterNames: 'AssociationParameterNames',
+      behavior: 'Behavior',
+      behaviorReason: 'BehaviorReason',
+      illegalValueByParameterConstraints: 'IllegalValueByParameterConstraints',
+      illegalValueByRules: 'IllegalValueByRules',
+      notSupportResources: 'NotSupportResources',
+      originalConstraints: 'OriginalConstraints',
+      parameterKey: 'ParameterKey',
+      queryErrors: 'QueryErrors',
+      queryTimeoutDetails: 'QueryTimeoutDetails',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedValues: { 'type': 'array', 'itemType': 'string' },
+      associationParameterNames: { 'type': 'array', 'itemType': 'string' },
+      behavior: 'string',
+      behaviorReason: 'string',
+      illegalValueByParameterConstraints: { 'type': 'array', 'itemType': 'any' },
+      illegalValueByRules: { 'type': 'array', 'itemType': 'any' },
+      notSupportResources: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources },
+      originalConstraints: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints },
+      parameterKey: 'string',
+      queryErrors: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors },
+      queryTimeoutDetails: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowedValues)) {
+      $dara.Model.validateArray(this.allowedValues);
+    }
+    if(Array.isArray(this.associationParameterNames)) {
+      $dara.Model.validateArray(this.associationParameterNames);
+    }
+    if(Array.isArray(this.illegalValueByParameterConstraints)) {
+      $dara.Model.validateArray(this.illegalValueByParameterConstraints);
+    }
+    if(Array.isArray(this.illegalValueByRules)) {
+      $dara.Model.validateArray(this.illegalValueByRules);
+    }
+    if(Array.isArray(this.notSupportResources)) {
+      $dara.Model.validateArray(this.notSupportResources);
+    }
+    if(Array.isArray(this.originalConstraints)) {
+      $dara.Model.validateArray(this.originalConstraints);
+    }
+    if(Array.isArray(this.queryErrors)) {
+      $dara.Model.validateArray(this.queryErrors);
+    }
+    if(Array.isArray(this.queryTimeoutDetails)) {
+      $dara.Model.validateArray(this.queryTimeoutDetails);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateRecommendParametersRequestParameters extends $dara.Model {
+  parameterCandidateValues?: string[];
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterCandidateValues: 'ParameterCandidateValues',
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterCandidateValues: { 'type': 'array', 'itemType': 'string' },
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.parameterCandidateValues)) {
+      $dara.Model.validateArray(this.parameterCandidateValues);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateRecommendParametersResponseBodyRecommendParameterValues extends $dara.Model {
+  parameterKey?: string;
+  recommendValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      recommendValue: 'RecommendValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      recommendValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * @example
+   * DeletionPolicy
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The parameter value.
+   * 
+   * @example
+   * Retain
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the source resource group.
+   * 
+   * @example
+   * rg-acfmzawhxxc****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The resource type filters.
+   */
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceTypeFilter)) {
+      $dara.Model.validateArray(this.resourceTypeFilter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponseBodyTemplateScratchSourceResources extends $dara.Model {
+  /**
+   * @remarks
+   * The related resource type filters.
+   */
+  relatedResourceTypeFilter?: string[];
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * vpc-m5e7cv7e9mz69sszb****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ALIYUN::ECS::VPC
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      relatedResourceTypeFilter: 'RelatedResourceTypeFilter',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      relatedResourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.relatedResourceTypeFilter)) {
+      $dara.Model.validateArray(this.relatedResourceTypeFilter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponseBodyTemplateScratchSourceTag extends $dara.Model {
+  /**
+   * @remarks
+   * The source tags.
+   * 
+   * @example
+   * {"a": "b"}
+   */
+  resourceTags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The resource type filters.
+   */
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceTags: 'ResourceTags',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.resourceTags) {
+      $dara.Model.validateMap(this.resourceTags);
+    }
+    if(Array.isArray(this.resourceTypeFilter)) {
+      $dara.Model.validateArray(this.resourceTypeFilter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponseBodyTemplateScratchStackProvision extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the resource is replicated by calling the [CreateStack](https://help.aliyun.com/document_detail/132086.html) operation. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  creatable?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the resource is managed by calling the [CreateChangeSet](https://help.aliyun.com/document_detail/131051.html) operation. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  importable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      creatable: 'Creatable',
+      importable: 'Importable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creatable: 'boolean',
+      importable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponseBodyTemplateScratchStacks extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID of the stack.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The stack ID.
+   * 
+   * @example
+   * 3708bf6a-3a67-44d4-9eb1-c56704b9****
+   */
+  stackId?: string;
+  /**
+   * @remarks
+   * The purpose of the stack. Valid values:
+   * 
+   * *   ResourceImport: resource management
+   * *   ArchitectureReplication: resource replication
+   * 
+   * @example
+   * ArchitectureReplication
+   */
+  usageType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      stackId: 'StackId',
+      usageType: 'UsageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      stackId: 'string',
+      usageType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponseBodyTemplateScratch extends $dara.Model {
+  /**
+   * @remarks
+   * The time at which the resource scenario was created.
+   * 
+   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2021-12-22T01:49:22
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The description of the resource scenario.
+   * 
+   * @example
+   * The description of the resource scenario.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The status code of the resource scenario that fails to be created.
+   * 
+   * > This parameter is returned only if you set Status to GENERATE_FAILED.
+   * 
+   * @example
+   * InvalidZoneId
+   */
+  failedCode?: string;
+  /**
+   * @remarks
+   * The policy based on which the logical ID is generated. Valid values:
+   * 
+   * *   LongTypePrefixAndIndexSuffix (default): long-type prefix + index-type suffix
+   * *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
+   * *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
+   * 
+   * @example
+   * LongTypePrefixAndIndexSuffix
+   */
+  logicalIdStrategy?: string;
+  /**
+   * @remarks
+   * The preference parameters of the resource scenario.
+   */
+  preferenceParameters?: GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters[];
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmzmhzoaad5oq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The source resource group.
+   */
+  sourceResourceGroup?: GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup;
+  /**
+   * @remarks
+   * The source resources.
+   */
+  sourceResources?: GetTemplateScratchResponseBodyTemplateScratchSourceResources[];
+  /**
+   * @remarks
+   * The source tag.
+   */
+  sourceTag?: GetTemplateScratchResponseBodyTemplateScratchSourceTag;
+  /**
+   * @remarks
+   * The preset information of the stack.
+   */
+  stackProvision?: GetTemplateScratchResponseBodyTemplateScratchStackProvision;
+  /**
+   * @remarks
+   * The stacks that are associated with the resource scenario.
+   */
+  stacks?: GetTemplateScratchResponseBodyTemplateScratchStacks[];
+  /**
+   * @remarks
+   * The state of the resource scenario. Valid values:
+   * 
+   * *   GENERATE_IN_PROGRESS: The resource scenario is being created.
+   * *   GENERATE_COMPLETE: The resource scenario is created.
+   * *   GENERATE_FAILED: The resource scenario fails to be created.
+   * 
+   * @example
+   * GENERATE_COMPLETE
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The reason why the resource scenario fails to be created.
+   * 
+   * > This parameter is returned only if you set Status to GENERATE_FAILED.
+   * 
+   * @example
+   * Resource ALIYUN::ECS::VPC vpc-m5eauuq80anx59v28**** could not be found for template scratch.
+   */
+  statusReason?: string;
+  /**
+   * @remarks
+   * The resource scenario data.
+   */
+  templateScratchData?: { [key: string]: any };
+  /**
+   * @remarks
+   * The ID of the resource scenario.
+   * 
+   * @example
+   * ts-7f7a704cf71c49a6****
+   */
+  templateScratchId?: string;
+  /**
+   * @remarks
+   * The type of the resource scenario. Valid values:
+   * 
+   * *   ResourceImport: resource management
+   * *   ArchitectureReplication: resource replication
+   * 
+   * @example
+   * ArchitectureReplication
+   */
+  templateScratchType?: string;
+  /**
+   * @remarks
+   * The time at which the resource scenario was updated.
+   * 
+   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2021-12-22T01:49:23
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      failedCode: 'FailedCode',
+      logicalIdStrategy: 'LogicalIdStrategy',
+      preferenceParameters: 'PreferenceParameters',
+      resourceGroupId: 'ResourceGroupId',
+      sourceResourceGroup: 'SourceResourceGroup',
+      sourceResources: 'SourceResources',
+      sourceTag: 'SourceTag',
+      stackProvision: 'StackProvision',
+      stacks: 'Stacks',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      templateScratchData: 'TemplateScratchData',
+      templateScratchId: 'TemplateScratchId',
+      templateScratchType: 'TemplateScratchType',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      failedCode: 'string',
+      logicalIdStrategy: 'string',
+      preferenceParameters: { 'type': 'array', 'itemType': GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters },
+      resourceGroupId: 'string',
+      sourceResourceGroup: GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup,
+      sourceResources: { 'type': 'array', 'itemType': GetTemplateScratchResponseBodyTemplateScratchSourceResources },
+      sourceTag: GetTemplateScratchResponseBodyTemplateScratchSourceTag,
+      stackProvision: GetTemplateScratchResponseBodyTemplateScratchStackProvision,
+      stacks: { 'type': 'array', 'itemType': GetTemplateScratchResponseBodyTemplateScratchStacks },
+      status: 'string',
+      statusReason: 'string',
+      templateScratchData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateScratchId: 'string',
+      templateScratchType: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.preferenceParameters)) {
+      $dara.Model.validateArray(this.preferenceParameters);
+    }
+    if(this.sourceResourceGroup && typeof (this.sourceResourceGroup as any).validate === 'function') {
+      (this.sourceResourceGroup as any).validate();
+    }
+    if(Array.isArray(this.sourceResources)) {
+      $dara.Model.validateArray(this.sourceResources);
+    }
+    if(this.sourceTag && typeof (this.sourceTag as any).validate === 'function') {
+      (this.sourceTag as any).validate();
+    }
+    if(this.stackProvision && typeof (this.stackProvision as any).validate === 'function') {
+      (this.stackProvision as any).validate();
+    }
+    if(Array.isArray(this.stacks)) {
+      $dara.Model.validateArray(this.stacks);
+    }
+    if(this.templateScratchData) {
+      $dara.Model.validateMap(this.templateScratchData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateSummaryRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The name of parameter N that is defined in the template. If you do not specify the name and value of a parameter, Resource Orchestration Service (ROS) uses the default name and value that are defined in the template.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * > The Parameters parameter is optional. If you specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+   * 
+   * @example
+   * InstanceId
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N that is defined in the template.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * > The Parameters parameter is optional. If you specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+   * 
+   * @example
+   * i-rotp2e20whfrs2****
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateSummaryResponseBodyResourceIdentifierSummaries extends $dara.Model {
+  /**
+   * @remarks
+   * The logical IDs of all resources of the type that is specified by ResouceType in the template.
+   */
+  logicalResourceIds?: string[];
+  /**
+   * @remarks
+   * The resource properties. You can use a resource property to identify the resource that you want to manage. For example, VpcId is an identifier property of ALIYUN::ECS::VPC.
+   */
+  resourceIdentifiers?: string[];
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * > The resource import feature is supported for the resource type.
+   * 
+   * @example
+   * ALIYUN::ECS::VPC
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logicalResourceIds: 'LogicalResourceIds',
+      resourceIdentifiers: 'ResourceIdentifiers',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logicalResourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceIdentifiers: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.logicalResourceIds)) {
+      $dara.Model.validateArray(this.logicalResourceIds);
+    }
+    if(Array.isArray(this.resourceIdentifiers)) {
+      $dara.Model.validateArray(this.resourceIdentifiers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAITaskEventsResponseBodyEvents extends $dara.Model {
+  /**
+   * @example
+   * GenerateTemplateAgent
+   */
+  agentType?: string;
+  /**
+   * @example
+   * 2019-08-01T04:07:39
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 60
+   */
+  estimatedProcessingTime?: string;
+  /**
+   * @example
+   * Document template generator started.
+   */
+  eventData?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  handlerProcessStatus?: string;
+  /**
+   * @example
+   * ROSTemplateGenerator
+   */
+  handlerType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentType: 'AgentType',
+      createTime: 'CreateTime',
+      estimatedProcessingTime: 'EstimatedProcessingTime',
+      eventData: 'EventData',
+      handlerProcessStatus: 'HandlerProcessStatus',
+      handlerType: 'HandlerType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentType: 'string',
+      createTime: 'string',
+      estimatedProcessingTime: 'string',
+      eventData: 'string',
+      handlerProcessStatus: 'string',
+      handlerType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAITasksResponseBodyTasks extends $dara.Model {
+  /**
+   * @example
+   * 2023-03-15T03:15:53
+   */
+  createTime?: string;
+  prompt?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  status?: string;
+  /**
+   * @example
+   * Handler execution unexpected failure
+   */
+  statusReason?: string;
+  /**
+   * @example
+   * t-asasas*****
+   */
+  taskId?: string;
+  /**
+   * @example
+   * GenerateTemplate
+   */
+  taskType?: string;
+  /**
+   * @example
+   * 2023-11-20T22:00:50
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      prompt: 'Prompt',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      prompt: 'string',
+      status: 'string',
+      statusReason: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChangeSetsResponseBodyChangeSets extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the change set.
+   * 
+   * @example
+   * 1f6521a4-05af-4975-afe9-bc4b45ad****
+   */
+  changeSetId?: string;
+  /**
+   * @remarks
+   * The name of the change set.
+   * 
+   * @example
+   * MyChangeSet
+   */
+  changeSetName?: string;
+  /**
+   * @remarks
+   * The type of the change set.
+   * 
+   * @example
+   * UPDATE
+   */
+  changeSetType?: string;
+  /**
+   * @remarks
+   * The time when the change set was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2019-08-01T05:16:31
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The description of the change set.
+   * 
+   * @example
+   * It is a demo.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The execution status of the change set.
+   * 
+   * @example
+   * AVAILABLE
+   */
+  executionStatus?: string;
+  /**
+   * @remarks
+   * The region ID of the change set.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the stack with which the change set is associated.
+   * 
+   * @example
+   * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+   */
+  stackId?: string;
+  /**
+   * @remarks
+   * The name of the stack with which the change set is associated.
+   * 
+   * @example
+   * MyStack
+   */
+  stackName?: string;
+  /**
+   * @remarks
+   * The status of the change set.
+   * 
+   * @example
+   * CREATE_COMPLETE
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The reason why the change set is in its current state.
+   * 
+   * @example
+   * too many changes
+   */
+  statusReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeSetId: 'ChangeSetId',
+      changeSetName: 'ChangeSetName',
+      changeSetType: 'ChangeSetType',
+      createTime: 'CreateTime',
+      description: 'Description',
+      executionStatus: 'ExecutionStatus',
+      regionId: 'RegionId',
+      stackId: 'StackId',
+      stackName: 'StackName',
+      status: 'Status',
+      statusReason: 'StatusReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeSetId: 'string',
+      changeSetName: 'string',
+      changeSetType: 'string',
+      createTime: 'string',
+      description: 'string',
+      executionStatus: 'string',
+      regionId: 'string',
+      stackId: 'string',
+      stackName: 'string',
+      status: 'string',
+      statusReason: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDiagnosticsResponseBodyDiagnostics extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the diagnostic report was generated.
+   * 
+   * @example
+   * 2022-08-01T02:23:55
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The keyword in the diagnosis.
+   * 
+   * @example
+   * 047D84D9-D3EB-5DA8-87F1-9A7DD5598A5D
+   */
+  diagnosticKey?: string;
+  /**
+   * @remarks
+   * The product that is diagnosed.
+   * 
+   * @example
+   * ros
+   */
+  diagnosticProduct?: string;
+  /**
+   * @remarks
+   * The ID of the diagnostic report.
+   * 
+   * @example
+   * dr-2963bfbcac834f1a****
+   */
+  reportId?: string;
+  /**
+   * @remarks
+   * The diagnosis status.
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      diagnosticKey: 'DiagnosticKey',
+      diagnosticProduct: 'DiagnosticProduct',
+      reportId: 'ReportId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      diagnosticKey: 'string',
+      diagnosticProduct: 'string',
+      reportId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceTypeRegistrationsResponseBodyRegistrations extends $dara.Model {
+  /**
+   * @remarks
+   * The creation time. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * 
+   * @example
+   * 2023-03-02T07:28:35
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The entity type. Only Module may be returned.
+   * 
+   * @example
+   * Module
+   */
+  entityType?: string;
+  /**
+   * @remarks
+   * The ID of the registration record.
+   * 
+   * @example
+   * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+   */
+  registrationId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * MODULE::MyOrganization::MyService::MyUsecase
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The registration state. Valid values:
+   * 
+   * *   IN_PROGRESS: The registration is in progress.
+   * *   COMPLETE: The registration is successful.
+   * *   FAILED: The registration failed.
+   * 
+   * @example
+   * COMPLETE
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The reason for the state.
+   * 
+   * @example
+   * Module is created successfully
+   */
+  statusReason?: string;
+  /**
+   * @remarks
+   * The version ID.
+   * 
+   * @example
+   * v1
+   */
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      entityType: 'EntityType',
+      registrationId: 'RegistrationId',
+      resourceType: 'ResourceType',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      entityType: 'string',
+      registrationId: 'string',
+      resourceType: 'string',
+      status: 'string',
+      statusReason: 'string',
+      versionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceTypeVersionsResponseBodyResourceTypeVersions extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the version was created. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * 
+   * @example
+   * 2023-02-24T08:25:21
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The description of the version.
+   * 
+   * @example
+   * It is a demo.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The entity type. Only Module may be returned.
+   * 
+   * @example
+   * Module
+   */
+  entityType?: string;
+  /**
+   * @remarks
+   * Indicates whether the version is the default version. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  isDefaultVersion?: boolean;
+  /**
+   * @remarks
+   * The provider of the resource type. Valid values:
+   * 
+   * *   ROS: ROS
+   * *   Self: yourself
+   * 
+   * @example
+   * ROS
+   */
+  provider?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * MODULE::MyOrganization::MyService::MyUsecase
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The time when the version was updated. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * 
+   * @example
+   * 2023-02-24T08:25:21
+   */
+  updateTime?: string;
+  /**
+   * @remarks
+   * The version ID.
+   * 
+   * @example
+   * v1
+   */
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      entityType: 'EntityType',
+      isDefaultVersion: 'IsDefaultVersion',
+      provider: 'Provider',
+      resourceType: 'ResourceType',
+      updateTime: 'UpdateTime',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      entityType: 'string',
+      isDefaultVersion: 'boolean',
+      provider: 'string',
+      resourceType: 'string',
+      updateTime: 'string',
+      versionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceTypesResponseBodyResourceTypeSummaries extends $dara.Model {
+  /**
+   * @remarks
+   * The creation time. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * 
+   * @example
+   * 2023-02-24T08:25:21
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the default version.
+   * 
+   * @example
+   * v1
+   */
+  defaultVersionId?: string;
+  /**
+   * @remarks
+   * The description of the resource type.
+   * 
+   * @example
+   * It is a demo.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The entity type. Valid values:
+   * 
+   * *   Resource: regular resources.
+   * *   DataSource: DataSource resources.
+   * *   Module: modules.
+   * 
+   * @example
+   * Module
+   */
+  entityType?: string;
+  /**
+   * @remarks
+   * The ID of the latest version.
+   * 
+   * @example
+   * v10
+   */
+  latestVersionId?: string;
+  /**
+   * @remarks
+   * The provider of the resource type. Valid values:
+   * 
+   * *   ROS: The resource type is provided by ROS.
+   * *   Self: The resource type is provided by you.
+   * 
+   * @example
+   * ROS
+   */
+  provider?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * MODULE::MyOrganization::MyService::MyUsecase
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The number of versions.
+   * 
+   * @example
+   * 10
+   */
+  totalVersionCount?: number;
+  /**
+   * @remarks
+   * The update time. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * 
+   * @example
+   * 2023-02-24T08:25:21
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      defaultVersionId: 'DefaultVersionId',
+      description: 'Description',
+      entityType: 'EntityType',
+      latestVersionId: 'LatestVersionId',
+      provider: 'Provider',
+      resourceType: 'ResourceType',
+      totalVersionCount: 'TotalVersionCount',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      defaultVersionId: 'string',
+      description: 'string',
+      entityType: 'string',
+      latestVersionId: 'string',
+      provider: 'string',
+      resourceType: 'string',
+      totalVersionCount: 'number',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackEventsResponseBodyEvents extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the event was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2019-08-01T04:07:39
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The event ID.
+   * 
+   * @example
+   * 0086612d-77cf-4056-b0b5-ff8e94ad****
+   */
+  eventId?: string;
+  /**
+   * @remarks
+   * The logical ID of the resource. The logical ID indicates the name of the resource that is defined in the template.
+   * 
+   * @example
+   * WebServer
+   */
+  logicalResourceId?: string;
+  /**
+   * @remarks
+   * The physical ID of the resource.
+   * 
+   * @example
+   * i-m5e3tfdbinchnexh****
+   */
+  physicalResourceId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ALIYUN::ECS::Instance
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The stack ID.
+   * 
+   * @example
+   * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+   */
+  stackId?: string;
+  /**
+   * @remarks
+   * The stack name.
+   * 
+   * @example
+   * StackName
+   */
+  stackName?: string;
+  /**
+   * @remarks
+   * The state of the resource.
+   * 
+   * @example
+   * CREATE_COMPLETE
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The reason why the resource is in the current state.
+   * 
+   * @example
+   * state changed
+   */
+  statusReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      eventId: 'EventId',
+      logicalResourceId: 'LogicalResourceId',
+      physicalResourceId: 'PhysicalResourceId',
+      resourceType: 'ResourceType',
+      stackId: 'StackId',
+      stackName: 'StackName',
+      status: 'Status',
+      statusReason: 'StatusReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      eventId: 'string',
+      logicalResourceId: 'string',
+      physicalResourceId: 'string',
+      resourceType: 'string',
+      stackId: 'string',
+      stackName: 'string',
+      status: 'string',
+      statusReason: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackGroupOperationResultsResponseBodyStackGroupOperationResults extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the account to which the stack instance belongs.
+   * 
+   * *   If the stack group has self-managed permissions, the stack instance belongs to an Alibaba Cloud account.
+   * *   If the stack group has service-managed permissions, the stack instance belongs to a member account in the resource directory.
+   * 
+   * >  For more information about the account, see [Overview](https://help.aliyun.com/document_detail/154578.html).
+   * 
+   * @example
+   * 175458090349****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * The folder ID of the resource directory.
+   * 
+   * >  This parameter is returned only when the stack group is granted service-managed permissions.
+   * 
+   * @example
+   * "fd-4PvlVLOL8v"
+   */
+  rdFolderId?: string;
+  /**
+   * @remarks
+   * The region ID of the stack instance.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The status of the operation.
+   * 
+   * Valid values:
+   * 
+   * *   RUNNING: The operation is being performed.
+   * *   SUCCEEDED: The operation succeeded.
+   * *   FAILED: The operation failed.
+   * *   STOPPING: The operation is being stopped.
+   * *   STOPPED: The operation is stopped.
+   * 
+   * @example
+   * SUCCEEDED
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The reason why the operation is in a specific state.
+   * 
+   * >  This parameter is returned only when stack instances are in the OUTDATED state.
+   * 
+   * @example
+   * User initiated operation
+   */
+  statusReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      rdFolderId: 'RdFolderId',
+      regionId: 'RegionId',
+      status: 'Status',
+      statusReason: 'StatusReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      rdFolderId: 'string',
+      regionId: 'string',
+      status: 'string',
+      statusReason: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackGroupOperationsResponseBodyStackGroupOperations extends $dara.Model {
+  /**
+   * @remarks
+   * The operation type.
+   * 
+   * Valid values:
+   * 
+   * *   CREATE
+   * *   UPDATE
+   * *   DELETE
+   * *   DETECT_DRIFT
+   * 
+   * @example
+   * CREATE
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The time when the operation was initiated.
+   * 
+   * @example
+   * 2020-01-20T09:22:36.000000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The time when the operation ended.
+   * 
+   * @example
+   * 2020-01-20T09:22:41.000000
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The description of the operation.
+   * 
+   * @example
+   * Create stack instance in hangzhou
+   */
+  operationDescription?: string;
+  /**
+   * @remarks
+   * The operation ID.
+   * 
+   * @example
+   * 14A07460-EBE7-47CA-9757-12CC4761****
+   */
+  operationId?: string;
+  /**
+   * @remarks
+   * The ID of the stack group.
+   * 
+   * @example
+   * fd0ddef9-9540-4b42-a464-94f77835****
+   */
+  stackGroupId?: string;
+  /**
+   * @remarks
+   * The name of the stack group.
+   * 
+   * @example
+   * MyStackGroup
+   */
+  stackGroupName?: string;
+  /**
+   * @remarks
+   * The state of the operation.
+   * 
+   * Valid values:
+   * 
+   * *   RUNNING
+   * *   SUCCEEDED
+   * *   FAILED
+   * *   STOPPING
+   * *   STOPPED
+   * 
+   * @example
+   * SUCCEEDED
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      createTime: 'CreateTime',
+      endTime: 'EndTime',
+      operationDescription: 'OperationDescription',
+      operationId: 'OperationId',
+      stackGroupId: 'StackGroupId',
+      stackGroupName: 'StackGroupName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      createTime: 'string',
+      endTime: 'string',
+      operationDescription: 'string',
+      operationId: 'string',
+      stackGroupId: 'string',
+      stackGroupName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackGroupsRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag that is added to the stack group.
+   * 
+   * > Tags is optional. If you specify Tags, you must specify Tags.N.Key.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the stack group.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackGroupsResponseBodyStackGroupsAutoDeployment extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether automatic deployment is enabled.
+   * 
+   * Valid values:
+   * 
+   * *   true: Automatic deployment is enabled. If you add a member to the folder to which the stack group belongs after automatic deployment is enabled, Resource Orchestration Service (ROS) automatically adds the stack instances in the stack group to the specified region of the member. If you delete the member from the folder, ROS automatically deletes the stack instances in the stack group from the specified region of the member.
+   * *   false: Automatic deployment is disabled. After you disable automatic deployment, the stack instances remain unchanged when you change the member in the folder.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the stacks within a member are retained when you delete the member from the folder.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * > This parameter is returned only if Enabled is set to true.
+   * 
+   * @example
+   * true
+   */
+  retainStacksOnAccountRemoval?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      retainStacksOnAccountRemoval: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackGroupsResponseBodyStackGroupsTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag that is added to the stack group.
+   * 
+   * @example
+   * usage1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the stack group.
+   * 
+   * @example
+   * test1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackGroupsResponseBodyStackGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The information about automatic deployment settings.
+   */
+  autoDeployment?: ListStackGroupsResponseBodyStackGroupsAutoDeployment;
+  createTime?: string;
+  /**
+   * @remarks
+   * The description of the stack group.
+   * 
+   * @example
+   * My Stack Group
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The time when the most recent successful drift detection was performed on the stack group.
+   * 
+   * @example
+   * 2020-02-27T07:47:47
+   */
+  driftDetectionTime?: string;
+  /**
+   * @remarks
+   * The permission model of the stack group.
+   * 
+   * Valid values:
+   * 
+   * *   SELF_MANAGED
+   * *   SERVICE_MANAGED
+   * 
+   * > For more information about the permission models of stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
+   * 
+   * @example
+   * SELF_MANAGED
+   */
+  permissionModel?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmzawhxxcj****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The drift state of the stack group on which the most recent successful drift detection was performed.
+   * 
+   * Valid values:
+   * 
+   * *   DRIFTED: The stack group has drifted.
+   * *   NOT_CHECKED: No drift detection is performed on the stack group.
+   * *   IN_SYNC: No drifts are detected on the stack group.
+   * 
+   * @example
+   * IN_SYNC
+   */
+  stackGroupDriftStatus?: string;
+  /**
+   * @remarks
+   * The ID of the stack group.
+   * 
+   * @example
+   * fd0ddef9-9540-4b42-a464-94f77835****
+   */
+  stackGroupId?: string;
+  /**
+   * @remarks
+   * The name of the stack group.
+   * 
+   * @example
+   * MyStackGroup
+   */
+  stackGroupName?: string;
+  /**
+   * @remarks
+   * The state of the stack group.
+   * 
+   * Valid values:
+   * 
+   * *   ACTIVE
+   * *   DELETED
+   * 
+   * @example
+   * ACTIVE
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The tags that are added to the stack group.
+   */
+  tags?: ListStackGroupsResponseBodyStackGroupsTags[];
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoDeployment: 'AutoDeployment',
+      createTime: 'CreateTime',
+      description: 'Description',
+      driftDetectionTime: 'DriftDetectionTime',
+      permissionModel: 'PermissionModel',
+      resourceGroupId: 'ResourceGroupId',
+      stackGroupDriftStatus: 'StackGroupDriftStatus',
+      stackGroupId: 'StackGroupId',
+      stackGroupName: 'StackGroupName',
+      status: 'Status',
+      tags: 'Tags',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoDeployment: ListStackGroupsResponseBodyStackGroupsAutoDeployment,
+      createTime: 'string',
+      description: 'string',
+      driftDetectionTime: 'string',
+      permissionModel: 'string',
+      resourceGroupId: 'string',
+      stackGroupDriftStatus: 'string',
+      stackGroupId: 'string',
+      stackGroupName: 'string',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': ListStackGroupsResponseBodyStackGroupsTags },
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.autoDeployment && typeof (this.autoDeployment as any).validate === 'function') {
+      (this.autoDeployment as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackInstancesResponseBodyStackInstances extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the destination account to which the stack belongs.
+   * 
+   * @example
+   * 156552876021****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * The time when the last successful drift detection was performed on the stack.
+   * 
+   * > This parameter is returned only if drift detection is performed on the stack group.
+   * 
+   * @example
+   * 2020-02-27T07:47:47
+   */
+  driftDetectionTime?: string;
+  /**
+   * @remarks
+   * The ID of the folder in the resource directory.
+   * 
+   * > This parameter is returned only if the stack group is granted service-managed permissions.
+   * 
+   * @example
+   * fd-4PvlVLOL8v
+   */
+  rdFolderId?: string;
+  /**
+   * @remarks
+   * The region ID of the stack.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The state of the stack when the last successful drift detection was performed on the stack group.
+   * 
+   * Valid values:
+   * 
+   * *   DRIFTED: The stack has drifted.
+   * *   NOT_CHECKED: No successful drift detection is performed on the stack.
+   * *   IN_SYNC: The stack is being synchronized.
+   * 
+   * > This parameter is returned only if drift detection is performed on the stack group.
+   * 
+   * @example
+   * IN_SYNC
+   */
+  stackDriftStatus?: string;
+  /**
+   * @remarks
+   * The ID of the stack group.
+   * 
+   * @example
+   * fd0ddef9-9540-4b42-a464-94f77835****
+   */
+  stackGroupId?: string;
+  /**
+   * @remarks
+   * The name of the stack group.
+   * 
+   * @example
+   * MyStackGroup
+   */
+  stackGroupName?: string;
+  /**
+   * @remarks
+   * The stack ID.
+   * 
+   * > This parameter is returned only if the stack is in the CURRENT state.
+   * 
+   * @example
+   * 35ad60e3-6a92-42d8-8812-f0700d45****
+   */
+  stackId?: string;
+  /**
+   * @remarks
+   * The state of the stack.
+   * 
+   * Valid values:
+   * 
+   * *   CURRENT: The stack is up-to-date with the stack group.
+   * 
+   * *   OUTDATED: The stack is not up-to-date with the stack group. Stacks are in the OUTDATED state due to the following possible reasons:
+   * 
+   *     *   When the CreateStackInstances operation is called to create stacks, the stacks fail to be created.
+   *     *   When the UpdateStackInstances or UpdateStackGroup operation is called to update stacks, the stacks fail to be updated, or only specific stacks are updated.
+   *     *   The creation or update operation is not complete.
+   * 
+   * @example
+   * CURRENT
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The reason why the stack instance is in the OUTDATED state.
+   * 
+   * > This parameter is returned only if the stack instance is in the OUTDATED state.
+   * 
+   * @example
+   * User initiated stop
+   */
+  statusReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      driftDetectionTime: 'DriftDetectionTime',
+      rdFolderId: 'RdFolderId',
+      regionId: 'RegionId',
+      stackDriftStatus: 'StackDriftStatus',
+      stackGroupId: 'StackGroupId',
+      stackGroupName: 'StackGroupName',
+      stackId: 'StackId',
+      status: 'Status',
+      statusReason: 'StatusReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      driftDetectionTime: 'string',
+      rdFolderId: 'string',
+      regionId: 'string',
+      stackDriftStatus: 'string',
+      stackGroupId: 'string',
+      stackGroupName: 'string',
+      stackId: 'string',
+      status: 'string',
+      statusReason: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackOperationRisksResponseBodyRiskResources extends $dara.Model {
+  /**
+   * @remarks
+   * The error code that is returned when the risk detection fails.
+   * 
+   * >  This parameter is not returned if the risk detection is successful.
+   * 
+   * @example
+   * NoPermission
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The logical ID of the resource. The logical ID is the resource name that is defined in the template.
+   * 
+   * @example
+   * MySG
+   */
+  logicalResourceId?: string;
+  /**
+   * @remarks
+   * The error message that is returned when the risk detection fails.
+   * 
+   * >  This parameter is not returned if the risk detection is successful.
+   * 
+   * @example
+   * You are not authorized to complete this action.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The physical ID of the resource. The physical ID is the actual ID of the resource.
+   * 
+   * @example
+   * sg-bp1dpioafqphedg9****
+   */
+  physicalResourceId?: string;
+  /**
+   * @remarks
+   * The cause of the risk.
+   * 
+   * @example
+   * There are some ECS instances (i-bp18el96s4wq635e****) depending on the security group.
+   */
+  reason?: string;
+  /**
+   * @remarks
+   * The ID of the request when the risk detection fails.
+   * 
+   * >  This parameter is not returned if the risk detection is successful.
+   * 
+   * @example
+   * DF4296CF-F45F-4845-A72B-BE617601DB25
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ALIYUN::ECS::SecurityGroup
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The type of the risk. Valid values:
+   * 
+   * *   Referenced: The resource is referenced by other resources.
+   * *   MaybeReferenced: The resource may be referenced by other resources.
+   * *   AdditionalRiskCheckRequired: An additional risk detection is required for a nested stack.
+   * *   OperationIgnored: The operation does not take effect for the resource.
+   * 
+   * @example
+   * Referenced
+   */
+  riskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      logicalResourceId: 'LogicalResourceId',
+      message: 'Message',
+      physicalResourceId: 'PhysicalResourceId',
+      reason: 'Reason',
+      requestId: 'RequestId',
+      resourceType: 'ResourceType',
+      riskType: 'RiskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      logicalResourceId: 'string',
+      message: 'string',
+      physicalResourceId: 'string',
+      reason: 'string',
+      requestId: 'string',
+      resourceType: 'string',
+      riskType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackResourceDriftsResponseBodyResourceDriftsModuleInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The concatenated logical IDs of one or more modules that contain the resource. The modules are listed from the outermost layer and separated by forward slashes (`/`).
+   * 
+   * In the following example, the resource is created from Module B nested within Parent Module A:
+   * 
+   * `moduleA/moduleB`
+   * 
+   * @example
+   * moduleA/moduleB
+   */
+  logicalIdHierarchy?: string;
+  /**
+   * @remarks
+   * The concatenated types of one or more modules that contain the resource. The module types are listed from the outermost layer and separated by forward slashes (`/`).
+   * 
+   * In the following example, the resource is created from a module of the `MODULE::ROS::Child::Example` type that is nested within a parent module of the `MODULE::ROS::Parent::Example` type:
+   * 
+   * `MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example`
+   * 
+   * @example
+   * MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example
+   */
+  typeHierarchy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logicalIdHierarchy: 'LogicalIdHierarchy',
+      typeHierarchy: 'TypeHierarchy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logicalIdHierarchy: 'string',
+      typeHierarchy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackResourceDriftsResponseBodyResourceDriftsPropertyDifferences extends $dara.Model {
+  /**
+   * @remarks
+   * The actual value of the resource property.
+   * 
+   * @example
+   * test1
+   */
+  actualValue?: string;
+  /**
+   * @remarks
+   * The drift type of the resource property. Valid values:
+   * 
+   * *   ADD: The value is added to a resource property whose data type is Array or List.
+   * *   REMOVE: The property is deleted from the current resource configuration.
+   * *   NOT_EQUAL: The current property value differs from the expected value that is defined in the stack template.
+   * 
+   * @example
+   * NOT_EQUAL
+   */
+  differenceType?: string;
+  /**
+   * @remarks
+   * The expected value of the resource property that is defined in the template.
+   * 
+   * @example
+   * test2
+   */
+  expectedValue?: string;
+  /**
+   * @remarks
+   * The path of the resource property.
+   * 
+   * @example
+   * /ScalingRuleName
+   */
+  propertyPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actualValue: 'ActualValue',
+      differenceType: 'DifferenceType',
+      expectedValue: 'ExpectedValue',
+      propertyPath: 'PropertyPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actualValue: 'string',
+      differenceType: 'string',
+      expectedValue: 'string',
+      propertyPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackResourceDriftsResponseBodyResourceDrifts extends $dara.Model {
+  /**
+   * @remarks
+   * The actual JSON-formatted resource properties.
+   * 
+   * @example
+   * {"ScalingRuleName": "test1"}
+   */
+  actualProperties?: string;
+  /**
+   * @remarks
+   * The time when the drift detection operation was performed on the resource.
+   * 
+   * @example
+   * 2020-02-27T07:47:47
+   */
+  driftDetectionTime?: string;
+  /**
+   * @remarks
+   * The JSON-formatted resource properties that are defined in the template.
+   * 
+   * @example
+   * {"ScalingRuleName": "test2"}
+   */
+  expectedProperties?: string;
+  /**
+   * @remarks
+   * The logical ID of the resource. The logical ID indicates the name of the resource that is defined in the template.
+   * 
+   * @example
+   * ScalingRule
+   */
+  logicalResourceId?: string;
+  /**
+   * @remarks
+   * The information about the modules from which the resource was created. This parameter is returned only if the resource is created from modules.
+   */
+  moduleInfo?: ListStackResourceDriftsResponseBodyResourceDriftsModuleInfo;
+  /**
+   * @remarks
+   * The physical ID of the resource.
+   * 
+   * @example
+   * asr-2ze4zzc3kf9yz1kd****
+   */
+  physicalResourceId?: string;
+  /**
+   * @remarks
+   * The property drifts of the resource.
+   */
+  propertyDifferences?: ListStackResourceDriftsResponseBodyResourceDriftsPropertyDifferences[];
+  /**
+   * @remarks
+   * The drift state of the resource. Valid values:
+   * 
+   * *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
+   * *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
+   * *   NOT_CHECKED: Resource Orchestration Service (ROS) has not checked whether the actual configuration of the resource differs from its expected template configuration.
+   * *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
+   * 
+   * @example
+   * MODIFIED
+   */
+  resourceDriftStatus?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ALIYUN::ESS::ScalingRule
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The stack ID.
+   * 
+   * @example
+   * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+   */
+  stackId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actualProperties: 'ActualProperties',
+      driftDetectionTime: 'DriftDetectionTime',
+      expectedProperties: 'ExpectedProperties',
+      logicalResourceId: 'LogicalResourceId',
+      moduleInfo: 'ModuleInfo',
+      physicalResourceId: 'PhysicalResourceId',
+      propertyDifferences: 'PropertyDifferences',
+      resourceDriftStatus: 'ResourceDriftStatus',
+      resourceType: 'ResourceType',
+      stackId: 'StackId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actualProperties: 'string',
+      driftDetectionTime: 'string',
+      expectedProperties: 'string',
+      logicalResourceId: 'string',
+      moduleInfo: ListStackResourceDriftsResponseBodyResourceDriftsModuleInfo,
+      physicalResourceId: 'string',
+      propertyDifferences: { 'type': 'array', 'itemType': ListStackResourceDriftsResponseBodyResourceDriftsPropertyDifferences },
+      resourceDriftStatus: 'string',
+      resourceType: 'string',
+      stackId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.moduleInfo && typeof (this.moduleInfo as any).validate === 'function') {
+      (this.moduleInfo as any).validate();
+    }
+    if(Array.isArray(this.propertyDifferences)) {
+      $dara.Model.validateArray(this.propertyDifferences);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackResourcesResponseBodyResourcesModuleInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The concatenated logical IDs of one or more modules that contain the resource. The modules are listed from the outermost layer and separated by forward slashes (`/`).
+   * 
+   * In the following example, the resource is created from Module B nested within Parent Module A:
+   * 
+   * `moduleA/moduleB`
+   * 
+   * @example
+   * moduleA/moduleB
+   */
+  logicalIdHierarchy?: string;
+  /**
+   * @remarks
+   * The concatenated types of one or more modules that contain the resource. The module types are listed from the outermost layer and separated by forward slashes (`/`).
+   * 
+   * In the following example, the resource is created from a module of the `MODULE::ROS::Child::Example` type that is nested within a parent module of the `MODULE::ROS::Parent::Example` type:
+   * 
+   * `MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example`
+   * 
+   * @example
+   * MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example
+   */
+  typeHierarchy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logicalIdHierarchy: 'LogicalIdHierarchy',
+      typeHierarchy: 'TypeHierarchy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logicalIdHierarchy: 'string',
+      typeHierarchy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStackResourcesResponseBodyResources extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the resource was created. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * 
+   * @example
+   * 2019-08-01T06:01:23
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The time when the most recent successful drift detection was performed on the stack.
+   * 
+   * @example
+   * 2020-02-27T07:47:47
+   */
+  driftDetectionTime?: string;
+  /**
+   * @remarks
+   * The logical ID of the resource. The logical ID is the resource name that is defined in the template.
+   * 
+   * @example
+   * dummy
+   */
+  logicalResourceId?: string;
+  /**
+   * @remarks
+   * The information about the modules from which the resource is created. This parameter is returned only if the resource is created from modules.
+   */
+  moduleInfo?: ListStackResourcesResponseBodyResourcesModuleInfo;
+  /**
+   * @remarks
+   * The physical ID of the resource.
+   * 
+   * @example
+   * d04af923-e6b7-4272-aeaa-47ec9777****
+   */
+  physicalResourceId?: string;
+  /**
+   * @remarks
+   * The drift state of the resource in the most recent successful drift detection. Valid values:
+   * 
+   * *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
+   * *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
+   * *   NOT_CHECKED: Resource Orchestration Service (ROS) has not checked whether the actual configuration of the resource differs from its expected template configuration.
+   * *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
+   * 
+   * @example
+   * IN_SYNC
+   */
+  resourceDriftStatus?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ALIYUN::ROS::Stack
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The stack ID.
+   * 
+   * @example
+   * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
+   */
+  stackId?: string;
+  /**
+   * @remarks
+   * The stack name.\\
+   * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or letter.
+   * 
+   * @example
+   * test-describe-resource
+   */
+  stackName?: string;
+  /**
+   * @remarks
+   * The state of the resource. Valid values:
+   * 
+   * *   INIT_COMPLETE: The resource is pending to be created.
+   * *   CREATE_COMPLETE: The resource is created.
+   * *   CREATE_FAILED: The resource failed to be created.
+   * *   CREATE_IN_PROGRESS: The resource is being created.
+   * *   UPDATE_IN_PROGRESS: The resource is being updated.
+   * *   UPDATE_FAILED: The resource failed to be updated.
+   * *   UPDATE_COMPLETE: The resource is updated.
+   * *   DELETE_IN_PROGRESS: The resource is being deleted.
+   * *   DELETE_FAILED: The resource failed to be deleted.
+   * *   DELETE_COMPLETE: The resource is deleted.
+   * *   CHECK_IN_PROGRESS: The resource is being validated.
+   * *   CHECK_FAILED: The resource failed to be validated.
+   * *   CHECK_COMPLETE: The resource is validated.
+   * *   IMPORT_IN_PROGRESS: The resource is being imported.
+   * *   IMPORT_FAILED: The resource failed to be imported.
+   * *   IMPORT_COMPLETE: The resource is imported.
+   * 
+   * @example
+   * UPDATE_COMPLETE
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The reason why the resource is in its current state.
+   * 
+   * @example
+   * state changed
+   */
+  statusReason?: string;
+  /**
+   * @remarks
+   * The time when the resource was updated. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * 
+   * @example
+   * 2019-08-01T06:01:29
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      driftDetectionTime: 'DriftDetectionTime',
+      logicalResourceId: 'LogicalResourceId',
+      moduleInfo: 'ModuleInfo',
+      physicalResourceId: 'PhysicalResourceId',
+      resourceDriftStatus: 'ResourceDriftStatus',
+      resourceType: 'ResourceType',
+      stackId: 'StackId',
+      stackName: 'StackName',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      driftDetectionTime: 'string',
+      logicalResourceId: 'string',
+      moduleInfo: ListStackResourcesResponseBodyResourcesModuleInfo,
+      physicalResourceId: 'string',
+      resourceDriftStatus: 'string',
+      resourceType: 'string',
+      stackId: 'string',
+      stackName: 'string',
+      status: 'string',
+      statusReason: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.moduleInfo && typeof (this.moduleInfo as any).validate === 'function') {
+      (this.moduleInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStacksRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N.\\
+   * Valid values of N: 1 to 20.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N.\\
+   * Valid values of N: 1 to 20.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStacksResponseBodyStacksOperationInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the API operation that belongs to another Alibaba Cloud service.
+   * 
+   * @example
+   * DeleteSecurityGroup
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * DependencyViolation
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The logical ID of the resource on which the operation error occurred.
+   * 
+   * @example
+   * EcsSecurityGroup
+   */
+  logicalResourceId?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * There is still instance(s) in the specified security group.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request that is initiated to call the API operation of another Alibaba Cloud service.
+   * 
+   * @example
+   * 071D6166-3F6B-5C7B-A1F0-0113FBB643A8
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The type of the resource on which the operation error occurred.
+   * 
+   * @example
+   * ALIYUN::ECS::SecurityGroup
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      code: 'Code',
+      logicalResourceId: 'LogicalResourceId',
+      message: 'Message',
+      requestId: 'RequestId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      code: 'string',
+      logicalResourceId: 'string',
+      message: 'string',
+      requestId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStacksResponseBodyStacksTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the stack.
+   * 
+   * @example
+   * acs:rm:rgId
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the stack.
+   * 
+   * @example
+   * rg-aek2frunvw7****
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStacksResponseBodyStacks extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the stack was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-03-10T06:44:36
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Indicates whether deletion protection is enabled for the stack. Valid values:
+   * 
+   * *   Enabled: Deletion protection is enabled for the stack.
+   * *   Disabled: Deletion protection is disabled for the stack. In this case, you can delete the stack by using the console or calling the [DeleteStack](https://help.aliyun.com/document_detail/610812.html) operation.
+   * 
+   * >  Deletion protection of a nested stack is the same as that of its root stack.
+   * 
+   * @example
+   * Disabled
+   */
+  deletionProtection?: string;
+  /**
+   * @remarks
+   * Indicates whether rollback is disabled when the stack fails to be created. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * @example
+   * false
+   */
+  disableRollback?: boolean;
+  /**
+   * @remarks
+   * The time when the most recent successful drift detection was performed on the stack.
+   * 
+   * @example
+   * 2022-03-10T06:46:36
+   */
+  driftDetectionTime?: string;
+  /**
+   * @remarks
+   * The supplementary information that is returned if an error occurs on a stack operation.
+   * 
+   * >  This parameter is returned only under specific conditions, and is returned together with at least one sub-parameter. For example, an error occurred when an API operation of another Alibaba Cloud service was called.
+   */
+  operationInfo?: ListStacksResponseBodyStacksOperationInfo;
+  /**
+   * @remarks
+   * The ID of the parent stack.
+   * 
+   * @example
+   * 4a6c9851-3b0f-4f5f-b4ca-a14bf692****
+   */
+  parentStackId?: string;
+  /**
+   * @remarks
+   * The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aek2frunvw7****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Indicates whether the stack is a managed stack. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  serviceManaged?: boolean;
+  /**
+   * @remarks
+   * The name of the service to which the managed stack belongs.
+   * 
+   * @example
+   * ACVS
+   */
+  serviceName?: string;
+  /**
+   * @remarks
+   * The state of the stack on which the most recent successful drift detection was performed. Valid values:
+   * 
+   * *   DRIFTED: The stack has drifted.
+   * *   NOT_CHECKED: No successful drift detection is performed on the stack.
+   * *   IN_SYNC: The stack is being synchronized.
+   * 
+   * @example
+   * IN_SYNC
+   */
+  stackDriftStatus?: string;
+  /**
+   * @remarks
+   * The stack ID.
+   * 
+   * @example
+   * 67805444-a605-45ee-a57f-83908ff6****
+   */
+  stackId?: string;
+  /**
+   * @remarks
+   * The stack name.
+   * 
+   * @example
+   * MyStack
+   */
+  stackName?: string;
+  /**
+   * @remarks
+   * The stack type. Valid values:
+   * 
+   * *   ROS: ROS stack. The stack is created by using a ROS template.
+   * *   Terraform: Terraform stack. The stack is created by using a Terraform template.
+   * 
+   * @example
+   * ROS
+   */
+  stackType?: string;
+  /**
+   * @remarks
+   * The state of the stack.
+   * 
+   * @example
+   * CREATE_COMPLETE
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The reason why the stack is in its current state.
+   * 
+   * @example
+   * Stack CREATE completed successfully
+   */
+  statusReason?: string;
+  /**
+   * @remarks
+   * The tags of the stack.
+   */
+  tags?: ListStacksResponseBodyStacksTags[];
+  /**
+   * @remarks
+   * The timeout period for creating the stack. Unit: minutes.
+   * 
+   * @example
+   * 60
+   */
+  timeoutInMinutes?: number;
+  /**
+   * @remarks
+   * The time when the stack was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-03-10T07:44:36
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      deletionProtection: 'DeletionProtection',
+      disableRollback: 'DisableRollback',
+      driftDetectionTime: 'DriftDetectionTime',
+      operationInfo: 'OperationInfo',
+      parentStackId: 'ParentStackId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      serviceManaged: 'ServiceManaged',
+      serviceName: 'ServiceName',
+      stackDriftStatus: 'StackDriftStatus',
+      stackId: 'StackId',
+      stackName: 'StackName',
+      stackType: 'StackType',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      tags: 'Tags',
+      timeoutInMinutes: 'TimeoutInMinutes',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      deletionProtection: 'string',
+      disableRollback: 'boolean',
+      driftDetectionTime: 'string',
+      operationInfo: ListStacksResponseBodyStacksOperationInfo,
+      parentStackId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      serviceManaged: 'boolean',
+      serviceName: 'string',
+      stackDriftStatus: 'string',
+      stackId: 'string',
+      stackName: 'string',
+      stackType: 'string',
+      status: 'string',
+      statusReason: 'string',
+      tags: { 'type': 'array', 'itemType': ListStacksResponseBodyStacksTags },
+      timeoutInMinutes: 'number',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.operationInfo && typeof (this.operationInfo as any).validate === 'function') {
+      (this.operationInfo as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.\\
+   * The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.\\
+   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * FinanceJoshua
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * c754d2a4-28f1-46df-b557-9586173a****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * stack
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag key of the resource.
+   * 
+   * @example
+   * TagKey1
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value of the resource.
+   * 
+   * @example
+   * TayValue1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the scenario.
+   * 
+   * > Tags is optional. If you want to specify Tags, you must specify Key.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the scenario.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * @example
+   * DeletionPolicy
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The parameter value.
+   * 
+   * @example
+   * Retain
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the source resource group.
+   * 
+   * @example
+   * rg-acfmzawhxxc****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The resource types for filtering resources.
+   */
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceTypeFilter)) {
+      $dara.Model.validateArray(this.resourceTypeFilter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesResponseBodyTemplateScratchesSourceResources extends $dara.Model {
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * vpc-m5eauuq80anx59v28****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ALIYUN::ECS::VPC
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesResponseBodyTemplateScratchesSourceTag extends $dara.Model {
+  /**
+   * @remarks
+   * The source tags.
+   * 
+   * @example
+   * {"a": "b"}
+   */
+  resourceTags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The resource types for filtering resources.
+   */
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceTags: 'ResourceTags',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.resourceTags) {
+      $dara.Model.validateMap(this.resourceTags);
+    }
+    if(Array.isArray(this.resourceTypeFilter)) {
+      $dara.Model.validateArray(this.resourceTypeFilter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesResponseBodyTemplateScratchesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource scenario.
+   * 
+   * @example
+   * usage1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the resource scenario.
+   * 
+   * @example
+   * test1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesResponseBodyTemplateScratches extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the resource scenario was created.
+   * 
+   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2021-12-07T08:06:44
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The description of the resource scenario.
+   * 
+   * @example
+   * The description of the scenario.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The status code of the resource scenario that failed to be generated.
+   * 
+   * >  This parameter is returned only if the value of Status is GENERATE_FAILED.
+   * 
+   * @example
+   * InvalidZoneId
+   */
+  failedCode?: string;
+  /**
+   * @remarks
+   * The policy based on which the logical ID is generated. Valid values:
+   * 
+   * *   LongTypePrefixAndIndexSuffix (default): long-type prefix + index-type suffix
+   * *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
+   * *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
+   * 
+   * @example
+   * LongTypePrefixAndIndexSuffix
+   */
+  logicalIdStrategy?: string;
+  /**
+   * @remarks
+   * The preference parameters of the resource scenario.
+   */
+  preferenceParameters?: ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters[];
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfm4nxcvht4pmi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The source resource group.
+   */
+  sourceResourceGroup?: ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup;
+  /**
+   * @remarks
+   * The source resources.
+   */
+  sourceResources?: ListTemplateScratchesResponseBodyTemplateScratchesSourceResources[];
+  /**
+   * @remarks
+   * The source tag.
+   */
+  sourceTag?: ListTemplateScratchesResponseBodyTemplateScratchesSourceTag;
+  /**
+   * @remarks
+   * The state of the resource scenario.
+   * 
+   * @example
+   * GENERATE_COMPLETE
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The reason why the resource scenario failed to be generated.
+   * 
+   * >  This parameter is returned only if the value of Status is GENERATE_FAILED.
+   * 
+   * @example
+   * Resource ALIYUN::ECS::VPC vpc-m5eauuq80anx59v28**** could not be found for template scratch.
+   */
+  statusReason?: string;
+  /**
+   * @remarks
+   * The tags of the resource scenario.
+   */
+  tags?: ListTemplateScratchesResponseBodyTemplateScratchesTags[];
+  /**
+   * @remarks
+   * The ID of the resource scenario.
+   * 
+   * @example
+   * ts-48ad85d66cca4620****
+   */
+  templateScratchId?: string;
+  /**
+   * @remarks
+   * The type of the resource scenario. Valid values:
+   * 
+   * *   ResourceImport: resource management
+   * *   ArchitectureReplication: resource replication
+   * 
+   * @example
+   * ResourceImport
+   */
+  templateScratchType?: string;
+  /**
+   * @remarks
+   * The time when the resource scenario was updated.
+   * 
+   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2021-12-07T08:06:44
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      failedCode: 'FailedCode',
+      logicalIdStrategy: 'LogicalIdStrategy',
+      preferenceParameters: 'PreferenceParameters',
+      resourceGroupId: 'ResourceGroupId',
+      sourceResourceGroup: 'SourceResourceGroup',
+      sourceResources: 'SourceResources',
+      sourceTag: 'SourceTag',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      tags: 'Tags',
+      templateScratchId: 'TemplateScratchId',
+      templateScratchType: 'TemplateScratchType',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      failedCode: 'string',
+      logicalIdStrategy: 'string',
+      preferenceParameters: { 'type': 'array', 'itemType': ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters },
+      resourceGroupId: 'string',
+      sourceResourceGroup: ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup,
+      sourceResources: { 'type': 'array', 'itemType': ListTemplateScratchesResponseBodyTemplateScratchesSourceResources },
+      sourceTag: ListTemplateScratchesResponseBodyTemplateScratchesSourceTag,
+      status: 'string',
+      statusReason: 'string',
+      tags: { 'type': 'array', 'itemType': ListTemplateScratchesResponseBodyTemplateScratchesTags },
+      templateScratchId: 'string',
+      templateScratchType: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.preferenceParameters)) {
+      $dara.Model.validateArray(this.preferenceParameters);
+    }
+    if(this.sourceResourceGroup && typeof (this.sourceResourceGroup as any).validate === 'function') {
+      (this.sourceResourceGroup as any).validate();
+    }
+    if(Array.isArray(this.sourceResources)) {
+      $dara.Model.validateArray(this.sourceResources);
+    }
+    if(this.sourceTag && typeof (this.sourceTag as any).validate === 'function') {
+      (this.sourceTag as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateVersionsResponseBodyVersions extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the version was created.
+   * 
+   * @example
+   * 2020-02-27T07:47:47
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The description of the version.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The template ID. This parameter applies to shared and private templates. For a shared template, the template ID is the same as the Alibaba Cloud Resource Name (ARN) of the template.
+   * 
+   * @example
+   * 5ecd1e10-b0e9-4389-a565-e4c15efc****
+   */
+  templateId?: string;
+  /**
+   * @remarks
+   * The template name that corresponds to the specified version.
+   * 
+   * @example
+   * test
+   */
+  templateName?: string;
+  /**
+   * @remarks
+   * The version number.
+   * 
+   * For a shared template, this parameter is returned only if VersionOption is set to AllVersions.
+   * 
+   * Valid values: v1 to v100.
+   * 
+   * @example
+   * v1
+   */
+  templateVersion?: string;
+  /**
+   * @remarks
+   * The time when the version was last updated.
+   * 
+   * @example
+   * 2020-02-27T07:47:47
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateVersion: 'TemplateVersion',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      templateId: 'string',
+      templateName: 'string',
+      templateVersion: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesRequestFilters extends $dara.Model {
+  name?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag. This parameter takes effect only when ShareType is set to Private.
+   * 
+   * You can specify up to 20 tag keys.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag. This parameter takes effect only when ShareType is set to Private.
+   * 
+   * You can specify up to 20 tag values.
+   * 
+   * @example
+   * deploy
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesResponseBodyTemplatesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesResponseBodyTemplates extends $dara.Model {
+  additionalInfo?: { [key: string]: any };
+  /**
+   * @remarks
+   * The time when the template was created.
+   * 
+   * @example
+   * 2019-10-15T08:17:14.000000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The description of the template.
+   * 
+   * @example
+   * test-description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the template belongs.
+   * 
+   * @example
+   * 151266687691****
+   */
+  ownerId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxazb4ph6aiy****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The sharing type of the template.
+   * 
+   * Valid values:
+   * 
+   * *   Private: The template belongs to the template owner.
+   * *   Shared: The template is shared with other users.
+   * 
+   * @example
+   * Private
+   */
+  shareType?: string;
+  /**
+   * @remarks
+   * The tags of the template.
+   */
+  tags?: ListTemplatesResponseBodyTemplatesTags[];
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the template.
+   * 
+   * @example
+   * acs:ros:*:151266687691****:template/a52f81be-496f-4e1c-a286-8852ab54****
+   */
+  templateARN?: string;
+  /**
+   * @remarks
+   * The template ID.
+   * 
+   * @example
+   * 4d4f5aa2-3260-4e47-863b-763fbb12****
+   */
+  templateId?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * demo
+   */
+  templateName?: string;
+  templateUrl?: string;
+  /**
+   * @remarks
+   * The latest version of the template.
+   * 
+   * @example
+   * v1
+   */
+  templateVersion?: string;
+  /**
+   * @remarks
+   * The time when the template was last updated.
+   * 
+   * @example
+   * 2019-10-15T08:17:14.000000
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additionalInfo: 'AdditionalInfo',
+      createTime: 'CreateTime',
+      description: 'Description',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      shareType: 'ShareType',
+      tags: 'Tags',
+      templateARN: 'TemplateARN',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateUrl: 'TemplateUrl',
+      templateVersion: 'TemplateVersion',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      createTime: 'string',
+      description: 'string',
+      ownerId: 'string',
+      resourceGroupId: 'string',
+      shareType: 'string',
+      tags: { 'type': 'array', 'itemType': ListTemplatesResponseBodyTemplatesTags },
+      templateARN: 'string',
+      templateId: 'string',
+      templateName: 'string',
+      templateUrl: 'string',
+      templateVersion: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.additionalInfo) {
+      $dara.Model.validateMap(this.additionalInfo);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewStackRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the parameter N. If you do not specify the name and value of a parameter, Resource Orchestration Service (ROS) uses the default name and value that are specified in the template. Maximum value of N: 200.
+   * 
+   * > If you specify Parameters, you must specify Parameters.N.ParameterKey.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ALIYUN::AccountId
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N. Maximum value of N: 200.
+   * 
+   * > If you specify Parameters, you must specify Parameters.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 151266687691****
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewStackResponseBodyStackLogTerraformLogs extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the Terraform command that is run. Valid values:
+   * 
+   * *   apply
+   * *   plan
+   * *   destroy
+   * *   version
+   * 
+   * For more information about Terraform commands, see [Basic CLI Features](https://www.terraform.io/cli/commands).
+   * 
+   * @example
+   * apply
+   */
+  command?: string;
+  /**
+   * @remarks
+   * The content of the output stream that is returned after the command is run.
+   * 
+   * @example
+   * Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The output stream. Valid values:
+   * 
+   * *   stdout: standard output stream
+   * *   stderr: standard error stream
+   * 
+   * @example
+   * stdout
+   */
+  stream?: string;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      content: 'Content',
+      stream: 'Stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      content: 'string',
+      stream: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewStackResponseBodyStackLog extends $dara.Model {
+  /**
+   * @remarks
+   * The Terraform logs. This parameter is returned only if the stack is a Terraform stack.
+   * 
+   * > This parameter contains the logs of previewing the stack.
+   */
+  terraformLogs?: PreviewStackResponseBodyStackLogTerraformLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      terraformLogs: 'TerraformLogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      terraformLogs: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackLogTerraformLogs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.terraformLogs)) {
+      $dara.Model.validateArray(this.terraformLogs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewStackResponseBodyStackParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * ALIYUN::AccountId
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of the parameter.
+   * 
+   * @example
+   * 151266687691****
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewStackResponseBodyStackResources extends $dara.Model {
+  /**
+   * @remarks
+   * The resource type of an Alibaba Cloud service.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
+  acsResourceType?: string;
+  /**
+   * @remarks
+   * The action that is performed on the resource. Valid values:
+   * 
+   * *   Add
+   * *   Modify
+   * *   Remove
+   * *   None
+   * 
+   * @example
+   * Add
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The description of the resource.
+   * 
+   * @example
+   * ECS instance.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The logical ID of the resource.
+   * 
+   * @example
+   * WebServer
+   */
+  logicalResourceId?: string;
+  /**
+   * @remarks
+   * The physical ID of the resource.
+   * 
+   * This parameter is returned only if Action is set to Modify or Remove.
+   * 
+   * @example
+   * i-a1b2c3***
+   */
+  physicalResourceId?: string;
+  /**
+   * @remarks
+   * The resource properties.
+   * 
+   * @example
+   * {   "DiskMappings": [     {       "Category": "cloud_ssd",       "Size": "20"     }   ],   "SystemDisk_Category": "cloud_ssd",   "InstanceChargeType": "PostPaid",   "AutoRenew": "False",   "WillReplace": true,   "ImageId": "centos_7",   "InstanceType": "ecs.g6.large",   "AllocatePublicIP": true,   "AutoRenewPeriod": 1,   "IoOptimized": "optimized",   "ZoneId": "cn-beijing-g",   "VSwitchId": "",   "SecurityGroupId": "",   "Period": 1,   "InternetChargeType": "PayByTraffic",   "SystemDiskCategory": "cloud_efficiency",   "InternetMaxBandwidthOut": 1,   "VpcId": "",   "InternetMaxBandwidthIn": 200,   "PeriodUnit": "Month" }
+   */
+  properties?: { [key: string]: any };
+  /**
+   * @remarks
+   * Indicates whether a replacement update is performed on the template. Valid values:
+   * 
+   * *   True: A replacement update is performed on the template.
+   * *   False: A change is made on the template.
+   * *   Conditional: A replacement update may be performed on the template. You can check whether a replacement update is performed when the template is in use.
+   * 
+   * > This parameter is returned only if Action is set to Modify.
+   * 
+   * @example
+   * False
+   */
+  replacement?: string;
+  /**
+   * @remarks
+   * The resources on which the stack depends.
+   */
+  requiredBy?: string[];
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ALIYUN::ECS::Instance
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The information about the nested stack. The data structure of the value is the same as the data structure of the entire response.
+   * 
+   * @example
+   * {}
+   */
+  stack?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      acsResourceType: 'AcsResourceType',
+      action: 'Action',
+      description: 'Description',
+      logicalResourceId: 'LogicalResourceId',
+      physicalResourceId: 'PhysicalResourceId',
+      properties: 'Properties',
+      replacement: 'Replacement',
+      requiredBy: 'RequiredBy',
+      resourceType: 'ResourceType',
+      stack: 'Stack',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acsResourceType: 'string',
+      action: 'string',
+      description: 'string',
+      logicalResourceId: 'string',
+      physicalResourceId: 'string',
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      replacement: 'string',
+      requiredBy: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      stack: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  validate() {
+    if(this.properties) {
+      $dara.Model.validateMap(this.properties);
+    }
+    if(Array.isArray(this.requiredBy)) {
+      $dara.Model.validateArray(this.requiredBy);
+    }
+    if(this.stack) {
+      $dara.Model.validateMap(this.stack);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewStackResponseBodyStack extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the stack.
+   * 
+   * @example
+   * One ECS instance.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Indicates whether rollback is disabled for the resources when the stack fails to be created.
+   * 
+   * @example
+   * false
+   */
+  disableRollback?: boolean;
+  /**
+   * @remarks
+   * The log that is generated when the stack is run.
+   */
+  log?: PreviewStackResponseBodyStackLog;
+  /**
+   * @remarks
+   * The parameters of the stack.
+   */
+  parameters?: PreviewStackResponseBodyStackParameters[];
+  /**
+   * @remarks
+   * The region where the stack resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resources in the stack.
+   */
+  resources?: PreviewStackResponseBodyStackResources[];
+  /**
+   * @remarks
+   * The stack name.
+   * 
+   * @example
+   * MyStack
+   */
+  stackName?: string;
+  /**
+   * @remarks
+   * The structure that contains the stack policy body.
+   * 
+   * @example
+   * {   "Statement": [     {       "Action": "Update:*",       "Resource": "*",       "Effect": "Allow",       "Principal": "*"     },     {       "Action": "Update:*",       "Resource": "LogicalResourceId/apple1",       "Effect": "Deny",       "Principal": "*"     }   ] }
+   */
+  stackPolicyBody?: { [key: string]: any };
+  /**
+   * @remarks
+   * The description of the template.
+   * 
+   * @example
+   * One ECS instance.
+   */
+  templateDescription?: string;
+  /**
+   * @remarks
+   * The timeout period for creating the stack.
+   * 
+   * Unit: minutes.
+   * 
+   * @example
+   * 60
+   */
+  timeoutInMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      disableRollback: 'DisableRollback',
+      log: 'Log',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      resources: 'Resources',
+      stackName: 'StackName',
+      stackPolicyBody: 'StackPolicyBody',
+      templateDescription: 'TemplateDescription',
+      timeoutInMinutes: 'TimeoutInMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      disableRollback: 'boolean',
+      log: PreviewStackResponseBodyStackLog,
+      parameters: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackParameters },
+      regionId: 'string',
+      resources: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackResources },
+      stackName: 'string',
+      stackPolicyBody: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateDescription: 'string',
+      timeoutInMinutes: 'number',
+    };
+  }
+
+  validate() {
+    if(this.log && typeof (this.log as any).validate === 'function') {
+      (this.log as any).validate();
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    if(this.stackPolicyBody) {
+      $dara.Model.validateMap(this.stackPolicyBody);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource. You can specify up to 20 tag keys.
+   * 
+   * The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the resource. You can specify up to 20 tag values.
+   * 
+   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * FinanceJoshua
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The name of parameter N. If you do not specify the name and value of a parameter, ROS uses the default name and value in the template.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * >  The Parameters parameter is optional. If you specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N. Maximum value of N: 200.
+   * 
+   * >  The Parameters parameter is optional. If you specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N that you want to add to the stack.
+   * 
+   * Valid values of N: 1 to 20.
+   * 
+   * > - The Tags parameter is optional. If you specify Tags, you must specify Tags.N.Key.
+   * > - The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N that you want to add to the stack.
+   * 
+   * Valid values of N: 1 to 20.
+   * 
+   * >  The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackResponseBodyDryRunResult extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters that can be modified. If you change only values of the parameters in a stack template and use the template to update the stack, no validation errors are caused.
+   */
+  parametersAllowedToBeModified?: string[];
+  /**
+   * @remarks
+   * The parameters whose changes cause service interruptions.
+   * > - This parameter is supported only for a small number of resource types.
+   * > - This parameter is valid only for updates on ROS stacks.
+   */
+  parametersCauseInterruptionIfModified?: string[];
+  /**
+   * @remarks
+   * The parameters whose changes trigger replacement updates for resources.
+   * 
+   * > -  This parameter can be returned only if ReplacementOption is set to Enabled.
+   * > -  This parameter is valid only for updates on ROS stacks.
+   */
+  parametersCauseReplacementIfModified?: string[];
+  /**
+   * @remarks
+   * The parameters that can be modified under specific conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the new values of the parameters determine whether validation errors are caused.
+   */
+  parametersConditionallyAllowedToBeModified?: string[];
+  /**
+   * @remarks
+   * The parameters whose changes cause service interruptions under specific conditions.
+   * 
+   * > - This parameter is supported only for a small number of resource types.
+   * > -  This parameter is valid only for updates on ROS stacks.
+   */
+  parametersConditionallyCauseInterruptionIfModified?: string[];
+  /**
+   * @remarks
+   * The parameters whose changes trigger replacement updates for resources under specific conditions.
+   * 
+   * > - This parameter can be returned only if ReplacementOption is set to Enabled.
+   * > - This parameter is valid only for updates on ROS stacks.
+   */
+  parametersConditionallyCauseReplacementIfModified?: string[];
+  /**
+   * @remarks
+   * The parameters that cannot be modified. If you change only values of the parameters in a stack template and use the template to update the stack, validation errors are caused.
+   */
+  parametersNotAllowedToBeModified?: string[];
+  /**
+   * @remarks
+   * The parameters that can be modified under uncertain conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the actual running environment determines whether validation errors are caused.
+   */
+  parametersUncertainlyAllowedToBeModified?: string[];
+  /**
+   * @remarks
+   * The parameters whose changes cause service interruptions under uncertain conditions.
+   * 
+   * > - This parameter is supported only for a small number of resource types.
+   * > - This parameter is valid only for updates on ROS stacks.
+   */
+  parametersUncertainlyCauseInterruptionIfModified?: string[];
+  /**
+   * @remarks
+   * The parameters whose changes trigger replacement updates for resources under uncertain conditions.
+   * 
+   * > - This parameter can be returned only if ReplacementOption is set to Enabled.
+   * > - This parameter is valid only for updates on ROS stacks.
+   */
+  parametersUncertainlyCauseReplacementIfModified?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      parametersAllowedToBeModified: 'ParametersAllowedToBeModified',
+      parametersCauseInterruptionIfModified: 'ParametersCauseInterruptionIfModified',
+      parametersCauseReplacementIfModified: 'ParametersCauseReplacementIfModified',
+      parametersConditionallyAllowedToBeModified: 'ParametersConditionallyAllowedToBeModified',
+      parametersConditionallyCauseInterruptionIfModified: 'ParametersConditionallyCauseInterruptionIfModified',
+      parametersConditionallyCauseReplacementIfModified: 'ParametersConditionallyCauseReplacementIfModified',
+      parametersNotAllowedToBeModified: 'ParametersNotAllowedToBeModified',
+      parametersUncertainlyAllowedToBeModified: 'ParametersUncertainlyAllowedToBeModified',
+      parametersUncertainlyCauseInterruptionIfModified: 'ParametersUncertainlyCauseInterruptionIfModified',
+      parametersUncertainlyCauseReplacementIfModified: 'ParametersUncertainlyCauseReplacementIfModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parametersAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersCauseReplacementIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyCauseReplacementIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersNotAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersUncertainlyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersUncertainlyCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersUncertainlyCauseReplacementIfModified: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.parametersAllowedToBeModified)) {
+      $dara.Model.validateArray(this.parametersAllowedToBeModified);
+    }
+    if(Array.isArray(this.parametersCauseInterruptionIfModified)) {
+      $dara.Model.validateArray(this.parametersCauseInterruptionIfModified);
+    }
+    if(Array.isArray(this.parametersCauseReplacementIfModified)) {
+      $dara.Model.validateArray(this.parametersCauseReplacementIfModified);
+    }
+    if(Array.isArray(this.parametersConditionallyAllowedToBeModified)) {
+      $dara.Model.validateArray(this.parametersConditionallyAllowedToBeModified);
+    }
+    if(Array.isArray(this.parametersConditionallyCauseInterruptionIfModified)) {
+      $dara.Model.validateArray(this.parametersConditionallyCauseInterruptionIfModified);
+    }
+    if(Array.isArray(this.parametersConditionallyCauseReplacementIfModified)) {
+      $dara.Model.validateArray(this.parametersConditionallyCauseReplacementIfModified);
+    }
+    if(Array.isArray(this.parametersNotAllowedToBeModified)) {
+      $dara.Model.validateArray(this.parametersNotAllowedToBeModified);
+    }
+    if(Array.isArray(this.parametersUncertainlyAllowedToBeModified)) {
+      $dara.Model.validateArray(this.parametersUncertainlyAllowedToBeModified);
+    }
+    if(Array.isArray(this.parametersUncertainlyCauseInterruptionIfModified)) {
+      $dara.Model.validateArray(this.parametersUncertainlyCauseInterruptionIfModified);
+    }
+    if(Array.isArray(this.parametersUncertainlyCauseReplacementIfModified)) {
+      $dara.Model.validateArray(this.parametersUncertainlyCauseReplacementIfModified);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackGroupRequestAutoDeployment extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the members in the resource directory. You can specify a maximum of 20 member IDs.
+   * 
+   * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](https://help.aliyun.com/document_detail/111624.html).
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The IDs of the members in the resource directory. You can specify a maximum of 20 member IDs.
+   * 
+   * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](https://help.aliyun.com/document_detail/111624.html).
+   * 
+   * @example
+   * true
+   */
+  retainStacksOnAccountRemoval?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      retainStacksOnAccountRemoval: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackGroupRequestDeploymentTargets extends $dara.Model {
+  /**
+   * @remarks
+   * The list of one or more Alibaba Cloud accounts with which you want to share or unshare the template.
+   */
+  accountIds?: string[];
+  /**
+   * @remarks
+   * The ID of the operation.
+   */
+  rdFolderIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      rdFolderIds: 'RdFolderIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(Array.isArray(this.rdFolderIds)) {
+      $dara.Model.validateArray(this.rdFolderIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackGroupRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to retain stacks in a member when you remove the member from the folder.
+   * 
+   * Valid values:
+   * 
+   * *   true: retains the stacks.
+   * *   false: deletes the stacks.
+   * 
+   * >  This parameter is required if the Enabled parameter is set to true.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The folders in which you want to use service-managed permissions to update stacks.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackGroupShrinkRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to retain stacks in a member when you remove the member from the folder.
+   * 
+   * Valid values:
+   * 
+   * *   true: retains the stacks.
+   * *   false: deletes the stacks.
+   * 
+   * >  This parameter is required if the Enabled parameter is set to true.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The folders in which you want to use service-managed permissions to update stacks.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackInstancesRequestDeploymentTargets extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the member accounts in the resource directory. You can specify up to 20 member account IDs.
+   * 
+   * > To view the member account IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the details of a member](https://help.aliyun.com/document_detail/111624.html).
+   */
+  accountIds?: string[];
+  /**
+   * @remarks
+   * The folder IDs of the resource directory.
+   */
+  rdFolderIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      rdFolderIds: 'RdFolderIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(Array.isArray(this.rdFolderIds)) {
+      $dara.Model.validateArray(this.rdFolderIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackInstancesRequestParameterOverrides extends $dara.Model {
+  /**
+   * @remarks
+   * The key of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the name that you specified when you created the stack group.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * > -  ParameterOverrides is optional.
+   * > - If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the value that you specified when you created the stack group.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * > -  ParameterOverrides is optional.
+   * > - If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackInstancesShrinkRequestParameterOverrides extends $dara.Model {
+  /**
+   * @remarks
+   * The key of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the name that you specified when you created the stack group.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * > -  ParameterOverrides is optional.
+   * > - If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the value that you specified when you created the stack group.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * > -  ParameterOverrides is optional.
+   * > - If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTemplateScratchRequestPreferenceParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * For more information about the valid values of ParameterKey, see the "**Additional information about request parameters**" section of this topic.
+   * 
+   * >- PreferenceParameters is optional. If you specify PreferenceParameters, you must specify both ParameterKey and ParameterValue.
+   * > - If you set TemplateScratchType to ResourceImport, you must set ParameterKey to DeletionPolicy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DeletionPolicy
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The parameter value. The value of ParameterValue varies based on the value of ParameterKey.
+   * 
+   * For more information about the valid values of ParameterKey, see the "**Additional information about request parameters**" section of this topic.
+   * 
+   * >  PreferenceParameters is optional. If you specify PreferenceParameters, you must specify both ParameterKey and ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Retain
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTemplateScratchRequestSourceResourceGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the source resource group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rg-acfmzawhxxc****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The resource types for filtering resources.
+   */
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceTypeFilter)) {
+      $dara.Model.validateArray(this.resourceTypeFilter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTemplateScratchRequestSourceResources extends $dara.Model {
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp1m6fww66xbntjyc****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ALIYUN::ECS::VPC
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTemplateScratchRequestSourceTag extends $dara.Model {
+  /**
+   * @remarks
+   * The source tags. A tag contains a tag key and a tag value.
+   * 
+   * If you want to specify only the tag key, you must leave the tag value empty. Example: {"TagKey": ""}.
+   * 
+   * If you set TemplateScratchType to ArchitectureDetection, you can add up to 5 source tags. In other cases, you can add up to 10 source tags.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"a": "b"}
+   */
+  resourceTags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The resource types for filtering resources.
+   */
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceTags: 'ResourceTags',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.resourceTags) {
+      $dara.Model.validateMap(this.resourceTags);
+    }
+    if(Array.isArray(this.resourceTypeFilter)) {
+      $dara.Model.validateArray(this.resourceTypeFilter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateTemplateResponseBodyOutputs extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the template output.
+   * 
+   * @example
+   * The instance ID of my ECS.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The alias of the template output.
+   * 
+   * @example
+   * Instance ID
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The name of the template output.
+   * 
+   * @example
+   * instance_id
+   */
+  outputKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      label: 'Label',
+      outputKey: 'OutputKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      label: 'string',
+      outputKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateTemplateResponseBodyResourceTypes extends $dara.Model {
+  /**
+   * @remarks
+   * The DataSource resource types that are used in the template. The value is deduplicated.
+   */
+  dataSources?: string[];
+  /**
+   * @remarks
+   * The regular resource types that are used in the template. The value is deduplicated.
+   */
+  resources?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dataSources: 'DataSources',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSources: { 'type': 'array', 'itemType': 'string' },
+      resources: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dataSources)) {
+      $dara.Model.validateArray(this.dataSources);
+    }
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateTemplateResponseBodyResources extends $dara.Model {
+  /**
+   * @remarks
+   * The pattern in which the logical IDs of regular resources are formed.
+   * 
+   * If resources are defined in a ROS template, the following rules apply:
+   * 
+   * *   Resource whose definition does not contain `Count`: If the resource name defined in the template is `server`, the values of LogicalResourceIdPattern and `ResourcePath` are both `server`.``
+   * *   Resource whose definition contains `Count`: If the resource name defined in the template is `server`, the value of LogicalResourceIdPattern is `server[*]`, and the value of `ResourcePath` is `server`.
+   * 
+   * If resources and [modules](https://www.terraform.io/language/modules) are defined in a Terraform template, the following rules apply:
+   * 
+   * *   Resource and module whose definitions do not contain [`count`](https://www.terraform.io/language/meta-arguments/count) or [`for_each`](https://www.terraform.io/language/meta-arguments/for_each): If the resource name defined in the template is `server`, the values of LogicalResourceIdPattern and `ResourcePath` are both `server`.``
+   * *   Resource and module whose definitions contain [`count`](https://www.terraform.io/language/meta-arguments/count) or [`for_each`](https://www.terraform.io/language/meta-arguments/for_each): If the resource name defined in the template is `server`, the value of LogicalResourceIdPattern is `server[*]`, and the value of `ResourcePath` is `server`.
+   * 
+   * Examples of LogicalResourceIdPattern for resources in a Terraform template:
+   * 
+   * *   Valid values of LogicalResourceIdPattern if a resource belongs to the root module:
+   * 
+   *     *   `server`: In this case, `count` and `for_each` are not contained in the resource. The value of `ResourcePath` is `server`.
+   *     *   `server[*]`: In this case, `count` or `for_each` is contained in the resource. The value of `ResourcePath` is `server`.
+   * 
+   * *   Valid values of LogicalResourceIdPattern if a resource belongs to a child module:
+   * 
+   *     *   `app.server`: In this case, `count` and `for_each` are not contained in the `app` module and the `server` resource. The value of `ResourcePath` is `app.server`.````
+   *     *   `app.server[*]`: In this case, `count` or `for_each` is contained in the `server` resource, but `count` and `for_each` are not contained in the `app` module. The value of `ResourcePath` is `app.server`.
+   *     *   `app[*].server`: In this case, `count` or `for_each` is contained in the `app` module, but `count` and `for_each` are not contained in the `server` resource. The value of `ResourcePath` is `app.server`.
+   *     *   `app[*].server[*]`: In this case, `count` or `for_each` is contained in the `app` module and the `server` resource. The value of `ResourcePath` is `app.server`.````
+   *     *   `app.app_group[*].server`: In this case, `count` or `for_each` is contained in the `app_group` module, but `count` and `for_each` are not contained in the `app` module and the `server` resource. The value of `ResourcePath` is `app.app_group.server`. The `app_group` module is a child module of the `app` module.````
+   * 
+   * @example
+   * server
+   */
+  logicalResourceIdPattern?: string;
+  /**
+   * @remarks
+   * The path of the regular resource. In most cases, the path of a regular resource is the same as the resource name.
+   * 
+   * @example
+   * server
+   */
+  resourcePath?: string;
+  /**
+   * @remarks
+   * The regular resource type.
+   * 
+   * @example
+   * ALIYUN::ECS::InstanceGroup
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logicalResourceIdPattern: 'LogicalResourceIdPattern',
+      resourcePath: 'ResourcePath',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logicalResourceIdPattern: 'string',
+      resourcePath: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateTemplateResponseBodyUpdateInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters that can be modified.
+   */
+  parametersAllowedToBeModified?: string[];
+  /**
+   * @remarks
+   * The parameters whose changes cause service interruptions.
+   * 
+   * > - This parameter is supported only for a small number of resource types.
+   * > - This parameter is valid only for updates on ROS stacks.
+   */
+  parametersCauseInterruptionIfModified?: string[];
+  /**
+   * @remarks
+   * The parameters whose changes trigger replacement updates for resources.
+   * 
+   * > -  This parameter can be returned only if the value of UpdateInfoOptions contains EnableReplacement.
+   * > -  This parameter is valid only for updates on ROS stacks.
+   */
+  parametersCauseReplacementIfModified?: string[];
+  /**
+   * @remarks
+   * The parameters that can be modified under specific conditions.
+   */
+  parametersConditionallyAllowedToBeModified?: string[];
+  /**
+   * @remarks
+   * The parameters whose changes cause service interruptions under specific conditions.
+   * 
+   * > - This parameter is supported only for a small number of resource types.
+   * > - This parameter is valid only for updates on ROS stacks.
+   */
+  parametersConditionallyCauseInterruptionIfModified?: string[];
+  /**
+   * @remarks
+   * The parameters whose changes trigger replacement updates for resources under specific conditions.
+   * 
+   * > - This parameter can be returned only if the value of UpdateInfoOptions contains EnableReplacement.
+   * > - This parameter is valid only for updates on ROS stacks.
+   */
+  parametersConditionallyCauseReplacementIfModified?: string[];
+  /**
+   * @remarks
+   * The parameters that cannot be modified.
+   */
+  parametersNotAllowedToBeModified?: string[];
+  /**
+   * @remarks
+   * The parameters that can be modified under uncertain conditions.
+   */
+  parametersUncertainlyAllowedToBeModified?: string[];
+  /**
+   * @remarks
+   * The parameters whose changes cause service interruptions under uncertain conditions.
+   * 
+   * > - This parameter is supported only for a small number of resource types.
+   * > - This parameter is valid only for updates on ROS stacks.
+   */
+  parametersUncertainlyCauseInterruptionIfModified?: string[];
+  /**
+   * @remarks
+   * The parameters whose changes trigger replacement updates for resources under uncertain conditions.
+   * 
+   * > -  This parameter can be returned only if the value of UpdateInfoOptions contains EnableReplacement.
+   * > -  This parameter is valid only for updates on ROS stacks.
+   */
+  parametersUncertainlyCauseReplacementIfModified?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      parametersAllowedToBeModified: 'ParametersAllowedToBeModified',
+      parametersCauseInterruptionIfModified: 'ParametersCauseInterruptionIfModified',
+      parametersCauseReplacementIfModified: 'ParametersCauseReplacementIfModified',
+      parametersConditionallyAllowedToBeModified: 'ParametersConditionallyAllowedToBeModified',
+      parametersConditionallyCauseInterruptionIfModified: 'ParametersConditionallyCauseInterruptionIfModified',
+      parametersConditionallyCauseReplacementIfModified: 'ParametersConditionallyCauseReplacementIfModified',
+      parametersNotAllowedToBeModified: 'ParametersNotAllowedToBeModified',
+      parametersUncertainlyAllowedToBeModified: 'ParametersUncertainlyAllowedToBeModified',
+      parametersUncertainlyCauseInterruptionIfModified: 'ParametersUncertainlyCauseInterruptionIfModified',
+      parametersUncertainlyCauseReplacementIfModified: 'ParametersUncertainlyCauseReplacementIfModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parametersAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersCauseReplacementIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyCauseReplacementIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersNotAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersUncertainlyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersUncertainlyCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersUncertainlyCauseReplacementIfModified: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.parametersAllowedToBeModified)) {
+      $dara.Model.validateArray(this.parametersAllowedToBeModified);
+    }
+    if(Array.isArray(this.parametersCauseInterruptionIfModified)) {
+      $dara.Model.validateArray(this.parametersCauseInterruptionIfModified);
+    }
+    if(Array.isArray(this.parametersCauseReplacementIfModified)) {
+      $dara.Model.validateArray(this.parametersCauseReplacementIfModified);
+    }
+    if(Array.isArray(this.parametersConditionallyAllowedToBeModified)) {
+      $dara.Model.validateArray(this.parametersConditionallyAllowedToBeModified);
+    }
+    if(Array.isArray(this.parametersConditionallyCauseInterruptionIfModified)) {
+      $dara.Model.validateArray(this.parametersConditionallyCauseInterruptionIfModified);
+    }
+    if(Array.isArray(this.parametersConditionallyCauseReplacementIfModified)) {
+      $dara.Model.validateArray(this.parametersConditionallyCauseReplacementIfModified);
+    }
+    if(Array.isArray(this.parametersNotAllowedToBeModified)) {
+      $dara.Model.validateArray(this.parametersNotAllowedToBeModified);
+    }
+    if(Array.isArray(this.parametersUncertainlyAllowedToBeModified)) {
+      $dara.Model.validateArray(this.parametersUncertainlyAllowedToBeModified);
+    }
+    if(Array.isArray(this.parametersUncertainlyCauseInterruptionIfModified)) {
+      $dara.Model.validateArray(this.parametersUncertainlyCauseInterruptionIfModified);
+    }
+    if(Array.isArray(this.parametersUncertainlyCauseReplacementIfModified)) {
+      $dara.Model.validateArray(this.parametersUncertainlyCauseReplacementIfModified);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelStackOperationRequest extends $dara.Model {
   /**
    * @remarks
    * The operations that you want to cancel on the stack.
@@ -62,12 +10246,19 @@ export class CancelStackOperationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.allowedStackOperations)) {
+      $dara.Model.validateArray(this.allowedStackOperations);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelStackOperationResponseBody extends $tea.Model {
+export class CancelStackOperationResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -88,12 +10279,16 @@ export class CancelStackOperationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelStackOperationResponse extends $tea.Model {
+export class CancelStackOperationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CancelStackOperationResponseBody;
@@ -113,12 +10308,22 @@ export class CancelStackOperationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelUpdateStackRequest extends $tea.Model {
+export class CancelUpdateStackRequest extends $dara.Model {
   /**
    * @remarks
    * The method to cancel the update operation. Valid values:
@@ -166,12 +10371,16 @@ export class CancelUpdateStackRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelUpdateStackResponseBody extends $tea.Model {
+export class CancelUpdateStackResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -192,12 +10401,16 @@ export class CancelUpdateStackResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelUpdateStackResponse extends $tea.Model {
+export class CancelUpdateStackResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CancelUpdateStackResponseBody;
@@ -217,12 +10430,22 @@ export class CancelUpdateStackResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ContinueCreateStackRequest extends $tea.Model {
+export class ContinueCreateStackRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether only to validate the stack in the request. Valid values:
@@ -420,12 +10643,25 @@ export class ContinueCreateStackRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(Array.isArray(this.recreatingOptions)) {
+      $dara.Model.validateArray(this.recreatingOptions);
+    }
+    if(Array.isArray(this.recreatingResources)) {
+      $dara.Model.validateArray(this.recreatingResources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ContinueCreateStackResponseBody extends $tea.Model {
+export class ContinueCreateStackResponseBody extends $dara.Model {
   /**
    * @remarks
    * The validation result.
@@ -463,12 +10699,19 @@ export class ContinueCreateStackResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.dryRunResult && typeof (this.dryRunResult as any).validate === 'function') {
+      (this.dryRunResult as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ContinueCreateStackResponse extends $tea.Model {
+export class ContinueCreateStackResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ContinueCreateStackResponseBody;
@@ -488,12 +10731,22 @@ export class ContinueCreateStackResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAITaskRequest extends $tea.Model {
+export class CreateAITaskRequest extends $dara.Model {
   prompt?: string;
   /**
    * @example
@@ -528,12 +10781,16 @@ export class CreateAITaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAITaskResponseBody extends $tea.Model {
+export class CreateAITaskResponseBody extends $dara.Model {
   /**
    * @example
    * Forbidden
@@ -586,12 +10843,16 @@ export class CreateAITaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAITaskResponse extends $tea.Model {
+export class CreateAITaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateAITaskResponseBody;
@@ -611,12 +10872,22 @@ export class CreateAITaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateChangeSetRequest extends $tea.Model {
+export class CreateChangeSetRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the change set.\\
@@ -989,12 +11260,25 @@ export class CreateChangeSetRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.notificationURLs)) {
+      $dara.Model.validateArray(this.notificationURLs);
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(Array.isArray(this.resourcesToImport)) {
+      $dara.Model.validateArray(this.resourcesToImport);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateChangeSetResponseBody extends $tea.Model {
+export class CreateChangeSetResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the change set.
@@ -1035,12 +11319,16 @@ export class CreateChangeSetResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateChangeSetResponse extends $tea.Model {
+export class CreateChangeSetResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateChangeSetResponseBody;
@@ -1060,12 +11348,22 @@ export class CreateChangeSetResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDiagnosticRequest extends $tea.Model {
+export class CreateDiagnosticRequest extends $dara.Model {
   /**
    * @remarks
    * The keyword in the diagnosis.
@@ -1123,12 +11421,16 @@ export class CreateDiagnosticRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDiagnosticResponseBody extends $tea.Model {
+export class CreateDiagnosticResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error code returned.
@@ -1212,12 +11514,16 @@ export class CreateDiagnosticResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDiagnosticResponse extends $tea.Model {
+export class CreateDiagnosticResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateDiagnosticResponseBody;
@@ -1237,12 +11543,22 @@ export class CreateDiagnosticResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateStackRequest extends $tea.Model {
+export class CreateStackRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
@@ -1541,12 +11857,28 @@ export class CreateStackRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.createOptions)) {
+      $dara.Model.validateArray(this.createOptions);
+    }
+    if(Array.isArray(this.notificationURLs)) {
+      $dara.Model.validateArray(this.notificationURLs);
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateStackResponseBody extends $tea.Model {
+export class CreateStackResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -1577,12 +11909,16 @@ export class CreateStackResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateStackResponse extends $tea.Model {
+export class CreateStackResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateStackResponseBody;
@@ -1602,12 +11938,22 @@ export class CreateStackResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateStackGroupRequest extends $tea.Model {
+export class CreateStackGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the RAM role that you specify for the administrator account when you create a self-managed stack group. ROS assumes the administrator role to perform operations. If you do not specify this parameter, AliyunROSStackGroupAdministrationRole is used as the default value. ROS uses the administrator role to assume the execution role AliyunROSStackGroupExecutionRole to perform operations on the stacks in the stack group.
@@ -1793,12 +12139,28 @@ export class CreateStackGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.autoDeployment && typeof (this.autoDeployment as any).validate === 'function') {
+      (this.autoDeployment as any).validate();
+    }
+    if(Array.isArray(this.capabilities)) {
+      $dara.Model.validateArray(this.capabilities);
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateStackGroupShrinkRequest extends $tea.Model {
+export class CreateStackGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the RAM role that you specify for the administrator account when you create a self-managed stack group. ROS assumes the administrator role to perform operations. If you do not specify this parameter, AliyunROSStackGroupAdministrationRole is used as the default value. ROS uses the administrator role to assume the execution role AliyunROSStackGroupExecutionRole to perform operations on the stacks in the stack group.
@@ -1984,12 +12346,25 @@ export class CreateStackGroupShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.capabilities)) {
+      $dara.Model.validateArray(this.capabilities);
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateStackGroupResponseBody extends $tea.Model {
+export class CreateStackGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -2020,12 +12395,16 @@ export class CreateStackGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateStackGroupResponse extends $tea.Model {
+export class CreateStackGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateStackGroupResponseBody;
@@ -2045,12 +12424,22 @@ export class CreateStackGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateStackInstancesRequest extends $tea.Model {
+export class CreateStackInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
@@ -2238,12 +12627,34 @@ export class CreateStackInstancesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(Array.isArray(this.deploymentOptions)) {
+      $dara.Model.validateArray(this.deploymentOptions);
+    }
+    if(this.deploymentTargets && typeof (this.deploymentTargets as any).validate === 'function') {
+      (this.deploymentTargets as any).validate();
+    }
+    if(this.operationPreferences) {
+      $dara.Model.validateMap(this.operationPreferences);
+    }
+    if(Array.isArray(this.parameterOverrides)) {
+      $dara.Model.validateArray(this.parameterOverrides);
+    }
+    if(Array.isArray(this.regionIds)) {
+      $dara.Model.validateArray(this.regionIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateStackInstancesShrinkRequest extends $tea.Model {
+export class CreateStackInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
@@ -2431,12 +12842,22 @@ export class CreateStackInstancesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.deploymentOptions)) {
+      $dara.Model.validateArray(this.deploymentOptions);
+    }
+    if(Array.isArray(this.parameterOverrides)) {
+      $dara.Model.validateArray(this.parameterOverrides);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateStackInstancesResponseBody extends $tea.Model {
+export class CreateStackInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the operation.
@@ -2467,12 +12888,16 @@ export class CreateStackInstancesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateStackInstancesResponse extends $tea.Model {
+export class CreateStackInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateStackInstancesResponseBody;
@@ -2492,12 +12917,22 @@ export class CreateStackInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTemplateRequest extends $tea.Model {
+export class CreateTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the template. The description can be up to 256 characters in length.
@@ -2567,12 +13002,22 @@ export class CreateTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.validationOptions)) {
+      $dara.Model.validateArray(this.validationOptions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTemplateResponseBody extends $tea.Model {
+export class CreateTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -2603,12 +13048,16 @@ export class CreateTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTemplateResponse extends $tea.Model {
+export class CreateTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateTemplateResponseBody;
@@ -2628,12 +13077,22 @@ export class CreateTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTemplateScratchRequest extends $tea.Model {
+export class CreateTemplateScratchRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -2777,12 +13236,31 @@ export class CreateTemplateScratchRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.preferenceParameters)) {
+      $dara.Model.validateArray(this.preferenceParameters);
+    }
+    if(this.sourceResourceGroup && typeof (this.sourceResourceGroup as any).validate === 'function') {
+      (this.sourceResourceGroup as any).validate();
+    }
+    if(Array.isArray(this.sourceResources)) {
+      $dara.Model.validateArray(this.sourceResources);
+    }
+    if(this.sourceTag && typeof (this.sourceTag as any).validate === 'function') {
+      (this.sourceTag as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTemplateScratchShrinkRequest extends $tea.Model {
+export class CreateTemplateScratchShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -2926,12 +13404,19 @@ export class CreateTemplateScratchShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTemplateScratchResponseBody extends $tea.Model {
+export class CreateTemplateScratchResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -2962,12 +13447,16 @@ export class CreateTemplateScratchResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTemplateScratchResponse extends $tea.Model {
+export class CreateTemplateScratchResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateTemplateScratchResponseBody;
@@ -2987,12 +13476,22 @@ export class CreateTemplateScratchResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteChangeSetRequest extends $tea.Model {
+export class DeleteChangeSetRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the change set.
@@ -3027,12 +13526,16 @@ export class DeleteChangeSetRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteChangeSetResponseBody extends $tea.Model {
+export class DeleteChangeSetResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -3053,12 +13556,16 @@ export class DeleteChangeSetResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteChangeSetResponse extends $tea.Model {
+export class DeleteChangeSetResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteChangeSetResponseBody;
@@ -3078,12 +13585,22 @@ export class DeleteChangeSetResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteDiagnosticRequest extends $tea.Model {
+export class DeleteDiagnosticRequest extends $dara.Model {
   /**
    * @remarks
    * The report ID. You can troubleshoot issues based on the report.
@@ -3104,12 +13621,16 @@ export class DeleteDiagnosticRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteDiagnosticResponseBody extends $tea.Model {
+export class DeleteDiagnosticResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error code returned.
@@ -3173,12 +13694,16 @@ export class DeleteDiagnosticResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteDiagnosticResponse extends $tea.Model {
+export class DeleteDiagnosticResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteDiagnosticResponseBody;
@@ -3198,12 +13723,22 @@ export class DeleteDiagnosticResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteStackRequest extends $tea.Model {
+export class DeleteStackRequest extends $dara.Model {
   /**
    * @remarks
    * The options for deleting the stack.
@@ -3286,12 +13821,22 @@ export class DeleteStackRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.deleteOptions)) {
+      $dara.Model.validateArray(this.deleteOptions);
+    }
+    if(Array.isArray(this.retainResources)) {
+      $dara.Model.validateArray(this.retainResources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteStackResponseBody extends $tea.Model {
+export class DeleteStackResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -3312,12 +13857,16 @@ export class DeleteStackResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteStackResponse extends $tea.Model {
+export class DeleteStackResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteStackResponseBody;
@@ -3337,12 +13886,22 @@ export class DeleteStackResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteStackGroupRequest extends $tea.Model {
+export class DeleteStackGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the region to which the stack group belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
@@ -3379,12 +13938,16 @@ export class DeleteStackGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteStackGroupResponseBody extends $tea.Model {
+export class DeleteStackGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -3405,12 +13968,16 @@ export class DeleteStackGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteStackGroupResponse extends $tea.Model {
+export class DeleteStackGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteStackGroupResponseBody;
@@ -3430,12 +13997,22 @@ export class DeleteStackGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteStackInstancesRequest extends $tea.Model {
+export class DeleteStackInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
@@ -3597,12 +14174,28 @@ export class DeleteStackInstancesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(this.deploymentTargets && typeof (this.deploymentTargets as any).validate === 'function') {
+      (this.deploymentTargets as any).validate();
+    }
+    if(this.operationPreferences) {
+      $dara.Model.validateMap(this.operationPreferences);
+    }
+    if(Array.isArray(this.regionIds)) {
+      $dara.Model.validateArray(this.regionIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteStackInstancesShrinkRequest extends $tea.Model {
+export class DeleteStackInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
@@ -3764,12 +14357,16 @@ export class DeleteStackInstancesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteStackInstancesResponseBody extends $tea.Model {
+export class DeleteStackInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the operation.
@@ -3800,12 +14397,16 @@ export class DeleteStackInstancesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteStackInstancesResponse extends $tea.Model {
+export class DeleteStackInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteStackInstancesResponseBody;
@@ -3825,12 +14426,22 @@ export class DeleteStackInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteTemplateRequest extends $tea.Model {
+export class DeleteTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the template. This parameter applies to only private templates.
@@ -3853,12 +14464,16 @@ export class DeleteTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteTemplateResponseBody extends $tea.Model {
+export class DeleteTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -3879,12 +14494,16 @@ export class DeleteTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteTemplateResponse extends $tea.Model {
+export class DeleteTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteTemplateResponseBody;
@@ -3904,12 +14523,22 @@ export class DeleteTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteTemplateScratchRequest extends $tea.Model {
+export class DeleteTemplateScratchRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the scenario.
@@ -3946,12 +14575,16 @@ export class DeleteTemplateScratchRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteTemplateScratchResponseBody extends $tea.Model {
+export class DeleteTemplateScratchResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -3972,12 +14605,16 @@ export class DeleteTemplateScratchResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteTemplateScratchResponse extends $tea.Model {
+export class DeleteTemplateScratchResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteTemplateScratchResponseBody;
@@ -3997,12 +14634,22 @@ export class DeleteTemplateScratchResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeregisterResourceTypeRequest extends $tea.Model {
+export class DeregisterResourceTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The resource type.
@@ -4035,12 +14682,16 @@ export class DeregisterResourceTypeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeregisterResourceTypeResponseBody extends $tea.Model {
+export class DeregisterResourceTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -4061,12 +14712,16 @@ export class DeregisterResourceTypeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeregisterResourceTypeResponse extends $tea.Model {
+export class DeregisterResourceTypeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeregisterResourceTypeResponseBody;
@@ -4086,12 +14741,22 @@ export class DeregisterResourceTypeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsRequest extends $tea.Model {
+export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
    * The language in which you want to display the results. Valid values:
@@ -4116,12 +14781,16 @@ export class DescribeRegionsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponseBody extends $tea.Model {
+export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The regions.
@@ -4149,12 +14818,19 @@ export class DescribeRegionsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponse extends $tea.Model {
+export class DescribeRegionsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeRegionsResponseBody;
@@ -4174,12 +14850,22 @@ export class DescribeRegionsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetectStackDriftRequest extends $tea.Model {
+export class DetectStackDriftRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
@@ -4238,12 +14924,19 @@ export class DetectStackDriftRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.logicalResourceId)) {
+      $dara.Model.validateArray(this.logicalResourceId);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetectStackDriftResponseBody extends $tea.Model {
+export class DetectStackDriftResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the drift detection.
@@ -4274,12 +14967,16 @@ export class DetectStackDriftResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetectStackDriftResponse extends $tea.Model {
+export class DetectStackDriftResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DetectStackDriftResponseBody;
@@ -4299,12 +14996,22 @@ export class DetectStackDriftResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetectStackGroupDriftRequest extends $tea.Model {
+export class DetectStackGroupDriftRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
@@ -4397,12 +15104,19 @@ export class DetectStackGroupDriftRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.operationPreferences) {
+      $dara.Model.validateMap(this.operationPreferences);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetectStackGroupDriftShrinkRequest extends $tea.Model {
+export class DetectStackGroupDriftShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
@@ -4495,12 +15209,16 @@ export class DetectStackGroupDriftShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetectStackGroupDriftResponseBody extends $tea.Model {
+export class DetectStackGroupDriftResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the operation.
@@ -4531,12 +15249,16 @@ export class DetectStackGroupDriftResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetectStackGroupDriftResponse extends $tea.Model {
+export class DetectStackGroupDriftResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DetectStackGroupDriftResponseBody;
@@ -4556,12 +15278,22 @@ export class DetectStackGroupDriftResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetectStackResourceDriftRequest extends $tea.Model {
+export class DetectStackResourceDriftRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
@@ -4622,12 +15354,16 @@ export class DetectStackResourceDriftRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetectStackResourceDriftResponseBody extends $tea.Model {
+export class DetectStackResourceDriftResponseBody extends $dara.Model {
   /**
    * @remarks
    * The actual JSON-formatted resource properties.
@@ -4740,12 +15476,19 @@ export class DetectStackResourceDriftResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.propertyDifferences)) {
+      $dara.Model.validateArray(this.propertyDifferences);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetectStackResourceDriftResponse extends $tea.Model {
+export class DetectStackResourceDriftResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DetectStackResourceDriftResponseBody;
@@ -4765,12 +15508,22 @@ export class DetectStackResourceDriftResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExecuteChangeSetRequest extends $tea.Model {
+export class ExecuteChangeSetRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the change set.
@@ -4819,12 +15572,16 @@ export class ExecuteChangeSetRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExecuteChangeSetResponseBody extends $tea.Model {
+export class ExecuteChangeSetResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -4845,12 +15602,16 @@ export class ExecuteChangeSetResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExecuteChangeSetResponse extends $tea.Model {
+export class ExecuteChangeSetResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ExecuteChangeSetResponseBody;
@@ -4870,12 +15631,22 @@ export class ExecuteChangeSetResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateTemplateByScratchRequest extends $tea.Model {
+export class GenerateTemplateByScratchRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the new node.
@@ -4934,12 +15705,16 @@ export class GenerateTemplateByScratchRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateTemplateByScratchResponseBody extends $tea.Model {
+export class GenerateTemplateByScratchResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -4979,12 +15754,19 @@ export class GenerateTemplateByScratchResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourcesToImport)) {
+      $dara.Model.validateArray(this.resourcesToImport);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateTemplateByScratchResponse extends $tea.Model {
+export class GenerateTemplateByScratchResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GenerateTemplateByScratchResponseBody;
@@ -5004,12 +15786,22 @@ export class GenerateTemplateByScratchResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateTemplatePolicyRequest extends $tea.Model {
+export class GenerateTemplatePolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The type of operation N for which you want to generate the policy information.
@@ -5093,12 +15885,19 @@ export class GenerateTemplatePolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.operationTypes)) {
+      $dara.Model.validateArray(this.operationTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateTemplatePolicyResponseBody extends $tea.Model {
+export class GenerateTemplatePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the policy.
@@ -5126,12 +15925,19 @@ export class GenerateTemplatePolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.policy && typeof (this.policy as any).validate === 'function') {
+      (this.policy as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateTemplatePolicyResponse extends $tea.Model {
+export class GenerateTemplatePolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GenerateTemplatePolicyResponseBody;
@@ -5151,12 +15957,22 @@ export class GenerateTemplatePolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAITaskRequest extends $tea.Model {
+export class GetAITaskRequest extends $dara.Model {
   /**
    * @example
    * Disabled
@@ -5181,12 +15997,16 @@ export class GetAITaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAITaskResponseBody extends $tea.Model {
+export class GetAITaskResponseBody extends $dara.Model {
   /**
    * @example
    * Forbidden
@@ -5272,12 +16092,19 @@ export class GetAITaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.taskOutput) {
+      $dara.Model.validateMap(this.taskOutput);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAITaskResponse extends $tea.Model {
+export class GetAITaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAITaskResponseBody;
@@ -5297,12 +16124,22 @@ export class GetAITaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChangeSetRequest extends $tea.Model {
+export class GetChangeSetRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the change set.
@@ -5350,12 +16187,16 @@ export class GetChangeSetRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChangeSetResponseBody extends $tea.Model {
+export class GetChangeSetResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the change set.
@@ -5539,12 +16380,25 @@ export class GetChangeSetResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.changes)) {
+      $dara.Model.validateArray(this.changes);
+    }
+    if(this.log && typeof (this.log as any).validate === 'function') {
+      (this.log as any).validate();
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChangeSetResponse extends $tea.Model {
+export class GetChangeSetResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetChangeSetResponseBody;
@@ -5564,12 +16418,22 @@ export class GetChangeSetResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDiagnosticRequest extends $tea.Model {
+export class GetDiagnosticRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the diagnostic report.
@@ -5590,12 +16454,16 @@ export class GetDiagnosticRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDiagnosticResponseBody extends $tea.Model {
+export class GetDiagnosticResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error code returned.
@@ -5750,12 +16618,22 @@ export class GetDiagnosticResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.diagnosticResult && typeof (this.diagnosticResult as any).validate === 'function') {
+      (this.diagnosticResult as any).validate();
+    }
+    if(this.recommends) {
+      $dara.Model.validateMap(this.recommends);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDiagnosticResponse extends $tea.Model {
+export class GetDiagnosticResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetDiagnosticResponseBody;
@@ -5775,12 +16653,22 @@ export class GetDiagnosticResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFeatureDetailsRequest extends $tea.Model {
+export class GetFeatureDetailsRequest extends $dara.Model {
   /**
    * @remarks
    * The one or more features that you want to query. Valid values:
@@ -5820,12 +16708,16 @@ export class GetFeatureDetailsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFeatureDetailsResponseBody extends $tea.Model {
+export class GetFeatureDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
    * Details of the drift detection feature.
@@ -5888,12 +16780,34 @@ export class GetFeatureDetailsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.driftDetection && typeof (this.driftDetection as any).validate === 'function') {
+      (this.driftDetection as any).validate();
+    }
+    if(this.resourceCleaner && typeof (this.resourceCleaner as any).validate === 'function') {
+      (this.resourceCleaner as any).validate();
+    }
+    if(this.resourceImport && typeof (this.resourceImport as any).validate === 'function') {
+      (this.resourceImport as any).validate();
+    }
+    if(this.templateParameterConstraints && typeof (this.templateParameterConstraints as any).validate === 'function') {
+      (this.templateParameterConstraints as any).validate();
+    }
+    if(this.templateScratch && typeof (this.templateScratch as any).validate === 'function') {
+      (this.templateScratch as any).validate();
+    }
+    if(this.terraform && typeof (this.terraform as any).validate === 'function') {
+      (this.terraform as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFeatureDetailsResponse extends $tea.Model {
+export class GetFeatureDetailsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetFeatureDetailsResponseBody;
@@ -5913,12 +16827,22 @@ export class GetFeatureDetailsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceTypeRequest extends $tea.Model {
+export class GetResourceTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -5953,12 +16877,16 @@ export class GetResourceTypeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceTypeResponseBody extends $tea.Model {
+export class GetResourceTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The type of the resource.
@@ -6152,12 +17080,22 @@ export class GetResourceTypeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.attributes) {
+      $dara.Model.validateMap(this.attributes);
+    }
+    if(this.properties) {
+      $dara.Model.validateMap(this.properties);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceTypeResponse extends $tea.Model {
+export class GetResourceTypeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetResourceTypeResponseBody;
@@ -6177,12 +17115,22 @@ export class GetResourceTypeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceTypeTemplateRequest extends $tea.Model {
+export class GetResourceTypeTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The resource type.
@@ -6217,12 +17165,16 @@ export class GetResourceTypeTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceTypeTemplateResponseBody extends $tea.Model {
+export class GetResourceTypeTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -6267,12 +17219,19 @@ export class GetResourceTypeTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.templateBody) {
+      $dara.Model.validateMap(this.templateBody);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceTypeTemplateResponse extends $tea.Model {
+export class GetResourceTypeTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetResourceTypeTemplateResponseBody;
@@ -6292,12 +17251,22 @@ export class GetResourceTypeTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceProvisionsRequest extends $tea.Model {
+export class GetServiceProvisionsRequest extends $dara.Model {
   /**
    * @remarks
    * The parameters.
@@ -6373,12 +17342,22 @@ export class GetServiceProvisionsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(Array.isArray(this.services)) {
+      $dara.Model.validateArray(this.services);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceProvisionsResponseBody extends $tea.Model {
+export class GetServiceProvisionsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -6406,12 +17385,19 @@ export class GetServiceProvisionsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.serviceProvisions)) {
+      $dara.Model.validateArray(this.serviceProvisions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceProvisionsResponse extends $tea.Model {
+export class GetServiceProvisionsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetServiceProvisionsResponseBody;
@@ -6431,12 +17417,22 @@ export class GetServiceProvisionsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackRequest extends $tea.Model {
+export class GetStackRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
@@ -6532,12 +17528,16 @@ export class GetStackRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackResponseBody extends $tea.Model {
+export class GetStackResponseBody extends $dara.Model {
   /**
    * @remarks
    * The number of resources on which drift detection was performed.
@@ -6969,12 +17969,40 @@ export class GetStackResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.log && typeof (this.log as any).validate === 'function') {
+      (this.log as any).validate();
+    }
+    if(Array.isArray(this.notificationURLs)) {
+      $dara.Model.validateArray(this.notificationURLs);
+    }
+    if(this.operationInfo && typeof (this.operationInfo as any).validate === 'function') {
+      (this.operationInfo as any).validate();
+    }
+    if(Array.isArray(this.orderIds)) {
+      $dara.Model.validateArray(this.orderIds);
+    }
+    if(Array.isArray(this.outputs)) {
+      $dara.Model.validateArray(this.outputs);
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(this.resourceProgress && typeof (this.resourceProgress as any).validate === 'function') {
+      (this.resourceProgress as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackResponse extends $tea.Model {
+export class GetStackResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetStackResponseBody;
@@ -6994,12 +18022,22 @@ export class GetStackResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackDriftDetectionStatusRequest extends $tea.Model {
+export class GetStackDriftDetectionStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the drift detection operation.
@@ -7038,12 +18076,16 @@ export class GetStackDriftDetectionStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackDriftDetectionStatusResponseBody extends $tea.Model {
+export class GetStackDriftDetectionStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the drift detection operation.
@@ -7142,12 +18184,16 @@ export class GetStackDriftDetectionStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackDriftDetectionStatusResponse extends $tea.Model {
+export class GetStackDriftDetectionStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetStackDriftDetectionStatusResponseBody;
@@ -7167,12 +18213,22 @@ export class GetStackDriftDetectionStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackGroupRequest extends $tea.Model {
+export class GetStackGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the stack group. The name must be unique within a region.
@@ -7221,12 +18277,16 @@ export class GetStackGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackGroupResponseBody extends $tea.Model {
+export class GetStackGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the stack group.
@@ -7254,12 +18314,19 @@ export class GetStackGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.stackGroup && typeof (this.stackGroup as any).validate === 'function') {
+      (this.stackGroup as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackGroupResponse extends $tea.Model {
+export class GetStackGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetStackGroupResponseBody;
@@ -7279,12 +18346,22 @@ export class GetStackGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackGroupOperationRequest extends $tea.Model {
+export class GetStackGroupOperationRequest extends $dara.Model {
   /**
    * @remarks
    * The operation ID. You can call the [ListStackGroupOperations](https://help.aliyun.com/document_detail/151342.html) operation to query the operation ID.
@@ -7319,12 +18396,16 @@ export class GetStackGroupOperationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackGroupOperationResponseBody extends $tea.Model {
+export class GetStackGroupOperationResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -7352,12 +18433,19 @@ export class GetStackGroupOperationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.stackGroupOperation && typeof (this.stackGroupOperation as any).validate === 'function') {
+      (this.stackGroupOperation as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackGroupOperationResponse extends $tea.Model {
+export class GetStackGroupOperationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetStackGroupOperationResponseBody;
@@ -7377,12 +18465,22 @@ export class GetStackGroupOperationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackInstanceRequest extends $tea.Model {
+export class GetStackInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to return the Outputs parameter. The Outputs parameter specifies the outputs of the stack. Valid values:
@@ -7462,12 +18560,16 @@ export class GetStackInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackInstanceResponseBody extends $tea.Model {
+export class GetStackInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -7495,12 +18597,19 @@ export class GetStackInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.stackInstance && typeof (this.stackInstance as any).validate === 'function') {
+      (this.stackInstance as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackInstanceResponse extends $tea.Model {
+export class GetStackInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetStackInstanceResponseBody;
@@ -7520,12 +18629,22 @@ export class GetStackInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackPolicyRequest extends $tea.Model {
+export class GetStackPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
@@ -7560,12 +18679,16 @@ export class GetStackPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackPolicyResponseBody extends $tea.Model {
+export class GetStackPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -7596,12 +18719,19 @@ export class GetStackPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.stackPolicyBody) {
+      $dara.Model.validateMap(this.stackPolicyBody);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackPolicyResponse extends $tea.Model {
+export class GetStackPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetStackPolicyResponseBody;
@@ -7621,12 +18751,22 @@ export class GetStackPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackResourceRequest extends $tea.Model {
+export class GetStackResourceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to query the resource properties. Valid values:
@@ -7720,12 +18860,19 @@ export class GetStackResourceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceAttributes)) {
+      $dara.Model.validateArray(this.resourceAttributes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackResourceResponseBody extends $tea.Model {
+export class GetStackResourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The resource type.
@@ -7901,12 +19048,25 @@ export class GetStackResourceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
+    if(this.moduleInfo && typeof (this.moduleInfo as any).validate === 'function') {
+      (this.moduleInfo as any).validate();
+    }
+    if(Array.isArray(this.resourceAttributes)) {
+      $dara.Model.validateArray(this.resourceAttributes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStackResourceResponse extends $tea.Model {
+export class GetStackResourceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetStackResourceResponseBody;
@@ -7926,12 +19086,22 @@ export class GetStackResourceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateRequest extends $tea.Model {
+export class GetTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the change set.
@@ -8060,12 +19230,17 @@ export class GetTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateResponseBody extends $tea.Model {
+export class GetTemplateResponseBody extends $dara.Model {
+  additionalInfo?: { [key: string]: any };
   /**
    * @remarks
    * The ID of the change set. This parameter is returned only if you specify ChangeSetId.
@@ -8236,6 +19411,7 @@ export class GetTemplateResponseBody extends $tea.Model {
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      additionalInfo: 'AdditionalInfo',
       changeSetId: 'ChangeSetId',
       createTime: 'CreateTime',
       description: 'Description',
@@ -8260,6 +19436,7 @@ export class GetTemplateResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      additionalInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       changeSetId: 'string',
       createTime: 'string',
       description: 'string',
@@ -8282,12 +19459,25 @@ export class GetTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.additionalInfo) {
+      $dara.Model.validateMap(this.additionalInfo);
+    }
+    if(Array.isArray(this.permissions)) {
+      $dara.Model.validateArray(this.permissions);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateResponse extends $tea.Model {
+export class GetTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetTemplateResponseBody;
@@ -8307,12 +19497,22 @@ export class GetTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateEstimateCostRequest extends $tea.Model {
+export class GetTemplateEstimateCostRequest extends $dara.Model {
   /**
    * @remarks
    * The name of parameter N. If you do not specify the name and value of a parameter, ROS uses the default name and value that are specified in the template.
@@ -8451,12 +19651,19 @@ export class GetTemplateEstimateCostRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateEstimateCostResponseBody extends $tea.Model {
+export class GetTemplateEstimateCostResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -8487,12 +19694,19 @@ export class GetTemplateEstimateCostResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.resources) {
+      $dara.Model.validateMap(this.resources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateEstimateCostResponse extends $tea.Model {
+export class GetTemplateEstimateCostResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetTemplateEstimateCostResponseBody;
@@ -8512,12 +19726,22 @@ export class GetTemplateEstimateCostResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateParameterConstraintsRequest extends $tea.Model {
+export class GetTemplateParameterConstraintsRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -8628,12 +19852,25 @@ export class GetTemplateParameterConstraintsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(Array.isArray(this.parametersKeyFilter)) {
+      $dara.Model.validateArray(this.parametersKeyFilter);
+    }
+    if(Array.isArray(this.parametersOrder)) {
+      $dara.Model.validateArray(this.parametersOrder);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateParameterConstraintsShrinkRequest extends $tea.Model {
+export class GetTemplateParameterConstraintsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -8744,12 +19981,19 @@ export class GetTemplateParameterConstraintsShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateParameterConstraintsResponseBody extends $tea.Model {
+export class GetTemplateParameterConstraintsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The constraints of the parameters.
@@ -8777,12 +20021,19 @@ export class GetTemplateParameterConstraintsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.parameterConstraints)) {
+      $dara.Model.validateArray(this.parameterConstraints);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateParameterConstraintsResponse extends $tea.Model {
+export class GetTemplateParameterConstraintsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetTemplateParameterConstraintsResponseBody;
@@ -8802,12 +20053,22 @@ export class GetTemplateParameterConstraintsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateRecommendParametersRequest extends $tea.Model {
+export class GetTemplateRecommendParametersRequest extends $dara.Model {
   clientToken?: string;
   parameters?: GetTemplateRecommendParametersRequestParameters[];
   /**
@@ -8843,12 +20104,19 @@ export class GetTemplateRecommendParametersRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateRecommendParametersResponseBody extends $tea.Model {
+export class GetTemplateRecommendParametersResponseBody extends $dara.Model {
   recommendParameterValues?: GetTemplateRecommendParametersResponseBodyRecommendParameterValues[];
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -8865,12 +20133,19 @@ export class GetTemplateRecommendParametersResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.recommendParameterValues)) {
+      $dara.Model.validateArray(this.recommendParameterValues);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateRecommendParametersResponse extends $tea.Model {
+export class GetTemplateRecommendParametersResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetTemplateRecommendParametersResponseBody;
@@ -8890,12 +20165,22 @@ export class GetTemplateRecommendParametersResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateScratchRequest extends $tea.Model {
+export class GetTemplateScratchRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the resource scenario.
@@ -8949,12 +20234,16 @@ export class GetTemplateScratchRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateScratchResponseBody extends $tea.Model {
+export class GetTemplateScratchResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -8982,12 +20271,19 @@ export class GetTemplateScratchResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.templateScratch && typeof (this.templateScratch as any).validate === 'function') {
+      (this.templateScratch as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateScratchResponse extends $tea.Model {
+export class GetTemplateScratchResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetTemplateScratchResponseBody;
@@ -9007,12 +20303,22 @@ export class GetTemplateScratchResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateSummaryRequest extends $tea.Model {
+export class GetTemplateSummaryRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the change set.
@@ -9140,12 +20446,19 @@ export class GetTemplateSummaryRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateSummaryResponseBody extends $tea.Model {
+export class GetTemplateSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
    * The description of the stack template.
@@ -9218,12 +20531,28 @@ export class GetTemplateSummaryResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(Array.isArray(this.resourceIdentifierSummaries)) {
+      $dara.Model.validateArray(this.resourceIdentifierSummaries);
+    }
+    if(Array.isArray(this.resourceTypes)) {
+      $dara.Model.validateArray(this.resourceTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTemplateSummaryResponse extends $tea.Model {
+export class GetTemplateSummaryResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetTemplateSummaryResponseBody;
@@ -9243,43 +20572,118 @@ export class GetTemplateSummaryResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImportStacksToStackGroupRequest extends $tea.Model {
+export class ImportStacksToStackGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * Ensures the idempotence of the request. This value is generated by the client and must be globally unique. 
+   * It cannot exceed 64 characters and can include letters, numbers, hyphens (-), and underscores (_). 
+   * For more information, see [How to Ensure Idempotence](https://help.aliyun.com/document_detail/134212.html).
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Description of the operation.
+   * 
    * @example
    * Import ops stacks to stack group
    */
   operationDescription?: string;
   /**
+   * @remarks
+   * Operation settings for importing stacks into the stack group.
+   * 
+   * Includes the following parameters:
+   * 
+   * - {"FailureToleranceCount": N}
+   * 
+   *   Failure tolerance count. The number of accounts in which the stack can fail in each region. If this number is exceeded, the operation in that region will stop. If the operation in one region stops, it will not continue in other regions.
+   *   
+   *    The range of N: 0~20.
+   * 
+   *    If FailureToleranceCount is not specified, the default value is 0.
+   * 
+   * - {"FailureTolerancePercentage": N}
+   * 
+   *    Failure tolerance percentage. The percentage of total accounts in which the stack can fail in each region. If this percentage is exceeded, the operation in that region will stop.
+   * 
+   *    The range of N: 0~100. If the percentage is not an integer, ROS will round down.
+   * 
+   *    If FailureTolerancePercentage is not specified, the default value is 0.
+   * 
+   * - {"MaxConcurrentCount": N}
+   * 
+   *    Maximum concurrent account count. The number of accounts in which the stack can be deployed simultaneously in each region.
+   * 
+   *    The range of N: 1~20.
+   * 
+   *    If MaxConcurrentCount is not specified, the default value is 1.
+   * 
+   * - {"MaxConcurrentPercentage": N} Maximum concurrent account percentage.
+   * 
+   *    The percentage of total accounts in which the stack can be deployed simultaneously in each region.
+   * 
+   *    The range of N: 1~100. If the percentage is not an integer, ROS will round down.
+   * 
+   *    If MaxConcurrentPercentage is not specified, the default value is 1.
+   * - {"RegionConcurrencyType": N}
+   * Region-level concurrency type for deploying stack instances, values:
+   *      - SEQUENTIAL (default): Deploy sequentially in each specified region, only one region at a time.
+   * 
+   *      - PARALLEL: Deploy in parallel across all specified regions.
+   * 
+   * Multiple parameters are separated by commas (,).
+   * 
+   * > - Do not specify both MaxConcurrentCount and MaxConcurrentPercentage.  
+   * >- Do not specify both FailureToleranceCount and FailureTolerancePercentage.
+   * 
    * @example
    * {"FailureToleranceCount": 1,"MaxConcurrentCount": 2}
    */
   operationPreferences?: { [key: string]: any };
   /**
    * @remarks
+   * The region ID of the stack group. You can call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to view the latest list of Alibaba Cloud regions.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * A list of resource directory folder IDs for the stacks to be imported. A maximum of 10 folders can be added.
+   */
   resourceDirectoryFolderIds?: string[];
   /**
    * @remarks
+   * A list of ARNs for the stacks to be imported into the stack group, in the format `acs:ros:${RegionId}:${AccountId}:stack/${StackId}`. A maximum of 10 stacks can be added.
+   * 
    * This parameter is required.
    */
   stackArns?: string[];
   /**
    * @remarks
+   * The name of the stack group. The name must be unique within a single region. It cannot exceed 255 characters and must start with a letter or number, and can include letters, numbers, hyphens (-), and underscores (_).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9310,43 +20714,121 @@ export class ImportStacksToStackGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.operationPreferences) {
+      $dara.Model.validateMap(this.operationPreferences);
+    }
+    if(Array.isArray(this.resourceDirectoryFolderIds)) {
+      $dara.Model.validateArray(this.resourceDirectoryFolderIds);
+    }
+    if(Array.isArray(this.stackArns)) {
+      $dara.Model.validateArray(this.stackArns);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImportStacksToStackGroupShrinkRequest extends $tea.Model {
+export class ImportStacksToStackGroupShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Ensures the idempotence of the request. This value is generated by the client and must be globally unique. 
+   * It cannot exceed 64 characters and can include letters, numbers, hyphens (-), and underscores (_). 
+   * For more information, see [How to Ensure Idempotence](https://help.aliyun.com/document_detail/134212.html).
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Description of the operation.
+   * 
    * @example
    * Import ops stacks to stack group
    */
   operationDescription?: string;
   /**
+   * @remarks
+   * Operation settings for importing stacks into the stack group.
+   * 
+   * Includes the following parameters:
+   * 
+   * - {"FailureToleranceCount": N}
+   * 
+   *   Failure tolerance count. The number of accounts in which the stack can fail in each region. If this number is exceeded, the operation in that region will stop. If the operation in one region stops, it will not continue in other regions.
+   *   
+   *    The range of N: 0~20.
+   * 
+   *    If FailureToleranceCount is not specified, the default value is 0.
+   * 
+   * - {"FailureTolerancePercentage": N}
+   * 
+   *    Failure tolerance percentage. The percentage of total accounts in which the stack can fail in each region. If this percentage is exceeded, the operation in that region will stop.
+   * 
+   *    The range of N: 0~100. If the percentage is not an integer, ROS will round down.
+   * 
+   *    If FailureTolerancePercentage is not specified, the default value is 0.
+   * 
+   * - {"MaxConcurrentCount": N}
+   * 
+   *    Maximum concurrent account count. The number of accounts in which the stack can be deployed simultaneously in each region.
+   * 
+   *    The range of N: 1~20.
+   * 
+   *    If MaxConcurrentCount is not specified, the default value is 1.
+   * 
+   * - {"MaxConcurrentPercentage": N} Maximum concurrent account percentage.
+   * 
+   *    The percentage of total accounts in which the stack can be deployed simultaneously in each region.
+   * 
+   *    The range of N: 1~100. If the percentage is not an integer, ROS will round down.
+   * 
+   *    If MaxConcurrentPercentage is not specified, the default value is 1.
+   * - {"RegionConcurrencyType": N}
+   * Region-level concurrency type for deploying stack instances, values:
+   *      - SEQUENTIAL (default): Deploy sequentially in each specified region, only one region at a time.
+   * 
+   *      - PARALLEL: Deploy in parallel across all specified regions.
+   * 
+   * Multiple parameters are separated by commas (,).
+   * 
+   * > - Do not specify both MaxConcurrentCount and MaxConcurrentPercentage.  
+   * >- Do not specify both FailureToleranceCount and FailureTolerancePercentage.
+   * 
    * @example
    * {"FailureToleranceCount": 1,"MaxConcurrentCount": 2}
    */
   operationPreferencesShrink?: string;
   /**
    * @remarks
+   * The region ID of the stack group. You can call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to view the latest list of Alibaba Cloud regions.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * A list of resource directory folder IDs for the stacks to be imported. A maximum of 10 folders can be added.
+   */
   resourceDirectoryFolderIdsShrink?: string;
   /**
    * @remarks
+   * A list of ARNs for the stacks to be imported into the stack group, in the format `acs:ros:${RegionId}:${AccountId}:stack/${StackId}`. A maximum of 10 stacks can be added.
+   * 
    * This parameter is required.
    */
   stackArnsShrink?: string;
   /**
    * @remarks
+   * The name of the stack group. The name must be unique within a single region. It cannot exceed 255 characters and must start with a letter or number, and can include letters, numbers, hyphens (-), and underscores (_).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9377,18 +20859,28 @@ export class ImportStacksToStackGroupShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImportStacksToStackGroupResponseBody extends $tea.Model {
+export class ImportStacksToStackGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Operation ID.
+   * 
    * @example
    * 6da106ca-1784-4a6f-a7e1-e723863d****
    */
   operationId?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 14A07460-EBE7-47CA-9757-12CC4761D47A
    */
@@ -9407,12 +20899,16 @@ export class ImportStacksToStackGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImportStacksToStackGroupResponse extends $tea.Model {
+export class ImportStacksToStackGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ImportStacksToStackGroupResponseBody;
@@ -9432,12 +20928,22 @@ export class ImportStacksToStackGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAITaskEventsRequest extends $tea.Model {
+export class ListAITaskEventsRequest extends $dara.Model {
   /**
    * @example
    * 50
@@ -9469,12 +20975,16 @@ export class ListAITaskEventsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAITaskEventsResponseBody extends $tea.Model {
+export class ListAITaskEventsResponseBody extends $dara.Model {
   /**
    * @example
    * Forbidden
@@ -9547,12 +21057,19 @@ export class ListAITaskEventsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAITaskEventsResponse extends $tea.Model {
+export class ListAITaskEventsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAITaskEventsResponseBody;
@@ -9572,12 +21089,22 @@ export class ListAITaskEventsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAITasksRequest extends $tea.Model {
+export class ListAITasksRequest extends $dara.Model {
   /**
    * @example
    * 50
@@ -9616,12 +21143,16 @@ export class ListAITasksRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAITasksResponseBody extends $tea.Model {
+export class ListAITasksResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -9673,12 +21204,19 @@ export class ListAITasksResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tasks)) {
+      $dara.Model.validateArray(this.tasks);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAITasksResponse extends $tea.Model {
+export class ListAITasksResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAITasksResponseBody;
@@ -9698,12 +21236,22 @@ export class ListAITasksResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListChangeSetsRequest extends $tea.Model {
+export class ListChangeSetsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the change set. If detailed information about the change set is not required, you can use this parameter to replace the GetChangeSet operation.
@@ -9816,12 +21364,25 @@ export class ListChangeSetsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.changeSetName)) {
+      $dara.Model.validateArray(this.changeSetName);
+    }
+    if(Array.isArray(this.executionStatus)) {
+      $dara.Model.validateArray(this.executionStatus);
+    }
+    if(Array.isArray(this.status)) {
+      $dara.Model.validateArray(this.status);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListChangeSetsResponseBody extends $tea.Model {
+export class ListChangeSetsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The change sets.
@@ -9879,12 +21440,19 @@ export class ListChangeSetsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.changeSets)) {
+      $dara.Model.validateArray(this.changeSets);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListChangeSetsResponse extends $tea.Model {
+export class ListChangeSetsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListChangeSetsResponseBody;
@@ -9904,12 +21472,22 @@ export class ListChangeSetsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDiagnosticsRequest extends $tea.Model {
+export class ListDiagnosticsRequest extends $dara.Model {
   /**
    * @remarks
    * The keyword in the diagnosis.
@@ -9974,12 +21552,16 @@ export class ListDiagnosticsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDiagnosticsResponseBody extends $tea.Model {
+export class ListDiagnosticsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The items that are diagnosed.
@@ -10050,12 +21632,19 @@ export class ListDiagnosticsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.diagnostics)) {
+      $dara.Model.validateArray(this.diagnostics);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDiagnosticsResponse extends $tea.Model {
+export class ListDiagnosticsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListDiagnosticsResponseBody;
@@ -10075,12 +21664,22 @@ export class ListDiagnosticsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceTypeRegistrationsRequest extends $tea.Model {
+export class ListResourceTypeRegistrationsRequest extends $dara.Model {
   /**
    * @remarks
    * The entity type. Set the value to Module.
@@ -10155,12 +21754,16 @@ export class ListResourceTypeRegistrationsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceTypeRegistrationsResponseBody extends $tea.Model {
+export class ListResourceTypeRegistrationsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.
@@ -10208,12 +21811,19 @@ export class ListResourceTypeRegistrationsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.registrations)) {
+      $dara.Model.validateArray(this.registrations);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceTypeRegistrationsResponse extends $tea.Model {
+export class ListResourceTypeRegistrationsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListResourceTypeRegistrationsResponseBody;
@@ -10233,12 +21843,22 @@ export class ListResourceTypeRegistrationsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceTypeVersionsRequest extends $tea.Model {
+export class ListResourceTypeVersionsRequest extends $dara.Model {
   /**
    * @remarks
    * The resource type.
@@ -10261,12 +21881,16 @@ export class ListResourceTypeVersionsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceTypeVersionsResponseBody extends $tea.Model {
+export class ListResourceTypeVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -10294,12 +21918,19 @@ export class ListResourceTypeVersionsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceTypeVersions)) {
+      $dara.Model.validateArray(this.resourceTypeVersions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceTypeVersionsResponse extends $tea.Model {
+export class ListResourceTypeVersionsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListResourceTypeVersionsResponseBody;
@@ -10319,12 +21950,22 @@ export class ListResourceTypeVersionsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceTypesRequest extends $tea.Model {
+export class ListResourceTypesRequest extends $dara.Model {
   /**
    * @remarks
    * The entity type. Valid values:
@@ -10373,12 +22014,16 @@ export class ListResourceTypesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceTypesResponseBody extends $tea.Model {
+export class ListResourceTypesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -10413,12 +22058,22 @@ export class ListResourceTypesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceTypeSummaries)) {
+      $dara.Model.validateArray(this.resourceTypeSummaries);
+    }
+    if(Array.isArray(this.resourceTypes)) {
+      $dara.Model.validateArray(this.resourceTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceTypesResponse extends $tea.Model {
+export class ListResourceTypesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListResourceTypesResponseBody;
@@ -10438,12 +22093,22 @@ export class ListResourceTypesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackEventsRequest extends $tea.Model {
+export class ListStackEventsRequest extends $dara.Model {
   /**
    * @remarks
    * The logical IDs of the resources.
@@ -10532,12 +22197,25 @@ export class ListStackEventsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.logicalResourceId)) {
+      $dara.Model.validateArray(this.logicalResourceId);
+    }
+    if(Array.isArray(this.resourceType)) {
+      $dara.Model.validateArray(this.resourceType);
+    }
+    if(Array.isArray(this.status)) {
+      $dara.Model.validateArray(this.status);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackEventsResponseBody extends $tea.Model {
+export class ListStackEventsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The events.
@@ -10599,12 +22277,19 @@ export class ListStackEventsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackEventsResponse extends $tea.Model {
+export class ListStackEventsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListStackEventsResponseBody;
@@ -10624,12 +22309,22 @@ export class ListStackEventsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackGroupOperationResultsRequest extends $tea.Model {
+export class ListStackGroupOperationResultsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the operation.
@@ -10694,12 +22389,16 @@ export class ListStackGroupOperationResultsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackGroupOperationResultsResponseBody extends $tea.Model {
+export class ListStackGroupOperationResultsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number of the returned page.
@@ -10757,12 +22456,19 @@ export class ListStackGroupOperationResultsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.stackGroupOperationResults)) {
+      $dara.Model.validateArray(this.stackGroupOperationResults);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackGroupOperationResultsResponse extends $tea.Model {
+export class ListStackGroupOperationResultsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListStackGroupOperationResultsResponseBody;
@@ -10782,12 +22488,22 @@ export class ListStackGroupOperationResultsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackGroupOperationsRequest extends $tea.Model {
+export class ListStackGroupOperationsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of the page to return.
@@ -10852,12 +22568,16 @@ export class ListStackGroupOperationsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackGroupOperationsResponseBody extends $tea.Model {
+export class ListStackGroupOperationsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number of the returned page.
@@ -10915,12 +22635,19 @@ export class ListStackGroupOperationsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.stackGroupOperations)) {
+      $dara.Model.validateArray(this.stackGroupOperations);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackGroupOperationsResponse extends $tea.Model {
+export class ListStackGroupOperationsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListStackGroupOperationsResponseBody;
@@ -10940,12 +22667,22 @@ export class ListStackGroupOperationsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackGroupsRequest extends $tea.Model {
+export class ListStackGroupsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of the page to return.
@@ -11028,12 +22765,19 @@ export class ListStackGroupsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackGroupsResponseBody extends $tea.Model {
+export class ListStackGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number of the returned page.
@@ -11091,12 +22835,19 @@ export class ListStackGroupsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.stackGroups)) {
+      $dara.Model.validateArray(this.stackGroups);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackGroupsResponse extends $tea.Model {
+export class ListStackGroupsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListStackGroupsResponseBody;
@@ -11116,12 +22867,22 @@ export class ListStackGroupsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackInstancesRequest extends $tea.Model {
+export class ListStackInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The number of the page to return.
@@ -11208,12 +22969,16 @@ export class ListStackInstancesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackInstancesResponseBody extends $tea.Model {
+export class ListStackInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number of the returned page.
@@ -11271,12 +23036,19 @@ export class ListStackInstancesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.stackInstances)) {
+      $dara.Model.validateArray(this.stackInstances);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackInstancesResponse extends $tea.Model {
+export class ListStackInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListStackInstancesResponseBody;
@@ -11296,12 +23068,22 @@ export class ListStackInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackOperationRisksRequest extends $tea.Model {
+export class ListStackOperationRisksRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
@@ -11438,12 +23220,19 @@ export class ListStackOperationRisksRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.retainResources)) {
+      $dara.Model.validateArray(this.retainResources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackOperationRisksResponseBody extends $tea.Model {
+export class ListStackOperationRisksResponseBody extends $dara.Model {
   /**
    * @remarks
    * The operations on which the permissions are not granted to the Alibaba Cloud account of the caller.
@@ -11478,12 +23267,22 @@ export class ListStackOperationRisksResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.missingPolicyActions)) {
+      $dara.Model.validateArray(this.missingPolicyActions);
+    }
+    if(Array.isArray(this.riskResources)) {
+      $dara.Model.validateArray(this.riskResources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackOperationRisksResponse extends $tea.Model {
+export class ListStackOperationRisksResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListStackOperationRisksResponseBody;
@@ -11503,12 +23302,22 @@ export class ListStackOperationRisksResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackResourceDriftsRequest extends $tea.Model {
+export class ListStackResourceDriftsRequest extends $dara.Model {
   /**
    * @remarks
    * The time when the resource drift detection operation was initiated.
@@ -11573,12 +23382,19 @@ export class ListStackResourceDriftsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceDriftStatus)) {
+      $dara.Model.validateArray(this.resourceDriftStatus);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackResourceDriftsResponseBody extends $tea.Model {
+export class ListStackResourceDriftsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The query token returned in this call.
@@ -11616,12 +23432,19 @@ export class ListStackResourceDriftsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceDrifts)) {
+      $dara.Model.validateArray(this.resourceDrifts);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackResourceDriftsResponse extends $tea.Model {
+export class ListStackResourceDriftsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListStackResourceDriftsResponseBody;
@@ -11641,12 +23464,22 @@ export class ListStackResourceDriftsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackResourcesRequest extends $tea.Model {
+export class ListStackResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -11681,12 +23514,16 @@ export class ListStackResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackResourcesResponseBody extends $tea.Model {
+export class ListStackResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * Details about resources.
@@ -11714,12 +23551,19 @@ export class ListStackResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStackResourcesResponse extends $tea.Model {
+export class ListStackResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListStackResourcesResponseBody;
@@ -11739,12 +23583,22 @@ export class ListStackResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStacksRequest extends $tea.Model {
+export class ListStacksRequest extends $dara.Model {
   /**
    * @remarks
    * The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
@@ -11895,12 +23749,28 @@ export class ListStacksRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.stackIds)) {
+      $dara.Model.validateArray(this.stackIds);
+    }
+    if(Array.isArray(this.stackName)) {
+      $dara.Model.validateArray(this.stackName);
+    }
+    if(Array.isArray(this.status)) {
+      $dara.Model.validateArray(this.status);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStacksResponseBody extends $tea.Model {
+export class ListStacksResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.
@@ -11962,12 +23832,19 @@ export class ListStacksResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.stacks)) {
+      $dara.Model.validateArray(this.stacks);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListStacksResponse extends $tea.Model {
+export class ListStacksResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListStacksResponseBody;
@@ -11987,12 +23864,22 @@ export class ListStacksResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagKeysRequest extends $tea.Model {
+export class ListTagKeysRequest extends $dara.Model {
   /**
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results.
@@ -12042,12 +23929,16 @@ export class ListTagKeysRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagKeysResponseBody extends $tea.Model {
+export class ListTagKeysResponseBody extends $dara.Model {
   /**
    * @remarks
    * The tag keys.
@@ -12085,12 +23976,19 @@ export class ListTagKeysResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.keys)) {
+      $dara.Model.validateArray(this.keys);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagKeysResponse extends $tea.Model {
+export class ListTagKeysResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagKeysResponseBody;
@@ -12110,12 +24008,22 @@ export class ListTagKeysResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequest extends $tea.Model {
+export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results.
@@ -12182,12 +24090,22 @@ export class ListTagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBody extends $tea.Model {
+export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * A pagination token. It can be used in the next request to retrieve a new page of results.
@@ -12225,12 +24143,19 @@ export class ListTagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagResources)) {
+      $dara.Model.validateArray(this.tagResources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponse extends $tea.Model {
+export class ListTagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagResourcesResponseBody;
@@ -12250,12 +24175,22 @@ export class ListTagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagValuesRequest extends $tea.Model {
+export class ListTagValuesRequest extends $dara.Model {
   /**
    * @remarks
    * The key of the tag.
@@ -12317,12 +24252,16 @@ export class ListTagValuesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagValuesResponseBody extends $tea.Model {
+export class ListTagValuesResponseBody extends $dara.Model {
   /**
    * @remarks
    * A pagination token. It can be used in the next request to retrieve a new page of results.
@@ -12360,12 +24299,19 @@ export class ListTagValuesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagValuesResponse extends $tea.Model {
+export class ListTagValuesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagValuesResponseBody;
@@ -12385,12 +24331,22 @@ export class ListTagValuesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTemplateScratchesRequest extends $tea.Model {
+export class ListTemplateScratchesRequest extends $dara.Model {
   /**
    * @remarks
    * The number of the page to return.
@@ -12499,12 +24455,19 @@ export class ListTemplateScratchesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTemplateScratchesResponseBody extends $tea.Model {
+export class ListTemplateScratchesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number of the returned page.
@@ -12562,12 +24525,19 @@ export class ListTemplateScratchesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.templateScratches)) {
+      $dara.Model.validateArray(this.templateScratches);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTemplateScratchesResponse extends $tea.Model {
+export class ListTemplateScratchesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTemplateScratchesResponseBody;
@@ -12587,12 +24557,22 @@ export class ListTemplateScratchesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTemplateVersionsRequest extends $tea.Model {
+export class ListTemplateVersionsRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of results to be returned in a single call when NextToken is used for the query.
@@ -12639,12 +24619,16 @@ export class ListTemplateVersionsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTemplateVersionsResponseBody extends $tea.Model {
+export class ListTemplateVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
    * A pagination token. It can be used in the next request to retrieve a new page of results.
@@ -12682,12 +24666,19 @@ export class ListTemplateVersionsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.versions)) {
+      $dara.Model.validateArray(this.versions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTemplateVersionsResponse extends $tea.Model {
+export class ListTemplateVersionsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTemplateVersionsResponseBody;
@@ -12707,12 +24698,23 @@ export class ListTemplateVersionsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTemplatesRequest extends $tea.Model {
+export class ListTemplatesRequest extends $dara.Model {
+  filters?: ListTemplatesRequestFilters[];
   /**
    * @remarks
    * Specifies whether to query the tag information. Valid values:
@@ -12782,6 +24784,7 @@ export class ListTemplatesRequest extends $tea.Model {
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
+      filters: 'Filters',
       includeTags: 'IncludeTags',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -12794,6 +24797,7 @@ export class ListTemplatesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      filters: { 'type': 'array', 'itemType': ListTemplatesRequestFilters },
       includeTags: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -12804,12 +24808,22 @@ export class ListTemplatesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.filters)) {
+      $dara.Model.validateArray(this.filters);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTemplatesResponseBody extends $tea.Model {
+export class ListTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.\\
@@ -12868,12 +24882,19 @@ export class ListTemplatesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.templates)) {
+      $dara.Model.validateArray(this.templates);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTemplatesResponse extends $tea.Model {
+export class ListTemplatesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTemplatesResponseBody;
@@ -12893,12 +24914,22 @@ export class ListTemplatesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MoveResourceGroupRequest extends $tea.Model {
+export class MoveResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the resource group to which you want to move the resource. For more information about resource groups, see the "Resource Group" section of the [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html) topic.
@@ -12962,12 +24993,16 @@ export class MoveResourceGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MoveResourceGroupResponseBody extends $tea.Model {
+export class MoveResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -12988,12 +25023,16 @@ export class MoveResourceGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MoveResourceGroupResponse extends $tea.Model {
+export class MoveResourceGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: MoveResourceGroupResponseBody;
@@ -13013,12 +25052,22 @@ export class MoveResourceGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PreviewStackRequest extends $tea.Model {
+export class PreviewStackRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
@@ -13232,12 +25281,19 @@ export class PreviewStackRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PreviewStackResponseBody extends $tea.Model {
+export class PreviewStackResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -13265,12 +25321,19 @@ export class PreviewStackResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.stack && typeof (this.stack as any).validate === 'function') {
+      (this.stack as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PreviewStackResponse extends $tea.Model {
+export class PreviewStackResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: PreviewStackResponseBody;
@@ -13290,12 +25353,22 @@ export class PreviewStackResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterResourceTypeRequest extends $tea.Model {
+export class RegisterResourceTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
@@ -13382,12 +25455,16 @@ export class RegisterResourceTypeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterResourceTypeResponseBody extends $tea.Model {
+export class RegisterResourceTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the registration record. You can call the [ListResourceTypeRegistrations](https://help.aliyun.com/document_detail/2330740.html) operation to query registration records.
@@ -13418,12 +25495,16 @@ export class RegisterResourceTypeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterResourceTypeResponse extends $tea.Model {
+export class RegisterResourceTypeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RegisterResourceTypeResponseBody;
@@ -13443,12 +25524,22 @@ export class RegisterResourceTypeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetDeletionProtectionRequest extends $tea.Model {
+export class SetDeletionProtectionRequest extends $dara.Model {
   /**
    * @remarks
    * Indicates whether stack deletion protection is enabled. Valid values:
@@ -13502,12 +25593,16 @@ export class SetDeletionProtectionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetDeletionProtectionResponseBody extends $tea.Model {
+export class SetDeletionProtectionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -13528,12 +25623,16 @@ export class SetDeletionProtectionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetDeletionProtectionResponse extends $tea.Model {
+export class SetDeletionProtectionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SetDeletionProtectionResponseBody;
@@ -13553,12 +25652,22 @@ export class SetDeletionProtectionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetResourceTypeRequest extends $tea.Model {
+export class SetResourceTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the default version. You can use this parameter to specify the default version of the resource type.
@@ -13615,12 +25724,16 @@ export class SetResourceTypeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetResourceTypeResponseBody extends $tea.Model {
+export class SetResourceTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -13641,12 +25754,16 @@ export class SetResourceTypeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetResourceTypeResponse extends $tea.Model {
+export class SetResourceTypeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SetResourceTypeResponseBody;
@@ -13666,12 +25783,22 @@ export class SetResourceTypeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetStackPolicyRequest extends $tea.Model {
+export class SetStackPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
@@ -13732,12 +25859,16 @@ export class SetStackPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetStackPolicyResponseBody extends $tea.Model {
+export class SetStackPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -13758,12 +25889,16 @@ export class SetStackPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetStackPolicyResponse extends $tea.Model {
+export class SetStackPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SetStackPolicyResponseBody;
@@ -13783,12 +25918,22 @@ export class SetStackPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetTemplatePermissionRequest extends $tea.Model {
+export class SetTemplatePermissionRequest extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud accounts with or from which you want to share or unshare the template.\\
@@ -13873,12 +26018,19 @@ export class SetTemplatePermissionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetTemplatePermissionResponseBody extends $tea.Model {
+export class SetTemplatePermissionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -13899,12 +26051,16 @@ export class SetTemplatePermissionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetTemplatePermissionResponse extends $tea.Model {
+export class SetTemplatePermissionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SetTemplatePermissionResponseBody;
@@ -13924,12 +26080,22 @@ export class SetTemplatePermissionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SignalResourceRequest extends $tea.Model {
+export class SignalResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
@@ -14018,12 +26184,16 @@ export class SignalResourceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SignalResourceResponseBody extends $tea.Model {
+export class SignalResourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -14044,12 +26214,16 @@ export class SignalResourceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SignalResourceResponse extends $tea.Model {
+export class SignalResourceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SignalResourceResponseBody;
@@ -14069,12 +26243,22 @@ export class SignalResourceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopStackGroupOperationRequest extends $tea.Model {
+export class StopStackGroupOperationRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the operation.
@@ -14111,12 +26295,16 @@ export class StopStackGroupOperationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopStackGroupOperationResponseBody extends $tea.Model {
+export class StopStackGroupOperationResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -14137,12 +26325,16 @@ export class StopStackGroupOperationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopStackGroupOperationResponse extends $tea.Model {
+export class StopStackGroupOperationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StopStackGroupOperationResponseBody;
@@ -14162,12 +26354,22 @@ export class StopStackGroupOperationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequest extends $tea.Model {
+export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the tag that you want to create. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
@@ -14228,12 +26430,22 @@ export class TagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponseBody extends $tea.Model {
+export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -14254,12 +26466,16 @@ export class TagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponse extends $tea.Model {
+export class TagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: TagResourcesResponseBody;
@@ -14279,12 +26495,22 @@ export class TagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesRequest extends $tea.Model {
+export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to remove all tags from the resource. This parameter takes effect when TagKey is not specified in the request. Valid values:
@@ -14361,12 +26587,22 @@ export class UntagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tagKey)) {
+      $dara.Model.validateArray(this.tagKey);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesResponseBody extends $tea.Model {
+export class UntagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -14387,12 +26623,16 @@ export class UntagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesResponse extends $tea.Model {
+export class UntagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UntagResourcesResponseBody;
@@ -14412,12 +26652,22 @@ export class UntagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackRequest extends $tea.Model {
+export class UpdateStackRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.
@@ -14712,12 +26962,25 @@ export class UpdateStackRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.dryRunOptions)) {
+      $dara.Model.validateArray(this.dryRunOptions);
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackResponseBody extends $tea.Model {
+export class UpdateStackResponseBody extends $dara.Model {
   /**
    * @remarks
    * The dry run result. This parameter is returned only if DryRun is set to true.
@@ -14755,12 +27018,19 @@ export class UpdateStackResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.dryRunResult && typeof (this.dryRunResult as any).validate === 'function') {
+      (this.dryRunResult as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackResponse extends $tea.Model {
+export class UpdateStackResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateStackResponseBody;
@@ -14780,12 +27050,22 @@ export class UpdateStackResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackGroupRequest extends $tea.Model {
+export class UpdateStackGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket. The template body must be 1 to 524,288 bytes in length. Examples: oss://ros/template/demo and oss://ros/template/demo?RegionId=cn-hangzhou. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
@@ -15025,12 +27305,40 @@ export class UpdateStackGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(this.autoDeployment && typeof (this.autoDeployment as any).validate === 'function') {
+      (this.autoDeployment as any).validate();
+    }
+    if(Array.isArray(this.capabilities)) {
+      $dara.Model.validateArray(this.capabilities);
+    }
+    if(Array.isArray(this.deploymentOptions)) {
+      $dara.Model.validateArray(this.deploymentOptions);
+    }
+    if(this.deploymentTargets && typeof (this.deploymentTargets as any).validate === 'function') {
+      (this.deploymentTargets as any).validate();
+    }
+    if(this.operationPreferences) {
+      $dara.Model.validateMap(this.operationPreferences);
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(Array.isArray(this.regionIds)) {
+      $dara.Model.validateArray(this.regionIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackGroupShrinkRequest extends $tea.Model {
+export class UpdateStackGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket. The template body must be 1 to 524,288 bytes in length. Examples: oss://ros/template/demo and oss://ros/template/demo?RegionId=cn-hangzhou. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
@@ -15270,12 +27578,25 @@ export class UpdateStackGroupShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.capabilities)) {
+      $dara.Model.validateArray(this.capabilities);
+    }
+    if(Array.isArray(this.deploymentOptions)) {
+      $dara.Model.validateArray(this.deploymentOptions);
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackGroupResponseBody extends $tea.Model {
+export class UpdateStackGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the operation.
@@ -15306,12 +27627,16 @@ export class UpdateStackGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackGroupResponse extends $tea.Model {
+export class UpdateStackGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateStackGroupResponseBody;
@@ -15331,12 +27656,22 @@ export class UpdateStackGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackInstancesRequest extends $tea.Model {
+export class UpdateStackInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
@@ -15504,12 +27839,31 @@ export class UpdateStackInstancesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(this.deploymentTargets && typeof (this.deploymentTargets as any).validate === 'function') {
+      (this.deploymentTargets as any).validate();
+    }
+    if(this.operationPreferences) {
+      $dara.Model.validateMap(this.operationPreferences);
+    }
+    if(Array.isArray(this.parameterOverrides)) {
+      $dara.Model.validateArray(this.parameterOverrides);
+    }
+    if(Array.isArray(this.regionIds)) {
+      $dara.Model.validateArray(this.regionIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackInstancesShrinkRequest extends $tea.Model {
+export class UpdateStackInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
@@ -15677,12 +28031,19 @@ export class UpdateStackInstancesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.parameterOverrides)) {
+      $dara.Model.validateArray(this.parameterOverrides);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackInstancesResponseBody extends $tea.Model {
+export class UpdateStackInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the operation.
@@ -15713,12 +28074,16 @@ export class UpdateStackInstancesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackInstancesResponse extends $tea.Model {
+export class UpdateStackInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateStackInstancesResponseBody;
@@ -15738,12 +28103,22 @@ export class UpdateStackInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackTemplateByResourcesRequest extends $tea.Model {
+export class UpdateStackTemplateByResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests.
@@ -15830,12 +28205,19 @@ export class UpdateStackTemplateByResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.logicalResourceId)) {
+      $dara.Model.validateArray(this.logicalResourceId);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackTemplateByResourcesResponseBody extends $tea.Model {
+export class UpdateStackTemplateByResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The template content after correction.
@@ -15876,12 +28258,16 @@ export class UpdateStackTemplateByResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateStackTemplateByResourcesResponse extends $tea.Model {
+export class UpdateStackTemplateByResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateStackTemplateByResourcesResponseBody;
@@ -15901,12 +28287,22 @@ export class UpdateStackTemplateByResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTemplateRequest extends $tea.Model {
+export class UpdateTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the template. It can be up to 256 characters in length.
@@ -15977,12 +28373,19 @@ export class UpdateTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.validationOptions)) {
+      $dara.Model.validateArray(this.validationOptions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTemplateResponseBody extends $tea.Model {
+export class UpdateTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -16016,12 +28419,16 @@ export class UpdateTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTemplateResponse extends $tea.Model {
+export class UpdateTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateTemplateResponseBody;
@@ -16041,12 +28448,22 @@ export class UpdateTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTemplateScratchRequest extends $tea.Model {
+export class UpdateTemplateScratchRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -16184,12 +28601,28 @@ export class UpdateTemplateScratchRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.preferenceParameters)) {
+      $dara.Model.validateArray(this.preferenceParameters);
+    }
+    if(this.sourceResourceGroup && typeof (this.sourceResourceGroup as any).validate === 'function') {
+      (this.sourceResourceGroup as any).validate();
+    }
+    if(Array.isArray(this.sourceResources)) {
+      $dara.Model.validateArray(this.sourceResources);
+    }
+    if(this.sourceTag && typeof (this.sourceTag as any).validate === 'function') {
+      (this.sourceTag as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTemplateScratchShrinkRequest extends $tea.Model {
+export class UpdateTemplateScratchShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -16327,12 +28760,16 @@ export class UpdateTemplateScratchShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTemplateScratchResponseBody extends $tea.Model {
+export class UpdateTemplateScratchResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -16363,12 +28800,16 @@ export class UpdateTemplateScratchResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTemplateScratchResponse extends $tea.Model {
+export class UpdateTemplateScratchResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateTemplateScratchResponseBody;
@@ -16388,12 +28829,22 @@ export class UpdateTemplateScratchResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ValidateTemplateRequest extends $tea.Model {
+export class ValidateTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
@@ -16468,12 +28919,19 @@ export class ValidateTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.updateInfoOptions)) {
+      $dara.Model.validateArray(this.updateInfoOptions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ValidateTemplateResponseBody extends $tea.Model {
+export class ValidateTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The description of the template.
@@ -16542,12 +29000,31 @@ export class ValidateTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.outputs)) {
+      $dara.Model.validateArray(this.outputs);
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    if(this.resourceTypes && typeof (this.resourceTypes as any).validate === 'function') {
+      (this.resourceTypes as any).validate();
+    }
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    if(this.updateInfo && typeof (this.updateInfo as any).validate === 'function') {
+      (this.updateInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ValidateTemplateResponse extends $tea.Model {
+export class ValidateTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ValidateTemplateResponseBody;
@@ -16567,9112 +29044,14 @@ export class ValidateTemplateResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContinueCreateStackRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The name of template parameter N that you want to use to override a specific parameter. If you do not specify the name and value of a template parameter, ROS uses the name and value specified in the previous operation that was performed to create the stack. Maximum value of N: 200.
-   * 
-   * > This parameter takes effect only when Mode is set to Recreate.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of template parameter N that you want to use to override a specific parameter. Maximum value of N: 200.
-   * 
-   * For ROS stacks, the template parameters that you use to override specific parameters are subject to the following limits:
-   * 
-   * *   You cannot change the condition values in the Conditions section of a template from true to false or from false to true.
-   * *   The template parameters can be referenced only by resources that ROS continues to create.
-   * 
-   * > This parameter takes effect only when Mode is set to Recreate.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContinueCreateStackResponseBodyDryRunResult extends $tea.Model {
-  /**
-   * @remarks
-   * The parameters that can be modified.
-   */
-  parametersAllowedToBeModified?: string[];
-  /**
-   * @remarks
-   * The parameters that can be modified under specific conditions.
-   */
-  parametersConditionallyAllowedToBeModified?: string[];
-  /**
-   * @remarks
-   * The parameters that cannot be modified.
-   */
-  parametersNotAllowedToBeModified?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      parametersAllowedToBeModified: 'ParametersAllowedToBeModified',
-      parametersConditionallyAllowedToBeModified: 'ParametersConditionallyAllowedToBeModified',
-      parametersNotAllowedToBeModified: 'ParametersNotAllowedToBeModified',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parametersAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-      parametersConditionallyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-      parametersNotAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateChangeSetRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The key of parameter N that is defined in the template. If you do not specify the key and value of a parameter, ROS uses the default name and value that are defined in the template. Maximum value of N: 200.
-   * 
-   * >  Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterKey.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of parameter N that is defined in the template. Maximum value of N: 200.
-   * 
-   * >  Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateChangeSetRequestResourcesToImport extends $tea.Model {
-  /**
-   * @remarks
-   * The logical ID of resource N. The logical ID is the name of the resource defined in the template.
-   * 
-   * >  This parameter takes effect only when ChangeSetType is set to IMPORT. ResourcesToImport is optional. If you specify ResourcesToImport, you must specify ResourcesToImport.N.LogicalResourceId.
-   * 
-   * @example
-   * Vpc
-   */
-  logicalResourceId?: string;
-  /**
-   * @remarks
-   * The key-value mapping between strings. The key-value mapping is used to identify resource N that you want to import. The key-value mapping must be a JSON string.\\
-   * A key is an identifier property of a resource and a value is the property value. For example, the key of the ALIYUN::ECS::VPC resource is VpcId and the value is `vpc-2zevx9ios****`.
-   * 
-   * You can call the [GetTemplateSummary](https://help.aliyun.com/document_detail/172485.html) operation to query the identifier property of the resource.
-   * 
-   * >  This parameter takes effect only when ChangeSetType is set to IMPORT. ResourcesToImport is optional. If you specify ResourcesToImport, you must specify ResourcesToImport.N.ResourceIdentifier.
-   * 
-   * @example
-   * {"VpcId": "vpc-2zevx9ios******"}
-   */
-  resourceIdentifier?: string;
-  /**
-   * @remarks
-   * The type of resource N. The resource type must be the same as the resource type that is defined in the template.
-   * 
-   * >  This parameter takes effect only when ChangeSetType is set to IMPORT. ResourcesToImport is optional. If you specify ResourcesToImport, you must specify ResourcesToImport.N.ResourceType.
-   * 
-   * @example
-   * ALIYUN::ECS::VPC
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logicalResourceId: 'LogicalResourceId',
-      resourceIdentifier: 'ResourceIdentifier',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logicalResourceId: 'string',
-      resourceIdentifier: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStackRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The key of parameter N that is defined in the template. If you do not specify the name and value of a parameter, ROS uses the default name and value that are specified in the template.
-   * 
-   * Maximum value of N: 200.\\
-   * The name must be 1 to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
-   * 
-   * > The Parameters parameter is optional. If you specify Parameters, you must specify Parameters.N.ParameterKey and Parameters.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * InstanceId
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of parameter N that is defined in the template.
-   * 
-   * Maximum value of N: 200.\\
-   * The value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
-   * 
-   * > The Parameters parameter is optional. If you specify Parameters, you must specify Parameters.N.ParameterKey and Parameters.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * i-xxxxxx
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStackRequestTags extends $tea.Model {
-  /**
-   * @remarks
-   * The key of tag N that you want to add to the stack.
-   * 
-   * Valid values of N: 1 to 20.
-   * 
-   * > - The Tags parameter is optional. If you specify Tags, you must specify Tags.N.Key.
-   * > -  The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of tag N that you want to add to the stack.
-   * 
-   * Valid values of N: 1 to 20.
-   * 
-   * > The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStackGroupRequestAutoDeployment extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether automatic deployment is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   true: Automatic deployment is enabled. If you add a member account to the folder to which the stack group belongs after you enable automatic deployment, ROS automatically adds the stacks in the stack group to the member account. If you remove a member account from the folder, ROS automatically deletes the stacks from the member account.
-   * *   false: Automatic deployment is disabled. After you disable automatic deployment, the stacks remain unchanged when you add member accounts to or remove member accounts from the folder.
-   * 
-   * @example
-   * true
-   */
-  enabled?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the stacks within a member account are retained when you remove the member account from the folder.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * > You must specify RetainStacksOnAccountRemoval if Enabled is set to true.
-   * 
-   * @example
-   * true
-   */
-  retainStacksOnAccountRemoval?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enabled: 'Enabled',
-      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enabled: 'boolean',
-      retainStacksOnAccountRemoval: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStackGroupRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The key of parameter N. If you do not specify the key and value of a parameter, ROS uses the default name and value that are defined in the template.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * > Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterKey.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of parameter N.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * > Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStackGroupRequestTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key of the stack group.
-   * 
-   * > Tags is optional. If you want to specify Tags, you must also specify Tags.N.Key.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value of the stack group.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStackGroupShrinkRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The key of parameter N. If you do not specify the key and value of a parameter, ROS uses the default name and value that are defined in the template.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * > Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterKey.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of parameter N.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * > Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStackGroupShrinkRequestTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key of the stack group.
-   * 
-   * > Tags is optional. If you want to specify Tags, you must also specify Tags.N.Key.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value of the stack group.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStackInstancesRequestDeploymentTargets extends $tea.Model {
-  accountIds?: string[];
-  /**
-   * @remarks
-   * The folder IDs of the resource directory. You can add up to five folder IDs.
-   * 
-   * You can create stacks within all the member accounts in the specified folders. If you create stacks in the Root folder, the stacks are created within all member accounts in the resource directory.
-   * 
-   * > To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information about a folder](https://help.aliyun.com/document_detail/111223.html).
-   */
-  rdFolderIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      rdFolderIds: 'RdFolderIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'string' },
-      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStackInstancesRequestParameterOverrides extends $tea.Model {
-  /**
-   * @remarks
-   * The key of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the name that you specified when you created the stack group.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * >-   ParameterOverrides is optional.
-   * >-   If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the value that you specify when you create the stack group.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * >-  ParameterOverrides is optional.
-   * >-  If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStackInstancesShrinkRequestParameterOverrides extends $tea.Model {
-  /**
-   * @remarks
-   * The key of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the name that you specified when you created the stack group.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * >-   ParameterOverrides is optional.
-   * >-   If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the value that you specify when you create the stack group.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * >-  ParameterOverrides is optional.
-   * >-  If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTemplateRequestTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key of the template.
-   * 
-   * > Tags is optional. If you need to specify Tags, you must also specify Key.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value of the template.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTemplateScratchRequestPreferenceParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The parameter name.
-   * 
-   * For more information about the valid values of ParameterKey, see the "**Additional information about request parameters**" section of this topic.
-   * 
-   * > 
-   * 
-   * *   PreferenceParameters is optional. If you specify PreferenceParameters, you must specify ParameterKey and ParameterValue.
-   * 
-   * *   You must set ParameterKey to DeletionPolicy when TemplateScratchType is set to ResourceImport.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * DeletionPolicy
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The parameter value. The value is an assignment to the parameter key.
-   * 
-   * For more information about the valid values of ParameterValue, see the "**Additional information about request parameters**" section of this topic.
-   * 
-   * >  PreferenceParameters is optional. If you specify PreferenceParameters, you must specify ParameterKey and ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Retain
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTemplateScratchRequestSourceResourceGroup extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the source resource group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rg-acfmzawhxxc****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The resource types for filtering resources.
-   */
-  resourceTypeFilter?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-      resourceTypeFilter: 'ResourceTypeFilter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTemplateScratchRequestSourceResources extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID of the resource.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
-   * 
-   * > 
-   * 
-   * *   This parameter takes effect only when TemplateScratchType is set to ArchitectureDetection.
-   * 
-   * *   The region ID of a global resource is `global`. For example, the region ID of the ALIYUN::CDN::Domain global resource is `global`.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The related resource type filters.
-   */
-  relatedResourceTypeFilter?: string[];
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpc-bp1m6fww66xbntjyc****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ALIYUN::ECS::VPC
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      relatedResourceTypeFilter: 'RelatedResourceTypeFilter',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      relatedResourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
-      resourceId: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTemplateScratchRequestSourceTag extends $tea.Model {
-  /**
-   * @remarks
-   * The source tags that consist of key-value pairs. If you want to specify only the tag key, you must leave the tag value empty. Example: `{"TagKey": ""}`.
-   * 
-   * You can add up to 10 source tags.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * {"a": "b"}
-   */
-  resourceTags?: { [key: string]: any };
-  /**
-   * @remarks
-   * The resource types for filtering resources.
-   */
-  resourceTypeFilter?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceTags: 'ResourceTags',
-      resourceTypeFilter: 'ResourceTypeFilter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTemplateScratchRequestTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key of the resource scenario.
-   * 
-   * > Tags is optional. If you want to specify Tags, you must specify Key.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value of the resource scenario.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTemplateScratchShrinkRequestTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key of the resource scenario.
-   * 
-   * > Tags is optional. If you want to specify Tags, you must specify Key.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value of the resource scenario.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteStackInstancesRequestDeploymentTargets extends $tea.Model {
-  /**
-   * @remarks
-   * The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
-   * 
-   * > To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information about a folder](https://help.aliyun.com/document_detail/111223.html).
-   */
-  accountIds?: string[];
-  /**
-   * @remarks
-   * The IDs of the folders in the resource directory. You can add up to five folder IDs.
-   * 
-   * You can create stacks within all the member accounts in the specified folders. If you create stacks in the Root folder, the stacks are created within all member accounts in the resource directory.
-   * 
-   * > To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information about a folder](https://help.aliyun.com/document_detail/111223.html).
-   */
-  rdFolderIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      rdFolderIds: 'RdFolderIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'string' },
-      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * ccn-cn-shanghai-finance-1
-   */
-  localName?: string;
-  /**
-   * @remarks
-   * The endpoint of the region.
-   * 
-   * @example
-   * ros.aliyuncs.com
-   */
-  regionEndpoint?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      localName: 'LocalName',
-      regionEndpoint: 'RegionEndpoint',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      localName: 'string',
-      regionEndpoint: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectStackResourceDriftResponseBodyPropertyDifferences extends $tea.Model {
-  /**
-   * @remarks
-   * The actual value of the resource property.
-   * 
-   * @example
-   * test1
-   */
-  actualValue?: string;
-  /**
-   * @remarks
-   * The drift type of the resource property. Valid values:
-   * 
-   * *   ADD: The property value has been added to a resource property whose data type was Array or List.
-   * *   REMOVE: The property has been deleted from the current resource configuration.
-   * *   NOT_EQUAL: The current property value differs from the expected value defined in the stack template.
-   * 
-   * @example
-   * NOT_EQUAL
-   */
-  differenceType?: string;
-  /**
-   * @remarks
-   * The expected value of the resource property that is defined in the template.
-   * 
-   * @example
-   * test2
-   */
-  expectedValue?: string;
-  /**
-   * @remarks
-   * The path of the resource property.
-   * 
-   * @example
-   * /ScalingRuleName
-   */
-  propertyPath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actualValue: 'ActualValue',
-      differenceType: 'DifferenceType',
-      expectedValue: 'ExpectedValue',
-      propertyPath: 'PropertyPath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actualValue: 'string',
-      differenceType: 'string',
-      expectedValue: 'string',
-      propertyPath: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateTemplateByScratchResponseBodyResourcesToImport extends $tea.Model {
-  /**
-   * @remarks
-   * The logical ID of the resource.
-   * 
-   * @example
-   * ECSVPC_001
-   */
-  logicalResourceId?: string;
-  /**
-   * @remarks
-   * The key-value mapping between strings. The value is a JSON string that identifies the resource that you want to import into a stack.\\
-   * A key is an identifier for a resource, and a value is an assignment of data to the key. For example, VpcId is a key that indicates the ID of a virtual private cloud (VPC), and `vpc-bp1m6fww66xbntjyc****"` is a value that is assigned to VpcId.
-   * 
-   * @example
-   * {"VpcId": "vpc-bp1m6fww66xbntjyc****" }
-   */
-  resourceIdentifier?: { [key: string]: any };
-  /**
-   * @remarks
-   * The type of the resource.
-   * 
-   * @example
-   * ALIYUN::ECS::VPC
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logicalResourceId: 'LogicalResourceId',
-      resourceIdentifier: 'ResourceIdentifier',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logicalResourceId: 'string',
-      resourceIdentifier: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateTemplatePolicyResponseBodyPolicyStatement extends $tea.Model {
-  /**
-   * @remarks
-   * The operations that are performed on the specified resource.
-   */
-  action?: string[];
-  /**
-   * @remarks
-   * The condition that is required for the policy to take effect.
-   * 
-   * @example
-   * {
-   *     "StringEquals": {
-   *         "acs:Service": "fc.aliyuncs.com"
-   *     }
-   * }
-   */
-  condition?: { [key: string]: any };
-  /**
-   * @remarks
-   * The effect of the statement. Valid values:
-   * 
-   * *   Allow
-   * *   Deny
-   * 
-   * @example
-   * Allow
-   */
-  effect?: string;
-  /**
-   * @remarks
-   * The objects that the statement covers. An asterisk (\\*) indicates all resources.
-   * 
-   * @example
-   * *
-   */
-  resource?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      condition: 'Condition',
-      effect: 'Effect',
-      resource: 'Resource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: { 'type': 'array', 'itemType': 'string' },
-      condition: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      effect: 'string',
-      resource: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateTemplatePolicyResponseBodyPolicy extends $tea.Model {
-  /**
-   * @remarks
-   * The statements that are contained in the policy.
-   */
-  statement?: GenerateTemplatePolicyResponseBodyPolicyStatement[];
-  /**
-   * @remarks
-   * The version number.
-   * 
-   * @example
-   * 1
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      statement: 'Statement',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      statement: { 'type': 'array', 'itemType': GenerateTemplatePolicyResponseBodyPolicyStatement },
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChangeSetResponseBodyLogTerraformLogs extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the Terraform command that is run. Valid values:
-   * 
-   * *   apply
-   * *   plan
-   * *   destroy
-   * *   version
-   * 
-   * For more information about Terraform commands, see [Command](https://www.terraform.io/cli/commands).
-   * 
-   * @example
-   * apply
-   */
-  command?: string;
-  /**
-   * @remarks
-   * The content of the output stream that is returned after the command is run.
-   * 
-   * @example
-   * Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The output stream. Valid values:
-   * 
-   * *   stdout: standard output stream
-   * *   stderr: standard error stream
-   * 
-   * @example
-   * stdout
-   */
-  stream?: string;
-  static names(): { [key: string]: string } {
-    return {
-      command: 'Command',
-      content: 'Content',
-      stream: 'Stream',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      command: 'string',
-      content: 'string',
-      stream: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChangeSetResponseBodyLog extends $tea.Model {
-  /**
-   * @remarks
-   * The Terraform logs. This parameter is returned only for change sets of Terraform stacks.
-   * 
-   * > This parameter is not returned for change sets that are in the Creating state. This parameter indicates the logs of the change set creation operation for Terraform stacks.
-   */
-  terraformLogs?: GetChangeSetResponseBodyLogTerraformLogs[];
-  static names(): { [key: string]: string } {
-    return {
-      terraformLogs: 'TerraformLogs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      terraformLogs: { 'type': 'array', 'itemType': GetChangeSetResponseBodyLogTerraformLogs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChangeSetResponseBodyParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the parameter.
-   * 
-   * @example
-   * ALIYUN::Region
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of the parameter.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDiagnosticResponseBodyDiagnosticResult extends $tea.Model {
-  /**
-   * @remarks
-   * The resources that failed to be diagnosed.
-   */
-  failedResources?: { [key: string]: any };
-  /**
-   * @remarks
-   * The information about Resource Orchestration Service (ROS) calling.
-   */
-  rosActionMessages?: { [key: string]: any };
-  /**
-   * @remarks
-   * The stack information.
-   */
-  stackMessages?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      failedResources: 'FailedResources',
-      rosActionMessages: 'RosActionMessages',
-      stackMessages: 'StackMessages',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedResources: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      rosActionMessages: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      stackMessages: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyDriftDetection extends $tea.Model {
-  /**
-   * @remarks
-   * The resource types that are supported by the drift detection feature.
-   */
-  supportedResourceTypes?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedResourceTypes: 'SupportedResourceTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedResourceTypes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyResourceCleanerSupportedResourceTypes extends $tea.Model {
-  /**
-   * @remarks
-   * The resource type that supports the resource cleaner feature.
-   * 
-   * @example
-   * ECS:Instance
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The names of the side effects that may be caused by the cleanup operation performed on the resources of the specified type.
-   */
-  sideEffects?: string[];
-  /**
-   * @remarks
-   * The names of the filters that are supported by the resource type.
-   */
-  supportedFilters?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceType: 'ResourceType',
-      sideEffects: 'SideEffects',
-      supportedFilters: 'SupportedFilters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceType: 'string',
-      sideEffects: { 'type': 'array', 'itemType': 'string' },
-      supportedFilters: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyResourceCleaner extends $tea.Model {
-  /**
-   * @remarks
-   * The resource types that can be cleaned up.
-   */
-  supportedResourceTypes?: GetFeatureDetailsResponseBodyResourceCleanerSupportedResourceTypes[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedResourceTypes: 'SupportedResourceTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyResourceCleanerSupportedResourceTypes },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes extends $tea.Model {
-  /**
-   * @remarks
-   * The resource identifiers.
-   */
-  resourceIdentifiers?: string[];
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ALIYUN::ECS::Disk
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceIdentifiers: 'ResourceIdentifiers',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceIdentifiers: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyResourceImport extends $tea.Model {
-  /**
-   * @remarks
-   * The resource types that are supported by the resource import feature.
-   */
-  supportedResourceTypes?: GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedResourceTypes: 'SupportedResourceTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes extends $tea.Model {
-  /**
-   * @remarks
-   * The names of properties that are supported by the resource type.
-   */
-  properties?: string[];
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ALIYUN::ECS::Disk
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      properties: 'Properties',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      properties: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyTemplateParameterConstraints extends $tea.Model {
-  /**
-   * @remarks
-   * The resource types that support the template parameter constraint feature.
-   */
-  supportedResourceTypes?: GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedResourceTypes: 'SupportedResourceTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes extends $tea.Model {
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ALIYUN::ECS::Disk
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * Indicates whether the resource scope can be specified by source resource group. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  sourceResourceGroupSupported?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the resource scope can be specified by source resource. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  sourceResourcesSupported?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the resource scope can be specified by source tag, resource group, or resource. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  sourceSupported?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the resource scope can be specified by source tag. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  sourceTagSupported?: boolean;
-  /**
-   * @remarks
-   * The scenario types that are supported.
-   */
-  supportedTemplateScratchTypes?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceType: 'ResourceType',
-      sourceResourceGroupSupported: 'SourceResourceGroupSupported',
-      sourceResourcesSupported: 'SourceResourcesSupported',
-      sourceSupported: 'SourceSupported',
-      sourceTagSupported: 'SourceTagSupported',
-      supportedTemplateScratchTypes: 'SupportedTemplateScratchTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceType: 'string',
-      sourceResourceGroupSupported: 'boolean',
-      sourceResourcesSupported: 'boolean',
-      sourceSupported: 'boolean',
-      sourceTagSupported: 'boolean',
-      supportedTemplateScratchTypes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyTemplateScratch extends $tea.Model {
-  /**
-   * @remarks
-   * The resource types that are supported by the scenario feature.
-   */
-  supportedResourceTypes?: GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedResourceTypes: 'SupportedResourceTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk extends $tea.Model {
-  /**
-   * @remarks
-   * The resource types that support the risk check performed to detect risks caused by a stack deletion operation.
-   */
-  deleteStack?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      deleteStack: 'DeleteStack',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deleteStack: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes extends $tea.Model {
-  /**
-   * @remarks
-   * The resource types that support the custom tag feature.
-   */
-  customTag?: string[];
-  /**
-   * @remarks
-   * The resource types that support the price inquiry feature.
-   */
-  estimateCost?: string[];
-  /**
-   * @remarks
-   * The resource types that support the resource group feature.
-   */
-  resourceGroup?: string[];
-  /**
-   * @remarks
-   * The resource type that support the risk check feature.
-   */
-  stackOperationRisk?: GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk;
-  /**
-   * @remarks
-   * The resource types that support the system tag `acs:ros:stackId`.
-   */
-  systemTag?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      customTag: 'CustomTag',
-      estimateCost: 'EstimateCost',
-      resourceGroup: 'ResourceGroup',
-      stackOperationRisk: 'StackOperationRisk',
-      systemTag: 'SystemTag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customTag: { 'type': 'array', 'itemType': 'string' },
-      estimateCost: { 'type': 'array', 'itemType': 'string' },
-      resourceGroup: { 'type': 'array', 'itemType': 'string' },
-      stackOperationRisk: GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk,
-      systemTag: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyTerraformSupportedVersionsProviderVersions extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the provider.
-   * 
-   * @example
-   * alicloud
-   */
-  providerName?: string;
-  /**
-   * @remarks
-   * The provider versions.
-   */
-  supportedVersions?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      providerName: 'ProviderName',
-      supportedVersions: 'SupportedVersions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      providerName: 'string',
-      supportedVersions: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyTerraformSupportedVersions extends $tea.Model {
-  /**
-   * @remarks
-   * The names and versions of the providers that correspond to the Terraform versions.
-   */
-  providerVersions?: GetFeatureDetailsResponseBodyTerraformSupportedVersionsProviderVersions[];
-  /**
-   * @remarks
-   * The Terraform version.
-   * 
-   * @example
-   * 1.0.11
-   */
-  terraformVersion?: string;
-  /**
-   * @remarks
-   * The Terraform version that is supported by ROS. The parameter value is the same as the value of the Transform parameter in a Terraform template.
-   * 
-   * @example
-   * Aliyun::Terraform-v1.0
-   */
-  transform?: string;
-  /**
-   * @remarks
-   * The Terraform versions that can be updated in ROS.
-   */
-  updateAllowedTransforms?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      providerVersions: 'ProviderVersions',
-      terraformVersion: 'TerraformVersion',
-      transform: 'Transform',
-      updateAllowedTransforms: 'UpdateAllowedTransforms',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      providerVersions: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyTerraformSupportedVersionsProviderVersions },
-      terraformVersion: 'string',
-      transform: 'string',
-      updateAllowedTransforms: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFeatureDetailsResponseBodyTerraform extends $tea.Model {
-  /**
-   * @remarks
-   * The resource types that support the scenario feature.
-   */
-  supportedResourceTypes?: GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes;
-  /**
-   * @remarks
-   * The Terraform versions.
-   */
-  supportedVersions?: GetFeatureDetailsResponseBodyTerraformSupportedVersions[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedResourceTypes: 'SupportedResourceTypes',
-      supportedVersions: 'SupportedVersions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedResourceTypes: GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes,
-      supportedVersions: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyTerraformSupportedVersions },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceProvisionsRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the parameter. If you do not specify the name and value of a parameter, Resource Orchestration Service (ROS) uses the default name and value that are specified in the template.
-   * 
-   * > The Parameters parameter is optional. If you specify Parameters, you must specify ParameterKey.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of the parameter.
-   * 
-   * > The Parameters parameter is optional. If you specify Parameters, you must specify ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceProvisionsRequestServices extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the service or feature. Valid values:
-   * 
-   * *   AHAS: Application High Availability Service
-   * *   ARMS: Application Real-Time Monitoring Service (ARMS)
-   * *   ApiGateway: API Gateway
-   * *   BatchCompute: Batch Compute
-   * *   BrainIndustrial: Industrial Brain
-   * *   CloudStorageGateway: Cloud Storage Gateway (CSG)
-   * *   CMS: CloudMonitor
-   * *   CR: Container Registry
-   * *   CS: Container Service for Kubernetes (ACK)
-   * *   DCDN: Dynamic Content Delivery Network (DCDN)
-   * *   DataHub: DataHub
-   * *   DataWorks: DataWorks
-   * *   EDAS: Enterprise Distributed Application Service (EDAS)
-   * *   EHPC: E-HPC
-   * *   EMAS: Enterprise Mobile Application Studio (EMAS)
-   * *   FC: Function Compute
-   * *   FNF: CloudFlow (SWF)
-   * *   MaxCompute: MaxCompute
-   * *   MNS: Message Service (MNS)
-   * *   HBR: Cloud Backup
-   * *   IMM: Intelligent Media Management (IMM)
-   * *   IOT: IoT Platform
-   * *   KMS: Key Management Service (KMS)
-   * *   NAS: Apsara File Storage NAS (NAS)
-   * *   NLP: Natural Language Processing (NLP)
-   * *   OSS: Object Storage Service (OSS)
-   * *   OTS: Tablestore
-   * *   PrivateLink: PrivateLink
-   * *   PrivateZone: Alibaba Cloud DNS PrivateZone
-   * *   RocketMQ: ApsaraMQ for RocketMQ
-   * *   SAE: Serverless App Engine (SAE)
-   * *   SLS: Simple Log Service (SLS)
-   * *   TrafficMirror: traffic mirroring
-   * *   VS: Video Surveillance System
-   * *   Xtrace: Managed Service for OpenTelemetry
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * EHPC
-   */
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the API operation.
-   * 
-   * @example
-   * CreateServiceLinkedRole
-   */
-  apiName?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud service to which the API operation belongs.
-   * 
-   * @example
-   * rds
-   */
-  apiProductId?: string;
-  /**
-   * @remarks
-   * The type of the API operation. Valid values:
-   * 
-   * *   Open: public
-   * *   Inner: private
-   * 
-   * @example
-   * Open
-   */
-  apiType?: string;
-  /**
-   * @remarks
-   * The parameters of the API operation. If a parameter is a variable, use the ${Variable name} format. Only the following variable is supported: ${RegionId}.
-   * 
-   * @example
-   * {   "ServiceLinkedRole": "AliyunServiceRoleForRdsPgsqlOnEcs",   "RegionId": "${RegionId}" }
-   */
-  parameters?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      apiName: 'ApiName',
-      apiProductId: 'ApiProductId',
-      apiType: 'ApiType',
-      parameters: 'Parameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiName: 'string',
-      apiProductId: 'string',
-      apiType: 'string',
-      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the API operation that is used to create the RAM role.
-   */
-  apiForCreation?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation;
-  /**
-   * @remarks
-   * Indicates whether the RAM role is created. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  created?: boolean;
-  /**
-   * @remarks
-   * The purpose for which the RAM role is used. Default value: Default. A value of Default indicates that the RAM role is the default role of the service.
-   * 
-   * @example
-   * Default
-   */
-  function?: string;
-  /**
-   * @remarks
-   * The name of the role.
-   * 
-   * @example
-   * AliyunServiceRoleForEHPC
-   */
-  roleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiForCreation: 'ApiForCreation',
-      created: 'Created',
-      function: 'Function',
-      roleName: 'RoleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiForCreation: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation,
-      created: 'boolean',
-      function: 'string',
-      roleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision extends $tea.Model {
-  /**
-   * @remarks
-   * The authorization URL of the RAM role.
-   * 
-   * > This parameter is returned if Created is set to false.
-   * 
-   * @example
-   * https://ehpc.console.aliyun.com/
-   */
-  authorizationURL?: string;
-  /**
-   * @remarks
-   * The RAM roles of the service.
-   */
-  roles?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles[];
-  static names(): { [key: string]: string } {
-    return {
-      authorizationURL: 'AuthorizationURL',
-      roles: 'Roles',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizationURL: 'string',
-      roles: { 'type': 'array', 'itemType': GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceProvisionsResponseBodyServiceProvisions extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether automatic activation for the service is defined in the template. Valid values:
-   * 
-   * *   true: Automatic activation for the service is defined in the template.
-   * *   false: Manual activation for the service is defined in the template.
-   * 
-   * @example
-   * false
-   */
-  autoEnableService?: boolean;
-  /**
-   * @remarks
-   * The names of the services on which the service that is queried depends.
-   */
-  dependentServiceNames?: string[];
-  /**
-   * @remarks
-   * The URL that points to the activation page of the service.
-   * 
-   * > This parameter is returned if Status is set to Disabled.
-   * 
-   * @example
-   * https://common-buy.aliyun.com/?commodityCode=nas
-   */
-  enableURL?: string;
-  /**
-   * @remarks
-   * The information about the RAM roles of the service. If this parameter is empty, no RAM role is associated with the service.
-   */
-  roleProvision?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * @example
-   * EHPC
-   */
-  serviceName?: string;
-  /**
-   * @remarks
-   * The activation status of the service. Valid values:
-   * 
-   * *   Enabled: The service is activated.
-   * *   Disabled: The service is not activated.
-   * *   Unknown: The activation status of the service is unknown.
-   * 
-   * @example
-   * Enabled
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The reason why the service is in the Disabled or Unknown state.
-   * 
-   * > This parameter is returned if Status is set to Disabled or Unknown.
-   * 
-   * @example
-   * No permission.
-   */
-  statusReason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoEnableService: 'AutoEnableService',
-      dependentServiceNames: 'DependentServiceNames',
-      enableURL: 'EnableURL',
-      roleProvision: 'RoleProvision',
-      serviceName: 'ServiceName',
-      status: 'Status',
-      statusReason: 'StatusReason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoEnableService: 'boolean',
-      dependentServiceNames: { 'type': 'array', 'itemType': 'string' },
-      enableURL: 'string',
-      roleProvision: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision,
-      serviceName: 'string',
-      status: 'string',
-      statusReason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackResponseBodyLogResourceLogsLogs extends $tea.Model {
-  /**
-   * @remarks
-   * The content of a resource log.
-   * 
-   * @example
-   * []
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The keywords of a resource log.
-   */
-  keys?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      keys: 'Keys',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      keys: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackResponseBodyLogResourceLogs extends $tea.Model {
-  /**
-   * @remarks
-   * All the logs that are associated with the resources.
-   */
-  logs?: GetStackResponseBodyLogResourceLogsLogs[];
-  /**
-   * @remarks
-   * The name of the resource that is defined in the template.
-   * 
-   * @example
-   * MyResourceCleaner
-   */
-  resourceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logs: 'Logs',
-      resourceName: 'ResourceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logs: { 'type': 'array', 'itemType': GetStackResponseBodyLogResourceLogsLogs },
-      resourceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackResponseBodyLogTerraformLogs extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the Terraform command that is run. Valid values:
-   * 
-   * *   apply
-   * *   plan
-   * *   destroy
-   * *   version
-   * 
-   * For more information about Terraform commands, see [Basic CLI Features](https://www.terraform.io/cli/commands).
-   * 
-   * @example
-   * apply
-   */
-  command?: string;
-  /**
-   * @remarks
-   * The content of the output stream that is returned after the command is run.
-   * 
-   * @example
-   * Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The output stream. Valid values:
-   * 
-   * *   stdout: standard output stream
-   * *   stderr: standard error stream
-   * 
-   * @example
-   * stdout
-   */
-  stream?: string;
-  static names(): { [key: string]: string } {
-    return {
-      command: 'Command',
-      content: 'Content',
-      stream: 'Stream',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      command: 'string',
-      content: 'string',
-      stream: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackResponseBodyLog extends $tea.Model {
-  /**
-   * @remarks
-   * The logs of resources in the stack. This parameter is returned if LogOption is set to Resource or All.
-   * 
-   * >  The logs are returned only for resources of specific types, such as the `ALIYUN::ROS::ResourceCleaner` type.
-   */
-  resourceLogs?: GetStackResponseBodyLogResourceLogs[];
-  /**
-   * @remarks
-   * The logs generated when the Terraform stack is run. This parameter is returned only for a Terraform stack. This parameter is returned if LogOption is left empty or set to Stack or All.
-   * 
-   * >  This parameter is not returned for a running stack. The logs are generated from the most recent operation on the stack, such as the creation, resumed creation, update, or deletion operation.
-   */
-  terraformLogs?: GetStackResponseBodyLogTerraformLogs[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceLogs: 'ResourceLogs',
-      terraformLogs: 'TerraformLogs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceLogs: { 'type': 'array', 'itemType': GetStackResponseBodyLogResourceLogs },
-      terraformLogs: { 'type': 'array', 'itemType': GetStackResponseBodyLogTerraformLogs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackResponseBodyOperationInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the API operation that belongs to another Alibaba Cloud service.
-   * 
-   * @example
-   * DeleteSecurityGroup
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * DependencyViolation
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The logical ID of the resource on which the operation error occurs.
-   * 
-   * @example
-   * EcsSecurityGroup
-   */
-  logicalResourceId?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * There is still instance(s) in the specified security group.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request that is initiated to call the API operation of another Alibaba Cloud service.
-   * 
-   * @example
-   * 071D6166-3F6B-5C7B-A1F0-0113FBB643A8
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The type of the resource on which the operation error occurs.
-   * 
-   * @example
-   * ALIYUN::ECS::SecurityGroup
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      code: 'Code',
-      logicalResourceId: 'LogicalResourceId',
-      message: 'Message',
-      requestId: 'RequestId',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      code: 'string',
-      logicalResourceId: 'string',
-      message: 'string',
-      requestId: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackResponseBodyParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The parameter name.
-   * 
-   * @example
-   * ALIYUN::Region
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The parameter value.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackResponseBodyResourceProgressInProgressResourceDetails extends $tea.Model {
-  /**
-   * @remarks
-   * The desired progress value of the resource.
-   * 
-   * @example
-   * 10
-   */
-  progressTargetValue?: number;
-  /**
-   * @remarks
-   * The current progress value of the resource.
-   * 
-   * @example
-   * 5
-   */
-  progressValue?: number;
-  /**
-   * @remarks
-   * The resource name.
-   * 
-   * @example
-   * WaitCondition
-   */
-  resourceName?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ALIYUN::ROS::WaitCondition
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      progressTargetValue: 'ProgressTargetValue',
-      progressValue: 'ProgressValue',
-      resourceName: 'ResourceName',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      progressTargetValue: 'number',
-      progressValue: 'number',
-      resourceName: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackResponseBodyResourceProgress extends $tea.Model {
-  /**
-   * @remarks
-   * The number of resources that failed to be created.
-   * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
-   * 
-   * @example
-   * 0
-   */
-  failedResourceCount?: number;
-  /**
-   * @remarks
-   * The number of resources that are being created.
-   * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
-   * 
-   * @example
-   * 1
-   */
-  inProgressResourceCount?: number;
-  /**
-   * @remarks
-   * The progress details of resources that are being created.
-   * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
-   */
-  inProgressResourceDetails?: GetStackResponseBodyResourceProgressInProgressResourceDetails[];
-  /**
-   * @remarks
-   * The number of resources to be created.
-   * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
-   * 
-   * @example
-   * 0
-   */
-  pendingResourceCount?: number;
-  /**
-   * @remarks
-   * The creation or rollback progress of the stack, in percentage. Valid values: 0 to 100.
-   * 
-   * The value progressively increases from 0 to 100 during a stack creation operation. If the stack is created, the value reaches 100. If the stack fails to be created, a rollback is started for the stack resources, and the value progressively increases from the percentage of the remaining progress (100 - Progress value generated when the stack fails to be created). The value increases to 100 when the stack resources are rolled back. This parameter indicates the creation progress during a stack creation operation and indicates the rollback progress during a stack rollback operation.
-   * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `PercentageOnly`.
-   * 
-   * @example
-   * 100
-   */
-  stackActionProgress?: number;
-  /**
-   * @remarks
-   * The overall creation progress of the stack, in percentage. Valid values: 0 to 100.
-   * 
-   * The value progressively increases from 0 to 100 during a stack creation operation. If the stack is created, the value reaches 100. If the stack fails to be created, a rollback is started for the stack resources, and the value progressively decreases. The value decreases to 0 when the stack resources are rolled back. This parameter indicates only the overall creation progress, regardless of whether during a stack creation or rollback operation.
-   * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `PercentageOnly`.
-   * 
-   * @example
-   * 100
-   */
-  stackOperationProgress?: number;
-  /**
-   * @remarks
-   * The number of resources that are created.
-   * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
-   * 
-   * @example
-   * 1
-   */
-  successResourceCount?: number;
-  /**
-   * @remarks
-   * The total number of resources.
-   * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
-   * 
-   * @example
-   * 2
-   */
-  totalResourceCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      failedResourceCount: 'FailedResourceCount',
-      inProgressResourceCount: 'InProgressResourceCount',
-      inProgressResourceDetails: 'InProgressResourceDetails',
-      pendingResourceCount: 'PendingResourceCount',
-      stackActionProgress: 'StackActionProgress',
-      stackOperationProgress: 'StackOperationProgress',
-      successResourceCount: 'SuccessResourceCount',
-      totalResourceCount: 'TotalResourceCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedResourceCount: 'number',
-      inProgressResourceCount: 'number',
-      inProgressResourceDetails: { 'type': 'array', 'itemType': GetStackResponseBodyResourceProgressInProgressResourceDetails },
-      pendingResourceCount: 'number',
-      stackActionProgress: 'number',
-      stackOperationProgress: 'number',
-      successResourceCount: 'number',
-      totalResourceCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackResponseBodyTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key of the stack.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value of the stack.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackGroupResponseBodyStackGroupAutoDeployment extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether stacks in the member account are retained when the member account is deleted from the folder.
-   * 
-   * Valid values:
-   * 
-   * *   true: The stacks are retained.
-   * *   false: The stacks are deleted.
-   * 
-   * >  This parameter is returned only when the Enabled parameter is set to true.
-   * 
-   * @example
-   * true
-   */
-  enabled?: boolean;
-  /**
-   * @remarks
-   * The folder IDs of the resource directory. This parameter is used to deploy stack instances within all the accounts in the folders.
-   * 
-   * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
-   * 
-   * @example
-   * true
-   */
-  retainStacksOnAccountRemoval?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enabled: 'Enabled',
-      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enabled: 'boolean',
-      retainStacksOnAccountRemoval: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackGroupResponseBodyStackGroupParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of the parameter.
-   * 
-   * @example
-   * 12
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail extends $tea.Model {
-  /**
-   * @remarks
-   * The number of stack instances that have drifted.
-   * 
-   * @example
-   * 0
-   */
-  cancelledStackInstancesCount?: number;
-  /**
-   * @remarks
-   * The drift status of the stack group.
-   * 
-   * Valid values:
-   * 
-   * *   DRIFTED: At least one stack instance in the stack group has drifted.
-   * *   NOT_CHECKED: No drift detection is completed on the stack group.
-   * *   IN_SYNC: All the stack instances in the stack group are being synchronized.
-   * 
-   * @example
-   * COMPLETED
-   */
-  driftDetectionStatus?: string;
-  /**
-   * @remarks
-   * The number of stack instances.
-   * 
-   * @example
-   * 2020-02-27T07:47:47
-   */
-  driftDetectionTime?: string;
-  /**
-   * @remarks
-   * The ID of the resource group. This parameter is specified when you create the stack group.
-   * 
-   * @example
-   * 1
-   */
-  driftedStackInstancesCount?: number;
-  /**
-   * @remarks
-   * The status of drift detection on the stack group.
-   * 
-   * Valid values:
-   * 
-   * *   COMPLETED: Drift detection is performed and completed on all stack instances.
-   * *   FAILED: Drift detection is performed. The number of stack instances that failed the drift detection exceeds the specified threshold.
-   * *   PARTIAL_SUCCESS: Drift detection is performed. The number of stack instances that failed the drift detection does not exceed the specified threshold.
-   * *   IN_PROGRESS: Drift detection is being performed on the stack group.
-   * *   STOPPED: Drift detection is canceled for the stack group.
-   * 
-   * @example
-   * 0
-   */
-  failedStackInstancesCount?: number;
-  /**
-   * @remarks
-   * The number of stack instances that were being synchronized.
-   * 
-   * @example
-   * 0
-   */
-  inProgressStackInstancesCount?: number;
-  /**
-   * @remarks
-   * The number of stack instances for which drift detection was canceled.
-   * 
-   * @example
-   * 1
-   */
-  inSyncStackInstancesCount?: number;
-  /**
-   * @remarks
-   * The number of stack instances on which drift detection was being performed.
-   * 
-   * @example
-   * DRIFTED
-   */
-  stackGroupDriftStatus?: string;
-  /**
-   * @remarks
-   * The number of stack instances that failed drift detection.
-   * 
-   * @example
-   * 2
-   */
-  totalStackInstancesCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cancelledStackInstancesCount: 'CancelledStackInstancesCount',
-      driftDetectionStatus: 'DriftDetectionStatus',
-      driftDetectionTime: 'DriftDetectionTime',
-      driftedStackInstancesCount: 'DriftedStackInstancesCount',
-      failedStackInstancesCount: 'FailedStackInstancesCount',
-      inProgressStackInstancesCount: 'InProgressStackInstancesCount',
-      inSyncStackInstancesCount: 'InSyncStackInstancesCount',
-      stackGroupDriftStatus: 'StackGroupDriftStatus',
-      totalStackInstancesCount: 'TotalStackInstancesCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cancelledStackInstancesCount: 'number',
-      driftDetectionStatus: 'string',
-      driftDetectionTime: 'string',
-      driftedStackInstancesCount: 'number',
-      failedStackInstancesCount: 'number',
-      inProgressStackInstancesCount: 'number',
-      inSyncStackInstancesCount: 'number',
-      stackGroupDriftStatus: 'string',
-      totalStackInstancesCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackGroupResponseBodyStackGroup extends $tea.Model {
-  /**
-   * @remarks
-   * The parameters of the stack group.
-   * 
-   * @example
-   * AliyunROSStackGroupAdministrationRole
-   */
-  administrationRoleName?: string;
-  /**
-   * @remarks
-   * Indicates whether automatic deployment is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   true: Automatic deployment is enabled. If a member account is added to the folder to which the stack group belongs after automatic deployment is enabled, the stack group deploys its stack instances in the specified region where the added account is deployed. If the account is deleted from the folder, the stack instances in the specified region are deleted from the stack group.
-   * *   false: Automatic deployment is disabled. After automatic deployment is disabled, the stack instances remain unchanged when the member account in the folder is changed.
-   */
-  autoDeployment?: GetStackGroupResponseBodyStackGroupAutoDeployment;
-  createTime?: string;
-  /**
-   * @remarks
-   * The name of the stack group.
-   * 
-   * @example
-   * StackGroup Description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The template body.
-   * 
-   * @example
-   * AliyunROSStackGroupExecutionRole
-   */
-  executionRoleName?: string;
-  /**
-   * @remarks
-   * The key of the parameter.
-   */
-  parameters?: GetStackGroupResponseBodyStackGroupParameters[];
-  /**
-   * @remarks
-   * The information about automatic deployment settings.
-   * 
-   * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
-   * 
-   * @example
-   * SELF_MANAGED
-   */
-  permissionModel?: string;
-  /**
-   * @remarks
-   * The folder IDs of the resource directory. This parameter is used to deploy stack instances within all the accounts in the folders.
-   * 
-   * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
-   */
-  rdFolderIds?: string[];
-  /**
-   * @remarks
-   * The permission model.
-   * 
-   * Valid values:
-   * 
-   * *   SELF_MANAGED: the self-managed permission model
-   * *   SERVICE_MANAGED: the service-managed permission model
-   * 
-   * >  For more information about the permission models of stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
-   * 
-   * @example
-   * rg-acfmxazb4ph6aiy****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The time when drift detection was performed on the stack group.
-   */
-  stackGroupDriftDetectionDetail?: GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail;
-  /**
-   * @remarks
-   * The status of the stack group.
-   * 
-   * Valid values:
-   * 
-   * *   ACTIVE
-   * *   DELETED
-   * 
-   * @example
-   * fd0ddef9-9540-4b42-a464-94f77835****
-   */
-  stackGroupId?: string;
-  /**
-   * @remarks
-   * The name of the RAM role that is specified for the execution account when you create the self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role. If this parameter is not specified, the default value AliyunROSStackGroupExecutionRole is returned.
-   * 
-   * @example
-   * MyStackGroup
-   */
-  stackGroupName?: string;
-  /**
-   * @remarks
-   * The name of the RAM role that is specified for the administrator account in Resource Orchestration Service (ROS) when you create the self-managed stack group. If this parameter is not specified, the default value AliyunROSStackGroupAdministrationRole is returned.
-   * 
-   * @example
-   * ACTIVE
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The structure that contains the template body.
-   * 
-   * > We recommend that you use TemplateContent instead of TemplateBody.
-   * 
-   * @example
-   * {"ROSTemplateFormatVersion": "2015-09-01"}
-   */
-  templateBody?: string;
-  /**
-   * @remarks
-   * The JSON-formatted structure that contains the template body. For more information, see [Template syntax](https://help.aliyun.com/document_detail/28857.html).
-   * 
-   * @example
-   * {
-   *       "ROSTemplateFormatVersion": "2015-09-01"
-   * }
-   */
-  templateContent?: string;
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      administrationRoleName: 'AdministrationRoleName',
-      autoDeployment: 'AutoDeployment',
-      createTime: 'CreateTime',
-      description: 'Description',
-      executionRoleName: 'ExecutionRoleName',
-      parameters: 'Parameters',
-      permissionModel: 'PermissionModel',
-      rdFolderIds: 'RdFolderIds',
-      resourceGroupId: 'ResourceGroupId',
-      stackGroupDriftDetectionDetail: 'StackGroupDriftDetectionDetail',
-      stackGroupId: 'StackGroupId',
-      stackGroupName: 'StackGroupName',
-      status: 'Status',
-      templateBody: 'TemplateBody',
-      templateContent: 'TemplateContent',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      administrationRoleName: 'string',
-      autoDeployment: GetStackGroupResponseBodyStackGroupAutoDeployment,
-      createTime: 'string',
-      description: 'string',
-      executionRoleName: 'string',
-      parameters: { 'type': 'array', 'itemType': GetStackGroupResponseBodyStackGroupParameters },
-      permissionModel: 'string',
-      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
-      resourceGroupId: 'string',
-      stackGroupDriftDetectionDetail: GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail,
-      stackGroupId: 'string',
-      stackGroupName: 'string',
-      status: 'string',
-      templateBody: 'string',
-      templateContent: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets extends $tea.Model {
-  /**
-   * @remarks
-   * The IDs of the members in the resource directory.
-   * 
-   * > This parameter is returned only if AccountIds is specified when the [UpdateStackInstances](https://help.aliyun.com/document_detail/151716.html) operation is called to update stack instances.
-   */
-  accountIds?: string[];
-  /**
-   * @remarks
-   * The IDs of the folders in the resource directory.
-   */
-  rdFolderIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      rdFolderIds: 'RdFolderIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'string' },
-      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences extends $tea.Model {
-  /**
-   * @remarks
-   * The number of accounts within which stack operation failures are allowed to occur in each region. If the value of this parameter is exceeded in a region, Resource Orchestration Service (ROS) stops the operation in the region. If the operation is stopped in one region, the operation is no longer performed in other regions.
-   * 
-   * Valid values: 0 to 20.
-   * 
-   * > Only one of FailureToleranceCount and FailureTolerancePercentage can be returned.
-   * 
-   * @example
-   * 1
-   */
-  failureToleranceCount?: number;
-  /**
-   * @remarks
-   * The percentage of the number of accounts within which stack operation failures are allowed to occur to the total number of accounts in each region. If the value of this parameter is exceeded in a region, ROS stops the operation in the region.
-   * 
-   * Valid values: 0 to 100.
-   * 
-   * > Only one of FailureToleranceCount and FailureTolerancePercentage can be returned.
-   * 
-   * @example
-   * 10
-   */
-  failureTolerancePercentage?: number;
-  /**
-   * @remarks
-   * The maximum number of accounts within which stacks are deployed at the same time in each region.
-   * 
-   * Valid values: 1 to 20.
-   * 
-   * > Only one of MaxConcurrentCount and MaxConcurrentPercentage can be returned.
-   * 
-   * @example
-   * 1
-   */
-  maxConcurrentCount?: number;
-  /**
-   * @remarks
-   * The percentage of the maximum number of accounts within which stacks are deployed at the same time to the total number of accounts in each region.
-   * 
-   * Valid values: 1 to 100.
-   * 
-   * > Only one of MaxConcurrentCount and MaxConcurrentPercentage can be returned.
-   * 
-   * @example
-   * 10
-   */
-  maxConcurrentPercentage?: number;
-  /**
-   * @remarks
-   * The regions in the order of operation execution.
-   */
-  regionIdsOrder?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      failureToleranceCount: 'FailureToleranceCount',
-      failureTolerancePercentage: 'FailureTolerancePercentage',
-      maxConcurrentCount: 'MaxConcurrentCount',
-      maxConcurrentPercentage: 'MaxConcurrentPercentage',
-      regionIdsOrder: 'RegionIdsOrder',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failureToleranceCount: 'number',
-      failureTolerancePercentage: 'number',
-      maxConcurrentCount: 'number',
-      maxConcurrentPercentage: 'number',
-      regionIdsOrder: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDriftDetectionDetail extends $tea.Model {
-  /**
-   * @remarks
-   * The number of stack instances for which drift detection was canceled.
-   * 
-   * @example
-   * 0
-   */
-  cancelledStackInstancesCount?: number;
-  /**
-   * @remarks
-   * The drift detection state.
-   * 
-   * Valid values:
-   * 
-   * *   COMPLETED: Drift detection is performed on the stack group and all stack instances passed the drift detection.
-   * *   FAILED: Drift detection is performed on the stack group. The number of stack instances that failed the drift detection exceeds the specified threshold.
-   * *   PARTIAL_SUCCESS: Drift detection is performed on the stack group. The number of stack instances that failed the drift detection does not exceed the specified threshold.
-   * *   IN_PROGRESS: Drift detection is being performed on the stack group.
-   * *   STOPPED: Drift detection is canceled for the stack group.
-   * 
-   * @example
-   * COMPLETED
-   */
-  driftDetectionStatus?: string;
-  /**
-   * @remarks
-   * The time when drift detection was performed.
-   * 
-   * @example
-   * 2020-02-27T07:47:47
-   */
-  driftDetectionTime?: string;
-  /**
-   * @remarks
-   * The number of stack instances that have drifted.
-   * 
-   * @example
-   * 1
-   */
-  driftedStackInstancesCount?: number;
-  /**
-   * @remarks
-   * The number of stack instances that failed drift detection.
-   * 
-   * @example
-   * 0
-   */
-  failedStackInstancesCount?: number;
-  /**
-   * @remarks
-   * The number of stack instances on which drift detection was being performed.
-   * 
-   * @example
-   * 0
-   */
-  inProgressStackInstancesCount?: number;
-  /**
-   * @remarks
-   * The number of stack instances that were being synchronized.
-   * 
-   * @example
-   * 1
-   */
-  inSyncStackInstancesCount?: number;
-  /**
-   * @remarks
-   * The drift state of the stack group.
-   * 
-   * Valid values:
-   * 
-   * *   DRIFTED: At least one stack instance in the stack group has drifted.
-   * *   NOT_CHECKED: No successful drift detection is performed in the stack group.
-   * *   IN_SYNC: All the stack instances in the stack group are being synchronized.
-   * 
-   * @example
-   * DRIFTED
-   */
-  stackGroupDriftStatus?: string;
-  /**
-   * @remarks
-   * The number of stack instances.
-   * 
-   * @example
-   * 2
-   */
-  totalStackInstancesCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cancelledStackInstancesCount: 'CancelledStackInstancesCount',
-      driftDetectionStatus: 'DriftDetectionStatus',
-      driftDetectionTime: 'DriftDetectionTime',
-      driftedStackInstancesCount: 'DriftedStackInstancesCount',
-      failedStackInstancesCount: 'FailedStackInstancesCount',
-      inProgressStackInstancesCount: 'InProgressStackInstancesCount',
-      inSyncStackInstancesCount: 'InSyncStackInstancesCount',
-      stackGroupDriftStatus: 'StackGroupDriftStatus',
-      totalStackInstancesCount: 'TotalStackInstancesCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cancelledStackInstancesCount: 'number',
-      driftDetectionStatus: 'string',
-      driftDetectionTime: 'string',
-      driftedStackInstancesCount: 'number',
-      failedStackInstancesCount: 'number',
-      inProgressStackInstancesCount: 'number',
-      inSyncStackInstancesCount: 'number',
-      stackGroupDriftStatus: 'string',
-      totalStackInstancesCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackGroupOperationResponseBodyStackGroupOperation extends $tea.Model {
-  /**
-   * @remarks
-   * The operation type.
-   * 
-   * Valid values:
-   * 
-   * *   CREATE
-   * *   UPDATE
-   * *   DELETE
-   * *   DETECT_DRIFT
-   * 
-   * @example
-   * DELETE
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The name of the RAM role that you specify for the administrator account when you create the self-managed stack group. ROS assumes the administrator role to perform operations. If this parameter is not specified, the default value AliyunROSStackGroupAdministrationRole is returned.
-   * 
-   * @example
-   * AliyunROSStackGroupAdministrationRole
-   */
-  administrationRoleName?: string;
-  /**
-   * @remarks
-   * The time when the operation was initiated.
-   * 
-   * @example
-   * 2020-01-20T09:22:3
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The destinations to deploy stack instances when the stack is granted service-managed permissions.
-   */
-  deploymentTargets?: GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets;
-  /**
-   * @remarks
-   * The time when the operation ended.
-   * 
-   * @example
-   * 2020-01-20T09:22:4
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The name of the RAM role that you specify for the execution account when you create the self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role to perform operations. If this parameter is not specified, the default value AliyunROSStackGroupExecutionRole is returned.
-   * 
-   * @example
-   * AliyunROSStackGroupExecutionRole
-   */
-  executionRoleName?: string;
-  /**
-   * @remarks
-   * The description of the operation.
-   * 
-   * > This parameter is returned only if OperationDescription is specified when the [CreateStackInstances](https://help.aliyun.com/document_detail/151338.html) operation is called to create stack instances.
-   * 
-   * @example
-   * Create stack instance in hangzhou
-   */
-  operationDescription?: string;
-  /**
-   * @remarks
-   * The operation ID.
-   * 
-   * @example
-   * 6da106ca-1784-4a6f-a7e1-e723863d****
-   */
-  operationId?: string;
-  /**
-   * @remarks
-   * The operation settings.
-   */
-  operationPreferences?: GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences;
-  /**
-   * @remarks
-   * Indicates whether stacks are retained when the associated stack instances are deleted. When you delete a stack instance, you can choose to delete or retain the stack with which the stack instance is associated.
-   * 
-   * Valid values:
-   * 
-   * *   true: Stacks are retained when the associated stack instances are deleted.
-   * *   false: Stacks are deleted when the associated stack instances are deleted. Proceed with caution.
-   * 
-   * > This parameter is returned only if you delete stack instances.
-   * 
-   * @example
-   * true
-   */
-  retainStacks?: boolean;
-  /**
-   * @remarks
-   * The information about drift detection.
-   * 
-   * > This parameter is returned only if drift detection is performed.
-   */
-  stackGroupDriftDetectionDetail?: GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDriftDetectionDetail;
-  /**
-   * @remarks
-   * The ID of the stack group.
-   * 
-   * @example
-   * fd0ddef9-9540-4b42-a464-94f77835****
-   */
-  stackGroupId?: string;
-  /**
-   * @remarks
-   * The name of the stack group.
-   * 
-   * @example
-   * MyStackGroup
-   */
-  stackGroupName?: string;
-  /**
-   * @remarks
-   * The state of the operation.
-   * 
-   * Valid values:
-   * 
-   * *   RUNNING
-   * *   SUCCEEDED
-   * *   FAILED
-   * *   STOPPING
-   * *   STOPPED
-   * 
-   * @example
-   * SUCCEEDED
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      administrationRoleName: 'AdministrationRoleName',
-      createTime: 'CreateTime',
-      deploymentTargets: 'DeploymentTargets',
-      endTime: 'EndTime',
-      executionRoleName: 'ExecutionRoleName',
-      operationDescription: 'OperationDescription',
-      operationId: 'OperationId',
-      operationPreferences: 'OperationPreferences',
-      retainStacks: 'RetainStacks',
-      stackGroupDriftDetectionDetail: 'StackGroupDriftDetectionDetail',
-      stackGroupId: 'StackGroupId',
-      stackGroupName: 'StackGroupName',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      administrationRoleName: 'string',
-      createTime: 'string',
-      deploymentTargets: GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets,
-      endTime: 'string',
-      executionRoleName: 'string',
-      operationDescription: 'string',
-      operationId: 'string',
-      operationPreferences: GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences,
-      retainStacks: 'boolean',
-      stackGroupDriftDetectionDetail: GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDriftDetectionDetail,
-      stackGroupId: 'string',
-      stackGroupName: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackInstanceResponseBodyStackInstanceParameterOverrides extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the parameter that is used to override a specific parameter.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of the parameter that is used to override a specific parameter.
-   * 
-   * @example
-   * 1
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackInstanceResponseBodyStackInstance extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the destination account to which the stack belongs.
-   * 
-   * @example
-   * 151266687691****
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The time when the most recent successful drift detection was performed on the stack group.
-   * 
-   * > This parameter is returned only if drift detection is performed on the stack group.
-   * 
-   * @example
-   * 2020-02-27T07:47:47
-   */
-  driftDetectionTime?: string;
-  /**
-   * @remarks
-   * The outputs of the stack.
-   * 
-   * >  This parameter is returned if OutputOption is set to Enabled.
-   */
-  outputs?: { [key: string]: any }[];
-  /**
-   * @remarks
-   * The parameters that are used to override specific parameters.
-   */
-  parameterOverrides?: GetStackInstanceResponseBodyStackInstanceParameterOverrides[];
-  /**
-   * @remarks
-   * The ID of the folder in the resource directory.
-   * 
-   * > This parameter is returned only if the stack group is granted service-managed permissions.
-   * 
-   * @example
-   * fd-4PvlVLOL8v
-   */
-  rdFolderId?: string;
-  /**
-   * @remarks
-   * The region ID of the stack.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The state of the stack when the most recent successful drift detection was performed on the stack group.
-   * 
-   * Valid values:
-   * 
-   * *   DRIFTED: The stack has drifted.
-   * *   NOT_CHECKED: No successful drift detection is performed on the stack.
-   * *   IN_SYNC: The stack is being synchronized.
-   * 
-   * > This parameter is returned only if drift detection is performed on the stack group.
-   * 
-   * @example
-   * IN_SYNC
-   */
-  stackDriftStatus?: string;
-  /**
-   * @remarks
-   * The ID of the stack group.
-   * 
-   * @example
-   * fd0ddef9-9540-4b42-a464-94f77835****
-   */
-  stackGroupId?: string;
-  /**
-   * @remarks
-   * The name of the stack group.
-   * 
-   * @example
-   * MyStackGroup
-   */
-  stackGroupName?: string;
-  /**
-   * @remarks
-   * The stack ID.
-   * 
-   * > This parameter is returned only if the stack is in the CURRENT state.
-   * 
-   * @example
-   * 35ad60e3-6a92-42d8-8812-f0700d45****
-   */
-  stackId?: string;
-  /**
-   * @remarks
-   * The state of the stack.
-   * 
-   * Valid values:
-   * 
-   * *   CURRENT: The stack is up-to-date with the stack group.
-   * 
-   * *   OUTDATED: The stack is not up-to-date with the stack group. Stacks are in the OUTDATED state due to the following possible reasons:
-   * 
-   *     *   When the CreateStackInstances operation is called to create stacks, the stacks fail to be created.
-   *     *   When the UpdateStackInstances or UpdateStackGroup operation is called to update stacks, the stacks fail to be updated, or only specific stacks are updated.
-   *     *   The creation or update operation is not complete.
-   * 
-   * @example
-   * CURRENT
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The reason why the stack instance is in the OUTDATED state.
-   * 
-   * > This parameter is returned only if the stack instance is in the OUTDATED state.
-   * 
-   * @example
-   * User initiated stop
-   */
-  statusReason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      driftDetectionTime: 'DriftDetectionTime',
-      outputs: 'Outputs',
-      parameterOverrides: 'ParameterOverrides',
-      rdFolderId: 'RdFolderId',
-      regionId: 'RegionId',
-      stackDriftStatus: 'StackDriftStatus',
-      stackGroupId: 'StackGroupId',
-      stackGroupName: 'StackGroupName',
-      stackId: 'StackId',
-      status: 'Status',
-      statusReason: 'StatusReason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      driftDetectionTime: 'string',
-      outputs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      parameterOverrides: { 'type': 'array', 'itemType': GetStackInstanceResponseBodyStackInstanceParameterOverrides },
-      rdFolderId: 'string',
-      regionId: 'string',
-      stackDriftStatus: 'string',
-      stackGroupId: 'string',
-      stackGroupName: 'string',
-      stackId: 'string',
-      status: 'string',
-      statusReason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackResourceResponseBodyModuleInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The concatenated logical IDs of one or more modules that contain the resource. The modules are listed from the outermost layer and separated by forward slashes (`/`).
-   * 
-   * In the following example, the resource is created from Module B nested within Parent Module A:
-   * 
-   * `moduleA/moduleB`
-   * 
-   * @example
-   * moduleA/moduleB
-   */
-  logicalIdHierarchy?: string;
-  /**
-   * @remarks
-   * The concatenated types of one or more modules that contain the resource. The module types are listed from the outermost layer and separated by forward slashes (`/`).
-   * 
-   * In the following example, the resource is created from a module of the `MODULE::ROS::Child::Example` type that is nested within a parent module of the `MODULE::ROS::Parent::Example` type:
-   * 
-   * `MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example`
-   * 
-   * @example
-   * MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example
-   */
-  typeHierarchy?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logicalIdHierarchy: 'LogicalIdHierarchy',
-      typeHierarchy: 'TypeHierarchy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logicalIdHierarchy: 'string',
-      typeHierarchy: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateResponseBodyPermissions extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account with which the template is shared.
-   * 
-   * @example
-   * 142437958638****
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The sharing option.
-   * 
-   * The value ShareToAccounts indicates that the template is shared with one or more Alibaba Cloud accounts.
-   * 
-   * @example
-   * ShareToAccounts
-   */
-  shareOption?: string;
-  /**
-   * @remarks
-   * The service that is used for resource sharing. Valid values:
-   * 
-   * - ROS: Resources are shared from ROS by using the ROS console or calling the ROS API.
-   * - ResourceDirectory: Resources are shared with accounts in a resource directory from Resource Management by using the resource sharing feature.
-   * > -  The number of accounts with which resources are shared from ROS is independent of the number of accounts with which resources are shared from the resource directory.
-   * > -  The shared resources from ROS cannot override or overwrite the shared resources from the resource directory.
-   * > -  The shared resources from the resource directory can overwrite the shared resources from ROS.
-   * 
-   * @example
-   * ROS
-   */
-  shareSource?: string;
-  /**
-   * @remarks
-   * The version of the shared template. This parameter is returned only if you set ShareOption to ShareToAccounts and set VersionOption to Specified or Current.
-   * 
-   * Valid values: v1 to v100.
-   * 
-   * @example
-   * v1
-   */
-  templateVersion?: string;
-  /**
-   * @remarks
-   * The version option for the shared template. This parameter is returned only if you set ShareOption to ShareToAccounts.
-   * 
-   * Valid values:
-   * 
-   * *   AllVersions: All template versions are shared.
-   * *   Latest: Only the latest template version is shared. When the version of the template is updated, Resource Orchestration Service (ROS) updates the shared version to the latest version.
-   * *   Current: Only the latest template version is shared. When the version of the template is updated, ROS does not update the shared version.
-   * *   Specified: Only the specified template version is shared.
-   * 
-   * @example
-   * AllVersions
-   */
-  versionOption?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      shareOption: 'ShareOption',
-      shareSource: 'ShareSource',
-      templateVersion: 'TemplateVersion',
-      versionOption: 'VersionOption',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      shareOption: 'string',
-      shareSource: 'string',
-      templateVersion: 'string',
-      versionOption: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateResponseBodyTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key of the template.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value of the template.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateEstimateCostRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Name
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * Details of the resource.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * DemoEip
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateParameterConstraintsRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The name of parameter N in the template.
-   * 
-   * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterKey parameter.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ZoneInfo
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of parameter N in the template.
-   * 
-   * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterValue parameter.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateParameterConstraintsShrinkRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The name of parameter N in the template.
-   * 
-   * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterKey parameter.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ZoneInfo
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of parameter N in the template.
-   * 
-   * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterValue parameter.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the resource property.
-   * 
-   * @example
-   * InstanceName
-   */
-  propertyName?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ALIYUN::ECS::InstanceGroup
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      propertyName: 'PropertyName',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      propertyName: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints extends $tea.Model {
-  /**
-   * @remarks
-   * The values of the parameter.
-   */
-  allowedValues?: any[];
-  /**
-   * @remarks
-   * The name of the resource property.
-   * 
-   * @example
-   * ZoneId
-   */
-  propertyName?: string;
-  /**
-   * @remarks
-   * The name of the resource that is defined in the template.
-   * 
-   * @example
-   * MyECS
-   */
-  resourceName?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ALIYUN::ECS::InstanceGroup
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowedValues: 'AllowedValues',
-      propertyName: 'PropertyName',
-      resourceName: 'ResourceName',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowedValues: { 'type': 'array', 'itemType': 'any' },
-      propertyName: 'string',
-      resourceName: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors extends $tea.Model {
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * ALIYUN::ECS::InstanceGroup
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The resource name.
-   * 
-   * @example
-   * MyECS
-   */
-  resourceName?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * InstanceType is needed while query DataDisk
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorMessage: 'ErrorMessage',
-      resourceName: 'ResourceName',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorMessage: 'string',
-      resourceName: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails extends $tea.Model {
-  errorMessage?: string;
-  resourceName?: string;
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorMessage: 'ErrorMessage',
-      resourceName: 'ResourceName',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorMessage: 'string',
-      resourceName: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateParameterConstraintsResponseBodyParameterConstraints extends $tea.Model {
-  /**
-   * @remarks
-   * The values of the parameter.
-   */
-  allowedValues?: string[];
-  /**
-   * @remarks
-   * The names of the associated parameters.
-   */
-  associationParameterNames?: string[];
-  /**
-   * @remarks
-   * The behavior of the parameter. Valid values:
-   * 
-   * *   NoLimit: No limit is imposed on the value of this parameter.
-   * *   NotSupport: The value of this parameter cannot be queried.
-   * *   QueryError: This parameter failed to be queried.
-   * 
-   * > If AllowedValues is not returned, Behavior and BehaviorReason are returned.
-   * 
-   * @example
-   * NoLimit
-   */
-  behavior?: string;
-  /**
-   * @remarks
-   * The reason why the behavior of the parameter is returned.
-   * 
-   * @example
-   * No resource property refer to the parameter
-   */
-  behaviorReason?: string;
-  /**
-   * @remarks
-   * The values that do not conform to the parameter constraints.
-   * 
-   * > If AllowedValues is returned, IllegalValueByParameterConstraints and IllegalValueByRules are returned at the same time.
-   */
-  illegalValueByParameterConstraints?: any[];
-  /**
-   * @remarks
-   * The values that do not match the rules in the template.
-   * 
-   * > If AllowedValues is returned, IllegalValueByParameterConstraints and IllegalValueByRules are returned at the same time.
-   */
-  illegalValueByRules?: any[];
-  /**
-   * @remarks
-   * The unsupported resource in the template.
-   */
-  notSupportResources?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources[];
-  /**
-   * @remarks
-   * The original constraint information.
-   */
-  originalConstraints?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints[];
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * ZoneInfo
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The error that is returned when the request fails.
-   */
-  queryErrors?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors[];
-  queryTimeoutDetails?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails[];
-  /**
-   * @remarks
-   * The data type of the parameter.
-   * 
-   * @example
-   * String
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowedValues: 'AllowedValues',
-      associationParameterNames: 'AssociationParameterNames',
-      behavior: 'Behavior',
-      behaviorReason: 'BehaviorReason',
-      illegalValueByParameterConstraints: 'IllegalValueByParameterConstraints',
-      illegalValueByRules: 'IllegalValueByRules',
-      notSupportResources: 'NotSupportResources',
-      originalConstraints: 'OriginalConstraints',
-      parameterKey: 'ParameterKey',
-      queryErrors: 'QueryErrors',
-      queryTimeoutDetails: 'QueryTimeoutDetails',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowedValues: { 'type': 'array', 'itemType': 'string' },
-      associationParameterNames: { 'type': 'array', 'itemType': 'string' },
-      behavior: 'string',
-      behaviorReason: 'string',
-      illegalValueByParameterConstraints: { 'type': 'array', 'itemType': 'any' },
-      illegalValueByRules: { 'type': 'array', 'itemType': 'any' },
-      notSupportResources: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources },
-      originalConstraints: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints },
-      parameterKey: 'string',
-      queryErrors: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors },
-      queryTimeoutDetails: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails },
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateRecommendParametersRequestParameters extends $tea.Model {
-  parameterCandidateValues?: string[];
-  parameterKey?: string;
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterCandidateValues: 'ParameterCandidateValues',
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterCandidateValues: { 'type': 'array', 'itemType': 'string' },
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateRecommendParametersResponseBodyRecommendParameterValues extends $tea.Model {
-  parameterKey?: string;
-  recommendValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      recommendValue: 'RecommendValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      recommendValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The parameter name.
-   * 
-   * @example
-   * DeletionPolicy
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The parameter value.
-   * 
-   * @example
-   * Retain
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the source resource group.
-   * 
-   * @example
-   * rg-acfmzawhxxc****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The resource type filters.
-   */
-  resourceTypeFilter?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-      resourceTypeFilter: 'ResourceTypeFilter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateScratchResponseBodyTemplateScratchSourceResources extends $tea.Model {
-  /**
-   * @remarks
-   * The related resource type filters.
-   */
-  relatedResourceTypeFilter?: string[];
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * vpc-m5e7cv7e9mz69sszb****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ALIYUN::ECS::VPC
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      relatedResourceTypeFilter: 'RelatedResourceTypeFilter',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      relatedResourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
-      resourceId: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateScratchResponseBodyTemplateScratchSourceTag extends $tea.Model {
-  /**
-   * @remarks
-   * The source tags.
-   * 
-   * @example
-   * {"a": "b"}
-   */
-  resourceTags?: { [key: string]: any };
-  /**
-   * @remarks
-   * The resource type filters.
-   */
-  resourceTypeFilter?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceTags: 'ResourceTags',
-      resourceTypeFilter: 'ResourceTypeFilter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateScratchResponseBodyTemplateScratchStackProvision extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the resource is replicated by calling the [CreateStack](https://help.aliyun.com/document_detail/132086.html) operation. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  creatable?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the resource is managed by calling the [CreateChangeSet](https://help.aliyun.com/document_detail/131051.html) operation. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  importable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      creatable: 'Creatable',
-      importable: 'Importable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      creatable: 'boolean',
-      importable: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateScratchResponseBodyTemplateScratchStacks extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID of the stack.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The stack ID.
-   * 
-   * @example
-   * 3708bf6a-3a67-44d4-9eb1-c56704b9****
-   */
-  stackId?: string;
-  /**
-   * @remarks
-   * The purpose of the stack. Valid values:
-   * 
-   * *   ResourceImport: resource management
-   * *   ArchitectureReplication: resource replication
-   * 
-   * @example
-   * ArchitectureReplication
-   */
-  usageType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      stackId: 'StackId',
-      usageType: 'UsageType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      stackId: 'string',
-      usageType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateScratchResponseBodyTemplateScratch extends $tea.Model {
-  /**
-   * @remarks
-   * The time at which the resource scenario was created.
-   * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2021-12-22T01:49:22
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The description of the resource scenario.
-   * 
-   * @example
-   * The description of the resource scenario.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The status code of the resource scenario that fails to be created.
-   * 
-   * > This parameter is returned only if you set Status to GENERATE_FAILED.
-   * 
-   * @example
-   * InvalidZoneId
-   */
-  failedCode?: string;
-  /**
-   * @remarks
-   * The policy based on which the logical ID is generated. Valid values:
-   * 
-   * *   LongTypePrefixAndIndexSuffix (default): long-type prefix + index-type suffix
-   * *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
-   * *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
-   * 
-   * @example
-   * LongTypePrefixAndIndexSuffix
-   */
-  logicalIdStrategy?: string;
-  /**
-   * @remarks
-   * The preference parameters of the resource scenario.
-   */
-  preferenceParameters?: GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters[];
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-acfmzmhzoaad5oq
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The source resource group.
-   */
-  sourceResourceGroup?: GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup;
-  /**
-   * @remarks
-   * The source resources.
-   */
-  sourceResources?: GetTemplateScratchResponseBodyTemplateScratchSourceResources[];
-  /**
-   * @remarks
-   * The source tag.
-   */
-  sourceTag?: GetTemplateScratchResponseBodyTemplateScratchSourceTag;
-  /**
-   * @remarks
-   * The preset information of the stack.
-   */
-  stackProvision?: GetTemplateScratchResponseBodyTemplateScratchStackProvision;
-  /**
-   * @remarks
-   * The stacks that are associated with the resource scenario.
-   */
-  stacks?: GetTemplateScratchResponseBodyTemplateScratchStacks[];
-  /**
-   * @remarks
-   * The state of the resource scenario. Valid values:
-   * 
-   * *   GENERATE_IN_PROGRESS: The resource scenario is being created.
-   * *   GENERATE_COMPLETE: The resource scenario is created.
-   * *   GENERATE_FAILED: The resource scenario fails to be created.
-   * 
-   * @example
-   * GENERATE_COMPLETE
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The reason why the resource scenario fails to be created.
-   * 
-   * > This parameter is returned only if you set Status to GENERATE_FAILED.
-   * 
-   * @example
-   * Resource ALIYUN::ECS::VPC vpc-m5eauuq80anx59v28**** could not be found for template scratch.
-   */
-  statusReason?: string;
-  /**
-   * @remarks
-   * The resource scenario data.
-   */
-  templateScratchData?: { [key: string]: any };
-  /**
-   * @remarks
-   * The ID of the resource scenario.
-   * 
-   * @example
-   * ts-7f7a704cf71c49a6****
-   */
-  templateScratchId?: string;
-  /**
-   * @remarks
-   * The type of the resource scenario. Valid values:
-   * 
-   * *   ResourceImport: resource management
-   * *   ArchitectureReplication: resource replication
-   * 
-   * @example
-   * ArchitectureReplication
-   */
-  templateScratchType?: string;
-  /**
-   * @remarks
-   * The time at which the resource scenario was updated.
-   * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2021-12-22T01:49:23
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      description: 'Description',
-      failedCode: 'FailedCode',
-      logicalIdStrategy: 'LogicalIdStrategy',
-      preferenceParameters: 'PreferenceParameters',
-      resourceGroupId: 'ResourceGroupId',
-      sourceResourceGroup: 'SourceResourceGroup',
-      sourceResources: 'SourceResources',
-      sourceTag: 'SourceTag',
-      stackProvision: 'StackProvision',
-      stacks: 'Stacks',
-      status: 'Status',
-      statusReason: 'StatusReason',
-      templateScratchData: 'TemplateScratchData',
-      templateScratchId: 'TemplateScratchId',
-      templateScratchType: 'TemplateScratchType',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      description: 'string',
-      failedCode: 'string',
-      logicalIdStrategy: 'string',
-      preferenceParameters: { 'type': 'array', 'itemType': GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters },
-      resourceGroupId: 'string',
-      sourceResourceGroup: GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup,
-      sourceResources: { 'type': 'array', 'itemType': GetTemplateScratchResponseBodyTemplateScratchSourceResources },
-      sourceTag: GetTemplateScratchResponseBodyTemplateScratchSourceTag,
-      stackProvision: GetTemplateScratchResponseBodyTemplateScratchStackProvision,
-      stacks: { 'type': 'array', 'itemType': GetTemplateScratchResponseBodyTemplateScratchStacks },
-      status: 'string',
-      statusReason: 'string',
-      templateScratchData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      templateScratchId: 'string',
-      templateScratchType: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateSummaryRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The name of parameter N that is defined in the template. If you do not specify the name and value of a parameter, Resource Orchestration Service (ROS) uses the default name and value that are defined in the template.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * > The Parameters parameter is optional. If you specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
-   * 
-   * @example
-   * InstanceId
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of parameter N that is defined in the template.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * > The Parameters parameter is optional. If you specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
-   * 
-   * @example
-   * i-rotp2e20whfrs2****
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateSummaryResponseBodyResourceIdentifierSummaries extends $tea.Model {
-  /**
-   * @remarks
-   * The logical IDs of all resources of the type that is specified by ResouceType in the template.
-   */
-  logicalResourceIds?: string[];
-  /**
-   * @remarks
-   * The resource properties. You can use a resource property to identify the resource that you want to manage. For example, VpcId is an identifier property of ALIYUN::ECS::VPC.
-   */
-  resourceIdentifiers?: string[];
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * > The resource import feature is supported for the resource type.
-   * 
-   * @example
-   * ALIYUN::ECS::VPC
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logicalResourceIds: 'LogicalResourceIds',
-      resourceIdentifiers: 'ResourceIdentifiers',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logicalResourceIds: { 'type': 'array', 'itemType': 'string' },
-      resourceIdentifiers: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAITaskEventsResponseBodyEvents extends $tea.Model {
-  /**
-   * @example
-   * GenerateTemplateAgent
-   */
-  agentType?: string;
-  /**
-   * @example
-   * 2019-08-01T04:07:39
-   */
-  createTime?: string;
-  /**
-   * @example
-   * 60
-   */
-  estimatedProcessingTime?: string;
-  /**
-   * @example
-   * Document template generator started.
-   */
-  eventData?: string;
-  /**
-   * @example
-   * RUNNING
-   */
-  handlerProcessStatus?: string;
-  /**
-   * @example
-   * ROSTemplateGenerator
-   */
-  handlerType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      agentType: 'AgentType',
-      createTime: 'CreateTime',
-      estimatedProcessingTime: 'EstimatedProcessingTime',
-      eventData: 'EventData',
-      handlerProcessStatus: 'HandlerProcessStatus',
-      handlerType: 'HandlerType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      agentType: 'string',
-      createTime: 'string',
-      estimatedProcessingTime: 'string',
-      eventData: 'string',
-      handlerProcessStatus: 'string',
-      handlerType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAITasksResponseBodyTasks extends $tea.Model {
-  /**
-   * @example
-   * 2023-03-15T03:15:53
-   */
-  createTime?: string;
-  prompt?: string;
-  /**
-   * @example
-   * RUNNING
-   */
-  status?: string;
-  /**
-   * @example
-   * Handler execution unexpected failure
-   */
-  statusReason?: string;
-  /**
-   * @example
-   * t-asasas*****
-   */
-  taskId?: string;
-  /**
-   * @example
-   * GenerateTemplate
-   */
-  taskType?: string;
-  /**
-   * @example
-   * 2023-11-20T22:00:50
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      prompt: 'Prompt',
-      status: 'Status',
-      statusReason: 'StatusReason',
-      taskId: 'TaskId',
-      taskType: 'TaskType',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      prompt: 'string',
-      status: 'string',
-      statusReason: 'string',
-      taskId: 'string',
-      taskType: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListChangeSetsResponseBodyChangeSets extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the change set.
-   * 
-   * @example
-   * 1f6521a4-05af-4975-afe9-bc4b45ad****
-   */
-  changeSetId?: string;
-  /**
-   * @remarks
-   * The name of the change set.
-   * 
-   * @example
-   * MyChangeSet
-   */
-  changeSetName?: string;
-  /**
-   * @remarks
-   * The type of the change set.
-   * 
-   * @example
-   * UPDATE
-   */
-  changeSetType?: string;
-  /**
-   * @remarks
-   * The time when the change set was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-08-01T05:16:31
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The description of the change set.
-   * 
-   * @example
-   * It is a demo.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The execution status of the change set.
-   * 
-   * @example
-   * AVAILABLE
-   */
-  executionStatus?: string;
-  /**
-   * @remarks
-   * The region ID of the change set.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the stack with which the change set is associated.
-   * 
-   * @example
-   * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
-   */
-  stackId?: string;
-  /**
-   * @remarks
-   * The name of the stack with which the change set is associated.
-   * 
-   * @example
-   * MyStack
-   */
-  stackName?: string;
-  /**
-   * @remarks
-   * The status of the change set.
-   * 
-   * @example
-   * CREATE_COMPLETE
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The reason why the change set is in its current state.
-   * 
-   * @example
-   * too many changes
-   */
-  statusReason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      changeSetId: 'ChangeSetId',
-      changeSetName: 'ChangeSetName',
-      changeSetType: 'ChangeSetType',
-      createTime: 'CreateTime',
-      description: 'Description',
-      executionStatus: 'ExecutionStatus',
-      regionId: 'RegionId',
-      stackId: 'StackId',
-      stackName: 'StackName',
-      status: 'Status',
-      statusReason: 'StatusReason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      changeSetId: 'string',
-      changeSetName: 'string',
-      changeSetType: 'string',
-      createTime: 'string',
-      description: 'string',
-      executionStatus: 'string',
-      regionId: 'string',
-      stackId: 'string',
-      stackName: 'string',
-      status: 'string',
-      statusReason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDiagnosticsResponseBodyDiagnostics extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the diagnostic report was generated.
-   * 
-   * @example
-   * 2022-08-01T02:23:55
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The keyword in the diagnosis.
-   * 
-   * @example
-   * 047D84D9-D3EB-5DA8-87F1-9A7DD5598A5D
-   */
-  diagnosticKey?: string;
-  /**
-   * @remarks
-   * The product that is diagnosed.
-   * 
-   * @example
-   * ros
-   */
-  diagnosticProduct?: string;
-  /**
-   * @remarks
-   * The ID of the diagnostic report.
-   * 
-   * @example
-   * dr-2963bfbcac834f1a****
-   */
-  reportId?: string;
-  /**
-   * @remarks
-   * The diagnosis status.
-   * 
-   * @example
-   * success
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      diagnosticKey: 'DiagnosticKey',
-      diagnosticProduct: 'DiagnosticProduct',
-      reportId: 'ReportId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      diagnosticKey: 'string',
-      diagnosticProduct: 'string',
-      reportId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypeRegistrationsResponseBodyRegistrations extends $tea.Model {
-  /**
-   * @remarks
-   * The creation time. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
-   * 
-   * @example
-   * 2023-03-02T07:28:35
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The entity type. Only Module may be returned.
-   * 
-   * @example
-   * Module
-   */
-  entityType?: string;
-  /**
-   * @remarks
-   * The ID of the registration record.
-   * 
-   * @example
-   * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
-   */
-  registrationId?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * MODULE::MyOrganization::MyService::MyUsecase
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The registration state. Valid values:
-   * 
-   * *   IN_PROGRESS: The registration is in progress.
-   * *   COMPLETE: The registration is successful.
-   * *   FAILED: The registration failed.
-   * 
-   * @example
-   * COMPLETE
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The reason for the state.
-   * 
-   * @example
-   * Module is created successfully
-   */
-  statusReason?: string;
-  /**
-   * @remarks
-   * The version ID.
-   * 
-   * @example
-   * v1
-   */
-  versionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      entityType: 'EntityType',
-      registrationId: 'RegistrationId',
-      resourceType: 'ResourceType',
-      status: 'Status',
-      statusReason: 'StatusReason',
-      versionId: 'VersionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      entityType: 'string',
-      registrationId: 'string',
-      resourceType: 'string',
-      status: 'string',
-      statusReason: 'string',
-      versionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypeVersionsResponseBodyResourceTypeVersions extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the version was created. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
-   * 
-   * @example
-   * 2023-02-24T08:25:21
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The description of the version.
-   * 
-   * @example
-   * It is a demo.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The entity type. Only Module may be returned.
-   * 
-   * @example
-   * Module
-   */
-  entityType?: string;
-  /**
-   * @remarks
-   * Indicates whether the version is the default version. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  isDefaultVersion?: boolean;
-  /**
-   * @remarks
-   * The provider of the resource type. Valid values:
-   * 
-   * *   ROS: ROS
-   * *   Self: yourself
-   * 
-   * @example
-   * ROS
-   */
-  provider?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * MODULE::MyOrganization::MyService::MyUsecase
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The time when the version was updated. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
-   * 
-   * @example
-   * 2023-02-24T08:25:21
-   */
-  updateTime?: string;
-  /**
-   * @remarks
-   * The version ID.
-   * 
-   * @example
-   * v1
-   */
-  versionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      description: 'Description',
-      entityType: 'EntityType',
-      isDefaultVersion: 'IsDefaultVersion',
-      provider: 'Provider',
-      resourceType: 'ResourceType',
-      updateTime: 'UpdateTime',
-      versionId: 'VersionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      description: 'string',
-      entityType: 'string',
-      isDefaultVersion: 'boolean',
-      provider: 'string',
-      resourceType: 'string',
-      updateTime: 'string',
-      versionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesResponseBodyResourceTypeSummaries extends $tea.Model {
-  /**
-   * @remarks
-   * The creation time. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
-   * 
-   * @example
-   * 2023-02-24T08:25:21
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The ID of the default version.
-   * 
-   * @example
-   * v1
-   */
-  defaultVersionId?: string;
-  /**
-   * @remarks
-   * The description of the resource type.
-   * 
-   * @example
-   * It is a demo.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The entity type. Valid values:
-   * 
-   * *   Resource: regular resources.
-   * *   DataSource: DataSource resources.
-   * *   Module: modules.
-   * 
-   * @example
-   * Module
-   */
-  entityType?: string;
-  /**
-   * @remarks
-   * The ID of the latest version.
-   * 
-   * @example
-   * v10
-   */
-  latestVersionId?: string;
-  /**
-   * @remarks
-   * The provider of the resource type. Valid values:
-   * 
-   * *   ROS: The resource type is provided by ROS.
-   * *   Self: The resource type is provided by you.
-   * 
-   * @example
-   * ROS
-   */
-  provider?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * MODULE::MyOrganization::MyService::MyUsecase
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The number of versions.
-   * 
-   * @example
-   * 10
-   */
-  totalVersionCount?: number;
-  /**
-   * @remarks
-   * The update time. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
-   * 
-   * @example
-   * 2023-02-24T08:25:21
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      defaultVersionId: 'DefaultVersionId',
-      description: 'Description',
-      entityType: 'EntityType',
-      latestVersionId: 'LatestVersionId',
-      provider: 'Provider',
-      resourceType: 'ResourceType',
-      totalVersionCount: 'TotalVersionCount',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      defaultVersionId: 'string',
-      description: 'string',
-      entityType: 'string',
-      latestVersionId: 'string',
-      provider: 'string',
-      resourceType: 'string',
-      totalVersionCount: 'number',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackEventsResponseBodyEvents extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the event was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-08-01T04:07:39
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The event ID.
-   * 
-   * @example
-   * 0086612d-77cf-4056-b0b5-ff8e94ad****
-   */
-  eventId?: string;
-  /**
-   * @remarks
-   * The logical ID of the resource. The logical ID indicates the name of the resource that is defined in the template.
-   * 
-   * @example
-   * WebServer
-   */
-  logicalResourceId?: string;
-  /**
-   * @remarks
-   * The physical ID of the resource.
-   * 
-   * @example
-   * i-m5e3tfdbinchnexh****
-   */
-  physicalResourceId?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ALIYUN::ECS::Instance
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The stack ID.
-   * 
-   * @example
-   * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
-   */
-  stackId?: string;
-  /**
-   * @remarks
-   * The stack name.
-   * 
-   * @example
-   * StackName
-   */
-  stackName?: string;
-  /**
-   * @remarks
-   * The state of the resource.
-   * 
-   * @example
-   * CREATE_COMPLETE
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The reason why the resource is in the current state.
-   * 
-   * @example
-   * state changed
-   */
-  statusReason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      eventId: 'EventId',
-      logicalResourceId: 'LogicalResourceId',
-      physicalResourceId: 'PhysicalResourceId',
-      resourceType: 'ResourceType',
-      stackId: 'StackId',
-      stackName: 'StackName',
-      status: 'Status',
-      statusReason: 'StatusReason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      eventId: 'string',
-      logicalResourceId: 'string',
-      physicalResourceId: 'string',
-      resourceType: 'string',
-      stackId: 'string',
-      stackName: 'string',
-      status: 'string',
-      statusReason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackGroupOperationResultsResponseBodyStackGroupOperationResults extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the account to which the stack instance belongs.
-   * 
-   * *   If the stack group has self-managed permissions, the stack instance belongs to an Alibaba Cloud account.
-   * *   If the stack group has service-managed permissions, the stack instance belongs to a member account in the resource directory.
-   * 
-   * >  For more information about the account, see [Overview](https://help.aliyun.com/document_detail/154578.html).
-   * 
-   * @example
-   * 175458090349****
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The folder ID of the resource directory.
-   * 
-   * >  This parameter is returned only when the stack group is granted service-managed permissions.
-   * 
-   * @example
-   * "fd-4PvlVLOL8v"
-   */
-  rdFolderId?: string;
-  /**
-   * @remarks
-   * The region ID of the stack instance.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The status of the operation.
-   * 
-   * Valid values:
-   * 
-   * *   RUNNING: The operation is being performed.
-   * *   SUCCEEDED: The operation succeeded.
-   * *   FAILED: The operation failed.
-   * *   STOPPING: The operation is being stopped.
-   * *   STOPPED: The operation is stopped.
-   * 
-   * @example
-   * SUCCEEDED
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The reason why the operation is in a specific state.
-   * 
-   * >  This parameter is returned only when stack instances are in the OUTDATED state.
-   * 
-   * @example
-   * User initiated operation
-   */
-  statusReason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      rdFolderId: 'RdFolderId',
-      regionId: 'RegionId',
-      status: 'Status',
-      statusReason: 'StatusReason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      rdFolderId: 'string',
-      regionId: 'string',
-      status: 'string',
-      statusReason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackGroupOperationsResponseBodyStackGroupOperations extends $tea.Model {
-  /**
-   * @remarks
-   * The operation type.
-   * 
-   * Valid values:
-   * 
-   * *   CREATE
-   * *   UPDATE
-   * *   DELETE
-   * *   DETECT_DRIFT
-   * 
-   * @example
-   * CREATE
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The time when the operation was initiated.
-   * 
-   * @example
-   * 2020-01-20T09:22:36.000000
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The time when the operation ended.
-   * 
-   * @example
-   * 2020-01-20T09:22:41.000000
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The description of the operation.
-   * 
-   * @example
-   * Create stack instance in hangzhou
-   */
-  operationDescription?: string;
-  /**
-   * @remarks
-   * The operation ID.
-   * 
-   * @example
-   * 14A07460-EBE7-47CA-9757-12CC4761****
-   */
-  operationId?: string;
-  /**
-   * @remarks
-   * The ID of the stack group.
-   * 
-   * @example
-   * fd0ddef9-9540-4b42-a464-94f77835****
-   */
-  stackGroupId?: string;
-  /**
-   * @remarks
-   * The name of the stack group.
-   * 
-   * @example
-   * MyStackGroup
-   */
-  stackGroupName?: string;
-  /**
-   * @remarks
-   * The state of the operation.
-   * 
-   * Valid values:
-   * 
-   * *   RUNNING
-   * *   SUCCEEDED
-   * *   FAILED
-   * *   STOPPING
-   * *   STOPPED
-   * 
-   * @example
-   * SUCCEEDED
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      createTime: 'CreateTime',
-      endTime: 'EndTime',
-      operationDescription: 'OperationDescription',
-      operationId: 'OperationId',
-      stackGroupId: 'StackGroupId',
-      stackGroupName: 'StackGroupName',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      createTime: 'string',
-      endTime: 'string',
-      operationDescription: 'string',
-      operationId: 'string',
-      stackGroupId: 'string',
-      stackGroupName: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackGroupsRequestTags extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the tag that is added to the stack group.
-   * 
-   * > Tags is optional. If you specify Tags, you must specify Tags.N.Key.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag that is added to the stack group.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackGroupsResponseBodyStackGroupsAutoDeployment extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether automatic deployment is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   true: Automatic deployment is enabled. If you add a member to the folder to which the stack group belongs after automatic deployment is enabled, Resource Orchestration Service (ROS) automatically adds the stack instances in the stack group to the specified region of the member. If you delete the member from the folder, ROS automatically deletes the stack instances in the stack group from the specified region of the member.
-   * *   false: Automatic deployment is disabled. After you disable automatic deployment, the stack instances remain unchanged when you change the member in the folder.
-   * 
-   * @example
-   * true
-   */
-  enabled?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the stacks within a member are retained when you delete the member from the folder.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * > This parameter is returned only if Enabled is set to true.
-   * 
-   * @example
-   * true
-   */
-  retainStacksOnAccountRemoval?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enabled: 'Enabled',
-      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enabled: 'boolean',
-      retainStacksOnAccountRemoval: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackGroupsResponseBodyStackGroupsTags extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the tag that is added to the stack group.
-   * 
-   * @example
-   * usage1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag that is added to the stack group.
-   * 
-   * @example
-   * test1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackGroupsResponseBodyStackGroups extends $tea.Model {
-  /**
-   * @remarks
-   * The information about automatic deployment settings.
-   */
-  autoDeployment?: ListStackGroupsResponseBodyStackGroupsAutoDeployment;
-  createTime?: string;
-  /**
-   * @remarks
-   * The description of the stack group.
-   * 
-   * @example
-   * My Stack Group
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The time when the most recent successful drift detection was performed on the stack group.
-   * 
-   * @example
-   * 2020-02-27T07:47:47
-   */
-  driftDetectionTime?: string;
-  /**
-   * @remarks
-   * The permission model of the stack group.
-   * 
-   * Valid values:
-   * 
-   * *   SELF_MANAGED
-   * *   SERVICE_MANAGED
-   * 
-   * > For more information about the permission models of stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
-   * 
-   * @example
-   * SELF_MANAGED
-   */
-  permissionModel?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-acfmzawhxxcj****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The drift state of the stack group on which the most recent successful drift detection was performed.
-   * 
-   * Valid values:
-   * 
-   * *   DRIFTED: The stack group has drifted.
-   * *   NOT_CHECKED: No drift detection is performed on the stack group.
-   * *   IN_SYNC: No drifts are detected on the stack group.
-   * 
-   * @example
-   * IN_SYNC
-   */
-  stackGroupDriftStatus?: string;
-  /**
-   * @remarks
-   * The ID of the stack group.
-   * 
-   * @example
-   * fd0ddef9-9540-4b42-a464-94f77835****
-   */
-  stackGroupId?: string;
-  /**
-   * @remarks
-   * The name of the stack group.
-   * 
-   * @example
-   * MyStackGroup
-   */
-  stackGroupName?: string;
-  /**
-   * @remarks
-   * The state of the stack group.
-   * 
-   * Valid values:
-   * 
-   * *   ACTIVE
-   * *   DELETED
-   * 
-   * @example
-   * ACTIVE
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The tags that are added to the stack group.
-   */
-  tags?: ListStackGroupsResponseBodyStackGroupsTags[];
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoDeployment: 'AutoDeployment',
-      createTime: 'CreateTime',
-      description: 'Description',
-      driftDetectionTime: 'DriftDetectionTime',
-      permissionModel: 'PermissionModel',
-      resourceGroupId: 'ResourceGroupId',
-      stackGroupDriftStatus: 'StackGroupDriftStatus',
-      stackGroupId: 'StackGroupId',
-      stackGroupName: 'StackGroupName',
-      status: 'Status',
-      tags: 'Tags',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoDeployment: ListStackGroupsResponseBodyStackGroupsAutoDeployment,
-      createTime: 'string',
-      description: 'string',
-      driftDetectionTime: 'string',
-      permissionModel: 'string',
-      resourceGroupId: 'string',
-      stackGroupDriftStatus: 'string',
-      stackGroupId: 'string',
-      stackGroupName: 'string',
-      status: 'string',
-      tags: { 'type': 'array', 'itemType': ListStackGroupsResponseBodyStackGroupsTags },
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackInstancesResponseBodyStackInstances extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the destination account to which the stack belongs.
-   * 
-   * @example
-   * 156552876021****
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The time when the last successful drift detection was performed on the stack.
-   * 
-   * > This parameter is returned only if drift detection is performed on the stack group.
-   * 
-   * @example
-   * 2020-02-27T07:47:47
-   */
-  driftDetectionTime?: string;
-  /**
-   * @remarks
-   * The ID of the folder in the resource directory.
-   * 
-   * > This parameter is returned only if the stack group is granted service-managed permissions.
-   * 
-   * @example
-   * fd-4PvlVLOL8v
-   */
-  rdFolderId?: string;
-  /**
-   * @remarks
-   * The region ID of the stack.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The state of the stack when the last successful drift detection was performed on the stack group.
-   * 
-   * Valid values:
-   * 
-   * *   DRIFTED: The stack has drifted.
-   * *   NOT_CHECKED: No successful drift detection is performed on the stack.
-   * *   IN_SYNC: The stack is being synchronized.
-   * 
-   * > This parameter is returned only if drift detection is performed on the stack group.
-   * 
-   * @example
-   * IN_SYNC
-   */
-  stackDriftStatus?: string;
-  /**
-   * @remarks
-   * The ID of the stack group.
-   * 
-   * @example
-   * fd0ddef9-9540-4b42-a464-94f77835****
-   */
-  stackGroupId?: string;
-  /**
-   * @remarks
-   * The name of the stack group.
-   * 
-   * @example
-   * MyStackGroup
-   */
-  stackGroupName?: string;
-  /**
-   * @remarks
-   * The stack ID.
-   * 
-   * > This parameter is returned only if the stack is in the CURRENT state.
-   * 
-   * @example
-   * 35ad60e3-6a92-42d8-8812-f0700d45****
-   */
-  stackId?: string;
-  /**
-   * @remarks
-   * The state of the stack.
-   * 
-   * Valid values:
-   * 
-   * *   CURRENT: The stack is up-to-date with the stack group.
-   * 
-   * *   OUTDATED: The stack is not up-to-date with the stack group. Stacks are in the OUTDATED state due to the following possible reasons:
-   * 
-   *     *   When the CreateStackInstances operation is called to create stacks, the stacks fail to be created.
-   *     *   When the UpdateStackInstances or UpdateStackGroup operation is called to update stacks, the stacks fail to be updated, or only specific stacks are updated.
-   *     *   The creation or update operation is not complete.
-   * 
-   * @example
-   * CURRENT
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The reason why the stack instance is in the OUTDATED state.
-   * 
-   * > This parameter is returned only if the stack instance is in the OUTDATED state.
-   * 
-   * @example
-   * User initiated stop
-   */
-  statusReason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      driftDetectionTime: 'DriftDetectionTime',
-      rdFolderId: 'RdFolderId',
-      regionId: 'RegionId',
-      stackDriftStatus: 'StackDriftStatus',
-      stackGroupId: 'StackGroupId',
-      stackGroupName: 'StackGroupName',
-      stackId: 'StackId',
-      status: 'Status',
-      statusReason: 'StatusReason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      driftDetectionTime: 'string',
-      rdFolderId: 'string',
-      regionId: 'string',
-      stackDriftStatus: 'string',
-      stackGroupId: 'string',
-      stackGroupName: 'string',
-      stackId: 'string',
-      status: 'string',
-      statusReason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackOperationRisksResponseBodyRiskResources extends $tea.Model {
-  /**
-   * @remarks
-   * The error code that is returned when the risk detection fails.
-   * 
-   * >  This parameter is not returned if the risk detection is successful.
-   * 
-   * @example
-   * NoPermission
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The logical ID of the resource. The logical ID is the resource name that is defined in the template.
-   * 
-   * @example
-   * MySG
-   */
-  logicalResourceId?: string;
-  /**
-   * @remarks
-   * The error message that is returned when the risk detection fails.
-   * 
-   * >  This parameter is not returned if the risk detection is successful.
-   * 
-   * @example
-   * You are not authorized to complete this action.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The physical ID of the resource. The physical ID is the actual ID of the resource.
-   * 
-   * @example
-   * sg-bp1dpioafqphedg9****
-   */
-  physicalResourceId?: string;
-  /**
-   * @remarks
-   * The cause of the risk.
-   * 
-   * @example
-   * There are some ECS instances (i-bp18el96s4wq635e****) depending on the security group.
-   */
-  reason?: string;
-  /**
-   * @remarks
-   * The ID of the request when the risk detection fails.
-   * 
-   * >  This parameter is not returned if the risk detection is successful.
-   * 
-   * @example
-   * DF4296CF-F45F-4845-A72B-BE617601DB25
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The type of the resource.
-   * 
-   * @example
-   * ALIYUN::ECS::SecurityGroup
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The type of the risk. Valid values:
-   * 
-   * *   Referenced: The resource is referenced by other resources.
-   * *   MaybeReferenced: The resource may be referenced by other resources.
-   * *   AdditionalRiskCheckRequired: An additional risk detection is required for a nested stack.
-   * *   OperationIgnored: The operation does not take effect for the resource.
-   * 
-   * @example
-   * Referenced
-   */
-  riskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      logicalResourceId: 'LogicalResourceId',
-      message: 'Message',
-      physicalResourceId: 'PhysicalResourceId',
-      reason: 'Reason',
-      requestId: 'RequestId',
-      resourceType: 'ResourceType',
-      riskType: 'RiskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      logicalResourceId: 'string',
-      message: 'string',
-      physicalResourceId: 'string',
-      reason: 'string',
-      requestId: 'string',
-      resourceType: 'string',
-      riskType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackResourceDriftsResponseBodyResourceDriftsModuleInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The concatenated logical IDs of one or more modules that contain the resource. The modules are listed from the outermost layer and separated by forward slashes (`/`).
-   * 
-   * In the following example, the resource is created from Module B nested within Parent Module A:
-   * 
-   * `moduleA/moduleB`
-   * 
-   * @example
-   * moduleA/moduleB
-   */
-  logicalIdHierarchy?: string;
-  /**
-   * @remarks
-   * The concatenated types of one or more modules that contain the resource. The module types are listed from the outermost layer and separated by forward slashes (`/`).
-   * 
-   * In the following example, the resource is created from a module of the `MODULE::ROS::Child::Example` type that is nested within a parent module of the `MODULE::ROS::Parent::Example` type:
-   * 
-   * `MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example`
-   * 
-   * @example
-   * MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example
-   */
-  typeHierarchy?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logicalIdHierarchy: 'LogicalIdHierarchy',
-      typeHierarchy: 'TypeHierarchy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logicalIdHierarchy: 'string',
-      typeHierarchy: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackResourceDriftsResponseBodyResourceDriftsPropertyDifferences extends $tea.Model {
-  /**
-   * @remarks
-   * The actual value of the resource property.
-   * 
-   * @example
-   * test1
-   */
-  actualValue?: string;
-  /**
-   * @remarks
-   * The drift type of the resource property. Valid values:
-   * 
-   * *   ADD: The value is added to a resource property whose data type is Array or List.
-   * *   REMOVE: The property is deleted from the current resource configuration.
-   * *   NOT_EQUAL: The current property value differs from the expected value that is defined in the stack template.
-   * 
-   * @example
-   * NOT_EQUAL
-   */
-  differenceType?: string;
-  /**
-   * @remarks
-   * The expected value of the resource property that is defined in the template.
-   * 
-   * @example
-   * test2
-   */
-  expectedValue?: string;
-  /**
-   * @remarks
-   * The path of the resource property.
-   * 
-   * @example
-   * /ScalingRuleName
-   */
-  propertyPath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actualValue: 'ActualValue',
-      differenceType: 'DifferenceType',
-      expectedValue: 'ExpectedValue',
-      propertyPath: 'PropertyPath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actualValue: 'string',
-      differenceType: 'string',
-      expectedValue: 'string',
-      propertyPath: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackResourceDriftsResponseBodyResourceDrifts extends $tea.Model {
-  /**
-   * @remarks
-   * The actual JSON-formatted resource properties.
-   * 
-   * @example
-   * {"ScalingRuleName": "test1"}
-   */
-  actualProperties?: string;
-  /**
-   * @remarks
-   * The time when the drift detection operation was performed on the resource.
-   * 
-   * @example
-   * 2020-02-27T07:47:47
-   */
-  driftDetectionTime?: string;
-  /**
-   * @remarks
-   * The JSON-formatted resource properties that are defined in the template.
-   * 
-   * @example
-   * {"ScalingRuleName": "test2"}
-   */
-  expectedProperties?: string;
-  /**
-   * @remarks
-   * The logical ID of the resource. The logical ID indicates the name of the resource that is defined in the template.
-   * 
-   * @example
-   * ScalingRule
-   */
-  logicalResourceId?: string;
-  /**
-   * @remarks
-   * The information about the modules from which the resource was created. This parameter is returned only if the resource is created from modules.
-   */
-  moduleInfo?: ListStackResourceDriftsResponseBodyResourceDriftsModuleInfo;
-  /**
-   * @remarks
-   * The physical ID of the resource.
-   * 
-   * @example
-   * asr-2ze4zzc3kf9yz1kd****
-   */
-  physicalResourceId?: string;
-  /**
-   * @remarks
-   * The property drifts of the resource.
-   */
-  propertyDifferences?: ListStackResourceDriftsResponseBodyResourceDriftsPropertyDifferences[];
-  /**
-   * @remarks
-   * The drift state of the resource. Valid values:
-   * 
-   * *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
-   * *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
-   * *   NOT_CHECKED: Resource Orchestration Service (ROS) has not checked whether the actual configuration of the resource differs from its expected template configuration.
-   * *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
-   * 
-   * @example
-   * MODIFIED
-   */
-  resourceDriftStatus?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ALIYUN::ESS::ScalingRule
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The stack ID.
-   * 
-   * @example
-   * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
-   */
-  stackId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actualProperties: 'ActualProperties',
-      driftDetectionTime: 'DriftDetectionTime',
-      expectedProperties: 'ExpectedProperties',
-      logicalResourceId: 'LogicalResourceId',
-      moduleInfo: 'ModuleInfo',
-      physicalResourceId: 'PhysicalResourceId',
-      propertyDifferences: 'PropertyDifferences',
-      resourceDriftStatus: 'ResourceDriftStatus',
-      resourceType: 'ResourceType',
-      stackId: 'StackId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actualProperties: 'string',
-      driftDetectionTime: 'string',
-      expectedProperties: 'string',
-      logicalResourceId: 'string',
-      moduleInfo: ListStackResourceDriftsResponseBodyResourceDriftsModuleInfo,
-      physicalResourceId: 'string',
-      propertyDifferences: { 'type': 'array', 'itemType': ListStackResourceDriftsResponseBodyResourceDriftsPropertyDifferences },
-      resourceDriftStatus: 'string',
-      resourceType: 'string',
-      stackId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackResourcesResponseBodyResourcesModuleInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The concatenated logical IDs of one or more modules that contain the resource. The modules are listed from the outermost layer and separated by forward slashes (`/`).
-   * 
-   * In the following example, the resource is created from Module B nested within Parent Module A:
-   * 
-   * `moduleA/moduleB`
-   * 
-   * @example
-   * moduleA/moduleB
-   */
-  logicalIdHierarchy?: string;
-  /**
-   * @remarks
-   * The concatenated types of one or more modules that contain the resource. The module types are listed from the outermost layer and separated by forward slashes (`/`).
-   * 
-   * In the following example, the resource is created from a module of the `MODULE::ROS::Child::Example` type that is nested within a parent module of the `MODULE::ROS::Parent::Example` type:
-   * 
-   * `MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example`
-   * 
-   * @example
-   * MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example
-   */
-  typeHierarchy?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logicalIdHierarchy: 'LogicalIdHierarchy',
-      typeHierarchy: 'TypeHierarchy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logicalIdHierarchy: 'string',
-      typeHierarchy: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStackResourcesResponseBodyResources extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the resource was created. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
-   * 
-   * @example
-   * 2019-08-01T06:01:23
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The time when the most recent successful drift detection was performed on the stack.
-   * 
-   * @example
-   * 2020-02-27T07:47:47
-   */
-  driftDetectionTime?: string;
-  /**
-   * @remarks
-   * The logical ID of the resource. The logical ID is the resource name that is defined in the template.
-   * 
-   * @example
-   * dummy
-   */
-  logicalResourceId?: string;
-  /**
-   * @remarks
-   * The information about the modules from which the resource is created. This parameter is returned only if the resource is created from modules.
-   */
-  moduleInfo?: ListStackResourcesResponseBodyResourcesModuleInfo;
-  /**
-   * @remarks
-   * The physical ID of the resource.
-   * 
-   * @example
-   * d04af923-e6b7-4272-aeaa-47ec9777****
-   */
-  physicalResourceId?: string;
-  /**
-   * @remarks
-   * The drift state of the resource in the most recent successful drift detection. Valid values:
-   * 
-   * *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
-   * *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
-   * *   NOT_CHECKED: Resource Orchestration Service (ROS) has not checked whether the actual configuration of the resource differs from its expected template configuration.
-   * *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
-   * 
-   * @example
-   * IN_SYNC
-   */
-  resourceDriftStatus?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ALIYUN::ROS::Stack
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The stack ID.
-   * 
-   * @example
-   * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
-   */
-  stackId?: string;
-  /**
-   * @remarks
-   * The stack name.\\
-   * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or letter.
-   * 
-   * @example
-   * test-describe-resource
-   */
-  stackName?: string;
-  /**
-   * @remarks
-   * The state of the resource. Valid values:
-   * 
-   * *   INIT_COMPLETE: The resource is pending to be created.
-   * *   CREATE_COMPLETE: The resource is created.
-   * *   CREATE_FAILED: The resource failed to be created.
-   * *   CREATE_IN_PROGRESS: The resource is being created.
-   * *   UPDATE_IN_PROGRESS: The resource is being updated.
-   * *   UPDATE_FAILED: The resource failed to be updated.
-   * *   UPDATE_COMPLETE: The resource is updated.
-   * *   DELETE_IN_PROGRESS: The resource is being deleted.
-   * *   DELETE_FAILED: The resource failed to be deleted.
-   * *   DELETE_COMPLETE: The resource is deleted.
-   * *   CHECK_IN_PROGRESS: The resource is being validated.
-   * *   CHECK_FAILED: The resource failed to be validated.
-   * *   CHECK_COMPLETE: The resource is validated.
-   * *   IMPORT_IN_PROGRESS: The resource is being imported.
-   * *   IMPORT_FAILED: The resource failed to be imported.
-   * *   IMPORT_COMPLETE: The resource is imported.
-   * 
-   * @example
-   * UPDATE_COMPLETE
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The reason why the resource is in its current state.
-   * 
-   * @example
-   * state changed
-   */
-  statusReason?: string;
-  /**
-   * @remarks
-   * The time when the resource was updated. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
-   * 
-   * @example
-   * 2019-08-01T06:01:29
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      driftDetectionTime: 'DriftDetectionTime',
-      logicalResourceId: 'LogicalResourceId',
-      moduleInfo: 'ModuleInfo',
-      physicalResourceId: 'PhysicalResourceId',
-      resourceDriftStatus: 'ResourceDriftStatus',
-      resourceType: 'ResourceType',
-      stackId: 'StackId',
-      stackName: 'StackName',
-      status: 'Status',
-      statusReason: 'StatusReason',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      driftDetectionTime: 'string',
-      logicalResourceId: 'string',
-      moduleInfo: ListStackResourcesResponseBodyResourcesModuleInfo,
-      physicalResourceId: 'string',
-      resourceDriftStatus: 'string',
-      resourceType: 'string',
-      stackId: 'string',
-      stackName: 'string',
-      status: 'string',
-      statusReason: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStacksRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The key of tag N.\\
-   * Valid values of N: 1 to 20.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of tag N.\\
-   * Valid values of N: 1 to 20.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStacksResponseBodyStacksOperationInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the API operation that belongs to another Alibaba Cloud service.
-   * 
-   * @example
-   * DeleteSecurityGroup
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * DependencyViolation
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The logical ID of the resource on which the operation error occurred.
-   * 
-   * @example
-   * EcsSecurityGroup
-   */
-  logicalResourceId?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * There is still instance(s) in the specified security group.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request that is initiated to call the API operation of another Alibaba Cloud service.
-   * 
-   * @example
-   * 071D6166-3F6B-5C7B-A1F0-0113FBB643A8
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The type of the resource on which the operation error occurred.
-   * 
-   * @example
-   * ALIYUN::ECS::SecurityGroup
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      code: 'Code',
-      logicalResourceId: 'LogicalResourceId',
-      message: 'Message',
-      requestId: 'RequestId',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      code: 'string',
-      logicalResourceId: 'string',
-      message: 'string',
-      requestId: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStacksResponseBodyStacksTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key of the stack.
-   * 
-   * @example
-   * acs:rm:rgId
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value of the stack.
-   * 
-   * @example
-   * rg-aek2frunvw7****
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStacksResponseBodyStacks extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the stack was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2022-03-10T06:44:36
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * Indicates whether deletion protection is enabled for the stack. Valid values:
-   * 
-   * *   Enabled: Deletion protection is enabled for the stack.
-   * *   Disabled: Deletion protection is disabled for the stack. In this case, you can delete the stack by using the console or calling the [DeleteStack](https://help.aliyun.com/document_detail/610812.html) operation.
-   * 
-   * >  Deletion protection of a nested stack is the same as that of its root stack.
-   * 
-   * @example
-   * Disabled
-   */
-  deletionProtection?: string;
-  /**
-   * @remarks
-   * Indicates whether rollback is disabled when the stack fails to be created. Valid values:
-   * 
-   * *   true
-   * *   false (default)
-   * 
-   * @example
-   * false
-   */
-  disableRollback?: boolean;
-  /**
-   * @remarks
-   * The time when the most recent successful drift detection was performed on the stack.
-   * 
-   * @example
-   * 2022-03-10T06:46:36
-   */
-  driftDetectionTime?: string;
-  /**
-   * @remarks
-   * The supplementary information that is returned if an error occurs on a stack operation.
-   * 
-   * >  This parameter is returned only under specific conditions, and is returned together with at least one sub-parameter. For example, an error occurred when an API operation of another Alibaba Cloud service was called.
-   */
-  operationInfo?: ListStacksResponseBodyStacksOperationInfo;
-  /**
-   * @remarks
-   * The ID of the parent stack.
-   * 
-   * @example
-   * 4a6c9851-3b0f-4f5f-b4ca-a14bf692****
-   */
-  parentStackId?: string;
-  /**
-   * @remarks
-   * The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-aek2frunvw7****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * Indicates whether the stack is a managed stack. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  serviceManaged?: boolean;
-  /**
-   * @remarks
-   * The name of the service to which the managed stack belongs.
-   * 
-   * @example
-   * ACVS
-   */
-  serviceName?: string;
-  /**
-   * @remarks
-   * The state of the stack on which the most recent successful drift detection was performed. Valid values:
-   * 
-   * *   DRIFTED: The stack has drifted.
-   * *   NOT_CHECKED: No successful drift detection is performed on the stack.
-   * *   IN_SYNC: The stack is being synchronized.
-   * 
-   * @example
-   * IN_SYNC
-   */
-  stackDriftStatus?: string;
-  /**
-   * @remarks
-   * The stack ID.
-   * 
-   * @example
-   * 67805444-a605-45ee-a57f-83908ff6****
-   */
-  stackId?: string;
-  /**
-   * @remarks
-   * The stack name.
-   * 
-   * @example
-   * MyStack
-   */
-  stackName?: string;
-  /**
-   * @remarks
-   * The stack type. Valid values:
-   * 
-   * *   ROS: ROS stack. The stack is created by using a ROS template.
-   * *   Terraform: Terraform stack. The stack is created by using a Terraform template.
-   * 
-   * @example
-   * ROS
-   */
-  stackType?: string;
-  /**
-   * @remarks
-   * The state of the stack.
-   * 
-   * @example
-   * CREATE_COMPLETE
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The reason why the stack is in its current state.
-   * 
-   * @example
-   * Stack CREATE completed successfully
-   */
-  statusReason?: string;
-  /**
-   * @remarks
-   * The tags of the stack.
-   */
-  tags?: ListStacksResponseBodyStacksTags[];
-  /**
-   * @remarks
-   * The timeout period for creating the stack. Unit: minutes.
-   * 
-   * @example
-   * 60
-   */
-  timeoutInMinutes?: number;
-  /**
-   * @remarks
-   * The time when the stack was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2022-03-10T07:44:36
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      deletionProtection: 'DeletionProtection',
-      disableRollback: 'DisableRollback',
-      driftDetectionTime: 'DriftDetectionTime',
-      operationInfo: 'OperationInfo',
-      parentStackId: 'ParentStackId',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      serviceManaged: 'ServiceManaged',
-      serviceName: 'ServiceName',
-      stackDriftStatus: 'StackDriftStatus',
-      stackId: 'StackId',
-      stackName: 'StackName',
-      stackType: 'StackType',
-      status: 'Status',
-      statusReason: 'StatusReason',
-      tags: 'Tags',
-      timeoutInMinutes: 'TimeoutInMinutes',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      deletionProtection: 'string',
-      disableRollback: 'boolean',
-      driftDetectionTime: 'string',
-      operationInfo: ListStacksResponseBodyStacksOperationInfo,
-      parentStackId: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      serviceManaged: 'boolean',
-      serviceName: 'string',
-      stackDriftStatus: 'string',
-      stackId: 'string',
-      stackName: 'string',
-      stackType: 'string',
-      status: 'string',
-      statusReason: 'string',
-      tags: { 'type': 'array', 'itemType': ListStacksResponseBodyStacksTags },
-      timeoutInMinutes: 'number',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.\\
-   * The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
-   * 
-   * @example
-   * FinanceDept
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.\\
-   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
-   * 
-   * @example
-   * FinanceJoshua
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the resource.
-   * 
-   * @example
-   * c754d2a4-28f1-46df-b557-9586173a****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The type of the resource.
-   * 
-   * @example
-   * stack
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tag key of the resource.
-   * 
-   * @example
-   * TagKey1
-   */
-  tagKey?: string;
-  /**
-   * @remarks
-   * The tag value of the resource.
-   * 
-   * @example
-   * TayValue1
-   */
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceType: 'string',
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplateScratchesRequestTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key of the scenario.
-   * 
-   * > Tags is optional. If you want to specify Tags, you must specify Key.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value of the scenario.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The parameter name.
-   * 
-   * @example
-   * DeletionPolicy
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The parameter value.
-   * 
-   * @example
-   * Retain
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the source resource group.
-   * 
-   * @example
-   * rg-acfmzawhxxc****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The resource types for filtering resources.
-   */
-  resourceTypeFilter?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-      resourceTypeFilter: 'ResourceTypeFilter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplateScratchesResponseBodyTemplateScratchesSourceResources extends $tea.Model {
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * vpc-m5eauuq80anx59v28****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ALIYUN::ECS::VPC
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplateScratchesResponseBodyTemplateScratchesSourceTag extends $tea.Model {
-  /**
-   * @remarks
-   * The source tags.
-   * 
-   * @example
-   * {"a": "b"}
-   */
-  resourceTags?: { [key: string]: any };
-  /**
-   * @remarks
-   * The resource types for filtering resources.
-   */
-  resourceTypeFilter?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceTags: 'ResourceTags',
-      resourceTypeFilter: 'ResourceTypeFilter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplateScratchesResponseBodyTemplateScratchesTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key of the resource scenario.
-   * 
-   * @example
-   * usage1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value of the resource scenario.
-   * 
-   * @example
-   * test1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplateScratchesResponseBodyTemplateScratches extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the resource scenario was created.
-   * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2021-12-07T08:06:44
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The description of the resource scenario.
-   * 
-   * @example
-   * The description of the scenario.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The status code of the resource scenario that failed to be generated.
-   * 
-   * >  This parameter is returned only if the value of Status is GENERATE_FAILED.
-   * 
-   * @example
-   * InvalidZoneId
-   */
-  failedCode?: string;
-  /**
-   * @remarks
-   * The policy based on which the logical ID is generated. Valid values:
-   * 
-   * *   LongTypePrefixAndIndexSuffix (default): long-type prefix + index-type suffix
-   * *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
-   * *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
-   * 
-   * @example
-   * LongTypePrefixAndIndexSuffix
-   */
-  logicalIdStrategy?: string;
-  /**
-   * @remarks
-   * The preference parameters of the resource scenario.
-   */
-  preferenceParameters?: ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters[];
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-acfm4nxcvht4pmi
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The source resource group.
-   */
-  sourceResourceGroup?: ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup;
-  /**
-   * @remarks
-   * The source resources.
-   */
-  sourceResources?: ListTemplateScratchesResponseBodyTemplateScratchesSourceResources[];
-  /**
-   * @remarks
-   * The source tag.
-   */
-  sourceTag?: ListTemplateScratchesResponseBodyTemplateScratchesSourceTag;
-  /**
-   * @remarks
-   * The state of the resource scenario.
-   * 
-   * @example
-   * GENERATE_COMPLETE
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The reason why the resource scenario failed to be generated.
-   * 
-   * >  This parameter is returned only if the value of Status is GENERATE_FAILED.
-   * 
-   * @example
-   * Resource ALIYUN::ECS::VPC vpc-m5eauuq80anx59v28**** could not be found for template scratch.
-   */
-  statusReason?: string;
-  /**
-   * @remarks
-   * The tags of the resource scenario.
-   */
-  tags?: ListTemplateScratchesResponseBodyTemplateScratchesTags[];
-  /**
-   * @remarks
-   * The ID of the resource scenario.
-   * 
-   * @example
-   * ts-48ad85d66cca4620****
-   */
-  templateScratchId?: string;
-  /**
-   * @remarks
-   * The type of the resource scenario. Valid values:
-   * 
-   * *   ResourceImport: resource management
-   * *   ArchitectureReplication: resource replication
-   * 
-   * @example
-   * ResourceImport
-   */
-  templateScratchType?: string;
-  /**
-   * @remarks
-   * The time when the resource scenario was updated.
-   * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2021-12-07T08:06:44
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      description: 'Description',
-      failedCode: 'FailedCode',
-      logicalIdStrategy: 'LogicalIdStrategy',
-      preferenceParameters: 'PreferenceParameters',
-      resourceGroupId: 'ResourceGroupId',
-      sourceResourceGroup: 'SourceResourceGroup',
-      sourceResources: 'SourceResources',
-      sourceTag: 'SourceTag',
-      status: 'Status',
-      statusReason: 'StatusReason',
-      tags: 'Tags',
-      templateScratchId: 'TemplateScratchId',
-      templateScratchType: 'TemplateScratchType',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      description: 'string',
-      failedCode: 'string',
-      logicalIdStrategy: 'string',
-      preferenceParameters: { 'type': 'array', 'itemType': ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters },
-      resourceGroupId: 'string',
-      sourceResourceGroup: ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup,
-      sourceResources: { 'type': 'array', 'itemType': ListTemplateScratchesResponseBodyTemplateScratchesSourceResources },
-      sourceTag: ListTemplateScratchesResponseBodyTemplateScratchesSourceTag,
-      status: 'string',
-      statusReason: 'string',
-      tags: { 'type': 'array', 'itemType': ListTemplateScratchesResponseBodyTemplateScratchesTags },
-      templateScratchId: 'string',
-      templateScratchType: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplateVersionsResponseBodyVersions extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the version was created.
-   * 
-   * @example
-   * 2020-02-27T07:47:47
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The description of the version.
-   * 
-   * @example
-   * test
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The template ID. This parameter applies to shared and private templates. For a shared template, the template ID is the same as the Alibaba Cloud Resource Name (ARN) of the template.
-   * 
-   * @example
-   * 5ecd1e10-b0e9-4389-a565-e4c15efc****
-   */
-  templateId?: string;
-  /**
-   * @remarks
-   * The template name that corresponds to the specified version.
-   * 
-   * @example
-   * test
-   */
-  templateName?: string;
-  /**
-   * @remarks
-   * The version number.
-   * 
-   * For a shared template, this parameter is returned only if VersionOption is set to AllVersions.
-   * 
-   * Valid values: v1 to v100.
-   * 
-   * @example
-   * v1
-   */
-  templateVersion?: string;
-  /**
-   * @remarks
-   * The time when the version was last updated.
-   * 
-   * @example
-   * 2020-02-27T07:47:47
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      description: 'Description',
-      templateId: 'TemplateId',
-      templateName: 'TemplateName',
-      templateVersion: 'TemplateVersion',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      description: 'string',
-      templateId: 'string',
-      templateName: 'string',
-      templateVersion: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplatesRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the tag. This parameter takes effect only when ShareType is set to Private.
-   * 
-   * You can specify up to 20 tag keys.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag. This parameter takes effect only when ShareType is set to Private.
-   * 
-   * You can specify up to 20 tag values.
-   * 
-   * @example
-   * deploy
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplatesResponseBodyTemplatesTags extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplatesResponseBodyTemplates extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the template was created.
-   * 
-   * @example
-   * 2019-10-15T08:17:14.000000
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The description of the template.
-   * 
-   * @example
-   * test-description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account to which the template belongs.
-   * 
-   * @example
-   * 151266687691****
-   */
-  ownerId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-acfmxazb4ph6aiy****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The sharing type of the template.
-   * 
-   * Valid values:
-   * 
-   * *   Private: The template belongs to the template owner.
-   * *   Shared: The template is shared with other users.
-   * 
-   * @example
-   * Private
-   */
-  shareType?: string;
-  /**
-   * @remarks
-   * The tags of the template.
-   */
-  tags?: ListTemplatesResponseBodyTemplatesTags[];
-  /**
-   * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the template.
-   * 
-   * @example
-   * acs:ros:*:151266687691****:template/a52f81be-496f-4e1c-a286-8852ab54****
-   */
-  templateARN?: string;
-  /**
-   * @remarks
-   * The template ID.
-   * 
-   * @example
-   * 4d4f5aa2-3260-4e47-863b-763fbb12****
-   */
-  templateId?: string;
-  /**
-   * @remarks
-   * The template name.
-   * 
-   * @example
-   * demo
-   */
-  templateName?: string;
-  /**
-   * @remarks
-   * The latest version of the template.
-   * 
-   * @example
-   * v1
-   */
-  templateVersion?: string;
-  /**
-   * @remarks
-   * The time when the template was last updated.
-   * 
-   * @example
-   * 2019-10-15T08:17:14.000000
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      description: 'Description',
-      ownerId: 'OwnerId',
-      resourceGroupId: 'ResourceGroupId',
-      shareType: 'ShareType',
-      tags: 'Tags',
-      templateARN: 'TemplateARN',
-      templateId: 'TemplateId',
-      templateName: 'TemplateName',
-      templateVersion: 'TemplateVersion',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      description: 'string',
-      ownerId: 'string',
-      resourceGroupId: 'string',
-      shareType: 'string',
-      tags: { 'type': 'array', 'itemType': ListTemplatesResponseBodyTemplatesTags },
-      templateARN: 'string',
-      templateId: 'string',
-      templateName: 'string',
-      templateVersion: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewStackRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the parameter N. If you do not specify the name and value of a parameter, Resource Orchestration Service (ROS) uses the default name and value that are specified in the template. Maximum value of N: 200.
-   * 
-   * > If you specify Parameters, you must specify Parameters.N.ParameterKey.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ALIYUN::AccountId
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of parameter N. Maximum value of N: 200.
-   * 
-   * > If you specify Parameters, you must specify Parameters.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 151266687691****
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewStackResponseBodyStackLogTerraformLogs extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the Terraform command that is run. Valid values:
-   * 
-   * *   apply
-   * *   plan
-   * *   destroy
-   * *   version
-   * 
-   * For more information about Terraform commands, see [Basic CLI Features](https://www.terraform.io/cli/commands).
-   * 
-   * @example
-   * apply
-   */
-  command?: string;
-  /**
-   * @remarks
-   * The content of the output stream that is returned after the command is run.
-   * 
-   * @example
-   * Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The output stream. Valid values:
-   * 
-   * *   stdout: standard output stream
-   * *   stderr: standard error stream
-   * 
-   * @example
-   * stdout
-   */
-  stream?: string;
-  static names(): { [key: string]: string } {
-    return {
-      command: 'Command',
-      content: 'Content',
-      stream: 'Stream',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      command: 'string',
-      content: 'string',
-      stream: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewStackResponseBodyStackLog extends $tea.Model {
-  /**
-   * @remarks
-   * The Terraform logs. This parameter is returned only if the stack is a Terraform stack.
-   * 
-   * > This parameter contains the logs of previewing the stack.
-   */
-  terraformLogs?: PreviewStackResponseBodyStackLogTerraformLogs[];
-  static names(): { [key: string]: string } {
-    return {
-      terraformLogs: 'TerraformLogs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      terraformLogs: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackLogTerraformLogs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewStackResponseBodyStackParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * ALIYUN::AccountId
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of the parameter.
-   * 
-   * @example
-   * 151266687691****
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewStackResponseBodyStackResources extends $tea.Model {
-  /**
-   * @remarks
-   * The resource type of an Alibaba Cloud service.
-   * 
-   * @example
-   * ACS::ECS::Instance
-   */
-  acsResourceType?: string;
-  /**
-   * @remarks
-   * The action that is performed on the resource. Valid values:
-   * 
-   * *   Add
-   * *   Modify
-   * *   Remove
-   * *   None
-   * 
-   * @example
-   * Add
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The description of the resource.
-   * 
-   * @example
-   * ECS instance.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The logical ID of the resource.
-   * 
-   * @example
-   * WebServer
-   */
-  logicalResourceId?: string;
-  /**
-   * @remarks
-   * The physical ID of the resource.
-   * 
-   * This parameter is returned only if Action is set to Modify or Remove.
-   * 
-   * @example
-   * i-a1b2c3***
-   */
-  physicalResourceId?: string;
-  /**
-   * @remarks
-   * The resource properties.
-   * 
-   * @example
-   * {   "DiskMappings": [     {       "Category": "cloud_ssd",       "Size": "20"     }   ],   "SystemDisk_Category": "cloud_ssd",   "InstanceChargeType": "PostPaid",   "AutoRenew": "False",   "WillReplace": true,   "ImageId": "centos_7",   "InstanceType": "ecs.g6.large",   "AllocatePublicIP": true,   "AutoRenewPeriod": 1,   "IoOptimized": "optimized",   "ZoneId": "cn-beijing-g",   "VSwitchId": "",   "SecurityGroupId": "",   "Period": 1,   "InternetChargeType": "PayByTraffic",   "SystemDiskCategory": "cloud_efficiency",   "InternetMaxBandwidthOut": 1,   "VpcId": "",   "InternetMaxBandwidthIn": 200,   "PeriodUnit": "Month" }
-   */
-  properties?: { [key: string]: any };
-  /**
-   * @remarks
-   * Indicates whether a replacement update is performed on the template. Valid values:
-   * 
-   * *   True: A replacement update is performed on the template.
-   * *   False: A change is made on the template.
-   * *   Conditional: A replacement update may be performed on the template. You can check whether a replacement update is performed when the template is in use.
-   * 
-   * > This parameter is returned only if Action is set to Modify.
-   * 
-   * @example
-   * False
-   */
-  replacement?: string;
-  /**
-   * @remarks
-   * The resources on which the stack depends.
-   */
-  requiredBy?: string[];
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ALIYUN::ECS::Instance
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The information about the nested stack. The data structure of the value is the same as the data structure of the entire response.
-   * 
-   * @example
-   * {}
-   */
-  stack?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      acsResourceType: 'AcsResourceType',
-      action: 'Action',
-      description: 'Description',
-      logicalResourceId: 'LogicalResourceId',
-      physicalResourceId: 'PhysicalResourceId',
-      properties: 'Properties',
-      replacement: 'Replacement',
-      requiredBy: 'RequiredBy',
-      resourceType: 'ResourceType',
-      stack: 'Stack',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acsResourceType: 'string',
-      action: 'string',
-      description: 'string',
-      logicalResourceId: 'string',
-      physicalResourceId: 'string',
-      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      replacement: 'string',
-      requiredBy: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      stack: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewStackResponseBodyStack extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the stack.
-   * 
-   * @example
-   * One ECS instance.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Indicates whether rollback is disabled for the resources when the stack fails to be created.
-   * 
-   * @example
-   * false
-   */
-  disableRollback?: boolean;
-  /**
-   * @remarks
-   * The log that is generated when the stack is run.
-   */
-  log?: PreviewStackResponseBodyStackLog;
-  /**
-   * @remarks
-   * The parameters of the stack.
-   */
-  parameters?: PreviewStackResponseBodyStackParameters[];
-  /**
-   * @remarks
-   * The region where the stack resides.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The resources in the stack.
-   */
-  resources?: PreviewStackResponseBodyStackResources[];
-  /**
-   * @remarks
-   * The stack name.
-   * 
-   * @example
-   * MyStack
-   */
-  stackName?: string;
-  /**
-   * @remarks
-   * The structure that contains the stack policy body.
-   * 
-   * @example
-   * {   "Statement": [     {       "Action": "Update:*",       "Resource": "*",       "Effect": "Allow",       "Principal": "*"     },     {       "Action": "Update:*",       "Resource": "LogicalResourceId/apple1",       "Effect": "Deny",       "Principal": "*"     }   ] }
-   */
-  stackPolicyBody?: { [key: string]: any };
-  /**
-   * @remarks
-   * The description of the template.
-   * 
-   * @example
-   * One ECS instance.
-   */
-  templateDescription?: string;
-  /**
-   * @remarks
-   * The timeout period for creating the stack.
-   * 
-   * Unit: minutes.
-   * 
-   * @example
-   * 60
-   */
-  timeoutInMinutes?: number;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      disableRollback: 'DisableRollback',
-      log: 'Log',
-      parameters: 'Parameters',
-      regionId: 'RegionId',
-      resources: 'Resources',
-      stackName: 'StackName',
-      stackPolicyBody: 'StackPolicyBody',
-      templateDescription: 'TemplateDescription',
-      timeoutInMinutes: 'TimeoutInMinutes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      disableRollback: 'boolean',
-      log: PreviewStackResponseBodyStackLog,
-      parameters: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackParameters },
-      regionId: 'string',
-      resources: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackResources },
-      stackName: 'string',
-      stackPolicyBody: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      templateDescription: 'string',
-      timeoutInMinutes: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys.
-   * 
-   * The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * FinanceDept
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values.
-   * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * FinanceJoshua
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateStackRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The name of parameter N. If you do not specify the name and value of a parameter, ROS uses the default name and value in the template.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * >  The Parameters parameter is optional. If you specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of parameter N. Maximum value of N: 200.
-   * 
-   * >  The Parameters parameter is optional. If you specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateStackRequestTags extends $tea.Model {
-  /**
-   * @remarks
-   * The key of tag N that you want to add to the stack.
-   * 
-   * Valid values of N: 1 to 20.
-   * 
-   * > - The Tags parameter is optional. If you specify Tags, you must specify Tags.N.Key.
-   * > - The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of tag N that you want to add to the stack.
-   * 
-   * Valid values of N: 1 to 20.
-   * 
-   * >  The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateStackResponseBodyDryRunResult extends $tea.Model {
-  /**
-   * @remarks
-   * The parameters that can be modified. If you change only values of the parameters in a stack template and use the template to update the stack, no validation errors are caused.
-   */
-  parametersAllowedToBeModified?: string[];
-  /**
-   * @remarks
-   * The parameters whose changes cause service interruptions.
-   * > - This parameter is supported only for a small number of resource types.
-   * > - This parameter is valid only for updates on ROS stacks.
-   */
-  parametersCauseInterruptionIfModified?: string[];
-  /**
-   * @remarks
-   * The parameters whose changes trigger replacement updates for resources.
-   * 
-   * > -  This parameter can be returned only if ReplacementOption is set to Enabled.
-   * > -  This parameter is valid only for updates on ROS stacks.
-   */
-  parametersCauseReplacementIfModified?: string[];
-  /**
-   * @remarks
-   * The parameters that can be modified under specific conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the new values of the parameters determine whether validation errors are caused.
-   */
-  parametersConditionallyAllowedToBeModified?: string[];
-  /**
-   * @remarks
-   * The parameters whose changes cause service interruptions under specific conditions.
-   * 
-   * > - This parameter is supported only for a small number of resource types.
-   * > -  This parameter is valid only for updates on ROS stacks.
-   */
-  parametersConditionallyCauseInterruptionIfModified?: string[];
-  /**
-   * @remarks
-   * The parameters whose changes trigger replacement updates for resources under specific conditions.
-   * 
-   * > - This parameter can be returned only if ReplacementOption is set to Enabled.
-   * > - This parameter is valid only for updates on ROS stacks.
-   */
-  parametersConditionallyCauseReplacementIfModified?: string[];
-  /**
-   * @remarks
-   * The parameters that cannot be modified. If you change only values of the parameters in a stack template and use the template to update the stack, validation errors are caused.
-   */
-  parametersNotAllowedToBeModified?: string[];
-  /**
-   * @remarks
-   * The parameters that can be modified under uncertain conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the actual running environment determines whether validation errors are caused.
-   */
-  parametersUncertainlyAllowedToBeModified?: string[];
-  /**
-   * @remarks
-   * The parameters whose changes cause service interruptions under uncertain conditions.
-   * 
-   * > - This parameter is supported only for a small number of resource types.
-   * > - This parameter is valid only for updates on ROS stacks.
-   */
-  parametersUncertainlyCauseInterruptionIfModified?: string[];
-  /**
-   * @remarks
-   * The parameters whose changes trigger replacement updates for resources under uncertain conditions.
-   * 
-   * > - This parameter can be returned only if ReplacementOption is set to Enabled.
-   * > - This parameter is valid only for updates on ROS stacks.
-   */
-  parametersUncertainlyCauseReplacementIfModified?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      parametersAllowedToBeModified: 'ParametersAllowedToBeModified',
-      parametersCauseInterruptionIfModified: 'ParametersCauseInterruptionIfModified',
-      parametersCauseReplacementIfModified: 'ParametersCauseReplacementIfModified',
-      parametersConditionallyAllowedToBeModified: 'ParametersConditionallyAllowedToBeModified',
-      parametersConditionallyCauseInterruptionIfModified: 'ParametersConditionallyCauseInterruptionIfModified',
-      parametersConditionallyCauseReplacementIfModified: 'ParametersConditionallyCauseReplacementIfModified',
-      parametersNotAllowedToBeModified: 'ParametersNotAllowedToBeModified',
-      parametersUncertainlyAllowedToBeModified: 'ParametersUncertainlyAllowedToBeModified',
-      parametersUncertainlyCauseInterruptionIfModified: 'ParametersUncertainlyCauseInterruptionIfModified',
-      parametersUncertainlyCauseReplacementIfModified: 'ParametersUncertainlyCauseReplacementIfModified',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parametersAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-      parametersCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
-      parametersCauseReplacementIfModified: { 'type': 'array', 'itemType': 'string' },
-      parametersConditionallyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-      parametersConditionallyCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
-      parametersConditionallyCauseReplacementIfModified: { 'type': 'array', 'itemType': 'string' },
-      parametersNotAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-      parametersUncertainlyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-      parametersUncertainlyCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
-      parametersUncertainlyCauseReplacementIfModified: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateStackGroupRequestAutoDeployment extends $tea.Model {
-  /**
-   * @remarks
-   * The IDs of the members in the resource directory. You can specify a maximum of 20 member IDs.
-   * 
-   * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](https://help.aliyun.com/document_detail/111624.html).
-   * 
-   * @example
-   * true
-   */
-  enabled?: boolean;
-  /**
-   * @remarks
-   * The IDs of the members in the resource directory. You can specify a maximum of 20 member IDs.
-   * 
-   * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](https://help.aliyun.com/document_detail/111624.html).
-   * 
-   * @example
-   * true
-   */
-  retainStacksOnAccountRemoval?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enabled: 'Enabled',
-      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enabled: 'boolean',
-      retainStacksOnAccountRemoval: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateStackGroupRequestDeploymentTargets extends $tea.Model {
-  /**
-   * @remarks
-   * The list of one or more Alibaba Cloud accounts with which you want to share or unshare the template.
-   */
-  accountIds?: string[];
-  /**
-   * @remarks
-   * The ID of the operation.
-   */
-  rdFolderIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      rdFolderIds: 'RdFolderIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'string' },
-      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateStackGroupRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to retain stacks in a member when you remove the member from the folder.
-   * 
-   * Valid values:
-   * 
-   * *   true: retains the stacks.
-   * *   false: deletes the stacks.
-   * 
-   * >  This parameter is required if the Enabled parameter is set to true.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The folders in which you want to use service-managed permissions to update stacks.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateStackGroupShrinkRequestParameters extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to retain stacks in a member when you remove the member from the folder.
-   * 
-   * Valid values:
-   * 
-   * *   true: retains the stacks.
-   * *   false: deletes the stacks.
-   * 
-   * >  This parameter is required if the Enabled parameter is set to true.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The folders in which you want to use service-managed permissions to update stacks.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateStackInstancesRequestDeploymentTargets extends $tea.Model {
-  /**
-   * @remarks
-   * The IDs of the member accounts in the resource directory. You can specify up to 20 member account IDs.
-   * 
-   * > To view the member account IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the details of a member](https://help.aliyun.com/document_detail/111624.html).
-   */
-  accountIds?: string[];
-  /**
-   * @remarks
-   * The folder IDs of the resource directory.
-   */
-  rdFolderIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      rdFolderIds: 'RdFolderIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'string' },
-      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateStackInstancesRequestParameterOverrides extends $tea.Model {
-  /**
-   * @remarks
-   * The key of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the name that you specified when you created the stack group.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * > -  ParameterOverrides is optional.
-   * > - If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the value that you specified when you created the stack group.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * > -  ParameterOverrides is optional.
-   * > - If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateStackInstancesShrinkRequestParameterOverrides extends $tea.Model {
-  /**
-   * @remarks
-   * The key of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the name that you specified when you created the stack group.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * > -  ParameterOverrides is optional.
-   * > - If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Amount
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The value of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the value that you specified when you created the stack group.
-   * 
-   * Maximum value of N: 200.
-   * 
-   * > -  ParameterOverrides is optional.
-   * > - If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTemplateScratchRequestPreferenceParameters extends $tea.Model {
-  /**
-   * @remarks
-   * The parameter name.
-   * 
-   * For more information about the valid values of ParameterKey, see the "**Additional information about request parameters**" section of this topic.
-   * 
-   * >- PreferenceParameters is optional. If you specify PreferenceParameters, you must specify both ParameterKey and ParameterValue.
-   * > - If you set TemplateScratchType to ResourceImport, you must set ParameterKey to DeletionPolicy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * DeletionPolicy
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The parameter value. The value of ParameterValue varies based on the value of ParameterKey.
-   * 
-   * For more information about the valid values of ParameterKey, see the "**Additional information about request parameters**" section of this topic.
-   * 
-   * >  PreferenceParameters is optional. If you specify PreferenceParameters, you must specify both ParameterKey and ParameterValue.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Retain
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTemplateScratchRequestSourceResourceGroup extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the source resource group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rg-acfmzawhxxc****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The resource types for filtering resources.
-   */
-  resourceTypeFilter?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-      resourceTypeFilter: 'ResourceTypeFilter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTemplateScratchRequestSourceResources extends $tea.Model {
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpc-bp1m6fww66xbntjyc****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ALIYUN::ECS::VPC
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTemplateScratchRequestSourceTag extends $tea.Model {
-  /**
-   * @remarks
-   * The source tags. A tag contains a tag key and a tag value.
-   * 
-   * If you want to specify only the tag key, you must leave the tag value empty. Example: {"TagKey": ""}.
-   * 
-   * If you set TemplateScratchType to ArchitectureDetection, you can add up to 5 source tags. In other cases, you can add up to 10 source tags.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * {"a": "b"}
-   */
-  resourceTags?: { [key: string]: any };
-  /**
-   * @remarks
-   * The resource types for filtering resources.
-   */
-  resourceTypeFilter?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceTags: 'ResourceTags',
-      resourceTypeFilter: 'ResourceTypeFilter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ValidateTemplateResponseBodyOutputs extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the template output.
-   * 
-   * @example
-   * The instance ID of my ECS.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The alias of the template output.
-   * 
-   * @example
-   * Instance ID
-   */
-  label?: string;
-  /**
-   * @remarks
-   * The name of the template output.
-   * 
-   * @example
-   * instance_id
-   */
-  outputKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      label: 'Label',
-      outputKey: 'OutputKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      label: 'string',
-      outputKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ValidateTemplateResponseBodyResourceTypes extends $tea.Model {
-  /**
-   * @remarks
-   * The DataSource resource types that are used in the template. The value is deduplicated.
-   */
-  dataSources?: string[];
-  /**
-   * @remarks
-   * The regular resource types that are used in the template. The value is deduplicated.
-   */
-  resources?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      dataSources: 'DataSources',
-      resources: 'Resources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSources: { 'type': 'array', 'itemType': 'string' },
-      resources: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ValidateTemplateResponseBodyResources extends $tea.Model {
-  /**
-   * @remarks
-   * The pattern in which the logical IDs of regular resources are formed.
-   * 
-   * If resources are defined in a ROS template, the following rules apply:
-   * 
-   * *   Resource whose definition does not contain `Count`: If the resource name defined in the template is `server`, the values of LogicalResourceIdPattern and `ResourcePath` are both `server`.``
-   * *   Resource whose definition contains `Count`: If the resource name defined in the template is `server`, the value of LogicalResourceIdPattern is `server[*]`, and the value of `ResourcePath` is `server`.
-   * 
-   * If resources and [modules](https://www.terraform.io/language/modules) are defined in a Terraform template, the following rules apply:
-   * 
-   * *   Resource and module whose definitions do not contain [`count`](https://www.terraform.io/language/meta-arguments/count) or [`for_each`](https://www.terraform.io/language/meta-arguments/for_each): If the resource name defined in the template is `server`, the values of LogicalResourceIdPattern and `ResourcePath` are both `server`.``
-   * *   Resource and module whose definitions contain [`count`](https://www.terraform.io/language/meta-arguments/count) or [`for_each`](https://www.terraform.io/language/meta-arguments/for_each): If the resource name defined in the template is `server`, the value of LogicalResourceIdPattern is `server[*]`, and the value of `ResourcePath` is `server`.
-   * 
-   * Examples of LogicalResourceIdPattern for resources in a Terraform template:
-   * 
-   * *   Valid values of LogicalResourceIdPattern if a resource belongs to the root module:
-   * 
-   *     *   `server`: In this case, `count` and `for_each` are not contained in the resource. The value of `ResourcePath` is `server`.
-   *     *   `server[*]`: In this case, `count` or `for_each` is contained in the resource. The value of `ResourcePath` is `server`.
-   * 
-   * *   Valid values of LogicalResourceIdPattern if a resource belongs to a child module:
-   * 
-   *     *   `app.server`: In this case, `count` and `for_each` are not contained in the `app` module and the `server` resource. The value of `ResourcePath` is `app.server`.````
-   *     *   `app.server[*]`: In this case, `count` or `for_each` is contained in the `server` resource, but `count` and `for_each` are not contained in the `app` module. The value of `ResourcePath` is `app.server`.
-   *     *   `app[*].server`: In this case, `count` or `for_each` is contained in the `app` module, but `count` and `for_each` are not contained in the `server` resource. The value of `ResourcePath` is `app.server`.
-   *     *   `app[*].server[*]`: In this case, `count` or `for_each` is contained in the `app` module and the `server` resource. The value of `ResourcePath` is `app.server`.````
-   *     *   `app.app_group[*].server`: In this case, `count` or `for_each` is contained in the `app_group` module, but `count` and `for_each` are not contained in the `app` module and the `server` resource. The value of `ResourcePath` is `app.app_group.server`. The `app_group` module is a child module of the `app` module.````
-   * 
-   * @example
-   * server
-   */
-  logicalResourceIdPattern?: string;
-  /**
-   * @remarks
-   * The path of the regular resource. In most cases, the path of a regular resource is the same as the resource name.
-   * 
-   * @example
-   * server
-   */
-  resourcePath?: string;
-  /**
-   * @remarks
-   * The regular resource type.
-   * 
-   * @example
-   * ALIYUN::ECS::InstanceGroup
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logicalResourceIdPattern: 'LogicalResourceIdPattern',
-      resourcePath: 'ResourcePath',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logicalResourceIdPattern: 'string',
-      resourcePath: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ValidateTemplateResponseBodyUpdateInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The parameters that can be modified.
-   */
-  parametersAllowedToBeModified?: string[];
-  /**
-   * @remarks
-   * The parameters whose changes cause service interruptions.
-   * 
-   * > - This parameter is supported only for a small number of resource types.
-   * > - This parameter is valid only for updates on ROS stacks.
-   */
-  parametersCauseInterruptionIfModified?: string[];
-  /**
-   * @remarks
-   * The parameters whose changes trigger replacement updates for resources.
-   * 
-   * > -  This parameter can be returned only if the value of UpdateInfoOptions contains EnableReplacement.
-   * > -  This parameter is valid only for updates on ROS stacks.
-   */
-  parametersCauseReplacementIfModified?: string[];
-  /**
-   * @remarks
-   * The parameters that can be modified under specific conditions.
-   */
-  parametersConditionallyAllowedToBeModified?: string[];
-  /**
-   * @remarks
-   * The parameters whose changes cause service interruptions under specific conditions.
-   * 
-   * > - This parameter is supported only for a small number of resource types.
-   * > - This parameter is valid only for updates on ROS stacks.
-   */
-  parametersConditionallyCauseInterruptionIfModified?: string[];
-  /**
-   * @remarks
-   * The parameters whose changes trigger replacement updates for resources under specific conditions.
-   * 
-   * > - This parameter can be returned only if the value of UpdateInfoOptions contains EnableReplacement.
-   * > - This parameter is valid only for updates on ROS stacks.
-   */
-  parametersConditionallyCauseReplacementIfModified?: string[];
-  /**
-   * @remarks
-   * The parameters that cannot be modified.
-   */
-  parametersNotAllowedToBeModified?: string[];
-  /**
-   * @remarks
-   * The parameters that can be modified under uncertain conditions.
-   */
-  parametersUncertainlyAllowedToBeModified?: string[];
-  /**
-   * @remarks
-   * The parameters whose changes cause service interruptions under uncertain conditions.
-   * 
-   * > - This parameter is supported only for a small number of resource types.
-   * > - This parameter is valid only for updates on ROS stacks.
-   */
-  parametersUncertainlyCauseInterruptionIfModified?: string[];
-  /**
-   * @remarks
-   * The parameters whose changes trigger replacement updates for resources under uncertain conditions.
-   * 
-   * > -  This parameter can be returned only if the value of UpdateInfoOptions contains EnableReplacement.
-   * > -  This parameter is valid only for updates on ROS stacks.
-   */
-  parametersUncertainlyCauseReplacementIfModified?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      parametersAllowedToBeModified: 'ParametersAllowedToBeModified',
-      parametersCauseInterruptionIfModified: 'ParametersCauseInterruptionIfModified',
-      parametersCauseReplacementIfModified: 'ParametersCauseReplacementIfModified',
-      parametersConditionallyAllowedToBeModified: 'ParametersConditionallyAllowedToBeModified',
-      parametersConditionallyCauseInterruptionIfModified: 'ParametersConditionallyCauseInterruptionIfModified',
-      parametersConditionallyCauseReplacementIfModified: 'ParametersConditionallyCauseReplacementIfModified',
-      parametersNotAllowedToBeModified: 'ParametersNotAllowedToBeModified',
-      parametersUncertainlyAllowedToBeModified: 'ParametersUncertainlyAllowedToBeModified',
-      parametersUncertainlyCauseInterruptionIfModified: 'ParametersUncertainlyCauseInterruptionIfModified',
-      parametersUncertainlyCauseReplacementIfModified: 'ParametersUncertainlyCauseReplacementIfModified',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parametersAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-      parametersCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
-      parametersCauseReplacementIfModified: { 'type': 'array', 'itemType': 'string' },
-      parametersConditionallyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-      parametersConditionallyCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
-      parametersConditionallyCauseReplacementIfModified: { 'type': 'array', 'itemType': 'string' },
-      parametersNotAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-      parametersUncertainlyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-      parametersUncertainlyCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
-      parametersUncertainlyCauseReplacementIfModified: { 'type': 'array', 'itemType': 'string' },
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -25683,7 +29062,7 @@ export class ValidateTemplateResponseBodyUpdateInfo extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "central";
     this.checkConfig(config);
@@ -25692,15 +29071,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -25710,29 +29089,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelStackOperationResponse
    */
-  async cancelStackOperationWithOptions(request: CancelStackOperationRequest, runtime: $Util.RuntimeOptions): Promise<CancelStackOperationResponse> {
-    Util.validateModel(request);
+  async cancelStackOperationWithOptions(request: CancelStackOperationRequest, runtime: $dara.RuntimeOptions): Promise<CancelStackOperationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.allowedStackOperations)) {
+    if (!$dara.isNull(request.allowedStackOperations)) {
       query["AllowedStackOperations"] = request.allowedStackOperations;
     }
 
-    if (!Util.isUnset(request.cancelType)) {
+    if (!$dara.isNull(request.cancelType)) {
       query["CancelType"] = request.cancelType;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelStackOperation",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -25743,7 +29122,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelStackOperationResponse>(await this.callApi(params, req, runtime), new CancelStackOperationResponse({}));
+    return $dara.cast<CancelStackOperationResponse>(await this.callApi(params, req, runtime), new CancelStackOperationResponse({}));
   }
 
   /**
@@ -25753,7 +29132,7 @@ export default class Client extends OpenApi {
    * @returns CancelStackOperationResponse
    */
   async cancelStackOperation(request: CancelStackOperationRequest): Promise<CancelStackOperationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelStackOperationWithOptions(request, runtime);
   }
 
@@ -25764,25 +29143,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelUpdateStackResponse
    */
-  async cancelUpdateStackWithOptions(request: CancelUpdateStackRequest, runtime: $Util.RuntimeOptions): Promise<CancelUpdateStackResponse> {
-    Util.validateModel(request);
+  async cancelUpdateStackWithOptions(request: CancelUpdateStackRequest, runtime: $dara.RuntimeOptions): Promise<CancelUpdateStackResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.cancelType)) {
+    if (!$dara.isNull(request.cancelType)) {
       query["CancelType"] = request.cancelType;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelUpdateStack",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -25793,7 +29172,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelUpdateStackResponse>(await this.callApi(params, req, runtime), new CancelUpdateStackResponse({}));
+    return $dara.cast<CancelUpdateStackResponse>(await this.callApi(params, req, runtime), new CancelUpdateStackResponse({}));
   }
 
   /**
@@ -25803,7 +29182,7 @@ export default class Client extends OpenApi {
    * @returns CancelUpdateStackResponse
    */
   async cancelUpdateStack(request: CancelUpdateStackRequest): Promise<CancelUpdateStackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelUpdateStackWithOptions(request, runtime);
   }
 
@@ -25817,65 +29196,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ContinueCreateStackResponse
    */
-  async continueCreateStackWithOptions(request: ContinueCreateStackRequest, runtime: $Util.RuntimeOptions): Promise<ContinueCreateStackResponse> {
-    Util.validateModel(request);
+  async continueCreateStackWithOptions(request: ContinueCreateStackRequest, runtime: $dara.RuntimeOptions): Promise<ContinueCreateStackResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dryRun)) {
+    if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!Util.isUnset(request.mode)) {
+    if (!$dara.isNull(request.mode)) {
       query["Mode"] = request.mode;
     }
 
-    if (!Util.isUnset(request.parallelism)) {
+    if (!$dara.isNull(request.parallelism)) {
       query["Parallelism"] = request.parallelism;
     }
 
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.ramRoleName)) {
+    if (!$dara.isNull(request.ramRoleName)) {
       query["RamRoleName"] = request.ramRoleName;
     }
 
-    if (!Util.isUnset(request.recreatingOptions)) {
+    if (!$dara.isNull(request.recreatingOptions)) {
       query["RecreatingOptions"] = request.recreatingOptions;
     }
 
-    if (!Util.isUnset(request.recreatingResources)) {
+    if (!$dara.isNull(request.recreatingResources)) {
       query["RecreatingResources"] = request.recreatingResources;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       query["TemplateBody"] = request.templateBody;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ContinueCreateStack",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -25886,7 +29265,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ContinueCreateStackResponse>(await this.callApi(params, req, runtime), new ContinueCreateStackResponse({}));
+    return $dara.cast<ContinueCreateStackResponse>(await this.callApi(params, req, runtime), new ContinueCreateStackResponse({}));
   }
 
   /**
@@ -25899,7 +29278,7 @@ export default class Client extends OpenApi {
    * @returns ContinueCreateStackResponse
    */
   async continueCreateStack(request: ContinueCreateStackRequest): Promise<ContinueCreateStackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.continueCreateStackWithOptions(request, runtime);
   }
 
@@ -25910,31 +29289,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAITaskResponse
    */
-  async createAITaskWithOptions(request: CreateAITaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateAITaskResponse> {
-    Util.validateModel(request);
+  async createAITaskWithOptions(request: CreateAITaskRequest, runtime: $dara.RuntimeOptions): Promise<CreateAITaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.prompt)) {
+    if (!$dara.isNull(request.prompt)) {
       query["Prompt"] = request.prompt;
     }
 
-    if (!Util.isUnset(request.taskType)) {
+    if (!$dara.isNull(request.taskType)) {
       query["TaskType"] = request.taskType;
     }
 
-    if (!Util.isUnset(request.templateType)) {
+    if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.template)) {
+    if (!$dara.isNull(request.template)) {
       body["Template"] = request.template;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAITask",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -25945,7 +29324,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAITaskResponse>(await this.callApi(params, req, runtime), new CreateAITaskResponse({}));
+    return $dara.cast<CreateAITaskResponse>(await this.callApi(params, req, runtime), new CreateAITaskResponse({}));
   }
 
   /**
@@ -25955,7 +29334,7 @@ export default class Client extends OpenApi {
    * @returns CreateAITaskResponse
    */
   async createAITask(request: CreateAITaskRequest): Promise<CreateAITaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAITaskWithOptions(request, runtime);
   }
 
@@ -25983,115 +29362,115 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateChangeSetResponse
    */
-  async createChangeSetWithOptions(request: CreateChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateChangeSetResponse> {
-    Util.validateModel(request);
+  async createChangeSetWithOptions(request: CreateChangeSetRequest, runtime: $dara.RuntimeOptions): Promise<CreateChangeSetResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.changeSetName)) {
+    if (!$dara.isNull(request.changeSetName)) {
       query["ChangeSetName"] = request.changeSetName;
     }
 
-    if (!Util.isUnset(request.changeSetType)) {
+    if (!$dara.isNull(request.changeSetType)) {
       query["ChangeSetType"] = request.changeSetType;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.disableRollback)) {
+    if (!$dara.isNull(request.disableRollback)) {
       query["DisableRollback"] = request.disableRollback;
     }
 
-    if (!Util.isUnset(request.notificationURLs)) {
+    if (!$dara.isNull(request.notificationURLs)) {
       query["NotificationURLs"] = request.notificationURLs;
     }
 
-    if (!Util.isUnset(request.parallelism)) {
+    if (!$dara.isNull(request.parallelism)) {
       query["Parallelism"] = request.parallelism;
     }
 
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.ramRoleName)) {
+    if (!$dara.isNull(request.ramRoleName)) {
       query["RamRoleName"] = request.ramRoleName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replacementOption)) {
+    if (!$dara.isNull(request.replacementOption)) {
       query["ReplacementOption"] = request.replacementOption;
     }
 
-    if (!Util.isUnset(request.resourcesToImport)) {
+    if (!$dara.isNull(request.resourcesToImport)) {
       query["ResourcesToImport"] = request.resourcesToImport;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.stackName)) {
+    if (!$dara.isNull(request.stackName)) {
       query["StackName"] = request.stackName;
     }
 
-    if (!Util.isUnset(request.stackPolicyBody)) {
+    if (!$dara.isNull(request.stackPolicyBody)) {
       query["StackPolicyBody"] = request.stackPolicyBody;
     }
 
-    if (!Util.isUnset(request.stackPolicyDuringUpdateBody)) {
+    if (!$dara.isNull(request.stackPolicyDuringUpdateBody)) {
       query["StackPolicyDuringUpdateBody"] = request.stackPolicyDuringUpdateBody;
     }
 
-    if (!Util.isUnset(request.stackPolicyDuringUpdateURL)) {
+    if (!$dara.isNull(request.stackPolicyDuringUpdateURL)) {
       query["StackPolicyDuringUpdateURL"] = request.stackPolicyDuringUpdateURL;
     }
 
-    if (!Util.isUnset(request.stackPolicyURL)) {
+    if (!$dara.isNull(request.stackPolicyURL)) {
       query["StackPolicyURL"] = request.stackPolicyURL;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateScratchId)) {
+    if (!$dara.isNull(request.templateScratchId)) {
       query["TemplateScratchId"] = request.templateScratchId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
-    if (!Util.isUnset(request.timeoutInMinutes)) {
+    if (!$dara.isNull(request.timeoutInMinutes)) {
       query["TimeoutInMinutes"] = request.timeoutInMinutes;
     }
 
-    if (!Util.isUnset(request.usePreviousParameters)) {
+    if (!$dara.isNull(request.usePreviousParameters)) {
       query["UsePreviousParameters"] = request.usePreviousParameters;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateChangeSet",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -26102,7 +29481,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateChangeSetResponse>(await this.callApi(params, req, runtime), new CreateChangeSetResponse({}));
+    return $dara.cast<CreateChangeSetResponse>(await this.callApi(params, req, runtime), new CreateChangeSetResponse({}));
   }
 
   /**
@@ -26129,7 +29508,7 @@ export default class Client extends OpenApi {
    * @returns CreateChangeSetResponse
    */
   async createChangeSet(request: CreateChangeSetRequest): Promise<CreateChangeSetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createChangeSetWithOptions(request, runtime);
   }
 
@@ -26140,29 +29519,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDiagnosticResponse
    */
-  async createDiagnosticWithOptions(request: CreateDiagnosticRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiagnosticResponse> {
-    Util.validateModel(request);
+  async createDiagnosticWithOptions(request: CreateDiagnosticRequest, runtime: $dara.RuntimeOptions): Promise<CreateDiagnosticResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.diagnosticKey)) {
+    if (!$dara.isNull(request.diagnosticKey)) {
       query["DiagnosticKey"] = request.diagnosticKey;
     }
 
-    if (!Util.isUnset(request.diagnosticType)) {
+    if (!$dara.isNull(request.diagnosticType)) {
       query["DiagnosticType"] = request.diagnosticType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.product)) {
+    if (!$dara.isNull(request.product)) {
       query["Product"] = request.product;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateDiagnostic",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -26173,7 +29552,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateDiagnosticResponse>(await this.callApi(params, req, runtime), new CreateDiagnosticResponse({}));
+    return $dara.cast<CreateDiagnosticResponse>(await this.callApi(params, req, runtime), new CreateDiagnosticResponse({}));
   }
 
   /**
@@ -26183,7 +29562,7 @@ export default class Client extends OpenApi {
    * @returns CreateDiagnosticResponse
    */
   async createDiagnostic(request: CreateDiagnosticRequest): Promise<CreateDiagnosticResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createDiagnosticWithOptions(request, runtime);
   }
 
@@ -26201,103 +29580,103 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateStackResponse
    */
-  async createStackWithOptions(request: CreateStackRequest, runtime: $Util.RuntimeOptions): Promise<CreateStackResponse> {
-    Util.validateModel(request);
+  async createStackWithOptions(request: CreateStackRequest, runtime: $dara.RuntimeOptions): Promise<CreateStackResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.createOption)) {
+    if (!$dara.isNull(request.createOption)) {
       query["CreateOption"] = request.createOption;
     }
 
-    if (!Util.isUnset(request.createOptions)) {
+    if (!$dara.isNull(request.createOptions)) {
       query["CreateOptions"] = request.createOptions;
     }
 
-    if (!Util.isUnset(request.deletionProtection)) {
+    if (!$dara.isNull(request.deletionProtection)) {
       query["DeletionProtection"] = request.deletionProtection;
     }
 
-    if (!Util.isUnset(request.disableRollback)) {
+    if (!$dara.isNull(request.disableRollback)) {
       query["DisableRollback"] = request.disableRollback;
     }
 
-    if (!Util.isUnset(request.notificationURLs)) {
+    if (!$dara.isNull(request.notificationURLs)) {
       query["NotificationURLs"] = request.notificationURLs;
     }
 
-    if (!Util.isUnset(request.parallelism)) {
+    if (!$dara.isNull(request.parallelism)) {
       query["Parallelism"] = request.parallelism;
     }
 
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.ramRoleName)) {
+    if (!$dara.isNull(request.ramRoleName)) {
       query["RamRoleName"] = request.ramRoleName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.stackName)) {
+    if (!$dara.isNull(request.stackName)) {
       query["StackName"] = request.stackName;
     }
 
-    if (!Util.isUnset(request.stackPolicyBody)) {
+    if (!$dara.isNull(request.stackPolicyBody)) {
       query["StackPolicyBody"] = request.stackPolicyBody;
     }
 
-    if (!Util.isUnset(request.stackPolicyURL)) {
+    if (!$dara.isNull(request.stackPolicyURL)) {
       query["StackPolicyURL"] = request.stackPolicyURL;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       query["Tags"] = request.tags;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateScratchId)) {
+    if (!$dara.isNull(request.templateScratchId)) {
       query["TemplateScratchId"] = request.templateScratchId;
     }
 
-    if (!Util.isUnset(request.templateScratchRegionId)) {
+    if (!$dara.isNull(request.templateScratchRegionId)) {
       query["TemplateScratchRegionId"] = request.templateScratchRegionId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
-    if (!Util.isUnset(request.timeoutInMinutes)) {
+    if (!$dara.isNull(request.timeoutInMinutes)) {
       query["TimeoutInMinutes"] = request.timeoutInMinutes;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateStack",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -26308,7 +29687,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateStackResponse>(await this.callApi(params, req, runtime), new CreateStackResponse({}));
+    return $dara.cast<CreateStackResponse>(await this.callApi(params, req, runtime), new CreateStackResponse({}));
   }
 
   /**
@@ -26325,7 +29704,7 @@ export default class Client extends OpenApi {
    * @returns CreateStackResponse
    */
   async createStack(request: CreateStackRequest): Promise<CreateStackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createStackWithOptions(request, runtime);
   }
 
@@ -26344,89 +29723,89 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateStackGroupResponse
    */
-  async createStackGroupWithOptions(tmpReq: CreateStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateStackGroupResponse> {
-    Util.validateModel(tmpReq);
+  async createStackGroupWithOptions(tmpReq: CreateStackGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreateStackGroupResponse> {
+    tmpReq.validate();
     let request = new CreateStackGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.autoDeployment)) {
+    if (!$dara.isNull(tmpReq.autoDeployment)) {
       request.autoDeploymentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.autoDeployment, "AutoDeployment", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.administrationRoleName)) {
+    if (!$dara.isNull(request.administrationRoleName)) {
       query["AdministrationRoleName"] = request.administrationRoleName;
     }
 
-    if (!Util.isUnset(request.autoDeploymentShrink)) {
+    if (!$dara.isNull(request.autoDeploymentShrink)) {
       query["AutoDeployment"] = request.autoDeploymentShrink;
     }
 
-    if (!Util.isUnset(request.capabilities)) {
+    if (!$dara.isNull(request.capabilities)) {
       query["Capabilities"] = request.capabilities;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.executionRoleName)) {
+    if (!$dara.isNull(request.executionRoleName)) {
       query["ExecutionRoleName"] = request.executionRoleName;
     }
 
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.permissionModel)) {
+    if (!$dara.isNull(request.permissionModel)) {
       query["PermissionModel"] = request.permissionModel;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.stackArn)) {
+    if (!$dara.isNull(request.stackArn)) {
       query["StackArn"] = request.stackArn;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       query["Tags"] = request.tags;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateStackGroup",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -26437,7 +29816,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateStackGroupResponse>(await this.callApi(params, req, runtime), new CreateStackGroupResponse({}));
+    return $dara.cast<CreateStackGroupResponse>(await this.callApi(params, req, runtime), new CreateStackGroupResponse({}));
   }
 
   /**
@@ -26455,7 +29834,7 @@ export default class Client extends OpenApi {
    * @returns CreateStackGroupResponse
    */
   async createStackGroup(request: CreateStackGroupRequest): Promise<CreateStackGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createStackGroupWithOptions(request, runtime);
   }
 
@@ -26470,79 +29849,79 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateStackInstancesResponse
    */
-  async createStackInstancesWithOptions(tmpReq: CreateStackInstancesRequest, runtime: $Util.RuntimeOptions): Promise<CreateStackInstancesResponse> {
-    Util.validateModel(tmpReq);
+  async createStackInstancesWithOptions(tmpReq: CreateStackInstancesRequest, runtime: $dara.RuntimeOptions): Promise<CreateStackInstancesResponse> {
+    tmpReq.validate();
     let request = new CreateStackInstancesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.accountIds)) {
+    if (!$dara.isNull(tmpReq.accountIds)) {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.deploymentTargets)) {
+    if (!$dara.isNull(tmpReq.deploymentTargets)) {
       request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deploymentTargets, "DeploymentTargets", "json");
     }
 
-    if (!Util.isUnset(tmpReq.operationPreferences)) {
+    if (!$dara.isNull(tmpReq.operationPreferences)) {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
-    if (!Util.isUnset(tmpReq.regionIds)) {
+    if (!$dara.isNull(tmpReq.regionIds)) {
       request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.accountIdsShrink)) {
+    if (!$dara.isNull(request.accountIdsShrink)) {
       query["AccountIds"] = request.accountIdsShrink;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.deploymentOptions)) {
+    if (!$dara.isNull(request.deploymentOptions)) {
       query["DeploymentOptions"] = request.deploymentOptions;
     }
 
-    if (!Util.isUnset(request.deploymentTargetsShrink)) {
+    if (!$dara.isNull(request.deploymentTargetsShrink)) {
       query["DeploymentTargets"] = request.deploymentTargetsShrink;
     }
 
-    if (!Util.isUnset(request.disableRollback)) {
+    if (!$dara.isNull(request.disableRollback)) {
       query["DisableRollback"] = request.disableRollback;
     }
 
-    if (!Util.isUnset(request.operationDescription)) {
+    if (!$dara.isNull(request.operationDescription)) {
       query["OperationDescription"] = request.operationDescription;
     }
 
-    if (!Util.isUnset(request.operationPreferencesShrink)) {
+    if (!$dara.isNull(request.operationPreferencesShrink)) {
       query["OperationPreferences"] = request.operationPreferencesShrink;
     }
 
-    if (!Util.isUnset(request.parameterOverrides)) {
+    if (!$dara.isNull(request.parameterOverrides)) {
       query["ParameterOverrides"] = request.parameterOverrides;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.regionIdsShrink)) {
+    if (!$dara.isNull(request.regionIdsShrink)) {
       query["RegionIds"] = request.regionIdsShrink;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    if (!Util.isUnset(request.timeoutInMinutes)) {
+    if (!$dara.isNull(request.timeoutInMinutes)) {
       query["TimeoutInMinutes"] = request.timeoutInMinutes;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateStackInstances",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -26553,7 +29932,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateStackInstancesResponse>(await this.callApi(params, req, runtime), new CreateStackInstancesResponse({}));
+    return $dara.cast<CreateStackInstancesResponse>(await this.callApi(params, req, runtime), new CreateStackInstancesResponse({}));
   }
 
   /**
@@ -26567,7 +29946,7 @@ export default class Client extends OpenApi {
    * @returns CreateStackInstancesResponse
    */
   async createStackInstances(request: CreateStackInstancesRequest): Promise<CreateStackInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createStackInstancesWithOptions(request, runtime);
   }
 
@@ -26581,43 +29960,43 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateTemplateResponse
    */
-  async createTemplateWithOptions(request: CreateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateTemplateResponse> {
-    Util.validateModel(request);
+  async createTemplateWithOptions(request: CreateTemplateRequest, runtime: $dara.RuntimeOptions): Promise<CreateTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       query["Tags"] = request.tags;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.validationOptions)) {
+    if (!$dara.isNull(request.validationOptions)) {
       query["ValidationOptions"] = request.validationOptions;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateTemplate",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -26628,7 +30007,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateTemplateResponse>(await this.callApi(params, req, runtime), new CreateTemplateResponse({}));
+    return $dara.cast<CreateTemplateResponse>(await this.callApi(params, req, runtime), new CreateTemplateResponse({}));
   }
 
   /**
@@ -26641,7 +30020,7 @@ export default class Client extends OpenApi {
    * @returns CreateTemplateResponse
    */
   async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createTemplateWithOptions(request, runtime);
   }
 
@@ -26667,79 +30046,79 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateTemplateScratchResponse
    */
-  async createTemplateScratchWithOptions(tmpReq: CreateTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<CreateTemplateScratchResponse> {
-    Util.validateModel(tmpReq);
+  async createTemplateScratchWithOptions(tmpReq: CreateTemplateScratchRequest, runtime: $dara.RuntimeOptions): Promise<CreateTemplateScratchResponse> {
+    tmpReq.validate();
     let request = new CreateTemplateScratchShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.preferenceParameters)) {
+    if (!$dara.isNull(tmpReq.preferenceParameters)) {
       request.preferenceParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.preferenceParameters, "PreferenceParameters", "json");
     }
 
-    if (!Util.isUnset(tmpReq.sourceResourceGroup)) {
+    if (!$dara.isNull(tmpReq.sourceResourceGroup)) {
       request.sourceResourceGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceResourceGroup, "SourceResourceGroup", "json");
     }
 
-    if (!Util.isUnset(tmpReq.sourceResources)) {
+    if (!$dara.isNull(tmpReq.sourceResources)) {
       request.sourceResourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceResources, "SourceResources", "json");
     }
 
-    if (!Util.isUnset(tmpReq.sourceTag)) {
+    if (!$dara.isNull(tmpReq.sourceTag)) {
       request.sourceTagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceTag, "SourceTag", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.executionMode)) {
+    if (!$dara.isNull(request.executionMode)) {
       query["ExecutionMode"] = request.executionMode;
     }
 
-    if (!Util.isUnset(request.logicalIdStrategy)) {
+    if (!$dara.isNull(request.logicalIdStrategy)) {
       query["LogicalIdStrategy"] = request.logicalIdStrategy;
     }
 
-    if (!Util.isUnset(request.preferenceParametersShrink)) {
+    if (!$dara.isNull(request.preferenceParametersShrink)) {
       query["PreferenceParameters"] = request.preferenceParametersShrink;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.sourceResourceGroupShrink)) {
+    if (!$dara.isNull(request.sourceResourceGroupShrink)) {
       query["SourceResourceGroup"] = request.sourceResourceGroupShrink;
     }
 
-    if (!Util.isUnset(request.sourceResourcesShrink)) {
+    if (!$dara.isNull(request.sourceResourcesShrink)) {
       query["SourceResources"] = request.sourceResourcesShrink;
     }
 
-    if (!Util.isUnset(request.sourceTagShrink)) {
+    if (!$dara.isNull(request.sourceTagShrink)) {
       query["SourceTag"] = request.sourceTagShrink;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       query["Tags"] = request.tags;
     }
 
-    if (!Util.isUnset(request.templateScratchType)) {
+    if (!$dara.isNull(request.templateScratchType)) {
       query["TemplateScratchType"] = request.templateScratchType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateTemplateScratch",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -26750,7 +30129,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateTemplateScratchResponse>(await this.callApi(params, req, runtime), new CreateTemplateScratchResponse({}));
+    return $dara.cast<CreateTemplateScratchResponse>(await this.callApi(params, req, runtime), new CreateTemplateScratchResponse({}));
   }
 
   /**
@@ -26775,7 +30154,7 @@ export default class Client extends OpenApi {
    * @returns CreateTemplateScratchResponse
    */
   async createTemplateScratch(request: CreateTemplateScratchRequest): Promise<CreateTemplateScratchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createTemplateScratchWithOptions(request, runtime);
   }
 
@@ -26795,21 +30174,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteChangeSetResponse
    */
-  async deleteChangeSetWithOptions(request: DeleteChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChangeSetResponse> {
-    Util.validateModel(request);
+  async deleteChangeSetWithOptions(request: DeleteChangeSetRequest, runtime: $dara.RuntimeOptions): Promise<DeleteChangeSetResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.changeSetId)) {
+    if (!$dara.isNull(request.changeSetId)) {
       query["ChangeSetId"] = request.changeSetId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteChangeSet",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -26820,7 +30199,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteChangeSetResponse>(await this.callApi(params, req, runtime), new DeleteChangeSetResponse({}));
+    return $dara.cast<DeleteChangeSetResponse>(await this.callApi(params, req, runtime), new DeleteChangeSetResponse({}));
   }
 
   /**
@@ -26839,7 +30218,7 @@ export default class Client extends OpenApi {
    * @returns DeleteChangeSetResponse
    */
   async deleteChangeSet(request: DeleteChangeSetRequest): Promise<DeleteChangeSetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteChangeSetWithOptions(request, runtime);
   }
 
@@ -26850,17 +30229,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDiagnosticResponse
    */
-  async deleteDiagnosticWithOptions(request: DeleteDiagnosticRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiagnosticResponse> {
-    Util.validateModel(request);
+  async deleteDiagnosticWithOptions(request: DeleteDiagnosticRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDiagnosticResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.reportId)) {
+    if (!$dara.isNull(request.reportId)) {
       query["ReportId"] = request.reportId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDiagnostic",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -26871,7 +30250,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDiagnosticResponse>(await this.callApi(params, req, runtime), new DeleteDiagnosticResponse({}));
+    return $dara.cast<DeleteDiagnosticResponse>(await this.callApi(params, req, runtime), new DeleteDiagnosticResponse({}));
   }
 
   /**
@@ -26881,7 +30260,7 @@ export default class Client extends OpenApi {
    * @returns DeleteDiagnosticResponse
    */
   async deleteDiagnostic(request: DeleteDiagnosticRequest): Promise<DeleteDiagnosticResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDiagnosticWithOptions(request, runtime);
   }
 
@@ -26892,41 +30271,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteStackResponse
    */
-  async deleteStackWithOptions(request: DeleteStackRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStackResponse> {
-    Util.validateModel(request);
+  async deleteStackWithOptions(request: DeleteStackRequest, runtime: $dara.RuntimeOptions): Promise<DeleteStackResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.deleteOptions)) {
+    if (!$dara.isNull(request.deleteOptions)) {
       query["DeleteOptions"] = request.deleteOptions;
     }
 
-    if (!Util.isUnset(request.parallelism)) {
+    if (!$dara.isNull(request.parallelism)) {
       query["Parallelism"] = request.parallelism;
     }
 
-    if (!Util.isUnset(request.ramRoleName)) {
+    if (!$dara.isNull(request.ramRoleName)) {
       query["RamRoleName"] = request.ramRoleName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.retainAllResources)) {
+    if (!$dara.isNull(request.retainAllResources)) {
       query["RetainAllResources"] = request.retainAllResources;
     }
 
-    if (!Util.isUnset(request.retainResources)) {
+    if (!$dara.isNull(request.retainResources)) {
       query["RetainResources"] = request.retainResources;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteStack",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -26937,7 +30316,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteStackResponse>(await this.callApi(params, req, runtime), new DeleteStackResponse({}));
+    return $dara.cast<DeleteStackResponse>(await this.callApi(params, req, runtime), new DeleteStackResponse({}));
   }
 
   /**
@@ -26947,7 +30326,7 @@ export default class Client extends OpenApi {
    * @returns DeleteStackResponse
    */
   async deleteStack(request: DeleteStackRequest): Promise<DeleteStackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteStackWithOptions(request, runtime);
   }
 
@@ -26962,21 +30341,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteStackGroupResponse
    */
-  async deleteStackGroupWithOptions(request: DeleteStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStackGroupResponse> {
-    Util.validateModel(request);
+  async deleteStackGroupWithOptions(request: DeleteStackGroupRequest, runtime: $dara.RuntimeOptions): Promise<DeleteStackGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteStackGroup",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -26987,7 +30366,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteStackGroupResponse>(await this.callApi(params, req, runtime), new DeleteStackGroupResponse({}));
+    return $dara.cast<DeleteStackGroupResponse>(await this.callApi(params, req, runtime), new DeleteStackGroupResponse({}));
   }
 
   /**
@@ -27001,7 +30380,7 @@ export default class Client extends OpenApi {
    * @returns DeleteStackGroupResponse
    */
   async deleteStackGroup(request: DeleteStackGroupRequest): Promise<DeleteStackGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteStackGroupWithOptions(request, runtime);
   }
 
@@ -27015,67 +30394,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteStackInstancesResponse
    */
-  async deleteStackInstancesWithOptions(tmpReq: DeleteStackInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStackInstancesResponse> {
-    Util.validateModel(tmpReq);
+  async deleteStackInstancesWithOptions(tmpReq: DeleteStackInstancesRequest, runtime: $dara.RuntimeOptions): Promise<DeleteStackInstancesResponse> {
+    tmpReq.validate();
     let request = new DeleteStackInstancesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.accountIds)) {
+    if (!$dara.isNull(tmpReq.accountIds)) {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.deploymentTargets)) {
+    if (!$dara.isNull(tmpReq.deploymentTargets)) {
       request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deploymentTargets, "DeploymentTargets", "json");
     }
 
-    if (!Util.isUnset(tmpReq.operationPreferences)) {
+    if (!$dara.isNull(tmpReq.operationPreferences)) {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
-    if (!Util.isUnset(tmpReq.regionIds)) {
+    if (!$dara.isNull(tmpReq.regionIds)) {
       request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.accountIdsShrink)) {
+    if (!$dara.isNull(request.accountIdsShrink)) {
       query["AccountIds"] = request.accountIdsShrink;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.deploymentTargetsShrink)) {
+    if (!$dara.isNull(request.deploymentTargetsShrink)) {
       query["DeploymentTargets"] = request.deploymentTargetsShrink;
     }
 
-    if (!Util.isUnset(request.operationDescription)) {
+    if (!$dara.isNull(request.operationDescription)) {
       query["OperationDescription"] = request.operationDescription;
     }
 
-    if (!Util.isUnset(request.operationPreferencesShrink)) {
+    if (!$dara.isNull(request.operationPreferencesShrink)) {
       query["OperationPreferences"] = request.operationPreferencesShrink;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.regionIdsShrink)) {
+    if (!$dara.isNull(request.regionIdsShrink)) {
       query["RegionIds"] = request.regionIdsShrink;
     }
 
-    if (!Util.isUnset(request.retainStacks)) {
+    if (!$dara.isNull(request.retainStacks)) {
       query["RetainStacks"] = request.retainStacks;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteStackInstances",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27086,7 +30465,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteStackInstancesResponse>(await this.callApi(params, req, runtime), new DeleteStackInstancesResponse({}));
+    return $dara.cast<DeleteStackInstancesResponse>(await this.callApi(params, req, runtime), new DeleteStackInstancesResponse({}));
   }
 
   /**
@@ -27099,7 +30478,7 @@ export default class Client extends OpenApi {
    * @returns DeleteStackInstancesResponse
    */
   async deleteStackInstances(request: DeleteStackInstancesRequest): Promise<DeleteStackInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteStackInstancesWithOptions(request, runtime);
   }
 
@@ -27113,17 +30492,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteTemplateResponse
    */
-  async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
-    Util.validateModel(request);
+  async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $dara.RuntimeOptions): Promise<DeleteTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteTemplate",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27134,7 +30513,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
+    return $dara.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
   /**
@@ -27147,7 +30526,7 @@ export default class Client extends OpenApi {
    * @returns DeleteTemplateResponse
    */
   async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteTemplateWithOptions(request, runtime);
   }
 
@@ -27161,21 +30540,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteTemplateScratchResponse
    */
-  async deleteTemplateScratchWithOptions(request: DeleteTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateScratchResponse> {
-    Util.validateModel(request);
+  async deleteTemplateScratchWithOptions(request: DeleteTemplateScratchRequest, runtime: $dara.RuntimeOptions): Promise<DeleteTemplateScratchResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.templateScratchId)) {
+    if (!$dara.isNull(request.templateScratchId)) {
       query["TemplateScratchId"] = request.templateScratchId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteTemplateScratch",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27186,7 +30565,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteTemplateScratchResponse>(await this.callApi(params, req, runtime), new DeleteTemplateScratchResponse({}));
+    return $dara.cast<DeleteTemplateScratchResponse>(await this.callApi(params, req, runtime), new DeleteTemplateScratchResponse({}));
   }
 
   /**
@@ -27199,7 +30578,7 @@ export default class Client extends OpenApi {
    * @returns DeleteTemplateScratchResponse
    */
   async deleteTemplateScratch(request: DeleteTemplateScratchRequest): Promise<DeleteTemplateScratchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteTemplateScratchWithOptions(request, runtime);
   }
 
@@ -27217,21 +30596,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeregisterResourceTypeResponse
    */
-  async deregisterResourceTypeWithOptions(request: DeregisterResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<DeregisterResourceTypeResponse> {
-    Util.validateModel(request);
+  async deregisterResourceTypeWithOptions(request: DeregisterResourceTypeRequest, runtime: $dara.RuntimeOptions): Promise<DeregisterResourceTypeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.versionId)) {
+    if (!$dara.isNull(request.versionId)) {
       query["VersionId"] = request.versionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeregisterResourceType",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27242,7 +30621,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeregisterResourceTypeResponse>(await this.callApi(params, req, runtime), new DeregisterResourceTypeResponse({}));
+    return $dara.cast<DeregisterResourceTypeResponse>(await this.callApi(params, req, runtime), new DeregisterResourceTypeResponse({}));
   }
 
   /**
@@ -27259,7 +30638,7 @@ export default class Client extends OpenApi {
    * @returns DeregisterResourceTypeResponse
    */
   async deregisterResourceType(request: DeregisterResourceTypeRequest): Promise<DeregisterResourceTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deregisterResourceTypeWithOptions(request, runtime);
   }
 
@@ -27270,17 +30649,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.acceptLanguage)) {
+    if (!$dara.isNull(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRegions",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27291,7 +30670,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   /**
@@ -27301,7 +30680,7 @@ export default class Client extends OpenApi {
    * @returns DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
@@ -27312,29 +30691,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetectStackDriftResponse
    */
-  async detectStackDriftWithOptions(request: DetectStackDriftRequest, runtime: $Util.RuntimeOptions): Promise<DetectStackDriftResponse> {
-    Util.validateModel(request);
+  async detectStackDriftWithOptions(request: DetectStackDriftRequest, runtime: $dara.RuntimeOptions): Promise<DetectStackDriftResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.logicalResourceId)) {
+    if (!$dara.isNull(request.logicalResourceId)) {
       query["LogicalResourceId"] = request.logicalResourceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetectStackDrift",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27345,7 +30724,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetectStackDriftResponse>(await this.callApi(params, req, runtime), new DetectStackDriftResponse({}));
+    return $dara.cast<DetectStackDriftResponse>(await this.callApi(params, req, runtime), new DetectStackDriftResponse({}));
   }
 
   /**
@@ -27355,7 +30734,7 @@ export default class Client extends OpenApi {
    * @returns DetectStackDriftResponse
    */
   async detectStackDrift(request: DetectStackDriftRequest): Promise<DetectStackDriftResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detectStackDriftWithOptions(request, runtime);
   }
 
@@ -27364,35 +30743,35 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetectStackGroupDriftResponse
    */
-  async detectStackGroupDriftWithOptions(tmpReq: DetectStackGroupDriftRequest, runtime: $Util.RuntimeOptions): Promise<DetectStackGroupDriftResponse> {
-    Util.validateModel(tmpReq);
+  async detectStackGroupDriftWithOptions(tmpReq: DetectStackGroupDriftRequest, runtime: $dara.RuntimeOptions): Promise<DetectStackGroupDriftResponse> {
+    tmpReq.validate();
     let request = new DetectStackGroupDriftShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.operationPreferences)) {
+    if (!$dara.isNull(tmpReq.operationPreferences)) {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.operationPreferencesShrink)) {
+    if (!$dara.isNull(request.operationPreferencesShrink)) {
       query["OperationPreferences"] = request.operationPreferencesShrink;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetectStackGroupDrift",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27403,7 +30782,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetectStackGroupDriftResponse>(await this.callApi(params, req, runtime), new DetectStackGroupDriftResponse({}));
+    return $dara.cast<DetectStackGroupDriftResponse>(await this.callApi(params, req, runtime), new DetectStackGroupDriftResponse({}));
   }
 
   /**
@@ -27411,7 +30790,7 @@ export default class Client extends OpenApi {
    * @returns DetectStackGroupDriftResponse
    */
   async detectStackGroupDrift(request: DetectStackGroupDriftRequest): Promise<DetectStackGroupDriftResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detectStackGroupDriftWithOptions(request, runtime);
   }
 
@@ -27422,29 +30801,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetectStackResourceDriftResponse
    */
-  async detectStackResourceDriftWithOptions(request: DetectStackResourceDriftRequest, runtime: $Util.RuntimeOptions): Promise<DetectStackResourceDriftResponse> {
-    Util.validateModel(request);
+  async detectStackResourceDriftWithOptions(request: DetectStackResourceDriftRequest, runtime: $dara.RuntimeOptions): Promise<DetectStackResourceDriftResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.logicalResourceId)) {
+    if (!$dara.isNull(request.logicalResourceId)) {
       query["LogicalResourceId"] = request.logicalResourceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetectStackResourceDrift",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27455,7 +30834,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetectStackResourceDriftResponse>(await this.callApi(params, req, runtime), new DetectStackResourceDriftResponse({}));
+    return $dara.cast<DetectStackResourceDriftResponse>(await this.callApi(params, req, runtime), new DetectStackResourceDriftResponse({}));
   }
 
   /**
@@ -27465,7 +30844,7 @@ export default class Client extends OpenApi {
    * @returns DetectStackResourceDriftResponse
    */
   async detectStackResourceDrift(request: DetectStackResourceDriftRequest): Promise<DetectStackResourceDriftResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detectStackResourceDriftWithOptions(request, runtime);
   }
 
@@ -27479,25 +30858,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExecuteChangeSetResponse
    */
-  async executeChangeSetWithOptions(request: ExecuteChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteChangeSetResponse> {
-    Util.validateModel(request);
+  async executeChangeSetWithOptions(request: ExecuteChangeSetRequest, runtime: $dara.RuntimeOptions): Promise<ExecuteChangeSetResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.changeSetId)) {
+    if (!$dara.isNull(request.changeSetId)) {
       query["ChangeSetId"] = request.changeSetId;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ExecuteChangeSet",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27508,7 +30887,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExecuteChangeSetResponse>(await this.callApi(params, req, runtime), new ExecuteChangeSetResponse({}));
+    return $dara.cast<ExecuteChangeSetResponse>(await this.callApi(params, req, runtime), new ExecuteChangeSetResponse({}));
   }
 
   /**
@@ -27521,7 +30900,7 @@ export default class Client extends OpenApi {
    * @returns ExecuteChangeSetResponse
    */
   async executeChangeSet(request: ExecuteChangeSetRequest): Promise<ExecuteChangeSetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.executeChangeSetWithOptions(request, runtime);
   }
 
@@ -27536,29 +30915,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateTemplateByScratchResponse
    */
-  async generateTemplateByScratchWithOptions(request: GenerateTemplateByScratchRequest, runtime: $Util.RuntimeOptions): Promise<GenerateTemplateByScratchResponse> {
-    Util.validateModel(request);
+  async generateTemplateByScratchWithOptions(request: GenerateTemplateByScratchRequest, runtime: $dara.RuntimeOptions): Promise<GenerateTemplateByScratchResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.provisionRegionId)) {
+    if (!$dara.isNull(request.provisionRegionId)) {
       query["ProvisionRegionId"] = request.provisionRegionId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.templateScratchId)) {
+    if (!$dara.isNull(request.templateScratchId)) {
       query["TemplateScratchId"] = request.templateScratchId;
     }
 
-    if (!Util.isUnset(request.templateType)) {
+    if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GenerateTemplateByScratch",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27569,7 +30948,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateTemplateByScratchResponse>(await this.callApi(params, req, runtime), new GenerateTemplateByScratchResponse({}));
+    return $dara.cast<GenerateTemplateByScratchResponse>(await this.callApi(params, req, runtime), new GenerateTemplateByScratchResponse({}));
   }
 
   /**
@@ -27583,7 +30962,7 @@ export default class Client extends OpenApi {
    * @returns GenerateTemplateByScratchResponse
    */
   async generateTemplateByScratch(request: GenerateTemplateByScratchRequest): Promise<GenerateTemplateByScratchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.generateTemplateByScratchWithOptions(request, runtime);
   }
 
@@ -27598,33 +30977,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateTemplatePolicyResponse
    */
-  async generateTemplatePolicyWithOptions(request: GenerateTemplatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateTemplatePolicyResponse> {
-    Util.validateModel(request);
+  async generateTemplatePolicyWithOptions(request: GenerateTemplatePolicyRequest, runtime: $dara.RuntimeOptions): Promise<GenerateTemplatePolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.operationTypes)) {
+    if (!$dara.isNull(request.operationTypes)) {
       query["OperationTypes"] = request.operationTypes;
     }
 
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       query["TemplateBody"] = request.templateBody;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GenerateTemplatePolicy",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27635,7 +31014,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateTemplatePolicyResponse>(await this.callApi(params, req, runtime), new GenerateTemplatePolicyResponse({}));
+    return $dara.cast<GenerateTemplatePolicyResponse>(await this.callApi(params, req, runtime), new GenerateTemplatePolicyResponse({}));
   }
 
   /**
@@ -27649,7 +31028,7 @@ export default class Client extends OpenApi {
    * @returns GenerateTemplatePolicyResponse
    */
   async generateTemplatePolicy(request: GenerateTemplatePolicyRequest): Promise<GenerateTemplatePolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.generateTemplatePolicyWithOptions(request, runtime);
   }
 
@@ -27660,21 +31039,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAITaskResponse
    */
-  async getAITaskWithOptions(request: GetAITaskRequest, runtime: $Util.RuntimeOptions): Promise<GetAITaskResponse> {
-    Util.validateModel(request);
+  async getAITaskWithOptions(request: GetAITaskRequest, runtime: $dara.RuntimeOptions): Promise<GetAITaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.outputOption)) {
+    if (!$dara.isNull(request.outputOption)) {
       query["OutputOption"] = request.outputOption;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAITask",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27685,7 +31064,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAITaskResponse>(await this.callApi(params, req, runtime), new GetAITaskResponse({}));
+    return $dara.cast<GetAITaskResponse>(await this.callApi(params, req, runtime), new GetAITaskResponse({}));
   }
 
   /**
@@ -27695,7 +31074,7 @@ export default class Client extends OpenApi {
    * @returns GetAITaskResponse
    */
   async getAITask(request: GetAITaskRequest): Promise<GetAITaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAITaskWithOptions(request, runtime);
   }
 
@@ -27709,25 +31088,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetChangeSetResponse
    */
-  async getChangeSetWithOptions(request: GetChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<GetChangeSetResponse> {
-    Util.validateModel(request);
+  async getChangeSetWithOptions(request: GetChangeSetRequest, runtime: $dara.RuntimeOptions): Promise<GetChangeSetResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.changeSetId)) {
+    if (!$dara.isNull(request.changeSetId)) {
       query["ChangeSetId"] = request.changeSetId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.showTemplate)) {
+    if (!$dara.isNull(request.showTemplate)) {
       query["ShowTemplate"] = request.showTemplate;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetChangeSet",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27738,7 +31117,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetChangeSetResponse>(await this.callApi(params, req, runtime), new GetChangeSetResponse({}));
+    return $dara.cast<GetChangeSetResponse>(await this.callApi(params, req, runtime), new GetChangeSetResponse({}));
   }
 
   /**
@@ -27751,7 +31130,7 @@ export default class Client extends OpenApi {
    * @returns GetChangeSetResponse
    */
   async getChangeSet(request: GetChangeSetRequest): Promise<GetChangeSetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getChangeSetWithOptions(request, runtime);
   }
 
@@ -27762,17 +31141,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDiagnosticResponse
    */
-  async getDiagnosticWithOptions(request: GetDiagnosticRequest, runtime: $Util.RuntimeOptions): Promise<GetDiagnosticResponse> {
-    Util.validateModel(request);
+  async getDiagnosticWithOptions(request: GetDiagnosticRequest, runtime: $dara.RuntimeOptions): Promise<GetDiagnosticResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.reportId)) {
+    if (!$dara.isNull(request.reportId)) {
       query["ReportId"] = request.reportId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDiagnostic",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27783,7 +31162,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDiagnosticResponse>(await this.callApi(params, req, runtime), new GetDiagnosticResponse({}));
+    return $dara.cast<GetDiagnosticResponse>(await this.callApi(params, req, runtime), new GetDiagnosticResponse({}));
   }
 
   /**
@@ -27793,7 +31172,7 @@ export default class Client extends OpenApi {
    * @returns GetDiagnosticResponse
    */
   async getDiagnostic(request: GetDiagnosticRequest): Promise<GetDiagnosticResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDiagnosticWithOptions(request, runtime);
   }
 
@@ -27809,21 +31188,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFeatureDetailsResponse
    */
-  async getFeatureDetailsWithOptions(request: GetFeatureDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetFeatureDetailsResponse> {
-    Util.validateModel(request);
+  async getFeatureDetailsWithOptions(request: GetFeatureDetailsRequest, runtime: $dara.RuntimeOptions): Promise<GetFeatureDetailsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.feature)) {
+    if (!$dara.isNull(request.feature)) {
       query["Feature"] = request.feature;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetFeatureDetails",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27834,7 +31213,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetFeatureDetailsResponse>(await this.callApi(params, req, runtime), new GetFeatureDetailsResponse({}));
+    return $dara.cast<GetFeatureDetailsResponse>(await this.callApi(params, req, runtime), new GetFeatureDetailsResponse({}));
   }
 
   /**
@@ -27849,7 +31228,7 @@ export default class Client extends OpenApi {
    * @returns GetFeatureDetailsResponse
    */
   async getFeatureDetails(request: GetFeatureDetailsRequest): Promise<GetFeatureDetailsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getFeatureDetailsWithOptions(request, runtime);
   }
 
@@ -27863,21 +31242,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourceTypeResponse
    */
-  async getResourceTypeWithOptions(request: GetResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceTypeResponse> {
-    Util.validateModel(request);
+  async getResourceTypeWithOptions(request: GetResourceTypeRequest, runtime: $dara.RuntimeOptions): Promise<GetResourceTypeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.versionId)) {
+    if (!$dara.isNull(request.versionId)) {
       query["VersionId"] = request.versionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetResourceType",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27888,7 +31267,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetResourceTypeResponse>(await this.callApi(params, req, runtime), new GetResourceTypeResponse({}));
+    return $dara.cast<GetResourceTypeResponse>(await this.callApi(params, req, runtime), new GetResourceTypeResponse({}));
   }
 
   /**
@@ -27901,7 +31280,7 @@ export default class Client extends OpenApi {
    * @returns GetResourceTypeResponse
    */
   async getResourceType(request: GetResourceTypeRequest): Promise<GetResourceTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getResourceTypeWithOptions(request, runtime);
   }
 
@@ -27912,21 +31291,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourceTypeTemplateResponse
    */
-  async getResourceTypeTemplateWithOptions(request: GetResourceTypeTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceTypeTemplateResponse> {
-    Util.validateModel(request);
+  async getResourceTypeTemplateWithOptions(request: GetResourceTypeTemplateRequest, runtime: $dara.RuntimeOptions): Promise<GetResourceTypeTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.versionId)) {
+    if (!$dara.isNull(request.versionId)) {
       query["VersionId"] = request.versionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetResourceTypeTemplate",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -27937,7 +31316,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetResourceTypeTemplateResponse>(await this.callApi(params, req, runtime), new GetResourceTypeTemplateResponse({}));
+    return $dara.cast<GetResourceTypeTemplateResponse>(await this.callApi(params, req, runtime), new GetResourceTypeTemplateResponse({}));
   }
 
   /**
@@ -27947,7 +31326,7 @@ export default class Client extends OpenApi {
    * @returns GetResourceTypeTemplateResponse
    */
   async getResourceTypeTemplate(request: GetResourceTypeTemplateRequest): Promise<GetResourceTypeTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getResourceTypeTemplateWithOptions(request, runtime);
   }
 
@@ -27963,43 +31342,43 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetServiceProvisionsResponse
    */
-  async getServiceProvisionsWithOptions(request: GetServiceProvisionsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceProvisionsResponse> {
-    Util.validateModel(request);
+  async getServiceProvisionsWithOptions(request: GetServiceProvisionsRequest, runtime: $dara.RuntimeOptions): Promise<GetServiceProvisionsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.services)) {
+    if (!$dara.isNull(request.services)) {
       query["Services"] = request.services;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetServiceProvisions",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28010,7 +31389,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetServiceProvisionsResponse>(await this.callApi(params, req, runtime), new GetServiceProvisionsResponse({}));
+    return $dara.cast<GetServiceProvisionsResponse>(await this.callApi(params, req, runtime), new GetServiceProvisionsResponse({}));
   }
 
   /**
@@ -28025,7 +31404,7 @@ export default class Client extends OpenApi {
    * @returns GetServiceProvisionsResponse
    */
   async getServiceProvisions(request: GetServiceProvisionsRequest): Promise<GetServiceProvisionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getServiceProvisionsWithOptions(request, runtime);
   }
 
@@ -28039,37 +31418,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetStackResponse
    */
-  async getStackWithOptions(request: GetStackRequest, runtime: $Util.RuntimeOptions): Promise<GetStackResponse> {
-    Util.validateModel(request);
+  async getStackWithOptions(request: GetStackRequest, runtime: $dara.RuntimeOptions): Promise<GetStackResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.logOption)) {
+    if (!$dara.isNull(request.logOption)) {
       query["LogOption"] = request.logOption;
     }
 
-    if (!Util.isUnset(request.outputOption)) {
+    if (!$dara.isNull(request.outputOption)) {
       query["OutputOption"] = request.outputOption;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.showResourceProgress)) {
+    if (!$dara.isNull(request.showResourceProgress)) {
       query["ShowResourceProgress"] = request.showResourceProgress;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetStack",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28080,7 +31459,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetStackResponse>(await this.callApi(params, req, runtime), new GetStackResponse({}));
+    return $dara.cast<GetStackResponse>(await this.callApi(params, req, runtime), new GetStackResponse({}));
   }
 
   /**
@@ -28093,7 +31472,7 @@ export default class Client extends OpenApi {
    * @returns GetStackResponse
    */
   async getStack(request: GetStackRequest): Promise<GetStackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getStackWithOptions(request, runtime);
   }
 
@@ -28107,21 +31486,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetStackDriftDetectionStatusResponse
    */
-  async getStackDriftDetectionStatusWithOptions(request: GetStackDriftDetectionStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetStackDriftDetectionStatusResponse> {
-    Util.validateModel(request);
+  async getStackDriftDetectionStatusWithOptions(request: GetStackDriftDetectionStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetStackDriftDetectionStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.driftDetectionId)) {
+    if (!$dara.isNull(request.driftDetectionId)) {
       query["DriftDetectionId"] = request.driftDetectionId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetStackDriftDetectionStatus",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28132,7 +31511,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetStackDriftDetectionStatusResponse>(await this.callApi(params, req, runtime), new GetStackDriftDetectionStatusResponse({}));
+    return $dara.cast<GetStackDriftDetectionStatusResponse>(await this.callApi(params, req, runtime), new GetStackDriftDetectionStatusResponse({}));
   }
 
   /**
@@ -28145,7 +31524,7 @@ export default class Client extends OpenApi {
    * @returns GetStackDriftDetectionStatusResponse
    */
   async getStackDriftDetectionStatus(request: GetStackDriftDetectionStatusRequest): Promise<GetStackDriftDetectionStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getStackDriftDetectionStatusWithOptions(request, runtime);
   }
 
@@ -28159,25 +31538,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetStackGroupResponse
    */
-  async getStackGroupWithOptions(request: GetStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetStackGroupResponse> {
-    Util.validateModel(request);
+  async getStackGroupWithOptions(request: GetStackGroupRequest, runtime: $dara.RuntimeOptions): Promise<GetStackGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackGroupId)) {
+    if (!$dara.isNull(request.stackGroupId)) {
       query["StackGroupId"] = request.stackGroupId;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetStackGroup",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28188,7 +31567,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetStackGroupResponse>(await this.callApi(params, req, runtime), new GetStackGroupResponse({}));
+    return $dara.cast<GetStackGroupResponse>(await this.callApi(params, req, runtime), new GetStackGroupResponse({}));
   }
 
   /**
@@ -28201,7 +31580,7 @@ export default class Client extends OpenApi {
    * @returns GetStackGroupResponse
    */
   async getStackGroup(request: GetStackGroupRequest): Promise<GetStackGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getStackGroupWithOptions(request, runtime);
   }
 
@@ -28215,21 +31594,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetStackGroupOperationResponse
    */
-  async getStackGroupOperationWithOptions(request: GetStackGroupOperationRequest, runtime: $Util.RuntimeOptions): Promise<GetStackGroupOperationResponse> {
-    Util.validateModel(request);
+  async getStackGroupOperationWithOptions(request: GetStackGroupOperationRequest, runtime: $dara.RuntimeOptions): Promise<GetStackGroupOperationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.operationId)) {
+    if (!$dara.isNull(request.operationId)) {
       query["OperationId"] = request.operationId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetStackGroupOperation",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28240,7 +31619,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetStackGroupOperationResponse>(await this.callApi(params, req, runtime), new GetStackGroupOperationResponse({}));
+    return $dara.cast<GetStackGroupOperationResponse>(await this.callApi(params, req, runtime), new GetStackGroupOperationResponse({}));
   }
 
   /**
@@ -28253,7 +31632,7 @@ export default class Client extends OpenApi {
    * @returns GetStackGroupOperationResponse
    */
   async getStackGroupOperation(request: GetStackGroupOperationRequest): Promise<GetStackGroupOperationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getStackGroupOperationWithOptions(request, runtime);
   }
 
@@ -28267,33 +31646,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetStackInstanceResponse
    */
-  async getStackInstanceWithOptions(request: GetStackInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetStackInstanceResponse> {
-    Util.validateModel(request);
+  async getStackInstanceWithOptions(request: GetStackInstanceRequest, runtime: $dara.RuntimeOptions): Promise<GetStackInstanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.outputOption)) {
+    if (!$dara.isNull(request.outputOption)) {
       query["OutputOption"] = request.outputOption;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    if (!Util.isUnset(request.stackInstanceAccountId)) {
+    if (!$dara.isNull(request.stackInstanceAccountId)) {
       query["StackInstanceAccountId"] = request.stackInstanceAccountId;
     }
 
-    if (!Util.isUnset(request.stackInstanceRegionId)) {
+    if (!$dara.isNull(request.stackInstanceRegionId)) {
       query["StackInstanceRegionId"] = request.stackInstanceRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetStackInstance",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28304,7 +31683,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetStackInstanceResponse>(await this.callApi(params, req, runtime), new GetStackInstanceResponse({}));
+    return $dara.cast<GetStackInstanceResponse>(await this.callApi(params, req, runtime), new GetStackInstanceResponse({}));
   }
 
   /**
@@ -28317,7 +31696,7 @@ export default class Client extends OpenApi {
    * @returns GetStackInstanceResponse
    */
   async getStackInstance(request: GetStackInstanceRequest): Promise<GetStackInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getStackInstanceWithOptions(request, runtime);
   }
 
@@ -28331,21 +31710,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetStackPolicyResponse
    */
-  async getStackPolicyWithOptions(request: GetStackPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetStackPolicyResponse> {
-    Util.validateModel(request);
+  async getStackPolicyWithOptions(request: GetStackPolicyRequest, runtime: $dara.RuntimeOptions): Promise<GetStackPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetStackPolicy",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28356,7 +31735,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetStackPolicyResponse>(await this.callApi(params, req, runtime), new GetStackPolicyResponse({}));
+    return $dara.cast<GetStackPolicyResponse>(await this.callApi(params, req, runtime), new GetStackPolicyResponse({}));
   }
 
   /**
@@ -28369,7 +31748,7 @@ export default class Client extends OpenApi {
    * @returns GetStackPolicyResponse
    */
   async getStackPolicy(request: GetStackPolicyRequest): Promise<GetStackPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getStackPolicyWithOptions(request, runtime);
   }
 
@@ -28386,37 +31765,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetStackResourceResponse
    */
-  async getStackResourceWithOptions(request: GetStackResourceRequest, runtime: $Util.RuntimeOptions): Promise<GetStackResourceResponse> {
-    Util.validateModel(request);
+  async getStackResourceWithOptions(request: GetStackResourceRequest, runtime: $dara.RuntimeOptions): Promise<GetStackResourceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.logicalResourceId)) {
+    if (!$dara.isNull(request.logicalResourceId)) {
       query["LogicalResourceId"] = request.logicalResourceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceAttributes)) {
+    if (!$dara.isNull(request.resourceAttributes)) {
       query["ResourceAttributes"] = request.resourceAttributes;
     }
 
-    if (!Util.isUnset(request.showResourceAttributes)) {
+    if (!$dara.isNull(request.showResourceAttributes)) {
       query["ShowResourceAttributes"] = request.showResourceAttributes;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetStackResource",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28427,7 +31806,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetStackResourceResponse>(await this.callApi(params, req, runtime), new GetStackResourceResponse({}));
+    return $dara.cast<GetStackResourceResponse>(await this.callApi(params, req, runtime), new GetStackResourceResponse({}));
   }
 
   /**
@@ -28443,7 +31822,7 @@ export default class Client extends OpenApi {
    * @returns GetStackResourceResponse
    */
   async getStackResource(request: GetStackResourceRequest): Promise<GetStackResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getStackResourceWithOptions(request, runtime);
   }
 
@@ -28457,49 +31836,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTemplateResponse
    */
-  async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
-    Util.validateModel(request);
+  async getTemplateWithOptions(request: GetTemplateRequest, runtime: $dara.RuntimeOptions): Promise<GetTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.changeSetId)) {
+    if (!$dara.isNull(request.changeSetId)) {
       query["ChangeSetId"] = request.changeSetId;
     }
 
-    if (!Util.isUnset(request.includePermission)) {
+    if (!$dara.isNull(request.includePermission)) {
       query["IncludePermission"] = request.includePermission;
     }
 
-    if (!Util.isUnset(request.includeTags)) {
+    if (!$dara.isNull(request.includeTags)) {
       query["IncludeTags"] = request.includeTags;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateStage)) {
+    if (!$dara.isNull(request.templateStage)) {
       query["TemplateStage"] = request.templateStage;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTemplate",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28510,7 +31889,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
+    return $dara.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
   }
 
   /**
@@ -28523,7 +31902,7 @@ export default class Client extends OpenApi {
    * @returns GetTemplateResponse
    */
   async getTemplate(request: GetTemplateRequest): Promise<GetTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getTemplateWithOptions(request, runtime);
   }
 
@@ -28586,55 +31965,55 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTemplateEstimateCostResponse
    */
-  async getTemplateEstimateCostWithOptions(request: GetTemplateEstimateCostRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateEstimateCostResponse> {
-    Util.validateModel(request);
+  async getTemplateEstimateCostWithOptions(request: GetTemplateEstimateCostRequest, runtime: $dara.RuntimeOptions): Promise<GetTemplateEstimateCostResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateScratchId)) {
+    if (!$dara.isNull(request.templateScratchId)) {
       query["TemplateScratchId"] = request.templateScratchId;
     }
 
-    if (!Util.isUnset(request.templateScratchRegionId)) {
+    if (!$dara.isNull(request.templateScratchRegionId)) {
       query["TemplateScratchRegionId"] = request.templateScratchRegionId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTemplateEstimateCost",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28645,7 +32024,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetTemplateEstimateCostResponse>(await this.callApi(params, req, runtime), new GetTemplateEstimateCostResponse({}));
+    return $dara.cast<GetTemplateEstimateCostResponse>(await this.callApi(params, req, runtime), new GetTemplateEstimateCostResponse({}));
   }
 
   /**
@@ -28707,7 +32086,7 @@ export default class Client extends OpenApi {
    * @returns GetTemplateEstimateCostResponse
    */
   async getTemplateEstimateCost(request: GetTemplateEstimateCostRequest): Promise<GetTemplateEstimateCostResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getTemplateEstimateCostWithOptions(request, runtime);
   }
 
@@ -28722,65 +32101,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTemplateParameterConstraintsResponse
    */
-  async getTemplateParameterConstraintsWithOptions(tmpReq: GetTemplateParameterConstraintsRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateParameterConstraintsResponse> {
-    Util.validateModel(tmpReq);
+  async getTemplateParameterConstraintsWithOptions(tmpReq: GetTemplateParameterConstraintsRequest, runtime: $dara.RuntimeOptions): Promise<GetTemplateParameterConstraintsResponse> {
+    tmpReq.validate();
     let request = new GetTemplateParameterConstraintsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.parametersKeyFilter)) {
+    if (!$dara.isNull(tmpReq.parametersKeyFilter)) {
       request.parametersKeyFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parametersKeyFilter, "ParametersKeyFilter", "json");
     }
 
-    if (!Util.isUnset(tmpReq.parametersOrder)) {
+    if (!$dara.isNull(tmpReq.parametersOrder)) {
       request.parametersOrderShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parametersOrder, "ParametersOrder", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.parametersKeyFilterShrink)) {
+    if (!$dara.isNull(request.parametersKeyFilterShrink)) {
       query["ParametersKeyFilter"] = request.parametersKeyFilterShrink;
     }
 
-    if (!Util.isUnset(request.parametersOrderShrink)) {
+    if (!$dara.isNull(request.parametersOrderShrink)) {
       query["ParametersOrder"] = request.parametersOrderShrink;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTemplateParameterConstraints",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28791,7 +32170,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetTemplateParameterConstraintsResponse({}));
+    return $dara.cast<GetTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetTemplateParameterConstraintsResponse({}));
   }
 
   /**
@@ -28805,7 +32184,7 @@ export default class Client extends OpenApi {
    * @returns GetTemplateParameterConstraintsResponse
    */
   async getTemplateParameterConstraints(request: GetTemplateParameterConstraintsRequest): Promise<GetTemplateParameterConstraintsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getTemplateParameterConstraintsWithOptions(request, runtime);
   }
 
@@ -28816,41 +32195,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTemplateRecommendParametersResponse
    */
-  async getTemplateRecommendParametersWithOptions(request: GetTemplateRecommendParametersRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateRecommendParametersResponse> {
-    Util.validateModel(request);
+  async getTemplateRecommendParametersWithOptions(request: GetTemplateRecommendParametersRequest, runtime: $dara.RuntimeOptions): Promise<GetTemplateRecommendParametersResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       query["TemplateBody"] = request.templateBody;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTemplateRecommendParameters",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28861,7 +32240,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetTemplateRecommendParametersResponse>(await this.callApi(params, req, runtime), new GetTemplateRecommendParametersResponse({}));
+    return $dara.cast<GetTemplateRecommendParametersResponse>(await this.callApi(params, req, runtime), new GetTemplateRecommendParametersResponse({}));
   }
 
   /**
@@ -28871,7 +32250,7 @@ export default class Client extends OpenApi {
    * @returns GetTemplateRecommendParametersResponse
    */
   async getTemplateRecommendParameters(request: GetTemplateRecommendParametersRequest): Promise<GetTemplateRecommendParametersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getTemplateRecommendParametersWithOptions(request, runtime);
   }
 
@@ -28885,25 +32264,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTemplateScratchResponse
    */
-  async getTemplateScratchWithOptions(request: GetTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateScratchResponse> {
-    Util.validateModel(request);
+  async getTemplateScratchWithOptions(request: GetTemplateScratchRequest, runtime: $dara.RuntimeOptions): Promise<GetTemplateScratchResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.showDataOption)) {
+    if (!$dara.isNull(request.showDataOption)) {
       query["ShowDataOption"] = request.showDataOption;
     }
 
-    if (!Util.isUnset(request.templateScratchId)) {
+    if (!$dara.isNull(request.templateScratchId)) {
       query["TemplateScratchId"] = request.templateScratchId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTemplateScratch",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28914,7 +32293,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetTemplateScratchResponse>(await this.callApi(params, req, runtime), new GetTemplateScratchResponse({}));
+    return $dara.cast<GetTemplateScratchResponse>(await this.callApi(params, req, runtime), new GetTemplateScratchResponse({}));
   }
 
   /**
@@ -28927,7 +32306,7 @@ export default class Client extends OpenApi {
    * @returns GetTemplateScratchResponse
    */
   async getTemplateScratch(request: GetTemplateScratchRequest): Promise<GetTemplateScratchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getTemplateScratchWithOptions(request, runtime);
   }
 
@@ -28938,53 +32317,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTemplateSummaryResponse
    */
-  async getTemplateSummaryWithOptions(request: GetTemplateSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateSummaryResponse> {
-    Util.validateModel(request);
+  async getTemplateSummaryWithOptions(request: GetTemplateSummaryRequest, runtime: $dara.RuntimeOptions): Promise<GetTemplateSummaryResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.changeSetId)) {
+    if (!$dara.isNull(request.changeSetId)) {
       query["ChangeSetId"] = request.changeSetId;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       query["TemplateBody"] = request.templateBody;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTemplateSummary",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -28995,7 +32374,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetTemplateSummaryResponse>(await this.callApi(params, req, runtime), new GetTemplateSummaryResponse({}));
+    return $dara.cast<GetTemplateSummaryResponse>(await this.callApi(params, req, runtime), new GetTemplateSummaryResponse({}));
   }
 
   /**
@@ -29005,64 +32384,66 @@ export default class Client extends OpenApi {
    * @returns GetTemplateSummaryResponse
    */
   async getTemplateSummary(request: GetTemplateSummaryRequest): Promise<GetTemplateSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getTemplateSummaryWithOptions(request, runtime);
   }
 
   /**
+   * Import stacks from multiple different accounts into a stack group.
+   * 
    * @param tmpReq - ImportStacksToStackGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ImportStacksToStackGroupResponse
    */
-  async importStacksToStackGroupWithOptions(tmpReq: ImportStacksToStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<ImportStacksToStackGroupResponse> {
-    Util.validateModel(tmpReq);
+  async importStacksToStackGroupWithOptions(tmpReq: ImportStacksToStackGroupRequest, runtime: $dara.RuntimeOptions): Promise<ImportStacksToStackGroupResponse> {
+    tmpReq.validate();
     let request = new ImportStacksToStackGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.operationPreferences)) {
+    if (!$dara.isNull(tmpReq.operationPreferences)) {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
-    if (!Util.isUnset(tmpReq.resourceDirectoryFolderIds)) {
+    if (!$dara.isNull(tmpReq.resourceDirectoryFolderIds)) {
       request.resourceDirectoryFolderIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceDirectoryFolderIds, "ResourceDirectoryFolderIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.stackArns)) {
+    if (!$dara.isNull(tmpReq.stackArns)) {
       request.stackArnsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stackArns, "StackArns", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.operationDescription)) {
+    if (!$dara.isNull(request.operationDescription)) {
       query["OperationDescription"] = request.operationDescription;
     }
 
-    if (!Util.isUnset(request.operationPreferencesShrink)) {
+    if (!$dara.isNull(request.operationPreferencesShrink)) {
       query["OperationPreferences"] = request.operationPreferencesShrink;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceDirectoryFolderIdsShrink)) {
+    if (!$dara.isNull(request.resourceDirectoryFolderIdsShrink)) {
       query["ResourceDirectoryFolderIds"] = request.resourceDirectoryFolderIdsShrink;
     }
 
-    if (!Util.isUnset(request.stackArnsShrink)) {
+    if (!$dara.isNull(request.stackArnsShrink)) {
       query["StackArns"] = request.stackArnsShrink;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ImportStacksToStackGroup",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29073,15 +32454,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ImportStacksToStackGroupResponse>(await this.callApi(params, req, runtime), new ImportStacksToStackGroupResponse({}));
+    return $dara.cast<ImportStacksToStackGroupResponse>(await this.callApi(params, req, runtime), new ImportStacksToStackGroupResponse({}));
   }
 
   /**
+   * Import stacks from multiple different accounts into a stack group.
+   * 
    * @param request - ImportStacksToStackGroupRequest
    * @returns ImportStacksToStackGroupResponse
    */
   async importStacksToStackGroup(request: ImportStacksToStackGroupRequest): Promise<ImportStacksToStackGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.importStacksToStackGroupWithOptions(request, runtime);
   }
 
@@ -29092,25 +32475,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAITaskEventsResponse
    */
-  async listAITaskEventsWithOptions(request: ListAITaskEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListAITaskEventsResponse> {
-    Util.validateModel(request);
+  async listAITaskEventsWithOptions(request: ListAITaskEventsRequest, runtime: $dara.RuntimeOptions): Promise<ListAITaskEventsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAITaskEvents",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29121,7 +32504,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAITaskEventsResponse>(await this.callApi(params, req, runtime), new ListAITaskEventsResponse({}));
+    return $dara.cast<ListAITaskEventsResponse>(await this.callApi(params, req, runtime), new ListAITaskEventsResponse({}));
   }
 
   /**
@@ -29131,7 +32514,7 @@ export default class Client extends OpenApi {
    * @returns ListAITaskEventsResponse
    */
   async listAITaskEvents(request: ListAITaskEventsRequest): Promise<ListAITaskEventsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAITaskEventsWithOptions(request, runtime);
   }
 
@@ -29142,29 +32525,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAITasksResponse
    */
-  async listAITasksWithOptions(request: ListAITasksRequest, runtime: $Util.RuntimeOptions): Promise<ListAITasksResponse> {
-    Util.validateModel(request);
+  async listAITasksWithOptions(request: ListAITasksRequest, runtime: $dara.RuntimeOptions): Promise<ListAITasksResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.taskType)) {
+    if (!$dara.isNull(request.taskType)) {
       query["TaskType"] = request.taskType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAITasks",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29175,7 +32558,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAITasksResponse>(await this.callApi(params, req, runtime), new ListAITasksResponse({}));
+    return $dara.cast<ListAITasksResponse>(await this.callApi(params, req, runtime), new ListAITasksResponse({}));
   }
 
   /**
@@ -29185,7 +32568,7 @@ export default class Client extends OpenApi {
    * @returns ListAITasksResponse
    */
   async listAITasks(request: ListAITasksRequest): Promise<ListAITasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAITasksWithOptions(request, runtime);
   }
 
@@ -29196,45 +32579,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListChangeSetsResponse
    */
-  async listChangeSetsWithOptions(request: ListChangeSetsRequest, runtime: $Util.RuntimeOptions): Promise<ListChangeSetsResponse> {
-    Util.validateModel(request);
+  async listChangeSetsWithOptions(request: ListChangeSetsRequest, runtime: $dara.RuntimeOptions): Promise<ListChangeSetsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.changeSetId)) {
+    if (!$dara.isNull(request.changeSetId)) {
       query["ChangeSetId"] = request.changeSetId;
     }
 
-    if (!Util.isUnset(request.changeSetName)) {
+    if (!$dara.isNull(request.changeSetName)) {
       query["ChangeSetName"] = request.changeSetName;
     }
 
-    if (!Util.isUnset(request.executionStatus)) {
+    if (!$dara.isNull(request.executionStatus)) {
       query["ExecutionStatus"] = request.executionStatus;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListChangeSets",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29245,7 +32628,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListChangeSetsResponse>(await this.callApi(params, req, runtime), new ListChangeSetsResponse({}));
+    return $dara.cast<ListChangeSetsResponse>(await this.callApi(params, req, runtime), new ListChangeSetsResponse({}));
   }
 
   /**
@@ -29255,7 +32638,7 @@ export default class Client extends OpenApi {
    * @returns ListChangeSetsResponse
    */
   async listChangeSets(request: ListChangeSetsRequest): Promise<ListChangeSetsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listChangeSetsWithOptions(request, runtime);
   }
 
@@ -29266,33 +32649,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDiagnosticsResponse
    */
-  async listDiagnosticsWithOptions(request: ListDiagnosticsRequest, runtime: $Util.RuntimeOptions): Promise<ListDiagnosticsResponse> {
-    Util.validateModel(request);
+  async listDiagnosticsWithOptions(request: ListDiagnosticsRequest, runtime: $dara.RuntimeOptions): Promise<ListDiagnosticsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.diagnosticKey)) {
+    if (!$dara.isNull(request.diagnosticKey)) {
       query["DiagnosticKey"] = request.diagnosticKey;
     }
 
-    if (!Util.isUnset(request.diagnosticProduct)) {
+    if (!$dara.isNull(request.diagnosticProduct)) {
       query["DiagnosticProduct"] = request.diagnosticProduct;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDiagnostics",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29303,7 +32686,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDiagnosticsResponse>(await this.callApi(params, req, runtime), new ListDiagnosticsResponse({}));
+    return $dara.cast<ListDiagnosticsResponse>(await this.callApi(params, req, runtime), new ListDiagnosticsResponse({}));
   }
 
   /**
@@ -29313,7 +32696,7 @@ export default class Client extends OpenApi {
    * @returns ListDiagnosticsResponse
    */
   async listDiagnostics(request: ListDiagnosticsRequest): Promise<ListDiagnosticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDiagnosticsWithOptions(request, runtime);
   }
 
@@ -29324,37 +32707,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListResourceTypeRegistrationsResponse
    */
-  async listResourceTypeRegistrationsWithOptions(request: ListResourceTypeRegistrationsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceTypeRegistrationsResponse> {
-    Util.validateModel(request);
+  async listResourceTypeRegistrationsWithOptions(request: ListResourceTypeRegistrationsRequest, runtime: $dara.RuntimeOptions): Promise<ListResourceTypeRegistrationsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.entityType)) {
+    if (!$dara.isNull(request.entityType)) {
       query["EntityType"] = request.entityType;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.registrationId)) {
+    if (!$dara.isNull(request.registrationId)) {
       query["RegistrationId"] = request.registrationId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListResourceTypeRegistrations",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29365,7 +32748,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListResourceTypeRegistrationsResponse>(await this.callApi(params, req, runtime), new ListResourceTypeRegistrationsResponse({}));
+    return $dara.cast<ListResourceTypeRegistrationsResponse>(await this.callApi(params, req, runtime), new ListResourceTypeRegistrationsResponse({}));
   }
 
   /**
@@ -29375,7 +32758,7 @@ export default class Client extends OpenApi {
    * @returns ListResourceTypeRegistrationsResponse
    */
   async listResourceTypeRegistrations(request: ListResourceTypeRegistrationsRequest): Promise<ListResourceTypeRegistrationsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listResourceTypeRegistrationsWithOptions(request, runtime);
   }
 
@@ -29386,17 +32769,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListResourceTypeVersionsResponse
    */
-  async listResourceTypeVersionsWithOptions(request: ListResourceTypeVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceTypeVersionsResponse> {
-    Util.validateModel(request);
+  async listResourceTypeVersionsWithOptions(request: ListResourceTypeVersionsRequest, runtime: $dara.RuntimeOptions): Promise<ListResourceTypeVersionsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListResourceTypeVersions",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29407,7 +32790,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListResourceTypeVersionsResponse>(await this.callApi(params, req, runtime), new ListResourceTypeVersionsResponse({}));
+    return $dara.cast<ListResourceTypeVersionsResponse>(await this.callApi(params, req, runtime), new ListResourceTypeVersionsResponse({}));
   }
 
   /**
@@ -29417,7 +32800,7 @@ export default class Client extends OpenApi {
    * @returns ListResourceTypeVersionsResponse
    */
   async listResourceTypeVersions(request: ListResourceTypeVersionsRequest): Promise<ListResourceTypeVersionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listResourceTypeVersionsWithOptions(request, runtime);
   }
 
@@ -29431,25 +32814,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListResourceTypesResponse
    */
-  async listResourceTypesWithOptions(request: ListResourceTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceTypesResponse> {
-    Util.validateModel(request);
+  async listResourceTypesWithOptions(request: ListResourceTypesRequest, runtime: $dara.RuntimeOptions): Promise<ListResourceTypesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.entityType)) {
+    if (!$dara.isNull(request.entityType)) {
       query["EntityType"] = request.entityType;
     }
 
-    if (!Util.isUnset(request.provider)) {
+    if (!$dara.isNull(request.provider)) {
       query["Provider"] = request.provider;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListResourceTypes",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29460,7 +32843,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListResourceTypesResponse>(await this.callApi(params, req, runtime), new ListResourceTypesResponse({}));
+    return $dara.cast<ListResourceTypesResponse>(await this.callApi(params, req, runtime), new ListResourceTypesResponse({}));
   }
 
   /**
@@ -29473,7 +32856,7 @@ export default class Client extends OpenApi {
    * @returns ListResourceTypesResponse
    */
   async listResourceTypes(request: ListResourceTypesRequest): Promise<ListResourceTypesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listResourceTypesWithOptions(request, runtime);
   }
 
@@ -29484,41 +32867,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListStackEventsResponse
    */
-  async listStackEventsWithOptions(request: ListStackEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackEventsResponse> {
-    Util.validateModel(request);
+  async listStackEventsWithOptions(request: ListStackEventsRequest, runtime: $dara.RuntimeOptions): Promise<ListStackEventsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.logicalResourceId)) {
+    if (!$dara.isNull(request.logicalResourceId)) {
       query["LogicalResourceId"] = request.logicalResourceId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListStackEvents",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29529,7 +32912,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListStackEventsResponse>(await this.callApi(params, req, runtime), new ListStackEventsResponse({}));
+    return $dara.cast<ListStackEventsResponse>(await this.callApi(params, req, runtime), new ListStackEventsResponse({}));
   }
 
   /**
@@ -29539,7 +32922,7 @@ export default class Client extends OpenApi {
    * @returns ListStackEventsResponse
    */
   async listStackEvents(request: ListStackEventsRequest): Promise<ListStackEventsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listStackEventsWithOptions(request, runtime);
   }
 
@@ -29553,29 +32936,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListStackGroupOperationResultsResponse
    */
-  async listStackGroupOperationResultsWithOptions(request: ListStackGroupOperationResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackGroupOperationResultsResponse> {
-    Util.validateModel(request);
+  async listStackGroupOperationResultsWithOptions(request: ListStackGroupOperationResultsRequest, runtime: $dara.RuntimeOptions): Promise<ListStackGroupOperationResultsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.operationId)) {
+    if (!$dara.isNull(request.operationId)) {
       query["OperationId"] = request.operationId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListStackGroupOperationResults",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29586,7 +32969,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListStackGroupOperationResultsResponse>(await this.callApi(params, req, runtime), new ListStackGroupOperationResultsResponse({}));
+    return $dara.cast<ListStackGroupOperationResultsResponse>(await this.callApi(params, req, runtime), new ListStackGroupOperationResultsResponse({}));
   }
 
   /**
@@ -29599,7 +32982,7 @@ export default class Client extends OpenApi {
    * @returns ListStackGroupOperationResultsResponse
    */
   async listStackGroupOperationResults(request: ListStackGroupOperationResultsRequest): Promise<ListStackGroupOperationResultsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listStackGroupOperationResultsWithOptions(request, runtime);
   }
 
@@ -29610,29 +32993,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListStackGroupOperationsResponse
    */
-  async listStackGroupOperationsWithOptions(request: ListStackGroupOperationsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackGroupOperationsResponse> {
-    Util.validateModel(request);
+  async listStackGroupOperationsWithOptions(request: ListStackGroupOperationsRequest, runtime: $dara.RuntimeOptions): Promise<ListStackGroupOperationsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListStackGroupOperations",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29643,7 +33026,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListStackGroupOperationsResponse>(await this.callApi(params, req, runtime), new ListStackGroupOperationsResponse({}));
+    return $dara.cast<ListStackGroupOperationsResponse>(await this.callApi(params, req, runtime), new ListStackGroupOperationsResponse({}));
   }
 
   /**
@@ -29653,7 +33036,7 @@ export default class Client extends OpenApi {
    * @returns ListStackGroupOperationsResponse
    */
   async listStackGroupOperations(request: ListStackGroupOperationsRequest): Promise<ListStackGroupOperationsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listStackGroupOperationsWithOptions(request, runtime);
   }
 
@@ -29667,37 +33050,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListStackGroupsResponse
    */
-  async listStackGroupsWithOptions(request: ListStackGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackGroupsResponse> {
-    Util.validateModel(request);
+  async listStackGroupsWithOptions(request: ListStackGroupsRequest, runtime: $dara.RuntimeOptions): Promise<ListStackGroupsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       query["Tags"] = request.tags;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListStackGroups",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29708,7 +33091,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListStackGroupsResponse>(await this.callApi(params, req, runtime), new ListStackGroupsResponse({}));
+    return $dara.cast<ListStackGroupsResponse>(await this.callApi(params, req, runtime), new ListStackGroupsResponse({}));
   }
 
   /**
@@ -29721,7 +33104,7 @@ export default class Client extends OpenApi {
    * @returns ListStackGroupsResponse
    */
   async listStackGroups(request: ListStackGroupsRequest): Promise<ListStackGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listStackGroupsWithOptions(request, runtime);
   }
 
@@ -29735,37 +33118,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListStackInstancesResponse
    */
-  async listStackInstancesWithOptions(request: ListStackInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListStackInstancesResponse> {
-    Util.validateModel(request);
+  async listStackInstancesWithOptions(request: ListStackInstancesRequest, runtime: $dara.RuntimeOptions): Promise<ListStackInstancesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    if (!Util.isUnset(request.stackInstanceAccountId)) {
+    if (!$dara.isNull(request.stackInstanceAccountId)) {
       query["StackInstanceAccountId"] = request.stackInstanceAccountId;
     }
 
-    if (!Util.isUnset(request.stackInstanceRegionId)) {
+    if (!$dara.isNull(request.stackInstanceRegionId)) {
       query["StackInstanceRegionId"] = request.stackInstanceRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListStackInstances",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29776,7 +33159,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListStackInstancesResponse>(await this.callApi(params, req, runtime), new ListStackInstancesResponse({}));
+    return $dara.cast<ListStackInstancesResponse>(await this.callApi(params, req, runtime), new ListStackInstancesResponse({}));
   }
 
   /**
@@ -29789,7 +33172,7 @@ export default class Client extends OpenApi {
    * @returns ListStackInstancesResponse
    */
   async listStackInstances(request: ListStackInstancesRequest): Promise<ListStackInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listStackInstancesWithOptions(request, runtime);
   }
 
@@ -29805,59 +33188,59 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListStackOperationRisksResponse
    */
-  async listStackOperationRisksWithOptions(request: ListStackOperationRisksRequest, runtime: $Util.RuntimeOptions): Promise<ListStackOperationRisksResponse> {
-    Util.validateModel(request);
+  async listStackOperationRisksWithOptions(request: ListStackOperationRisksRequest, runtime: $dara.RuntimeOptions): Promise<ListStackOperationRisksResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.operationType)) {
+    if (!$dara.isNull(request.operationType)) {
       query["OperationType"] = request.operationType;
     }
 
-    if (!Util.isUnset(request.ramRoleName)) {
+    if (!$dara.isNull(request.ramRoleName)) {
       query["RamRoleName"] = request.ramRoleName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.retainAllResources)) {
+    if (!$dara.isNull(request.retainAllResources)) {
       query["RetainAllResources"] = request.retainAllResources;
     }
 
-    if (!Util.isUnset(request.retainResources)) {
+    if (!$dara.isNull(request.retainResources)) {
       query["RetainResources"] = request.retainResources;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListStackOperationRisks",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29868,7 +33251,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListStackOperationRisksResponse>(await this.callApi(params, req, runtime), new ListStackOperationRisksResponse({}));
+    return $dara.cast<ListStackOperationRisksResponse>(await this.callApi(params, req, runtime), new ListStackOperationRisksResponse({}));
   }
 
   /**
@@ -29883,7 +33266,7 @@ export default class Client extends OpenApi {
    * @returns ListStackOperationRisksResponse
    */
   async listStackOperationRisks(request: ListStackOperationRisksRequest): Promise<ListStackOperationRisksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listStackOperationRisksWithOptions(request, runtime);
   }
 
@@ -29894,33 +33277,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListStackResourceDriftsResponse
    */
-  async listStackResourceDriftsWithOptions(request: ListStackResourceDriftsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackResourceDriftsResponse> {
-    Util.validateModel(request);
+  async listStackResourceDriftsWithOptions(request: ListStackResourceDriftsRequest, runtime: $dara.RuntimeOptions): Promise<ListStackResourceDriftsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceDriftStatus)) {
+    if (!$dara.isNull(request.resourceDriftStatus)) {
       query["ResourceDriftStatus"] = request.resourceDriftStatus;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListStackResourceDrifts",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29931,7 +33314,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListStackResourceDriftsResponse>(await this.callApi(params, req, runtime), new ListStackResourceDriftsResponse({}));
+    return $dara.cast<ListStackResourceDriftsResponse>(await this.callApi(params, req, runtime), new ListStackResourceDriftsResponse({}));
   }
 
   /**
@@ -29941,7 +33324,7 @@ export default class Client extends OpenApi {
    * @returns ListStackResourceDriftsResponse
    */
   async listStackResourceDrifts(request: ListStackResourceDriftsRequest): Promise<ListStackResourceDriftsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listStackResourceDriftsWithOptions(request, runtime);
   }
 
@@ -29955,21 +33338,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListStackResourcesResponse
    */
-  async listStackResourcesWithOptions(request: ListStackResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListStackResourcesResponse> {
-    Util.validateModel(request);
+  async listStackResourcesWithOptions(request: ListStackResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListStackResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListStackResources",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -29980,7 +33363,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListStackResourcesResponse>(await this.callApi(params, req, runtime), new ListStackResourcesResponse({}));
+    return $dara.cast<ListStackResourcesResponse>(await this.callApi(params, req, runtime), new ListStackResourcesResponse({}));
   }
 
   /**
@@ -29993,7 +33376,7 @@ export default class Client extends OpenApi {
    * @returns ListStackResourcesResponse
    */
   async listStackResources(request: ListStackResourcesRequest): Promise<ListStackResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listStackResourcesWithOptions(request, runtime);
   }
 
@@ -30008,65 +33391,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListStacksResponse
    */
-  async listStacksWithOptions(request: ListStacksRequest, runtime: $Util.RuntimeOptions): Promise<ListStacksResponse> {
-    Util.validateModel(request);
+  async listStacksWithOptions(request: ListStacksRequest, runtime: $dara.RuntimeOptions): Promise<ListStacksResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.parentStackId)) {
+    if (!$dara.isNull(request.parentStackId)) {
       query["ParentStackId"] = request.parentStackId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.showNestedStack)) {
+    if (!$dara.isNull(request.showNestedStack)) {
       query["ShowNestedStack"] = request.showNestedStack;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.stackIds)) {
+    if (!$dara.isNull(request.stackIds)) {
       query["StackIds"] = request.stackIds;
     }
 
-    if (!Util.isUnset(request.stackName)) {
+    if (!$dara.isNull(request.stackName)) {
       query["StackName"] = request.stackName;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListStacks",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30077,7 +33460,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListStacksResponse>(await this.callApi(params, req, runtime), new ListStacksResponse({}));
+    return $dara.cast<ListStacksResponse>(await this.callApi(params, req, runtime), new ListStacksResponse({}));
   }
 
   /**
@@ -30091,7 +33474,7 @@ export default class Client extends OpenApi {
    * @returns ListStacksResponse
    */
   async listStacks(request: ListStacksRequest): Promise<ListStacksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listStacksWithOptions(request, runtime);
   }
 
@@ -30105,25 +33488,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagKeysResponse
    */
-  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
-    Util.validateModel(request);
+  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $dara.RuntimeOptions): Promise<ListTagKeysResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagKeys",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30134,7 +33517,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+    return $dara.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
   }
 
   /**
@@ -30147,7 +33530,7 @@ export default class Client extends OpenApi {
    * @returns ListTagKeysResponse
    */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
   }
 
@@ -30164,33 +33547,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30201,7 +33584,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   /**
@@ -30217,7 +33600,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
@@ -30231,29 +33614,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagValuesResponse
    */
-  async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
-    Util.validateModel(request);
+  async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagValuesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.key)) {
+    if (!$dara.isNull(request.key)) {
       query["Key"] = request.key;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagValues",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30264,7 +33647,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
+    return $dara.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
   }
 
   /**
@@ -30277,7 +33660,7 @@ export default class Client extends OpenApi {
    * @returns ListTagValuesResponse
    */
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
   }
 
@@ -30291,45 +33674,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTemplateScratchesResponse
    */
-  async listTemplateScratchesWithOptions(request: ListTemplateScratchesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplateScratchesResponse> {
-    Util.validateModel(request);
+  async listTemplateScratchesWithOptions(request: ListTemplateScratchesRequest, runtime: $dara.RuntimeOptions): Promise<ListTemplateScratchesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       query["Tags"] = request.tags;
     }
 
-    if (!Util.isUnset(request.templateScratchId)) {
+    if (!$dara.isNull(request.templateScratchId)) {
       query["TemplateScratchId"] = request.templateScratchId;
     }
 
-    if (!Util.isUnset(request.templateScratchType)) {
+    if (!$dara.isNull(request.templateScratchType)) {
       query["TemplateScratchType"] = request.templateScratchType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTemplateScratches",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30340,7 +33723,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTemplateScratchesResponse>(await this.callApi(params, req, runtime), new ListTemplateScratchesResponse({}));
+    return $dara.cast<ListTemplateScratchesResponse>(await this.callApi(params, req, runtime), new ListTemplateScratchesResponse({}));
   }
 
   /**
@@ -30353,7 +33736,7 @@ export default class Client extends OpenApi {
    * @returns ListTemplateScratchesResponse
    */
   async listTemplateScratches(request: ListTemplateScratchesRequest): Promise<ListTemplateScratchesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTemplateScratchesWithOptions(request, runtime);
   }
 
@@ -30364,25 +33747,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTemplateVersionsResponse
    */
-  async listTemplateVersionsWithOptions(request: ListTemplateVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplateVersionsResponse> {
-    Util.validateModel(request);
+  async listTemplateVersionsWithOptions(request: ListTemplateVersionsRequest, runtime: $dara.RuntimeOptions): Promise<ListTemplateVersionsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTemplateVersions",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30393,7 +33776,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTemplateVersionsResponse>(await this.callApi(params, req, runtime), new ListTemplateVersionsResponse({}));
+    return $dara.cast<ListTemplateVersionsResponse>(await this.callApi(params, req, runtime), new ListTemplateVersionsResponse({}));
   }
 
   /**
@@ -30403,7 +33786,7 @@ export default class Client extends OpenApi {
    * @returns ListTemplateVersionsResponse
    */
   async listTemplateVersions(request: ListTemplateVersionsRequest): Promise<ListTemplateVersionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTemplateVersionsWithOptions(request, runtime);
   }
 
@@ -30414,41 +33797,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTemplatesResponse
    */
-  async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
-    Util.validateModel(request);
+  async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<ListTemplatesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.includeTags)) {
+    if (!$dara.isNull(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!$dara.isNull(request.includeTags)) {
       query["IncludeTags"] = request.includeTags;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.shareType)) {
+    if (!$dara.isNull(request.shareType)) {
       query["ShareType"] = request.shareType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTemplates",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30459,7 +33846,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
+    return $dara.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
   }
 
   /**
@@ -30469,7 +33856,7 @@ export default class Client extends OpenApi {
    * @returns ListTemplatesResponse
    */
   async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTemplatesWithOptions(request, runtime);
   }
 
@@ -30483,29 +33870,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns MoveResourceGroupResponse
    */
-  async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
-    Util.validateModel(request);
+  async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<MoveResourceGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.newResourceGroupId)) {
+    if (!$dara.isNull(request.newResourceGroupId)) {
       query["NewResourceGroupId"] = request.newResourceGroupId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "MoveResourceGroup",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30516,7 +33903,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
+    return $dara.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
   /**
@@ -30529,7 +33916,7 @@ export default class Client extends OpenApi {
    * @returns MoveResourceGroupResponse
    */
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
@@ -30543,83 +33930,83 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PreviewStackResponse
    */
-  async previewStackWithOptions(request: PreviewStackRequest, runtime: $Util.RuntimeOptions): Promise<PreviewStackResponse> {
-    Util.validateModel(request);
+  async previewStackWithOptions(request: PreviewStackRequest, runtime: $dara.RuntimeOptions): Promise<PreviewStackResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.disableRollback)) {
+    if (!$dara.isNull(request.disableRollback)) {
       query["DisableRollback"] = request.disableRollback;
     }
 
-    if (!Util.isUnset(request.enablePreConfig)) {
+    if (!$dara.isNull(request.enablePreConfig)) {
       query["EnablePreConfig"] = request.enablePreConfig;
     }
 
-    if (!Util.isUnset(request.parallelism)) {
+    if (!$dara.isNull(request.parallelism)) {
       query["Parallelism"] = request.parallelism;
     }
 
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.stackName)) {
+    if (!$dara.isNull(request.stackName)) {
       query["StackName"] = request.stackName;
     }
 
-    if (!Util.isUnset(request.stackPolicyBody)) {
+    if (!$dara.isNull(request.stackPolicyBody)) {
       query["StackPolicyBody"] = request.stackPolicyBody;
     }
 
-    if (!Util.isUnset(request.stackPolicyURL)) {
+    if (!$dara.isNull(request.stackPolicyURL)) {
       query["StackPolicyURL"] = request.stackPolicyURL;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateScratchId)) {
+    if (!$dara.isNull(request.templateScratchId)) {
       query["TemplateScratchId"] = request.templateScratchId;
     }
 
-    if (!Util.isUnset(request.templateScratchRegionId)) {
+    if (!$dara.isNull(request.templateScratchRegionId)) {
       query["TemplateScratchRegionId"] = request.templateScratchRegionId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
-    if (!Util.isUnset(request.timeoutInMinutes)) {
+    if (!$dara.isNull(request.timeoutInMinutes)) {
       query["TimeoutInMinutes"] = request.timeoutInMinutes;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PreviewStack",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30630,7 +34017,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PreviewStackResponse>(await this.callApi(params, req, runtime), new PreviewStackResponse({}));
+    return $dara.cast<PreviewStackResponse>(await this.callApi(params, req, runtime), new PreviewStackResponse({}));
   }
 
   /**
@@ -30643,7 +34030,7 @@ export default class Client extends OpenApi {
    * @returns PreviewStackResponse
    */
   async previewStack(request: PreviewStackRequest): Promise<PreviewStackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.previewStackWithOptions(request, runtime);
   }
 
@@ -30658,39 +34045,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RegisterResourceTypeResponse
    */
-  async registerResourceTypeWithOptions(request: RegisterResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<RegisterResourceTypeResponse> {
-    Util.validateModel(request);
+  async registerResourceTypeWithOptions(request: RegisterResourceTypeRequest, runtime: $dara.RuntimeOptions): Promise<RegisterResourceTypeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.entityType)) {
+    if (!$dara.isNull(request.entityType)) {
       query["EntityType"] = request.entityType;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RegisterResourceType",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30701,7 +34088,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RegisterResourceTypeResponse>(await this.callApi(params, req, runtime), new RegisterResourceTypeResponse({}));
+    return $dara.cast<RegisterResourceTypeResponse>(await this.callApi(params, req, runtime), new RegisterResourceTypeResponse({}));
   }
 
   /**
@@ -30715,7 +34102,7 @@ export default class Client extends OpenApi {
    * @returns RegisterResourceTypeResponse
    */
   async registerResourceType(request: RegisterResourceTypeRequest): Promise<RegisterResourceTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.registerResourceTypeWithOptions(request, runtime);
   }
 
@@ -30724,25 +34111,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetDeletionProtectionResponse
    */
-  async setDeletionProtectionWithOptions(request: SetDeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<SetDeletionProtectionResponse> {
-    Util.validateModel(request);
+  async setDeletionProtectionWithOptions(request: SetDeletionProtectionRequest, runtime: $dara.RuntimeOptions): Promise<SetDeletionProtectionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.deletionProtection)) {
+    if (!$dara.isNull(request.deletionProtection)) {
       query["DeletionProtection"] = request.deletionProtection;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetDeletionProtection",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30753,7 +34140,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetDeletionProtectionResponse>(await this.callApi(params, req, runtime), new SetDeletionProtectionResponse({}));
+    return $dara.cast<SetDeletionProtectionResponse>(await this.callApi(params, req, runtime), new SetDeletionProtectionResponse({}));
   }
 
   /**
@@ -30761,7 +34148,7 @@ export default class Client extends OpenApi {
    * @returns SetDeletionProtectionResponse
    */
   async setDeletionProtection(request: SetDeletionProtectionRequest): Promise<SetDeletionProtectionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setDeletionProtectionWithOptions(request, runtime);
   }
 
@@ -30772,29 +34159,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetResourceTypeResponse
    */
-  async setResourceTypeWithOptions(request: SetResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<SetResourceTypeResponse> {
-    Util.validateModel(request);
+  async setResourceTypeWithOptions(request: SetResourceTypeRequest, runtime: $dara.RuntimeOptions): Promise<SetResourceTypeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.defaultVersionId)) {
+    if (!$dara.isNull(request.defaultVersionId)) {
       query["DefaultVersionId"] = request.defaultVersionId;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.versionId)) {
+    if (!$dara.isNull(request.versionId)) {
       query["VersionId"] = request.versionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetResourceType",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30805,7 +34192,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetResourceTypeResponse>(await this.callApi(params, req, runtime), new SetResourceTypeResponse({}));
+    return $dara.cast<SetResourceTypeResponse>(await this.callApi(params, req, runtime), new SetResourceTypeResponse({}));
   }
 
   /**
@@ -30815,7 +34202,7 @@ export default class Client extends OpenApi {
    * @returns SetResourceTypeResponse
    */
   async setResourceType(request: SetResourceTypeRequest): Promise<SetResourceTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setResourceTypeWithOptions(request, runtime);
   }
 
@@ -30829,29 +34216,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetStackPolicyResponse
    */
-  async setStackPolicyWithOptions(request: SetStackPolicyRequest, runtime: $Util.RuntimeOptions): Promise<SetStackPolicyResponse> {
-    Util.validateModel(request);
+  async setStackPolicyWithOptions(request: SetStackPolicyRequest, runtime: $dara.RuntimeOptions): Promise<SetStackPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.stackPolicyBody)) {
+    if (!$dara.isNull(request.stackPolicyBody)) {
       query["StackPolicyBody"] = request.stackPolicyBody;
     }
 
-    if (!Util.isUnset(request.stackPolicyURL)) {
+    if (!$dara.isNull(request.stackPolicyURL)) {
       query["StackPolicyURL"] = request.stackPolicyURL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetStackPolicy",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30862,7 +34249,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetStackPolicyResponse>(await this.callApi(params, req, runtime), new SetStackPolicyResponse({}));
+    return $dara.cast<SetStackPolicyResponse>(await this.callApi(params, req, runtime), new SetStackPolicyResponse({}));
   }
 
   /**
@@ -30875,7 +34262,7 @@ export default class Client extends OpenApi {
    * @returns SetStackPolicyResponse
    */
   async setStackPolicy(request: SetStackPolicyRequest): Promise<SetStackPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setStackPolicyWithOptions(request, runtime);
   }
 
@@ -30890,33 +34277,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetTemplatePermissionResponse
    */
-  async setTemplatePermissionWithOptions(request: SetTemplatePermissionRequest, runtime: $Util.RuntimeOptions): Promise<SetTemplatePermissionResponse> {
-    Util.validateModel(request);
+  async setTemplatePermissionWithOptions(request: SetTemplatePermissionRequest, runtime: $dara.RuntimeOptions): Promise<SetTemplatePermissionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountIds)) {
+    if (!$dara.isNull(request.accountIds)) {
       query["AccountIds"] = request.accountIds;
     }
 
-    if (!Util.isUnset(request.shareOption)) {
+    if (!$dara.isNull(request.shareOption)) {
       query["ShareOption"] = request.shareOption;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
-    if (!Util.isUnset(request.versionOption)) {
+    if (!$dara.isNull(request.versionOption)) {
       query["VersionOption"] = request.versionOption;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetTemplatePermission",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30927,7 +34314,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetTemplatePermissionResponse>(await this.callApi(params, req, runtime), new SetTemplatePermissionResponse({}));
+    return $dara.cast<SetTemplatePermissionResponse>(await this.callApi(params, req, runtime), new SetTemplatePermissionResponse({}));
   }
 
   /**
@@ -30941,7 +34328,7 @@ export default class Client extends OpenApi {
    * @returns SetTemplatePermissionResponse
    */
   async setTemplatePermission(request: SetTemplatePermissionRequest): Promise<SetTemplatePermissionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setTemplatePermissionWithOptions(request, runtime);
   }
 
@@ -30952,37 +34339,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SignalResourceResponse
    */
-  async signalResourceWithOptions(request: SignalResourceRequest, runtime: $Util.RuntimeOptions): Promise<SignalResourceResponse> {
-    Util.validateModel(request);
+  async signalResourceWithOptions(request: SignalResourceRequest, runtime: $dara.RuntimeOptions): Promise<SignalResourceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.logicalResourceId)) {
+    if (!$dara.isNull(request.logicalResourceId)) {
       query["LogicalResourceId"] = request.logicalResourceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.uniqueId)) {
+    if (!$dara.isNull(request.uniqueId)) {
       query["UniqueId"] = request.uniqueId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SignalResource",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -30993,7 +34380,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SignalResourceResponse>(await this.callApi(params, req, runtime), new SignalResourceResponse({}));
+    return $dara.cast<SignalResourceResponse>(await this.callApi(params, req, runtime), new SignalResourceResponse({}));
   }
 
   /**
@@ -31003,7 +34390,7 @@ export default class Client extends OpenApi {
    * @returns SignalResourceResponse
    */
   async signalResource(request: SignalResourceRequest): Promise<SignalResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.signalResourceWithOptions(request, runtime);
   }
 
@@ -31017,21 +34404,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopStackGroupOperationResponse
    */
-  async stopStackGroupOperationWithOptions(request: StopStackGroupOperationRequest, runtime: $Util.RuntimeOptions): Promise<StopStackGroupOperationResponse> {
-    Util.validateModel(request);
+  async stopStackGroupOperationWithOptions(request: StopStackGroupOperationRequest, runtime: $dara.RuntimeOptions): Promise<StopStackGroupOperationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.operationId)) {
+    if (!$dara.isNull(request.operationId)) {
       query["OperationId"] = request.operationId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopStackGroupOperation",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -31042,7 +34429,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StopStackGroupOperationResponse>(await this.callApi(params, req, runtime), new StopStackGroupOperationResponse({}));
+    return $dara.cast<StopStackGroupOperationResponse>(await this.callApi(params, req, runtime), new StopStackGroupOperationResponse({}));
   }
 
   /**
@@ -31055,7 +34442,7 @@ export default class Client extends OpenApi {
    * @returns StopStackGroupOperationResponse
    */
   async stopStackGroupOperation(request: StopStackGroupOperationRequest): Promise<StopStackGroupOperationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.stopStackGroupOperationWithOptions(request, runtime);
   }
 
@@ -31069,29 +34456,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -31102,7 +34489,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   /**
@@ -31115,7 +34502,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
@@ -31129,33 +34516,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -31166,7 +34553,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   /**
@@ -31179,7 +34566,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
@@ -31196,103 +34583,103 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateStackResponse
    */
-  async updateStackWithOptions(request: UpdateStackRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStackResponse> {
-    Util.validateModel(request);
+  async updateStackWithOptions(request: UpdateStackRequest, runtime: $dara.RuntimeOptions): Promise<UpdateStackResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.disableRollback)) {
+    if (!$dara.isNull(request.disableRollback)) {
       query["DisableRollback"] = request.disableRollback;
     }
 
-    if (!Util.isUnset(request.dryRun)) {
+    if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!Util.isUnset(request.dryRunOptions)) {
+    if (!$dara.isNull(request.dryRunOptions)) {
       query["DryRunOptions"] = request.dryRunOptions;
     }
 
-    if (!Util.isUnset(request.parallelism)) {
+    if (!$dara.isNull(request.parallelism)) {
       query["Parallelism"] = request.parallelism;
     }
 
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.ramRoleName)) {
+    if (!$dara.isNull(request.ramRoleName)) {
       query["RamRoleName"] = request.ramRoleName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replacementOption)) {
+    if (!$dara.isNull(request.replacementOption)) {
       query["ReplacementOption"] = request.replacementOption;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.stackPolicyBody)) {
+    if (!$dara.isNull(request.stackPolicyBody)) {
       query["StackPolicyBody"] = request.stackPolicyBody;
     }
 
-    if (!Util.isUnset(request.stackPolicyDuringUpdateBody)) {
+    if (!$dara.isNull(request.stackPolicyDuringUpdateBody)) {
       query["StackPolicyDuringUpdateBody"] = request.stackPolicyDuringUpdateBody;
     }
 
-    if (!Util.isUnset(request.stackPolicyDuringUpdateURL)) {
+    if (!$dara.isNull(request.stackPolicyDuringUpdateURL)) {
       query["StackPolicyDuringUpdateURL"] = request.stackPolicyDuringUpdateURL;
     }
 
-    if (!Util.isUnset(request.stackPolicyURL)) {
+    if (!$dara.isNull(request.stackPolicyURL)) {
       query["StackPolicyURL"] = request.stackPolicyURL;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       query["Tags"] = request.tags;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
-    if (!Util.isUnset(request.timeoutInMinutes)) {
+    if (!$dara.isNull(request.timeoutInMinutes)) {
       query["TimeoutInMinutes"] = request.timeoutInMinutes;
     }
 
-    if (!Util.isUnset(request.usePreviousParameters)) {
+    if (!$dara.isNull(request.usePreviousParameters)) {
       query["UsePreviousParameters"] = request.usePreviousParameters;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateStack",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -31303,7 +34690,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateStackResponse>(await this.callApi(params, req, runtime), new UpdateStackResponse({}));
+    return $dara.cast<UpdateStackResponse>(await this.callApi(params, req, runtime), new UpdateStackResponse({}));
   }
 
   /**
@@ -31319,7 +34706,7 @@ export default class Client extends OpenApi {
    * @returns UpdateStackResponse
    */
   async updateStack(request: UpdateStackRequest): Promise<UpdateStackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateStackWithOptions(request, runtime);
   }
 
@@ -31334,117 +34721,117 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateStackGroupResponse
    */
-  async updateStackGroupWithOptions(tmpReq: UpdateStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStackGroupResponse> {
-    Util.validateModel(tmpReq);
+  async updateStackGroupWithOptions(tmpReq: UpdateStackGroupRequest, runtime: $dara.RuntimeOptions): Promise<UpdateStackGroupResponse> {
+    tmpReq.validate();
     let request = new UpdateStackGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.accountIds)) {
+    if (!$dara.isNull(tmpReq.accountIds)) {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.autoDeployment)) {
+    if (!$dara.isNull(tmpReq.autoDeployment)) {
       request.autoDeploymentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.autoDeployment, "AutoDeployment", "json");
     }
 
-    if (!Util.isUnset(tmpReq.deploymentTargets)) {
+    if (!$dara.isNull(tmpReq.deploymentTargets)) {
       request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deploymentTargets, "DeploymentTargets", "json");
     }
 
-    if (!Util.isUnset(tmpReq.operationPreferences)) {
+    if (!$dara.isNull(tmpReq.operationPreferences)) {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
-    if (!Util.isUnset(tmpReq.regionIds)) {
+    if (!$dara.isNull(tmpReq.regionIds)) {
       request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.accountIdsShrink)) {
+    if (!$dara.isNull(request.accountIdsShrink)) {
       query["AccountIds"] = request.accountIdsShrink;
     }
 
-    if (!Util.isUnset(request.administrationRoleName)) {
+    if (!$dara.isNull(request.administrationRoleName)) {
       query["AdministrationRoleName"] = request.administrationRoleName;
     }
 
-    if (!Util.isUnset(request.autoDeploymentShrink)) {
+    if (!$dara.isNull(request.autoDeploymentShrink)) {
       query["AutoDeployment"] = request.autoDeploymentShrink;
     }
 
-    if (!Util.isUnset(request.capabilities)) {
+    if (!$dara.isNull(request.capabilities)) {
       query["Capabilities"] = request.capabilities;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.deploymentOptions)) {
+    if (!$dara.isNull(request.deploymentOptions)) {
       query["DeploymentOptions"] = request.deploymentOptions;
     }
 
-    if (!Util.isUnset(request.deploymentTargetsShrink)) {
+    if (!$dara.isNull(request.deploymentTargetsShrink)) {
       query["DeploymentTargets"] = request.deploymentTargetsShrink;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.executionRoleName)) {
+    if (!$dara.isNull(request.executionRoleName)) {
       query["ExecutionRoleName"] = request.executionRoleName;
     }
 
-    if (!Util.isUnset(request.operationDescription)) {
+    if (!$dara.isNull(request.operationDescription)) {
       query["OperationDescription"] = request.operationDescription;
     }
 
-    if (!Util.isUnset(request.operationPreferencesShrink)) {
+    if (!$dara.isNull(request.operationPreferencesShrink)) {
       query["OperationPreferences"] = request.operationPreferencesShrink;
     }
 
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.permissionModel)) {
+    if (!$dara.isNull(request.permissionModel)) {
       query["PermissionModel"] = request.permissionModel;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.regionIdsShrink)) {
+    if (!$dara.isNull(request.regionIdsShrink)) {
       query["RegionIds"] = request.regionIdsShrink;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.templateVersion)) {
+    if (!$dara.isNull(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateStackGroup",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -31455,7 +34842,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateStackGroupResponse>(await this.callApi(params, req, runtime), new UpdateStackGroupResponse({}));
+    return $dara.cast<UpdateStackGroupResponse>(await this.callApi(params, req, runtime), new UpdateStackGroupResponse({}));
   }
 
   /**
@@ -31469,7 +34856,7 @@ export default class Client extends OpenApi {
    * @returns UpdateStackGroupResponse
    */
   async updateStackGroup(request: UpdateStackGroupRequest): Promise<UpdateStackGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateStackGroupWithOptions(request, runtime);
   }
 
@@ -31483,71 +34870,71 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateStackInstancesResponse
    */
-  async updateStackInstancesWithOptions(tmpReq: UpdateStackInstancesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStackInstancesResponse> {
-    Util.validateModel(tmpReq);
+  async updateStackInstancesWithOptions(tmpReq: UpdateStackInstancesRequest, runtime: $dara.RuntimeOptions): Promise<UpdateStackInstancesResponse> {
+    tmpReq.validate();
     let request = new UpdateStackInstancesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.accountIds)) {
+    if (!$dara.isNull(tmpReq.accountIds)) {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.deploymentTargets)) {
+    if (!$dara.isNull(tmpReq.deploymentTargets)) {
       request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deploymentTargets, "DeploymentTargets", "json");
     }
 
-    if (!Util.isUnset(tmpReq.operationPreferences)) {
+    if (!$dara.isNull(tmpReq.operationPreferences)) {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
-    if (!Util.isUnset(tmpReq.regionIds)) {
+    if (!$dara.isNull(tmpReq.regionIds)) {
       request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.accountIdsShrink)) {
+    if (!$dara.isNull(request.accountIdsShrink)) {
       query["AccountIds"] = request.accountIdsShrink;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.deploymentTargetsShrink)) {
+    if (!$dara.isNull(request.deploymentTargetsShrink)) {
       query["DeploymentTargets"] = request.deploymentTargetsShrink;
     }
 
-    if (!Util.isUnset(request.operationDescription)) {
+    if (!$dara.isNull(request.operationDescription)) {
       query["OperationDescription"] = request.operationDescription;
     }
 
-    if (!Util.isUnset(request.operationPreferencesShrink)) {
+    if (!$dara.isNull(request.operationPreferencesShrink)) {
       query["OperationPreferences"] = request.operationPreferencesShrink;
     }
 
-    if (!Util.isUnset(request.parameterOverrides)) {
+    if (!$dara.isNull(request.parameterOverrides)) {
       query["ParameterOverrides"] = request.parameterOverrides;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.regionIdsShrink)) {
+    if (!$dara.isNull(request.regionIdsShrink)) {
       query["RegionIds"] = request.regionIdsShrink;
     }
 
-    if (!Util.isUnset(request.stackGroupName)) {
+    if (!$dara.isNull(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
 
-    if (!Util.isUnset(request.timeoutInMinutes)) {
+    if (!$dara.isNull(request.timeoutInMinutes)) {
       query["TimeoutInMinutes"] = request.timeoutInMinutes;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateStackInstances",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -31558,7 +34945,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateStackInstancesResponse>(await this.callApi(params, req, runtime), new UpdateStackInstancesResponse({}));
+    return $dara.cast<UpdateStackInstancesResponse>(await this.callApi(params, req, runtime), new UpdateStackInstancesResponse({}));
   }
 
   /**
@@ -31571,7 +34958,7 @@ export default class Client extends OpenApi {
    * @returns UpdateStackInstancesResponse
    */
   async updateStackInstances(request: UpdateStackInstancesRequest): Promise<UpdateStackInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateStackInstancesWithOptions(request, runtime);
   }
 
@@ -31586,37 +34973,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateStackTemplateByResourcesResponse
    */
-  async updateStackTemplateByResourcesWithOptions(request: UpdateStackTemplateByResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStackTemplateByResourcesResponse> {
-    Util.validateModel(request);
+  async updateStackTemplateByResourcesWithOptions(request: UpdateStackTemplateByResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UpdateStackTemplateByResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.dryRun)) {
+    if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!Util.isUnset(request.logicalResourceId)) {
+    if (!$dara.isNull(request.logicalResourceId)) {
       query["LogicalResourceId"] = request.logicalResourceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.stackId)) {
+    if (!$dara.isNull(request.stackId)) {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.templateFormat)) {
+    if (!$dara.isNull(request.templateFormat)) {
       query["TemplateFormat"] = request.templateFormat;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateStackTemplateByResources",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -31627,7 +35014,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateStackTemplateByResourcesResponse>(await this.callApi(params, req, runtime), new UpdateStackTemplateByResourcesResponse({}));
+    return $dara.cast<UpdateStackTemplateByResourcesResponse>(await this.callApi(params, req, runtime), new UpdateStackTemplateByResourcesResponse({}));
   }
 
   /**
@@ -31641,7 +35028,7 @@ export default class Client extends OpenApi {
    * @returns UpdateStackTemplateByResourcesResponse
    */
   async updateStackTemplateByResources(request: UpdateStackTemplateByResourcesRequest): Promise<UpdateStackTemplateByResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateStackTemplateByResourcesWithOptions(request, runtime);
   }
 
@@ -31658,47 +35045,47 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateTemplateResponse
    */
-  async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
-    Util.validateModel(request);
+  async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $dara.RuntimeOptions): Promise<UpdateTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.isDraft)) {
+    if (!$dara.isNull(request.isDraft)) {
       query["IsDraft"] = request.isDraft;
     }
 
-    if (!Util.isUnset(request.rotateStrategy)) {
+    if (!$dara.isNull(request.rotateStrategy)) {
       query["RotateStrategy"] = request.rotateStrategy;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.validationOptions)) {
+    if (!$dara.isNull(request.validationOptions)) {
       query["ValidationOptions"] = request.validationOptions;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateTemplate",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -31709,7 +35096,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
+    return $dara.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
   }
 
   /**
@@ -31725,7 +35112,7 @@ export default class Client extends OpenApi {
    * @returns UpdateTemplateResponse
    */
   async updateTemplate(request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTemplateWithOptions(request, runtime);
   }
 
@@ -31750,75 +35137,75 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateTemplateScratchResponse
    */
-  async updateTemplateScratchWithOptions(tmpReq: UpdateTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateScratchResponse> {
-    Util.validateModel(tmpReq);
+  async updateTemplateScratchWithOptions(tmpReq: UpdateTemplateScratchRequest, runtime: $dara.RuntimeOptions): Promise<UpdateTemplateScratchResponse> {
+    tmpReq.validate();
     let request = new UpdateTemplateScratchShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.preferenceParameters)) {
+    if (!$dara.isNull(tmpReq.preferenceParameters)) {
       request.preferenceParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.preferenceParameters, "PreferenceParameters", "json");
     }
 
-    if (!Util.isUnset(tmpReq.sourceResourceGroup)) {
+    if (!$dara.isNull(tmpReq.sourceResourceGroup)) {
       request.sourceResourceGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceResourceGroup, "SourceResourceGroup", "json");
     }
 
-    if (!Util.isUnset(tmpReq.sourceResources)) {
+    if (!$dara.isNull(tmpReq.sourceResources)) {
       request.sourceResourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceResources, "SourceResources", "json");
     }
 
-    if (!Util.isUnset(tmpReq.sourceTag)) {
+    if (!$dara.isNull(tmpReq.sourceTag)) {
       request.sourceTagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceTag, "SourceTag", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.executionMode)) {
+    if (!$dara.isNull(request.executionMode)) {
       query["ExecutionMode"] = request.executionMode;
     }
 
-    if (!Util.isUnset(request.logicalIdStrategy)) {
+    if (!$dara.isNull(request.logicalIdStrategy)) {
       query["LogicalIdStrategy"] = request.logicalIdStrategy;
     }
 
-    if (!Util.isUnset(request.preferenceParametersShrink)) {
+    if (!$dara.isNull(request.preferenceParametersShrink)) {
       query["PreferenceParameters"] = request.preferenceParametersShrink;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.sourceResourceGroupShrink)) {
+    if (!$dara.isNull(request.sourceResourceGroupShrink)) {
       query["SourceResourceGroup"] = request.sourceResourceGroupShrink;
     }
 
-    if (!Util.isUnset(request.sourceResourcesShrink)) {
+    if (!$dara.isNull(request.sourceResourcesShrink)) {
       query["SourceResources"] = request.sourceResourcesShrink;
     }
 
-    if (!Util.isUnset(request.sourceTagShrink)) {
+    if (!$dara.isNull(request.sourceTagShrink)) {
       query["SourceTag"] = request.sourceTagShrink;
     }
 
-    if (!Util.isUnset(request.templateScratchId)) {
+    if (!$dara.isNull(request.templateScratchId)) {
       query["TemplateScratchId"] = request.templateScratchId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateTemplateScratch",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -31829,7 +35216,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateTemplateScratchResponse>(await this.callApi(params, req, runtime), new UpdateTemplateScratchResponse({}));
+    return $dara.cast<UpdateTemplateScratchResponse>(await this.callApi(params, req, runtime), new UpdateTemplateScratchResponse({}));
   }
 
   /**
@@ -31853,7 +35240,7 @@ export default class Client extends OpenApi {
    * @returns UpdateTemplateScratchResponse
    */
   async updateTemplateScratch(request: UpdateTemplateScratchRequest): Promise<UpdateTemplateScratchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTemplateScratchWithOptions(request, runtime);
   }
 
@@ -31867,39 +35254,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ValidateTemplateResponse
    */
-  async validateTemplateWithOptions(request: ValidateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ValidateTemplateResponse> {
-    Util.validateModel(request);
+  async validateTemplateWithOptions(request: ValidateTemplateRequest, runtime: $dara.RuntimeOptions): Promise<ValidateTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.templateURL)) {
+    if (!$dara.isNull(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
 
-    if (!Util.isUnset(request.updateInfoOptions)) {
+    if (!$dara.isNull(request.updateInfoOptions)) {
       query["UpdateInfoOptions"] = request.updateInfoOptions;
     }
 
-    if (!Util.isUnset(request.validationOption)) {
+    if (!$dara.isNull(request.validationOption)) {
       query["ValidationOption"] = request.validationOption;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateBody)) {
+    if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ValidateTemplate",
       version: "2019-09-10",
       protocol: "HTTPS",
@@ -31910,7 +35297,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ValidateTemplateResponse>(await this.callApi(params, req, runtime), new ValidateTemplateResponse({}));
+    return $dara.cast<ValidateTemplateResponse>(await this.callApi(params, req, runtime), new ValidateTemplateResponse({}));
   }
 
   /**
@@ -31923,7 +35310,7 @@ export default class Client extends OpenApi {
    * @returns ValidateTemplateResponse
    */
   async validateTemplate(request: ValidateTemplateRequest): Promise<ValidateTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.validateTemplateWithOptions(request, runtime);
   }
 
