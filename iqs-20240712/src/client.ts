@@ -1,1241 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class AgentBaseQuery extends $tea.Model {
-  query?: string;
-  static names(): { [key: string]: string } {
-    return {
-      query: 'query',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      query: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CommonAgentQuery extends $tea.Model {
-  query?: string;
-  querySceneEnumCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      query: 'query',
-      querySceneEnumCode: 'querySceneEnumCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      query: 'string',
-      querySceneEnumCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryResult extends $tea.Model {
-  data?: QueryResultData[];
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': QueryResultData },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BicyclingDirectionNovaRequest extends $tea.Model {
-  /**
-   * @example
-   * 39.995197
-   */
-  destinationLatitude?: string;
-  /**
-   * @example
-   * 116.46424
-   */
-  destinationLongitude?: string;
-  /**
-   * @example
-   * 39.995197
-   */
-  originLatitude?: string;
-  /**
-   * @example
-   * 117.466485
-   */
-  originLongitude?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destinationLatitude: 'destinationLatitude',
-      destinationLongitude: 'destinationLongitude',
-      originLatitude: 'originLatitude',
-      originLongitude: 'originLongitude',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destinationLatitude: 'string',
-      destinationLongitude: 'string',
-      originLatitude: 'string',
-      originLongitude: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BicyclingDirectionNovaResponseBody extends $tea.Model {
-  data?: BicyclingDirectionNovaResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * <title>502 Bad Gateway</title>
-   */
-  errorMessage?: string;
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: BicyclingDirectionNovaResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BicyclingDirectionNovaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BicyclingDirectionNovaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BicyclingDirectionNovaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CommonQueryBySceneRequest extends $tea.Model {
-  body?: CommonAgentQuery;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: CommonAgentQuery,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CommonQueryBySceneResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryResult;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DrivingDirectionNovaRequest extends $tea.Model {
-  carType?: string;
-  /**
-   * @example
-   * 43.345456
-   */
-  destinationLatitude?: string;
-  /**
-   * @example
-   * 116.46424
-   */
-  destinationLongitude?: string;
-  /**
-   * @example
-   * 39.995197
-   */
-  originLatitude?: string;
-  /**
-   * @example
-   * 116.466485
-   */
-  originLongitude?: string;
-  plate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      carType: 'carType',
-      destinationLatitude: 'destinationLatitude',
-      destinationLongitude: 'destinationLongitude',
-      originLatitude: 'originLatitude',
-      originLongitude: 'originLongitude',
-      plate: 'plate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      carType: 'string',
-      destinationLatitude: 'string',
-      destinationLongitude: 'string',
-      originLatitude: 'string',
-      originLongitude: 'string',
-      plate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DrivingDirectionNovaResponseBody extends $tea.Model {
-  data?: DrivingDirectionNovaResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * Access was denied, message: No such namespace namespaces/general-perf-cn-shenzhen-e-default.
-   */
-  errorMessage?: string;
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DrivingDirectionNovaResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DrivingDirectionNovaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DrivingDirectionNovaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DrivingDirectionNovaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ElectrobikeDirectionRequest extends $tea.Model {
-  /**
-   * @example
-   * 39.896463
-   */
-  destinationLatitude?: string;
-  /**
-   * @example
-   * 116.46424
-   */
-  destinationLongitude?: string;
-  /**
-   * @example
-   * 39.995197
-   */
-  originLatitude?: string;
-  /**
-   * @example
-   * 116.466485
-   */
-  originLongitude?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destinationLatitude: 'destinationLatitude',
-      destinationLongitude: 'destinationLongitude',
-      originLatitude: 'originLatitude',
-      originLongitude: 'originLongitude',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destinationLatitude: 'string',
-      destinationLongitude: 'string',
-      originLatitude: 'string',
-      originLongitude: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ElectrobikeDirectionResponseBody extends $tea.Model {
-  data?: ElectrobikeDirectionResponseBodyData[];
-  /**
-   * @example
-   * success
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * Access was denied, message: Unauthorized.
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * ECB2144C-E277-5434-80E6-12D26678D364
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': ElectrobikeDirectionResponseBodyData },
-      errorCode: 'string',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ElectrobikeDirectionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ElectrobikeDirectionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ElectrobikeDirectionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ElectrobikeDirectionNovaRequest extends $tea.Model {
-  /**
-   * @example
-   * 40.234564
-   */
-  destinationLatitude?: string;
-  /**
-   * @example
-   * 116.46424
-   */
-  destinationLongitude?: string;
-  /**
-   * @example
-   * 39.995197
-   */
-  originLatitude?: string;
-  /**
-   * @example
-   * 116.345456
-   */
-  originLongitude?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destinationLatitude: 'destinationLatitude',
-      destinationLongitude: 'destinationLongitude',
-      originLatitude: 'originLatitude',
-      originLongitude: 'originLongitude',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destinationLatitude: 'string',
-      destinationLongitude: 'string',
-      originLatitude: 'string',
-      originLongitude: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ElectrobikeDirectionNovaResponseBody extends $tea.Model {
-  data?: ElectrobikeDirectionNovaResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * <title>502 Bad Gateway</title>
-   */
-  errorMessage?: string;
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ElectrobikeDirectionNovaResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ElectrobikeDirectionNovaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ElectrobikeDirectionNovaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ElectrobikeDirectionNovaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GeoCodeRequest extends $tea.Model {
-  address?: string;
-  city?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'address',
-      city: 'city',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      city: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GeoCodeResponseBody extends $tea.Model {
-  data?: GeoCodeResponseBodyData[];
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * Pop sign mismatch, please check log.
-   */
-  errorMessage?: string;
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': GeoCodeResponseBodyData },
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GeoCodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GeoCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GeoCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class NearbySearchNovaRequest extends $tea.Model {
-  cityLimit?: boolean;
-  keywords?: string;
-  /**
-   * @example
-   * 39.992873
-   */
-  latitude?: string;
-  /**
-   * @example
-   * 116.310918
-   */
-  longitude?: string;
-  /**
-   * @example
-   * 1
-   */
-  page?: number;
-  /**
-   * @example
-   * 3000
-   */
-  radius?: number;
-  /**
-   * @example
-   * 5
-   */
-  size?: number;
-  sortRule?: string;
-  /**
-   * @example
-   * GAS_STATION|RESTAURANT|HOTEL|ATTRACTION
-   */
-  types?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cityLimit: 'cityLimit',
-      keywords: 'keywords',
-      latitude: 'latitude',
-      longitude: 'longitude',
-      page: 'page',
-      radius: 'radius',
-      size: 'size',
-      sortRule: 'sortRule',
-      types: 'types',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cityLimit: 'boolean',
-      keywords: 'string',
-      latitude: 'string',
-      longitude: 'string',
-      page: 'number',
-      radius: 'number',
-      size: 'number',
-      sortRule: 'string',
-      types: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class NearbySearchNovaResponseBody extends $tea.Model {
-  data?: NearbySearchNovaResponseBodyData[];
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * <title>502 Bad Gateway</title>
-   */
-  errorMessage?: string;
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': NearbySearchNovaResponseBodyData },
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class NearbySearchNovaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: NearbySearchNovaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: NearbySearchNovaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PlaceSearchNovaRequest extends $tea.Model {
-  cityLimit?: boolean;
-  keywords?: string;
-  /**
-   * @example
-   * 1
-   */
-  page?: number;
-  region?: string;
-  /**
-   * @example
-   * 5
-   */
-  size?: number;
-  /**
-   * @example
-   * GAS_STATION|RESTAURANT|HOTEL|ATTRACTION
-   */
-  types?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cityLimit: 'cityLimit',
-      keywords: 'keywords',
-      page: 'page',
-      region: 'region',
-      size: 'size',
-      types: 'types',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cityLimit: 'boolean',
-      keywords: 'string',
-      page: 'number',
-      region: 'string',
-      size: 'number',
-      types: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PlaceSearchNovaResponseBody extends $tea.Model {
-  data?: PlaceSearchNovaResponseBodyData[];
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * Access was denied, message: Unauthorized.
-   */
-  errorMessage?: string;
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': PlaceSearchNovaResponseBodyData },
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PlaceSearchNovaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PlaceSearchNovaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PlaceSearchNovaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RgeoCodeRequest extends $tea.Model {
-  /**
-   * @example
-   * 39.989027
-   */
-  latitude?: string;
-  /**
-   * @example
-   * 116.310918
-   */
-  longitude?: string;
-  static names(): { [key: string]: string } {
-    return {
-      latitude: 'latitude',
-      longitude: 'longitude',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      latitude: 'string',
-      longitude: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RgeoCodeResponseBody extends $tea.Model {
-  data?: RgeoCodeResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RgeoCodeResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RgeoCodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RgeoCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RgeoCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransitIntegratedDirectionRequest extends $tea.Model {
-  destinationCity?: string;
-  /**
-   * @example
-   * 40.345456
-   */
-  destinationLatitude?: string;
-  /**
-   * @example
-   * 116.46424
-   */
-  destinationLongitude?: string;
-  originCity?: string;
-  /**
-   * @example
-   * 39.995197
-   */
-  originLatitude?: string;
-  /**
-   * @example
-   * 116.466485
-   */
-  originLongitude?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destinationCity: 'destinationCity',
-      destinationLatitude: 'destinationLatitude',
-      destinationLongitude: 'destinationLongitude',
-      originCity: 'originCity',
-      originLatitude: 'originLatitude',
-      originLongitude: 'originLongitude',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destinationCity: 'string',
-      destinationLatitude: 'string',
-      destinationLongitude: 'string',
-      originCity: 'string',
-      originLatitude: 'string',
-      originLongitude: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransitIntegratedDirectionResponseBody extends $tea.Model {
-  data?: TransitIntegratedDirectionResponseBodyData;
-  /**
-   * @example
-   * 400
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * <title>502 Bad Gateway</title>
-   */
-  errorMessage?: string;
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: TransitIntegratedDirectionResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransitIntegratedDirectionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TransitIntegratedDirectionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TransitIntegratedDirectionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WalkingDirectionNovaRequest extends $tea.Model {
-  /**
-   * @example
-   * 40.345456
-   */
-  destinationLatitude?: string;
-  /**
-   * @example
-   * 116.46424
-   */
-  destinationLongitude?: string;
-  /**
-   * @example
-   * 39.995197
-   */
-  originLatitude?: string;
-  /**
-   * @example
-   * 116.466485
-   */
-  originLongitude?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destinationLatitude: 'destinationLatitude',
-      destinationLongitude: 'destinationLongitude',
-      originLatitude: 'originLatitude',
-      originLongitude: 'originLongitude',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destinationLatitude: 'string',
-      destinationLongitude: 'string',
-      originLatitude: 'string',
-      originLongitude: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WalkingDirectionNovaResponseBody extends $tea.Model {
-  data?: WalkingDirectionNovaResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * Access was denied
-   */
-  errorMessage?: string;
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: WalkingDirectionNovaResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WalkingDirectionNovaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: WalkingDirectionNovaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: WalkingDirectionNovaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryResultDataImages extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class QueryResultDataImages extends $dara.Model {
   title?: string;
   url?: string;
   static names(): { [key: string]: string } {
@@ -1252,12 +22,16 @@ export class QueryResultDataImages extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryResultDataMetadata extends $tea.Model {
+export class QueryResultDataMetadata extends $dara.Model {
   businessArea?: string;
   dailyOpeningHours?: string;
   mainTag?: string;
@@ -1286,12 +60,16 @@ export class QueryResultDataMetadata extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryResultData extends $tea.Model {
+export class QueryResultData extends $dara.Model {
   address?: string;
   cityCode?: string;
   cityName?: string;
@@ -1347,12 +125,22 @@ export class QueryResultData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.images)) {
+      $dara.Model.validateArray(this.images);
+    }
+    if(this.metadata && typeof (this.metadata as any).validate === 'function') {
+      (this.metadata as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BicyclingDirectionNovaResponseBodyDataPathsCost extends $tea.Model {
+export class BicyclingDirectionNovaResponseBodyDataPathsCost extends $dara.Model {
   /**
    * @example
    * 39233
@@ -1396,12 +184,16 @@ export class BicyclingDirectionNovaResponseBodyDataPathsCost extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BicyclingDirectionNovaResponseBodyDataPathsStepsCost extends $tea.Model {
+export class BicyclingDirectionNovaResponseBodyDataPathsStepsCost extends $dara.Model {
   /**
    * @example
    * 2000
@@ -1441,12 +233,16 @@ export class BicyclingDirectionNovaResponseBodyDataPathsStepsCost extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BicyclingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
+export class BicyclingDirectionNovaResponseBodyDataPathsSteps extends $dara.Model {
   cost?: BicyclingDirectionNovaResponseBodyDataPathsStepsCost;
   instruction?: string;
   orientation?: string;
@@ -1479,12 +275,19 @@ export class BicyclingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model
     };
   }
 
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BicyclingDirectionNovaResponseBodyDataPaths extends $tea.Model {
+export class BicyclingDirectionNovaResponseBodyDataPaths extends $dara.Model {
   cost?: BicyclingDirectionNovaResponseBodyDataPathsCost;
   /**
    * @example
@@ -1518,12 +321,22 @@ export class BicyclingDirectionNovaResponseBodyDataPaths extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    if(Array.isArray(this.steps)) {
+      $dara.Model.validateArray(this.steps);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BicyclingDirectionNovaResponseBodyData extends $tea.Model {
+export class BicyclingDirectionNovaResponseBodyData extends $dara.Model {
   count?: string;
   /**
    * @example
@@ -1575,12 +388,19 @@ export class BicyclingDirectionNovaResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.paths)) {
+      $dara.Model.validateArray(this.paths);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DrivingDirectionNovaResponseBodyDataPathsCost extends $tea.Model {
+export class DrivingDirectionNovaResponseBodyDataPathsCost extends $dara.Model {
   /**
    * @example
    * 39233
@@ -1628,12 +448,16 @@ export class DrivingDirectionNovaResponseBodyDataPathsCost extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DrivingDirectionNovaResponseBodyDataPathsStepsCost extends $tea.Model {
+export class DrivingDirectionNovaResponseBodyDataPathsStepsCost extends $dara.Model {
   /**
    * @example
    * 1234
@@ -1673,12 +497,16 @@ export class DrivingDirectionNovaResponseBodyDataPathsStepsCost extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DrivingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
+export class DrivingDirectionNovaResponseBodyDataPathsSteps extends $dara.Model {
   cost?: DrivingDirectionNovaResponseBodyDataPathsStepsCost;
   instruction?: string;
   orientation?: string;
@@ -1711,12 +539,19 @@ export class DrivingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DrivingDirectionNovaResponseBodyDataPaths extends $tea.Model {
+export class DrivingDirectionNovaResponseBodyDataPaths extends $dara.Model {
   cost?: DrivingDirectionNovaResponseBodyDataPathsCost;
   /**
    * @example
@@ -1750,12 +585,22 @@ export class DrivingDirectionNovaResponseBodyDataPaths extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    if(Array.isArray(this.steps)) {
+      $dara.Model.validateArray(this.steps);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DrivingDirectionNovaResponseBodyData extends $tea.Model {
+export class DrivingDirectionNovaResponseBodyData extends $dara.Model {
   count?: string;
   /**
    * @example
@@ -1807,57 +652,11 @@ export class DrivingDirectionNovaResponseBodyData extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ElectrobikeDirectionResponseBodyDataStepsCost extends $tea.Model {
-  /**
-   * @example
-   * 2002
-   */
-  durationSecond?: string;
-  taxiFee?: string;
-  /**
-   * @example
-   * 1000
-   */
-  tollDistanceMeter?: string;
-  /**
-   * @example
-   * xxx
-   */
-  tollRoads?: string;
-  tolls?: string;
-  /**
-   * @example
-   * 5
-   */
-  trafficLights?: string;
-  transitFee?: string;
-  static names(): { [key: string]: string } {
-    return {
-      durationSecond: 'durationSecond',
-      taxiFee: 'taxiFee',
-      tollDistanceMeter: 'tollDistanceMeter',
-      tollRoads: 'tollRoads',
-      tolls: 'tolls',
-      trafficLights: 'trafficLights',
-      transitFee: 'transitFee',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      durationSecond: 'string',
-      taxiFee: 'string',
-      tollDistanceMeter: 'string',
-      tollRoads: 'string',
-      tolls: 'string',
-      trafficLights: 'string',
-      transitFee: 'string',
-    };
+  validate() {
+    if(Array.isArray(this.paths)) {
+      $dara.Model.validateArray(this.paths);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -1865,75 +664,7 @@ export class ElectrobikeDirectionResponseBodyDataStepsCost extends $tea.Model {
   }
 }
 
-export class ElectrobikeDirectionResponseBodyDataSteps extends $tea.Model {
-  cost?: ElectrobikeDirectionResponseBodyDataStepsCost;
-  instruction?: string;
-  orientation?: string;
-  roadName?: string;
-  /**
-   * @example
-   * 500
-   */
-  stepDistanceMeter?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cost: 'cost',
-      instruction: 'instruction',
-      orientation: 'orientation',
-      roadName: 'roadName',
-      stepDistanceMeter: 'stepDistanceMeter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cost: ElectrobikeDirectionResponseBodyDataStepsCost,
-      instruction: 'string',
-      orientation: 'string',
-      roadName: 'string',
-      stepDistanceMeter: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ElectrobikeDirectionResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 445
-   */
-  distanceMeter?: string;
-  /**
-   * @example
-   * 2345
-   */
-  durationSecond?: string;
-  steps?: ElectrobikeDirectionResponseBodyDataSteps[];
-  static names(): { [key: string]: string } {
-    return {
-      distanceMeter: 'distanceMeter',
-      durationSecond: 'durationSecond',
-      steps: 'steps',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      distanceMeter: 'string',
-      durationSecond: 'string',
-      steps: { 'type': 'array', 'itemType': ElectrobikeDirectionResponseBodyDataSteps },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ElectrobikeDirectionNovaResponseBodyDataPathsCost extends $tea.Model {
+export class ElectrobikeDirectionNovaResponseBodyDataPathsCost extends $dara.Model {
   /**
    * @example
    * 500
@@ -1981,12 +712,16 @@ export class ElectrobikeDirectionNovaResponseBodyDataPathsCost extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ElectrobikeDirectionNovaResponseBodyDataPathsStepsCost extends $tea.Model {
+export class ElectrobikeDirectionNovaResponseBodyDataPathsStepsCost extends $dara.Model {
   /**
    * @example
    * 2000
@@ -2030,12 +765,16 @@ export class ElectrobikeDirectionNovaResponseBodyDataPathsStepsCost extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ElectrobikeDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
+export class ElectrobikeDirectionNovaResponseBodyDataPathsSteps extends $dara.Model {
   cost?: ElectrobikeDirectionNovaResponseBodyDataPathsStepsCost;
   instruction?: string;
   orientation?: string;
@@ -2068,12 +807,19 @@ export class ElectrobikeDirectionNovaResponseBodyDataPathsSteps extends $tea.Mod
     };
   }
 
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ElectrobikeDirectionNovaResponseBodyDataPaths extends $tea.Model {
+export class ElectrobikeDirectionNovaResponseBodyDataPaths extends $dara.Model {
   cost?: ElectrobikeDirectionNovaResponseBodyDataPathsCost;
   /**
    * @example
@@ -2107,12 +853,22 @@ export class ElectrobikeDirectionNovaResponseBodyDataPaths extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    if(Array.isArray(this.steps)) {
+      $dara.Model.validateArray(this.steps);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ElectrobikeDirectionNovaResponseBodyData extends $tea.Model {
+export class ElectrobikeDirectionNovaResponseBodyData extends $dara.Model {
   count?: string;
   /**
    * @example
@@ -2164,12 +920,19 @@ export class ElectrobikeDirectionNovaResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.paths)) {
+      $dara.Model.validateArray(this.paths);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GeoCodeResponseBodyDataBuilding extends $tea.Model {
+export class GeoCodeResponseBodyDataBuilding extends $dara.Model {
   /**
    * @example
    * timeliness_ms
@@ -2194,12 +957,16 @@ export class GeoCodeResponseBodyDataBuilding extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GeoCodeResponseBodyData extends $tea.Model {
+export class GeoCodeResponseBodyData extends $dara.Model {
   building?: GeoCodeResponseBodyDataBuilding;
   city?: string;
   cityCode?: string;
@@ -2247,12 +1014,19 @@ export class GeoCodeResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.building && typeof (this.building as any).validate === 'function') {
+      (this.building as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class NearbySearchNovaResponseBodyDataImages extends $tea.Model {
+export class NearbySearchNovaResponseBodyDataImages extends $dara.Model {
   /**
    * @example
    * test
@@ -2277,12 +1051,16 @@ export class NearbySearchNovaResponseBodyDataImages extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class NearbySearchNovaResponseBodyDataMetadata extends $tea.Model {
+export class NearbySearchNovaResponseBodyDataMetadata extends $dara.Model {
   /**
    * @example
    * 22.00
@@ -2333,12 +1111,16 @@ export class NearbySearchNovaResponseBodyDataMetadata extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class NearbySearchNovaResponseBodyData extends $tea.Model {
+export class NearbySearchNovaResponseBodyData extends $dara.Model {
   address?: string;
   /**
    * @example
@@ -2425,12 +1207,22 @@ export class NearbySearchNovaResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.images)) {
+      $dara.Model.validateArray(this.images);
+    }
+    if(this.metadata && typeof (this.metadata as any).validate === 'function') {
+      (this.metadata as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PlaceSearchNovaResponseBodyDataImages extends $tea.Model {
+export class PlaceSearchNovaResponseBodyDataImages extends $dara.Model {
   /**
    * @example
    * test
@@ -2455,12 +1247,16 @@ export class PlaceSearchNovaResponseBodyDataImages extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PlaceSearchNovaResponseBodyDataMetadata extends $tea.Model {
+export class PlaceSearchNovaResponseBodyDataMetadata extends $dara.Model {
   /**
    * @example
    * 78
@@ -2507,12 +1303,16 @@ export class PlaceSearchNovaResponseBodyDataMetadata extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PlaceSearchNovaResponseBodyData extends $tea.Model {
+export class PlaceSearchNovaResponseBodyData extends $dara.Model {
   address?: string;
   /**
    * @example
@@ -2607,12 +1407,22 @@ export class PlaceSearchNovaResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.images)) {
+      $dara.Model.validateArray(this.images);
+    }
+    if(this.metadata && typeof (this.metadata as any).validate === 'function') {
+      (this.metadata as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RgeoCodeResponseBodyDataBuilding extends $tea.Model {
+export class RgeoCodeResponseBodyDataBuilding extends $dara.Model {
   name?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -2629,12 +1439,16 @@ export class RgeoCodeResponseBodyDataBuilding extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RgeoCodeResponseBodyDataBusinessAreas extends $tea.Model {
+export class RgeoCodeResponseBodyDataBusinessAreas extends $dara.Model {
   /**
    * @example
    * 110108
@@ -2669,12 +1483,16 @@ export class RgeoCodeResponseBodyDataBusinessAreas extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RgeoCodeResponseBodyDataNeighborhood extends $tea.Model {
+export class RgeoCodeResponseBodyDataNeighborhood extends $dara.Model {
   name?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -2691,12 +1509,16 @@ export class RgeoCodeResponseBodyDataNeighborhood extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RgeoCodeResponseBodyDataStreetNumber extends $tea.Model {
+export class RgeoCodeResponseBodyDataStreetNumber extends $dara.Model {
   direction?: string;
   /**
    * @example
@@ -2737,12 +1559,16 @@ export class RgeoCodeResponseBodyDataStreetNumber extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RgeoCodeResponseBodyData extends $tea.Model {
+export class RgeoCodeResponseBodyData extends $dara.Model {
   building?: RgeoCodeResponseBodyDataBuilding;
   businessAreas?: RgeoCodeResponseBodyDataBusinessAreas[];
   city?: string;
@@ -2804,12 +1630,28 @@ export class RgeoCodeResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.building && typeof (this.building as any).validate === 'function') {
+      (this.building as any).validate();
+    }
+    if(Array.isArray(this.businessAreas)) {
+      $dara.Model.validateArray(this.businessAreas);
+    }
+    if(this.neighborhood && typeof (this.neighborhood as any).validate === 'function') {
+      (this.neighborhood as any).validate();
+    }
+    if(this.streetNumber && typeof (this.streetNumber as any).validate === 'function') {
+      (this.streetNumber as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataCost extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataCost extends $dara.Model {
   /**
    * @example
    * 1231
@@ -2853,12 +1695,16 @@ export class TransitIntegratedDirectionResponseBodyDataCost extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsCost extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsCost extends $dara.Model {
   /**
    * @example
    * 39233
@@ -2906,12 +1752,16 @@ export class TransitIntegratedDirectionResponseBodyDataPathsCost extends $tea.Mo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStopExit extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStopExit extends $dara.Model {
   /**
    * @example
    * 900000028907015
@@ -2939,12 +1789,16 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesA
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStop extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStop extends $dara.Model {
   exit?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStopExit;
   /**
    * @example
@@ -2975,12 +1829,19 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesA
     };
   }
 
+  validate() {
+    if(this.exit && typeof (this.exit as any).validate === 'function') {
+      (this.exit as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesCost extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesCost extends $dara.Model {
   /**
    * @example
    * 1521
@@ -3016,12 +1877,16 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesC
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStopEntrance extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStopEntrance extends $dara.Model {
   /**
    * @example
    * 99088345834
@@ -3049,12 +1914,16 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesD
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStop extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStop extends $dara.Model {
   entrance?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStopEntrance;
   /**
    * @example
@@ -3085,12 +1954,19 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesD
     };
   }
 
+  validate() {
+    if(this.entrance && typeof (this.entrance as any).validate === 'function') {
+      (this.entrance as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesPolyline extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesPolyline extends $dara.Model {
   /**
    * @example
    * 116.471544,39.991835
@@ -3108,12 +1984,16 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesP
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesViaStops extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesViaStops extends $dara.Model {
   id?: string;
   location?: string;
   name?: string;
@@ -3133,12 +2013,16 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesV
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines extends $dara.Model {
   arrivalStop?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStop;
   busTimeTips?: string;
   /**
@@ -3215,12 +2099,31 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines 
     };
   }
 
+  validate() {
+    if(this.arrivalStop && typeof (this.arrivalStop as any).validate === 'function') {
+      (this.arrivalStop as any).validate();
+    }
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    if(this.departureStop && typeof (this.departureStop as any).validate === 'function') {
+      (this.departureStop as any).validate();
+    }
+    if(this.polyline && typeof (this.polyline as any).validate === 'function') {
+      (this.polyline as any).validate();
+    }
+    if(Array.isArray(this.viaStops)) {
+      $dara.Model.validateArray(this.viaStops);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus extends $dara.Model {
   buslines?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines[];
   index?: string;
   static names(): { [key: string]: string } {
@@ -3237,12 +2140,19 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus extends 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.buslines)) {
+      $dara.Model.validateArray(this.buslines);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArrivalStop extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArrivalStop extends $dara.Model {
   /**
    * @example
    * 023
@@ -3294,12 +2204,16 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArriv
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop extends $dara.Model {
   /**
    * @example
    * 029
@@ -3348,12 +2262,16 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepar
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces extends $dara.Model {
   code?: string;
   /**
    * @example
@@ -3374,12 +2292,16 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpace
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway extends $dara.Model {
   arrivalStop?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArrivalStop;
   departureStop?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop;
   /**
@@ -3432,12 +2354,25 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway exte
     };
   }
 
+  validate() {
+    if(this.arrivalStop && typeof (this.arrivalStop as any).validate === 'function') {
+      (this.arrivalStop as any).validate();
+    }
+    if(this.departureStop && typeof (this.departureStop as any).validate === 'function') {
+      (this.departureStop as any).validate();
+    }
+    if(Array.isArray(this.spaces)) {
+      $dara.Model.validateArray(this.spaces);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi extends $dara.Model {
   /**
    * @example
    * xxx
@@ -3496,12 +2431,16 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi extends
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost extends $dara.Model {
   /**
    * @example
    * 468
@@ -3541,12 +2480,16 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsCost extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsCost extends $dara.Model {
   /**
    * @example
    * 435
@@ -3582,12 +2525,16 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsPolyline extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsPolyline extends $dara.Model {
   /**
    * @example
    * 116.467751,39.997631;116.467430,39.997631
@@ -3605,12 +2552,16 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps extends $dara.Model {
   cost?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsCost;
   instruction?: string;
   orientation?: string;
@@ -3639,12 +2590,22 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps
     };
   }
 
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    if(this.polyline && typeof (this.polyline as any).validate === 'function') {
+      (this.polyline as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking extends $dara.Model {
   cost?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost;
   /**
    * @example
@@ -3685,12 +2646,22 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking exte
     };
   }
 
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    if(Array.isArray(this.steps)) {
+      $dara.Model.validateArray(this.steps);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPathsSegments extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPathsSegments extends $dara.Model {
   bus?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus;
   railway?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway;
   taxi?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi;
@@ -3713,12 +2684,28 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegments extends $te
     };
   }
 
+  validate() {
+    if(this.bus && typeof (this.bus as any).validate === 'function') {
+      (this.bus as any).validate();
+    }
+    if(this.railway && typeof (this.railway as any).validate === 'function') {
+      (this.railway as any).validate();
+    }
+    if(this.taxi && typeof (this.taxi as any).validate === 'function') {
+      (this.taxi as any).validate();
+    }
+    if(this.walking && typeof (this.walking as any).validate === 'function') {
+      (this.walking as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyDataPaths extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyDataPaths extends $dara.Model {
   cost?: TransitIntegratedDirectionResponseBodyDataPathsCost;
   /**
    * @example
@@ -3752,12 +2739,22 @@ export class TransitIntegratedDirectionResponseBodyDataPaths extends $tea.Model 
     };
   }
 
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    if(Array.isArray(this.segments)) {
+      $dara.Model.validateArray(this.segments);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransitIntegratedDirectionResponseBodyData extends $tea.Model {
+export class TransitIntegratedDirectionResponseBodyData extends $dara.Model {
   cost?: TransitIntegratedDirectionResponseBodyDataCost;
   /**
    * @example
@@ -3816,12 +2813,22 @@ export class TransitIntegratedDirectionResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    if(Array.isArray(this.paths)) {
+      $dara.Model.validateArray(this.paths);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class WalkingDirectionNovaResponseBodyDataPathsCost extends $tea.Model {
+export class WalkingDirectionNovaResponseBodyDataPathsCost extends $dara.Model {
   /**
    * @example
    * 1232
@@ -3869,12 +2876,16 @@ export class WalkingDirectionNovaResponseBodyDataPathsCost extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class WalkingDirectionNovaResponseBodyDataPathsStepsCost extends $tea.Model {
+export class WalkingDirectionNovaResponseBodyDataPathsStepsCost extends $dara.Model {
   /**
    * @example
    * 13
@@ -3914,12 +2925,16 @@ export class WalkingDirectionNovaResponseBodyDataPathsStepsCost extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class WalkingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
+export class WalkingDirectionNovaResponseBodyDataPathsSteps extends $dara.Model {
   cost?: WalkingDirectionNovaResponseBodyDataPathsStepsCost;
   instruction?: string;
   orientation?: string;
@@ -3952,12 +2967,19 @@ export class WalkingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class WalkingDirectionNovaResponseBodyDataPaths extends $tea.Model {
+export class WalkingDirectionNovaResponseBodyDataPaths extends $dara.Model {
   cost?: WalkingDirectionNovaResponseBodyDataPathsCost;
   /**
    * @example
@@ -3991,12 +3013,22 @@ export class WalkingDirectionNovaResponseBodyDataPaths extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    if(Array.isArray(this.steps)) {
+      $dara.Model.validateArray(this.steps);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class WalkingDirectionNovaResponseBodyData extends $tea.Model {
+export class WalkingDirectionNovaResponseBodyData extends $dara.Model {
   count?: string;
   /**
    * @example
@@ -4048,6 +3080,1397 @@ export class WalkingDirectionNovaResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.paths)) {
+      $dara.Model.validateArray(this.paths);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AgentBaseQuery extends $dara.Model {
+  query?: string;
+  static names(): { [key: string]: string } {
+    return {
+      query: 'query',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      query: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommonAgentQuery extends $dara.Model {
+  query?: string;
+  querySceneEnumCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      query: 'query',
+      querySceneEnumCode: 'querySceneEnumCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      query: 'string',
+      querySceneEnumCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryResult extends $dara.Model {
+  data?: QueryResultData[];
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryResultData },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BicyclingDirectionNovaRequest extends $dara.Model {
+  /**
+   * @example
+   * 39.995197
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 117.466485
+   */
+  originLongitude?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BicyclingDirectionNovaResponseBody extends $dara.Model {
+  code?: string;
+  data?: BicyclingDirectionNovaResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * <title>502 Bad Gateway</title>
+   */
+  errorMessage?: string;
+  message?: string;
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: BicyclingDirectionNovaResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BicyclingDirectionNovaResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BicyclingDirectionNovaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BicyclingDirectionNovaResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommonQueryBySceneRequest extends $dara.Model {
+  body?: CommonAgentQuery;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: CommonAgentQuery,
+    };
+  }
+
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommonQueryBySceneResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryResult,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionNovaRequest extends $dara.Model {
+  carType?: string;
+  /**
+   * @example
+   * 43.345456
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 116.466485
+   */
+  originLongitude?: string;
+  plate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      carType: 'carType',
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+      plate: 'plate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      carType: 'string',
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+      plate: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionNovaResponseBody extends $dara.Model {
+  code?: string;
+  data?: DrivingDirectionNovaResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * Access was denied, message: No such namespace namespaces/general-perf-cn-shenzhen-e-default.
+   */
+  errorMessage?: string;
+  message?: string;
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DrivingDirectionNovaResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionNovaResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DrivingDirectionNovaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DrivingDirectionNovaResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElectrobikeDirectionNovaRequest extends $dara.Model {
+  /**
+   * @example
+   * 40.234564
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 116.345456
+   */
+  originLongitude?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElectrobikeDirectionNovaResponseBody extends $dara.Model {
+  code?: string;
+  data?: ElectrobikeDirectionNovaResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * <title>502 Bad Gateway</title>
+   */
+  errorMessage?: string;
+  message?: string;
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ElectrobikeDirectionNovaResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElectrobikeDirectionNovaResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ElectrobikeDirectionNovaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ElectrobikeDirectionNovaResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GeoCodeRequest extends $dara.Model {
+  address?: string;
+  city?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      city: 'city',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      city: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GeoCodeResponseBody extends $dara.Model {
+  code?: string;
+  data?: GeoCodeResponseBodyData[];
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * Pop sign mismatch, please check log.
+   */
+  errorMessage?: string;
+  message?: string;
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GeoCodeResponseBodyData },
+      errorCode: 'number',
+      errorMessage: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GeoCodeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GeoCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GeoCodeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchNovaRequest extends $dara.Model {
+  cityLimit?: boolean;
+  keywords?: string;
+  /**
+   * @example
+   * 39.992873
+   */
+  latitude?: string;
+  /**
+   * @example
+   * 116.310918
+   */
+  longitude?: string;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 3000
+   */
+  radius?: number;
+  /**
+   * @example
+   * 5
+   */
+  size?: number;
+  sortRule?: string;
+  /**
+   * @example
+   * GAS_STATION|RESTAURANT|HOTEL|ATTRACTION
+   */
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityLimit: 'cityLimit',
+      keywords: 'keywords',
+      latitude: 'latitude',
+      longitude: 'longitude',
+      page: 'page',
+      radius: 'radius',
+      size: 'size',
+      sortRule: 'sortRule',
+      types: 'types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityLimit: 'boolean',
+      keywords: 'string',
+      latitude: 'string',
+      longitude: 'string',
+      page: 'number',
+      radius: 'number',
+      size: 'number',
+      sortRule: 'string',
+      types: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchNovaResponseBody extends $dara.Model {
+  code?: string;
+  data?: NearbySearchNovaResponseBodyData[];
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * <title>502 Bad Gateway</title>
+   */
+  errorMessage?: string;
+  message?: string;
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': NearbySearchNovaResponseBodyData },
+      errorCode: 'number',
+      errorMessage: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchNovaResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: NearbySearchNovaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: NearbySearchNovaResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchNovaRequest extends $dara.Model {
+  cityLimit?: boolean;
+  keywords?: string;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  region?: string;
+  /**
+   * @example
+   * 5
+   */
+  size?: number;
+  /**
+   * @example
+   * GAS_STATION|RESTAURANT|HOTEL|ATTRACTION
+   */
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityLimit: 'cityLimit',
+      keywords: 'keywords',
+      page: 'page',
+      region: 'region',
+      size: 'size',
+      types: 'types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityLimit: 'boolean',
+      keywords: 'string',
+      page: 'number',
+      region: 'string',
+      size: 'number',
+      types: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchNovaResponseBody extends $dara.Model {
+  code?: string;
+  data?: PlaceSearchNovaResponseBodyData[];
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * Access was denied, message: Unauthorized.
+   */
+  errorMessage?: string;
+  message?: string;
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': PlaceSearchNovaResponseBodyData },
+      errorCode: 'number',
+      errorMessage: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchNovaResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PlaceSearchNovaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PlaceSearchNovaResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RgeoCodeRequest extends $dara.Model {
+  /**
+   * @example
+   * 39.989027
+   */
+  latitude?: string;
+  /**
+   * @example
+   * 116.310918
+   */
+  longitude?: string;
+  static names(): { [key: string]: string } {
+    return {
+      latitude: 'latitude',
+      longitude: 'longitude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      latitude: 'string',
+      longitude: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RgeoCodeResponseBody extends $dara.Model {
+  code?: string;
+  data?: RgeoCodeResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  errorMessage?: string;
+  message?: string;
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: RgeoCodeResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RgeoCodeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RgeoCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RgeoCodeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionRequest extends $dara.Model {
+  destinationCity?: string;
+  /**
+   * @example
+   * 40.345456
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  originCity?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 116.466485
+   */
+  originLongitude?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCity: 'destinationCity',
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originCity: 'originCity',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCity: 'string',
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originCity: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBody extends $dara.Model {
+  code?: string;
+  data?: TransitIntegratedDirectionResponseBodyData;
+  /**
+   * @example
+   * 400
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * <title>502 Bad Gateway</title>
+   */
+  errorMessage?: string;
+  message?: string;
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: TransitIntegratedDirectionResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransitIntegratedDirectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TransitIntegratedDirectionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WalkingDirectionNovaRequest extends $dara.Model {
+  /**
+   * @example
+   * 40.345456
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 116.466485
+   */
+  originLongitude?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WalkingDirectionNovaResponseBody extends $dara.Model {
+  code?: string;
+  data?: WalkingDirectionNovaResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * Access was denied
+   */
+  errorMessage?: string;
+  message?: string;
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: WalkingDirectionNovaResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WalkingDirectionNovaResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WalkingDirectionNovaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WalkingDirectionNovaResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -4056,7 +4479,7 @@ export class WalkingDirectionNovaResponseBodyData extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -4065,15 +4488,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -4084,30 +4507,30 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BicyclingDirectionNovaResponse
    */
-  async bicyclingDirectionNovaWithOptions(request: BicyclingDirectionNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BicyclingDirectionNovaResponse> {
-    Util.validateModel(request);
+  async bicyclingDirectionNovaWithOptions(request: BicyclingDirectionNovaRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<BicyclingDirectionNovaResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.destinationLatitude)) {
+    if (!$dara.isNull(request.destinationLatitude)) {
       query["destinationLatitude"] = request.destinationLatitude;
     }
 
-    if (!Util.isUnset(request.destinationLongitude)) {
+    if (!$dara.isNull(request.destinationLongitude)) {
       query["destinationLongitude"] = request.destinationLongitude;
     }
 
-    if (!Util.isUnset(request.originLatitude)) {
+    if (!$dara.isNull(request.originLatitude)) {
       query["originLatitude"] = request.originLatitude;
     }
 
-    if (!Util.isUnset(request.originLongitude)) {
+    if (!$dara.isNull(request.originLongitude)) {
       query["originLongitude"] = request.originLongitude;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BicyclingDirectionNova",
       version: "2024-07-12",
       protocol: "HTTPS",
@@ -4118,7 +4541,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<BicyclingDirectionNovaResponse>(await this.callApi(params, req, runtime), new BicyclingDirectionNovaResponse({}));
+    return $dara.cast<BicyclingDirectionNovaResponse>(await this.callApi(params, req, runtime), new BicyclingDirectionNovaResponse({}));
   }
 
   /**
@@ -4128,7 +4551,7 @@ export default class Client extends OpenApi {
    * @returns BicyclingDirectionNovaResponse
    */
   async bicyclingDirectionNova(request: BicyclingDirectionNovaRequest): Promise<BicyclingDirectionNovaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.bicyclingDirectionNovaWithOptions(request, headers, runtime);
   }
@@ -4141,13 +4564,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CommonQueryBySceneResponse
    */
-  async commonQueryBySceneWithOptions(request: CommonQueryBySceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CommonQueryBySceneResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async commonQueryBySceneWithOptions(request: CommonQueryBySceneRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CommonQueryBySceneResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CommonQueryByScene",
       version: "2024-07-12",
       protocol: "HTTPS",
@@ -4158,7 +4581,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CommonQueryBySceneResponse>(await this.callApi(params, req, runtime), new CommonQueryBySceneResponse({}));
+    return $dara.cast<CommonQueryBySceneResponse>(await this.callApi(params, req, runtime), new CommonQueryBySceneResponse({}));
   }
 
   /**
@@ -4168,7 +4591,7 @@ export default class Client extends OpenApi {
    * @returns CommonQueryBySceneResponse
    */
   async commonQueryByScene(request: CommonQueryBySceneRequest): Promise<CommonQueryBySceneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.commonQueryBySceneWithOptions(request, headers, runtime);
   }
@@ -4181,38 +4604,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DrivingDirectionNovaResponse
    */
-  async drivingDirectionNovaWithOptions(request: DrivingDirectionNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DrivingDirectionNovaResponse> {
-    Util.validateModel(request);
+  async drivingDirectionNovaWithOptions(request: DrivingDirectionNovaRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DrivingDirectionNovaResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.carType)) {
+    if (!$dara.isNull(request.carType)) {
       query["carType"] = request.carType;
     }
 
-    if (!Util.isUnset(request.destinationLatitude)) {
+    if (!$dara.isNull(request.destinationLatitude)) {
       query["destinationLatitude"] = request.destinationLatitude;
     }
 
-    if (!Util.isUnset(request.destinationLongitude)) {
+    if (!$dara.isNull(request.destinationLongitude)) {
       query["destinationLongitude"] = request.destinationLongitude;
     }
 
-    if (!Util.isUnset(request.originLatitude)) {
+    if (!$dara.isNull(request.originLatitude)) {
       query["originLatitude"] = request.originLatitude;
     }
 
-    if (!Util.isUnset(request.originLongitude)) {
+    if (!$dara.isNull(request.originLongitude)) {
       query["originLongitude"] = request.originLongitude;
     }
 
-    if (!Util.isUnset(request.plate)) {
+    if (!$dara.isNull(request.plate)) {
       query["plate"] = request.plate;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DrivingDirectionNova",
       version: "2024-07-12",
       protocol: "HTTPS",
@@ -4223,7 +4646,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DrivingDirectionNovaResponse>(await this.callApi(params, req, runtime), new DrivingDirectionNovaResponse({}));
+    return $dara.cast<DrivingDirectionNovaResponse>(await this.callApi(params, req, runtime), new DrivingDirectionNovaResponse({}));
   }
 
   /**
@@ -4233,66 +4656,9 @@ export default class Client extends OpenApi {
    * @returns DrivingDirectionNovaResponse
    */
   async drivingDirectionNova(request: DrivingDirectionNovaRequest): Promise<DrivingDirectionNovaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.drivingDirectionNovaWithOptions(request, headers, runtime);
-  }
-
-  /**
-   * 根据起终点坐标检索符合条件的电动车路线规划方案
-   * 
-   * @param request - ElectrobikeDirectionRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ElectrobikeDirectionResponse
-   */
-  async electrobikeDirectionWithOptions(request: ElectrobikeDirectionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ElectrobikeDirectionResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.destinationLatitude)) {
-      query["destinationLatitude"] = request.destinationLatitude;
-    }
-
-    if (!Util.isUnset(request.destinationLongitude)) {
-      query["destinationLongitude"] = request.destinationLongitude;
-    }
-
-    if (!Util.isUnset(request.originLatitude)) {
-      query["originLatitude"] = request.originLatitude;
-    }
-
-    if (!Util.isUnset(request.originLongitude)) {
-      query["originLongitude"] = request.originLongitude;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ElectrobikeDirection",
-      version: "2024-07-12",
-      protocol: "HTTPS",
-      pathname: `/ipaas/v1/direction/electrobike`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ElectrobikeDirectionResponse>(await this.callApi(params, req, runtime), new ElectrobikeDirectionResponse({}));
-  }
-
-  /**
-   * 根据起终点坐标检索符合条件的电动车路线规划方案
-   * 
-   * @param request - ElectrobikeDirectionRequest
-   * @returns ElectrobikeDirectionResponse
-   */
-  async electrobikeDirection(request: ElectrobikeDirectionRequest): Promise<ElectrobikeDirectionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.electrobikeDirectionWithOptions(request, headers, runtime);
   }
 
   /**
@@ -4303,30 +4669,30 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ElectrobikeDirectionNovaResponse
    */
-  async electrobikeDirectionNovaWithOptions(request: ElectrobikeDirectionNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ElectrobikeDirectionNovaResponse> {
-    Util.validateModel(request);
+  async electrobikeDirectionNovaWithOptions(request: ElectrobikeDirectionNovaRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ElectrobikeDirectionNovaResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.destinationLatitude)) {
+    if (!$dara.isNull(request.destinationLatitude)) {
       query["destinationLatitude"] = request.destinationLatitude;
     }
 
-    if (!Util.isUnset(request.destinationLongitude)) {
+    if (!$dara.isNull(request.destinationLongitude)) {
       query["destinationLongitude"] = request.destinationLongitude;
     }
 
-    if (!Util.isUnset(request.originLatitude)) {
+    if (!$dara.isNull(request.originLatitude)) {
       query["originLatitude"] = request.originLatitude;
     }
 
-    if (!Util.isUnset(request.originLongitude)) {
+    if (!$dara.isNull(request.originLongitude)) {
       query["originLongitude"] = request.originLongitude;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ElectrobikeDirectionNova",
       version: "2024-07-12",
       protocol: "HTTPS",
@@ -4337,7 +4703,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ElectrobikeDirectionNovaResponse>(await this.callApi(params, req, runtime), new ElectrobikeDirectionNovaResponse({}));
+    return $dara.cast<ElectrobikeDirectionNovaResponse>(await this.callApi(params, req, runtime), new ElectrobikeDirectionNovaResponse({}));
   }
 
   /**
@@ -4347,7 +4713,7 @@ export default class Client extends OpenApi {
    * @returns ElectrobikeDirectionNovaResponse
    */
   async electrobikeDirectionNova(request: ElectrobikeDirectionNovaRequest): Promise<ElectrobikeDirectionNovaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.electrobikeDirectionNovaWithOptions(request, headers, runtime);
   }
@@ -4360,22 +4726,22 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GeoCodeResponse
    */
-  async geoCodeWithOptions(request: GeoCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GeoCodeResponse> {
-    Util.validateModel(request);
+  async geoCodeWithOptions(request: GeoCodeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GeoCodeResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.address)) {
+    if (!$dara.isNull(request.address)) {
       query["address"] = request.address;
     }
 
-    if (!Util.isUnset(request.city)) {
+    if (!$dara.isNull(request.city)) {
       query["city"] = request.city;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GeoCode",
       version: "2024-07-12",
       protocol: "HTTPS",
@@ -4386,7 +4752,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GeoCodeResponse>(await this.callApi(params, req, runtime), new GeoCodeResponse({}));
+    return $dara.cast<GeoCodeResponse>(await this.callApi(params, req, runtime), new GeoCodeResponse({}));
   }
 
   /**
@@ -4396,7 +4762,7 @@ export default class Client extends OpenApi {
    * @returns GeoCodeResponse
    */
   async geoCode(request: GeoCodeRequest): Promise<GeoCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.geoCodeWithOptions(request, headers, runtime);
   }
@@ -4409,50 +4775,50 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns NearbySearchNovaResponse
    */
-  async nearbySearchNovaWithOptions(request: NearbySearchNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<NearbySearchNovaResponse> {
-    Util.validateModel(request);
+  async nearbySearchNovaWithOptions(request: NearbySearchNovaRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<NearbySearchNovaResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.cityLimit)) {
+    if (!$dara.isNull(request.cityLimit)) {
       query["cityLimit"] = request.cityLimit;
     }
 
-    if (!Util.isUnset(request.keywords)) {
+    if (!$dara.isNull(request.keywords)) {
       query["keywords"] = request.keywords;
     }
 
-    if (!Util.isUnset(request.latitude)) {
+    if (!$dara.isNull(request.latitude)) {
       query["latitude"] = request.latitude;
     }
 
-    if (!Util.isUnset(request.longitude)) {
+    if (!$dara.isNull(request.longitude)) {
       query["longitude"] = request.longitude;
     }
 
-    if (!Util.isUnset(request.page)) {
+    if (!$dara.isNull(request.page)) {
       query["page"] = request.page;
     }
 
-    if (!Util.isUnset(request.radius)) {
+    if (!$dara.isNull(request.radius)) {
       query["radius"] = request.radius;
     }
 
-    if (!Util.isUnset(request.size)) {
+    if (!$dara.isNull(request.size)) {
       query["size"] = request.size;
     }
 
-    if (!Util.isUnset(request.sortRule)) {
+    if (!$dara.isNull(request.sortRule)) {
       query["sortRule"] = request.sortRule;
     }
 
-    if (!Util.isUnset(request.types)) {
+    if (!$dara.isNull(request.types)) {
       query["types"] = request.types;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "NearbySearchNova",
       version: "2024-07-12",
       protocol: "HTTPS",
@@ -4463,7 +4829,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<NearbySearchNovaResponse>(await this.callApi(params, req, runtime), new NearbySearchNovaResponse({}));
+    return $dara.cast<NearbySearchNovaResponse>(await this.callApi(params, req, runtime), new NearbySearchNovaResponse({}));
   }
 
   /**
@@ -4473,7 +4839,7 @@ export default class Client extends OpenApi {
    * @returns NearbySearchNovaResponse
    */
   async nearbySearchNova(request: NearbySearchNovaRequest): Promise<NearbySearchNovaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.nearbySearchNovaWithOptions(request, headers, runtime);
   }
@@ -4486,38 +4852,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PlaceSearchNovaResponse
    */
-  async placeSearchNovaWithOptions(request: PlaceSearchNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PlaceSearchNovaResponse> {
-    Util.validateModel(request);
+  async placeSearchNovaWithOptions(request: PlaceSearchNovaRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<PlaceSearchNovaResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.cityLimit)) {
+    if (!$dara.isNull(request.cityLimit)) {
       query["cityLimit"] = request.cityLimit;
     }
 
-    if (!Util.isUnset(request.keywords)) {
+    if (!$dara.isNull(request.keywords)) {
       query["keywords"] = request.keywords;
     }
 
-    if (!Util.isUnset(request.page)) {
+    if (!$dara.isNull(request.page)) {
       query["page"] = request.page;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       query["region"] = request.region;
     }
 
-    if (!Util.isUnset(request.size)) {
+    if (!$dara.isNull(request.size)) {
       query["size"] = request.size;
     }
 
-    if (!Util.isUnset(request.types)) {
+    if (!$dara.isNull(request.types)) {
       query["types"] = request.types;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PlaceSearchNova",
       version: "2024-07-12",
       protocol: "HTTPS",
@@ -4528,7 +4894,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<PlaceSearchNovaResponse>(await this.callApi(params, req, runtime), new PlaceSearchNovaResponse({}));
+    return $dara.cast<PlaceSearchNovaResponse>(await this.callApi(params, req, runtime), new PlaceSearchNovaResponse({}));
   }
 
   /**
@@ -4538,7 +4904,7 @@ export default class Client extends OpenApi {
    * @returns PlaceSearchNovaResponse
    */
   async placeSearchNova(request: PlaceSearchNovaRequest): Promise<PlaceSearchNovaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.placeSearchNovaWithOptions(request, headers, runtime);
   }
@@ -4551,22 +4917,22 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RgeoCodeResponse
    */
-  async rgeoCodeWithOptions(request: RgeoCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RgeoCodeResponse> {
-    Util.validateModel(request);
+  async rgeoCodeWithOptions(request: RgeoCodeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RgeoCodeResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.latitude)) {
+    if (!$dara.isNull(request.latitude)) {
       query["latitude"] = request.latitude;
     }
 
-    if (!Util.isUnset(request.longitude)) {
+    if (!$dara.isNull(request.longitude)) {
       query["longitude"] = request.longitude;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RgeoCode",
       version: "2024-07-12",
       protocol: "HTTPS",
@@ -4577,7 +4943,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RgeoCodeResponse>(await this.callApi(params, req, runtime), new RgeoCodeResponse({}));
+    return $dara.cast<RgeoCodeResponse>(await this.callApi(params, req, runtime), new RgeoCodeResponse({}));
   }
 
   /**
@@ -4587,7 +4953,7 @@ export default class Client extends OpenApi {
    * @returns RgeoCodeResponse
    */
   async rgeoCode(request: RgeoCodeRequest): Promise<RgeoCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.rgeoCodeWithOptions(request, headers, runtime);
   }
@@ -4600,38 +4966,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TransitIntegratedDirectionResponse
    */
-  async transitIntegratedDirectionWithOptions(request: TransitIntegratedDirectionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TransitIntegratedDirectionResponse> {
-    Util.validateModel(request);
+  async transitIntegratedDirectionWithOptions(request: TransitIntegratedDirectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<TransitIntegratedDirectionResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.destinationCity)) {
+    if (!$dara.isNull(request.destinationCity)) {
       query["destinationCity"] = request.destinationCity;
     }
 
-    if (!Util.isUnset(request.destinationLatitude)) {
+    if (!$dara.isNull(request.destinationLatitude)) {
       query["destinationLatitude"] = request.destinationLatitude;
     }
 
-    if (!Util.isUnset(request.destinationLongitude)) {
+    if (!$dara.isNull(request.destinationLongitude)) {
       query["destinationLongitude"] = request.destinationLongitude;
     }
 
-    if (!Util.isUnset(request.originCity)) {
+    if (!$dara.isNull(request.originCity)) {
       query["originCity"] = request.originCity;
     }
 
-    if (!Util.isUnset(request.originLatitude)) {
+    if (!$dara.isNull(request.originLatitude)) {
       query["originLatitude"] = request.originLatitude;
     }
 
-    if (!Util.isUnset(request.originLongitude)) {
+    if (!$dara.isNull(request.originLongitude)) {
       query["originLongitude"] = request.originLongitude;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TransitIntegratedDirection",
       version: "2024-07-12",
       protocol: "HTTPS",
@@ -4642,7 +5008,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<TransitIntegratedDirectionResponse>(await this.callApi(params, req, runtime), new TransitIntegratedDirectionResponse({}));
+    return $dara.cast<TransitIntegratedDirectionResponse>(await this.callApi(params, req, runtime), new TransitIntegratedDirectionResponse({}));
   }
 
   /**
@@ -4652,7 +5018,7 @@ export default class Client extends OpenApi {
    * @returns TransitIntegratedDirectionResponse
    */
   async transitIntegratedDirection(request: TransitIntegratedDirectionRequest): Promise<TransitIntegratedDirectionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.transitIntegratedDirectionWithOptions(request, headers, runtime);
   }
@@ -4665,30 +5031,30 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns WalkingDirectionNovaResponse
    */
-  async walkingDirectionNovaWithOptions(request: WalkingDirectionNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<WalkingDirectionNovaResponse> {
-    Util.validateModel(request);
+  async walkingDirectionNovaWithOptions(request: WalkingDirectionNovaRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<WalkingDirectionNovaResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.destinationLatitude)) {
+    if (!$dara.isNull(request.destinationLatitude)) {
       query["destinationLatitude"] = request.destinationLatitude;
     }
 
-    if (!Util.isUnset(request.destinationLongitude)) {
+    if (!$dara.isNull(request.destinationLongitude)) {
       query["destinationLongitude"] = request.destinationLongitude;
     }
 
-    if (!Util.isUnset(request.originLatitude)) {
+    if (!$dara.isNull(request.originLatitude)) {
       query["originLatitude"] = request.originLatitude;
     }
 
-    if (!Util.isUnset(request.originLongitude)) {
+    if (!$dara.isNull(request.originLongitude)) {
       query["originLongitude"] = request.originLongitude;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "WalkingDirectionNova",
       version: "2024-07-12",
       protocol: "HTTPS",
@@ -4699,7 +5065,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<WalkingDirectionNovaResponse>(await this.callApi(params, req, runtime), new WalkingDirectionNovaResponse({}));
+    return $dara.cast<WalkingDirectionNovaResponse>(await this.callApi(params, req, runtime), new WalkingDirectionNovaResponse({}));
   }
 
   /**
@@ -4709,7 +5075,7 @@ export default class Client extends OpenApi {
    * @returns WalkingDirectionNovaResponse
    */
   async walkingDirectionNova(request: WalkingDirectionNovaRequest): Promise<WalkingDirectionNovaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.walkingDirectionNovaWithOptions(request, headers, runtime);
   }
