@@ -1,17 +1,1972 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class ActiveCaCertificateRequest extends $tea.Model {
+export class BatchQuerySessionByClientIdsResponseBodyOnlineStatusList extends $dara.Model {
   /**
    * @remarks
-   * CA证书所绑定的实例ID，即云消息队列 MQTT 版的实例ID。
+   * The ID of the ApsaraMQ for MQTT client. For more information about client IDs, see [Terms](https://help.aliyun.com/document_detail/42420.html).
    * 
+   * @example
+   * GID_test@0001
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * Indicates whether the ApsaraMQ for MQTT client is online. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  onlineStatus?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      onlineStatus: 'OnlineStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      onlineStatus: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCaCertificateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Content of the CA certificate.
+   * > \\n represents a new line.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END CERTIFICATE-----
+   */
+  caContent?: string;
+  /**
+   * @remarks
+   * Name of the CA certificate
+   * 
+   * @example
+   * mqtt_ca
+   */
+  caName?: string;
+  /**
+   * @remarks
+   * Registration code of the CA certificate
+   * 
+   * @example
+   * 13274673-8f90-4630-bea1-9cccb25756ad2089******
+   */
+  registrationCode?: string;
+  /**
+   * @remarks
+   * The SN serial number of the CA certificate, used to uniquely identify a CA certificate. Value range: no more than 128 bytes.
+   * 
+   * @example
+   * 00f26900ba87******
+   */
+  sn?: string;
+  /**
+   * @remarks
+   * The status of the CA certificate. The values are as follows:
+   * - **0**: Indicates that the certificate is in an inactive state. - **1**: Indicates that the certificate is in an active state.
+   * > After the CA certificate is registered, it is in an active state by default.
+   * 
+   * @example
+   * 1
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The start time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
+   * @example
+   * 1654137303000
+   */
+  validBegin?: string;
+  /**
+   * @remarks
+   * The end time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
+   * @example
+   * 1969497303000
+   */
+  validEnd?: string;
+  /**
+   * @remarks
+   * Content of the Verification certificate.
+   * > \\n represents a new line.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----\\nMIID/DCCAu+Y5sRMpp9tnd+4s******\\n-----END CERTIFICATE-----
+   */
+  verificationContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caContent: 'CaContent',
+      caName: 'CaName',
+      registrationCode: 'RegistrationCode',
+      sn: 'Sn',
+      status: 'Status',
+      validBegin: 'ValidBegin',
+      validEnd: 'ValidEnd',
+      verificationContent: 'VerificationContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caContent: 'string',
+      caName: 'string',
+      registrationCode: 'string',
+      sn: 'string',
+      status: 'string',
+      validBegin: 'string',
+      validEnd: 'string',
+      verificationContent: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceCertificateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The SN serial number of the CA certificate to which the device certificate belongs, used to uniquely identify a CA certificate.
+   * 
+   * @example
+   * 00f26900ba87******
+   */
+  caSn?: string;
+  /**
+   * @remarks
+   * Content of the device certificate.
+   * 
+   *  represents a new line.
+   * 
+   * @example
+   * -----BEGIN DEVICECERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END DEVICECERTIFICATE-----
+   */
+  deviceContent?: string;
+  /**
+   * @remarks
+   * Name of the device certificate.
+   * 
+   * @example
+   * mqtt_device
+   */
+  deviceName?: string;
+  /**
+   * @remarks
+   * The SN serial number of the device certificate, used to uniquely identify a device certificate.
+   * 
+   * @example
+   * 356217374433******
+   */
+  deviceSn?: string;
+  /**
+   * @remarks
+   * The status of the device certificate. The values are as follows:
+   * - **0**: Indicates that the certificate is in an inactive state. - **1**: Indicates that the certificate is in an active state.
+   * > After the device certificate is registered, it is in an active state by default.
+   * 
+   * @example
+   * 1
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The start time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
+   * @example
+   * 1654137303000
+   */
+  validBegin?: string;
+  /**
+   * @remarks
+   * The end time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
+   * @example
+   * 1969497303000
+   */
+  validEnd?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caSn: 'CaSn',
+      deviceContent: 'DeviceContent',
+      deviceName: 'DeviceName',
+      deviceSn: 'DeviceSn',
+      status: 'Status',
+      validBegin: 'ValidBegin',
+      validEnd: 'ValidEnd',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caSn: 'string',
+      deviceContent: 'string',
+      deviceName: 'string',
+      deviceSn: 'string',
+      status: 'string',
+      validBegin: 'string',
+      validEnd: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceCredentialResponseBodyDeviceCredential extends $dara.Model {
+  /**
+   * @remarks
+   * The client ID of the device.
+   * 
+   * @example
+   * GID_test@@@test
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the access credential of the device was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1605541382000
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * The AccessKey ID of the device.
+   * 
+   * @example
+   * DC.Z5fXh9sRRVufyLi6wo****
+   */
+  deviceAccessKeyId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the device.
+   * 
+   * @example
+   * DC.BJMkn4eMQJK2vaApTS****
+   */
+  deviceAccessKeySecret?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraMQ for MQTT instance.
+   * 
+   * @example
+   * post-cn-0pp12gl****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the access credential of the device was last updated. The value of this parameter is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1605541382000
+   */
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      createTime: 'CreateTime',
+      deviceAccessKeyId: 'DeviceAccessKeyId',
+      deviceAccessKeySecret: 'DeviceAccessKeySecret',
+      instanceId: 'InstanceId',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      createTime: 'number',
+      deviceAccessKeyId: 'string',
+      deviceAccessKeySecret: 'string',
+      instanceId: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCaCertificateResponseBodyDataCaCertificateVOS extends $dara.Model {
+  /**
+   * @remarks
+   * Content of the CA certificate. 
+   * > \\n represents a new line.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END CERTIFICATE-----
+   */
+  caContent?: string;
+  /**
+   * @remarks
+   * Name of the CA certificate
+   * 
+   * @example
+   * mqtt_ca
+   */
+  caName?: string;
+  /**
+   * @remarks
+   * Registration code of the CA certificate
+   * 
+   * @example
+   * 13274673-8f90-4630-bea1-9cccb25756ad2089******
+   */
+  registrationCode?: string;
+  /**
+   * @remarks
+   * SN serial number of the CA certificate
+   * 
+   * @example
+   * 007269004887******
+   */
+  sn?: string;
+  /**
+   * @remarks
+   * The status of the CA certificate. The values are as follows:
+   * - **0**: Indicates that the certificate is in an inactive state. - **1**: Indicates that the certificate is in an active state.
+   * > After the CA certificate is registered, it is in an active state by default.
+   * 
+   * @example
+   * 1
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The start time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
+   * @example
+   * 1654137303000
+   */
+  validBegin?: string;
+  /**
+   * @remarks
+   * The end time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
+   * @example
+   * 1969497303000
+   */
+  validEnd?: string;
+  /**
+   * @remarks
+   * Verify the content of the certificate. 
+   * > \\n represents a new line.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----\\nMIID/DCCAu+Y5sRMpp9tnd+4s******\\n-----END CERTIFICATE-----
+   */
+  verificationContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caContent: 'CaContent',
+      caName: 'CaName',
+      registrationCode: 'RegistrationCode',
+      sn: 'Sn',
+      status: 'Status',
+      validBegin: 'ValidBegin',
+      validEnd: 'ValidEnd',
+      verificationContent: 'VerificationContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caContent: 'string',
+      caName: 'string',
+      registrationCode: 'string',
+      sn: 'string',
+      status: 'string',
+      validBegin: 'string',
+      validEnd: 'string',
+      verificationContent: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCaCertificateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the CA certificate
+   */
+  caCertificateVOS?: ListCaCertificateResponseBodyDataCaCertificateVOS[];
+  /**
+   * @remarks
+   * The current page number of the returned query records.
+   * 
+   * @example
+   * 2
+   */
+  pageNo?: number;
+  /**
+   * @remarks
+   * The maximum number of results to display per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Maximum number of pages in the query result.
+   * 
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      caCertificateVOS: 'CaCertificateVOS',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caCertificateVOS: { 'type': 'array', 'itemType': ListCaCertificateResponseBodyDataCaCertificateVOS },
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.caCertificateVOS)) {
+      $dara.Model.validateArray(this.caCertificateVOS);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceCertificateResponseBodyDataDeviceCertificateVOS extends $dara.Model {
+  /**
+   * @remarks
+   * The SN serial number of the CA certificate to which the device certificate belongs, used to uniquely identify a CA certificate.
+   * 
+   * @example
+   * 00f26900ba87******
+   */
+  caSn?: string;
+  /**
+   * @remarks
+   * Content of the device certificate.
+   * 
+   *  represents a new line.
+   * 
+   * @example
+   * -----BEGIN DEVICECERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END DEVICECERTIFICATE-----
+   */
+  deviceContent?: string;
+  /**
+   * @remarks
+   * Name of the device certificate.
+   * 
+   * @example
+   * mqtt_device
+   */
+  deviceName?: string;
+  /**
+   * @remarks
+   * The SN serial number of the device certificate, used to uniquely identify a device certificate.
+   * 
+   * @example
+   * 356217374433******
+   */
+  deviceSn?: string;
+  /**
+   * @remarks
+   * The status of the device certificate. The values are as follows:
+   * - 0: indicates that the certificate is in an inactive state. - 1: indicates that the certificate is in an active state.
+   * After the device certificate is registered, it defaults to the active state.
+   * 
+   * @example
+   * 1
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The start time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
+   * @example
+   * 1654137303000
+   */
+  validBegin?: string;
+  /**
+   * @remarks
+   * The end time when the device certificate becomes effective. Formatted as a Unix timestamp in milliseconds.
+   * 
+   * @example
+   * 1969497303000
+   */
+  validEnd?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caSn: 'CaSn',
+      deviceContent: 'DeviceContent',
+      deviceName: 'DeviceName',
+      deviceSn: 'DeviceSn',
+      status: 'Status',
+      validBegin: 'ValidBegin',
+      validEnd: 'ValidEnd',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caSn: 'string',
+      deviceContent: 'string',
+      deviceName: 'string',
+      deviceSn: 'string',
+      status: 'string',
+      validBegin: 'string',
+      validEnd: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceCertificateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the device certificate.
+   */
+  deviceCertificateVOS?: ListDeviceCertificateResponseBodyDataDeviceCertificateVOS[];
+  /**
+   * @remarks
+   * The current page number of the returned query records.
+   * 
+   * @example
+   * 2
+   */
+  pageNo?: number;
+  /**
+   * @remarks
+   * The maximum number of results to display per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Maximum number of pages in the query result.
+   * 
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceCertificateVOS: 'DeviceCertificateVOS',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceCertificateVOS: { 'type': 'array', 'itemType': ListDeviceCertificateResponseBodyDataDeviceCertificateVOS },
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.deviceCertificateVOS)) {
+      $dara.Model.validateArray(this.deviceCertificateVOS);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceCertificateByCaSnResponseBodyDataDeviceCertificateVOS extends $dara.Model {
+  /**
+   * @remarks
+   * The SN serial number of the CA certificate to which the device certificate belongs, used to uniquely identify a CA certificate.
+   * 
+   * @example
+   * 00f26900ba87******
+   */
+  caSn?: string;
+  /**
+   * @remarks
+   * Content of the device certificate.
+   * 
+   *  represents a new line.
+   * 
+   * @example
+   * -----BEGIN DEVICECERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END DEVICECERTIFICATE-----
+   */
+  deviceContent?: string;
+  /**
+   * @remarks
+   * Name of the device certificate.
+   * 
+   * @example
+   * mqtt_device
+   */
+  deviceName?: string;
+  /**
+   * @remarks
+   * The SN serial number of the device certificate, used to uniquely identify a device certificate.
+   * 
+   * @example
+   * 356217374433******
+   */
+  deviceSn?: string;
+  /**
+   * @remarks
+   * The status of the device certificate. The values are as follows:
+   * - 0: indicates that the certificate is in an inactive state. 
+   * - 1: indicates that the certificate is in an active state.
+   * 
+   * After the device certificate is registered, it is in an active state by default.
+   * 
+   * @example
+   * 1
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The start time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
+   * @example
+   * 1654137303000
+   */
+  validBegin?: string;
+  /**
+   * @remarks
+   * The end time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
+   * @example
+   * 1969497303000
+   */
+  validEnd?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caSn: 'CaSn',
+      deviceContent: 'DeviceContent',
+      deviceName: 'DeviceName',
+      deviceSn: 'DeviceSn',
+      status: 'Status',
+      validBegin: 'ValidBegin',
+      validEnd: 'ValidEnd',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caSn: 'string',
+      deviceContent: 'string',
+      deviceName: 'string',
+      deviceSn: 'string',
+      status: 'string',
+      validBegin: 'string',
+      validEnd: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceCertificateByCaSnResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the device certificate.
+   */
+  deviceCertificateVOS?: ListDeviceCertificateByCaSnResponseBodyDataDeviceCertificateVOS[];
+  /**
+   * @remarks
+   * The current page number of the returned query records.
+   * 
+   * @example
+   * 2
+   */
+  pageNo?: number;
+  /**
+   * @remarks
+   * The maximum number of results to display per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Total number of query results.
+   * 
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceCertificateVOS: 'DeviceCertificateVOS',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceCertificateVOS: { 'type': 'array', 'itemType': ListDeviceCertificateByCaSnResponseBodyDataDeviceCertificateVOS },
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.deviceCertificateVOS)) {
+      $dara.Model.validateArray(this.deviceCertificateVOS);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceCredentialClientIdResponseBodyDeviceCredentialClientIdList extends $dara.Model {
+  /**
+   * @remarks
+   * Client list.
+   */
+  clientIdList?: string[];
+  /**
+   * @remarks
+   * Indicates whether there is a token (Token) for the next query. Values: 
+   * - For the first query and when there is no next query, this field does not need to be filled. 
+   * - If there is a next query, the value should be the NextToken returned from the previous API call.
+   * 
+   * @example
+   * 634dxxxxx75b5f
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The current page number of the returned query records.
+   * 
+   * @example
+   * 1
+   */
+  pageNo?: string;
+  /**
+   * @remarks
+   * The maximum number of results to display per page.
+   * 
+   * @example
+   * 100
+   */
+  pageSize?: string;
+  /**
+   * @remarks
+   * Total number of query results.
+   * 
+   * @example
+   * 10
+   */
+  total?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientIdList: 'ClientIdList',
+      nextToken: 'NextToken',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientIdList: { 'type': 'array', 'itemType': 'string' },
+      nextToken: 'string',
+      pageNo: 'string',
+      pageSize: 'string',
+      total: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.clientIdList)) {
+      $dara.Model.validateArray(this.clientIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupIdResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the group was created.
+   * 
+   * @example
+   * 1564577317000
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * The queried group that belongs to the ApsaraMQ for MQTT instance.
+   * 
+   * @example
+   * GID_test1
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * Indicates whether a separate namespace is configured for the ApsaraMQ for MQTT instance. Valid values:
+   * 
+   * *   **true**: A separate namespace is configured for the ApsaraMQ for MQTT instance. Resource names must be unique within an ApsaraMQ for MQTT instance but can be the same across ApsaraMQ for MQTT instances.
+   * *   **false**: No separate namespace is configured for the ApsaraMQ for MQTT instance. Resource names must be globally unique within an ApsaraMQ for MQTT instance and across ApsaraMQ for MQTT instances.
+   * 
+   * @example
+   * true
+   */
+  independentNaming?: boolean;
+  /**
+   * @remarks
+   * The ID of the ApsaraMQ for MQTT instance to which the group belongs.
+   * 
+   * @example
+   * post-cn-45910tj****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The time when the group was last updated.
+   * 
+   * @example
+   * 1564577317000
+   */
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      groupId: 'GroupId',
+      independentNaming: 'IndependentNaming',
+      instanceId: 'InstanceId',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      groupId: 'string',
+      independentNaming: 'boolean',
+      instanceId: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $dara.Model {
+  /**
+   * @example
+   * test
+   */
+  key?: string;
+  /**
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
+  /**
+   * @example
+   * mqtt-cn-5yd3xxx
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * instance
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * test
+   */
+  tagKey?: string;
+  /**
+   * @example
+   * test
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthConnectBlackResponseBodyDataResults extends $dara.Model {
+  /**
+   * @remarks
+   * The client ID.
+   * 
+   * @example
+   * GID_TEST@@@test
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * Indicates whether to allow or deny access.
+   * 
+   * @example
+   * ALLOW
+   */
+  effect?: string;
+  /**
+   * @remarks
+   * The authorized permissions.
+   * 
+   * @example
+   * CONNECT
+   */
+  permitAction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      effect: 'Effect',
+      permitAction: 'PermitAction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      effect: 'string',
+      permitAction: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthConnectBlackResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AAAAAZ0cM0HTqLXvgm7oMHWXcvc=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The returned results.
+   */
+  results?: QueryCustomAuthConnectBlackResponseBodyDataResults[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      results: { 'type': 'array', 'itemType': QueryCustomAuthConnectBlackResponseBodyDataResults },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.results)) {
+      $dara.Model.validateArray(this.results);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthIdentityResponseBodyDataResults extends $dara.Model {
+  /**
+   * @remarks
+   * The client ID if IdentityType is set to CLIENT.
+   * 
+   * @example
+   * GID_ICP@@@4d378084
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * The identity type. Valid values:
+   * 
+   * *   USER
+   * *   CLIENT
+   * 
+   * @example
+   * USER
+   */
+  identityType?: string;
+  /**
+   * @remarks
+   * The AccessKey secret.
+   * 
+   * @example
+   * 62a5916d71767185b48907d85c2efae2
+   */
+  secret?: string;
+  /**
+   * @remarks
+   * The signature verification mode. ORIGIN: compares the password and the AccessKey secret. SIGNED: uses the HMAC_SHA1 algorithm to sign the client ID to obtain a password and then compares the password.
+   * 
+   * @example
+   * SIGNED
+   */
+  signMode?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * test
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      identityType: 'IdentityType',
+      secret: 'Secret',
+      signMode: 'SignMode',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      identityType: 'string',
+      secret: 'string',
+      signMode: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthIdentityResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * If excess return values exist, this parameter is returned.
+   * 
+   * @example
+   * AAAAAXA+GzVqTutYpgkFjBrchKzuvSbpuTqtt6OF9tsC9QnJ
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The returned results.
+   */
+  results?: QueryCustomAuthIdentityResponseBodyDataResults[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      results: { 'type': 'array', 'itemType': QueryCustomAuthIdentityResponseBodyDataResults },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.results)) {
+      $dara.Model.validateArray(this.results);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthPermissionResponseBodyDataResults extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether to allow or deny access.
+   * 
+   * @example
+   * ALLOW
+   */
+  effect?: string;
+  /**
+   * @remarks
+   * The username or client ID.
+   * 
+   * @example
+   * test
+   */
+  identity?: string;
+  /**
+   * @remarks
+   * The identity type. Valid values:
+   * 
+   * *   USER
+   * *   CLIENT
+   * 
+   * @example
+   * USER
+   */
+  identityType?: string;
+  /**
+   * @remarks
+   * The authorized permissions.
+   * 
+   * @example
+   * PUB_SUB
+   */
+  permitAction?: string;
+  /**
+   * @remarks
+   * The topic name. Multi-level topics and wildcard characters are supported.
+   * 
+   * @example
+   * test
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'Effect',
+      identity: 'Identity',
+      identityType: 'IdentityType',
+      permitAction: 'PermitAction',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      identity: 'string',
+      identityType: 'string',
+      permitAction: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthPermissionResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The token that marks the end position of the previous returned page. To obtain the next batch of data, call the operation again by using the value of NextToken returned by the previous request. If you call this operation for the first time or want to query all results, set NextToken to an empty string.
+   * 
+   * @example
+   * AAAAAV/vsqTyeMlX1MIk7/b6NrZLIlsSVf49O04ac7HAmlBoaYspakK7ZZkR3vRDp5Y9Nz0EmuWYrtF+1qkUwuJzPk/qEto/FGxl5Kd+qdwNt3t8
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The response results.
+   */
+  results?: QueryCustomAuthPermissionResponseBodyDataResults[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      results: { 'type': 'array', 'itemType': QueryCustomAuthPermissionResponseBodyDataResults },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.results)) {
+      $dara.Model.validateArray(this.results);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceDeviceResponseBodyDeviceInfoList extends $dara.Model {
+  /**
+   * @remarks
+   * The action on the device. Valid values:
+   * 
+   * *   **connect**: The ApsaraMQ for MQTT client requests a connection to the ApsaraMQ for MQTT broker.
+   * *   **close**: The TCP connection is closed.
+   * *   **disconnect**: The ApsaraMQ for MQTT client requests a disconnection from the ApsaraMQ for MQTT broker.
+   * 
+   * @example
+   * connect
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The returned code for the action on the device. Valid values:
+   * 
+   * *   **mqtt.trace.action.connect**: This value is returned if the value of Action is **connect**.
+   * *   **mqtt.trace.action.close**: This value is returned if the value of Action is **close**.
+   * *   **mqtt.trace.action.disconnect**: This value is returned if the value of Action is **disconnect**.
+   * 
+   * @example
+   * mqtt.trace.action.connect
+   */
+  actionCode?: string;
+  /**
+   * @remarks
+   * The returned information for the action on the device. Valid values:
+   * 
+   * *   **accepted**: The ApsaraMQ for MQTT broker accepts the connection request from the ApsaraMQ for MQTT client.
+   * *   **not authorized**: The TCP connection is closed because the permission verification of the client to access the instance fails.
+   * *   **clientId conflict**: The TCP connection is closed due to a conflict in the ID of the ApsaraMQ for MQTT client.
+   * *   **resource auth failed**: The TCP connection is closed because the permission verification for the ApsaraMQ for MQTT client to access the topic or group fails.
+   * *   **no heart**: The TCP connection is closed because no heartbeat is detected on the client.
+   * *   **closed by client**: The TCP connection is closed because an exception occurs on the client.
+   * *   **disconnected by client**: The client requests a disconnection.
+   * *   **invalid param**: The TCP connection is closed due to invalid request parameters.
+   * *   **Socket IOException**: The TCP connection is closed due to network jitter or packet loss.
+   * 
+   * @example
+   * accept
+   */
+  actionInfo?: string;
+  /**
+   * @remarks
+   * The connection ID.
+   * 
+   * @example
+   * c69fe839209547fa9d073781b9cd****
+   */
+  channelId?: string;
+  /**
+   * @remarks
+   * The time when the action occurred on the device.
+   * 
+   * @example
+   * 2021-05-21 15:51:54.867
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      actionCode: 'ActionCode',
+      actionInfo: 'ActionInfo',
+      channelId: 'ChannelId',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      actionCode: 'string',
+      actionInfo: 'string',
+      channelId: 'string',
+      time: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessageOfClientResponseBodyMessageOfClientList extends $dara.Model {
+  /**
+   * @remarks
+   * The action on the message. Valid values:
+   * 
+   * *   **pub_mqtt**: The ApsaraMQ for MQTT client sends the message.
+   * *   **sub**: The ApsaraMQ for MQTT client subscribes to the message.
+   * *   **push_offline**: The ApsaraMQ for MQTT broker pushes the offline message to the ApsaraMQ for MQTT client.
+   * 
+   * @example
+   * pub_mqtt
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The returned code for the action on the message. Valid values:
+   * 
+   * *   **mqtt.trace.action.msg.pub.mqtt**: This value is returned if the value of Action is **pub_mqtt**.
+   * *   **mqtt.trace.action.msg.sub**: This value is returned if the value of Action is **sub**.
+   * *   **mqtt.trace.action.msg.push.offline**: This value is returned if the value of Action is **push_offline**.
+   * 
+   * @example
+   * mqtt.trace.action.msg.pub.mqtt
+   */
+  actionCode?: string;
+  /**
+   * @remarks
+   * The information returned for the action on the message. Valid values:
+   * 
+   * *   **Pub From Mqtt Client**: This value is returned if the value of Action is **pub_mqtt**.
+   * *   **Push To Mqtt Client**: This value is returned if the value of Action is **sub**.
+   * *   **Push Offline Msg To Mqtt Client**: This value is returned if the value of Action is **push_offline**.
+   * 
+   * @example
+   * Pub From Mqtt Client
+   */
+  actionInfo?: string;
+  /**
+   * @remarks
+   * The client ID of the device.
+   * 
+   * @example
+   * GID_test@@@producer
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * The message ID.
+   * 
+   * @example
+   * AC1EC0030EAB78308DB16A3EC773****
+   */
+  msgId?: string;
+  /**
+   * @remarks
+   * The time when the message was sent or received.
+   * 
+   * @example
+   * 2021-05-21 15:08:19.234
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      actionCode: 'ActionCode',
+      actionInfo: 'ActionInfo',
+      clientId: 'ClientId',
+      msgId: 'MsgId',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      actionCode: 'string',
+      actionInfo: 'string',
+      clientId: 'string',
+      msgId: 'string',
+      time: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessagePublishResponseBodyMessageTraceLists extends $dara.Model {
+  /**
+   * @remarks
+   * The action on the message. Valid values:
+   * 
+   * *   **pub_mqtt**: indicates that the message was sent by an ApsaraMQ for MQTT client.
+   * *   **pub_mq**: indicates that the message was sent by an ApsaraMQ for RocketMQ client.
+   * 
+   * @example
+   * pub_mqtt
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The returned code for the action on the message. Valid values:
+   * 
+   * *   **mqtt.trace.action.msg.pub.mqtt**: This value is returned if the value of Action is **pub_mqtt**.
+   * *   **mqtt.trace.action.msg.pub.mq**: This value is returned if the value of Action is **pub_mq**.
+   * 
+   * @example
+   * mqtt.trace.action.msg.pub.mqtt
+   */
+  actionCode?: string;
+  /**
+   * @remarks
+   * The returned information for the action on the message. Valid values:
+   * 
+   * *   **Pub From Mqtt Client**: This value is returned if the value of Action is **pub_mqtt**.
+   * *   **Pub From MQ**: This value is returned if the value of Action is **pub_mq**.
+   * 
+   * @example
+   * Pub From Mqtt Client
+   */
+  actionInfo?: string;
+  /**
+   * @remarks
+   * The ID of the client that sends the message.
+   * 
+   * @example
+   * GID_test@@@producer
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * The message ID.
+   * 
+   * @example
+   * AC1EC0030EAB78308DB16A3EC773BD95
+   */
+  msgId?: string;
+  /**
+   * @remarks
+   * The time when the message was sent.
+   * 
+   * @example
+   * 2021-05-21 15:08:19.210
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      actionCode: 'ActionCode',
+      actionInfo: 'ActionInfo',
+      clientId: 'ClientId',
+      msgId: 'MsgId',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      actionCode: 'string',
+      actionInfo: 'string',
+      clientId: 'string',
+      msgId: 'string',
+      time: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessageSubscribeResponseBodyMessageTraceLists extends $dara.Model {
+  /**
+   * @remarks
+   * The action on the message. Valid values:
+   * 
+   * *   **sub**: The ApsaraMQ for MQTT client subscribes to the message.
+   * *   **push_offline**: The ApsaraMQ for MQTT broker pushes the offline message to the ApsaraMQ for MQTT client.
+   * 
+   * @example
+   * sub
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The code returned for the action on the message. Valid values:
+   * 
+   * *   **mqtt.trace.action.msg.sub**: The value that is returned if the value of Action is **sub**.
+   * *   **mqtt.trace.action.msg.push.offline**: The value that is returned if the value of Action is **push_offline**.
+   * 
+   * @example
+   * mqtt.trace.action.msg.sub
+   */
+  actionCode?: string;
+  /**
+   * @remarks
+   * The returned information for the action on the message. Valid values:
+   * 
+   * *   **Push To Mqtt Client**: The value that is returned if the value of Action is **sub**.
+   * *   **Push Offline Msg To Mqtt Client**: The value that is returned if the value of Action is **push_offline**.
+   * 
+   * @example
+   * Push To Mqtt Client
+   */
+  actionInfo?: string;
+  /**
+   * @remarks
+   * The ID of the client that subscribes to the message.
+   * 
+   * @example
+   * GID_test@@@consumer
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * The message ID.
+   * 
+   * @example
+   * AC1EC1B33D5978308DB17F3245E4****
+   */
+  msgId?: string;
+  /**
+   * @remarks
+   * The time when the message was delivered.
+   * 
+   * @example
+   * 2021-05-25 16:46:41.274
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      actionCode: 'ActionCode',
+      actionInfo: 'ActionInfo',
+      clientId: 'ClientId',
+      msgId: 'MsgId',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      actionCode: 'string',
+      actionInfo: 'string',
+      clientId: 'string',
+      msgId: 'string',
+      time: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshDeviceCredentialResponseBodyDeviceCredential extends $dara.Model {
+  /**
+   * @remarks
+   * The client ID of the device.
+   * 
+   * @example
+   * GID_test@@@test
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the access credential of the device was created. The value of this parameter is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1605541382000
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * The AccessKey ID of the device.
+   * 
+   * @example
+   * DC.Z5fXh9sRRVufyLi6wo****
+   */
+  deviceAccessKeyId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the device.
+   * 
+   * @example
+   * DC.BJMkn4eMQJK2vaApTS****
+   */
+  deviceAccessKeySecret?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraMQ for MQTT instance.
+   * 
+   * @example
+   * post-cn-0pp12gl****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the access credential of the device was last updated. The value of this parameter is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1605541382000
+   */
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      createTime: 'CreateTime',
+      deviceAccessKeyId: 'DeviceAccessKeyId',
+      deviceAccessKeySecret: 'DeviceAccessKeySecret',
+      instanceId: 'InstanceId',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      createTime: 'number',
+      deviceAccessKeyId: 'string',
+      deviceAccessKeySecret: 'string',
+      instanceId: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDeviceCredentialResponseBodyDeviceCredential extends $dara.Model {
+  /**
+   * @remarks
+   * The client ID of the device.
+   * 
+   * @example
+   * GID_test@@@test
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the access credential of the device was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1605541382000
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * The AccessKey ID of the device.
+   * 
+   * @example
+   * DC.Z5fXh9sRRVufyLi6wo****
+   */
+  deviceAccessKeyId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the device.
+   * 
+   * @example
+   * DC.BJMkn4eMQJK2vaApTS****
+   */
+  deviceAccessKeySecret?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraMQ for MQTT instance.
+   * 
+   * @example
+   * post-cn-0pp12gl****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the access credential of the device was last updated. Unit: milliseconds.
+   * 
+   * @example
+   * 1605541382000
+   */
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      createTime: 'CreateTime',
+      deviceAccessKeyId: 'DeviceAccessKeyId',
+      deviceAccessKeySecret: 'DeviceAccessKeySecret',
+      instanceId: 'InstanceId',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      createTime: 'number',
+      deviceAccessKeyId: 'string',
+      deviceAccessKeySecret: 'string',
+      instanceId: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSniConfigResponseBodyAccessDeniedDetail extends $dara.Model {
+  /**
+   * @example
+   * SetSniConfig
+   */
+  authAction?: string;
+  /**
+   * @example
+   * 2063xxxxxxxx533
+   */
+  authPrincipalDisplayName?: string;
+  /**
+   * @example
+   * 1245xxxxx34343
+   */
+  authPrincipalOwnerId?: string;
+  /**
+   * @example
+   * SubUser
+   */
+  authPrincipalType?: string;
+  /**
+   * @example
+   * AQFma6gWZmuoFkMxQ0M3MUVCLTRFQzQtNTI1OS1BQ0Q0LTlBMTFGQkVDOTA3Qw==
+   */
+  encodedDiagnosticMessage?: string;
+  /**
+   * @example
+   * ImplicitDeny
+   */
+  noPermissionType?: string;
+  /**
+   * @example
+   * AccountLevelIdentityBasedPolicy
+   */
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $dara.Model {
+  /**
+   * @example
+   * test
+   */
+  key?: string;
+  /**
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ActiveCaCertificateRequest extends $dara.Model {
+  /**
+   * @remarks
    * This parameter is required.
    * 
    * @example
@@ -20,10 +1975,6 @@ export class ActiveCaCertificateRequest extends $tea.Model {
   mqttInstanceId?: string;
   /**
    * @remarks
-   * 待激活CA证书的SN序列号，用于唯一标识一个CA证书。
-   * 
-   * 取值范围：不超过128 Byte。
-   * 
    * This parameter is required.
    * 
    * @example
@@ -44,12 +1995,16 @@ export class ActiveCaCertificateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ActiveCaCertificateResponseBody extends $tea.Model {
+export class ActiveCaCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
    * Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
@@ -80,12 +2035,16 @@ export class ActiveCaCertificateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ActiveCaCertificateResponse extends $tea.Model {
+export class ActiveCaCertificateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ActiveCaCertificateResponseBody;
@@ -105,12 +2064,22 @@ export class ActiveCaCertificateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ActiveDeviceCertificateRequest extends $tea.Model {
+export class ActiveDeviceCertificateRequest extends $dara.Model {
   /**
    * @remarks
    * The serial number of the CA certificate to which the device certificate belongs. The serial number is the unique identifier of a CA certificate.
@@ -159,12 +2128,16 @@ export class ActiveDeviceCertificateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ActiveDeviceCertificateResponseBody extends $tea.Model {
+export class ActiveDeviceCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The serial number of the device certificate that you reactivated. The serial number is the unique identifier of a device certificate.
@@ -195,12 +2168,16 @@ export class ActiveDeviceCertificateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ActiveDeviceCertificateResponse extends $tea.Model {
+export class ActiveDeviceCertificateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ActiveDeviceCertificateResponseBody;
@@ -220,12 +2197,22 @@ export class ActiveDeviceCertificateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddCustomAuthConnectBlackRequest extends $tea.Model {
+export class AddCustomAuthConnectBlackRequest extends $dara.Model {
   /**
    * @remarks
    * The client ID of the device whose connections you want to disable.
@@ -260,12 +2247,16 @@ export class AddCustomAuthConnectBlackRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddCustomAuthConnectBlackResponseBody extends $tea.Model {
+export class AddCustomAuthConnectBlackResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code. The value 200 indicates that the request is successful.
@@ -316,12 +2307,16 @@ export class AddCustomAuthConnectBlackResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddCustomAuthConnectBlackResponse extends $tea.Model {
+export class AddCustomAuthConnectBlackResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddCustomAuthConnectBlackResponseBody;
@@ -341,12 +2336,22 @@ export class AddCustomAuthConnectBlackResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddCustomAuthIdentityRequest extends $tea.Model {
+export class AddCustomAuthIdentityRequest extends $dara.Model {
   /**
    * @remarks
    * The client ID if you set IdentityType to CLIENT.
@@ -357,7 +2362,10 @@ export class AddCustomAuthIdentityRequest extends $tea.Model {
   clientId?: string;
   /**
    * @remarks
-   * The identity type. Valid values: USER and CLIENT.
+   * The identity type. Valid values:
+   * 
+   * *   USER
+   * *   CLIENT
    * 
    * This parameter is required.
    * 
@@ -388,6 +2396,8 @@ export class AddCustomAuthIdentityRequest extends $tea.Model {
   /**
    * @remarks
    * The signature verification mode. ORIGIN: compares the password and the AccessKey secret. SIGNED: uses the HMAC_SHA1 algorithm to sign the client ID to obtain a password and then compares the password.
+   * 
+   * This parameter is required.
    * 
    * @example
    * SIGNED
@@ -425,12 +2435,16 @@ export class AddCustomAuthIdentityRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddCustomAuthIdentityResponseBody extends $tea.Model {
+export class AddCustomAuthIdentityResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code. The status code 200 indicates that the request is successful.
@@ -481,12 +2495,16 @@ export class AddCustomAuthIdentityResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddCustomAuthIdentityResponse extends $tea.Model {
+export class AddCustomAuthIdentityResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddCustomAuthIdentityResponseBody;
@@ -506,15 +2524,25 @@ export class AddCustomAuthIdentityResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddCustomAuthPermissionRequest extends $tea.Model {
+export class AddCustomAuthPermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * Specify whether to allow or deny the permissions.
+   * Specifies whether to allow or deny access.
    * 
    * This parameter is required.
    * 
@@ -554,7 +2582,7 @@ export class AddCustomAuthPermissionRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The permissions that you want to add.
+   * The permissions that you want to grant.
    * 
    * This parameter is required.
    * 
@@ -564,7 +2592,7 @@ export class AddCustomAuthPermissionRequest extends $tea.Model {
   permitAction?: string;
   /**
    * @remarks
-   * The topic on which you want to add the permissions. Multi-level topics and wildcard characters are supported.
+   * The topics on which you want to grant permissions. Multi-level topics and wildcard characters are supported.
    * 
    * This parameter is required.
    * 
@@ -594,12 +2622,16 @@ export class AddCustomAuthPermissionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddCustomAuthPermissionResponseBody extends $tea.Model {
+export class AddCustomAuthPermissionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code. The status code 200 indicates that the request is successful.
@@ -650,12 +2682,16 @@ export class AddCustomAuthPermissionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddCustomAuthPermissionResponse extends $tea.Model {
+export class AddCustomAuthPermissionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddCustomAuthPermissionResponseBody;
@@ -675,12 +2711,22 @@ export class AddCustomAuthPermissionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ApplyTokenRequest extends $tea.Model {
+export class ApplyTokenRequest extends $dara.Model {
   /**
    * @remarks
    * The permission type of the token. Valid values:
@@ -749,12 +2795,16 @@ export class ApplyTokenRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ApplyTokenResponseBody extends $tea.Model {
+export class ApplyTokenResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID. This parameter is a common parameter.
@@ -787,12 +2837,16 @@ export class ApplyTokenResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ApplyTokenResponse extends $tea.Model {
+export class ApplyTokenResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ApplyTokenResponseBody;
@@ -812,12 +2866,22 @@ export class ApplyTokenResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BatchQuerySessionByClientIdsRequest extends $tea.Model {
+export class BatchQuerySessionByClientIdsRequest extends $dara.Model {
   /**
    * @remarks
    * The ApsaraMQ for MQTT clients.
@@ -852,12 +2916,19 @@ export class BatchQuerySessionByClientIdsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.clientIdList)) {
+      $dara.Model.validateArray(this.clientIdList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BatchQuerySessionByClientIdsResponseBody extends $tea.Model {
+export class BatchQuerySessionByClientIdsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status list of all queried ApsaraMQ for MQTT clients.
@@ -885,12 +2956,19 @@ export class BatchQuerySessionByClientIdsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.onlineStatusList)) {
+      $dara.Model.validateArray(this.onlineStatusList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BatchQuerySessionByClientIdsResponse extends $tea.Model {
+export class BatchQuerySessionByClientIdsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BatchQuerySessionByClientIdsResponseBody;
@@ -910,12 +2988,22 @@ export class BatchQuerySessionByClientIdsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CloseConnectionRequest extends $tea.Model {
+export class CloseConnectionRequest extends $dara.Model {
   /**
    * @remarks
    * Client ID of the device
@@ -950,12 +3038,16 @@ export class CloseConnectionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CloseConnectionResponseBody extends $tea.Model {
+export class CloseConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
    * Return code of the interface: 200 indicates success. Other values indicate error codes. For details about the error codes, see Error Codes.
@@ -1006,12 +3098,16 @@ export class CloseConnectionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CloseConnectionResponse extends $tea.Model {
+export class CloseConnectionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CloseConnectionResponseBody;
@@ -1031,12 +3127,22 @@ export class CloseConnectionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGroupIdRequest extends $tea.Model {
+export class CreateGroupIdRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the group that you want to create. The group ID must meet the following conventions:
@@ -1074,12 +3180,16 @@ export class CreateGroupIdRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGroupIdResponseBody extends $tea.Model {
+export class CreateGroupIdResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID. This parameter is a common parameter.
@@ -1100,12 +3210,16 @@ export class CreateGroupIdResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGroupIdResponse extends $tea.Model {
+export class CreateGroupIdResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateGroupIdResponseBody;
@@ -1125,12 +3239,22 @@ export class CreateGroupIdResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteCaCertificateRequest extends $tea.Model {
+export class DeleteCaCertificateRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ApsaraMQ for MQTT instance to which the CA certificate is bound.
@@ -1167,12 +3291,16 @@ export class DeleteCaCertificateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteCaCertificateResponseBody extends $tea.Model {
+export class DeleteCaCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -1203,12 +3331,16 @@ export class DeleteCaCertificateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteCaCertificateResponse extends $tea.Model {
+export class DeleteCaCertificateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteCaCertificateResponseBody;
@@ -1228,12 +3360,22 @@ export class DeleteCaCertificateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteCustomAuthConnectBlackRequest extends $tea.Model {
+export class DeleteCustomAuthConnectBlackRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ApsaraMQ for MQTT client.
@@ -1268,12 +3410,16 @@ export class DeleteCustomAuthConnectBlackRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteCustomAuthConnectBlackResponseBody extends $tea.Model {
+export class DeleteCustomAuthConnectBlackResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code. The status code 200 indicates that the request was successful.
@@ -1324,12 +3470,16 @@ export class DeleteCustomAuthConnectBlackResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteCustomAuthConnectBlackResponse extends $tea.Model {
+export class DeleteCustomAuthConnectBlackResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteCustomAuthConnectBlackResponseBody;
@@ -1349,12 +3499,22 @@ export class DeleteCustomAuthConnectBlackResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteCustomAuthIdentityRequest extends $tea.Model {
+export class DeleteCustomAuthIdentityRequest extends $dara.Model {
   /**
    * @remarks
    * The client ID if you set IdentityType to CLIENT.
@@ -1414,12 +3574,16 @@ export class DeleteCustomAuthIdentityRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteCustomAuthIdentityResponseBody extends $tea.Model {
+export class DeleteCustomAuthIdentityResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code. The status code 200 indicates that the request is successful. Other status codes indicate that the request failed.
@@ -1470,12 +3634,16 @@ export class DeleteCustomAuthIdentityResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteCustomAuthIdentityResponse extends $tea.Model {
+export class DeleteCustomAuthIdentityResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteCustomAuthIdentityResponseBody;
@@ -1495,12 +3663,22 @@ export class DeleteCustomAuthIdentityResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteCustomAuthPermissionRequest extends $tea.Model {
+export class DeleteCustomAuthPermissionRequest extends $dara.Model {
   /**
    * @remarks
    * The username or client ID.
@@ -1562,12 +3740,16 @@ export class DeleteCustomAuthPermissionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteCustomAuthPermissionResponseBody extends $tea.Model {
+export class DeleteCustomAuthPermissionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -1618,12 +3800,16 @@ export class DeleteCustomAuthPermissionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteCustomAuthPermissionResponse extends $tea.Model {
+export class DeleteCustomAuthPermissionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteCustomAuthPermissionResponseBody;
@@ -1643,12 +3829,22 @@ export class DeleteCustomAuthPermissionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteDeviceCertificateRequest extends $tea.Model {
+export class DeleteDeviceCertificateRequest extends $dara.Model {
   /**
    * @remarks
    * The serial number of the CA certificate to which the device certificate belongs. The serial number is the unique identifier of a CA certificate. CA certificates are used to validate device certificates.
@@ -1699,12 +3895,16 @@ export class DeleteDeviceCertificateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteDeviceCertificateResponseBody extends $tea.Model {
+export class DeleteDeviceCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The serial number of the device certificate whose registration information is deleted. The serial number is the unique identifier of a device certificate.
@@ -1735,12 +3935,16 @@ export class DeleteDeviceCertificateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteDeviceCertificateResponse extends $tea.Model {
+export class DeleteDeviceCertificateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteDeviceCertificateResponseBody;
@@ -1760,12 +3964,22 @@ export class DeleteDeviceCertificateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteGroupIdRequest extends $tea.Model {
+export class DeleteGroupIdRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the group that you want to delete.
@@ -1800,12 +4014,16 @@ export class DeleteGroupIdRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteGroupIdResponseBody extends $tea.Model {
+export class DeleteGroupIdResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID. This parameter is a common parameter.
@@ -1826,12 +4044,16 @@ export class DeleteGroupIdResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteGroupIdResponse extends $tea.Model {
+export class DeleteGroupIdResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteGroupIdResponseBody;
@@ -1851,12 +4073,22 @@ export class DeleteGroupIdResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCaCertificateRequest extends $tea.Model {
+export class GetCaCertificateRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID bound to the CA certificate, which is the instance ID of the MQTT version of the cloud message queue.
@@ -1891,12 +4123,16 @@ export class GetCaCertificateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCaCertificateResponseBody extends $tea.Model {
+export class GetCaCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
    * Certificate details.
@@ -1924,12 +4160,19 @@ export class GetCaCertificateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCaCertificateResponse extends $tea.Model {
+export class GetCaCertificateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetCaCertificateResponseBody;
@@ -1949,12 +4192,22 @@ export class GetCaCertificateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDeviceCertificateRequest extends $tea.Model {
+export class GetDeviceCertificateRequest extends $dara.Model {
   /**
    * @remarks
    * The SN serial number of the CA certificate to which the device certificate to be queried belongs, used to uniquely identify a CA certificate. Value range: no more than 128 bytes.
@@ -2001,12 +4254,16 @@ export class GetDeviceCertificateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDeviceCertificateResponseBody extends $tea.Model {
+export class GetDeviceCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
    * Certificate details.
@@ -2034,12 +4291,19 @@ export class GetDeviceCertificateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDeviceCertificateResponse extends $tea.Model {
+export class GetDeviceCertificateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetDeviceCertificateResponseBody;
@@ -2059,12 +4323,22 @@ export class GetDeviceCertificateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDeviceCredentialRequest extends $tea.Model {
+export class GetDeviceCredentialRequest extends $dara.Model {
   /**
    * @remarks
    * The client ID of the device whose access credential you want to query.
@@ -2099,12 +4373,16 @@ export class GetDeviceCredentialRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDeviceCredentialResponseBody extends $tea.Model {
+export class GetDeviceCredentialResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the access credential of the device.
@@ -2132,12 +4410,19 @@ export class GetDeviceCredentialResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.deviceCredential && typeof (this.deviceCredential as any).validate === 'function') {
+      (this.deviceCredential as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDeviceCredentialResponse extends $tea.Model {
+export class GetDeviceCredentialResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetDeviceCredentialResponseBody;
@@ -2157,12 +4442,22 @@ export class GetDeviceCredentialResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRegisterCodeRequest extends $tea.Model {
+export class GetRegisterCodeRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ApsaraMQ for MQTT instance.
@@ -2185,12 +4480,16 @@ export class GetRegisterCodeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRegisterCodeResponseBody extends $tea.Model {
+export class GetRegisterCodeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The registration code of the CA certificate.
@@ -2221,12 +4520,16 @@ export class GetRegisterCodeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRegisterCodeResponse extends $tea.Model {
+export class GetRegisterCodeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetRegisterCodeResponseBody;
@@ -2246,12 +4549,22 @@ export class GetRegisterCodeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InactivateCaCertificateRequest extends $tea.Model {
+export class InactivateCaCertificateRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ApsaraMQ for MQTT instance to which the CA certificate is bound.
@@ -2288,12 +4601,16 @@ export class InactivateCaCertificateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InactivateCaCertificateResponseBody extends $tea.Model {
+export class InactivateCaCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -2324,12 +4641,16 @@ export class InactivateCaCertificateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InactivateCaCertificateResponse extends $tea.Model {
+export class InactivateCaCertificateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: InactivateCaCertificateResponseBody;
@@ -2349,12 +4670,22 @@ export class InactivateCaCertificateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InactivateDeviceCertificateRequest extends $tea.Model {
+export class InactivateDeviceCertificateRequest extends $dara.Model {
   /**
    * @remarks
    * The serial number of the CA certificate to which the device certificate that you want to deregister belongs. The serial number is the unique identifier of a CA certificate.
@@ -2403,12 +4734,16 @@ export class InactivateDeviceCertificateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InactivateDeviceCertificateResponseBody extends $tea.Model {
+export class InactivateDeviceCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The serial number of the device certificate that is deregistered. The serial number is the unique identifier of a device certificate.
@@ -2439,12 +4774,16 @@ export class InactivateDeviceCertificateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InactivateDeviceCertificateResponse extends $tea.Model {
+export class InactivateDeviceCertificateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: InactivateDeviceCertificateResponseBody;
@@ -2464,12 +4803,22 @@ export class InactivateDeviceCertificateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListCaCertificateRequest extends $tea.Model {
+export class ListCaCertificateRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID of the Cloud Message Queue MQTT version, indicating which instance\\"s CA certificates need to be viewed.
@@ -2516,12 +4865,16 @@ export class ListCaCertificateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListCaCertificateResponseBody extends $tea.Model {
+export class ListCaCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
    * Query result.
@@ -2549,12 +4902,19 @@ export class ListCaCertificateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListCaCertificateResponse extends $tea.Model {
+export class ListCaCertificateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListCaCertificateResponseBody;
@@ -2574,12 +4934,22 @@ export class ListCaCertificateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDeviceCertificateRequest extends $tea.Model {
+export class ListDeviceCertificateRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID of the Cloud Message Queue MQTT version, indicating which instance\\"s device certificates need to be viewed.
@@ -2626,12 +4996,16 @@ export class ListDeviceCertificateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDeviceCertificateResponseBody extends $tea.Model {
+export class ListDeviceCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
    * Query result.
@@ -2659,12 +5033,19 @@ export class ListDeviceCertificateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDeviceCertificateResponse extends $tea.Model {
+export class ListDeviceCertificateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListDeviceCertificateResponseBody;
@@ -2684,12 +5065,22 @@ export class ListDeviceCertificateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDeviceCertificateByCaSnRequest extends $tea.Model {
+export class ListDeviceCertificateByCaSnRequest extends $dara.Model {
   /**
    * @remarks
    * The SN serial number of the CA certificate to be queried, indicating which CA certificate\\"s registered device certificates are to be retrieved.
@@ -2748,12 +5139,16 @@ export class ListDeviceCertificateByCaSnRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDeviceCertificateByCaSnResponseBody extends $tea.Model {
+export class ListDeviceCertificateByCaSnResponseBody extends $dara.Model {
   /**
    * @remarks
    * Query result.
@@ -2781,12 +5176,19 @@ export class ListDeviceCertificateByCaSnResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDeviceCertificateByCaSnResponse extends $tea.Model {
+export class ListDeviceCertificateByCaSnResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListDeviceCertificateByCaSnResponseBody;
@@ -2806,12 +5208,22 @@ export class ListDeviceCertificateByCaSnResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDeviceCredentialClientIdRequest extends $tea.Model {
+export class ListDeviceCredentialClientIdRequest extends $dara.Model {
   /**
    * @remarks
    * Group ID of the MQTT version of the micro message queue.
@@ -2879,12 +5291,16 @@ export class ListDeviceCredentialClientIdRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDeviceCredentialClientIdResponseBody extends $tea.Model {
+export class ListDeviceCredentialClientIdResponseBody extends $dara.Model {
   /**
    * @remarks
    * Returns the information list.
@@ -2912,12 +5328,19 @@ export class ListDeviceCredentialClientIdResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.deviceCredentialClientIdList && typeof (this.deviceCredentialClientIdList as any).validate === 'function') {
+      (this.deviceCredentialClientIdList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDeviceCredentialClientIdResponse extends $tea.Model {
+export class ListDeviceCredentialClientIdResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListDeviceCredentialClientIdResponseBody;
@@ -2937,12 +5360,22 @@ export class ListDeviceCredentialClientIdResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGroupIdRequest extends $tea.Model {
+export class ListGroupIdRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ApsaraMQ for MQTT instance whose groups you want to query.
@@ -2965,12 +5398,16 @@ export class ListGroupIdRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGroupIdResponseBody extends $tea.Model {
+export class ListGroupIdResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of a queried group.
@@ -2998,12 +5435,19 @@ export class ListGroupIdResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGroupIdResponse extends $tea.Model {
+export class ListGroupIdResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListGroupIdResponseBody;
@@ -3023,12 +5467,22 @@ export class ListGroupIdResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequest extends $tea.Model {
+export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @example
    * AAAAAaFXUH1VTHnBlds7StUakOQ=
@@ -3062,12 +5516,22 @@ export class ListTagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBody extends $tea.Model {
+export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -3119,12 +5583,19 @@ export class ListTagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagResources)) {
+      $dara.Model.validateArray(this.tagResources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponse extends $tea.Model {
+export class ListTagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagResourcesResponseBody;
@@ -3144,12 +5615,22 @@ export class ListTagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCustomAuthConnectBlackRequest extends $tea.Model {
+export class QueryCustomAuthConnectBlackRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the client to be queried.
@@ -3204,12 +5685,16 @@ export class QueryCustomAuthConnectBlackRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCustomAuthConnectBlackResponseBody extends $tea.Model {
+export class QueryCustomAuthConnectBlackResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code. The status code 200 indicates that the request is successful. Other status codes indicate that the request failed. For a list of error codes, see Error codes.
@@ -3267,12 +5752,19 @@ export class QueryCustomAuthConnectBlackResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCustomAuthConnectBlackResponse extends $tea.Model {
+export class QueryCustomAuthConnectBlackResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryCustomAuthConnectBlackResponseBody;
@@ -3292,12 +5784,22 @@ export class QueryCustomAuthConnectBlackResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCustomAuthIdentityRequest extends $tea.Model {
+export class QueryCustomAuthIdentityRequest extends $dara.Model {
   /**
    * @remarks
    * The client ID if you set IdentityType to CLIENT.
@@ -3309,11 +5811,6 @@ export class QueryCustomAuthIdentityRequest extends $tea.Model {
   /**
    * @remarks
    * The identity type.
-   * 
-   * Valid values:
-   * 
-   * *   USER
-   * *   CLIENT
    * 
    * @example
    * USER
@@ -3377,12 +5874,16 @@ export class QueryCustomAuthIdentityRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCustomAuthIdentityResponseBody extends $tea.Model {
+export class QueryCustomAuthIdentityResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code. The status code 200 indicates that the request is successful. Other status codes indicate that the request failed. For a list of error codes, see Error codes.
@@ -3440,12 +5941,19 @@ export class QueryCustomAuthIdentityResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCustomAuthIdentityResponse extends $tea.Model {
+export class QueryCustomAuthIdentityResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryCustomAuthIdentityResponseBody;
@@ -3465,12 +5973,22 @@ export class QueryCustomAuthIdentityResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCustomAuthPermissionRequest extends $tea.Model {
+export class QueryCustomAuthPermissionRequest extends $dara.Model {
   /**
    * @remarks
    * The username or client ID.
@@ -3482,11 +6000,6 @@ export class QueryCustomAuthPermissionRequest extends $tea.Model {
   /**
    * @remarks
    * The identity type.
-   * 
-   * Valid values:
-   * 
-   * *   USER
-   * *   CLIENT
    * 
    * @example
    * USER
@@ -3550,12 +6063,16 @@ export class QueryCustomAuthPermissionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCustomAuthPermissionResponseBody extends $tea.Model {
+export class QueryCustomAuthPermissionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -3613,12 +6130,19 @@ export class QueryCustomAuthPermissionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCustomAuthPermissionResponse extends $tea.Model {
+export class QueryCustomAuthPermissionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryCustomAuthPermissionResponseBody;
@@ -3638,12 +6162,22 @@ export class QueryCustomAuthPermissionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMqttTraceDeviceRequest extends $tea.Model {
+export class QueryMqttTraceDeviceRequest extends $dara.Model {
   /**
    * @remarks
    * The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
@@ -3753,12 +6287,16 @@ export class QueryMqttTraceDeviceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMqttTraceDeviceResponseBody extends $tea.Model {
+export class QueryMqttTraceDeviceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number of the returned page.
@@ -3816,12 +6354,19 @@ export class QueryMqttTraceDeviceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.deviceInfoList)) {
+      $dara.Model.validateArray(this.deviceInfoList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMqttTraceDeviceResponse extends $tea.Model {
+export class QueryMqttTraceDeviceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryMqttTraceDeviceResponseBody;
@@ -3841,12 +6386,22 @@ export class QueryMqttTraceDeviceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMqttTraceMessageOfClientRequest extends $tea.Model {
+export class QueryMqttTraceMessageOfClientRequest extends $dara.Model {
   /**
    * @remarks
    * The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
@@ -3956,12 +6511,16 @@ export class QueryMqttTraceMessageOfClientRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMqttTraceMessageOfClientResponseBody extends $tea.Model {
+export class QueryMqttTraceMessageOfClientResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number of the returned page.
@@ -4019,12 +6578,19 @@ export class QueryMqttTraceMessageOfClientResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageOfClientList)) {
+      $dara.Model.validateArray(this.messageOfClientList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMqttTraceMessageOfClientResponse extends $tea.Model {
+export class QueryMqttTraceMessageOfClientResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryMqttTraceMessageOfClientResponseBody;
@@ -4044,12 +6610,22 @@ export class QueryMqttTraceMessageOfClientResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMqttTraceMessagePublishRequest extends $tea.Model {
+export class QueryMqttTraceMessagePublishRequest extends $dara.Model {
   /**
    * @remarks
    * The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
@@ -4120,12 +6696,16 @@ export class QueryMqttTraceMessagePublishRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMqttTraceMessagePublishResponseBody extends $tea.Model {
+export class QueryMqttTraceMessagePublishResponseBody extends $dara.Model {
   /**
    * @remarks
    * The message traces.
@@ -4153,12 +6733,19 @@ export class QueryMqttTraceMessagePublishResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageTraceLists)) {
+      $dara.Model.validateArray(this.messageTraceLists);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMqttTraceMessagePublishResponse extends $tea.Model {
+export class QueryMqttTraceMessagePublishResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryMqttTraceMessagePublishResponseBody;
@@ -4178,12 +6765,22 @@ export class QueryMqttTraceMessagePublishResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMqttTraceMessageSubscribeRequest extends $tea.Model {
+export class QueryMqttTraceMessageSubscribeRequest extends $dara.Model {
   /**
    * @remarks
    * The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
@@ -4303,12 +6900,16 @@ export class QueryMqttTraceMessageSubscribeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMqttTraceMessageSubscribeResponseBody extends $tea.Model {
+export class QueryMqttTraceMessageSubscribeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number of the returned page.
@@ -4366,12 +6967,19 @@ export class QueryMqttTraceMessageSubscribeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageTraceLists)) {
+      $dara.Model.validateArray(this.messageTraceLists);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMqttTraceMessageSubscribeResponse extends $tea.Model {
+export class QueryMqttTraceMessageSubscribeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryMqttTraceMessageSubscribeResponseBody;
@@ -4391,12 +6999,22 @@ export class QueryMqttTraceMessageSubscribeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySessionByClientIdRequest extends $tea.Model {
+export class QuerySessionByClientIdRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ApsaraMQ for MQTT client that you want to query.
@@ -4431,12 +7049,16 @@ export class QuerySessionByClientIdRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySessionByClientIdResponseBody extends $tea.Model {
+export class QuerySessionByClientIdResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the ApsaraMQ for MQTT client is connected to the ApsaraMQ for MQTT broker. Valid values:
@@ -4470,12 +7092,16 @@ export class QuerySessionByClientIdResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySessionByClientIdResponse extends $tea.Model {
+export class QuerySessionByClientIdResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySessionByClientIdResponseBody;
@@ -4495,12 +7121,22 @@ export class QuerySessionByClientIdResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTokenRequest extends $tea.Model {
+export class QueryTokenRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ApsaraMQ for MQTT instance. The ID must be consistent with the ID of the instance that the ApsaraMQ for MQTT client uses. You can obtain the instance ID on the **Instance Details** page that corresponds to the instance in the [ApsaraMQ for MQTT console](https://mqtt.console.aliyun.com/).
@@ -4535,12 +7171,16 @@ export class QueryTokenRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTokenResponseBody extends $tea.Model {
+export class QueryTokenResponseBody extends $dara.Model {
   /**
    * @remarks
    * The unique ID that the system generates for the request. This parameter is a common parameter.
@@ -4574,12 +7214,16 @@ export class QueryTokenResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTokenResponse extends $tea.Model {
+export class QueryTokenResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryTokenResponseBody;
@@ -4599,12 +7243,22 @@ export class QueryTokenResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RefreshDeviceCredentialRequest extends $tea.Model {
+export class RefreshDeviceCredentialRequest extends $dara.Model {
   /**
    * @remarks
    * The client ID of the device whose access credential you want to update.
@@ -4639,12 +7293,16 @@ export class RefreshDeviceCredentialRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RefreshDeviceCredentialResponseBody extends $tea.Model {
+export class RefreshDeviceCredentialResponseBody extends $dara.Model {
   /**
    * @remarks
    * The access credential of the device.
@@ -4672,12 +7330,19 @@ export class RefreshDeviceCredentialResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.deviceCredential && typeof (this.deviceCredential as any).validate === 'function') {
+      (this.deviceCredential as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RefreshDeviceCredentialResponse extends $tea.Model {
+export class RefreshDeviceCredentialResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RefreshDeviceCredentialResponseBody;
@@ -4697,17 +7362,24 @@ export class RefreshDeviceCredentialResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterCaCertificateRequest extends $tea.Model {
+export class RegisterCaCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * Content of the CA certificate to be registered.
-   * > Note that \\n in the example represents a new line.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -4716,7 +7388,7 @@ export class RegisterCaCertificateRequest extends $tea.Model {
   caContent?: string;
   /**
    * @remarks
-   * Name of the CA certificate to be registered
+   * - Only Platinum and Professional instances support using the RegisterCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
    * 
    * This parameter is required.
    * 
@@ -4726,7 +7398,7 @@ export class RegisterCaCertificateRequest extends $tea.Model {
   caName?: string;
   /**
    * @remarks
-   * The instance ID of the Cloud Message Queue MQTT version. When registering a CA certificate, you need to specify an instance to bind with.
+   * RegisterCaCertificate
    * 
    * This parameter is required.
    * 
@@ -4736,9 +7408,6 @@ export class RegisterCaCertificateRequest extends $tea.Model {
   mqttInstanceId?: string;
   /**
    * @remarks
-   * Content of the verification certificate for the CA certificate to be registered. It is used together with the registration code of the CA certificate to verify that the user possesses the private key of this CA certificate. 
-   * >  in the example represents a line break.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -4763,24 +7432,22 @@ export class RegisterCaCertificateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterCaCertificateResponseBody extends $tea.Model {
+export class RegisterCaCertificateResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
-   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
   requestId?: string;
   /**
-   * @remarks
-   * The SN serial number of the registered CA certificate, used to uniquely identify a CA certificate.
-   * 
    * @example
    * 007269004887******
    */
@@ -4799,12 +7466,16 @@ export class RegisterCaCertificateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterCaCertificateResponse extends $tea.Model {
+export class RegisterCaCertificateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RegisterCaCertificateResponseBody;
@@ -4824,12 +7495,22 @@ export class RegisterCaCertificateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterDeviceCredentialRequest extends $tea.Model {
+export class RegisterDeviceCredentialRequest extends $dara.Model {
   /**
    * @remarks
    * The client ID of the device for which you want to create an access credential.
@@ -4864,12 +7545,16 @@ export class RegisterDeviceCredentialRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterDeviceCredentialResponseBody extends $tea.Model {
+export class RegisterDeviceCredentialResponseBody extends $dara.Model {
   /**
    * @remarks
    * The access credential of the device.
@@ -4897,12 +7582,19 @@ export class RegisterDeviceCredentialResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.deviceCredential && typeof (this.deviceCredential as any).validate === 'function') {
+      (this.deviceCredential as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterDeviceCredentialResponse extends $tea.Model {
+export class RegisterDeviceCredentialResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RegisterDeviceCredentialResponseBody;
@@ -4922,12 +7614,22 @@ export class RegisterDeviceCredentialResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RevokeTokenRequest extends $tea.Model {
+export class RevokeTokenRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ApsaraMQ for MQTT instance. The ID must be consistent with the ID of the instance that the ApsaraMQ for MQTT client uses. You can obtain the instance ID on the **Instance Details** page that corresponds to the instance in the [ApsaraMQ for MQTT console](https://mqtt.console.aliyun.com/).
@@ -4962,12 +7664,16 @@ export class RevokeTokenRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RevokeTokenResponseBody extends $tea.Model {
+export class RevokeTokenResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID. This parameter is a common parameter.
@@ -4988,12 +7694,16 @@ export class RevokeTokenResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RevokeTokenResponse extends $tea.Model {
+export class RevokeTokenResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RevokeTokenResponseBody;
@@ -5013,12 +7723,22 @@ export class RevokeTokenResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendMessageRequest extends $tea.Model {
+export class SendMessageRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ApsaraMQ for MQTT instance. The ID must be consistent with the ID of the instance that the ApsaraMQ for MQTT client uses. You can view the instance ID in the **Basic Information** section on the **Instance Details** page that corresponds to the instance in the [ApsaraMQ for MQTT console](https://mqtt.console.aliyun.com).
@@ -5065,12 +7785,16 @@ export class SendMessageRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendMessageResponseBody extends $tea.Model {
+export class SendMessageResponseBody extends $dara.Model {
   /**
    * @remarks
    * The unique message ID that is returned by the ApsaraMQ for MQTT broker after the message is sent.
@@ -5101,12 +7825,16 @@ export class SendMessageResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendMessageResponse extends $tea.Model {
+export class SendMessageResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SendMessageResponseBody;
@@ -5126,22 +7854,49 @@ export class SendMessageResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetSniConfigRequest extends $tea.Model {
+export class SetSniConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The default certificate. If the domain name that you access cannot match the certificates of the broker, the default certificate is returned.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1533xxxx-cn-hangzhou
    */
   defaultCertificate?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * mqtt-cn-5yd3xxx
    */
   mqttInstanceId?: string;
+  /**
+   * @remarks
+   * The Server Name Indication (SNI) configuration. This parameter is used to map domain names and certificates. Format: Domain name#Certificate ID#Password (if available);Domain name#Certificate ID#Password (if available).
+   * 
+   * @example
+   * *.mqtt.aliyuncs.com#15xxxxx-cn-hangzhou;mqtt-test.mqtt.aliyuncs.com#15xxxx9-cn-hangzhou
+   */
   sniConfig?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5159,18 +7914,29 @@ export class SetSniConfigRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetSniConfigResponseBody extends $tea.Model {
+export class SetSniConfigResponseBody extends $dara.Model {
   accessDeniedDetail?: SetSniConfigResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * E4581CCF-62AF-44D9-B5B4-D1DQDC0E****
    */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5188,12 +7954,19 @@ export class SetSniConfigResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.accessDeniedDetail && typeof (this.accessDeniedDetail as any).validate === 'function') {
+      (this.accessDeniedDetail as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetSniConfigResponse extends $tea.Model {
+export class SetSniConfigResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SetSniConfigResponseBody;
@@ -5213,12 +7986,22 @@ export class SetSniConfigResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequest extends $tea.Model {
+export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -5253,12 +8036,22 @@ export class TagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponseBody extends $tea.Model {
+export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -5300,12 +8093,16 @@ export class TagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponse extends $tea.Model {
+export class TagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: TagResourcesResponseBody;
@@ -5325,12 +8122,22 @@ export class TagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnRegisterDeviceCredentialRequest extends $tea.Model {
+export class UnRegisterDeviceCredentialRequest extends $dara.Model {
   /**
    * @remarks
    * The client ID of the device whose access credential you want to deregister.
@@ -5365,12 +8172,16 @@ export class UnRegisterDeviceCredentialRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnRegisterDeviceCredentialResponseBody extends $tea.Model {
+export class UnRegisterDeviceCredentialResponseBody extends $dara.Model {
   /**
    * @remarks
    * The unique ID that the system generates for the request. This parameter is a common parameter.
@@ -5391,12 +8202,16 @@ export class UnRegisterDeviceCredentialResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnRegisterDeviceCredentialResponse extends $tea.Model {
+export class UnRegisterDeviceCredentialResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UnRegisterDeviceCredentialResponseBody;
@@ -5416,12 +8231,22 @@ export class UnRegisterDeviceCredentialResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesRequest extends $tea.Model {
+export class UntagResourcesRequest extends $dara.Model {
   /**
    * @example
    * False
@@ -5459,12 +8284,22 @@ export class UntagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tagKey)) {
+      $dara.Model.validateArray(this.tagKey);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesResponseBody extends $tea.Model {
+export class UntagResourcesResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -5506,12 +8341,16 @@ export class UntagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesResponse extends $tea.Model {
+export class UntagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UntagResourcesResponseBody;
@@ -5531,12 +8370,22 @@ export class UntagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateCustomAuthIdentityRequest extends $tea.Model {
+export class UpdateCustomAuthIdentityRequest extends $dara.Model {
   /**
    * @remarks
    * The client ID if you set IdentityType to CLIENT.
@@ -5580,7 +8429,7 @@ export class UpdateCustomAuthIdentityRequest extends $tea.Model {
   secret?: string;
   /**
    * @remarks
-   * The signature verification mode. ORIGIN: compares the password and AccessKey secret. SIGNED: uses the HMAC_SHA1 algorithm to sign the client ID to obtain a password and then compares the password.
+   * The signature verification mode. ORIGIN: compares the password and the AccessKey secret. SIGNED: uses the HMAC_SHA1 algorithm to sign the client ID to obtain a password and then compares the password.
    * 
    * This parameter is required.
    * 
@@ -5590,7 +8439,7 @@ export class UpdateCustomAuthIdentityRequest extends $tea.Model {
   signMode?: string;
   /**
    * @remarks
-   * The username.
+   * The username. The value cannot exceed 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -5620,12 +8469,16 @@ export class UpdateCustomAuthIdentityRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateCustomAuthIdentityResponseBody extends $tea.Model {
+export class UpdateCustomAuthIdentityResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -5676,12 +8529,16 @@ export class UpdateCustomAuthIdentityResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateCustomAuthIdentityResponse extends $tea.Model {
+export class UpdateCustomAuthIdentityResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateCustomAuthIdentityResponseBody;
@@ -5701,12 +8558,22 @@ export class UpdateCustomAuthIdentityResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateCustomAuthPermissionRequest extends $tea.Model {
+export class UpdateCustomAuthPermissionRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to allow or deny access.
@@ -5792,12 +8659,16 @@ export class UpdateCustomAuthPermissionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateCustomAuthPermissionResponseBody extends $tea.Model {
+export class UpdateCustomAuthPermissionResponseBody extends $dara.Model {
   /**
    * @remarks
    * Error code returned upon failed invocation. For more information, see Error Codes.
@@ -5848,12 +8719,16 @@ export class UpdateCustomAuthPermissionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateCustomAuthPermissionResponse extends $tea.Model {
+export class UpdateCustomAuthPermissionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateCustomAuthPermissionResponseBody;
@@ -5873,1802 +8748,14 @@ export class UpdateCustomAuthPermissionResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchQuerySessionByClientIdsResponseBodyOnlineStatusList extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the ApsaraMQ for MQTT client. For more information about client IDs, see [Terms](https://help.aliyun.com/document_detail/42420.html).
-   * 
-   * @example
-   * GID_test@0001
-   */
-  clientId?: string;
-  /**
-   * @remarks
-   * Indicates whether the ApsaraMQ for MQTT client is online. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
-  onlineStatus?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      onlineStatus: 'OnlineStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      onlineStatus: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCaCertificateResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * Content of the CA certificate.
-   * > \\n represents a new line.
-   * 
-   * @example
-   * -----BEGIN CERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END CERTIFICATE-----
-   */
-  caContent?: string;
-  /**
-   * @remarks
-   * Name of the CA certificate
-   * 
-   * @example
-   * mqtt_ca
-   */
-  caName?: string;
-  /**
-   * @remarks
-   * Registration code of the CA certificate
-   * 
-   * @example
-   * 13274673-8f90-4630-bea1-9cccb25756ad2089******
-   */
-  registrationCode?: string;
-  /**
-   * @remarks
-   * The SN serial number of the CA certificate, used to uniquely identify a CA certificate. Value range: no more than 128 bytes.
-   * 
-   * @example
-   * 00f26900ba87******
-   */
-  sn?: string;
-  /**
-   * @remarks
-   * The status of the CA certificate. The values are as follows:
-   * - **0**: Indicates that the certificate is in an inactive state. - **1**: Indicates that the certificate is in an active state.
-   * > After the CA certificate is registered, it is in an active state by default.
-   * 
-   * @example
-   * 1
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The start time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
-   * 
-   * @example
-   * 1654137303000
-   */
-  validBegin?: string;
-  /**
-   * @remarks
-   * The end time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
-   * 
-   * @example
-   * 1969497303000
-   */
-  validEnd?: string;
-  /**
-   * @remarks
-   * Content of the Verification certificate.
-   * > \\n represents a new line.
-   * 
-   * @example
-   * -----BEGIN CERTIFICATE-----\\nMIID/DCCAu+Y5sRMpp9tnd+4s******\\n-----END CERTIFICATE-----
-   */
-  verificationContent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caContent: 'CaContent',
-      caName: 'CaName',
-      registrationCode: 'RegistrationCode',
-      sn: 'Sn',
-      status: 'Status',
-      validBegin: 'ValidBegin',
-      validEnd: 'ValidEnd',
-      verificationContent: 'VerificationContent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caContent: 'string',
-      caName: 'string',
-      registrationCode: 'string',
-      sn: 'string',
-      status: 'string',
-      validBegin: 'string',
-      validEnd: 'string',
-      verificationContent: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceCertificateResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The SN serial number of the CA certificate to which the device certificate belongs, used to uniquely identify a CA certificate.
-   * 
-   * @example
-   * 00f26900ba87******
-   */
-  caSn?: string;
-  /**
-   * @remarks
-   * Content of the device certificate.
-   * 
-   *  represents a new line.
-   * 
-   * @example
-   * -----BEGIN DEVICECERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END DEVICECERTIFICATE-----
-   */
-  deviceContent?: string;
-  /**
-   * @remarks
-   * Name of the device certificate.
-   * 
-   * @example
-   * mqtt_device
-   */
-  deviceName?: string;
-  /**
-   * @remarks
-   * The SN serial number of the device certificate, used to uniquely identify a device certificate.
-   * 
-   * @example
-   * 356217374433******
-   */
-  deviceSn?: string;
-  /**
-   * @remarks
-   * The status of the device certificate. The values are as follows:
-   * - **0**: Indicates that the certificate is in an inactive state. - **1**: Indicates that the certificate is in an active state.
-   * > After the device certificate is registered, it is in an active state by default.
-   * 
-   * @example
-   * 1
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The start time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
-   * 
-   * @example
-   * 1654137303000
-   */
-  validBegin?: string;
-  /**
-   * @remarks
-   * The end time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
-   * 
-   * @example
-   * 1969497303000
-   */
-  validEnd?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caSn: 'CaSn',
-      deviceContent: 'DeviceContent',
-      deviceName: 'DeviceName',
-      deviceSn: 'DeviceSn',
-      status: 'Status',
-      validBegin: 'ValidBegin',
-      validEnd: 'ValidEnd',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caSn: 'string',
-      deviceContent: 'string',
-      deviceName: 'string',
-      deviceSn: 'string',
-      status: 'string',
-      validBegin: 'string',
-      validEnd: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceCredentialResponseBodyDeviceCredential extends $tea.Model {
-  /**
-   * @remarks
-   * The client ID of the device.
-   * 
-   * @example
-   * GID_test@@@test
-   */
-  clientId?: string;
-  /**
-   * @remarks
-   * The timestamp that indicates when the access credential of the device was created. Unit: milliseconds.
-   * 
-   * @example
-   * 1605541382000
-   */
-  createTime?: number;
-  /**
-   * @remarks
-   * The AccessKey ID of the device.
-   * 
-   * @example
-   * DC.Z5fXh9sRRVufyLi6wo****
-   */
-  deviceAccessKeyId?: string;
-  /**
-   * @remarks
-   * The AccessKey secret of the device.
-   * 
-   * @example
-   * DC.BJMkn4eMQJK2vaApTS****
-   */
-  deviceAccessKeySecret?: string;
-  /**
-   * @remarks
-   * The ID of the ApsaraMQ for MQTT instance.
-   * 
-   * @example
-   * post-cn-0pp12gl****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The timestamp that indicates when the access credential of the device was last updated. The value of this parameter is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 1605541382000
-   */
-  updateTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      createTime: 'CreateTime',
-      deviceAccessKeyId: 'DeviceAccessKeyId',
-      deviceAccessKeySecret: 'DeviceAccessKeySecret',
-      instanceId: 'InstanceId',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      createTime: 'number',
-      deviceAccessKeyId: 'string',
-      deviceAccessKeySecret: 'string',
-      instanceId: 'string',
-      updateTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCaCertificateResponseBodyDataCaCertificateVOS extends $tea.Model {
-  /**
-   * @remarks
-   * Content of the CA certificate. 
-   * > \\n represents a new line.
-   * 
-   * @example
-   * -----BEGIN CERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END CERTIFICATE-----
-   */
-  caContent?: string;
-  /**
-   * @remarks
-   * Name of the CA certificate
-   * 
-   * @example
-   * mqtt_ca
-   */
-  caName?: string;
-  /**
-   * @remarks
-   * Registration code of the CA certificate
-   * 
-   * @example
-   * 13274673-8f90-4630-bea1-9cccb25756ad2089******
-   */
-  registrationCode?: string;
-  /**
-   * @remarks
-   * SN serial number of the CA certificate
-   * 
-   * @example
-   * 007269004887******
-   */
-  sn?: string;
-  /**
-   * @remarks
-   * The status of the CA certificate. The values are as follows:
-   * - **0**: Indicates that the certificate is in an inactive state. - **1**: Indicates that the certificate is in an active state.
-   * > After the CA certificate is registered, it is in an active state by default.
-   * 
-   * @example
-   * 1
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The start time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
-   * 
-   * @example
-   * 1654137303000
-   */
-  validBegin?: string;
-  /**
-   * @remarks
-   * The end time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
-   * 
-   * @example
-   * 1969497303000
-   */
-  validEnd?: string;
-  /**
-   * @remarks
-   * Verify the content of the certificate. 
-   * > \\n represents a new line.
-   * 
-   * @example
-   * -----BEGIN CERTIFICATE-----\\nMIID/DCCAu+Y5sRMpp9tnd+4s******\\n-----END CERTIFICATE-----
-   */
-  verificationContent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caContent: 'CaContent',
-      caName: 'CaName',
-      registrationCode: 'RegistrationCode',
-      sn: 'Sn',
-      status: 'Status',
-      validBegin: 'ValidBegin',
-      validEnd: 'ValidEnd',
-      verificationContent: 'VerificationContent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caContent: 'string',
-      caName: 'string',
-      registrationCode: 'string',
-      sn: 'string',
-      status: 'string',
-      validBegin: 'string',
-      validEnd: 'string',
-      verificationContent: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCaCertificateResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * Details of the CA certificate
-   */
-  caCertificateVOS?: ListCaCertificateResponseBodyDataCaCertificateVOS[];
-  /**
-   * @remarks
-   * The current page number of the returned query records.
-   * 
-   * @example
-   * 2
-   */
-  pageNo?: number;
-  /**
-   * @remarks
-   * The maximum number of results to display per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Maximum number of pages in the query result.
-   * 
-   * @example
-   * 1
-   */
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      caCertificateVOS: 'CaCertificateVOS',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caCertificateVOS: { 'type': 'array', 'itemType': ListCaCertificateResponseBodyDataCaCertificateVOS },
-      pageNo: 'number',
-      pageSize: 'number',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceCertificateResponseBodyDataDeviceCertificateVOS extends $tea.Model {
-  /**
-   * @remarks
-   * The SN serial number of the CA certificate to which the device certificate belongs, used to uniquely identify a CA certificate.
-   * 
-   * @example
-   * 00f26900ba87******
-   */
-  caSn?: string;
-  /**
-   * @remarks
-   * Content of the device certificate.
-   * 
-   *  represents a new line.
-   * 
-   * @example
-   * -----BEGIN DEVICECERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END DEVICECERTIFICATE-----
-   */
-  deviceContent?: string;
-  /**
-   * @remarks
-   * Name of the device certificate.
-   * 
-   * @example
-   * mqtt_device
-   */
-  deviceName?: string;
-  /**
-   * @remarks
-   * The SN serial number of the device certificate, used to uniquely identify a device certificate.
-   * 
-   * @example
-   * 356217374433******
-   */
-  deviceSn?: string;
-  /**
-   * @remarks
-   * The status of the device certificate. The values are as follows:
-   * - 0: indicates that the certificate is in an inactive state. - 1: indicates that the certificate is in an active state.
-   * After the device certificate is registered, it defaults to the active state.
-   * 
-   * @example
-   * 1
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The start time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
-   * 
-   * @example
-   * 1654137303000
-   */
-  validBegin?: string;
-  /**
-   * @remarks
-   * The end time when the device certificate becomes effective. Formatted as a Unix timestamp in milliseconds.
-   * 
-   * @example
-   * 1969497303000
-   */
-  validEnd?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caSn: 'CaSn',
-      deviceContent: 'DeviceContent',
-      deviceName: 'DeviceName',
-      deviceSn: 'DeviceSn',
-      status: 'Status',
-      validBegin: 'ValidBegin',
-      validEnd: 'ValidEnd',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caSn: 'string',
-      deviceContent: 'string',
-      deviceName: 'string',
-      deviceSn: 'string',
-      status: 'string',
-      validBegin: 'string',
-      validEnd: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceCertificateResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * Details of the device certificate.
-   */
-  deviceCertificateVOS?: ListDeviceCertificateResponseBodyDataDeviceCertificateVOS[];
-  /**
-   * @remarks
-   * The current page number of the returned query records.
-   * 
-   * @example
-   * 2
-   */
-  pageNo?: number;
-  /**
-   * @remarks
-   * The maximum number of results to display per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Maximum number of pages in the query result.
-   * 
-   * @example
-   * 1
-   */
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deviceCertificateVOS: 'DeviceCertificateVOS',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceCertificateVOS: { 'type': 'array', 'itemType': ListDeviceCertificateResponseBodyDataDeviceCertificateVOS },
-      pageNo: 'number',
-      pageSize: 'number',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceCertificateByCaSnResponseBodyDataDeviceCertificateVOS extends $tea.Model {
-  /**
-   * @remarks
-   * The SN serial number of the CA certificate to which the device certificate belongs, used to uniquely identify a CA certificate.
-   * 
-   * @example
-   * 00f26900ba87******
-   */
-  caSn?: string;
-  /**
-   * @remarks
-   * Content of the device certificate.
-   * 
-   *  represents a new line.
-   * 
-   * @example
-   * -----BEGIN DEVICECERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END DEVICECERTIFICATE-----
-   */
-  deviceContent?: string;
-  /**
-   * @remarks
-   * Name of the device certificate.
-   * 
-   * @example
-   * mqtt_device
-   */
-  deviceName?: string;
-  /**
-   * @remarks
-   * The SN serial number of the device certificate, used to uniquely identify a device certificate.
-   * 
-   * @example
-   * 356217374433******
-   */
-  deviceSn?: string;
-  /**
-   * @remarks
-   * The status of the device certificate. The values are as follows:
-   * - 0: indicates that the certificate is in an inactive state. 
-   * - 1: indicates that the certificate is in an active state.
-   * 
-   * After the device certificate is registered, it is in an active state by default.
-   * 
-   * @example
-   * 1
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The start time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
-   * 
-   * @example
-   * 1654137303000
-   */
-  validBegin?: string;
-  /**
-   * @remarks
-   * The end time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
-   * 
-   * @example
-   * 1969497303000
-   */
-  validEnd?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caSn: 'CaSn',
-      deviceContent: 'DeviceContent',
-      deviceName: 'DeviceName',
-      deviceSn: 'DeviceSn',
-      status: 'Status',
-      validBegin: 'ValidBegin',
-      validEnd: 'ValidEnd',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caSn: 'string',
-      deviceContent: 'string',
-      deviceName: 'string',
-      deviceSn: 'string',
-      status: 'string',
-      validBegin: 'string',
-      validEnd: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceCertificateByCaSnResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * Details of the device certificate.
-   */
-  deviceCertificateVOS?: ListDeviceCertificateByCaSnResponseBodyDataDeviceCertificateVOS[];
-  /**
-   * @remarks
-   * The current page number of the returned query records.
-   * 
-   * @example
-   * 2
-   */
-  pageNo?: number;
-  /**
-   * @remarks
-   * The maximum number of results to display per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Total number of query results.
-   * 
-   * @example
-   * 1
-   */
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deviceCertificateVOS: 'DeviceCertificateVOS',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceCertificateVOS: { 'type': 'array', 'itemType': ListDeviceCertificateByCaSnResponseBodyDataDeviceCertificateVOS },
-      pageNo: 'number',
-      pageSize: 'number',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceCredentialClientIdResponseBodyDeviceCredentialClientIdList extends $tea.Model {
-  /**
-   * @remarks
-   * Client list.
-   */
-  clientIdList?: string[];
-  /**
-   * @remarks
-   * Indicates whether there is a token (Token) for the next query. Values: 
-   * - For the first query and when there is no next query, this field does not need to be filled. 
-   * - If there is a next query, the value should be the NextToken returned from the previous API call.
-   * 
-   * @example
-   * 634dxxxxx75b5f
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The current page number of the returned query records.
-   * 
-   * @example
-   * 1
-   */
-  pageNo?: string;
-  /**
-   * @remarks
-   * The maximum number of results to display per page.
-   * 
-   * @example
-   * 100
-   */
-  pageSize?: string;
-  /**
-   * @remarks
-   * Total number of query results.
-   * 
-   * @example
-   * 10
-   */
-  total?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientIdList: 'ClientIdList',
-      nextToken: 'NextToken',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientIdList: { 'type': 'array', 'itemType': 'string' },
-      nextToken: 'string',
-      pageNo: 'string',
-      pageSize: 'string',
-      total: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGroupIdResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the group was created.
-   * 
-   * @example
-   * 1564577317000
-   */
-  createTime?: number;
-  /**
-   * @remarks
-   * The queried group that belongs to the ApsaraMQ for MQTT instance.
-   * 
-   * @example
-   * GID_test1
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * Indicates whether a separate namespace is configured for the ApsaraMQ for MQTT instance. Valid values:
-   * 
-   * *   **true**: A separate namespace is configured for the ApsaraMQ for MQTT instance. Resource names must be unique within an ApsaraMQ for MQTT instance but can be the same across ApsaraMQ for MQTT instances.
-   * *   **false**: No separate namespace is configured for the ApsaraMQ for MQTT instance. Resource names must be globally unique within an ApsaraMQ for MQTT instance and across ApsaraMQ for MQTT instances.
-   * 
-   * @example
-   * true
-   */
-  independentNaming?: boolean;
-  /**
-   * @remarks
-   * The ID of the ApsaraMQ for MQTT instance to which the group belongs.
-   * 
-   * @example
-   * post-cn-45910tj****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The time when the group was last updated.
-   * 
-   * @example
-   * 1564577317000
-   */
-  updateTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      groupId: 'GroupId',
-      independentNaming: 'IndependentNaming',
-      instanceId: 'InstanceId',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'number',
-      groupId: 'string',
-      independentNaming: 'boolean',
-      instanceId: 'string',
-      updateTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequestTag extends $tea.Model {
-  /**
-   * @example
-   * test
-   */
-  key?: string;
-  /**
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  /**
-   * @example
-   * mqtt-cn-5yd3xxx
-   */
-  resourceId?: string;
-  /**
-   * @example
-   * instance
-   */
-  resourceType?: string;
-  /**
-   * @example
-   * test
-   */
-  tagKey?: string;
-  /**
-   * @example
-   * test
-   */
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceType: 'string',
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCustomAuthConnectBlackResponseBodyDataResults extends $tea.Model {
-  /**
-   * @remarks
-   * The client ID.
-   * 
-   * @example
-   * GID_TEST@@@test
-   */
-  clientId?: string;
-  /**
-   * @remarks
-   * Indicates whether to allow or deny access.
-   * 
-   * @example
-   * ALLOW
-   */
-  effect?: string;
-  /**
-   * @remarks
-   * The authorized permissions.
-   * 
-   * @example
-   * CONNECT
-   */
-  permitAction?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      effect: 'Effect',
-      permitAction: 'PermitAction',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      effect: 'string',
-      permitAction: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCustomAuthConnectBlackResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
-   * 
-   * @example
-   * AAAAAZ0cM0HTqLXvgm7oMHWXcvc=
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The returned results.
-   */
-  results?: QueryCustomAuthConnectBlackResponseBodyDataResults[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      results: 'Results',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      results: { 'type': 'array', 'itemType': QueryCustomAuthConnectBlackResponseBodyDataResults },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCustomAuthIdentityResponseBodyDataResults extends $tea.Model {
-  /**
-   * @remarks
-   * The client ID if IdentityType is set to CLIENT.
-   * 
-   * @example
-   * GID_ICP@@@4d378084
-   */
-  clientId?: string;
-  /**
-   * @remarks
-   * The identity type. Valid values:
-   * 
-   * *   USER
-   * *   CLIENT
-   * 
-   * @example
-   * USER
-   */
-  identityType?: string;
-  /**
-   * @remarks
-   * The AccessKey secret.
-   * 
-   * @example
-   * 62a5916d71767185b48907d85c2efae2
-   */
-  secret?: string;
-  /**
-   * @remarks
-   * The signature verification mode. ORIGIN: compares the password and the AccessKey secret. SIGNED: uses the HMAC_SHA1 algorithm to sign the client ID to obtain a password and then compares the password.
-   * 
-   * @example
-   * SIGNED
-   */
-  signMode?: string;
-  /**
-   * @remarks
-   * The username.
-   * 
-   * @example
-   * test
-   */
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      identityType: 'IdentityType',
-      secret: 'Secret',
-      signMode: 'SignMode',
-      username: 'Username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      identityType: 'string',
-      secret: 'string',
-      signMode: 'string',
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCustomAuthIdentityResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * If excess return values exist, this parameter is returned.
-   * 
-   * @example
-   * AAAAAXA+GzVqTutYpgkFjBrchKzuvSbpuTqtt6OF9tsC9QnJ
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The returned results.
-   */
-  results?: QueryCustomAuthIdentityResponseBodyDataResults[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      results: 'Results',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      results: { 'type': 'array', 'itemType': QueryCustomAuthIdentityResponseBodyDataResults },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCustomAuthPermissionResponseBodyDataResults extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether to allow or deny access.
-   * 
-   * @example
-   * ALLOW
-   */
-  effect?: string;
-  /**
-   * @remarks
-   * The username or client ID.
-   * 
-   * @example
-   * test
-   */
-  identity?: string;
-  /**
-   * @remarks
-   * The identity type. Valid values:
-   * 
-   * *   USER
-   * *   CLIENT
-   * 
-   * @example
-   * USER
-   */
-  identityType?: string;
-  /**
-   * @remarks
-   * The authorized permissions.
-   * 
-   * @example
-   * PUB_SUB
-   */
-  permitAction?: string;
-  /**
-   * @remarks
-   * The topic name. Multi-level topics and wildcard characters are supported.
-   * 
-   * @example
-   * test
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      effect: 'Effect',
-      identity: 'Identity',
-      identityType: 'IdentityType',
-      permitAction: 'PermitAction',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effect: 'string',
-      identity: 'string',
-      identityType: 'string',
-      permitAction: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCustomAuthPermissionResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The token that marks the end position of the previous returned page. To obtain the next batch of data, call the operation again by using the value of NextToken returned by the previous request. If you call this operation for the first time or want to query all results, set NextToken to an empty string.
-   * 
-   * @example
-   * AAAAAV/vsqTyeMlX1MIk7/b6NrZLIlsSVf49O04ac7HAmlBoaYspakK7ZZkR3vRDp5Y9Nz0EmuWYrtF+1qkUwuJzPk/qEto/FGxl5Kd+qdwNt3t8
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The response results.
-   */
-  results?: QueryCustomAuthPermissionResponseBodyDataResults[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      results: 'Results',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      results: { 'type': 'array', 'itemType': QueryCustomAuthPermissionResponseBodyDataResults },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMqttTraceDeviceResponseBodyDeviceInfoList extends $tea.Model {
-  /**
-   * @remarks
-   * The action on the device. Valid values:
-   * 
-   * *   **connect**: The ApsaraMQ for MQTT client requests a connection to the ApsaraMQ for MQTT broker.
-   * *   **close**: The TCP connection is closed.
-   * *   **disconnect**: The ApsaraMQ for MQTT client requests a disconnection from the ApsaraMQ for MQTT broker.
-   * 
-   * @example
-   * connect
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The returned code for the action on the device. Valid values:
-   * 
-   * *   **mqtt.trace.action.connect**: This value is returned if the value of Action is **connect**.
-   * *   **mqtt.trace.action.close**: This value is returned if the value of Action is **close**.
-   * *   **mqtt.trace.action.disconnect**: This value is returned if the value of Action is **disconnect**.
-   * 
-   * @example
-   * mqtt.trace.action.connect
-   */
-  actionCode?: string;
-  /**
-   * @remarks
-   * The returned information for the action on the device. Valid values:
-   * 
-   * *   **accepted**: The ApsaraMQ for MQTT broker accepts the connection request from the ApsaraMQ for MQTT client.
-   * *   **not authorized**: The TCP connection is closed because the permission verification of the client to access the instance fails.
-   * *   **clientId conflict**: The TCP connection is closed due to a conflict in the ID of the ApsaraMQ for MQTT client.
-   * *   **resource auth failed**: The TCP connection is closed because the permission verification for the ApsaraMQ for MQTT client to access the topic or group fails.
-   * *   **no heart**: The TCP connection is closed because no heartbeat is detected on the client.
-   * *   **closed by client**: The TCP connection is closed because an exception occurs on the client.
-   * *   **disconnected by client**: The client requests a disconnection.
-   * *   **invalid param**: The TCP connection is closed due to invalid request parameters.
-   * *   **Socket IOException**: The TCP connection is closed due to network jitter or packet loss.
-   * 
-   * @example
-   * accept
-   */
-  actionInfo?: string;
-  /**
-   * @remarks
-   * The connection ID.
-   * 
-   * @example
-   * c69fe839209547fa9d073781b9cd****
-   */
-  channelId?: string;
-  /**
-   * @remarks
-   * The time when the action occurred on the device.
-   * 
-   * @example
-   * 2021-05-21 15:51:54.867
-   */
-  time?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      actionCode: 'ActionCode',
-      actionInfo: 'ActionInfo',
-      channelId: 'ChannelId',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      actionCode: 'string',
-      actionInfo: 'string',
-      channelId: 'string',
-      time: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMqttTraceMessageOfClientResponseBodyMessageOfClientList extends $tea.Model {
-  /**
-   * @remarks
-   * The action on the message. Valid values:
-   * 
-   * *   **pub_mqtt**: The ApsaraMQ for MQTT client sends the message.
-   * *   **sub**: The ApsaraMQ for MQTT client subscribes to the message.
-   * *   **push_offline**: The ApsaraMQ for MQTT broker pushes the offline message to the ApsaraMQ for MQTT client.
-   * 
-   * @example
-   * pub_mqtt
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The returned code for the action on the message. Valid values:
-   * 
-   * *   **mqtt.trace.action.msg.pub.mqtt**: This value is returned if the value of Action is **pub_mqtt**.
-   * *   **mqtt.trace.action.msg.sub**: This value is returned if the value of Action is **sub**.
-   * *   **mqtt.trace.action.msg.push.offline**: This value is returned if the value of Action is **push_offline**.
-   * 
-   * @example
-   * mqtt.trace.action.msg.pub.mqtt
-   */
-  actionCode?: string;
-  /**
-   * @remarks
-   * The information returned for the action on the message. Valid values:
-   * 
-   * *   **Pub From Mqtt Client**: This value is returned if the value of Action is **pub_mqtt**.
-   * *   **Push To Mqtt Client**: This value is returned if the value of Action is **sub**.
-   * *   **Push Offline Msg To Mqtt Client**: This value is returned if the value of Action is **push_offline**.
-   * 
-   * @example
-   * Pub From Mqtt Client
-   */
-  actionInfo?: string;
-  /**
-   * @remarks
-   * The client ID of the device.
-   * 
-   * @example
-   * GID_test@@@producer
-   */
-  clientId?: string;
-  /**
-   * @remarks
-   * The message ID.
-   * 
-   * @example
-   * AC1EC0030EAB78308DB16A3EC773****
-   */
-  msgId?: string;
-  /**
-   * @remarks
-   * The time when the message was sent or received.
-   * 
-   * @example
-   * 2021-05-21 15:08:19.234
-   */
-  time?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      actionCode: 'ActionCode',
-      actionInfo: 'ActionInfo',
-      clientId: 'ClientId',
-      msgId: 'MsgId',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      actionCode: 'string',
-      actionInfo: 'string',
-      clientId: 'string',
-      msgId: 'string',
-      time: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMqttTraceMessagePublishResponseBodyMessageTraceLists extends $tea.Model {
-  /**
-   * @remarks
-   * The action on the message. Valid values:
-   * 
-   * *   **pub_mqtt**: indicates that the message was sent by an ApsaraMQ for MQTT client.
-   * *   **pub_mq**: indicates that the message was sent by an ApsaraMQ for RocketMQ client.
-   * 
-   * @example
-   * pub_mqtt
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The returned code for the action on the message. Valid values:
-   * 
-   * *   **mqtt.trace.action.msg.pub.mqtt**: This value is returned if the value of Action is **pub_mqtt**.
-   * *   **mqtt.trace.action.msg.pub.mq**: This value is returned if the value of Action is **pub_mq**.
-   * 
-   * @example
-   * mqtt.trace.action.msg.pub.mqtt
-   */
-  actionCode?: string;
-  /**
-   * @remarks
-   * The returned information for the action on the message. Valid values:
-   * 
-   * *   **Pub From Mqtt Client**: This value is returned if the value of Action is **pub_mqtt**.
-   * *   **Pub From MQ**: This value is returned if the value of Action is **pub_mq**.
-   * 
-   * @example
-   * Pub From Mqtt Client
-   */
-  actionInfo?: string;
-  /**
-   * @remarks
-   * The ID of the client that sends the message.
-   * 
-   * @example
-   * GID_test@@@producer
-   */
-  clientId?: string;
-  /**
-   * @remarks
-   * The message ID.
-   * 
-   * @example
-   * AC1EC0030EAB78308DB16A3EC773BD95
-   */
-  msgId?: string;
-  /**
-   * @remarks
-   * The time when the message was sent.
-   * 
-   * @example
-   * 2021-05-21 15:08:19.210
-   */
-  time?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      actionCode: 'ActionCode',
-      actionInfo: 'ActionInfo',
-      clientId: 'ClientId',
-      msgId: 'MsgId',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      actionCode: 'string',
-      actionInfo: 'string',
-      clientId: 'string',
-      msgId: 'string',
-      time: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMqttTraceMessageSubscribeResponseBodyMessageTraceLists extends $tea.Model {
-  /**
-   * @remarks
-   * The action on the message. Valid values:
-   * 
-   * *   **sub**: The ApsaraMQ for MQTT client subscribes to the message.
-   * *   **push_offline**: The ApsaraMQ for MQTT broker pushes the offline message to the ApsaraMQ for MQTT client.
-   * 
-   * @example
-   * sub
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The code returned for the action on the message. Valid values:
-   * 
-   * *   **mqtt.trace.action.msg.sub**: The value that is returned if the value of Action is **sub**.
-   * *   **mqtt.trace.action.msg.push.offline**: The value that is returned if the value of Action is **push_offline**.
-   * 
-   * @example
-   * mqtt.trace.action.msg.sub
-   */
-  actionCode?: string;
-  /**
-   * @remarks
-   * The returned information for the action on the message. Valid values:
-   * 
-   * *   **Push To Mqtt Client**: The value that is returned if the value of Action is **sub**.
-   * *   **Push Offline Msg To Mqtt Client**: The value that is returned if the value of Action is **push_offline**.
-   * 
-   * @example
-   * Push To Mqtt Client
-   */
-  actionInfo?: string;
-  /**
-   * @remarks
-   * The ID of the client that subscribes to the message.
-   * 
-   * @example
-   * GID_test@@@consumer
-   */
-  clientId?: string;
-  /**
-   * @remarks
-   * The message ID.
-   * 
-   * @example
-   * AC1EC1B33D5978308DB17F3245E4****
-   */
-  msgId?: string;
-  /**
-   * @remarks
-   * The time when the message was delivered.
-   * 
-   * @example
-   * 2021-05-25 16:46:41.274
-   */
-  time?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      actionCode: 'ActionCode',
-      actionInfo: 'ActionInfo',
-      clientId: 'ClientId',
-      msgId: 'MsgId',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      actionCode: 'string',
-      actionInfo: 'string',
-      clientId: 'string',
-      msgId: 'string',
-      time: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshDeviceCredentialResponseBodyDeviceCredential extends $tea.Model {
-  /**
-   * @remarks
-   * The client ID of the device.
-   * 
-   * @example
-   * GID_test@@@test
-   */
-  clientId?: string;
-  /**
-   * @remarks
-   * The timestamp that indicates when the access credential of the device was created. The value of this parameter is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 1605541382000
-   */
-  createTime?: number;
-  /**
-   * @remarks
-   * The AccessKey ID of the device.
-   * 
-   * @example
-   * DC.Z5fXh9sRRVufyLi6wo****
-   */
-  deviceAccessKeyId?: string;
-  /**
-   * @remarks
-   * The AccessKey secret of the device.
-   * 
-   * @example
-   * DC.BJMkn4eMQJK2vaApTS****
-   */
-  deviceAccessKeySecret?: string;
-  /**
-   * @remarks
-   * The ID of the ApsaraMQ for MQTT instance.
-   * 
-   * @example
-   * post-cn-0pp12gl****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The timestamp that indicates when the access credential of the device was last updated. The value of this parameter is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 1605541382000
-   */
-  updateTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      createTime: 'CreateTime',
-      deviceAccessKeyId: 'DeviceAccessKeyId',
-      deviceAccessKeySecret: 'DeviceAccessKeySecret',
-      instanceId: 'InstanceId',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      createTime: 'number',
-      deviceAccessKeyId: 'string',
-      deviceAccessKeySecret: 'string',
-      instanceId: 'string',
-      updateTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterDeviceCredentialResponseBodyDeviceCredential extends $tea.Model {
-  /**
-   * @remarks
-   * The client ID of the device.
-   * 
-   * @example
-   * GID_test@@@test
-   */
-  clientId?: string;
-  /**
-   * @remarks
-   * The timestamp that indicates when the access credential of the device was created. Unit: milliseconds.
-   * 
-   * @example
-   * 1605541382000
-   */
-  createTime?: number;
-  /**
-   * @remarks
-   * The AccessKey ID of the device.
-   * 
-   * @example
-   * DC.Z5fXh9sRRVufyLi6wo****
-   */
-  deviceAccessKeyId?: string;
-  /**
-   * @remarks
-   * The AccessKey secret of the device.
-   * 
-   * @example
-   * DC.BJMkn4eMQJK2vaApTS****
-   */
-  deviceAccessKeySecret?: string;
-  /**
-   * @remarks
-   * The ID of the ApsaraMQ for MQTT instance.
-   * 
-   * @example
-   * post-cn-0pp12gl****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The timestamp that indicates when the access credential of the device was last updated. Unit: milliseconds.
-   * 
-   * @example
-   * 1605541382000
-   */
-  updateTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      createTime: 'CreateTime',
-      deviceAccessKeyId: 'DeviceAccessKeyId',
-      deviceAccessKeySecret: 'DeviceAccessKeySecret',
-      instanceId: 'InstanceId',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      createTime: 'number',
-      deviceAccessKeyId: 'string',
-      deviceAccessKeySecret: 'string',
-      instanceId: 'string',
-      updateTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSniConfigResponseBodyAccessDeniedDetail extends $tea.Model {
-  authAction?: string;
-  authPrincipalDisplayName?: string;
-  authPrincipalOwnerId?: string;
-  authPrincipalType?: string;
-  encodedDiagnosticMessage?: string;
-  noPermissionType?: string;
-  policyType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authAction: 'AuthAction',
-      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
-      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
-      authPrincipalType: 'AuthPrincipalType',
-      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
-      noPermissionType: 'NoPermissionType',
-      policyType: 'PolicyType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authAction: 'string',
-      authPrincipalDisplayName: 'string',
-      authPrincipalOwnerId: 'string',
-      authPrincipalType: 'string',
-      encodedDiagnosticMessage: 'string',
-      noPermissionType: 'string',
-      policyType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequestTag extends $tea.Model {
-  /**
-   * @example
-   * test
-   */
-  key?: string;
-  /**
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -7679,7 +8766,7 @@ export class TagResourcesRequestTag extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this.checkConfig(config);
@@ -7688,44 +8775,39 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
    * Activate CA Certificate
    * 
-   * @remarks
-   * - 仅铂金版和专业版实例支持使用ActiveCaCertificate接口。
-   * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
-   * -  ActiveCaCertificate接口仅支持对已在云消息队列 MQTT 版服务端注册的CA证书进行操作，您可以通过[ListCaCertificate](https://help.aliyun.com/document_detail/436768.html)接口查询指定实例下已注册的CA证书。
-   * 
    * @param request - ActiveCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ActiveCaCertificateResponse
    */
-  async activeCaCertificateWithOptions(request: ActiveCaCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ActiveCaCertificateResponse> {
-    Util.validateModel(request);
+  async activeCaCertificateWithOptions(request: ActiveCaCertificateRequest, runtime: $dara.RuntimeOptions): Promise<ActiveCaCertificateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.mqttInstanceId)) {
+    if (!$dara.isNull(request.mqttInstanceId)) {
       query["MqttInstanceId"] = request.mqttInstanceId;
     }
 
-    if (!Util.isUnset(request.sn)) {
+    if (!$dara.isNull(request.sn)) {
       query["Sn"] = request.sn;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ActiveCaCertificate",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -7736,22 +8818,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ActiveCaCertificateResponse>(await this.callApi(params, req, runtime), new ActiveCaCertificateResponse({}));
+    return $dara.cast<ActiveCaCertificateResponse>(await this.callApi(params, req, runtime), new ActiveCaCertificateResponse({}));
   }
 
   /**
    * Activate CA Certificate
    * 
-   * @remarks
-   * - 仅铂金版和专业版实例支持使用ActiveCaCertificate接口。
-   * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
-   * -  ActiveCaCertificate接口仅支持对已在云消息队列 MQTT 版服务端注册的CA证书进行操作，您可以通过[ListCaCertificate](https://help.aliyun.com/document_detail/436768.html)接口查询指定实例下已注册的CA证书。
-   * 
    * @param request - ActiveCaCertificateRequest
    * @returns ActiveCaCertificateResponse
    */
   async activeCaCertificate(request: ActiveCaCertificateRequest): Promise<ActiveCaCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.activeCaCertificateWithOptions(request, runtime);
   }
 
@@ -7766,25 +8843,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ActiveDeviceCertificateResponse
    */
-  async activeDeviceCertificateWithOptions(request: ActiveDeviceCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ActiveDeviceCertificateResponse> {
-    Util.validateModel(request);
+  async activeDeviceCertificateWithOptions(request: ActiveDeviceCertificateRequest, runtime: $dara.RuntimeOptions): Promise<ActiveDeviceCertificateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.caSn)) {
+    if (!$dara.isNull(request.caSn)) {
       query["CaSn"] = request.caSn;
     }
 
-    if (!Util.isUnset(request.deviceSn)) {
+    if (!$dara.isNull(request.deviceSn)) {
       query["DeviceSn"] = request.deviceSn;
     }
 
-    if (!Util.isUnset(request.mqttInstanceId)) {
+    if (!$dara.isNull(request.mqttInstanceId)) {
       query["MqttInstanceId"] = request.mqttInstanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ActiveDeviceCertificate",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -7795,7 +8872,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ActiveDeviceCertificateResponse>(await this.callApi(params, req, runtime), new ActiveDeviceCertificateResponse({}));
+    return $dara.cast<ActiveDeviceCertificateResponse>(await this.callApi(params, req, runtime), new ActiveDeviceCertificateResponse({}));
   }
 
   /**
@@ -7809,7 +8886,7 @@ export default class Client extends OpenApi {
    * @returns ActiveDeviceCertificateResponse
    */
   async activeDeviceCertificate(request: ActiveDeviceCertificateRequest): Promise<ActiveDeviceCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.activeDeviceCertificateWithOptions(request, runtime);
   }
 
@@ -7820,21 +8897,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddCustomAuthConnectBlackResponse
    */
-  async addCustomAuthConnectBlackWithOptions(request: AddCustomAuthConnectBlackRequest, runtime: $Util.RuntimeOptions): Promise<AddCustomAuthConnectBlackResponse> {
-    Util.validateModel(request);
+  async addCustomAuthConnectBlackWithOptions(request: AddCustomAuthConnectBlackRequest, runtime: $dara.RuntimeOptions): Promise<AddCustomAuthConnectBlackResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddCustomAuthConnectBlack",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -7845,7 +8922,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddCustomAuthConnectBlackResponse>(await this.callApi(params, req, runtime), new AddCustomAuthConnectBlackResponse({}));
+    return $dara.cast<AddCustomAuthConnectBlackResponse>(await this.callApi(params, req, runtime), new AddCustomAuthConnectBlackResponse({}));
   }
 
   /**
@@ -7855,7 +8932,7 @@ export default class Client extends OpenApi {
    * @returns AddCustomAuthConnectBlackResponse
    */
   async addCustomAuthConnectBlack(request: AddCustomAuthConnectBlackRequest): Promise<AddCustomAuthConnectBlackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addCustomAuthConnectBlackWithOptions(request, runtime);
   }
 
@@ -7866,37 +8943,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddCustomAuthIdentityResponse
    */
-  async addCustomAuthIdentityWithOptions(request: AddCustomAuthIdentityRequest, runtime: $Util.RuntimeOptions): Promise<AddCustomAuthIdentityResponse> {
-    Util.validateModel(request);
+  async addCustomAuthIdentityWithOptions(request: AddCustomAuthIdentityRequest, runtime: $dara.RuntimeOptions): Promise<AddCustomAuthIdentityResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.identityType)) {
+    if (!$dara.isNull(request.identityType)) {
       body["IdentityType"] = request.identityType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.secret)) {
+    if (!$dara.isNull(request.secret)) {
       body["Secret"] = request.secret;
     }
 
-    if (!Util.isUnset(request.signMode)) {
+    if (!$dara.isNull(request.signMode)) {
       body["SignMode"] = request.signMode;
     }
 
-    if (!Util.isUnset(request.username)) {
+    if (!$dara.isNull(request.username)) {
       body["Username"] = request.username;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddCustomAuthIdentity",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -7907,7 +8984,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddCustomAuthIdentityResponse>(await this.callApi(params, req, runtime), new AddCustomAuthIdentityResponse({}));
+    return $dara.cast<AddCustomAuthIdentityResponse>(await this.callApi(params, req, runtime), new AddCustomAuthIdentityResponse({}));
   }
 
   /**
@@ -7917,48 +8994,48 @@ export default class Client extends OpenApi {
    * @returns AddCustomAuthIdentityResponse
    */
   async addCustomAuthIdentity(request: AddCustomAuthIdentityRequest): Promise<AddCustomAuthIdentityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addCustomAuthIdentityWithOptions(request, runtime);
   }
 
   /**
-   * Adds permissions on topics. You must create a level-1 topic in the ApsaraMQ for MQTT console before you call this operation.
+   * Grants permissions on topics. You must create a parent topic in the console before you call this API operation.
    * 
    * @param request - AddCustomAuthPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddCustomAuthPermissionResponse
    */
-  async addCustomAuthPermissionWithOptions(request: AddCustomAuthPermissionRequest, runtime: $Util.RuntimeOptions): Promise<AddCustomAuthPermissionResponse> {
-    Util.validateModel(request);
+  async addCustomAuthPermissionWithOptions(request: AddCustomAuthPermissionRequest, runtime: $dara.RuntimeOptions): Promise<AddCustomAuthPermissionResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.effect)) {
+    if (!$dara.isNull(request.effect)) {
       body["Effect"] = request.effect;
     }
 
-    if (!Util.isUnset(request.identity)) {
+    if (!$dara.isNull(request.identity)) {
       body["Identity"] = request.identity;
     }
 
-    if (!Util.isUnset(request.identityType)) {
+    if (!$dara.isNull(request.identityType)) {
       body["IdentityType"] = request.identityType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.permitAction)) {
+    if (!$dara.isNull(request.permitAction)) {
       body["PermitAction"] = request.permitAction;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       body["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddCustomAuthPermission",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -7969,17 +9046,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddCustomAuthPermissionResponse>(await this.callApi(params, req, runtime), new AddCustomAuthPermissionResponse({}));
+    return $dara.cast<AddCustomAuthPermissionResponse>(await this.callApi(params, req, runtime), new AddCustomAuthPermissionResponse({}));
   }
 
   /**
-   * Adds permissions on topics. You must create a level-1 topic in the ApsaraMQ for MQTT console before you call this operation.
+   * Grants permissions on topics. You must create a parent topic in the console before you call this API operation.
    * 
    * @param request - AddCustomAuthPermissionRequest
    * @returns AddCustomAuthPermissionResponse
    */
   async addCustomAuthPermission(request: AddCustomAuthPermissionRequest): Promise<AddCustomAuthPermissionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addCustomAuthPermissionWithOptions(request, runtime);
   }
 
@@ -7994,29 +9071,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ApplyTokenResponse
    */
-  async applyTokenWithOptions(request: ApplyTokenRequest, runtime: $Util.RuntimeOptions): Promise<ApplyTokenResponse> {
-    Util.validateModel(request);
+  async applyTokenWithOptions(request: ApplyTokenRequest, runtime: $dara.RuntimeOptions): Promise<ApplyTokenResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.actions)) {
+    if (!$dara.isNull(request.actions)) {
       query["Actions"] = request.actions;
     }
 
-    if (!Util.isUnset(request.expireTime)) {
+    if (!$dara.isNull(request.expireTime)) {
       query["ExpireTime"] = request.expireTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.resources)) {
+    if (!$dara.isNull(request.resources)) {
       query["Resources"] = request.resources;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ApplyToken",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8027,7 +9104,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ApplyTokenResponse>(await this.callApi(params, req, runtime), new ApplyTokenResponse({}));
+    return $dara.cast<ApplyTokenResponse>(await this.callApi(params, req, runtime), new ApplyTokenResponse({}));
   }
 
   /**
@@ -8041,7 +9118,7 @@ export default class Client extends OpenApi {
    * @returns ApplyTokenResponse
    */
   async applyToken(request: ApplyTokenRequest): Promise<ApplyTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.applyTokenWithOptions(request, runtime);
   }
 
@@ -8057,21 +9134,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BatchQuerySessionByClientIdsResponse
    */
-  async batchQuerySessionByClientIdsWithOptions(request: BatchQuerySessionByClientIdsRequest, runtime: $Util.RuntimeOptions): Promise<BatchQuerySessionByClientIdsResponse> {
-    Util.validateModel(request);
+  async batchQuerySessionByClientIdsWithOptions(request: BatchQuerySessionByClientIdsRequest, runtime: $dara.RuntimeOptions): Promise<BatchQuerySessionByClientIdsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientIdList)) {
+    if (!$dara.isNull(request.clientIdList)) {
       query["ClientIdList"] = request.clientIdList;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BatchQuerySessionByClientIds",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8082,7 +9159,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BatchQuerySessionByClientIdsResponse>(await this.callApi(params, req, runtime), new BatchQuerySessionByClientIdsResponse({}));
+    return $dara.cast<BatchQuerySessionByClientIdsResponse>(await this.callApi(params, req, runtime), new BatchQuerySessionByClientIdsResponse({}));
   }
 
   /**
@@ -8097,7 +9174,7 @@ export default class Client extends OpenApi {
    * @returns BatchQuerySessionByClientIdsResponse
    */
   async batchQuerySessionByClientIds(request: BatchQuerySessionByClientIdsRequest): Promise<BatchQuerySessionByClientIdsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.batchQuerySessionByClientIdsWithOptions(request, runtime);
   }
 
@@ -8111,21 +9188,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CloseConnectionResponse
    */
-  async closeConnectionWithOptions(request: CloseConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CloseConnectionResponse> {
-    Util.validateModel(request);
+  async closeConnectionWithOptions(request: CloseConnectionRequest, runtime: $dara.RuntimeOptions): Promise<CloseConnectionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CloseConnection",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8136,7 +9213,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CloseConnectionResponse>(await this.callApi(params, req, runtime), new CloseConnectionResponse({}));
+    return $dara.cast<CloseConnectionResponse>(await this.callApi(params, req, runtime), new CloseConnectionResponse({}));
   }
 
   /**
@@ -8149,7 +9226,7 @@ export default class Client extends OpenApi {
    * @returns CloseConnectionResponse
    */
   async closeConnection(request: CloseConnectionRequest): Promise<CloseConnectionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.closeConnectionWithOptions(request, runtime);
   }
 
@@ -8163,21 +9240,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateGroupIdResponse
    */
-  async createGroupIdWithOptions(request: CreateGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupIdResponse> {
-    Util.validateModel(request);
+  async createGroupIdWithOptions(request: CreateGroupIdRequest, runtime: $dara.RuntimeOptions): Promise<CreateGroupIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateGroupId",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8188,7 +9265,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateGroupIdResponse>(await this.callApi(params, req, runtime), new CreateGroupIdResponse({}));
+    return $dara.cast<CreateGroupIdResponse>(await this.callApi(params, req, runtime), new CreateGroupIdResponse({}));
   }
 
   /**
@@ -8201,7 +9278,7 @@ export default class Client extends OpenApi {
    * @returns CreateGroupIdResponse
    */
   async createGroupId(request: CreateGroupIdRequest): Promise<CreateGroupIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createGroupIdWithOptions(request, runtime);
   }
 
@@ -8218,21 +9295,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCaCertificateResponse
    */
-  async deleteCaCertificateWithOptions(request: DeleteCaCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCaCertificateResponse> {
-    Util.validateModel(request);
+  async deleteCaCertificateWithOptions(request: DeleteCaCertificateRequest, runtime: $dara.RuntimeOptions): Promise<DeleteCaCertificateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.mqttInstanceId)) {
+    if (!$dara.isNull(request.mqttInstanceId)) {
       query["MqttInstanceId"] = request.mqttInstanceId;
     }
 
-    if (!Util.isUnset(request.sn)) {
+    if (!$dara.isNull(request.sn)) {
       query["Sn"] = request.sn;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteCaCertificate",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8243,7 +9320,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCaCertificateResponse>(await this.callApi(params, req, runtime), new DeleteCaCertificateResponse({}));
+    return $dara.cast<DeleteCaCertificateResponse>(await this.callApi(params, req, runtime), new DeleteCaCertificateResponse({}));
   }
 
   /**
@@ -8259,7 +9336,7 @@ export default class Client extends OpenApi {
    * @returns DeleteCaCertificateResponse
    */
   async deleteCaCertificate(request: DeleteCaCertificateRequest): Promise<DeleteCaCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCaCertificateWithOptions(request, runtime);
   }
 
@@ -8270,21 +9347,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCustomAuthConnectBlackResponse
    */
-  async deleteCustomAuthConnectBlackWithOptions(request: DeleteCustomAuthConnectBlackRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomAuthConnectBlackResponse> {
-    Util.validateModel(request);
+  async deleteCustomAuthConnectBlackWithOptions(request: DeleteCustomAuthConnectBlackRequest, runtime: $dara.RuntimeOptions): Promise<DeleteCustomAuthConnectBlackResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteCustomAuthConnectBlack",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8295,7 +9372,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCustomAuthConnectBlackResponse>(await this.callApi(params, req, runtime), new DeleteCustomAuthConnectBlackResponse({}));
+    return $dara.cast<DeleteCustomAuthConnectBlackResponse>(await this.callApi(params, req, runtime), new DeleteCustomAuthConnectBlackResponse({}));
   }
 
   /**
@@ -8305,7 +9382,7 @@ export default class Client extends OpenApi {
    * @returns DeleteCustomAuthConnectBlackResponse
    */
   async deleteCustomAuthConnectBlack(request: DeleteCustomAuthConnectBlackRequest): Promise<DeleteCustomAuthConnectBlackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCustomAuthConnectBlackWithOptions(request, runtime);
   }
 
@@ -8316,29 +9393,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCustomAuthIdentityResponse
    */
-  async deleteCustomAuthIdentityWithOptions(request: DeleteCustomAuthIdentityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomAuthIdentityResponse> {
-    Util.validateModel(request);
+  async deleteCustomAuthIdentityWithOptions(request: DeleteCustomAuthIdentityRequest, runtime: $dara.RuntimeOptions): Promise<DeleteCustomAuthIdentityResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.identityType)) {
+    if (!$dara.isNull(request.identityType)) {
       body["IdentityType"] = request.identityType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.username)) {
+    if (!$dara.isNull(request.username)) {
       body["Username"] = request.username;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteCustomAuthIdentity",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8349,7 +9426,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCustomAuthIdentityResponse>(await this.callApi(params, req, runtime), new DeleteCustomAuthIdentityResponse({}));
+    return $dara.cast<DeleteCustomAuthIdentityResponse>(await this.callApi(params, req, runtime), new DeleteCustomAuthIdentityResponse({}));
   }
 
   /**
@@ -8359,7 +9436,7 @@ export default class Client extends OpenApi {
    * @returns DeleteCustomAuthIdentityResponse
    */
   async deleteCustomAuthIdentity(request: DeleteCustomAuthIdentityRequest): Promise<DeleteCustomAuthIdentityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCustomAuthIdentityWithOptions(request, runtime);
   }
 
@@ -8370,29 +9447,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCustomAuthPermissionResponse
    */
-  async deleteCustomAuthPermissionWithOptions(request: DeleteCustomAuthPermissionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomAuthPermissionResponse> {
-    Util.validateModel(request);
+  async deleteCustomAuthPermissionWithOptions(request: DeleteCustomAuthPermissionRequest, runtime: $dara.RuntimeOptions): Promise<DeleteCustomAuthPermissionResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.identity)) {
+    if (!$dara.isNull(request.identity)) {
       body["Identity"] = request.identity;
     }
 
-    if (!Util.isUnset(request.identityType)) {
+    if (!$dara.isNull(request.identityType)) {
       body["IdentityType"] = request.identityType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       body["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteCustomAuthPermission",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8403,7 +9480,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCustomAuthPermissionResponse>(await this.callApi(params, req, runtime), new DeleteCustomAuthPermissionResponse({}));
+    return $dara.cast<DeleteCustomAuthPermissionResponse>(await this.callApi(params, req, runtime), new DeleteCustomAuthPermissionResponse({}));
   }
 
   /**
@@ -8413,7 +9490,7 @@ export default class Client extends OpenApi {
    * @returns DeleteCustomAuthPermissionResponse
    */
   async deleteCustomAuthPermission(request: DeleteCustomAuthPermissionRequest): Promise<DeleteCustomAuthPermissionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCustomAuthPermissionWithOptions(request, runtime);
   }
 
@@ -8428,25 +9505,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDeviceCertificateResponse
    */
-  async deleteDeviceCertificateWithOptions(request: DeleteDeviceCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceCertificateResponse> {
-    Util.validateModel(request);
+  async deleteDeviceCertificateWithOptions(request: DeleteDeviceCertificateRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDeviceCertificateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.caSn)) {
+    if (!$dara.isNull(request.caSn)) {
       query["CaSn"] = request.caSn;
     }
 
-    if (!Util.isUnset(request.deviceSn)) {
+    if (!$dara.isNull(request.deviceSn)) {
       query["DeviceSn"] = request.deviceSn;
     }
 
-    if (!Util.isUnset(request.mqttInstanceId)) {
+    if (!$dara.isNull(request.mqttInstanceId)) {
       query["MqttInstanceId"] = request.mqttInstanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDeviceCertificate",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8457,7 +9534,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDeviceCertificateResponse>(await this.callApi(params, req, runtime), new DeleteDeviceCertificateResponse({}));
+    return $dara.cast<DeleteDeviceCertificateResponse>(await this.callApi(params, req, runtime), new DeleteDeviceCertificateResponse({}));
   }
 
   /**
@@ -8471,7 +9548,7 @@ export default class Client extends OpenApi {
    * @returns DeleteDeviceCertificateResponse
    */
   async deleteDeviceCertificate(request: DeleteDeviceCertificateRequest): Promise<DeleteDeviceCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDeviceCertificateWithOptions(request, runtime);
   }
 
@@ -8485,21 +9562,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGroupIdResponse
    */
-  async deleteGroupIdWithOptions(request: DeleteGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupIdResponse> {
-    Util.validateModel(request);
+  async deleteGroupIdWithOptions(request: DeleteGroupIdRequest, runtime: $dara.RuntimeOptions): Promise<DeleteGroupIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteGroupId",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8510,7 +9587,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteGroupIdResponse>(await this.callApi(params, req, runtime), new DeleteGroupIdResponse({}));
+    return $dara.cast<DeleteGroupIdResponse>(await this.callApi(params, req, runtime), new DeleteGroupIdResponse({}));
   }
 
   /**
@@ -8523,28 +9600,24 @@ export default class Client extends OpenApi {
    * @returns DeleteGroupIdResponse
    */
   async deleteGroupId(request: DeleteGroupIdRequest): Promise<DeleteGroupIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteGroupIdWithOptions(request, runtime);
   }
 
   /**
    * Queries the details of a certificate authority (CA) certificate, such as the content and status of the certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
    * 
-   * @remarks
-   * - 仅铂金版和专业版实例支持使用GetCaCertificate接口。
-   * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
-   * 
    * @param request - GetCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCaCertificateResponse
    */
-  async getCaCertificateWithOptions(request: GetCaCertificateRequest, runtime: $Util.RuntimeOptions): Promise<GetCaCertificateResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getCaCertificateWithOptions(request: GetCaCertificateRequest, runtime: $dara.RuntimeOptions): Promise<GetCaCertificateResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetCaCertificate",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8555,21 +9628,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCaCertificateResponse>(await this.callApi(params, req, runtime), new GetCaCertificateResponse({}));
+    return $dara.cast<GetCaCertificateResponse>(await this.callApi(params, req, runtime), new GetCaCertificateResponse({}));
   }
 
   /**
    * Queries the details of a certificate authority (CA) certificate, such as the content and status of the certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
    * 
-   * @remarks
-   * - 仅铂金版和专业版实例支持使用GetCaCertificate接口。
-   * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
-   * 
    * @param request - GetCaCertificateRequest
    * @returns GetCaCertificateResponse
    */
   async getCaCertificate(request: GetCaCertificateRequest): Promise<GetCaCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getCaCertificateWithOptions(request, runtime);
   }
 
@@ -8583,13 +9652,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeviceCertificateResponse
    */
-  async getDeviceCertificateWithOptions(request: GetDeviceCertificateRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceCertificateResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getDeviceCertificateWithOptions(request: GetDeviceCertificateRequest, runtime: $dara.RuntimeOptions): Promise<GetDeviceCertificateResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDeviceCertificate",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8600,7 +9669,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDeviceCertificateResponse>(await this.callApi(params, req, runtime), new GetDeviceCertificateResponse({}));
+    return $dara.cast<GetDeviceCertificateResponse>(await this.callApi(params, req, runtime), new GetDeviceCertificateResponse({}));
   }
 
   /**
@@ -8613,7 +9682,7 @@ export default class Client extends OpenApi {
    * @returns GetDeviceCertificateResponse
    */
   async getDeviceCertificate(request: GetDeviceCertificateRequest): Promise<GetDeviceCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDeviceCertificateWithOptions(request, runtime);
   }
 
@@ -8628,21 +9697,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeviceCredentialResponse
    */
-  async getDeviceCredentialWithOptions(request: GetDeviceCredentialRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceCredentialResponse> {
-    Util.validateModel(request);
+  async getDeviceCredentialWithOptions(request: GetDeviceCredentialRequest, runtime: $dara.RuntimeOptions): Promise<GetDeviceCredentialResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDeviceCredential",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8653,7 +9722,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDeviceCredentialResponse>(await this.callApi(params, req, runtime), new GetDeviceCredentialResponse({}));
+    return $dara.cast<GetDeviceCredentialResponse>(await this.callApi(params, req, runtime), new GetDeviceCredentialResponse({}));
   }
 
   /**
@@ -8667,7 +9736,7 @@ export default class Client extends OpenApi {
    * @returns GetDeviceCredentialResponse
    */
   async getDeviceCredential(request: GetDeviceCredentialRequest): Promise<GetDeviceCredentialResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDeviceCredentialWithOptions(request, runtime);
   }
 
@@ -8682,13 +9751,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRegisterCodeResponse
    */
-  async getRegisterCodeWithOptions(request: GetRegisterCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetRegisterCodeResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getRegisterCodeWithOptions(request: GetRegisterCodeRequest, runtime: $dara.RuntimeOptions): Promise<GetRegisterCodeResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetRegisterCode",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8699,7 +9768,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetRegisterCodeResponse>(await this.callApi(params, req, runtime), new GetRegisterCodeResponse({}));
+    return $dara.cast<GetRegisterCodeResponse>(await this.callApi(params, req, runtime), new GetRegisterCodeResponse({}));
   }
 
   /**
@@ -8713,7 +9782,7 @@ export default class Client extends OpenApi {
    * @returns GetRegisterCodeResponse
    */
   async getRegisterCode(request: GetRegisterCodeRequest): Promise<GetRegisterCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getRegisterCodeWithOptions(request, runtime);
   }
 
@@ -8729,21 +9798,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InactivateCaCertificateResponse
    */
-  async inactivateCaCertificateWithOptions(request: InactivateCaCertificateRequest, runtime: $Util.RuntimeOptions): Promise<InactivateCaCertificateResponse> {
-    Util.validateModel(request);
+  async inactivateCaCertificateWithOptions(request: InactivateCaCertificateRequest, runtime: $dara.RuntimeOptions): Promise<InactivateCaCertificateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.mqttInstanceId)) {
+    if (!$dara.isNull(request.mqttInstanceId)) {
       query["MqttInstanceId"] = request.mqttInstanceId;
     }
 
-    if (!Util.isUnset(request.sn)) {
+    if (!$dara.isNull(request.sn)) {
       query["Sn"] = request.sn;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "InactivateCaCertificate",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8754,7 +9823,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<InactivateCaCertificateResponse>(await this.callApi(params, req, runtime), new InactivateCaCertificateResponse({}));
+    return $dara.cast<InactivateCaCertificateResponse>(await this.callApi(params, req, runtime), new InactivateCaCertificateResponse({}));
   }
 
   /**
@@ -8769,7 +9838,7 @@ export default class Client extends OpenApi {
    * @returns InactivateCaCertificateResponse
    */
   async inactivateCaCertificate(request: InactivateCaCertificateRequest): Promise<InactivateCaCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.inactivateCaCertificateWithOptions(request, runtime);
   }
 
@@ -8784,25 +9853,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InactivateDeviceCertificateResponse
    */
-  async inactivateDeviceCertificateWithOptions(request: InactivateDeviceCertificateRequest, runtime: $Util.RuntimeOptions): Promise<InactivateDeviceCertificateResponse> {
-    Util.validateModel(request);
+  async inactivateDeviceCertificateWithOptions(request: InactivateDeviceCertificateRequest, runtime: $dara.RuntimeOptions): Promise<InactivateDeviceCertificateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.caSn)) {
+    if (!$dara.isNull(request.caSn)) {
       query["CaSn"] = request.caSn;
     }
 
-    if (!Util.isUnset(request.deviceSn)) {
+    if (!$dara.isNull(request.deviceSn)) {
       query["DeviceSn"] = request.deviceSn;
     }
 
-    if (!Util.isUnset(request.mqttInstanceId)) {
+    if (!$dara.isNull(request.mqttInstanceId)) {
       query["MqttInstanceId"] = request.mqttInstanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "InactivateDeviceCertificate",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8813,7 +9882,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<InactivateDeviceCertificateResponse>(await this.callApi(params, req, runtime), new InactivateDeviceCertificateResponse({}));
+    return $dara.cast<InactivateDeviceCertificateResponse>(await this.callApi(params, req, runtime), new InactivateDeviceCertificateResponse({}));
   }
 
   /**
@@ -8827,7 +9896,7 @@ export default class Client extends OpenApi {
    * @returns InactivateDeviceCertificateResponse
    */
   async inactivateDeviceCertificate(request: InactivateDeviceCertificateRequest): Promise<InactivateDeviceCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.inactivateDeviceCertificateWithOptions(request, runtime);
   }
 
@@ -8841,13 +9910,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCaCertificateResponse
    */
-  async listCaCertificateWithOptions(request: ListCaCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ListCaCertificateResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listCaCertificateWithOptions(request: ListCaCertificateRequest, runtime: $dara.RuntimeOptions): Promise<ListCaCertificateResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListCaCertificate",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8858,7 +9927,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListCaCertificateResponse>(await this.callApi(params, req, runtime), new ListCaCertificateResponse({}));
+    return $dara.cast<ListCaCertificateResponse>(await this.callApi(params, req, runtime), new ListCaCertificateResponse({}));
   }
 
   /**
@@ -8871,7 +9940,7 @@ export default class Client extends OpenApi {
    * @returns ListCaCertificateResponse
    */
   async listCaCertificate(request: ListCaCertificateRequest): Promise<ListCaCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listCaCertificateWithOptions(request, runtime);
   }
 
@@ -8885,13 +9954,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDeviceCertificateResponse
    */
-  async listDeviceCertificateWithOptions(request: ListDeviceCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceCertificateResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listDeviceCertificateWithOptions(request: ListDeviceCertificateRequest, runtime: $dara.RuntimeOptions): Promise<ListDeviceCertificateResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDeviceCertificate",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8902,7 +9971,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDeviceCertificateResponse>(await this.callApi(params, req, runtime), new ListDeviceCertificateResponse({}));
+    return $dara.cast<ListDeviceCertificateResponse>(await this.callApi(params, req, runtime), new ListDeviceCertificateResponse({}));
   }
 
   /**
@@ -8915,7 +9984,7 @@ export default class Client extends OpenApi {
    * @returns ListDeviceCertificateResponse
    */
   async listDeviceCertificate(request: ListDeviceCertificateRequest): Promise<ListDeviceCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDeviceCertificateWithOptions(request, runtime);
   }
 
@@ -8929,13 +9998,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDeviceCertificateByCaSnResponse
    */
-  async listDeviceCertificateByCaSnWithOptions(request: ListDeviceCertificateByCaSnRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceCertificateByCaSnResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listDeviceCertificateByCaSnWithOptions(request: ListDeviceCertificateByCaSnRequest, runtime: $dara.RuntimeOptions): Promise<ListDeviceCertificateByCaSnResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDeviceCertificateByCaSn",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -8946,7 +10015,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDeviceCertificateByCaSnResponse>(await this.callApi(params, req, runtime), new ListDeviceCertificateByCaSnResponse({}));
+    return $dara.cast<ListDeviceCertificateByCaSnResponse>(await this.callApi(params, req, runtime), new ListDeviceCertificateByCaSnResponse({}));
   }
 
   /**
@@ -8959,7 +10028,7 @@ export default class Client extends OpenApi {
    * @returns ListDeviceCertificateByCaSnResponse
    */
   async listDeviceCertificateByCaSn(request: ListDeviceCertificateByCaSnRequest): Promise<ListDeviceCertificateByCaSnResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDeviceCertificateByCaSnWithOptions(request, runtime);
   }
 
@@ -8970,33 +10039,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDeviceCredentialClientIdResponse
    */
-  async listDeviceCredentialClientIdWithOptions(request: ListDeviceCredentialClientIdRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceCredentialClientIdResponse> {
-    Util.validateModel(request);
+  async listDeviceCredentialClientIdWithOptions(request: ListDeviceCredentialClientIdRequest, runtime: $dara.RuntimeOptions): Promise<ListDeviceCredentialClientIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDeviceCredentialClientId",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9007,7 +10076,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDeviceCredentialClientIdResponse>(await this.callApi(params, req, runtime), new ListDeviceCredentialClientIdResponse({}));
+    return $dara.cast<ListDeviceCredentialClientIdResponse>(await this.callApi(params, req, runtime), new ListDeviceCredentialClientIdResponse({}));
   }
 
   /**
@@ -9017,7 +10086,7 @@ export default class Client extends OpenApi {
    * @returns ListDeviceCredentialClientIdResponse
    */
   async listDeviceCredentialClientId(request: ListDeviceCredentialClientIdRequest): Promise<ListDeviceCredentialClientIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDeviceCredentialClientIdWithOptions(request, runtime);
   }
 
@@ -9031,17 +10100,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGroupIdResponse
    */
-  async listGroupIdWithOptions(request: ListGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupIdResponse> {
-    Util.validateModel(request);
+  async listGroupIdWithOptions(request: ListGroupIdRequest, runtime: $dara.RuntimeOptions): Promise<ListGroupIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListGroupId",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9052,7 +10121,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListGroupIdResponse>(await this.callApi(params, req, runtime), new ListGroupIdResponse({}));
+    return $dara.cast<ListGroupIdResponse>(await this.callApi(params, req, runtime), new ListGroupIdResponse({}));
   }
 
   /**
@@ -9065,7 +10134,7 @@ export default class Client extends OpenApi {
    * @returns ListGroupIdResponse
    */
   async listGroupId(request: ListGroupIdRequest): Promise<ListGroupIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listGroupIdWithOptions(request, runtime);
   }
 
@@ -9076,29 +10145,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9109,7 +10178,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   /**
@@ -9119,7 +10188,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
@@ -9130,13 +10199,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryCustomAuthConnectBlackResponse
    */
-  async queryCustomAuthConnectBlackWithOptions(request: QueryCustomAuthConnectBlackRequest, runtime: $Util.RuntimeOptions): Promise<QueryCustomAuthConnectBlackResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async queryCustomAuthConnectBlackWithOptions(request: QueryCustomAuthConnectBlackRequest, runtime: $dara.RuntimeOptions): Promise<QueryCustomAuthConnectBlackResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryCustomAuthConnectBlack",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9147,7 +10216,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryCustomAuthConnectBlackResponse>(await this.callApi(params, req, runtime), new QueryCustomAuthConnectBlackResponse({}));
+    return $dara.cast<QueryCustomAuthConnectBlackResponse>(await this.callApi(params, req, runtime), new QueryCustomAuthConnectBlackResponse({}));
   }
 
   /**
@@ -9157,7 +10226,7 @@ export default class Client extends OpenApi {
    * @returns QueryCustomAuthConnectBlackResponse
    */
   async queryCustomAuthConnectBlack(request: QueryCustomAuthConnectBlackRequest): Promise<QueryCustomAuthConnectBlackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryCustomAuthConnectBlackWithOptions(request, runtime);
   }
 
@@ -9168,13 +10237,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryCustomAuthIdentityResponse
    */
-  async queryCustomAuthIdentityWithOptions(request: QueryCustomAuthIdentityRequest, runtime: $Util.RuntimeOptions): Promise<QueryCustomAuthIdentityResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async queryCustomAuthIdentityWithOptions(request: QueryCustomAuthIdentityRequest, runtime: $dara.RuntimeOptions): Promise<QueryCustomAuthIdentityResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryCustomAuthIdentity",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9185,7 +10254,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryCustomAuthIdentityResponse>(await this.callApi(params, req, runtime), new QueryCustomAuthIdentityResponse({}));
+    return $dara.cast<QueryCustomAuthIdentityResponse>(await this.callApi(params, req, runtime), new QueryCustomAuthIdentityResponse({}));
   }
 
   /**
@@ -9195,7 +10264,7 @@ export default class Client extends OpenApi {
    * @returns QueryCustomAuthIdentityResponse
    */
   async queryCustomAuthIdentity(request: QueryCustomAuthIdentityRequest): Promise<QueryCustomAuthIdentityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryCustomAuthIdentityWithOptions(request, runtime);
   }
 
@@ -9206,13 +10275,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryCustomAuthPermissionResponse
    */
-  async queryCustomAuthPermissionWithOptions(request: QueryCustomAuthPermissionRequest, runtime: $Util.RuntimeOptions): Promise<QueryCustomAuthPermissionResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async queryCustomAuthPermissionWithOptions(request: QueryCustomAuthPermissionRequest, runtime: $dara.RuntimeOptions): Promise<QueryCustomAuthPermissionResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryCustomAuthPermission",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9223,7 +10292,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryCustomAuthPermissionResponse>(await this.callApi(params, req, runtime), new QueryCustomAuthPermissionResponse({}));
+    return $dara.cast<QueryCustomAuthPermissionResponse>(await this.callApi(params, req, runtime), new QueryCustomAuthPermissionResponse({}));
   }
 
   /**
@@ -9233,7 +10302,7 @@ export default class Client extends OpenApi {
    * @returns QueryCustomAuthPermissionResponse
    */
   async queryCustomAuthPermission(request: QueryCustomAuthPermissionRequest): Promise<QueryCustomAuthPermissionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryCustomAuthPermissionWithOptions(request, runtime);
   }
 
@@ -9248,45 +10317,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryMqttTraceDeviceResponse
    */
-  async queryMqttTraceDeviceWithOptions(request: QueryMqttTraceDeviceRequest, runtime: $Util.RuntimeOptions): Promise<QueryMqttTraceDeviceResponse> {
-    Util.validateModel(request);
+  async queryMqttTraceDeviceWithOptions(request: QueryMqttTraceDeviceRequest, runtime: $dara.RuntimeOptions): Promise<QueryMqttTraceDeviceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.mqttRegionId)) {
+    if (!$dara.isNull(request.mqttRegionId)) {
       query["MqttRegionId"] = request.mqttRegionId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.reverse)) {
+    if (!$dara.isNull(request.reverse)) {
       query["Reverse"] = request.reverse;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMqttTraceDevice",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9297,7 +10366,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMqttTraceDeviceResponse>(await this.callApi(params, req, runtime), new QueryMqttTraceDeviceResponse({}));
+    return $dara.cast<QueryMqttTraceDeviceResponse>(await this.callApi(params, req, runtime), new QueryMqttTraceDeviceResponse({}));
   }
 
   /**
@@ -9311,7 +10380,7 @@ export default class Client extends OpenApi {
    * @returns QueryMqttTraceDeviceResponse
    */
   async queryMqttTraceDevice(request: QueryMqttTraceDeviceRequest): Promise<QueryMqttTraceDeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMqttTraceDeviceWithOptions(request, runtime);
   }
 
@@ -9326,45 +10395,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryMqttTraceMessageOfClientResponse
    */
-  async queryMqttTraceMessageOfClientWithOptions(request: QueryMqttTraceMessageOfClientRequest, runtime: $Util.RuntimeOptions): Promise<QueryMqttTraceMessageOfClientResponse> {
-    Util.validateModel(request);
+  async queryMqttTraceMessageOfClientWithOptions(request: QueryMqttTraceMessageOfClientRequest, runtime: $dara.RuntimeOptions): Promise<QueryMqttTraceMessageOfClientResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.mqttRegionId)) {
+    if (!$dara.isNull(request.mqttRegionId)) {
       query["MqttRegionId"] = request.mqttRegionId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.reverse)) {
+    if (!$dara.isNull(request.reverse)) {
       query["Reverse"] = request.reverse;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMqttTraceMessageOfClient",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9375,7 +10444,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMqttTraceMessageOfClientResponse>(await this.callApi(params, req, runtime), new QueryMqttTraceMessageOfClientResponse({}));
+    return $dara.cast<QueryMqttTraceMessageOfClientResponse>(await this.callApi(params, req, runtime), new QueryMqttTraceMessageOfClientResponse({}));
   }
 
   /**
@@ -9389,7 +10458,7 @@ export default class Client extends OpenApi {
    * @returns QueryMqttTraceMessageOfClientResponse
    */
   async queryMqttTraceMessageOfClient(request: QueryMqttTraceMessageOfClientRequest): Promise<QueryMqttTraceMessageOfClientResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMqttTraceMessageOfClientWithOptions(request, runtime);
   }
 
@@ -9404,33 +10473,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryMqttTraceMessagePublishResponse
    */
-  async queryMqttTraceMessagePublishWithOptions(request: QueryMqttTraceMessagePublishRequest, runtime: $Util.RuntimeOptions): Promise<QueryMqttTraceMessagePublishResponse> {
-    Util.validateModel(request);
+  async queryMqttTraceMessagePublishWithOptions(request: QueryMqttTraceMessagePublishRequest, runtime: $dara.RuntimeOptions): Promise<QueryMqttTraceMessagePublishResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.mqttRegionId)) {
+    if (!$dara.isNull(request.mqttRegionId)) {
       query["MqttRegionId"] = request.mqttRegionId;
     }
 
-    if (!Util.isUnset(request.msgId)) {
+    if (!$dara.isNull(request.msgId)) {
       query["MsgId"] = request.msgId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMqttTraceMessagePublish",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9441,7 +10510,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMqttTraceMessagePublishResponse>(await this.callApi(params, req, runtime), new QueryMqttTraceMessagePublishResponse({}));
+    return $dara.cast<QueryMqttTraceMessagePublishResponse>(await this.callApi(params, req, runtime), new QueryMqttTraceMessagePublishResponse({}));
   }
 
   /**
@@ -9455,7 +10524,7 @@ export default class Client extends OpenApi {
    * @returns QueryMqttTraceMessagePublishResponse
    */
   async queryMqttTraceMessagePublish(request: QueryMqttTraceMessagePublishRequest): Promise<QueryMqttTraceMessagePublishResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMqttTraceMessagePublishWithOptions(request, runtime);
   }
 
@@ -9470,49 +10539,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryMqttTraceMessageSubscribeResponse
    */
-  async queryMqttTraceMessageSubscribeWithOptions(request: QueryMqttTraceMessageSubscribeRequest, runtime: $Util.RuntimeOptions): Promise<QueryMqttTraceMessageSubscribeResponse> {
-    Util.validateModel(request);
+  async queryMqttTraceMessageSubscribeWithOptions(request: QueryMqttTraceMessageSubscribeRequest, runtime: $dara.RuntimeOptions): Promise<QueryMqttTraceMessageSubscribeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.mqttRegionId)) {
+    if (!$dara.isNull(request.mqttRegionId)) {
       query["MqttRegionId"] = request.mqttRegionId;
     }
 
-    if (!Util.isUnset(request.msgId)) {
+    if (!$dara.isNull(request.msgId)) {
       query["MsgId"] = request.msgId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.reverse)) {
+    if (!$dara.isNull(request.reverse)) {
       query["Reverse"] = request.reverse;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMqttTraceMessageSubscribe",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9523,7 +10592,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMqttTraceMessageSubscribeResponse>(await this.callApi(params, req, runtime), new QueryMqttTraceMessageSubscribeResponse({}));
+    return $dara.cast<QueryMqttTraceMessageSubscribeResponse>(await this.callApi(params, req, runtime), new QueryMqttTraceMessageSubscribeResponse({}));
   }
 
   /**
@@ -9537,7 +10606,7 @@ export default class Client extends OpenApi {
    * @returns QueryMqttTraceMessageSubscribeResponse
    */
   async queryMqttTraceMessageSubscribe(request: QueryMqttTraceMessageSubscribeRequest): Promise<QueryMqttTraceMessageSubscribeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMqttTraceMessageSubscribeWithOptions(request, runtime);
   }
 
@@ -9552,21 +10621,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySessionByClientIdResponse
    */
-  async querySessionByClientIdWithOptions(request: QuerySessionByClientIdRequest, runtime: $Util.RuntimeOptions): Promise<QuerySessionByClientIdResponse> {
-    Util.validateModel(request);
+  async querySessionByClientIdWithOptions(request: QuerySessionByClientIdRequest, runtime: $dara.RuntimeOptions): Promise<QuerySessionByClientIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySessionByClientId",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9577,7 +10646,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySessionByClientIdResponse>(await this.callApi(params, req, runtime), new QuerySessionByClientIdResponse({}));
+    return $dara.cast<QuerySessionByClientIdResponse>(await this.callApi(params, req, runtime), new QuerySessionByClientIdResponse({}));
   }
 
   /**
@@ -9591,7 +10660,7 @@ export default class Client extends OpenApi {
    * @returns QuerySessionByClientIdResponse
    */
   async querySessionByClientId(request: QuerySessionByClientIdRequest): Promise<QuerySessionByClientIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySessionByClientIdWithOptions(request, runtime);
   }
 
@@ -9606,21 +10675,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTokenResponse
    */
-  async queryTokenWithOptions(request: QueryTokenRequest, runtime: $Util.RuntimeOptions): Promise<QueryTokenResponse> {
-    Util.validateModel(request);
+  async queryTokenWithOptions(request: QueryTokenRequest, runtime: $dara.RuntimeOptions): Promise<QueryTokenResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       query["Token"] = request.token;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryToken",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9631,7 +10700,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryTokenResponse>(await this.callApi(params, req, runtime), new QueryTokenResponse({}));
+    return $dara.cast<QueryTokenResponse>(await this.callApi(params, req, runtime), new QueryTokenResponse({}));
   }
 
   /**
@@ -9645,7 +10714,7 @@ export default class Client extends OpenApi {
    * @returns QueryTokenResponse
    */
   async queryToken(request: QueryTokenRequest): Promise<QueryTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTokenWithOptions(request, runtime);
   }
 
@@ -9661,21 +10730,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RefreshDeviceCredentialResponse
    */
-  async refreshDeviceCredentialWithOptions(request: RefreshDeviceCredentialRequest, runtime: $Util.RuntimeOptions): Promise<RefreshDeviceCredentialResponse> {
-    Util.validateModel(request);
+  async refreshDeviceCredentialWithOptions(request: RefreshDeviceCredentialRequest, runtime: $dara.RuntimeOptions): Promise<RefreshDeviceCredentialResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RefreshDeviceCredential",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9686,7 +10755,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RefreshDeviceCredentialResponse>(await this.callApi(params, req, runtime), new RefreshDeviceCredentialResponse({}));
+    return $dara.cast<RefreshDeviceCredentialResponse>(await this.callApi(params, req, runtime), new RefreshDeviceCredentialResponse({}));
   }
 
   /**
@@ -9701,43 +10770,43 @@ export default class Client extends OpenApi {
    * @returns RefreshDeviceCredentialResponse
    */
   async refreshDeviceCredential(request: RefreshDeviceCredentialRequest): Promise<RefreshDeviceCredentialResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.refreshDeviceCredentialWithOptions(request, runtime);
   }
 
   /**
-   * Registers a certificate authority (CA) certificate with an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you use a device certificate to authenticate an ApsaraMQ for MQTT client, you must register the CA certificate for which you apply with the ApsaraMQ for MQTT broker.
+   * RegisterCaCertificate
    * 
    * @remarks
-   * - Only Platinum and Professional instances support using the RegisterCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
+   * Registers a certificate authority (CA) certificate with an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you use a device certificate to authenticate an ApsaraMQ for MQTT client, you must register the CA certificate for which you apply with the ApsaraMQ for MQTT broker.
    * 
    * @param request - RegisterCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RegisterCaCertificateResponse
    */
-  async registerCaCertificateWithOptions(request: RegisterCaCertificateRequest, runtime: $Util.RuntimeOptions): Promise<RegisterCaCertificateResponse> {
-    Util.validateModel(request);
+  async registerCaCertificateWithOptions(request: RegisterCaCertificateRequest, runtime: $dara.RuntimeOptions): Promise<RegisterCaCertificateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.caContent)) {
+    if (!$dara.isNull(request.caContent)) {
       query["CaContent"] = request.caContent;
     }
 
-    if (!Util.isUnset(request.caName)) {
+    if (!$dara.isNull(request.caName)) {
       query["CaName"] = request.caName;
     }
 
-    if (!Util.isUnset(request.mqttInstanceId)) {
+    if (!$dara.isNull(request.mqttInstanceId)) {
       query["MqttInstanceId"] = request.mqttInstanceId;
     }
 
-    if (!Util.isUnset(request.verificationContent)) {
+    if (!$dara.isNull(request.verificationContent)) {
       query["VerificationContent"] = request.verificationContent;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RegisterCaCertificate",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9748,20 +10817,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RegisterCaCertificateResponse>(await this.callApi(params, req, runtime), new RegisterCaCertificateResponse({}));
+    return $dara.cast<RegisterCaCertificateResponse>(await this.callApi(params, req, runtime), new RegisterCaCertificateResponse({}));
   }
 
   /**
-   * Registers a certificate authority (CA) certificate with an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you use a device certificate to authenticate an ApsaraMQ for MQTT client, you must register the CA certificate for which you apply with the ApsaraMQ for MQTT broker.
+   * RegisterCaCertificate
    * 
    * @remarks
-   * - Only Platinum and Professional instances support using the RegisterCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
+   * Registers a certificate authority (CA) certificate with an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you use a device certificate to authenticate an ApsaraMQ for MQTT client, you must register the CA certificate for which you apply with the ApsaraMQ for MQTT broker.
    * 
    * @param request - RegisterCaCertificateRequest
    * @returns RegisterCaCertificateResponse
    */
   async registerCaCertificate(request: RegisterCaCertificateRequest): Promise<RegisterCaCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.registerCaCertificateWithOptions(request, runtime);
   }
 
@@ -9776,21 +10845,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RegisterDeviceCredentialResponse
    */
-  async registerDeviceCredentialWithOptions(request: RegisterDeviceCredentialRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDeviceCredentialResponse> {
-    Util.validateModel(request);
+  async registerDeviceCredentialWithOptions(request: RegisterDeviceCredentialRequest, runtime: $dara.RuntimeOptions): Promise<RegisterDeviceCredentialResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RegisterDeviceCredential",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9801,7 +10870,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RegisterDeviceCredentialResponse>(await this.callApi(params, req, runtime), new RegisterDeviceCredentialResponse({}));
+    return $dara.cast<RegisterDeviceCredentialResponse>(await this.callApi(params, req, runtime), new RegisterDeviceCredentialResponse({}));
   }
 
   /**
@@ -9815,7 +10884,7 @@ export default class Client extends OpenApi {
    * @returns RegisterDeviceCredentialResponse
    */
   async registerDeviceCredential(request: RegisterDeviceCredentialRequest): Promise<RegisterDeviceCredentialResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.registerDeviceCredentialWithOptions(request, runtime);
   }
 
@@ -9830,21 +10899,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RevokeTokenResponse
    */
-  async revokeTokenWithOptions(request: RevokeTokenRequest, runtime: $Util.RuntimeOptions): Promise<RevokeTokenResponse> {
-    Util.validateModel(request);
+  async revokeTokenWithOptions(request: RevokeTokenRequest, runtime: $dara.RuntimeOptions): Promise<RevokeTokenResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       query["Token"] = request.token;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RevokeToken",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9855,7 +10924,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RevokeTokenResponse>(await this.callApi(params, req, runtime), new RevokeTokenResponse({}));
+    return $dara.cast<RevokeTokenResponse>(await this.callApi(params, req, runtime), new RevokeTokenResponse({}));
   }
 
   /**
@@ -9869,7 +10938,7 @@ export default class Client extends OpenApi {
    * @returns RevokeTokenResponse
    */
   async revokeToken(request: RevokeTokenRequest): Promise<RevokeTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.revokeTokenWithOptions(request, runtime);
   }
 
@@ -9877,34 +10946,33 @@ export default class Client extends OpenApi {
    * Sends a single message from an application on a cloud server to ApsaraMQ for MQTT.
    * 
    * @remarks
-   *   The **SendMessage** operation is called by applications on cloud servers. It is complementary to the operation that is called by ApsaraMQ for MQTT clients to send messages. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](https://help.aliyun.com/document_detail/179160.html).
-   * *   Before you call the **SendMessage** operation, make sure that the kernel version of your ApsaraMQ for MQTT instance is 3.3.0 or later. You can obtain the information about the kernel version on the [Instance Details](https://mqtt.console.aliyun.com) page that corresponds to the instance in the **ApsaraMQ for MQTT console**.
-   * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT to forward messages to ApsaraMQ for RocketMQ, send the messages by using an SDK. For more information, see [Export data from ApsaraMQ for MQTT to other Alibaba Cloud services](https://help.aliyun.com/document_detail/174527.html). You can call the **SendMessage** operation up to 1,000 times per second. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-   * *   Each successful call to the **SendMessage** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For information about the billing details, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+   *   The **SendMessage** operation is called by an application on a cloud server. This operation is complementary to the operation that is called to send a message from an ApsaraMQ for MQTT client. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](https://help.aliyun.com/document_detail/179160.html).
+   * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT broker to forward messages to ApsaraMQ for RocketMQ, use [an SDK to send the messages](https://help.aliyun.com/document_detail/174527.html). The **SendMessage** operation supports up to 1,000 queries per second (QPS). For more information, see [QPS limits](https://help.aliyun.com/document_detail/163047.html).
+   * *   Each successful call to the **SendMessage** operation is calculated as a message transaction per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
    * 
    * @param request - SendMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendMessageResponse
    */
-  async sendMessageWithOptions(request: SendMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageResponse> {
-    Util.validateModel(request);
+  async sendMessageWithOptions(request: SendMessageRequest, runtime: $dara.RuntimeOptions): Promise<SendMessageResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.mqttTopic)) {
+    if (!$dara.isNull(request.mqttTopic)) {
       query["MqttTopic"] = request.mqttTopic;
     }
 
-    if (!Util.isUnset(request.payload)) {
+    if (!$dara.isNull(request.payload)) {
       query["Payload"] = request.payload;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendMessage",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9915,52 +10983,51 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendMessageResponse>(await this.callApi(params, req, runtime), new SendMessageResponse({}));
+    return $dara.cast<SendMessageResponse>(await this.callApi(params, req, runtime), new SendMessageResponse({}));
   }
 
   /**
    * Sends a single message from an application on a cloud server to ApsaraMQ for MQTT.
    * 
    * @remarks
-   *   The **SendMessage** operation is called by applications on cloud servers. It is complementary to the operation that is called by ApsaraMQ for MQTT clients to send messages. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](https://help.aliyun.com/document_detail/179160.html).
-   * *   Before you call the **SendMessage** operation, make sure that the kernel version of your ApsaraMQ for MQTT instance is 3.3.0 or later. You can obtain the information about the kernel version on the [Instance Details](https://mqtt.console.aliyun.com) page that corresponds to the instance in the **ApsaraMQ for MQTT console**.
-   * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT to forward messages to ApsaraMQ for RocketMQ, send the messages by using an SDK. For more information, see [Export data from ApsaraMQ for MQTT to other Alibaba Cloud services](https://help.aliyun.com/document_detail/174527.html). You can call the **SendMessage** operation up to 1,000 times per second. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-   * *   Each successful call to the **SendMessage** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For information about the billing details, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+   *   The **SendMessage** operation is called by an application on a cloud server. This operation is complementary to the operation that is called to send a message from an ApsaraMQ for MQTT client. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](https://help.aliyun.com/document_detail/179160.html).
+   * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT broker to forward messages to ApsaraMQ for RocketMQ, use [an SDK to send the messages](https://help.aliyun.com/document_detail/174527.html). The **SendMessage** operation supports up to 1,000 queries per second (QPS). For more information, see [QPS limits](https://help.aliyun.com/document_detail/163047.html).
+   * *   Each successful call to the **SendMessage** operation is calculated as a message transaction per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
    * 
    * @param request - SendMessageRequest
    * @returns SendMessageResponse
    */
   async sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendMessageWithOptions(request, runtime);
   }
 
   /**
-   * 配置多域名证书
+   * Configures a multi-domain certificate.
    * 
    * @param request - SetSniConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetSniConfigResponse
    */
-  async setSniConfigWithOptions(request: SetSniConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetSniConfigResponse> {
-    Util.validateModel(request);
+  async setSniConfigWithOptions(request: SetSniConfigRequest, runtime: $dara.RuntimeOptions): Promise<SetSniConfigResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.defaultCertificate)) {
+    if (!$dara.isNull(request.defaultCertificate)) {
       query["DefaultCertificate"] = request.defaultCertificate;
     }
 
-    if (!Util.isUnset(request.mqttInstanceId)) {
+    if (!$dara.isNull(request.mqttInstanceId)) {
       query["MqttInstanceId"] = request.mqttInstanceId;
     }
 
-    if (!Util.isUnset(request.sniConfig)) {
+    if (!$dara.isNull(request.sniConfig)) {
       query["SniConfig"] = request.sniConfig;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetSniConfig",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -9971,17 +11038,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetSniConfigResponse>(await this.callApi(params, req, runtime), new SetSniConfigResponse({}));
+    return $dara.cast<SetSniConfigResponse>(await this.callApi(params, req, runtime), new SetSniConfigResponse({}));
   }
 
   /**
-   * 配置多域名证书
+   * Configures a multi-domain certificate.
    * 
    * @param request - SetSniConfigRequest
    * @returns SetSniConfigResponse
    */
   async setSniConfig(request: SetSniConfigRequest): Promise<SetSniConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setSniConfigWithOptions(request, runtime);
   }
 
@@ -9992,25 +11059,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -10021,7 +11088,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   /**
@@ -10031,7 +11098,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
@@ -10046,21 +11113,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnRegisterDeviceCredentialResponse
    */
-  async unRegisterDeviceCredentialWithOptions(request: UnRegisterDeviceCredentialRequest, runtime: $Util.RuntimeOptions): Promise<UnRegisterDeviceCredentialResponse> {
-    Util.validateModel(request);
+  async unRegisterDeviceCredentialWithOptions(request: UnRegisterDeviceCredentialRequest, runtime: $dara.RuntimeOptions): Promise<UnRegisterDeviceCredentialResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnRegisterDeviceCredential",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -10071,7 +11138,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnRegisterDeviceCredentialResponse>(await this.callApi(params, req, runtime), new UnRegisterDeviceCredentialResponse({}));
+    return $dara.cast<UnRegisterDeviceCredentialResponse>(await this.callApi(params, req, runtime), new UnRegisterDeviceCredentialResponse({}));
   }
 
   /**
@@ -10085,7 +11152,7 @@ export default class Client extends OpenApi {
    * @returns UnRegisterDeviceCredentialResponse
    */
   async unRegisterDeviceCredential(request: UnRegisterDeviceCredentialRequest): Promise<UnRegisterDeviceCredentialResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unRegisterDeviceCredentialWithOptions(request, runtime);
   }
 
@@ -10096,29 +11163,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -10129,7 +11196,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   /**
@@ -10139,7 +11206,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
@@ -10150,37 +11217,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCustomAuthIdentityResponse
    */
-  async updateCustomAuthIdentityWithOptions(request: UpdateCustomAuthIdentityRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomAuthIdentityResponse> {
-    Util.validateModel(request);
+  async updateCustomAuthIdentityWithOptions(request: UpdateCustomAuthIdentityRequest, runtime: $dara.RuntimeOptions): Promise<UpdateCustomAuthIdentityResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.identityType)) {
+    if (!$dara.isNull(request.identityType)) {
       body["IdentityType"] = request.identityType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.secret)) {
+    if (!$dara.isNull(request.secret)) {
       body["Secret"] = request.secret;
     }
 
-    if (!Util.isUnset(request.signMode)) {
+    if (!$dara.isNull(request.signMode)) {
       body["SignMode"] = request.signMode;
     }
 
-    if (!Util.isUnset(request.username)) {
+    if (!$dara.isNull(request.username)) {
       body["Username"] = request.username;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateCustomAuthIdentity",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -10191,7 +11258,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCustomAuthIdentityResponse>(await this.callApi(params, req, runtime), new UpdateCustomAuthIdentityResponse({}));
+    return $dara.cast<UpdateCustomAuthIdentityResponse>(await this.callApi(params, req, runtime), new UpdateCustomAuthIdentityResponse({}));
   }
 
   /**
@@ -10201,7 +11268,7 @@ export default class Client extends OpenApi {
    * @returns UpdateCustomAuthIdentityResponse
    */
   async updateCustomAuthIdentity(request: UpdateCustomAuthIdentityRequest): Promise<UpdateCustomAuthIdentityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCustomAuthIdentityWithOptions(request, runtime);
   }
 
@@ -10212,37 +11279,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCustomAuthPermissionResponse
    */
-  async updateCustomAuthPermissionWithOptions(request: UpdateCustomAuthPermissionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomAuthPermissionResponse> {
-    Util.validateModel(request);
+  async updateCustomAuthPermissionWithOptions(request: UpdateCustomAuthPermissionRequest, runtime: $dara.RuntimeOptions): Promise<UpdateCustomAuthPermissionResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.effect)) {
+    if (!$dara.isNull(request.effect)) {
       body["Effect"] = request.effect;
     }
 
-    if (!Util.isUnset(request.identity)) {
+    if (!$dara.isNull(request.identity)) {
       body["Identity"] = request.identity;
     }
 
-    if (!Util.isUnset(request.identityType)) {
+    if (!$dara.isNull(request.identityType)) {
       body["IdentityType"] = request.identityType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.permitAction)) {
+    if (!$dara.isNull(request.permitAction)) {
       body["PermitAction"] = request.permitAction;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       body["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateCustomAuthPermission",
       version: "2020-04-20",
       protocol: "HTTPS",
@@ -10253,7 +11320,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCustomAuthPermissionResponse>(await this.callApi(params, req, runtime), new UpdateCustomAuthPermissionResponse({}));
+    return $dara.cast<UpdateCustomAuthPermissionResponse>(await this.callApi(params, req, runtime), new UpdateCustomAuthPermissionResponse({}));
   }
 
   /**
@@ -10263,7 +11330,7 @@ export default class Client extends OpenApi {
    * @returns UpdateCustomAuthPermissionResponse
    */
   async updateCustomAuthPermission(request: UpdateCustomAuthPermissionRequest): Promise<UpdateCustomAuthPermissionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCustomAuthPermissionWithOptions(request, runtime);
   }
 
