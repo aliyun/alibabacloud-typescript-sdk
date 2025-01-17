@@ -1,7779 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class AddClientIdToOIDCProviderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client ID that you want to add.
-   * 
-   * The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are periods (.), hyphens (-), underscores (_), colons (:), and forward slashes (/). 
-   * 
-   * The client ID can be up to 64 characters in length.
-   * 
-   * @example
-   * 598469743454717****
-   */
-  clientId?: string;
-  /**
-   * @remarks
-   * The name of the OIDC IdP.
-   * 
-   * @example
-   * TestOIDCProvider
-   */
-  OIDCProviderName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      OIDCProviderName: 'OIDCProviderName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      OIDCProviderName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddClientIdToOIDCProviderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the OIDC IdP.
-   */
-  OIDCProvider?: AddClientIdToOIDCProviderResponseBodyOIDCProvider;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * B49B8FA7-87FC-5308-AE75-5EC9E36C360A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      OIDCProvider: 'OIDCProvider',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      OIDCProvider: AddClientIdToOIDCProviderResponseBodyOIDCProvider,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddClientIdToOIDCProviderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddClientIdToOIDCProviderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddClientIdToOIDCProviderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFingerprintToOIDCProviderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The fingerprint of the HTTPS certificate.
-   * 
-   * The fingerprint can contain letters and digits.
-   * 
-   * The fingerprint can be up to 40 characters in length.
-   * 
-   * @example
-   * 902ef2deeb3c5b13ea4c3d5193629309e231****
-   */
-  fingerprint?: string;
-  /**
-   * @remarks
-   * The name of the OIDC IdP.
-   * 
-   * @example
-   * TestOIDCProvider
-   */
-  OIDCProviderName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fingerprint: 'Fingerprint',
-      OIDCProviderName: 'OIDCProviderName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fingerprint: 'string',
-      OIDCProviderName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFingerprintToOIDCProviderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the OIDC IdP.
-   */
-  OIDCProvider?: AddFingerprintToOIDCProviderResponseBodyOIDCProvider;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 4B809BBC-0E78-544A-A91A-648926412E3E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      OIDCProvider: 'OIDCProvider',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      OIDCProvider: AddFingerprintToOIDCProviderResponseBodyOIDCProvider,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFingerprintToOIDCProviderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddFingerprintToOIDCProviderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddFingerprintToOIDCProviderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddUserToGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the RAM user group.
-   * 
-   * @example
-   * Test-Team
-   */
-  groupName?: string;
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddUserToGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 85836703-8D4F-485F-9726-4D1C730F957E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddUserToGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddUserToGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddUserToGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindMFADeviceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The first verification code.
-   * 
-   * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
-   * 
-   * @example
-   * 123456
-   */
-  authenticationCode1?: string;
-  /**
-   * @remarks
-   * The second verification code.
-   * 
-   * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
-   * 
-   * @example
-   * 654321
-   */
-  authenticationCode2?: string;
-  /**
-   * @remarks
-   * The serial number of the MFA device.
-   * 
-   * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to obtain the serial number of the MFA device.
-   * 
-   * @example
-   * acs:ram::177242285274****:mfa/device001
-   */
-  serialNumber?: string;
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authenticationCode1: 'AuthenticationCode1',
-      authenticationCode2: 'AuthenticationCode2',
-      serialNumber: 'SerialNumber',
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authenticationCode1: 'string',
-      authenticationCode2: 'string',
-      serialNumber: 'string',
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindMFADeviceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindMFADeviceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BindMFADeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BindMFADeviceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangePasswordRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The new password that is used to log on to the console.
-   * 
-   * The password must meet the complexity requirements. For more information, see [GetPasswordPolicy](https://help.aliyun.com/document_detail/186691.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * newpassword
-   */
-  newPassword?: string;
-  /**
-   * @remarks
-   * The old password that is used to log on to the console.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * mypassword
-   */
-  oldPassword?: string;
-  static names(): { [key: string]: string } {
-    return {
-      newPassword: 'NewPassword',
-      oldPassword: 'OldPassword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      newPassword: 'string',
-      oldPassword: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangePasswordResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangePasswordResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ChangePasswordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ChangePasswordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccessKeyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * If this parameter is empty, an AccessKey pair is created for the current user.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccessKeyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the AccessKey pair.
-   */
-  accessKey?: CreateAccessKeyResponseBodyAccessKey;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 19DDD9F7-AFCC-4D72-8CBA-CCE5A142E7AB
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKey: 'AccessKey',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKey: CreateAccessKeyResponseBodyAccessKey,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccessKeyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateAccessKeyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAccessKeyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppSecretRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 472457090344041****
-   */
-  appId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppSecretResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the application secret.
-   */
-  appSecret?: CreateAppSecretResponseBodyAppSecret;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * EE46FC3C-3BDE-4771-B531-27B7B6EB533D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appSecret: 'AppSecret',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appSecret: CreateAppSecretResponseBodyAppSecret,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppSecretResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateAppSecretResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAppSecretResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateApplicationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The validity period of the access token.
-   * 
-   * Valid values: 900 to 10800. Unit: seconds.
-   * 
-   * Default value: 3600.
-   * 
-   * @example
-   * 3600
-   */
-  accessTokenValidity?: number;
-  /**
-   * @remarks
-   * The application name.
-   * 
-   * The name can be up to 64 characters in length. The name can contain letters, digits, periods (.), underscores (_), and hyphens (-).
-   * 
-   * @example
-   * myapp
-   */
-  appName?: string;
-  /**
-   * @remarks
-   * The type of the application. Valid values:
-   * 
-   * *   WebApp: a web application that interacts with a browser.
-   * *   NativeApp: a native application that runs on an operating system, such as a desktop operating system or a mobile operating system.
-   * *   ServerApp: an application that accesses Alibaba Cloud services without the need of manual user logon. User provisioning is automated based on the System for Cross-Domain Identity Management (SCIM) protocol.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * WebApp
-   */
-  appType?: string;
-  /**
-   * @remarks
-   * The display name of the application.
-   * 
-   * The name can be up to 24 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * myapp
-   */
-  displayName?: string;
-  /**
-   * @remarks
-   * Indicates whether the application can be installed by using other Alibaba Cloud accounts. Valid values:
-   * 
-   * *   true: If you do not set this parameter for applications of the NativeApp and ServerApp types, true is used.
-   * *   false: If you do not set this parameter for applications of the WebApp type, false is used.
-   * 
-   * @example
-   * false
-   */
-  isMultiTenant?: boolean;
-  /**
-   * @remarks
-   * The scope of application permissions.
-   * 
-   * For more information about the application permission scope, see [Open authorization scope](https://help.aliyun.com/document_detail/93693.html). You can also call the [ListPredefinedScopes](https://help.aliyun.com/document_detail/187206.html) operation to obtain the permission scopes supported by different types of applications.
-   * 
-   * If you enter multiple permission scopes, separate them with semicolons (;).
-   * 
-   * @example
-   * aliuid
-   */
-  predefinedScopes?: string;
-  /**
-   * @remarks
-   * The callback URL.
-   * 
-   * If you enter multiple callback URLs, separate them with semicolons (;).
-   * 
-   * @example
-   * https://www.example.com
-   */
-  redirectUris?: string;
-  /**
-   * @remarks
-   * The validity period of the refreshed token.
-   * 
-   * Valid values: 7200 to 31536000. Unit: seconds.
-   * 
-   * Default value:
-   * 
-   * *   For applications of the WebApp and ServerApp types, if this parameter is left empty, the value 2592000 is used. The value 2592000 indicates that the validity period of the refreshed token is 30 days.
-   * *   For applications of the NativeApp type, if this parameter is left empty, the value 7776000 is used. The value 7776000 indicates that the validity period of the refreshed token is 90 days.
-   * 
-   * @example
-   * 2592000
-   */
-  refreshTokenValidity?: number;
-  /**
-   * @remarks
-   * The required permission.
-   * 
-   * You can specify one or more permissions for the `RequiredScopes` parameter. After you specify this parameter, the required permissions are automatically selected and cannot be revoked when a user grants permissions on the application.
-   * 
-   * If you enter multiple permissions, separate them with semicolons (;).
-   * 
-   * >  If the permission that you specify for the `RequiredScopes` parameter is not included in value of the `PredefinedScopes` parameter, the permission does not take effect.
-   * 
-   * @example
-   * aliuid;profile
-   */
-  requiredScopes?: string;
-  /**
-   * @remarks
-   * Indicates whether a secret is required. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * >- For applications of the WebApp and ServerApp types, this parameter is automatically set to true and cannot be changed.
-   * >- For applications of the NativeApp type, this parameter can be set to true or false. If you do not set this parameter, false is used. Applications of the NativeApp type run in untrusted environments and the secrets of these applications are not protected. Therefore, we recommend that you do not set this parameter to true unless otherwise specified. For more information, see [Use an application of the NativeApp type to log on to Alibaba Cloud](https://help.aliyun.com/document_detail/93697.html).
-   * 
-   * @example
-   * true
-   */
-  secretRequired?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessTokenValidity: 'AccessTokenValidity',
-      appName: 'AppName',
-      appType: 'AppType',
-      displayName: 'DisplayName',
-      isMultiTenant: 'IsMultiTenant',
-      predefinedScopes: 'PredefinedScopes',
-      redirectUris: 'RedirectUris',
-      refreshTokenValidity: 'RefreshTokenValidity',
-      requiredScopes: 'RequiredScopes',
-      secretRequired: 'SecretRequired',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessTokenValidity: 'number',
-      appName: 'string',
-      appType: 'string',
-      displayName: 'string',
-      isMultiTenant: 'boolean',
-      predefinedScopes: 'string',
-      redirectUris: 'string',
-      refreshTokenValidity: 'number',
-      requiredScopes: 'string',
-      secretRequired: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateApplicationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the application.
-   */
-  application?: CreateApplicationResponseBodyApplication;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6616F09B-2768-4C11-8866-A8EE4C4A583E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      application: 'Application',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      application: CreateApplicationResponseBodyApplication,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateApplicationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateApplicationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateApplicationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The description.
-   * 
-   * The value can be up to 128 characters in length.
-   * 
-   * @example
-   * Dev-Team
-   */
-  comments?: string;
-  /**
-   * @remarks
-   * The display name of the RAM user group.
-   * 
-   * The name can be up to 24 characters in length.
-   * 
-   * @example
-   * Dev-Team
-   */
-  displayName?: string;
-  /**
-   * @remarks
-   * The name of the RAM user group. You must specify this parameter.
-   * 
-   * The name can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
-   * 
-   * @example
-   * Dev-Team
-   */
-  groupName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      comments: 'Comments',
-      displayName: 'DisplayName',
-      groupName: 'GroupName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comments: 'string',
-      displayName: 'string',
-      groupName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the RAM user group.
-   */
-  group?: CreateGroupResponseBodyGroup;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 3C38192B-7BF8-45DA-8F0A-E670EA51426C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      group: 'Group',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      group: CreateGroupResponseBodyGroup,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLoginProfileRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether multi-factor authentication (MFA) must be enabled. Valid values:
-   * 
-   * *   true: MFA must be enabled. The RAM user must bind an MFA device at the next logon.
-   * *   false: MFA is not enabled. This is the default value.
-   * 
-   * @example
-   * false
-   */
-  MFABindRequired?: boolean;
-  /**
-   * @remarks
-   * The password that is used to log on to the console.
-   * 
-   * The password must meet the complexity requirements.
-   * 
-   * @example
-   * mypassword
-   */
-  password?: string;
-  /**
-   * @remarks
-   * Specifies whether the RAM user must reset the password at the next logon. Default value: false. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  passwordResetRequired?: boolean;
-  /**
-   * @remarks
-   * The status of password-based logon. Valid values:
-   * 
-   * *   Active: Password-based logon is enabled. This is the default value.
-   * *   Inactive: Password-based logon is disabled.
-   * 
-   * @example
-   * Active
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      MFABindRequired: 'MFABindRequired',
-      password: 'Password',
-      passwordResetRequired: 'PasswordResetRequired',
-      status: 'Status',
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      MFABindRequired: 'boolean',
-      password: 'string',
-      passwordResetRequired: 'boolean',
-      status: 'string',
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLoginProfileResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The logon information.
-   */
-  loginProfile?: CreateLoginProfileResponseBodyLoginProfile;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 29CB303C-1F05-43A6-A6BC-EBC5A797F8DB
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      loginProfile: 'LoginProfile',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      loginProfile: CreateLoginProfileResponseBodyLoginProfile,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLoginProfileResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateLoginProfileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateLoginProfileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOIDCProviderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the client, which is provided by the external IdP Okta. If you want to specify multiple client IDs, separate the client IDs with commas (,).
-   * 
-   * The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods, (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.``
-   * 
-   * The client ID can be up to 64 characters in length.
-   * 
-   * @example
-   * 498469743454717****
-   */
-  clientIds?: string;
-  /**
-   * @remarks
-   * The description of the OIDC IdP.
-   * 
-   * The description can be up to 256 characters in length.
-   * 
-   * @example
-   * This is an OIDC Provider.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The fingerprint of the HTTPS certificate, which is provided by the external IdP Okta. If you want to specify multiple fingerprints, separate the fingerprints with commas (,).
-   * 
-   * The fingerprint can contain letters and digits.
-   * 
-   * The fingerprint can be up to 40 characters in length.
-   * 
-   * @example
-   * 902ef2deeb3c5b13ea4c3d5193629309e231****
-   */
-  fingerprints?: string;
-  /**
-   * @remarks
-   * The earliest time when an external IdP can issue an ID token. If the value of the iat field in the ID token is later than the current time, the request is rejected. Unit: hours. Valid values: 1 to 168.
-   * 
-   * @example
-   * 6
-   */
-  issuanceLimitTime?: number;
-  /**
-   * @remarks
-   * The URL of the issuer, which is provided by the external IdP. The URL of the issuer must be unique within an Alibaba Cloud account.
-   * 
-   * The URL of the issuer must start with `https` and be in the valid URL format. The URL cannot contain query parameters that follow a question mark (`?`) or logon information that is identified by at signs (`@`). The URL cannot be a fragment URL that contains number signs (`#`).
-   * 
-   * The URL can be up to 255 characters in length.
-   * 
-   * @example
-   * https://dev-xxxxxx.okta.com
-   */
-  issuerUrl?: string;
-  /**
-   * @remarks
-   * The name of the OIDC IdP.
-   * 
-   * The name can contain letters, digits, and special characters and cannot start or end with the special characters. The special characters are `periods, (.), hyphens (-), and underscores (_)`.``
-   * 
-   * The name can be up to 128 characters in length.
-   * 
-   * @example
-   * TestOIDCProvider
-   */
-  OIDCProviderName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientIds: 'ClientIds',
-      description: 'Description',
-      fingerprints: 'Fingerprints',
-      issuanceLimitTime: 'IssuanceLimitTime',
-      issuerUrl: 'IssuerUrl',
-      OIDCProviderName: 'OIDCProviderName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientIds: 'string',
-      description: 'string',
-      fingerprints: 'string',
-      issuanceLimitTime: 'number',
-      issuerUrl: 'string',
-      OIDCProviderName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOIDCProviderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the OIDC IdP.
-   */
-  OIDCProvider?: CreateOIDCProviderResponseBodyOIDCProvider;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 64B11B41-636D-51E3-A39B-C8703CD2218C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      OIDCProvider: 'OIDCProvider',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      OIDCProvider: CreateOIDCProviderResponseBodyOIDCProvider,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOIDCProviderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateOIDCProviderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateOIDCProviderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSAMLProviderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * This is a provider.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The metadata file, which is Base64 encoded.
-   * 
-   * The file is provided by an IdP that supports SAML 2.0.
-   * 
-   * @example
-   * PD94bWwgdmVy****
-   */
-  encodedSAMLMetadataDocument?: string;
-  /**
-   * @remarks
-   * The name of the IdP.
-   * 
-   * The value can be up to 128 characters in length. The name can contain letters, digits,`  periods (.), hyphens (-), and underscores (_) `. The name cannot start or end with`  periods (.), hyphens (-), or underscores (_) `.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-provider
-   */
-  SAMLProviderName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      encodedSAMLMetadataDocument: 'EncodedSAMLMetadataDocument',
-      SAMLProviderName: 'SAMLProviderName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      encodedSAMLMetadataDocument: 'string',
-      SAMLProviderName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSAMLProviderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * A95A763D-F6B7-5242-83EB-AB45CE67F358
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information of the IdP.
-   */
-  SAMLProvider?: CreateSAMLProviderResponseBodySAMLProvider;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      SAMLProvider: 'SAMLProvider',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      SAMLProvider: CreateSAMLProviderResponseBodySAMLProvider,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSAMLProviderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateSAMLProviderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateSAMLProviderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The description.
-   * 
-   * The description must be 1 to 128 characters in length.
-   * 
-   * @example
-   * This is a cloud computing engineer.
-   */
-  comments?: string;
-  /**
-   * @remarks
-   * The display name of the RAM user.
-   * 
-   * The name must be 1 to 24 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  displayName?: string;
-  /**
-   * @remarks
-   * The email address of the RAM user.
-   * 
-   * > This parameter is valid only on the China site (aliyun.com).
-   * 
-   * @example
-   * alice@example.com
-   */
-  email?: string;
-  /**
-   * @remarks
-   * The mobile number of the RAM user.
-   * 
-   * Format: Country code-Mobile phone number.
-   * 
-   * > This parameter is valid only on the China site (aliyun.com).
-   * 
-   * @example
-   * 86-1868888****
-   */
-  mobilePhone?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:`.
-   */
-  tag?: CreateUserRequestTag[];
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name. For more information about how to obtain the default domain name, see [GetDefaultDomain](https://help.aliyun.com/document_detail/186720.html).
-   * 
-   * The value of `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be 1 to 64 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      comments: 'Comments',
-      displayName: 'DisplayName',
-      email: 'Email',
-      mobilePhone: 'MobilePhone',
-      tag: 'Tag',
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comments: 'string',
-      displayName: 'string',
-      email: 'string',
-      mobilePhone: 'string',
-      tag: { 'type': 'array', 'itemType': CreateUserRequestTag },
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 2BB8C44A-2862-4922-AD43-03924749173B
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information about the RAM user.
-   */
-  user?: CreateUserResponseBodyUser;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      user: 'User',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      user: CreateUserResponseBodyUser,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVirtualMFADeviceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the MFA device.
-   * 
-   * The name must be 1 to 64 characters in length and can contain letters, digits, and hyphens (-).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * device001
-   */
-  virtualMFADeviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      virtualMFADeviceName: 'VirtualMFADeviceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      virtualMFADeviceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVirtualMFADeviceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C609CC97-10FE-43EB-BE32-BDC219D8F1E4
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information of the MFA device.
-   */
-  virtualMFADevice?: CreateVirtualMFADeviceResponseBodyVirtualMFADevice;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      virtualMFADevice: 'VirtualMFADevice',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      virtualMFADevice: CreateVirtualMFADeviceResponseBodyVirtualMFADevice,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVirtualMFADeviceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateVirtualMFADeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateVirtualMFADeviceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccessKeyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the AccessKey pair that you want to delete.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * LTAI4GFTgcR8m8cZQDTH****
-   */
-  userAccessKeyId?: string;
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * If this parameter is empty, the AccessKey pair of the current user is deleted.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userAccessKeyId: 'UserAccessKeyId',
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userAccessKeyId: 'string',
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccessKeyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccessKeyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteAccessKeyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAccessKeyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppSecretRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 472457090344041****
-   */
-  appId?: string;
-  /**
-   * @remarks
-   * The ID of the application secret.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2efd5004-005c-4f05-83c6-5b1dd176****
-   */
-  appSecretId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appSecretId: 'AppSecretId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appSecretId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppSecretResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 85836703-8D4F-485F-9726-4D1C730F957E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppSecretResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteAppSecretResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAppSecretResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteApplicationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 472457090344041****
-   */
-  appId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteApplicationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 85836703-8D4F-485F-9726-4D1C730F957E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteApplicationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteApplicationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteApplicationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the RAM user group.
-   * 
-   * @example
-   * Dev-Team
-   */
-  groupName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 85836703-8D4F-485F-9726-4D1C730F957E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteLoginProfileRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteLoginProfileResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteLoginProfileResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteLoginProfileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteLoginProfileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteOIDCProviderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the OIDC IdP.
-   * 
-   * @example
-   * TestOIDCProvider
-   */
-  OIDCProviderName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      OIDCProviderName: 'OIDCProviderName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      OIDCProviderName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteOIDCProviderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 85836703-8D4F-485F-9726-4D1C730F957E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteOIDCProviderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteOIDCProviderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteOIDCProviderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSAMLProviderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the IdP that you want to delete.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-provider
-   */
-  SAMLProviderName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      SAMLProviderName: 'SAMLProviderName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      SAMLProviderName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSAMLProviderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 85836703-8D4F-485F-9726-4D1C730F957E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSAMLProviderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteSAMLProviderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteSAMLProviderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUserRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the RAM user.
-   * 
-   * >  You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
-   * 
-   * @example
-   * 20732900249392****
-   */
-  userId?: string;
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * >  You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userId: 'UserId',
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userId: 'string',
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUserResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 85836703-8D4F-485F-9726-4D1C730F957E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVirtualMFADeviceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The serial number of the MFA device.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * acs:ram::123456789012****:mfa/device002
-   */
-  serialNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serialNumber: 'SerialNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serialNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVirtualMFADeviceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVirtualMFADeviceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteVirtualMFADeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteVirtualMFADeviceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableVirtualMFARequest extends $tea.Model {
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableVirtualMFAResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableVirtualMFAResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DisableVirtualMFAResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DisableVirtualMFAResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateCredentialReportResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * BBCCA90A-A1F0-4B16-B355-692247197805
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The generation status of the user credential report. Valid values:
-   * 
-   * *   STARTED: The user credential report starts to generate.
-   * *   INPROGRESS: The user credential report is being generated.
-   * *   COMPLETED: The user credential report is generated.
-   * 
-   * @example
-   * STARTED
-   */
-  state?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      state: 'State',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      state: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateCredentialReportResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GenerateCredentialReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GenerateCredentialReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the AccessKey pair that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * LTAI4GFTgcR8m8cZQDTH****
-   */
-  userAccessKeyId?: string;
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * If you do not specify this parameter, the AccessKey pair of the current user is queried.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userAccessKeyId: 'UserAccessKeyId',
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userAccessKeyId: 'string',
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details of the time when the AccessKey pair was used for the last time.
-   */
-  accessKeyLastUsed?: GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * B29C79F6-354B-4297-A994-1338CC22A2EC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKeyLastUsed: 'AccessKeyLastUsed',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKeyLastUsed: GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAccessKeyLastUsedResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccessKeyLastUsedResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountMFAInfoResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether MFA is enabled. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  isMFAEnable?: boolean;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 4BE83135-0B08-467C-B3A2-27B312FD0F57
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isMFAEnable: 'IsMFAEnable',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isMFAEnable: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountMFAInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAccountMFAInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccountMFAInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountSecurityPracticeReportResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the security report for the Alibaba Cloud account.
-   */
-  accountSecurityPracticeInfo?: GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfo;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * ABA822EE-85C2-4418-9577-A1831FC8466D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountSecurityPracticeInfo: 'AccountSecurityPracticeInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountSecurityPracticeInfo: GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfo,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountSecurityPracticeReportResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAccountSecurityPracticeReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccountSecurityPracticeReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountSummaryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 81313F5E-3C85-478F-BCC9-E1B70E4556DB
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The overview information of the Alibaba Cloud account.
-   */
-  summaryMap?: GetAccountSummaryResponseBodySummaryMap;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      summaryMap: 'SummaryMap',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      summaryMap: GetAccountSummaryResponseBodySummaryMap,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountSummaryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAccountSummaryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccountSummaryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppSecretRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 472457090344041****
-   */
-  appId?: string;
-  /**
-   * @remarks
-   * The ID of the application secret.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2efd5004-005c-4f05-83c6-5b1dd176****
-   */
-  appSecretId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appSecretId: 'AppSecretId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appSecretId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppSecretResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details of the application secret.
-   */
-  appSecret?: GetAppSecretResponseBodyAppSecret;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * EE46FC3C-3BDE-4771-B531-27B7B6EB533D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appSecret: 'AppSecret',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appSecret: GetAppSecretResponseBodyAppSecret,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppSecretResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAppSecretResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAppSecretResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetApplicationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 472457090344041****
-   */
-  appId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetApplicationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the application.
-   */
-  application?: GetApplicationResponseBodyApplication;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 6616F09B-2768-4C11-8866-A8EE4C4A583E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      application: 'Application',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      application: GetApplicationResponseBodyApplication,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetApplicationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetApplicationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetApplicationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCredentialReportRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The number of entries per page. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be true.
-   * 
-   * Valid values: 1 to 3501. Default value: 3501.
-   * 
-   * @example
-   * 1000
-   */
-  maxItems?: string;
-  /**
-   * @remarks
-   * The token that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.``
-   * 
-   * @example
-   * EXAMPLE
-   */
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxItems: 'MaxItems',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxItems: 'string',
-      nextToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCredentialReportResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The content of the user credential report.
-   * 
-   * The report is Base64-encoded. After you decode the report, the credential report is in the CSV format.
-   * 
-   * @example
-   * OVZWK4RMOVZW****
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The time when the user credential report was generated.
-   * 
-   * @example
-   * 2020-10-19T15:06:52Z
-   */
-  generatedTime?: string;
-  /**
-   * @remarks
-   * Indicates whether the response is truncated. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  isTruncated?: string;
-  /**
-   * @remarks
-   * The parameter that is used to obtain the truncated part. This parameter takes effect only when `IsTruncated` is set to true.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 7A01826E-7601-44B0-B4DF-2B0C509836DE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      generatedTime: 'GeneratedTime',
-      isTruncated: 'IsTruncated',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      generatedTime: 'string',
-      isTruncated: 'string',
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCredentialReportResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetCredentialReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetCredentialReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDefaultDomainResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The default domain name.
-   * 
-   * @example
-   * examplecompany.onaliyun.com
-   */
-  defaultDomainName?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 66815255-7CCE-4759-AC37-9755794C3626
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultDomainName: 'DefaultDomainName',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultDomainName: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDefaultDomainResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDefaultDomainResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDefaultDomainResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the RAM user group.
-   * 
-   * @example
-   * Dev-Team
-   */
-  groupName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the RAM user group.
-   */
-  group?: GetGroupResponseBodyGroup;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 86ECEC3C-7262-4C3C-94B4-A98F7CC1F060
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      group: 'Group',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      group: GetGroupResponseBodyGroup,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLoginProfileRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLoginProfileResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The console logon configurations.
-   */
-  loginProfile?: GetLoginProfileResponseBodyLoginProfile;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * E517F18B-632C-48FC-93F1-CDCBCC6F8444
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      loginProfile: 'LoginProfile',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      loginProfile: GetLoginProfileResponseBodyLoginProfile,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLoginProfileResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetLoginProfileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetLoginProfileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOIDCProviderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the OIDC IdP.
-   * 
-   * @example
-   * TestOIDCProvider
-   */
-  OIDCProviderName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      OIDCProviderName: 'OIDCProviderName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      OIDCProviderName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOIDCProviderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the OIDC IdP.
-   */
-  OIDCProvider?: GetOIDCProviderResponseBodyOIDCProvider;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * E5E1A300-279D-5FBD-A8CF-F4EDC20C4896
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      OIDCProvider: 'OIDCProvider',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      OIDCProvider: GetOIDCProviderResponseBodyOIDCProvider,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOIDCProviderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetOIDCProviderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetOIDCProviderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPasswordPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details of the password policy.
-   */
-  passwordPolicy?: GetPasswordPolicyResponseBodyPasswordPolicy;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * BDAA8408-E67C-428B-BFF0-1B2AC05C9610
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      passwordPolicy: 'PasswordPolicy',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      passwordPolicy: GetPasswordPolicyResponseBodyPasswordPolicy,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPasswordPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetPasswordPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetPasswordPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSAMLProviderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the IdP.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-provider
-   */
-  SAMLProviderName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      SAMLProviderName: 'SAMLProviderName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      SAMLProviderName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSAMLProviderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * BAADB995-0C7A-476D-B293-7E94568EEDFB
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information about the IdP.
-   */
-  SAMLProvider?: GetSAMLProviderResponseBodySAMLProvider;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      SAMLProvider: 'SAMLProvider',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      SAMLProvider: GetSAMLProviderResponseBodySAMLProvider,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSAMLProviderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSAMLProviderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSAMLProviderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSecurityPreferenceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 30C9068D-FBAA-4998-9986-8A562FED0BC3
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The details of security preferences.
-   */
-  securityPreference?: GetSecurityPreferenceResponseBodySecurityPreference;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      securityPreference: 'SecurityPreference',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      securityPreference: GetSecurityPreferenceResponseBodySecurityPreference,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSecurityPreferenceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSecurityPreferenceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSecurityPreferenceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The AccessKey ID of the RAM user.
-   * 
-   * > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
-   * 
-   * @example
-   * LTAI4GFTgcR8m8cZQDTH****
-   */
-  userAccessKeyId?: string;
-  /**
-   * @remarks
-   * The ID of the RAM user.
-   * 
-   * > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
-   * 
-   * @example
-   * 20732900249392****
-   */
-  userId?: string;
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name.
-   * 
-   * The value of `UserPrincipalName` must be `1 to 128` characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be `1 to 64` characters in length.
-   * 
-   * > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userAccessKeyId: 'UserAccessKeyId',
-      userId: 'UserId',
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userAccessKeyId: 'string',
-      userId: 'string',
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 4507D1CD-526A-4E2B-A1E2-3AB045D1EE0B
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information about the RAM user.
-   */
-  user?: GetUserResponseBodyUser;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      user: 'User',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      user: GetUserResponseBodyUser,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserMFAInfoRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The logon name of the RAM user. This parameter is differently set in the following scenarios:
-   * 
-   * *   If you use a RAM user to call this operation, this parameter can be left empty. If you do not specify this parameter, the information of the MFA device that is bound to the RAM user is queried.
-   * *   If you use an Alibaba Cloud account to call this operation, you must set this parameter to the logon name of the RAM user that you want to query.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserMFAInfoResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the MFA device is enabled. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  isMFAEnable?: boolean;
-  /**
-   * @remarks
-   * The information about the MFA device.
-   */
-  MFADevice?: GetUserMFAInfoResponseBodyMFADevice;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * FCF7322A-20A9-4F68-8B7F-F86958839BC0
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isMFAEnable: 'IsMFAEnable',
-      MFADevice: 'MFADevice',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isMFAEnable: 'boolean',
-      MFADevice: GetUserMFAInfoResponseBodyMFADevice,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserMFAInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetUserMFAInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetUserMFAInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserSsoSettingsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 69FC3E5E-D3D9-434B-90CA-BBA8E0551A47
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The configurations of user-based SSO.
-   */
-  userSsoSettings?: GetUserSsoSettingsResponseBodyUserSsoSettings;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      userSsoSettings: 'UserSsoSettings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      userSsoSettings: GetUserSsoSettingsResponseBodyUserSsoSettings,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserSsoSettingsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetUserSsoSettingsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetUserSsoSettingsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVerificationInfoRequest extends $tea.Model {
-  /**
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVerificationInfoResponseBody extends $tea.Model {
-  /**
-   * @example
-   * B182C041-8C64-5F2F-A07B-FC67FAF89CF9
-   */
-  requestId?: string;
-  securityEmailDevice?: GetVerificationInfoResponseBodySecurityEmailDevice;
-  securityPhoneDevice?: GetVerificationInfoResponseBodySecurityPhoneDevice;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      securityEmailDevice: 'SecurityEmailDevice',
-      securityPhoneDevice: 'SecurityPhoneDevice',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      securityEmailDevice: GetVerificationInfoResponseBodySecurityEmailDevice,
-      securityPhoneDevice: GetVerificationInfoResponseBodySecurityPhoneDevice,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVerificationInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetVerificationInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetVerificationInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessKeysRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * If this parameter is empty, the AccessKey pairs of the current user are queried.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessKeysResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The list of AccessKey pairs.
-   */
-  accessKeys?: ListAccessKeysResponseBodyAccessKeys;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKeys: 'AccessKeys',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKeys: ListAccessKeysResponseBodyAccessKeys,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessKeysResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListAccessKeysResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListAccessKeysResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppSecretIdsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 472457090344041****
-   */
-  appId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppSecretIdsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details of the application secret.
-   */
-  appSecrets?: ListAppSecretIdsResponseBodyAppSecrets;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 5F2FD500-7173-47D6-BD2F-EB60879B4F16
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appSecrets: 'AppSecrets',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appSecrets: ListAppSecretIdsResponseBodyAppSecrets,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppSecretIdsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListAppSecretIdsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListAppSecretIdsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplicationsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the application.
-   */
-  applications?: ListApplicationsResponseBodyApplications;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * CE458B58-8C40-46F7-A9D4-CB85136B0C06
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applications: 'Applications',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applications: ListApplicationsResponseBodyApplications,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplicationsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListApplicationsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListApplicationsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGroupsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
-   * 
-   * Valid values: 1 to 100. Default value: 100.
-   * 
-   * @example
-   * 100
-   */
-  maxItems?: number;
-  static names(): { [key: string]: string } {
-    return {
-      marker: 'Marker',
-      maxItems: 'MaxItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      marker: 'string',
-      maxItems: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGroupsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the RAM user groups.
-   */
-  groups?: ListGroupsResponseBodyGroups;
-  /**
-   * @remarks
-   * Indicates whether the response is truncated. Valid values:
-   * 
-   * - true
-   * - false
-   * 
-   * @example
-   * true
-   */
-  isTruncated?: boolean;
-  /**
-   * @remarks
-   * The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 065527AA-2F2E-AD7C-7484-F2626CFE4934
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groups: 'Groups',
-      isTruncated: 'IsTruncated',
-      marker: 'Marker',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groups: ListGroupsResponseBodyGroups,
-      isTruncated: 'boolean',
-      marker: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGroupsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGroupsForUserRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGroupsForUserResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the RAM user groups.
-   */
-  groups?: ListGroupsForUserResponseBodyGroups;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7158A935-FB5E-49A7-8E52-FDA5B2B67247
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groups: 'Groups',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groups: ListGroupsForUserResponseBodyGroups,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGroupsForUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListGroupsForUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListGroupsForUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOIDCProvidersRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The number of entries per page. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
-   * 
-   * Valid values: 1 to 100. Default value: 100.
-   * 
-   * @example
-   * 100
-   */
-  maxItems?: number;
-  static names(): { [key: string]: string } {
-    return {
-      marker: 'Marker',
-      maxItems: 'MaxItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      marker: 'string',
-      maxItems: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOIDCProvidersResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the response is truncated. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  isTruncated?: boolean;
-  /**
-   * @remarks
-   * The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.``
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The information about the OIDC IdP.
-   */
-  OIDCProviders?: ListOIDCProvidersResponseBodyOIDCProviders;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * D2148337-B86A-57F0-8B31-EB7BE0125226
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isTruncated: 'IsTruncated',
-      marker: 'Marker',
-      OIDCProviders: 'OIDCProviders',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isTruncated: 'boolean',
-      marker: 'string',
-      OIDCProviders: ListOIDCProvidersResponseBodyOIDCProviders,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOIDCProvidersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListOIDCProvidersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListOIDCProvidersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPredefinedScopesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the application. Valid values:
-   * 
-   * *   WebApp
-   * *   NativeApp
-   * *   ServerApp
-   * 
-   * If this parameter is empty, the permissions on all types of applications are queried.
-   * 
-   * @example
-   * WebApp
-   */
-  appType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appType: 'AppType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPredefinedScopesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of application permissions.
-   */
-  predefinedScopes?: ListPredefinedScopesResponseBodyPredefinedScopes;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 955C096D-EC99-480B-AF37-3921109107D0
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      predefinedScopes: 'PredefinedScopes',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      predefinedScopes: ListPredefinedScopesResponseBodyPredefinedScopes,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPredefinedScopesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPredefinedScopesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPredefinedScopesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSAMLProvidersRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
-   * 
-   * Valid values: 1 to 100. Default value: 100.
-   * 
-   * @example
-   * 100
-   */
-  maxItems?: number;
-  static names(): { [key: string]: string } {
-    return {
-      marker: 'Marker',
-      maxItems: 'MaxItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      marker: 'string',
-      maxItems: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSAMLProvidersResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the response is truncated. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  isTruncated?: boolean;
-  /**
-   * @remarks
-   * The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 2D8B70D3-E194-41C9-93C5-F6A10D716D24
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information of the IdP.
-   */
-  SAMLProviders?: ListSAMLProvidersResponseBodySAMLProviders;
-  static names(): { [key: string]: string } {
-    return {
-      isTruncated: 'IsTruncated',
-      marker: 'Marker',
-      requestId: 'RequestId',
-      SAMLProviders: 'SAMLProviders',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isTruncated: 'boolean',
-      marker: 'string',
-      requestId: 'string',
-      SAMLProviders: ListSAMLProvidersResponseBodySAMLProviders,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSAMLProvidersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListSAMLProvidersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListSAMLProvidersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The token that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a4883
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The number of entries per page. If a response is truncated because it reaches the value of PageSize, the value of IsTruncated will be true. Valid values: 1 to 100. Default value: 100.
-   * 
-   * @example
-   * 2
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of resource N.
-   * 
-   * Valid values of N: 1 to 50. If ResourceType is set to user, the resource ID is the ID of the RAM user.
-   * 
-   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * The name of resource N.
-   * 
-   * Valid values of N: 1 to 50. If ResourceType is set to user, the resource name is the name of the RAM user.
-   * 
-   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
-   */
-  resourcePrincipalName?: string[];
-  /**
-   * @remarks
-   * The type of the resource. Valid value:
-   * 
-   * *   user: a RAM user
-   * 
-   * @example
-   * user
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * Valid values of N: 1 to 20. N must be consecutive.
-   */
-  tag?: ListTagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      pageSize: 'PageSize',
-      resourceId: 'ResourceId',
-      resourcePrincipalName: 'ResourcePrincipalName',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      pageSize: 'number',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourcePrincipalName: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the response is truncated. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  isTruncated?: boolean;
-  /**
-   * @remarks
-   * The marker. This parameter is returned only if the value of IsTruncated is true. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 4BE83135-0B08-467C-B3A2-27B312FD0F57
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The tag key.
-   */
-  tagResources?: ListTagResourcesResponseBodyTagResources;
-  static names(): { [key: string]: string } {
-    return {
-      isTruncated: 'IsTruncated',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      tagResources: 'TagResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isTruncated: 'boolean',
-      nextToken: 'string',
-      requestId: 'string',
-      tagResources: ListTagResourcesResponseBodyTagResources,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserBasicInfosRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
-   * 
-   * Valid values: 1 to 1000. Default value: 100.
-   * 
-   * @example
-   * 100
-   */
-  maxItems?: number;
-  status?: string;
-  /**
-   * @remarks
-   * The tag value.
-   */
-  tag?: ListUserBasicInfosRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      marker: 'Marker',
-      maxItems: 'MaxItems',
-      status: 'Status',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      marker: 'string',
-      maxItems: 'number',
-      status: 'string',
-      tag: { 'type': 'array', 'itemType': ListUserBasicInfosRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserBasicInfosResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the response is truncated. Valid value:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  isTruncated?: boolean;
-  /**
-   * @remarks
-   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * EF2B25FD-CADE-445B-BE4D-E082E0FF1A0F
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * An array that consists of the information about the RAM user.
-   */
-  userBasicInfos?: ListUserBasicInfosResponseBodyUserBasicInfos;
-  static names(): { [key: string]: string } {
-    return {
-      isTruncated: 'IsTruncated',
-      marker: 'Marker',
-      requestId: 'RequestId',
-      userBasicInfos: 'UserBasicInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isTruncated: 'boolean',
-      marker: 'string',
-      requestId: 'string',
-      userBasicInfos: ListUserBasicInfosResponseBodyUserBasicInfos,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserBasicInfosResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserBasicInfosResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserBasicInfosResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUsersRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The number of entries per page. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be true.
-   * 
-   * Valid values: 1 to 1000. Default value: 1000.
-   * 
-   * @example
-   * 1000
-   */
-  maxItems?: number;
-  status?: string;
-  /**
-   * @remarks
-   * The tags. A maximum number of 20 tags are supported.
-   */
-  tag?: ListUsersRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      marker: 'Marker',
-      maxItems: 'MaxItems',
-      status: 'Status',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      marker: 'string',
-      maxItems: 'number',
-      status: 'string',
-      tag: { 'type': 'array', 'itemType': ListUsersRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUsersResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the response is truncated. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  isTruncated?: boolean;
-  /**
-   * @remarks
-   * The parameter that is used to obtain the truncated part. It takes effect only when `IsTruncated` is set to `true`.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The details of the RAM user.
-   */
-  users?: ListUsersResponseBodyUsers;
-  static names(): { [key: string]: string } {
-    return {
-      isTruncated: 'IsTruncated',
-      marker: 'Marker',
-      requestId: 'RequestId',
-      users: 'Users',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isTruncated: 'boolean',
-      marker: 'string',
-      requestId: 'string',
-      users: ListUsersResponseBodyUsers,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUsersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUsersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUsersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUsersForGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the RAM user group.
-   * 
-   * @example
-   * Test-Team
-   */
-  groupName?: string;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.``
-   * 
-   * When you call the operation for the first time, if the total number of returned entries exceeds the value of `MaxItems`, the entries are truncated. The system returns entries based on the value of `MaxItems` and does not return the excess entries. In this case, the value of the response parameter `IsTruncated` is `true`, and `Marker` is returned. In the next call, you can use the value of `Marker` and maintain the settings of the other request parameters to query the excess entries. You can repeat the call until the value of `IsTruncated` becomes `false`. This way, all entries are returned.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * Valid values: 1 to 100.
-   * 
-   * Default value: 100.
-   * 
-   * @example
-   * 100
-   */
-  maxItems?: number;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      marker: 'Marker',
-      maxItems: 'MaxItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      marker: 'string',
-      maxItems: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUsersForGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the response is truncated. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  isTruncated?: boolean;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
-   * 
-   * >  This parameter is returned only when `IsTruncated` is `true`.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 789FF581-B3C8-43A8-9115-54304B46D05C
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information about the RAM users.
-   */
-  users?: ListUsersForGroupResponseBodyUsers;
-  static names(): { [key: string]: string } {
-    return {
-      isTruncated: 'IsTruncated',
-      marker: 'Marker',
-      requestId: 'RequestId',
-      users: 'Users',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isTruncated: 'boolean',
-      marker: 'string',
-      requestId: 'string',
-      users: ListUsersForGroupResponseBodyUsers,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUsersForGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUsersForGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUsersForGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVirtualMFADevicesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.``
-   * 
-   * When you call the operation for the first time, if the total number of returned entries exceeds the value of `MaxItems`, the entries are truncated. The system returns entries based on the value of `MaxItems` and does not return the excess entries. In this case, the value of the response parameter `IsTruncated` is `true`, and `Marker` is returned. In the next call, you can use the value of `Marker` and maintain the settings of the other request parameters to query the excess entries. You can repeat the call until the value of the `IsTruncated` parameter becomes `false`. This way, all entries are returned.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * Valid values: 1 to 100.
-   * 
-   * Default value: 100.
-   * 
-   * @example
-   * 100
-   */
-  maxItems?: number;
-  static names(): { [key: string]: string } {
-    return {
-      marker: 'Marker',
-      maxItems: 'MaxItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      marker: 'string',
-      maxItems: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVirtualMFADevicesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the response is truncated. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  isTruncated?: boolean;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
-   * 
-   * >  This parameter is returned only when `IsTruncated` is `true`.
-   * 
-   * @example
-   * EXAMPLE
-   */
-  marker?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 32272612-DF82-485E-8BA9-AFA4E0C3D0BA
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information about the MFA device.
-   */
-  virtualMFADevices?: ListVirtualMFADevicesResponseBodyVirtualMFADevices;
-  static names(): { [key: string]: string } {
-    return {
-      isTruncated: 'IsTruncated',
-      marker: 'Marker',
-      requestId: 'RequestId',
-      virtualMFADevices: 'VirtualMFADevices',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isTruncated: 'boolean',
-      marker: 'string',
-      requestId: 'string',
-      virtualMFADevices: ListVirtualMFADevicesResponseBodyVirtualMFADevices,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVirtualMFADevicesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListVirtualMFADevicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListVirtualMFADevicesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveClientIdFromOIDCProviderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client ID that you want to remove.
-   * 
-   * The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods, (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.``
-   * 
-   * The client ID can be up to 64 characters in length.
-   * 
-   * @example
-   * 498469743454717****
-   */
-  clientId?: string;
-  /**
-   * @remarks
-   * The name of the OIDC IdP.
-   * 
-   * @example
-   * TestOIDCProvider
-   */
-  OIDCProviderName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      OIDCProviderName: 'OIDCProviderName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      OIDCProviderName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveClientIdFromOIDCProviderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the OIDC IdP.
-   */
-  OIDCProvider?: RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * EC9A8F3B-AFA5-5C8F-999D-F97BC7CF1FC5
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      OIDCProvider: 'OIDCProvider',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      OIDCProvider: RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveClientIdFromOIDCProviderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RemoveClientIdFromOIDCProviderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RemoveClientIdFromOIDCProviderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveFingerprintFromOIDCProviderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The fingerprint that you want to remove.
-   * 
-   * @example
-   * 6938fd4d98bab03faadb97b34396831e3780****
-   */
-  fingerprint?: string;
-  /**
-   * @remarks
-   * The name of the OIDC IdP.
-   * 
-   * @example
-   * TestOIDCProvider
-   */
-  OIDCProviderName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fingerprint: 'Fingerprint',
-      OIDCProviderName: 'OIDCProviderName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fingerprint: 'string',
-      OIDCProviderName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveFingerprintFromOIDCProviderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the OIDC IdP.
-   */
-  OIDCProvider?: RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C90CE971-4C7F-5D93-BD3E-2D0E79D03C01
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      OIDCProvider: 'OIDCProvider',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      OIDCProvider: RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveFingerprintFromOIDCProviderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RemoveFingerprintFromOIDCProviderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RemoveFingerprintFromOIDCProviderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveUserFromGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the RAM user group.
-   * 
-   * @example
-   * Test-Team
-   */
-  groupName?: string;
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * alice@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveUserFromGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 85836703-8D4F-485F-9726-4D1C730F957E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveUserFromGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RemoveUserFromGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RemoveUserFromGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDefaultDomainRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The default domain name.
-   * 
-   * The name is in the format of `<AccountAlias>.onaliyun.com`. `<AccountAlias>` indicates the account alias. By default, the value of AccountAlias is the ID of the Alibaba Cloud account. The default domain name must end with `.onaliyun.com`.
-   * 
-   * The default domain name can contain up to 64 characters in length. The name can contain letters, digits, periods (.), underscores (_), and hyphens (-).
-   * 
-   * >  The default domain name cannot start or end with a hyphen (-) and cannot have two consecutive hyphens (-).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * examplecompany.onaliyun.com
-   */
-  defaultDomainName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultDomainName: 'DefaultDomainName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultDomainName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDefaultDomainResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The default domain name.
-   * 
-   * @example
-   * examplecompany.onaliyun.com
-   */
-  defaultDomainName?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 66815255-7CCE-4759-AC37-9755794C3626
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultDomainName: 'DefaultDomainName',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultDomainName: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDefaultDomainResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetDefaultDomainResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetDefaultDomainResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetPasswordPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to disable logon after the password expires. Valid values:
-   * 
-   * *   true: After the password expires, you cannot use the password to log on to the console. You can log on to the console only after you reset the password by using your Alibaba Cloud account or as a RAM user that has administrative rights.
-   * *   false: After the password expires, you can change the password to log on to the console. This is the default value.
-   * 
-   * @example
-   * false
-   */
-  hardExpire?: boolean;
-  /**
-   * @remarks
-   * The maximum number of password retries. If you enter the wrong passwords for the specified consecutive times, the account is locked for one hour.
-   * 
-   * Valid values: 0 to 32.
-   * 
-   * The default value is 0, which indicates that the password retries are not limited.
-   * 
-   * @example
-   * 0
-   */
-  maxLoginAttemps?: number;
-  /**
-   * @remarks
-   * The validity period of the password.
-   * 
-   * Valid values: 0 to 1095. Unit: days.
-   * 
-   * The default value is 0, which indicates that the password never expires.
-   * 
-   * @example
-   * 0
-   */
-  maxPasswordAge?: number;
-  /**
-   * @remarks
-   * The minimum number of unique characters in the password.
-   * 
-   * Valid values: 0 to 8.
-   * 
-   * The default value is 0, which indicates that no limits are imposed on the number of unique characters in a password.
-   * 
-   * @example
-   * 0
-   */
-  minimumPasswordDifferentCharacter?: number;
-  /**
-   * @remarks
-   * The minimum number of characters in the password.
-   * 
-   * Valid values: 8 to 32. Default value: 8.
-   * 
-   * @example
-   * 8
-   */
-  minimumPasswordLength?: number;
-  /**
-   * @remarks
-   * Specifies whether to exclude the username from the password. Valid values:
-   * 
-   * *   true: A password cannot contain the username.
-   * *   false: A password can contain the username. This is the default value.
-   * 
-   * @example
-   * false
-   */
-  passwordNotContainUserName?: boolean;
-  /**
-   * @remarks
-   * The policy for password history check.
-   * 
-   * The previous N passwords cannot be reused. Valid values of N: 0 to 24.
-   * 
-   * The default value is 0, which indicates that RAM users can reuse previous passwords.
-   * 
-   * @example
-   * 0
-   */
-  passwordReusePrevention?: number;
-  /**
-   * @remarks
-   * Specifies whether the password must contain lowercase letters. Default value: false. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  requireLowercaseCharacters?: boolean;
-  /**
-   * @remarks
-   * Specifies whether the password must contain digits. Default value: false. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  requireNumbers?: boolean;
-  /**
-   * @remarks
-   * Specifies whether the password must contain special characters. Default value: false. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  requireSymbols?: boolean;
-  /**
-   * @remarks
-   * Specifies whether the password must contain uppercase letters. Default value: false. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  requireUppercaseCharacters?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      hardExpire: 'HardExpire',
-      maxLoginAttemps: 'MaxLoginAttemps',
-      maxPasswordAge: 'MaxPasswordAge',
-      minimumPasswordDifferentCharacter: 'MinimumPasswordDifferentCharacter',
-      minimumPasswordLength: 'MinimumPasswordLength',
-      passwordNotContainUserName: 'PasswordNotContainUserName',
-      passwordReusePrevention: 'PasswordReusePrevention',
-      requireLowercaseCharacters: 'RequireLowercaseCharacters',
-      requireNumbers: 'RequireNumbers',
-      requireSymbols: 'RequireSymbols',
-      requireUppercaseCharacters: 'RequireUppercaseCharacters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hardExpire: 'boolean',
-      maxLoginAttemps: 'number',
-      maxPasswordAge: 'number',
-      minimumPasswordDifferentCharacter: 'number',
-      minimumPasswordLength: 'number',
-      passwordNotContainUserName: 'boolean',
-      passwordReusePrevention: 'number',
-      requireLowercaseCharacters: 'boolean',
-      requireNumbers: 'boolean',
-      requireSymbols: 'boolean',
-      requireUppercaseCharacters: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetPasswordPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details of the password policy.
-   */
-  passwordPolicy?: SetPasswordPolicyResponseBodyPasswordPolicy;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 3FB5551F-B2ED-40D4-8392-1E4AC2384EFD
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      passwordPolicy: 'PasswordPolicy',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      passwordPolicy: SetPasswordPolicyResponseBodyPasswordPolicy,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetPasswordPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetPasswordPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetPasswordPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSecurityPreferenceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether RAM users can change their passwords. Valid values:
-   * 
-   * *   true (default)
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  allowUserToChangePassword?: boolean;
-  allowUserToLoginWithPasskey?: boolean;
-  /**
-   * @remarks
-   * Specifies whether RAM users can manage their AccessKey pairs. Valid values:
-   * 
-   * *   true
-   * *   false (default)
-   * 
-   * @example
-   * false
-   */
-  allowUserToManageAccessKeys?: boolean;
-  /**
-   * @remarks
-   * Specifies whether RAM users can manage their MFA devices. Valid values:
-   * 
-   * *   true (default)
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  allowUserToManageMFADevices?: boolean;
-  /**
-   * @remarks
-   * Specifies whether RAM users can manage their personal DingTalk accounts, such as binding and unbinding of the accounts. Valid values:
-   * 
-   * *   true (default)
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  allowUserToManagePersonalDingTalk?: boolean;
-  /**
-   * @remarks
-   * Specifies whether RAM users can remember the MFA devices for seven days. Valid values:
-   * 
-   * *   true
-   * *   false (default)
-   * 
-   * @example
-   * false
-   */
-  enableSaveMFATicket?: boolean;
-  /**
-   * @remarks
-   * The subnet mask that specifies the IP addresses from which you can log on to the Alibaba Cloud Management Console. This parameter takes effect on password-based logon and single sign-on (SSO). This parameter does not take effect on API calls that are authenticated by using AccessKey pairs.
-   * 
-   * *   If you specify a subnet mask, RAM users can use only the IP addresses in the subnet mask to log on to the Alibaba Cloud Management Console.
-   * *   If you do not specify a subnet mask, RAM users can use all IP addresses to log on to the Alibaba Cloud Management Console.
-   * 
-   * If you need to specify multiple subnet masks, separate the subnet masks with semicolons (;). Example: 192.168.0.0/16;10.0.0.0/8.
-   * 
-   * You can specify up to 40 subnet masks. The total length of the subnet masks can be a maximum of 512 characters.
-   * 
-   * @example
-   * 10.0.0.0/8
-   */
-  loginNetworkMasks?: string;
-  /**
-   * @remarks
-   * The validity period of the logon session of RAM users.
-   * 
-   * Valid values: 1 to 24. Unit: hours.
-   * 
-   * Default value: 6.
-   * 
-   * @example
-   * 6
-   */
-  loginSessionDuration?: number;
-  /**
-   * @remarks
-   * Specifies whether MFA is required for all RAM users when they log on to the Alibaba Cloud Management Console. This parameter is used to replace EnforceMFAForLogin. EnforceMFAForLogin is still valid. However, we recommend that you use MFAOperationForLogin. Valid values:
-   * 
-   * *   mandatory: MFA is required for all RAM users. If you use EnforceMFAForLogin, set the value to true.
-   * *   independent (default): User-specific settings are applied. If you use EnforceMFAForLogin, set the value to false.
-   * *   adaptive: MFA is required only for RAM users who initiated unusual logons.
-   * 
-   * @example
-   * adaptive
-   */
-  MFAOperationForLogin?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable MFA for RAM users who initiated unusual logons. Valid values:
-   * 
-   * *   autonomous (default): yes. MFA is prompted for RAM users who initiated unusual logons. However, the RAM users are allowed to skip MFA.
-   * *   enforceVerify: MFA is prompted for RAM users who initiated unusual logons and the RAM users cannot skip MFA.
-   * 
-   * @example
-   * autonomous
-   */
-  operationForRiskLogin?: string;
-  /**
-   * @remarks
-   * The MFA methods.
-   */
-  verificationTypes?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      allowUserToChangePassword: 'AllowUserToChangePassword',
-      allowUserToLoginWithPasskey: 'AllowUserToLoginWithPasskey',
-      allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
-      allowUserToManageMFADevices: 'AllowUserToManageMFADevices',
-      allowUserToManagePersonalDingTalk: 'AllowUserToManagePersonalDingTalk',
-      enableSaveMFATicket: 'EnableSaveMFATicket',
-      loginNetworkMasks: 'LoginNetworkMasks',
-      loginSessionDuration: 'LoginSessionDuration',
-      MFAOperationForLogin: 'MFAOperationForLogin',
-      operationForRiskLogin: 'OperationForRiskLogin',
-      verificationTypes: 'VerificationTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowUserToChangePassword: 'boolean',
-      allowUserToLoginWithPasskey: 'boolean',
-      allowUserToManageAccessKeys: 'boolean',
-      allowUserToManageMFADevices: 'boolean',
-      allowUserToManagePersonalDingTalk: 'boolean',
-      enableSaveMFATicket: 'boolean',
-      loginNetworkMasks: 'string',
-      loginSessionDuration: 'number',
-      MFAOperationForLogin: 'string',
-      operationForRiskLogin: 'string',
-      verificationTypes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSecurityPreferenceShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether RAM users can change their passwords. Valid values:
-   * 
-   * *   true (default)
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  allowUserToChangePassword?: boolean;
-  allowUserToLoginWithPasskey?: boolean;
-  /**
-   * @remarks
-   * Specifies whether RAM users can manage their AccessKey pairs. Valid values:
-   * 
-   * *   true
-   * *   false (default)
-   * 
-   * @example
-   * false
-   */
-  allowUserToManageAccessKeys?: boolean;
-  /**
-   * @remarks
-   * Specifies whether RAM users can manage their MFA devices. Valid values:
-   * 
-   * *   true (default)
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  allowUserToManageMFADevices?: boolean;
-  /**
-   * @remarks
-   * Specifies whether RAM users can manage their personal DingTalk accounts, such as binding and unbinding of the accounts. Valid values:
-   * 
-   * *   true (default)
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  allowUserToManagePersonalDingTalk?: boolean;
-  /**
-   * @remarks
-   * Specifies whether RAM users can remember the MFA devices for seven days. Valid values:
-   * 
-   * *   true
-   * *   false (default)
-   * 
-   * @example
-   * false
-   */
-  enableSaveMFATicket?: boolean;
-  /**
-   * @remarks
-   * The subnet mask that specifies the IP addresses from which you can log on to the Alibaba Cloud Management Console. This parameter takes effect on password-based logon and single sign-on (SSO). This parameter does not take effect on API calls that are authenticated by using AccessKey pairs.
-   * 
-   * *   If you specify a subnet mask, RAM users can use only the IP addresses in the subnet mask to log on to the Alibaba Cloud Management Console.
-   * *   If you do not specify a subnet mask, RAM users can use all IP addresses to log on to the Alibaba Cloud Management Console.
-   * 
-   * If you need to specify multiple subnet masks, separate the subnet masks with semicolons (;). Example: 192.168.0.0/16;10.0.0.0/8.
-   * 
-   * You can specify up to 40 subnet masks. The total length of the subnet masks can be a maximum of 512 characters.
-   * 
-   * @example
-   * 10.0.0.0/8
-   */
-  loginNetworkMasks?: string;
-  /**
-   * @remarks
-   * The validity period of the logon session of RAM users.
-   * 
-   * Valid values: 1 to 24. Unit: hours.
-   * 
-   * Default value: 6.
-   * 
-   * @example
-   * 6
-   */
-  loginSessionDuration?: number;
-  /**
-   * @remarks
-   * Specifies whether MFA is required for all RAM users when they log on to the Alibaba Cloud Management Console. This parameter is used to replace EnforceMFAForLogin. EnforceMFAForLogin is still valid. However, we recommend that you use MFAOperationForLogin. Valid values:
-   * 
-   * *   mandatory: MFA is required for all RAM users. If you use EnforceMFAForLogin, set the value to true.
-   * *   independent (default): User-specific settings are applied. If you use EnforceMFAForLogin, set the value to false.
-   * *   adaptive: MFA is required only for RAM users who initiated unusual logons.
-   * 
-   * @example
-   * adaptive
-   */
-  MFAOperationForLogin?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable MFA for RAM users who initiated unusual logons. Valid values:
-   * 
-   * *   autonomous (default): yes. MFA is prompted for RAM users who initiated unusual logons. However, the RAM users are allowed to skip MFA.
-   * *   enforceVerify: MFA is prompted for RAM users who initiated unusual logons and the RAM users cannot skip MFA.
-   * 
-   * @example
-   * autonomous
-   */
-  operationForRiskLogin?: string;
-  /**
-   * @remarks
-   * The MFA methods.
-   */
-  verificationTypesShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowUserToChangePassword: 'AllowUserToChangePassword',
-      allowUserToLoginWithPasskey: 'AllowUserToLoginWithPasskey',
-      allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
-      allowUserToManageMFADevices: 'AllowUserToManageMFADevices',
-      allowUserToManagePersonalDingTalk: 'AllowUserToManagePersonalDingTalk',
-      enableSaveMFATicket: 'EnableSaveMFATicket',
-      loginNetworkMasks: 'LoginNetworkMasks',
-      loginSessionDuration: 'LoginSessionDuration',
-      MFAOperationForLogin: 'MFAOperationForLogin',
-      operationForRiskLogin: 'OperationForRiskLogin',
-      verificationTypesShrink: 'VerificationTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowUserToChangePassword: 'boolean',
-      allowUserToLoginWithPasskey: 'boolean',
-      allowUserToManageAccessKeys: 'boolean',
-      allowUserToManageMFADevices: 'boolean',
-      allowUserToManagePersonalDingTalk: 'boolean',
-      enableSaveMFATicket: 'boolean',
-      loginNetworkMasks: 'string',
-      loginSessionDuration: 'number',
-      MFAOperationForLogin: 'string',
-      operationForRiskLogin: 'string',
-      verificationTypesShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSecurityPreferenceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 17494710-B4BA-4185-BBBB-C1A6ABDE1639
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The details of security preferences.
-   */
-  securityPreference?: SetSecurityPreferenceResponseBodySecurityPreference;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      securityPreference: 'SecurityPreference',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      securityPreference: SetSecurityPreferenceResponseBodySecurityPreference,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSecurityPreferenceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetSecurityPreferenceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetSecurityPreferenceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetUserSsoSettingsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The auxiliary domain name.
-   * 
-   * @example
-   * example.com
-   */
-  auxiliaryDomain?: string;
-  /**
-   * @remarks
-   * The metadata file, which is Base64-encoded.
-   * 
-   * The file is provided by an IdP that supports SAML 2.0.
-   * 
-   * @example
-   * PD94bWwgdmVy****
-   */
-  metadataDocument?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable SSO for the RAM user. Default value: false. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  ssoEnabled?: boolean;
-  ssoLoginWithDomain?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      auxiliaryDomain: 'AuxiliaryDomain',
-      metadataDocument: 'MetadataDocument',
-      ssoEnabled: 'SsoEnabled',
-      ssoLoginWithDomain: 'SsoLoginWithDomain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auxiliaryDomain: 'string',
-      metadataDocument: 'string',
-      ssoEnabled: 'boolean',
-      ssoLoginWithDomain: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetUserSsoSettingsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 87F2E3F6-28A0-43F3-A77F-F7760E62F61E
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The configurations of user-based SSO.
-   */
-  userSsoSettings?: SetUserSsoSettingsResponseBodyUserSsoSettings;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      userSsoSettings: 'UserSsoSettings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      userSsoSettings: SetUserSsoSettingsResponseBodyUserSsoSettings,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetUserSsoSettingsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetUserSsoSettingsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetUserSsoSettingsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of resource N.
-   * 
-   * Valid values of N: 1 to 50. If ResourceType is set to user, the resource ID is the ID of the RAM user.
-   * 
-   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * The name of resource N.
-   * 
-   * Valid values of N: 1 to 50. If ResourceType is set to user, the resource name is the name of the RAM user.
-   * 
-   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
-   * 
-   * @example
-   * TagResources
-   */
-  resourcePrincipalName?: string[];
-  /**
-   * @remarks
-   * The type of the resource. Valid value:
-   * 
-   * *   user: a RAM user
-   * 
-   * @example
-   * user
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tag value.
-   */
-  tag?: TagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourcePrincipalName: 'ResourcePrincipalName',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourcePrincipalName: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 3687BD52-49FD-585B-AB14-CD05B7C76963
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindMFADeviceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindMFADeviceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the MFA device.
-   */
-  MFADevice?: UnbindMFADeviceResponseBodyMFADevice;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * A26CB3E9-1021-452A-AC57-3134B3BA0E4C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      MFADevice: 'MFADevice',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      MFADevice: UnbindMFADeviceResponseBodyMFADevice,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindMFADeviceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnbindMFADeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnbindMFADeviceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to remove all tags from the resource. Valid values:
-   * 
-   * *   true: remove all tags from the resources.
-   * *   false (default): does not remove all tags from the resources.
-   * 
-   * > This parameter takes effect only when TagKey.N is not set in the request.
-   * 
-   * @example
-   * false
-   */
-  all?: boolean;
-  /**
-   * @remarks
-   * The IDs of resources.
-   * 
-   * Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource ID is the ID of the RAM user.
-   * 
-   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
-   * 
-   * @example
-   * UntagResources
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * The names of resources.
-   * 
-   * Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource name is the name of the RAM user.
-   * 
-   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
-   */
-  resourcePrincipalName?: string[];
-  /**
-   * @remarks
-   * The type of the resource. Valid value:
-   * 
-   * *   user: a RAM user
-   * 
-   * @example
-   * user
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tag keys of resources.
-   * 
-   * Valid values of N: 1 to 20. N must be consecutive.
-   */
-  tagKey?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      all: 'All',
-      resourceId: 'ResourceId',
-      resourcePrincipalName: 'ResourcePrincipalName',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourcePrincipalName: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tagKey: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6AC79B74-9A78-58E2-818B-1D38EDC64D67
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UntagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAccessKeyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The status of the AccessKey pair. Valid values:
-   * 
-   * *   Active
-   * *   Inactive
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Active
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The AccessKey ID of the AccessKey pair for which you want to modify the status.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * LTAI4GFTgcR8m8cZQDTH****
-   */
-  userAccessKeyId?: string;
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * If this parameter is empty, the status of the AccessKey pair for the current user is modified.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      userAccessKeyId: 'UserAccessKeyId',
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      userAccessKeyId: 'string',
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAccessKeyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAccessKeyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateAccessKeyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateAccessKeyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateApplicationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 472457090344041****
-   */
-  appId?: string;
-  /**
-   * @remarks
-   * The validity period of the access token.
-   * 
-   * Valid values: 900 to 10800. Unit: seconds.
-   * 
-   * @example
-   * 3600
-   */
-  newAccessTokenValidity?: number;
-  /**
-   * @remarks
-   * The display name.
-   * 
-   * @example
-   * NewApp
-   */
-  newDisplayName?: string;
-  /**
-   * @remarks
-   * Specifies whether the application can be installed by using other Alibaba Cloud accounts. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  newIsMultiTenant?: boolean;
-  /**
-   * @remarks
-   * The permission that is granted on the application.
-   * 
-   * For more information about the application permission scope, see [OAuth scopes](https://help.aliyun.com/document_detail/93693.html). You can also call the [ListPredefinedScopes](https://help.aliyun.com/document_detail/187206.html) operation to query the permissions that are supported by different types of applications.
-   * 
-   * If you enter multiple permissions, separate them with semicolons (;).
-   * 
-   * The new value of this parameter overwrites the original value, and the permission specified by the new value takes effect. For example, if the original value is `/acs/ccc`, and the new value is `/acs/alidns`, `/acs/alidns` takes effect. If you want to retain the original permission and the `/acs/alidns` permission, set the value to `/acs/ccc;/acs/alidns`.
-   * 
-   * @example
-   * openid
-   */
-  newPredefinedScopes?: string;
-  /**
-   * @remarks
-   * The callback URL.
-   * 
-   * If you enter multiple callback URLs, separate them with semicolons (;).
-   * 
-   * @example
-   * https://www.example.com
-   */
-  newRedirectUris?: string;
-  /**
-   * @remarks
-   * The validity period of the refresh token.
-   * 
-   * Valid values: 7200 to 31536000. Unit: seconds.
-   * 
-   * @example
-   * 7776000
-   */
-  newRefreshTokenValidity?: number;
-  /**
-   * @remarks
-   * The required permission.
-   * 
-   * You can specify one or more permissions for the `RequiredScopes` parameter. After you specify this parameter, the required permissions are automatically selected and cannot be revoked when a user grants permissions on the application.
-   * 
-   * If you also specify the `NewPredefinedScopes` parameter, the `NewPredefinedScopes` parameter specifies the permissions that can be granted on the application, and this parameter specifies the required permissions.
-   * 
-   * If you enter multiple permissions, separate them with semicolons (;).
-   * 
-   * The new value of this parameter overwrites the original value, and the required permission specified by the new value takes effect.
-   * 
-   * >  If the permission that you specify for the `RequiredScopes` parameter is not included in value of the `PredefinedScopes` parameter, the permission does not take effect.
-   * 
-   * @example
-   * profile;aliuid
-   */
-  newRequiredScopes?: string;
-  /**
-   * @remarks
-   * Specifies whether a secret is required. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * > 
-   * 
-   * *   For applications of the WebApp and ServerApp types, this parameter is automatically set to true and cannot be changed.
-   * *   For applications of the NativeApp type, this parameter can be set to true or false. If you do not set this parameter, false is used. Applications of the NativeApp type run in untrusted environments and the secrets of these applications are not protected. Therefore, we recommend that you do not set this parameter to true unless otherwise specified. For more information, see [Use an application of the NativeApp type to log on to Alibaba Cloud](https://help.aliyun.com/document_detail/93697.html).
-   * 
-   * @example
-   * true
-   */
-  newSecretRequired?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      newAccessTokenValidity: 'NewAccessTokenValidity',
-      newDisplayName: 'NewDisplayName',
-      newIsMultiTenant: 'NewIsMultiTenant',
-      newPredefinedScopes: 'NewPredefinedScopes',
-      newRedirectUris: 'NewRedirectUris',
-      newRefreshTokenValidity: 'NewRefreshTokenValidity',
-      newRequiredScopes: 'NewRequiredScopes',
-      newSecretRequired: 'NewSecretRequired',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      newAccessTokenValidity: 'number',
-      newDisplayName: 'string',
-      newIsMultiTenant: 'boolean',
-      newPredefinedScopes: 'string',
-      newRedirectUris: 'string',
-      newRefreshTokenValidity: 'number',
-      newRequiredScopes: 'string',
-      newSecretRequired: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateApplicationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the application.
-   */
-  application?: UpdateApplicationResponseBodyApplication;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6616F09B-2768-4C11-8866-A8EE4C4A583E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      application: 'Application',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      application: UpdateApplicationResponseBodyApplication,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateApplicationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateApplicationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateApplicationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the RAM user group.
-   * 
-   * @example
-   * Dev-Team
-   */
-  groupName?: string;
-  /**
-   * @remarks
-   * The new description.
-   * 
-   * The value can be up to 128 characters in length.
-   * 
-   * @example
-   * Test-Team
-   */
-  newComments?: string;
-  /**
-   * @remarks
-   * The new display name of the RAM user group.
-   * 
-   * The name can be up to 24 characters in length.
-   * 
-   * @example
-   * Test-Team
-   */
-  newDisplayName?: string;
-  /**
-   * @remarks
-   * The new name of the RAM user group.
-   * 
-   * The name can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
-   * 
-   * @example
-   * Test-Team
-   */
-  newGroupName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      newComments: 'NewComments',
-      newDisplayName: 'NewDisplayName',
-      newGroupName: 'NewGroupName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      newComments: 'string',
-      newDisplayName: 'string',
-      newGroupName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the RAM user group.
-   */
-  group?: UpdateGroupResponseBodyGroup;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * CDA656E3-3CE9-4A03-A8A3-B42A0C3C3287
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      group: 'Group',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      group: UpdateGroupResponseBodyGroup,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLoginProfileRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether multi-factor authentication (MFA) must be enabled. Valid values:
-   * 
-   * *   true. The value true indicates that the RAM user must bind an MFA device at the next logon.
-   * *   false.
-   * 
-   * @example
-   * false
-   */
-  MFABindRequired?: boolean;
-  /**
-   * @remarks
-   * The new password that is used to log on to the console.
-   * 
-   * The password must meet the complexity requirements.
-   * 
-   * @example
-   * mypassword
-   */
-  password?: string;
-  /**
-   * @remarks
-   * Specifies whether the RAM user must reset the password at the next logon. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  passwordResetRequired?: boolean;
-  /**
-   * @remarks
-   * The status of password-based logon. Valid values:
-   * 
-   * *   Active
-   * *   Inactive
-   * 
-   * @example
-   * Active
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      MFABindRequired: 'MFABindRequired',
-      password: 'Password',
-      passwordResetRequired: 'PasswordResetRequired',
-      status: 'Status',
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      MFABindRequired: 'boolean',
-      password: 'string',
-      passwordResetRequired: 'boolean',
-      status: 'string',
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLoginProfileResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The logon information.
-   */
-  loginProfile?: UpdateLoginProfileResponseBodyLoginProfile;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * BCDB6A7F-2199-41D9-B577-4FA536A5ADE1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      loginProfile: 'LoginProfile',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      loginProfile: UpdateLoginProfileResponseBodyLoginProfile,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLoginProfileResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateLoginProfileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateLoginProfileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateOIDCProviderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the client. If you want to specify multiple client IDs, separate the client IDs with commas (,).
-   * 
-   * The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods, (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.``
-   * 
-   * The client ID can be up to 64 characters in length.
-   * 
-   * > If you specify this parameter, all the client IDs of the OIDC IdP are replaced. If you need to only add or remove a client ID, call the AddClientIdToOIDCProvider or RemoveClientIdFromOIDCProvider operation. For more information, see [AddClientIdToOIDCProvider](https://help.aliyun.com/document_detail/332057.html) or [RemoveClientIdFromOIDCProvider](https://help.aliyun.com/document_detail/332058.html).
-   * 
-   * @example
-   * 498469743454717****
-   */
-  clientIds?: string;
-  /**
-   * @remarks
-   * The earliest time when an external IdP can issue an ID token. If the value of the iat field in the ID token is later than the current time, the request is rejected. Unit: hours. Valid values: 1 to 168.
-   * 
-   * @example
-   * 6
-   */
-  issuanceLimitTime?: number;
-  /**
-   * @remarks
-   * The description of the OIDC IdP.
-   * 
-   * The description can be up to 256 characters in length.
-   * 
-   * @example
-   * This is a new OIDC Provider.
-   */
-  newDescription?: string;
-  /**
-   * @remarks
-   * The name of the OIDC IdP.
-   * 
-   * @example
-   * TestOIDCProvider
-   */
-  OIDCProviderName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientIds: 'ClientIds',
-      issuanceLimitTime: 'IssuanceLimitTime',
-      newDescription: 'NewDescription',
-      OIDCProviderName: 'OIDCProviderName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientIds: 'string',
-      issuanceLimitTime: 'number',
-      newDescription: 'string',
-      OIDCProviderName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateOIDCProviderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the OIDC IdP.
-   */
-  OIDCProvider?: UpdateOIDCProviderResponseBodyOIDCProvider;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * E4C4D1BD-2558-5BD1-8C26-A5D7FB174A55
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      OIDCProvider: 'OIDCProvider',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      OIDCProvider: UpdateOIDCProviderResponseBodyOIDCProvider,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateOIDCProviderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateOIDCProviderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateOIDCProviderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSAMLProviderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The new description.
-   * 
-   * >  You must specify at least one of the `NewDescription` and `NewEncodedSAMLMetadataDocument` parameters.
-   * 
-   * @example
-   * This is a new provider.
-   */
-  newDescription?: string;
-  /**
-   * @remarks
-   * The new metadata file.
-   * 
-   * >  You must specify at least one of the `NewDescription` and `NewEncodedSAMLMetadataDocument` parameters.
-   * 
-   * @example
-   * PD94bWwgdmVy****
-   */
-  newEncodedSAMLMetadataDocument?: string;
-  /**
-   * @remarks
-   * The name of the IdP whose information you want to modify.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-provider
-   */
-  SAMLProviderName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      newDescription: 'NewDescription',
-      newEncodedSAMLMetadataDocument: 'NewEncodedSAMLMetadataDocument',
-      SAMLProviderName: 'SAMLProviderName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      newDescription: 'string',
-      newEncodedSAMLMetadataDocument: 'string',
-      SAMLProviderName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSAMLProviderResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * E5EDDFD2-3654-4F9F-9780-4AE7D81823EF
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information about the IdP.
-   */
-  SAMLProvider?: UpdateSAMLProviderResponseBodySAMLProvider;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      SAMLProvider: 'SAMLProvider',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      SAMLProvider: UpdateSAMLProviderResponseBodySAMLProvider,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSAMLProviderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateSAMLProviderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateSAMLProviderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The new description of the RAM user.
-   * 
-   * The description must be 1 to 128 characters in length.
-   * 
-   * @example
-   * This is a cloud computing engineer.
-   */
-  newComments?: string;
-  /**
-   * @remarks
-   * The new display name of the RAM user.
-   * 
-   * The name must be 1 to 24 characters in length.
-   * 
-   * @example
-   * new
-   */
-  newDisplayName?: string;
-  /**
-   * @remarks
-   * The new email address of the RAM user.
-   * 
-   * > This parameter is valid only on the China site (aliyun.com).
-   * 
-   * @example
-   * alice@example.com
-   */
-  newEmail?: string;
-  /**
-   * @remarks
-   * The new mobile phone number of the RAM user.
-   * 
-   * Format: \\<Country code>-\\<Mobile phone number>.
-   * 
-   * > This parameter is valid only on the China site (aliyun.com).
-   * 
-   * @example
-   * 86-1868888****
-   */
-  newMobilePhone?: string;
-  /**
-   * @remarks
-   * The new logon name of the RAM user.
-   * 
-   * The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name.
-   * 
-   * The value of `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be 1 to 64 characters in length.
-   * 
-   * @example
-   * new@example.onaliyun.com
-   */
-  newUserPrincipalName?: string;
-  /**
-   * @remarks
-   * The ID of the RAM user.
-   * 
-   * > You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
-   * 
-   * @example
-   * 20732900249392****
-   */
-  userId?: string;
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * > You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
-  userPrincipalName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      newComments: 'NewComments',
-      newDisplayName: 'NewDisplayName',
-      newEmail: 'NewEmail',
-      newMobilePhone: 'NewMobilePhone',
-      newUserPrincipalName: 'NewUserPrincipalName',
-      userId: 'UserId',
-      userPrincipalName: 'UserPrincipalName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      newComments: 'string',
-      newDisplayName: 'string',
-      newEmail: 'string',
-      newMobilePhone: 'string',
-      newUserPrincipalName: 'string',
-      userId: 'string',
-      userPrincipalName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1B56DD42-6962-4F89-A19C-079EED1F0FE3
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information about the RAM user.
-   */
-  user?: UpdateUserResponseBodyUser;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      user: 'User',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      user: UpdateUserResponseBodyUser,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddClientIdToOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class AddClientIdToOIDCProviderResponseBodyOIDCProvider extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
@@ -7894,12 +126,16 @@ export class AddClientIdToOIDCProviderResponseBodyOIDCProvider extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddFingerprintToOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+export class AddFingerprintToOIDCProviderResponseBodyOIDCProvider extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
@@ -8020,12 +256,16 @@ export class AddFingerprintToOIDCProviderResponseBodyOIDCProvider extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAccessKeyResponseBodyAccessKey extends $tea.Model {
+export class CreateAccessKeyResponseBodyAccessKey extends $dara.Model {
   /**
    * @remarks
    * The AccessKey ID provided to you by Alibaba Cloud.
@@ -8079,12 +319,16 @@ export class CreateAccessKeyResponseBodyAccessKey extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppSecretResponseBodyAppSecret extends $tea.Model {
+export class CreateAppSecretResponseBodyAppSecret extends $dara.Model {
   /**
    * @remarks
    * The ID of the application.
@@ -8135,12 +379,16 @@ export class CreateAppSecretResponseBodyAppSecret extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope extends $tea.Model {
+export class CreateApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope extends $dara.Model {
   /**
    * @remarks
    * The description of the permission.
@@ -8186,12 +434,16 @@ export class CreateApplicationResponseBodyApplicationDelegatedScopePredefinedSco
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateApplicationResponseBodyApplicationDelegatedScopePredefinedScopes extends $tea.Model {
+export class CreateApplicationResponseBodyApplicationDelegatedScopePredefinedScopes extends $dara.Model {
   predefinedScope?: CreateApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope[];
   static names(): { [key: string]: string } {
     return {
@@ -8205,12 +457,19 @@ export class CreateApplicationResponseBodyApplicationDelegatedScopePredefinedSco
     };
   }
 
+  validate() {
+    if(Array.isArray(this.predefinedScope)) {
+      $dara.Model.validateArray(this.predefinedScope);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateApplicationResponseBodyApplicationDelegatedScope extends $tea.Model {
+export class CreateApplicationResponseBodyApplicationDelegatedScope extends $dara.Model {
   /**
    * @remarks
    * The information about the permissions that are granted on the application.
@@ -8228,12 +487,19 @@ export class CreateApplicationResponseBodyApplicationDelegatedScope extends $tea
     };
   }
 
+  validate() {
+    if(this.predefinedScopes && typeof (this.predefinedScopes as any).validate === 'function') {
+      (this.predefinedScopes as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateApplicationResponseBodyApplicationRedirectUris extends $tea.Model {
+export class CreateApplicationResponseBodyApplicationRedirectUris extends $dara.Model {
   redirectUri?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8247,12 +513,19 @@ export class CreateApplicationResponseBodyApplicationRedirectUris extends $tea.M
     };
   }
 
+  validate() {
+    if(Array.isArray(this.redirectUri)) {
+      $dara.Model.validateArray(this.redirectUri);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateApplicationResponseBodyApplication extends $tea.Model {
+export class CreateApplicationResponseBodyApplication extends $dara.Model {
   /**
    * @remarks
    * The validity period of the access token. Unit: seconds.
@@ -8387,12 +660,22 @@ export class CreateApplicationResponseBodyApplication extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.delegatedScope && typeof (this.delegatedScope as any).validate === 'function') {
+      (this.delegatedScope as any).validate();
+    }
+    if(this.redirectUris && typeof (this.redirectUris as any).validate === 'function') {
+      (this.redirectUris as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGroupResponseBodyGroup extends $tea.Model {
+export class CreateGroupResponseBodyGroup extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -8463,12 +746,16 @@ export class CreateGroupResponseBodyGroup extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateLoginProfileResponseBodyLoginProfile extends $tea.Model {
+export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   /**
    * @remarks
    * Indicates whether MFA must be enabled.
@@ -8529,12 +816,16 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+export class CreateOIDCProviderResponseBodyOIDCProvider extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
@@ -8655,12 +946,16 @@ export class CreateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSAMLProviderResponseBodySAMLProvider extends $tea.Model {
+export class CreateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the IdP.
@@ -8721,12 +1016,16 @@ export class CreateSAMLProviderResponseBodySAMLProvider extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateUserRequestTag extends $tea.Model {
+export class CreateUserRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of tag N.
@@ -8761,12 +1060,16 @@ export class CreateUserRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateUserResponseBodyUserTagsTag extends $tea.Model {
+export class CreateUserResponseBodyUserTagsTag extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -8797,12 +1100,16 @@ export class CreateUserResponseBodyUserTagsTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateUserResponseBodyUserTags extends $tea.Model {
+export class CreateUserResponseBodyUserTags extends $dara.Model {
   tag?: CreateUserResponseBodyUserTagsTag[];
   static names(): { [key: string]: string } {
     return {
@@ -8816,12 +1123,19 @@ export class CreateUserResponseBodyUserTags extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateUserResponseBodyUser extends $tea.Model {
+export class CreateUserResponseBodyUser extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -8947,12 +1261,19 @@ export class CreateUserResponseBodyUser extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVirtualMFADeviceResponseBodyVirtualMFADevice extends $tea.Model {
+export class CreateVirtualMFADeviceResponseBodyVirtualMFADevice extends $dara.Model {
   /**
    * @remarks
    * The key of the MFA device.
@@ -8993,12 +1314,16 @@ export class CreateVirtualMFADeviceResponseBodyVirtualMFADevice extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $tea.Model {
+export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $dara.Model {
   /**
    * @remarks
    * The time when the AccessKey pair was used for the last time.
@@ -9029,12 +1354,16 @@ export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfoAccountSecurityPracticeUserInfo extends $tea.Model {
+export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfoAccountSecurityPracticeUserInfo extends $dara.Model {
   /**
    * @remarks
    * Indicates whether MFA is enabled. Valid values:
@@ -9142,12 +1471,16 @@ export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPractice
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfo extends $tea.Model {
+export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfo extends $dara.Model {
   /**
    * @remarks
    * The information of the security report for the Alibaba Cloud account.
@@ -9175,12 +1508,19 @@ export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPractice
     };
   }
 
+  validate() {
+    if(this.accountSecurityPracticeUserInfo && typeof (this.accountSecurityPracticeUserInfo as any).validate === 'function') {
+      (this.accountSecurityPracticeUserInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccountSummaryResponseBodySummaryMap extends $tea.Model {
+export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   /**
    * @remarks
    * The maximum number of AccessKey pairs that a RAM user can have.
@@ -9407,12 +1747,16 @@ export class GetAccountSummaryResponseBodySummaryMap extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAppSecretResponseBodyAppSecret extends $tea.Model {
+export class GetAppSecretResponseBodyAppSecret extends $dara.Model {
   /**
    * @remarks
    * The ID of the application.
@@ -9463,12 +1807,16 @@ export class GetAppSecretResponseBodyAppSecret extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope extends $tea.Model {
+export class GetApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope extends $dara.Model {
   /**
    * @remarks
    * The description of the permission.
@@ -9514,12 +1862,16 @@ export class GetApplicationResponseBodyApplicationDelegatedScopePredefinedScopes
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetApplicationResponseBodyApplicationDelegatedScopePredefinedScopes extends $tea.Model {
+export class GetApplicationResponseBodyApplicationDelegatedScopePredefinedScopes extends $dara.Model {
   predefinedScope?: GetApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope[];
   static names(): { [key: string]: string } {
     return {
@@ -9533,12 +1885,19 @@ export class GetApplicationResponseBodyApplicationDelegatedScopePredefinedScopes
     };
   }
 
+  validate() {
+    if(Array.isArray(this.predefinedScope)) {
+      $dara.Model.validateArray(this.predefinedScope);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetApplicationResponseBodyApplicationDelegatedScope extends $tea.Model {
+export class GetApplicationResponseBodyApplicationDelegatedScope extends $dara.Model {
   /**
    * @remarks
    * The information about the permissions that are granted on the application.
@@ -9556,12 +1915,19 @@ export class GetApplicationResponseBodyApplicationDelegatedScope extends $tea.Mo
     };
   }
 
+  validate() {
+    if(this.predefinedScopes && typeof (this.predefinedScopes as any).validate === 'function') {
+      (this.predefinedScopes as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetApplicationResponseBodyApplicationRedirectUris extends $tea.Model {
+export class GetApplicationResponseBodyApplicationRedirectUris extends $dara.Model {
   redirectUri?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -9575,12 +1941,19 @@ export class GetApplicationResponseBodyApplicationRedirectUris extends $tea.Mode
     };
   }
 
+  validate() {
+    if(Array.isArray(this.redirectUri)) {
+      $dara.Model.validateArray(this.redirectUri);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetApplicationResponseBodyApplication extends $tea.Model {
+export class GetApplicationResponseBodyApplication extends $dara.Model {
   /**
    * @remarks
    * The validity period of the access token. Unit: seconds.
@@ -9719,12 +2092,22 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.delegatedScope && typeof (this.delegatedScope as any).validate === 'function') {
+      (this.delegatedScope as any).validate();
+    }
+    if(this.redirectUris && typeof (this.redirectUris as any).validate === 'function') {
+      (this.redirectUris as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetGroupResponseBodyGroup extends $tea.Model {
+export class GetGroupResponseBodyGroup extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -9795,12 +2178,16 @@ export class GetGroupResponseBodyGroup extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
+export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
   autoDisableLoginStatus?: string;
   /**
    * @remarks
@@ -9883,12 +2270,16 @@ export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+export class GetOIDCProviderResponseBodyOIDCProvider extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
@@ -10009,12 +2400,16 @@ export class GetOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
+export class GetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   /**
    * @remarks
    * Indicates whether to disable logon after the password expires.
@@ -10135,12 +2530,16 @@ export class GetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSAMLProviderResponseBodySAMLProvider extends $tea.Model {
+export class GetSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the IdP.
@@ -10211,12 +2610,16 @@ export class GetSAMLProviderResponseBodySAMLProvider extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference extends $tea.Model {
+export class GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference extends $dara.Model {
   /**
    * @remarks
    * Indicates whether RAM users can manage their AccessKey pairs. Valid values:
@@ -10240,12 +2643,16 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPrefere
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference extends $tea.Model {
+export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference extends $dara.Model {
   /**
    * @remarks
    * Indicates whether RAM users can change their passwords. Valid values:
@@ -10332,12 +2739,16 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference extends $tea.Model {
+export class GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference extends $dara.Model {
   /**
    * @remarks
    * Indicates whether RAM users can manage their MFA devices. Valid values:
@@ -10361,12 +2772,16 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays extends $tea.Model {
+export class GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays extends $dara.Model {
   maxIdleDaysForAccessKeys?: number;
   maxIdleDaysForUsers?: number;
   static names(): { [key: string]: string } {
@@ -10383,12 +2798,16 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays exte
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference extends $tea.Model {
+export class GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference extends $dara.Model {
   /**
    * @remarks
    * Indicates whether RAM users can manage their personal DingTalk accounts, such as binding and unbinding of the accounts. Valid values:
@@ -10412,12 +2831,16 @@ export class GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPref
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference extends $tea.Model {
+export class GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference extends $dara.Model {
   /**
    * @remarks
    * The MFA methods.
@@ -10435,12 +2858,19 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPref
     };
   }
 
+  validate() {
+    if(Array.isArray(this.verificationTypes)) {
+      $dara.Model.validateArray(this.verificationTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Model {
+export class GetSecurityPreferenceResponseBodySecurityPreference extends $dara.Model {
   /**
    * @remarks
    * The AccessKey pair preference.
@@ -10489,12 +2919,34 @@ export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
     };
   }
 
+  validate() {
+    if(this.accessKeyPreference && typeof (this.accessKeyPreference as any).validate === 'function') {
+      (this.accessKeyPreference as any).validate();
+    }
+    if(this.loginProfilePreference && typeof (this.loginProfilePreference as any).validate === 'function') {
+      (this.loginProfilePreference as any).validate();
+    }
+    if(this.MFAPreference && typeof (this.MFAPreference as any).validate === 'function') {
+      (this.MFAPreference as any).validate();
+    }
+    if(this.maxIdleDays && typeof (this.maxIdleDays as any).validate === 'function') {
+      (this.maxIdleDays as any).validate();
+    }
+    if(this.personalInfoPreference && typeof (this.personalInfoPreference as any).validate === 'function') {
+      (this.personalInfoPreference as any).validate();
+    }
+    if(this.verificationPreference && typeof (this.verificationPreference as any).validate === 'function') {
+      (this.verificationPreference as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUserResponseBodyUserTagsTag extends $tea.Model {
+export class GetUserResponseBodyUserTagsTag extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -10525,12 +2977,16 @@ export class GetUserResponseBodyUserTagsTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUserResponseBodyUserTags extends $tea.Model {
+export class GetUserResponseBodyUserTags extends $dara.Model {
   tag?: GetUserResponseBodyUserTagsTag[];
   static names(): { [key: string]: string } {
     return {
@@ -10544,12 +3000,19 @@ export class GetUserResponseBodyUserTags extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUserResponseBodyUser extends $tea.Model {
+export class GetUserResponseBodyUser extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -10675,12 +3138,19 @@ export class GetUserResponseBodyUser extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUserMFAInfoResponseBodyMFADevice extends $tea.Model {
+export class GetUserMFAInfoResponseBodyMFADevice extends $dara.Model {
   /**
    * @remarks
    * The serial number of the MFA device.
@@ -10714,12 +3184,16 @@ export class GetUserMFAInfoResponseBodyMFADevice extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUserSsoSettingsResponseBodyUserSsoSettings extends $tea.Model {
+export class GetUserSsoSettingsResponseBodyUserSsoSettings extends $dara.Model {
   /**
    * @remarks
    * The auxiliary domain name.
@@ -10763,12 +3237,16 @@ export class GetUserSsoSettingsResponseBodyUserSsoSettings extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVerificationInfoResponseBodySecurityEmailDevice extends $tea.Model {
+export class GetVerificationInfoResponseBodySecurityEmailDevice extends $dara.Model {
   /**
    * @example
    * username@example.com
@@ -10793,12 +3271,16 @@ export class GetVerificationInfoResponseBodySecurityEmailDevice extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVerificationInfoResponseBodySecurityPhoneDevice extends $tea.Model {
+export class GetVerificationInfoResponseBodySecurityPhoneDevice extends $dara.Model {
   /**
    * @example
    * 86
@@ -10830,12 +3312,16 @@ export class GetVerificationInfoResponseBodySecurityPhoneDevice extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccessKeysResponseBodyAccessKeysAccessKey extends $tea.Model {
+export class ListAccessKeysResponseBodyAccessKeysAccessKey extends $dara.Model {
   /**
    * @remarks
    * The AccessKey ID.
@@ -10889,12 +3375,16 @@ export class ListAccessKeysResponseBodyAccessKeysAccessKey extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccessKeysResponseBodyAccessKeys extends $tea.Model {
+export class ListAccessKeysResponseBodyAccessKeys extends $dara.Model {
   accessKey?: ListAccessKeysResponseBodyAccessKeysAccessKey[];
   static names(): { [key: string]: string } {
     return {
@@ -10908,12 +3398,19 @@ export class ListAccessKeysResponseBodyAccessKeys extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accessKey)) {
+      $dara.Model.validateArray(this.accessKey);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAppSecretIdsResponseBodyAppSecretsAppSecret extends $tea.Model {
+export class ListAppSecretIdsResponseBodyAppSecretsAppSecret extends $dara.Model {
   /**
    * @remarks
    * The ID of the application.
@@ -10954,12 +3451,16 @@ export class ListAppSecretIdsResponseBodyAppSecretsAppSecret extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAppSecretIdsResponseBodyAppSecrets extends $tea.Model {
+export class ListAppSecretIdsResponseBodyAppSecrets extends $dara.Model {
   appSecret?: ListAppSecretIdsResponseBodyAppSecretsAppSecret[];
   static names(): { [key: string]: string } {
     return {
@@ -10973,12 +3474,19 @@ export class ListAppSecretIdsResponseBodyAppSecrets extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.appSecret)) {
+      $dara.Model.validateArray(this.appSecret);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePredefinedScopesPredefinedScope extends $tea.Model {
+export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePredefinedScopesPredefinedScope extends $dara.Model {
   /**
    * @remarks
    * The description of the permission.
@@ -11024,12 +3532,16 @@ export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePr
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePredefinedScopes extends $tea.Model {
+export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePredefinedScopes extends $dara.Model {
   predefinedScope?: ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePredefinedScopesPredefinedScope[];
   static names(): { [key: string]: string } {
     return {
@@ -11043,12 +3555,19 @@ export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePr
     };
   }
 
+  validate() {
+    if(Array.isArray(this.predefinedScope)) {
+      $dara.Model.validateArray(this.predefinedScope);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScope extends $tea.Model {
+export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScope extends $dara.Model {
   /**
    * @remarks
    * The information about the permissions that are granted on the application.
@@ -11066,12 +3585,19 @@ export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScope e
     };
   }
 
+  validate() {
+    if(this.predefinedScopes && typeof (this.predefinedScopes as any).validate === 'function') {
+      (this.predefinedScopes as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListApplicationsResponseBodyApplicationsApplicationRedirectUris extends $tea.Model {
+export class ListApplicationsResponseBodyApplicationsApplicationRedirectUris extends $dara.Model {
   redirectUri?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -11085,12 +3611,19 @@ export class ListApplicationsResponseBodyApplicationsApplicationRedirectUris ext
     };
   }
 
+  validate() {
+    if(Array.isArray(this.redirectUri)) {
+      $dara.Model.validateArray(this.redirectUri);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListApplicationsResponseBodyApplicationsApplication extends $tea.Model {
+export class ListApplicationsResponseBodyApplicationsApplication extends $dara.Model {
   /**
    * @remarks
    * The validity period of the access token. Unit: seconds.
@@ -11229,12 +3762,22 @@ export class ListApplicationsResponseBodyApplicationsApplication extends $tea.Mo
     };
   }
 
+  validate() {
+    if(this.delegatedScope && typeof (this.delegatedScope as any).validate === 'function') {
+      (this.delegatedScope as any).validate();
+    }
+    if(this.redirectUris && typeof (this.redirectUris as any).validate === 'function') {
+      (this.redirectUris as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListApplicationsResponseBodyApplications extends $tea.Model {
+export class ListApplicationsResponseBodyApplications extends $dara.Model {
   application?: ListApplicationsResponseBodyApplicationsApplication[];
   static names(): { [key: string]: string } {
     return {
@@ -11248,12 +3791,19 @@ export class ListApplicationsResponseBodyApplications extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.application)) {
+      $dara.Model.validateArray(this.application);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGroupsResponseBodyGroupsGroup extends $tea.Model {
+export class ListGroupsResponseBodyGroupsGroup extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -11324,12 +3874,16 @@ export class ListGroupsResponseBodyGroupsGroup extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGroupsResponseBodyGroups extends $tea.Model {
+export class ListGroupsResponseBodyGroups extends $dara.Model {
   group?: ListGroupsResponseBodyGroupsGroup[];
   static names(): { [key: string]: string } {
     return {
@@ -11343,12 +3897,19 @@ export class ListGroupsResponseBodyGroups extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.group)) {
+      $dara.Model.validateArray(this.group);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGroupsForUserResponseBodyGroupsGroup extends $tea.Model {
+export class ListGroupsForUserResponseBodyGroupsGroup extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -11409,12 +3970,16 @@ export class ListGroupsForUserResponseBodyGroupsGroup extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGroupsForUserResponseBodyGroups extends $tea.Model {
+export class ListGroupsForUserResponseBodyGroups extends $dara.Model {
   group?: ListGroupsForUserResponseBodyGroupsGroup[];
   static names(): { [key: string]: string } {
     return {
@@ -11428,12 +3993,19 @@ export class ListGroupsForUserResponseBodyGroups extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.group)) {
+      $dara.Model.validateArray(this.group);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider extends $tea.Model {
+export class ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
@@ -11554,12 +4126,16 @@ export class ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListOIDCProvidersResponseBodyOIDCProviders extends $tea.Model {
+export class ListOIDCProvidersResponseBodyOIDCProviders extends $dara.Model {
   OIDCProvider?: ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider[];
   static names(): { [key: string]: string } {
     return {
@@ -11573,12 +4149,19 @@ export class ListOIDCProvidersResponseBodyOIDCProviders extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.OIDCProvider)) {
+      $dara.Model.validateArray(this.OIDCProvider);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPredefinedScopesResponseBodyPredefinedScopesPredefinedScope extends $tea.Model {
+export class ListPredefinedScopesResponseBodyPredefinedScopesPredefinedScope extends $dara.Model {
   /**
    * @remarks
    * The description of the permission scope.
@@ -11609,12 +4192,16 @@ export class ListPredefinedScopesResponseBodyPredefinedScopesPredefinedScope ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPredefinedScopesResponseBodyPredefinedScopes extends $tea.Model {
+export class ListPredefinedScopesResponseBodyPredefinedScopes extends $dara.Model {
   predefinedScope?: ListPredefinedScopesResponseBodyPredefinedScopesPredefinedScope[];
   static names(): { [key: string]: string } {
     return {
@@ -11628,12 +4215,19 @@ export class ListPredefinedScopesResponseBodyPredefinedScopes extends $tea.Model
     };
   }
 
+  validate() {
+    if(Array.isArray(this.predefinedScope)) {
+      $dara.Model.validateArray(this.predefinedScope);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSAMLProvidersResponseBodySAMLProvidersSAMLProvider extends $tea.Model {
+export class ListSAMLProvidersResponseBodySAMLProvidersSAMLProvider extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the IdP.
@@ -11694,12 +4288,16 @@ export class ListSAMLProvidersResponseBodySAMLProvidersSAMLProvider extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSAMLProvidersResponseBodySAMLProviders extends $tea.Model {
+export class ListSAMLProvidersResponseBodySAMLProviders extends $dara.Model {
   SAMLProvider?: ListSAMLProvidersResponseBodySAMLProvidersSAMLProvider[];
   static names(): { [key: string]: string } {
     return {
@@ -11713,12 +4311,19 @@ export class ListSAMLProvidersResponseBodySAMLProviders extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.SAMLProvider)) {
+      $dara.Model.validateArray(this.SAMLProvider);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequestTag extends $tea.Model {
+export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of tag N.
@@ -11753,12 +4358,16 @@ export class ListTagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
   /**
    * @remarks
    * The ID of the resource.
@@ -11811,12 +4420,16 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Mo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
   static names(): { [key: string]: string } {
     return {
@@ -11830,12 +4443,19 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagResource)) {
+      $dara.Model.validateArray(this.tagResource);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserBasicInfosRequestTag extends $tea.Model {
+export class ListUserBasicInfosRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of tag N.
@@ -11870,12 +4490,16 @@ export class ListUserBasicInfosRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfo extends $tea.Model {
+export class ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfo extends $dara.Model {
   /**
    * @remarks
    * The display name of the RAM user.
@@ -11919,12 +4543,16 @@ export class ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfo extends $
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUserBasicInfosResponseBodyUserBasicInfos extends $tea.Model {
+export class ListUserBasicInfosResponseBodyUserBasicInfos extends $dara.Model {
   userBasicInfo?: ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -11938,12 +4566,19 @@ export class ListUserBasicInfosResponseBodyUserBasicInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.userBasicInfo)) {
+      $dara.Model.validateArray(this.userBasicInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUsersRequestTag extends $tea.Model {
+export class ListUsersRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of tag N.
@@ -11978,12 +4613,16 @@ export class ListUsersRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUsersResponseBodyUsersUserTagsTag extends $tea.Model {
+export class ListUsersResponseBodyUsersUserTagsTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag.
@@ -12014,12 +4653,16 @@ export class ListUsersResponseBodyUsersUserTagsTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUsersResponseBodyUsersUserTags extends $tea.Model {
+export class ListUsersResponseBodyUsersUserTags extends $dara.Model {
   tag?: ListUsersResponseBodyUsersUserTagsTag[];
   static names(): { [key: string]: string } {
     return {
@@ -12033,12 +4676,19 @@ export class ListUsersResponseBodyUsersUserTags extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUsersResponseBodyUsersUser extends $tea.Model {
+export class ListUsersResponseBodyUsersUser extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -12167,12 +4817,19 @@ export class ListUsersResponseBodyUsersUser extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUsersResponseBodyUsers extends $tea.Model {
+export class ListUsersResponseBodyUsers extends $dara.Model {
   user?: ListUsersResponseBodyUsersUser[];
   static names(): { [key: string]: string } {
     return {
@@ -12186,12 +4843,19 @@ export class ListUsersResponseBodyUsers extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.user)) {
+      $dara.Model.validateArray(this.user);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUsersForGroupResponseBodyUsersUser extends $tea.Model {
+export class ListUsersForGroupResponseBodyUsersUser extends $dara.Model {
   /**
    * @remarks
    * The display name of the RAM user.
@@ -12242,12 +4906,16 @@ export class ListUsersForGroupResponseBodyUsersUser extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUsersForGroupResponseBodyUsers extends $tea.Model {
+export class ListUsersForGroupResponseBodyUsers extends $dara.Model {
   user?: ListUsersForGroupResponseBodyUsersUser[];
   static names(): { [key: string]: string } {
     return {
@@ -12261,12 +4929,19 @@ export class ListUsersForGroupResponseBodyUsers extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.user)) {
+      $dara.Model.validateArray(this.user);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser extends $tea.Model {
+export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser extends $dara.Model {
   /**
    * @remarks
    * The display name of the RAM user.
@@ -12307,12 +4982,16 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceU
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADevice extends $tea.Model {
+export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADevice extends $dara.Model {
   /**
    * @remarks
    * The time when the MFA device was activated.
@@ -12350,12 +5029,19 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADevice 
     };
   }
 
+  validate() {
+    if(this.user && typeof (this.user as any).validate === 'function') {
+      (this.user as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVirtualMFADevicesResponseBodyVirtualMFADevices extends $tea.Model {
+export class ListVirtualMFADevicesResponseBodyVirtualMFADevices extends $dara.Model {
   virtualMFADevice?: ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADevice[];
   static names(): { [key: string]: string } {
     return {
@@ -12369,12 +5055,19 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevices extends $tea.Mod
     };
   }
 
+  validate() {
+    if(Array.isArray(this.virtualMFADevice)) {
+      $dara.Model.validateArray(this.virtualMFADevice);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
@@ -12495,12 +5188,16 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+export class RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
@@ -12621,12 +5318,16 @@ export class RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider extends $
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
+export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   /**
    * @remarks
    * Indicates whether to disable logon after the password expires.
@@ -12747,12 +5448,16 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference extends $tea.Model {
+export class SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference extends $dara.Model {
   /**
    * @remarks
    * Indicates whether RAM users can manage their AccessKey pairs.
@@ -12773,12 +5478,16 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPrefere
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference extends $tea.Model {
+export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference extends $dara.Model {
   /**
    * @remarks
    * Indicates whether RAM users can change their passwords.
@@ -12852,12 +5561,16 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference extends $tea.Model {
+export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference extends $dara.Model {
   /**
    * @remarks
    * Indicates whether RAM users can manage their MFA devices.
@@ -12878,12 +5591,16 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays extends $tea.Model {
+export class SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays extends $dara.Model {
   maxIdleDaysForAccessKeys?: number;
   maxIdleDaysForUsers?: number;
   static names(): { [key: string]: string } {
@@ -12900,12 +5617,16 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays exte
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference extends $tea.Model {
+export class SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference extends $dara.Model {
   /**
    * @remarks
    * Indicates whether RAM users can manage their personal DingTalk accounts, such as binding and unbinding of the accounts.
@@ -12926,12 +5647,16 @@ export class SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPref
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference extends $tea.Model {
+export class SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference extends $dara.Model {
   /**
    * @remarks
    * The MFA methods.
@@ -12949,12 +5674,19 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPref
     };
   }
 
+  validate() {
+    if(Array.isArray(this.verificationTypes)) {
+      $dara.Model.validateArray(this.verificationTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Model {
+export class SetSecurityPreferenceResponseBodySecurityPreference extends $dara.Model {
   /**
    * @remarks
    * The AccessKey pair preference.
@@ -13003,12 +5735,34 @@ export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
     };
   }
 
+  validate() {
+    if(this.accessKeyPreference && typeof (this.accessKeyPreference as any).validate === 'function') {
+      (this.accessKeyPreference as any).validate();
+    }
+    if(this.loginProfilePreference && typeof (this.loginProfilePreference as any).validate === 'function') {
+      (this.loginProfilePreference as any).validate();
+    }
+    if(this.MFAPreference && typeof (this.MFAPreference as any).validate === 'function') {
+      (this.MFAPreference as any).validate();
+    }
+    if(this.maxIdleDays && typeof (this.maxIdleDays as any).validate === 'function') {
+      (this.maxIdleDays as any).validate();
+    }
+    if(this.personalInfoPreference && typeof (this.personalInfoPreference as any).validate === 'function') {
+      (this.personalInfoPreference as any).validate();
+    }
+    if(this.verificationPreference && typeof (this.verificationPreference as any).validate === 'function') {
+      (this.verificationPreference as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SetUserSsoSettingsResponseBodyUserSsoSettings extends $tea.Model {
+export class SetUserSsoSettingsResponseBodyUserSsoSettings extends $dara.Model {
   /**
    * @remarks
    * The auxiliary domain name.
@@ -13052,12 +5806,16 @@ export class SetUserSsoSettingsResponseBodyUserSsoSettings extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequestTag extends $tea.Model {
+export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of tag N.
@@ -13092,12 +5850,16 @@ export class TagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnbindMFADeviceResponseBodyMFADevice extends $tea.Model {
+export class UnbindMFADeviceResponseBodyMFADevice extends $dara.Model {
   /**
    * @remarks
    * The serial number of the MFA device.
@@ -13118,12 +5880,16 @@ export class UnbindMFADeviceResponseBodyMFADevice extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope extends $tea.Model {
+export class UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope extends $dara.Model {
   /**
    * @remarks
    * The description of the permission.
@@ -13169,12 +5935,16 @@ export class UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedSco
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedScopes extends $tea.Model {
+export class UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedScopes extends $dara.Model {
   predefinedScope?: UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope[];
   static names(): { [key: string]: string } {
     return {
@@ -13188,12 +5958,19 @@ export class UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedSco
     };
   }
 
+  validate() {
+    if(Array.isArray(this.predefinedScope)) {
+      $dara.Model.validateArray(this.predefinedScope);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateApplicationResponseBodyApplicationDelegatedScope extends $tea.Model {
+export class UpdateApplicationResponseBodyApplicationDelegatedScope extends $dara.Model {
   /**
    * @remarks
    * The information about the permissions that are granted on the application.
@@ -13211,12 +5988,19 @@ export class UpdateApplicationResponseBodyApplicationDelegatedScope extends $tea
     };
   }
 
+  validate() {
+    if(this.predefinedScopes && typeof (this.predefinedScopes as any).validate === 'function') {
+      (this.predefinedScopes as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateApplicationResponseBodyApplicationRedirectUris extends $tea.Model {
+export class UpdateApplicationResponseBodyApplicationRedirectUris extends $dara.Model {
   redirectUri?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13230,12 +6014,19 @@ export class UpdateApplicationResponseBodyApplicationRedirectUris extends $tea.M
     };
   }
 
+  validate() {
+    if(Array.isArray(this.redirectUri)) {
+      $dara.Model.validateArray(this.redirectUri);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateApplicationResponseBodyApplication extends $tea.Model {
+export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   /**
    * @remarks
    * The validity period of the access token. Unit: seconds.
@@ -13370,12 +6161,22 @@ export class UpdateApplicationResponseBodyApplication extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.delegatedScope && typeof (this.delegatedScope as any).validate === 'function') {
+      (this.delegatedScope as any).validate();
+    }
+    if(this.redirectUris && typeof (this.redirectUris as any).validate === 'function') {
+      (this.redirectUris as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateGroupResponseBodyGroup extends $tea.Model {
+export class UpdateGroupResponseBodyGroup extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -13446,12 +6247,16 @@ export class UpdateGroupResponseBodyGroup extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateLoginProfileResponseBodyLoginProfile extends $tea.Model {
+export class UpdateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   autoDisableLoginStatus?: string;
   /**
    * @remarks
@@ -13515,12 +6320,16 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+export class UpdateOIDCProviderResponseBodyOIDCProvider extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
@@ -13641,12 +6450,16 @@ export class UpdateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSAMLProviderResponseBodySAMLProvider extends $tea.Model {
+export class UpdateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the IdP.
@@ -13707,12 +6520,16 @@ export class UpdateSAMLProviderResponseBodySAMLProvider extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateUserResponseBodyUser extends $tea.Model {
+export class UpdateUserResponseBodyUser extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -13831,6 +6648,9253 @@ export class UpdateUserResponseBodyUser extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddClientIdToOIDCProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client ID that you want to add.
+   * 
+   * The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are periods (.), hyphens (-), underscores (_), colons (:), and forward slashes (/). 
+   * 
+   * The client ID can be up to 64 characters in length.
+   * 
+   * @example
+   * 598469743454717****
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * The name of the OIDC IdP.
+   * 
+   * @example
+   * TestOIDCProvider
+   */
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddClientIdToOIDCProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the OIDC IdP.
+   */
+  OIDCProvider?: AddClientIdToOIDCProviderResponseBodyOIDCProvider;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B49B8FA7-87FC-5308-AE75-5EC9E36C360A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: AddClientIdToOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.OIDCProvider && typeof (this.OIDCProvider as any).validate === 'function') {
+      (this.OIDCProvider as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddClientIdToOIDCProviderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddClientIdToOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddClientIdToOIDCProviderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFingerprintToOIDCProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The fingerprint of the HTTPS certificate.
+   * 
+   * The fingerprint can contain letters and digits.
+   * 
+   * The fingerprint can be up to 40 characters in length.
+   * 
+   * @example
+   * 902ef2deeb3c5b13ea4c3d5193629309e231****
+   */
+  fingerprint?: string;
+  /**
+   * @remarks
+   * The name of the OIDC IdP.
+   * 
+   * @example
+   * TestOIDCProvider
+   */
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fingerprint: 'Fingerprint',
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fingerprint: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFingerprintToOIDCProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the OIDC IdP.
+   */
+  OIDCProvider?: AddFingerprintToOIDCProviderResponseBodyOIDCProvider;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4B809BBC-0E78-544A-A91A-648926412E3E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: AddFingerprintToOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.OIDCProvider && typeof (this.OIDCProvider as any).validate === 'function') {
+      (this.OIDCProvider as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFingerprintToOIDCProviderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddFingerprintToOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddFingerprintToOIDCProviderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddUserToGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Test-Team
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddUserToGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 85836703-8D4F-485F-9726-4D1C730F957E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddUserToGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddUserToGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddUserToGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindMFADeviceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The first verification code.
+   * 
+   * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
+   * 
+   * @example
+   * 123456
+   */
+  authenticationCode1?: string;
+  /**
+   * @remarks
+   * The second verification code.
+   * 
+   * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
+   * 
+   * @example
+   * 654321
+   */
+  authenticationCode2?: string;
+  /**
+   * @remarks
+   * The serial number of the MFA device.
+   * 
+   * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to obtain the serial number of the MFA device.
+   * 
+   * @example
+   * acs:ram::177242285274****:mfa/device001
+   */
+  serialNumber?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authenticationCode1: 'AuthenticationCode1',
+      authenticationCode2: 'AuthenticationCode2',
+      serialNumber: 'SerialNumber',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authenticationCode1: 'string',
+      authenticationCode2: 'string',
+      serialNumber: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindMFADeviceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindMFADeviceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindMFADeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BindMFADeviceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangePasswordRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The new password that is used to log on to the console.
+   * 
+   * The password must meet the complexity requirements. For more information, see [GetPasswordPolicy](https://help.aliyun.com/document_detail/186691.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * newpassword
+   */
+  newPassword?: string;
+  /**
+   * @remarks
+   * The old password that is used to log on to the console.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mypassword
+   */
+  oldPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newPassword: 'NewPassword',
+      oldPassword: 'OldPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newPassword: 'string',
+      oldPassword: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangePasswordResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangePasswordResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangePasswordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangePasswordResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessKeyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * If this parameter is empty, an AccessKey pair is created for the current user.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessKeyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the AccessKey pair.
+   */
+  accessKey?: CreateAccessKeyResponseBodyAccessKey;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 19DDD9F7-AFCC-4D72-8CBA-CCE5A142E7AB
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: CreateAccessKeyResponseBodyAccessKey,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.accessKey && typeof (this.accessKey as any).validate === 'function') {
+      (this.accessKey as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessKeyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAccessKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAccessKeyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSecretRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 472457090344041****
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSecretResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the application secret.
+   */
+  appSecret?: CreateAppSecretResponseBodyAppSecret;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE46FC3C-3BDE-4771-B531-27B7B6EB533D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appSecret: 'AppSecret',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appSecret: CreateAppSecretResponseBodyAppSecret,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.appSecret && typeof (this.appSecret as any).validate === 'function') {
+      (this.appSecret as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSecretResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppSecretResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAppSecretResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The validity period of the access token.
+   * 
+   * Valid values: 900 to 10800. Unit: seconds.
+   * 
+   * Default value: 3600.
+   * 
+   * @example
+   * 3600
+   */
+  accessTokenValidity?: number;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * The name can be up to 64 characters in length. The name can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * myapp
+   */
+  appName?: string;
+  /**
+   * @remarks
+   * The type of the application. Valid values:
+   * 
+   * *   WebApp: a web application that interacts with a browser.
+   * *   NativeApp: a native application that runs on an operating system, such as a desktop operating system or a mobile operating system.
+   * *   ServerApp: an application that accesses Alibaba Cloud services without the need of manual user logon. User provisioning is automated based on the System for Cross-Domain Identity Management (SCIM) protocol.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * WebApp
+   */
+  appType?: string;
+  /**
+   * @remarks
+   * The display name of the application.
+   * 
+   * The name can be up to 24 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myapp
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * Indicates whether the application can be installed by using other Alibaba Cloud accounts. Valid values:
+   * 
+   * *   true: If you do not set this parameter for applications of the NativeApp and ServerApp types, true is used.
+   * *   false: If you do not set this parameter for applications of the WebApp type, false is used.
+   * 
+   * @example
+   * false
+   */
+  isMultiTenant?: boolean;
+  /**
+   * @remarks
+   * The scope of application permissions.
+   * 
+   * For more information about the application permission scope, see [Open authorization scope](https://help.aliyun.com/document_detail/93693.html). You can also call the [ListPredefinedScopes](https://help.aliyun.com/document_detail/187206.html) operation to obtain the permission scopes supported by different types of applications.
+   * 
+   * If you enter multiple permission scopes, separate them with semicolons (;).
+   * 
+   * @example
+   * aliuid
+   */
+  predefinedScopes?: string;
+  /**
+   * @remarks
+   * The callback URL.
+   * 
+   * If you enter multiple callback URLs, separate them with semicolons (;).
+   * 
+   * @example
+   * https://www.example.com
+   */
+  redirectUris?: string;
+  /**
+   * @remarks
+   * The validity period of the refreshed token.
+   * 
+   * Valid values: 7200 to 31536000. Unit: seconds.
+   * 
+   * Default value:
+   * 
+   * *   For applications of the WebApp and ServerApp types, if this parameter is left empty, the value 2592000 is used. The value 2592000 indicates that the validity period of the refreshed token is 30 days.
+   * *   For applications of the NativeApp type, if this parameter is left empty, the value 7776000 is used. The value 7776000 indicates that the validity period of the refreshed token is 90 days.
+   * 
+   * @example
+   * 2592000
+   */
+  refreshTokenValidity?: number;
+  /**
+   * @remarks
+   * The required permission.
+   * 
+   * You can specify one or more permissions for the `RequiredScopes` parameter. After you specify this parameter, the required permissions are automatically selected and cannot be revoked when a user grants permissions on the application.
+   * 
+   * If you enter multiple permissions, separate them with semicolons (;).
+   * 
+   * >  If the permission that you specify for the `RequiredScopes` parameter is not included in value of the `PredefinedScopes` parameter, the permission does not take effect.
+   * 
+   * @example
+   * aliuid;profile
+   */
+  requiredScopes?: string;
+  /**
+   * @remarks
+   * Indicates whether a secret is required. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * >- For applications of the WebApp and ServerApp types, this parameter is automatically set to true and cannot be changed.
+   * >- For applications of the NativeApp type, this parameter can be set to true or false. If you do not set this parameter, false is used. Applications of the NativeApp type run in untrusted environments and the secrets of these applications are not protected. Therefore, we recommend that you do not set this parameter to true unless otherwise specified. For more information, see [Use an application of the NativeApp type to log on to Alibaba Cloud](https://help.aliyun.com/document_detail/93697.html).
+   * 
+   * @example
+   * true
+   */
+  secretRequired?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessTokenValidity: 'AccessTokenValidity',
+      appName: 'AppName',
+      appType: 'AppType',
+      displayName: 'DisplayName',
+      isMultiTenant: 'IsMultiTenant',
+      predefinedScopes: 'PredefinedScopes',
+      redirectUris: 'RedirectUris',
+      refreshTokenValidity: 'RefreshTokenValidity',
+      requiredScopes: 'RequiredScopes',
+      secretRequired: 'SecretRequired',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessTokenValidity: 'number',
+      appName: 'string',
+      appType: 'string',
+      displayName: 'string',
+      isMultiTenant: 'boolean',
+      predefinedScopes: 'string',
+      redirectUris: 'string',
+      refreshTokenValidity: 'number',
+      requiredScopes: 'string',
+      secretRequired: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the application.
+   */
+  application?: CreateApplicationResponseBodyApplication;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6616F09B-2768-4C11-8866-A8EE4C4A583E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      application: 'Application',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      application: CreateApplicationResponseBodyApplication,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.application && typeof (this.application as any).validate === 'function') {
+      (this.application as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateApplicationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * The value can be up to 128 characters in length.
+   * 
+   * @example
+   * Dev-Team
+   */
+  comments?: string;
+  /**
+   * @remarks
+   * The display name of the RAM user group.
+   * 
+   * The name can be up to 24 characters in length.
+   * 
+   * @example
+   * Dev-Team
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * The name of the RAM user group. You must specify this parameter.
+   * 
+   * The name can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * Dev-Team
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comments: 'Comments',
+      displayName: 'DisplayName',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comments: 'string',
+      displayName: 'string',
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the RAM user group.
+   */
+  group?: CreateGroupResponseBodyGroup;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3C38192B-7BF8-45DA-8F0A-E670EA51426C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      group: 'Group',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      group: CreateGroupResponseBodyGroup,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.group && typeof (this.group as any).validate === 'function') {
+      (this.group as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLoginProfileRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether multi-factor authentication (MFA) must be enabled. Valid values:
+   * 
+   * *   true: MFA must be enabled. The RAM user must bind an MFA device at the next logon.
+   * *   false: MFA is not enabled. This is the default value.
+   * 
+   * @example
+   * false
+   */
+  MFABindRequired?: boolean;
+  /**
+   * @remarks
+   * The password that is used to log on to the console.
+   * 
+   * The password must meet the complexity requirements.
+   * 
+   * @example
+   * mypassword
+   */
+  password?: string;
+  /**
+   * @remarks
+   * Specifies whether the RAM user must reset the password at the next logon. Default value: false. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  passwordResetRequired?: boolean;
+  /**
+   * @remarks
+   * The status of password-based logon. Valid values:
+   * 
+   * *   Active: Password-based logon is enabled. This is the default value.
+   * *   Inactive: Password-based logon is disabled.
+   * 
+   * @example
+   * Active
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      MFABindRequired: 'MFABindRequired',
+      password: 'Password',
+      passwordResetRequired: 'PasswordResetRequired',
+      status: 'Status',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      MFABindRequired: 'boolean',
+      password: 'string',
+      passwordResetRequired: 'boolean',
+      status: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLoginProfileResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The logon information.
+   */
+  loginProfile?: CreateLoginProfileResponseBodyLoginProfile;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 29CB303C-1F05-43A6-A6BC-EBC5A797F8DB
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loginProfile: 'LoginProfile',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loginProfile: CreateLoginProfileResponseBodyLoginProfile,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.loginProfile && typeof (this.loginProfile as any).validate === 'function') {
+      (this.loginProfile as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLoginProfileResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLoginProfileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateLoginProfileResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOIDCProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the client, which is provided by the external IdP Okta. If you want to specify multiple client IDs, separate the client IDs with commas (,).
+   * 
+   * The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods, (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.``
+   * 
+   * The client ID can be up to 64 characters in length.
+   * 
+   * @example
+   * 498469743454717****
+   */
+  clientIds?: string;
+  /**
+   * @remarks
+   * The description of the OIDC IdP.
+   * 
+   * The description can be up to 256 characters in length.
+   * 
+   * @example
+   * This is an OIDC Provider.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The fingerprint of the HTTPS certificate, which is provided by the external IdP Okta. If you want to specify multiple fingerprints, separate the fingerprints with commas (,).
+   * 
+   * The fingerprint can contain letters and digits.
+   * 
+   * The fingerprint can be up to 40 characters in length.
+   * 
+   * @example
+   * 902ef2deeb3c5b13ea4c3d5193629309e231****
+   */
+  fingerprints?: string;
+  /**
+   * @remarks
+   * The earliest time when an external IdP can issue an ID token. If the value of the iat field in the ID token is later than the current time, the request is rejected. Unit: hours. Valid values: 1 to 168.
+   * 
+   * @example
+   * 6
+   */
+  issuanceLimitTime?: number;
+  /**
+   * @remarks
+   * The URL of the issuer, which is provided by the external IdP. The URL of the issuer must be unique within an Alibaba Cloud account.
+   * 
+   * The URL of the issuer must start with `https` and be in the valid URL format. The URL cannot contain query parameters that follow a question mark (`?`) or logon information that is identified by at signs (`@`). The URL cannot be a fragment URL that contains number signs (`#`).
+   * 
+   * The URL can be up to 255 characters in length.
+   * 
+   * @example
+   * https://dev-xxxxxx.okta.com
+   */
+  issuerUrl?: string;
+  /**
+   * @remarks
+   * The name of the OIDC IdP.
+   * 
+   * The name can contain letters, digits, and special characters and cannot start or end with the special characters. The special characters are `periods, (.), hyphens (-), and underscores (_)`.``
+   * 
+   * The name can be up to 128 characters in length.
+   * 
+   * @example
+   * TestOIDCProvider
+   */
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientIds: 'ClientIds',
+      description: 'Description',
+      fingerprints: 'Fingerprints',
+      issuanceLimitTime: 'IssuanceLimitTime',
+      issuerUrl: 'IssuerUrl',
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientIds: 'string',
+      description: 'string',
+      fingerprints: 'string',
+      issuanceLimitTime: 'number',
+      issuerUrl: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOIDCProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the OIDC IdP.
+   */
+  OIDCProvider?: CreateOIDCProviderResponseBodyOIDCProvider;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 64B11B41-636D-51E3-A39B-C8703CD2218C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: CreateOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.OIDCProvider && typeof (this.OIDCProvider as any).validate === 'function') {
+      (this.OIDCProvider as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOIDCProviderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOIDCProviderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSAMLProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * This is a provider.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The metadata file, which is Base64 encoded.
+   * 
+   * The file is provided by an IdP that supports SAML 2.0.
+   * 
+   * @example
+   * PD94bWwgdmVy****
+   */
+  encodedSAMLMetadataDocument?: string;
+  /**
+   * @remarks
+   * The name of the IdP.
+   * 
+   * The value can be up to 128 characters in length. The name can contain letters, digits,`  periods (.), hyphens (-), and underscores (_) `. The name cannot start or end with`  periods (.), hyphens (-), or underscores (_) `.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-provider
+   */
+  SAMLProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      encodedSAMLMetadataDocument: 'EncodedSAMLMetadataDocument',
+      SAMLProviderName: 'SAMLProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      encodedSAMLMetadataDocument: 'string',
+      SAMLProviderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSAMLProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A95A763D-F6B7-5242-83EB-AB45CE67F358
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information of the IdP.
+   */
+  SAMLProvider?: CreateSAMLProviderResponseBodySAMLProvider;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      SAMLProvider: 'SAMLProvider',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      SAMLProvider: CreateSAMLProviderResponseBodySAMLProvider,
+    };
+  }
+
+  validate() {
+    if(this.SAMLProvider && typeof (this.SAMLProvider as any).validate === 'function') {
+      (this.SAMLProvider as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSAMLProviderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSAMLProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSAMLProviderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUserRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * The description must be 1 to 128 characters in length.
+   * 
+   * @example
+   * This is a cloud computing engineer.
+   */
+  comments?: string;
+  /**
+   * @remarks
+   * The display name of the RAM user.
+   * 
+   * The name must be 1 to 24 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * The email address of the RAM user.
+   * 
+   * > This parameter is valid only on the China site (aliyun.com).
+   * 
+   * @example
+   * alice@example.com
+   */
+  email?: string;
+  /**
+   * @remarks
+   * The mobile number of the RAM user.
+   * 
+   * Format: Country code-Mobile phone number.
+   * 
+   * > This parameter is valid only on the China site (aliyun.com).
+   * 
+   * @example
+   * 86-1868888****
+   */
+  mobilePhone?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:`.
+   */
+  tag?: CreateUserRequestTag[];
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name. For more information about how to obtain the default domain name, see [GetDefaultDomain](https://help.aliyun.com/document_detail/186720.html).
+   * 
+   * The value of `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be 1 to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comments: 'Comments',
+      displayName: 'DisplayName',
+      email: 'Email',
+      mobilePhone: 'MobilePhone',
+      tag: 'Tag',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comments: 'string',
+      displayName: 'string',
+      email: 'string',
+      mobilePhone: 'string',
+      tag: { 'type': 'array', 'itemType': CreateUserRequestTag },
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUserResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2BB8C44A-2862-4922-AD43-03924749173B
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the RAM user.
+   */
+  user?: CreateUserResponseBodyUser;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      user: CreateUserResponseBodyUser,
+    };
+  }
+
+  validate() {
+    if(this.user && typeof (this.user as any).validate === 'function') {
+      (this.user as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUserResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVirtualMFADeviceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the MFA device.
+   * 
+   * The name must be 1 to 64 characters in length and can contain letters, digits, and hyphens (-).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * device001
+   */
+  virtualMFADeviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      virtualMFADeviceName: 'VirtualMFADeviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      virtualMFADeviceName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVirtualMFADeviceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C609CC97-10FE-43EB-BE32-BDC219D8F1E4
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information of the MFA device.
+   */
+  virtualMFADevice?: CreateVirtualMFADeviceResponseBodyVirtualMFADevice;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      virtualMFADevice: 'VirtualMFADevice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      virtualMFADevice: CreateVirtualMFADeviceResponseBodyVirtualMFADevice,
+    };
+  }
+
+  validate() {
+    if(this.virtualMFADevice && typeof (this.virtualMFADevice as any).validate === 'function') {
+      (this.virtualMFADevice as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVirtualMFADeviceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVirtualMFADeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVirtualMFADeviceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessKeyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the AccessKey pair that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LTAI4GFTgcR8m8cZQDTH****
+   */
+  userAccessKeyId?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * If this parameter is empty, the AccessKey pair of the current user is deleted.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userAccessKeyId: 'UserAccessKeyId',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userAccessKeyId: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessKeyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessKeyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccessKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAccessKeyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppSecretRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 472457090344041****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * The ID of the application secret.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2efd5004-005c-4f05-83c6-5b1dd176****
+   */
+  appSecretId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appSecretId: 'AppSecretId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appSecretId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppSecretResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 85836703-8D4F-485F-9726-4D1C730F957E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppSecretResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppSecretResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAppSecretResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApplicationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 472457090344041****
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApplicationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 85836703-8D4F-485F-9726-4D1C730F957E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApplicationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteApplicationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 85836703-8D4F-485F-9726-4D1C730F957E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLoginProfileRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLoginProfileResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLoginProfileResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLoginProfileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteLoginProfileResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOIDCProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the OIDC IdP.
+   * 
+   * @example
+   * TestOIDCProvider
+   */
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProviderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOIDCProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 85836703-8D4F-485F-9726-4D1C730F957E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOIDCProviderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteOIDCProviderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSAMLProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the IdP that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-provider
+   */
+  SAMLProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      SAMLProviderName: 'SAMLProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      SAMLProviderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSAMLProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 85836703-8D4F-485F-9726-4D1C730F957E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSAMLProviderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSAMLProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSAMLProviderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the RAM user.
+   * 
+   * >  You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
+   * 
+   * @example
+   * 20732900249392****
+   */
+  userId?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * >  You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 85836703-8D4F-485F-9726-4D1C730F957E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVirtualMFADeviceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The serial number of the MFA device.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acs:ram::123456789012****:mfa/device002
+   */
+  serialNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serialNumber: 'SerialNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serialNumber: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVirtualMFADeviceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVirtualMFADeviceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVirtualMFADeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVirtualMFADeviceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableVirtualMFARequest extends $dara.Model {
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableVirtualMFAResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableVirtualMFAResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableVirtualMFAResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableVirtualMFAResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateCredentialReportResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BBCCA90A-A1F0-4B16-B355-692247197805
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The generation status of the user credential report. Valid values:
+   * 
+   * *   STARTED: The user credential report starts to generate.
+   * *   INPROGRESS: The user credential report is being generated.
+   * *   COMPLETED: The user credential report is generated.
+   * 
+   * @example
+   * STARTED
+   */
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      state: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateCredentialReportResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateCredentialReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateCredentialReportResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the AccessKey pair that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LTAI4GFTgcR8m8cZQDTH****
+   */
+  userAccessKeyId?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * If you do not specify this parameter, the AccessKey pair of the current user is queried.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userAccessKeyId: 'UserAccessKeyId',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userAccessKeyId: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the time when the AccessKey pair was used for the last time.
+   */
+  accessKeyLastUsed?: GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B29C79F6-354B-4297-A994-1338CC22A2EC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyLastUsed: 'AccessKeyLastUsed',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyLastUsed: GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.accessKeyLastUsed && typeof (this.accessKeyLastUsed as any).validate === 'function') {
+      (this.accessKeyLastUsed as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccessKeyLastUsedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccessKeyLastUsedResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountMFAInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether MFA is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  isMFAEnable?: boolean;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4BE83135-0B08-467C-B3A2-27B312FD0F57
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isMFAEnable: 'IsMFAEnable',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isMFAEnable: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountMFAInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountMFAInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccountMFAInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountSecurityPracticeReportResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the security report for the Alibaba Cloud account.
+   */
+  accountSecurityPracticeInfo?: GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfo;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ABA822EE-85C2-4418-9577-A1831FC8466D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountSecurityPracticeInfo: 'AccountSecurityPracticeInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountSecurityPracticeInfo: GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfo,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.accountSecurityPracticeInfo && typeof (this.accountSecurityPracticeInfo as any).validate === 'function') {
+      (this.accountSecurityPracticeInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountSecurityPracticeReportResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountSecurityPracticeReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccountSecurityPracticeReportResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountSummaryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 81313F5E-3C85-478F-BCC9-E1B70E4556DB
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The overview information of the Alibaba Cloud account.
+   */
+  summaryMap?: GetAccountSummaryResponseBodySummaryMap;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      summaryMap: 'SummaryMap',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      summaryMap: GetAccountSummaryResponseBodySummaryMap,
+    };
+  }
+
+  validate() {
+    if(this.summaryMap && typeof (this.summaryMap as any).validate === 'function') {
+      (this.summaryMap as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountSummaryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccountSummaryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppSecretRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 472457090344041****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * The ID of the application secret.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2efd5004-005c-4f05-83c6-5b1dd176****
+   */
+  appSecretId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appSecretId: 'AppSecretId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appSecretId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppSecretResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the application secret.
+   */
+  appSecret?: GetAppSecretResponseBodyAppSecret;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE46FC3C-3BDE-4771-B531-27B7B6EB533D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appSecret: 'AppSecret',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appSecret: GetAppSecretResponseBodyAppSecret,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.appSecret && typeof (this.appSecret as any).validate === 'function') {
+      (this.appSecret as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppSecretResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppSecretResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAppSecretResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 472457090344041****
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the application.
+   */
+  application?: GetApplicationResponseBodyApplication;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6616F09B-2768-4C11-8866-A8EE4C4A583E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      application: 'Application',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      application: GetApplicationResponseBodyApplication,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.application && typeof (this.application as any).validate === 'function') {
+      (this.application as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetApplicationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCredentialReportRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of entries per page. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be true.
+   * 
+   * Valid values: 1 to 3501. Default value: 3501.
+   * 
+   * @example
+   * 1000
+   */
+  maxItems?: string;
+  /**
+   * @remarks
+   * The token that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.``
+   * 
+   * @example
+   * EXAMPLE
+   */
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxItems: 'MaxItems',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxItems: 'string',
+      nextToken: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCredentialReportResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the user credential report.
+   * 
+   * The report is Base64-encoded. After you decode the report, the credential report is in the CSV format.
+   * 
+   * @example
+   * OVZWK4RMOVZW****
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The time when the user credential report was generated.
+   * 
+   * @example
+   * 2020-10-19T15:06:52Z
+   */
+  generatedTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the response is truncated. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  isTruncated?: string;
+  /**
+   * @remarks
+   * The parameter that is used to obtain the truncated part. This parameter takes effect only when `IsTruncated` is set to true.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7A01826E-7601-44B0-B4DF-2B0C509836DE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      generatedTime: 'GeneratedTime',
+      isTruncated: 'IsTruncated',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      generatedTime: 'string',
+      isTruncated: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCredentialReportResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCredentialReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCredentialReportResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDefaultDomainResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The default domain name.
+   * 
+   * @example
+   * examplecompany.onaliyun.com
+   */
+  defaultDomainName?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 66815255-7CCE-4759-AC37-9755794C3626
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultDomainName: 'DefaultDomainName',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultDomainName: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDefaultDomainResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDefaultDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDefaultDomainResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the RAM user group.
+   */
+  group?: GetGroupResponseBodyGroup;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 86ECEC3C-7262-4C3C-94B4-A98F7CC1F060
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      group: 'Group',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      group: GetGroupResponseBodyGroup,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.group && typeof (this.group as any).validate === 'function') {
+      (this.group as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoginProfileRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoginProfileResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The console logon configurations.
+   */
+  loginProfile?: GetLoginProfileResponseBodyLoginProfile;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E517F18B-632C-48FC-93F1-CDCBCC6F8444
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loginProfile: 'LoginProfile',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loginProfile: GetLoginProfileResponseBodyLoginProfile,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.loginProfile && typeof (this.loginProfile as any).validate === 'function') {
+      (this.loginProfile as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoginProfileResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLoginProfileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLoginProfileResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOIDCProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the OIDC IdP.
+   * 
+   * @example
+   * TestOIDCProvider
+   */
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProviderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOIDCProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the OIDC IdP.
+   */
+  OIDCProvider?: GetOIDCProviderResponseBodyOIDCProvider;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E5E1A300-279D-5FBD-A8CF-F4EDC20C4896
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: GetOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.OIDCProvider && typeof (this.OIDCProvider as any).validate === 'function') {
+      (this.OIDCProvider as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOIDCProviderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOIDCProviderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPasswordPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the password policy.
+   */
+  passwordPolicy?: GetPasswordPolicyResponseBodyPasswordPolicy;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BDAA8408-E67C-428B-BFF0-1B2AC05C9610
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passwordPolicy: 'PasswordPolicy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passwordPolicy: GetPasswordPolicyResponseBodyPasswordPolicy,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.passwordPolicy && typeof (this.passwordPolicy as any).validate === 'function') {
+      (this.passwordPolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPasswordPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPasswordPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPasswordPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSAMLProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the IdP.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-provider
+   */
+  SAMLProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      SAMLProviderName: 'SAMLProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      SAMLProviderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSAMLProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BAADB995-0C7A-476D-B293-7E94568EEDFB
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the IdP.
+   */
+  SAMLProvider?: GetSAMLProviderResponseBodySAMLProvider;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      SAMLProvider: 'SAMLProvider',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      SAMLProvider: GetSAMLProviderResponseBodySAMLProvider,
+    };
+  }
+
+  validate() {
+    if(this.SAMLProvider && typeof (this.SAMLProvider as any).validate === 'function') {
+      (this.SAMLProvider as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSAMLProviderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSAMLProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSAMLProviderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSecurityPreferenceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 30C9068D-FBAA-4998-9986-8A562FED0BC3
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The details of security preferences.
+   */
+  securityPreference?: GetSecurityPreferenceResponseBodySecurityPreference;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      securityPreference: 'SecurityPreference',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      securityPreference: GetSecurityPreferenceResponseBodySecurityPreference,
+    };
+  }
+
+  validate() {
+    if(this.securityPreference && typeof (this.securityPreference as any).validate === 'function') {
+      (this.securityPreference as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSecurityPreferenceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSecurityPreferenceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSecurityPreferenceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The AccessKey ID of the RAM user.
+   * 
+   * > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
+   * 
+   * @example
+   * LTAI4GFTgcR8m8cZQDTH****
+   */
+  userAccessKeyId?: string;
+  /**
+   * @remarks
+   * The ID of the RAM user.
+   * 
+   * > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
+   * 
+   * @example
+   * 20732900249392****
+   */
+  userId?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name.
+   * 
+   * The value of `UserPrincipalName` must be `1 to 128` characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be `1 to 64` characters in length.
+   * 
+   * > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userAccessKeyId: 'UserAccessKeyId',
+      userId: 'UserId',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userAccessKeyId: 'string',
+      userId: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4507D1CD-526A-4E2B-A1E2-3AB045D1EE0B
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the RAM user.
+   */
+  user?: GetUserResponseBodyUser;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      user: GetUserResponseBodyUser,
+    };
+  }
+
+  validate() {
+    if(this.user && typeof (this.user as any).validate === 'function') {
+      (this.user as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserMFAInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The logon name of the RAM user. This parameter is differently set in the following scenarios:
+   * 
+   * *   If you use a RAM user to call this operation, this parameter can be left empty. If you do not specify this parameter, the information of the MFA device that is bound to the RAM user is queried.
+   * *   If you use an Alibaba Cloud account to call this operation, you must set this parameter to the logon name of the RAM user that you want to query.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserMFAInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the MFA device is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  isMFAEnable?: boolean;
+  /**
+   * @remarks
+   * The information about the MFA device.
+   */
+  MFADevice?: GetUserMFAInfoResponseBodyMFADevice;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * FCF7322A-20A9-4F68-8B7F-F86958839BC0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isMFAEnable: 'IsMFAEnable',
+      MFADevice: 'MFADevice',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isMFAEnable: 'boolean',
+      MFADevice: GetUserMFAInfoResponseBodyMFADevice,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.MFADevice && typeof (this.MFADevice as any).validate === 'function') {
+      (this.MFADevice as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserMFAInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserMFAInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserMFAInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserSsoSettingsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 69FC3E5E-D3D9-434B-90CA-BBA8E0551A47
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The configurations of user-based SSO.
+   */
+  userSsoSettings?: GetUserSsoSettingsResponseBodyUserSsoSettings;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userSsoSettings: 'UserSsoSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userSsoSettings: GetUserSsoSettingsResponseBodyUserSsoSettings,
+    };
+  }
+
+  validate() {
+    if(this.userSsoSettings && typeof (this.userSsoSettings as any).validate === 'function') {
+      (this.userSsoSettings as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserSsoSettingsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserSsoSettingsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserSsoSettingsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVerificationInfoRequest extends $dara.Model {
+  /**
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVerificationInfoResponseBody extends $dara.Model {
+  /**
+   * @example
+   * B182C041-8C64-5F2F-A07B-FC67FAF89CF9
+   */
+  requestId?: string;
+  securityEmailDevice?: GetVerificationInfoResponseBodySecurityEmailDevice;
+  securityPhoneDevice?: GetVerificationInfoResponseBodySecurityPhoneDevice;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      securityEmailDevice: 'SecurityEmailDevice',
+      securityPhoneDevice: 'SecurityPhoneDevice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      securityEmailDevice: GetVerificationInfoResponseBodySecurityEmailDevice,
+      securityPhoneDevice: GetVerificationInfoResponseBodySecurityPhoneDevice,
+    };
+  }
+
+  validate() {
+    if(this.securityEmailDevice && typeof (this.securityEmailDevice as any).validate === 'function') {
+      (this.securityEmailDevice as any).validate();
+    }
+    if(this.securityPhoneDevice && typeof (this.securityPhoneDevice as any).validate === 'function') {
+      (this.securityPhoneDevice as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVerificationInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVerificationInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVerificationInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessKeysRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * If this parameter is empty, the AccessKey pairs of the current user are queried.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessKeysResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of AccessKey pairs.
+   */
+  accessKeys?: ListAccessKeysResponseBodyAccessKeys;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeys: 'AccessKeys',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeys: ListAccessKeysResponseBodyAccessKeys,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.accessKeys && typeof (this.accessKeys as any).validate === 'function') {
+      (this.accessKeys as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessKeysResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAccessKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAccessKeysResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppSecretIdsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 472457090344041****
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppSecretIdsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the application secret.
+   */
+  appSecrets?: ListAppSecretIdsResponseBodyAppSecrets;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5F2FD500-7173-47D6-BD2F-EB60879B4F16
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appSecrets: 'AppSecrets',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appSecrets: ListAppSecretIdsResponseBodyAppSecrets,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.appSecrets && typeof (this.appSecrets as any).validate === 'function') {
+      (this.appSecrets as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppSecretIdsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAppSecretIdsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAppSecretIdsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the application.
+   */
+  applications?: ListApplicationsResponseBodyApplications;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CE458B58-8C40-46F7-A9D4-CB85136B0C06
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: ListApplicationsResponseBodyApplications,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.applications && typeof (this.applications as any).validate === 'function') {
+      (this.applications as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApplicationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApplicationsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
+   * 
+   * Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
+  maxItems?: number;
+  static names(): { [key: string]: string } {
+    return {
+      marker: 'Marker',
+      maxItems: 'MaxItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      marker: 'string',
+      maxItems: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the RAM user groups.
+   */
+  groups?: ListGroupsResponseBodyGroups;
+  /**
+   * @remarks
+   * Indicates whether the response is truncated. Valid values:
+   * 
+   * - true
+   * - false
+   * 
+   * @example
+   * true
+   */
+  isTruncated?: boolean;
+  /**
+   * @remarks
+   * The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 065527AA-2F2E-AD7C-7484-F2626CFE4934
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groups: 'Groups',
+      isTruncated: 'IsTruncated',
+      marker: 'Marker',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groups: ListGroupsResponseBodyGroups,
+      isTruncated: 'boolean',
+      marker: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.groups && typeof (this.groups as any).validate === 'function') {
+      (this.groups as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGroupsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsForUserRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsForUserResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the RAM user groups.
+   */
+  groups?: ListGroupsForUserResponseBodyGroups;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7158A935-FB5E-49A7-8E52-FDA5B2B67247
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groups: 'Groups',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groups: ListGroupsForUserResponseBodyGroups,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.groups && typeof (this.groups as any).validate === 'function') {
+      (this.groups as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsForUserResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGroupsForUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGroupsForUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOIDCProvidersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The number of entries per page. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
+   * 
+   * Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
+  maxItems?: number;
+  static names(): { [key: string]: string } {
+    return {
+      marker: 'Marker',
+      maxItems: 'MaxItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      marker: 'string',
+      maxItems: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOIDCProvidersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the response is truncated. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  isTruncated?: boolean;
+  /**
+   * @remarks
+   * The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.``
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The information about the OIDC IdP.
+   */
+  OIDCProviders?: ListOIDCProvidersResponseBodyOIDCProviders;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D2148337-B86A-57F0-8B31-EB7BE0125226
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isTruncated: 'IsTruncated',
+      marker: 'Marker',
+      OIDCProviders: 'OIDCProviders',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isTruncated: 'boolean',
+      marker: 'string',
+      OIDCProviders: ListOIDCProvidersResponseBodyOIDCProviders,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.OIDCProviders && typeof (this.OIDCProviders as any).validate === 'function') {
+      (this.OIDCProviders as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOIDCProvidersResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOIDCProvidersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListOIDCProvidersResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPredefinedScopesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the application. Valid values:
+   * 
+   * *   WebApp
+   * *   NativeApp
+   * *   ServerApp
+   * 
+   * If this parameter is empty, the permissions on all types of applications are queried.
+   * 
+   * @example
+   * WebApp
+   */
+  appType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPredefinedScopesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of application permissions.
+   */
+  predefinedScopes?: ListPredefinedScopesResponseBodyPredefinedScopes;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 955C096D-EC99-480B-AF37-3921109107D0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      predefinedScopes: 'PredefinedScopes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      predefinedScopes: ListPredefinedScopesResponseBodyPredefinedScopes,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.predefinedScopes && typeof (this.predefinedScopes as any).validate === 'function') {
+      (this.predefinedScopes as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPredefinedScopesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPredefinedScopesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPredefinedScopesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSAMLProvidersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
+   * 
+   * Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
+  maxItems?: number;
+  static names(): { [key: string]: string } {
+    return {
+      marker: 'Marker',
+      maxItems: 'MaxItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      marker: 'string',
+      maxItems: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSAMLProvidersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the response is truncated. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  isTruncated?: boolean;
+  /**
+   * @remarks
+   * The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2D8B70D3-E194-41C9-93C5-F6A10D716D24
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information of the IdP.
+   */
+  SAMLProviders?: ListSAMLProvidersResponseBodySAMLProviders;
+  static names(): { [key: string]: string } {
+    return {
+      isTruncated: 'IsTruncated',
+      marker: 'Marker',
+      requestId: 'RequestId',
+      SAMLProviders: 'SAMLProviders',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isTruncated: 'boolean',
+      marker: 'string',
+      requestId: 'string',
+      SAMLProviders: ListSAMLProvidersResponseBodySAMLProviders,
+    };
+  }
+
+  validate() {
+    if(this.SAMLProviders && typeof (this.SAMLProviders as any).validate === 'function') {
+      (this.SAMLProviders as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSAMLProvidersResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSAMLProvidersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSAMLProvidersResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The token that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a4883
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The number of entries per page. If a response is truncated because it reaches the value of PageSize, the value of IsTruncated will be true. Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 2
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of resource N.
+   * 
+   * Valid values of N: 1 to 50. If ResourceType is set to user, the resource ID is the ID of the RAM user.
+   * 
+   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The name of resource N.
+   * 
+   * Valid values of N: 1 to 50. If ResourceType is set to user, the resource name is the name of the RAM user.
+   * 
+   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+   */
+  resourcePrincipalName?: string[];
+  /**
+   * @remarks
+   * The type of the resource. Valid value:
+   * 
+   * *   user: a RAM user
+   * 
+   * @example
+   * user
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * Valid values of N: 1 to 20. N must be consecutive.
+   */
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
+      resourceId: 'ResourceId',
+      resourcePrincipalName: 'ResourcePrincipalName',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      pageSize: 'number',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourcePrincipalName: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.resourcePrincipalName)) {
+      $dara.Model.validateArray(this.resourcePrincipalName);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the response is truncated. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  isTruncated?: boolean;
+  /**
+   * @remarks
+   * The marker. This parameter is returned only if the value of IsTruncated is true. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4BE83135-0B08-467C-B3A2-27B312FD0F57
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The tag key.
+   */
+  tagResources?: ListTagResourcesResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      isTruncated: 'IsTruncated',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isTruncated: 'boolean',
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: ListTagResourcesResponseBodyTagResources,
+    };
+  }
+
+  validate() {
+    if(this.tagResources && typeof (this.tagResources as any).validate === 'function') {
+      (this.tagResources as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserBasicInfosRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
+   * 
+   * Valid values: 1 to 1000. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
+  maxItems?: number;
+  status?: string;
+  /**
+   * @remarks
+   * The tag value.
+   */
+  tag?: ListUserBasicInfosRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      marker: 'Marker',
+      maxItems: 'MaxItems',
+      status: 'Status',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      marker: 'string',
+      maxItems: 'number',
+      status: 'string',
+      tag: { 'type': 'array', 'itemType': ListUserBasicInfosRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserBasicInfosResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the response is truncated. Valid value:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  isTruncated?: boolean;
+  /**
+   * @remarks
+   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EF2B25FD-CADE-445B-BE4D-E082E0FF1A0F
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * An array that consists of the information about the RAM user.
+   */
+  userBasicInfos?: ListUserBasicInfosResponseBodyUserBasicInfos;
+  static names(): { [key: string]: string } {
+    return {
+      isTruncated: 'IsTruncated',
+      marker: 'Marker',
+      requestId: 'RequestId',
+      userBasicInfos: 'UserBasicInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isTruncated: 'boolean',
+      marker: 'string',
+      requestId: 'string',
+      userBasicInfos: ListUserBasicInfosResponseBodyUserBasicInfos,
+    };
+  }
+
+  validate() {
+    if(this.userBasicInfos && typeof (this.userBasicInfos as any).validate === 'function') {
+      (this.userBasicInfos as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserBasicInfosResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserBasicInfosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserBasicInfosResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The number of entries per page. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be true.
+   * 
+   * Valid values: 1 to 1000. Default value: 1000.
+   * 
+   * @example
+   * 1000
+   */
+  maxItems?: number;
+  status?: string;
+  /**
+   * @remarks
+   * The tags. A maximum number of 20 tags are supported.
+   */
+  tag?: ListUsersRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      marker: 'Marker',
+      maxItems: 'MaxItems',
+      status: 'Status',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      marker: 'string',
+      maxItems: 'number',
+      status: 'string',
+      tag: { 'type': 'array', 'itemType': ListUsersRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the response is truncated. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  isTruncated?: boolean;
+  /**
+   * @remarks
+   * The parameter that is used to obtain the truncated part. It takes effect only when `IsTruncated` is set to `true`.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The details of the RAM user.
+   */
+  users?: ListUsersResponseBodyUsers;
+  static names(): { [key: string]: string } {
+    return {
+      isTruncated: 'IsTruncated',
+      marker: 'Marker',
+      requestId: 'RequestId',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isTruncated: 'boolean',
+      marker: 'string',
+      requestId: 'string',
+      users: ListUsersResponseBodyUsers,
+    };
+  }
+
+  validate() {
+    if(this.users && typeof (this.users as any).validate === 'function') {
+      (this.users as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUsersResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersForGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Test-Team
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.``
+   * 
+   * When you call the operation for the first time, if the total number of returned entries exceeds the value of `MaxItems`, the entries are truncated. The system returns entries based on the value of `MaxItems` and does not return the excess entries. In this case, the value of the response parameter `IsTruncated` is `true`, and `Marker` is returned. In the next call, you can use the value of `Marker` and maintain the settings of the other request parameters to query the excess entries. You can repeat the call until the value of `IsTruncated` becomes `false`. This way, all entries are returned.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Valid values: 1 to 100.
+   * 
+   * Default value: 100.
+   * 
+   * @example
+   * 100
+   */
+  maxItems?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      marker: 'Marker',
+      maxItems: 'MaxItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      marker: 'string',
+      maxItems: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersForGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the response is truncated. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  isTruncated?: boolean;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * >  This parameter is returned only when `IsTruncated` is `true`.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 789FF581-B3C8-43A8-9115-54304B46D05C
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the RAM users.
+   */
+  users?: ListUsersForGroupResponseBodyUsers;
+  static names(): { [key: string]: string } {
+    return {
+      isTruncated: 'IsTruncated',
+      marker: 'Marker',
+      requestId: 'RequestId',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isTruncated: 'boolean',
+      marker: 'string',
+      requestId: 'string',
+      users: ListUsersForGroupResponseBodyUsers,
+    };
+  }
+
+  validate() {
+    if(this.users && typeof (this.users as any).validate === 'function') {
+      (this.users as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersForGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUsersForGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUsersForGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirtualMFADevicesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.``
+   * 
+   * When you call the operation for the first time, if the total number of returned entries exceeds the value of `MaxItems`, the entries are truncated. The system returns entries based on the value of `MaxItems` and does not return the excess entries. In this case, the value of the response parameter `IsTruncated` is `true`, and `Marker` is returned. In the next call, you can use the value of `Marker` and maintain the settings of the other request parameters to query the excess entries. You can repeat the call until the value of the `IsTruncated` parameter becomes `false`. This way, all entries are returned.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Valid values: 1 to 100.
+   * 
+   * Default value: 100.
+   * 
+   * @example
+   * 100
+   */
+  maxItems?: number;
+  static names(): { [key: string]: string } {
+    return {
+      marker: 'Marker',
+      maxItems: 'MaxItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      marker: 'string',
+      maxItems: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirtualMFADevicesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the response is truncated. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  isTruncated?: boolean;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * >  This parameter is returned only when `IsTruncated` is `true`.
+   * 
+   * @example
+   * EXAMPLE
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 32272612-DF82-485E-8BA9-AFA4E0C3D0BA
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the MFA device.
+   */
+  virtualMFADevices?: ListVirtualMFADevicesResponseBodyVirtualMFADevices;
+  static names(): { [key: string]: string } {
+    return {
+      isTruncated: 'IsTruncated',
+      marker: 'Marker',
+      requestId: 'RequestId',
+      virtualMFADevices: 'VirtualMFADevices',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isTruncated: 'boolean',
+      marker: 'string',
+      requestId: 'string',
+      virtualMFADevices: ListVirtualMFADevicesResponseBodyVirtualMFADevices,
+    };
+  }
+
+  validate() {
+    if(this.virtualMFADevices && typeof (this.virtualMFADevices as any).validate === 'function') {
+      (this.virtualMFADevices as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirtualMFADevicesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVirtualMFADevicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVirtualMFADevicesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveClientIdFromOIDCProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client ID that you want to remove.
+   * 
+   * The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods, (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.``
+   * 
+   * The client ID can be up to 64 characters in length.
+   * 
+   * @example
+   * 498469743454717****
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * The name of the OIDC IdP.
+   * 
+   * @example
+   * TestOIDCProvider
+   */
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveClientIdFromOIDCProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the OIDC IdP.
+   */
+  OIDCProvider?: RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9A8F3B-AFA5-5C8F-999D-F97BC7CF1FC5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.OIDCProvider && typeof (this.OIDCProvider as any).validate === 'function') {
+      (this.OIDCProvider as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveClientIdFromOIDCProviderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveClientIdFromOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveClientIdFromOIDCProviderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveFingerprintFromOIDCProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The fingerprint that you want to remove.
+   * 
+   * @example
+   * 6938fd4d98bab03faadb97b34396831e3780****
+   */
+  fingerprint?: string;
+  /**
+   * @remarks
+   * The name of the OIDC IdP.
+   * 
+   * @example
+   * TestOIDCProvider
+   */
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fingerprint: 'Fingerprint',
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fingerprint: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveFingerprintFromOIDCProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the OIDC IdP.
+   */
+  OIDCProvider?: RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C90CE971-4C7F-5D93-BD3E-2D0E79D03C01
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.OIDCProvider && typeof (this.OIDCProvider as any).validate === 'function') {
+      (this.OIDCProvider as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveFingerprintFromOIDCProviderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveFingerprintFromOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveFingerprintFromOIDCProviderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveUserFromGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Test-Team
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alice@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveUserFromGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 85836703-8D4F-485F-9726-4D1C730F957E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveUserFromGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveUserFromGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveUserFromGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDefaultDomainRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The default domain name.
+   * 
+   * The name is in the format of `<AccountAlias>.onaliyun.com`. `<AccountAlias>` indicates the account alias. By default, the value of AccountAlias is the ID of the Alibaba Cloud account. The default domain name must end with `.onaliyun.com`.
+   * 
+   * The default domain name can contain up to 64 characters in length. The name can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * 
+   * >  The default domain name cannot start or end with a hyphen (-) and cannot have two consecutive hyphens (-).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * examplecompany.onaliyun.com
+   */
+  defaultDomainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultDomainName: 'DefaultDomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultDomainName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDefaultDomainResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The default domain name.
+   * 
+   * @example
+   * examplecompany.onaliyun.com
+   */
+  defaultDomainName?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 66815255-7CCE-4759-AC37-9755794C3626
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultDomainName: 'DefaultDomainName',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultDomainName: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDefaultDomainResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetDefaultDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetDefaultDomainResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetPasswordPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to disable logon after the password expires. Valid values:
+   * 
+   * *   true: After the password expires, you cannot use the password to log on to the console. You can log on to the console only after you reset the password by using your Alibaba Cloud account or as a RAM user that has administrative rights.
+   * *   false: After the password expires, you can change the password to log on to the console. This is the default value.
+   * 
+   * @example
+   * false
+   */
+  hardExpire?: boolean;
+  /**
+   * @remarks
+   * The maximum number of password retries. If you enter the wrong passwords for the specified consecutive times, the account is locked for one hour.
+   * 
+   * Valid values: 0 to 32.
+   * 
+   * The default value is 0, which indicates that the password retries are not limited.
+   * 
+   * @example
+   * 0
+   */
+  maxLoginAttemps?: number;
+  /**
+   * @remarks
+   * The validity period of the password.
+   * 
+   * Valid values: 0 to 1095. Unit: days.
+   * 
+   * The default value is 0, which indicates that the password never expires.
+   * 
+   * @example
+   * 0
+   */
+  maxPasswordAge?: number;
+  /**
+   * @remarks
+   * The minimum number of unique characters in the password.
+   * 
+   * Valid values: 0 to 8.
+   * 
+   * The default value is 0, which indicates that no limits are imposed on the number of unique characters in a password.
+   * 
+   * @example
+   * 0
+   */
+  minimumPasswordDifferentCharacter?: number;
+  /**
+   * @remarks
+   * The minimum number of characters in the password.
+   * 
+   * Valid values: 8 to 32. Default value: 8.
+   * 
+   * @example
+   * 8
+   */
+  minimumPasswordLength?: number;
+  /**
+   * @remarks
+   * Specifies whether to exclude the username from the password. Valid values:
+   * 
+   * *   true: A password cannot contain the username.
+   * *   false: A password can contain the username. This is the default value.
+   * 
+   * @example
+   * false
+   */
+  passwordNotContainUserName?: boolean;
+  /**
+   * @remarks
+   * The policy for password history check.
+   * 
+   * The previous N passwords cannot be reused. Valid values of N: 0 to 24.
+   * 
+   * The default value is 0, which indicates that RAM users can reuse previous passwords.
+   * 
+   * @example
+   * 0
+   */
+  passwordReusePrevention?: number;
+  /**
+   * @remarks
+   * Specifies whether the password must contain lowercase letters. Default value: false. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  requireLowercaseCharacters?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the password must contain digits. Default value: false. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  requireNumbers?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the password must contain special characters. Default value: false. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  requireSymbols?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the password must contain uppercase letters. Default value: false. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  requireUppercaseCharacters?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      hardExpire: 'HardExpire',
+      maxLoginAttemps: 'MaxLoginAttemps',
+      maxPasswordAge: 'MaxPasswordAge',
+      minimumPasswordDifferentCharacter: 'MinimumPasswordDifferentCharacter',
+      minimumPasswordLength: 'MinimumPasswordLength',
+      passwordNotContainUserName: 'PasswordNotContainUserName',
+      passwordReusePrevention: 'PasswordReusePrevention',
+      requireLowercaseCharacters: 'RequireLowercaseCharacters',
+      requireNumbers: 'RequireNumbers',
+      requireSymbols: 'RequireSymbols',
+      requireUppercaseCharacters: 'RequireUppercaseCharacters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hardExpire: 'boolean',
+      maxLoginAttemps: 'number',
+      maxPasswordAge: 'number',
+      minimumPasswordDifferentCharacter: 'number',
+      minimumPasswordLength: 'number',
+      passwordNotContainUserName: 'boolean',
+      passwordReusePrevention: 'number',
+      requireLowercaseCharacters: 'boolean',
+      requireNumbers: 'boolean',
+      requireSymbols: 'boolean',
+      requireUppercaseCharacters: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetPasswordPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the password policy.
+   */
+  passwordPolicy?: SetPasswordPolicyResponseBodyPasswordPolicy;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3FB5551F-B2ED-40D4-8392-1E4AC2384EFD
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passwordPolicy: 'PasswordPolicy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passwordPolicy: SetPasswordPolicyResponseBodyPasswordPolicy,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.passwordPolicy && typeof (this.passwordPolicy as any).validate === 'function') {
+      (this.passwordPolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetPasswordPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetPasswordPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetPasswordPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSecurityPreferenceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether RAM users can change their passwords. Valid values:
+   * 
+   * *   true (default)
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  allowUserToChangePassword?: boolean;
+  allowUserToLoginWithPasskey?: boolean;
+  /**
+   * @remarks
+   * Specifies whether RAM users can manage their AccessKey pairs. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * @example
+   * false
+   */
+  allowUserToManageAccessKeys?: boolean;
+  /**
+   * @remarks
+   * Specifies whether RAM users can manage their MFA devices. Valid values:
+   * 
+   * *   true (default)
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  allowUserToManageMFADevices?: boolean;
+  /**
+   * @remarks
+   * Specifies whether RAM users can manage their personal DingTalk accounts, such as binding and unbinding of the accounts. Valid values:
+   * 
+   * *   true (default)
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  allowUserToManagePersonalDingTalk?: boolean;
+  /**
+   * @remarks
+   * Specifies whether RAM users can remember the MFA devices for seven days. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * @example
+   * false
+   */
+  enableSaveMFATicket?: boolean;
+  /**
+   * @remarks
+   * The subnet mask that specifies the IP addresses from which you can log on to the Alibaba Cloud Management Console. This parameter takes effect on password-based logon and single sign-on (SSO). This parameter does not take effect on API calls that are authenticated by using AccessKey pairs.
+   * 
+   * *   If you specify a subnet mask, RAM users can use only the IP addresses in the subnet mask to log on to the Alibaba Cloud Management Console.
+   * *   If you do not specify a subnet mask, RAM users can use all IP addresses to log on to the Alibaba Cloud Management Console.
+   * 
+   * If you need to specify multiple subnet masks, separate the subnet masks with semicolons (;). Example: 192.168.0.0/16;10.0.0.0/8.
+   * 
+   * You can specify up to 40 subnet masks. The total length of the subnet masks can be a maximum of 512 characters.
+   * 
+   * @example
+   * 10.0.0.0/8
+   */
+  loginNetworkMasks?: string;
+  /**
+   * @remarks
+   * The validity period of the logon session of RAM users.
+   * 
+   * Valid values: 1 to 24. Unit: hours.
+   * 
+   * Default value: 6.
+   * 
+   * @example
+   * 6
+   */
+  loginSessionDuration?: number;
+  /**
+   * @remarks
+   * Specifies whether MFA is required for all RAM users when they log on to the Alibaba Cloud Management Console. This parameter is used to replace EnforceMFAForLogin. EnforceMFAForLogin is still valid. However, we recommend that you use MFAOperationForLogin. Valid values:
+   * 
+   * *   mandatory: MFA is required for all RAM users. If you use EnforceMFAForLogin, set the value to true.
+   * *   independent (default): User-specific settings are applied. If you use EnforceMFAForLogin, set the value to false.
+   * *   adaptive: MFA is required only for RAM users who initiated unusual logons.
+   * 
+   * @example
+   * adaptive
+   */
+  MFAOperationForLogin?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable MFA for RAM users who initiated unusual logons. Valid values:
+   * 
+   * *   autonomous (default): yes. MFA is prompted for RAM users who initiated unusual logons. However, the RAM users are allowed to skip MFA.
+   * *   enforceVerify: MFA is prompted for RAM users who initiated unusual logons and the RAM users cannot skip MFA.
+   * 
+   * @example
+   * autonomous
+   */
+  operationForRiskLogin?: string;
+  /**
+   * @remarks
+   * The MFA methods.
+   */
+  verificationTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allowUserToChangePassword: 'AllowUserToChangePassword',
+      allowUserToLoginWithPasskey: 'AllowUserToLoginWithPasskey',
+      allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
+      allowUserToManageMFADevices: 'AllowUserToManageMFADevices',
+      allowUserToManagePersonalDingTalk: 'AllowUserToManagePersonalDingTalk',
+      enableSaveMFATicket: 'EnableSaveMFATicket',
+      loginNetworkMasks: 'LoginNetworkMasks',
+      loginSessionDuration: 'LoginSessionDuration',
+      MFAOperationForLogin: 'MFAOperationForLogin',
+      operationForRiskLogin: 'OperationForRiskLogin',
+      verificationTypes: 'VerificationTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowUserToChangePassword: 'boolean',
+      allowUserToLoginWithPasskey: 'boolean',
+      allowUserToManageAccessKeys: 'boolean',
+      allowUserToManageMFADevices: 'boolean',
+      allowUserToManagePersonalDingTalk: 'boolean',
+      enableSaveMFATicket: 'boolean',
+      loginNetworkMasks: 'string',
+      loginSessionDuration: 'number',
+      MFAOperationForLogin: 'string',
+      operationForRiskLogin: 'string',
+      verificationTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.verificationTypes)) {
+      $dara.Model.validateArray(this.verificationTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSecurityPreferenceShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether RAM users can change their passwords. Valid values:
+   * 
+   * *   true (default)
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  allowUserToChangePassword?: boolean;
+  allowUserToLoginWithPasskey?: boolean;
+  /**
+   * @remarks
+   * Specifies whether RAM users can manage their AccessKey pairs. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * @example
+   * false
+   */
+  allowUserToManageAccessKeys?: boolean;
+  /**
+   * @remarks
+   * Specifies whether RAM users can manage their MFA devices. Valid values:
+   * 
+   * *   true (default)
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  allowUserToManageMFADevices?: boolean;
+  /**
+   * @remarks
+   * Specifies whether RAM users can manage their personal DingTalk accounts, such as binding and unbinding of the accounts. Valid values:
+   * 
+   * *   true (default)
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  allowUserToManagePersonalDingTalk?: boolean;
+  /**
+   * @remarks
+   * Specifies whether RAM users can remember the MFA devices for seven days. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * @example
+   * false
+   */
+  enableSaveMFATicket?: boolean;
+  /**
+   * @remarks
+   * The subnet mask that specifies the IP addresses from which you can log on to the Alibaba Cloud Management Console. This parameter takes effect on password-based logon and single sign-on (SSO). This parameter does not take effect on API calls that are authenticated by using AccessKey pairs.
+   * 
+   * *   If you specify a subnet mask, RAM users can use only the IP addresses in the subnet mask to log on to the Alibaba Cloud Management Console.
+   * *   If you do not specify a subnet mask, RAM users can use all IP addresses to log on to the Alibaba Cloud Management Console.
+   * 
+   * If you need to specify multiple subnet masks, separate the subnet masks with semicolons (;). Example: 192.168.0.0/16;10.0.0.0/8.
+   * 
+   * You can specify up to 40 subnet masks. The total length of the subnet masks can be a maximum of 512 characters.
+   * 
+   * @example
+   * 10.0.0.0/8
+   */
+  loginNetworkMasks?: string;
+  /**
+   * @remarks
+   * The validity period of the logon session of RAM users.
+   * 
+   * Valid values: 1 to 24. Unit: hours.
+   * 
+   * Default value: 6.
+   * 
+   * @example
+   * 6
+   */
+  loginSessionDuration?: number;
+  /**
+   * @remarks
+   * Specifies whether MFA is required for all RAM users when they log on to the Alibaba Cloud Management Console. This parameter is used to replace EnforceMFAForLogin. EnforceMFAForLogin is still valid. However, we recommend that you use MFAOperationForLogin. Valid values:
+   * 
+   * *   mandatory: MFA is required for all RAM users. If you use EnforceMFAForLogin, set the value to true.
+   * *   independent (default): User-specific settings are applied. If you use EnforceMFAForLogin, set the value to false.
+   * *   adaptive: MFA is required only for RAM users who initiated unusual logons.
+   * 
+   * @example
+   * adaptive
+   */
+  MFAOperationForLogin?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable MFA for RAM users who initiated unusual logons. Valid values:
+   * 
+   * *   autonomous (default): yes. MFA is prompted for RAM users who initiated unusual logons. However, the RAM users are allowed to skip MFA.
+   * *   enforceVerify: MFA is prompted for RAM users who initiated unusual logons and the RAM users cannot skip MFA.
+   * 
+   * @example
+   * autonomous
+   */
+  operationForRiskLogin?: string;
+  /**
+   * @remarks
+   * The MFA methods.
+   */
+  verificationTypesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowUserToChangePassword: 'AllowUserToChangePassword',
+      allowUserToLoginWithPasskey: 'AllowUserToLoginWithPasskey',
+      allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
+      allowUserToManageMFADevices: 'AllowUserToManageMFADevices',
+      allowUserToManagePersonalDingTalk: 'AllowUserToManagePersonalDingTalk',
+      enableSaveMFATicket: 'EnableSaveMFATicket',
+      loginNetworkMasks: 'LoginNetworkMasks',
+      loginSessionDuration: 'LoginSessionDuration',
+      MFAOperationForLogin: 'MFAOperationForLogin',
+      operationForRiskLogin: 'OperationForRiskLogin',
+      verificationTypesShrink: 'VerificationTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowUserToChangePassword: 'boolean',
+      allowUserToLoginWithPasskey: 'boolean',
+      allowUserToManageAccessKeys: 'boolean',
+      allowUserToManageMFADevices: 'boolean',
+      allowUserToManagePersonalDingTalk: 'boolean',
+      enableSaveMFATicket: 'boolean',
+      loginNetworkMasks: 'string',
+      loginSessionDuration: 'number',
+      MFAOperationForLogin: 'string',
+      operationForRiskLogin: 'string',
+      verificationTypesShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSecurityPreferenceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 17494710-B4BA-4185-BBBB-C1A6ABDE1639
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The details of security preferences.
+   */
+  securityPreference?: SetSecurityPreferenceResponseBodySecurityPreference;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      securityPreference: 'SecurityPreference',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      securityPreference: SetSecurityPreferenceResponseBodySecurityPreference,
+    };
+  }
+
+  validate() {
+    if(this.securityPreference && typeof (this.securityPreference as any).validate === 'function') {
+      (this.securityPreference as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSecurityPreferenceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetSecurityPreferenceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetSecurityPreferenceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetUserSsoSettingsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The auxiliary domain name.
+   * 
+   * @example
+   * example.com
+   */
+  auxiliaryDomain?: string;
+  /**
+   * @remarks
+   * The metadata file, which is Base64-encoded.
+   * 
+   * The file is provided by an IdP that supports SAML 2.0.
+   * 
+   * @example
+   * PD94bWwgdmVy****
+   */
+  metadataDocument?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable SSO for the RAM user. Default value: false. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  ssoEnabled?: boolean;
+  ssoLoginWithDomain?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      auxiliaryDomain: 'AuxiliaryDomain',
+      metadataDocument: 'MetadataDocument',
+      ssoEnabled: 'SsoEnabled',
+      ssoLoginWithDomain: 'SsoLoginWithDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auxiliaryDomain: 'string',
+      metadataDocument: 'string',
+      ssoEnabled: 'boolean',
+      ssoLoginWithDomain: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetUserSsoSettingsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 87F2E3F6-28A0-43F3-A77F-F7760E62F61E
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The configurations of user-based SSO.
+   */
+  userSsoSettings?: SetUserSsoSettingsResponseBodyUserSsoSettings;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userSsoSettings: 'UserSsoSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userSsoSettings: SetUserSsoSettingsResponseBodyUserSsoSettings,
+    };
+  }
+
+  validate() {
+    if(this.userSsoSettings && typeof (this.userSsoSettings as any).validate === 'function') {
+      (this.userSsoSettings as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetUserSsoSettingsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetUserSsoSettingsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetUserSsoSettingsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of resource N.
+   * 
+   * Valid values of N: 1 to 50. If ResourceType is set to user, the resource ID is the ID of the RAM user.
+   * 
+   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The name of resource N.
+   * 
+   * Valid values of N: 1 to 50. If ResourceType is set to user, the resource name is the name of the RAM user.
+   * 
+   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+   * 
+   * @example
+   * TagResources
+   */
+  resourcePrincipalName?: string[];
+  /**
+   * @remarks
+   * The type of the resource. Valid value:
+   * 
+   * *   user: a RAM user
+   * 
+   * @example
+   * user
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag value.
+   */
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourcePrincipalName: 'ResourcePrincipalName',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourcePrincipalName: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.resourcePrincipalName)) {
+      $dara.Model.validateArray(this.resourcePrincipalName);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3687BD52-49FD-585B-AB14-CD05B7C76963
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindMFADeviceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindMFADeviceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the MFA device.
+   */
+  MFADevice?: UnbindMFADeviceResponseBodyMFADevice;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A26CB3E9-1021-452A-AC57-3134B3BA0E4C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      MFADevice: 'MFADevice',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      MFADevice: UnbindMFADeviceResponseBodyMFADevice,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.MFADevice && typeof (this.MFADevice as any).validate === 'function') {
+      (this.MFADevice as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindMFADeviceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindMFADeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindMFADeviceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove all tags from the resource. Valid values:
+   * 
+   * *   true: remove all tags from the resources.
+   * *   false (default): does not remove all tags from the resources.
+   * 
+   * > This parameter takes effect only when TagKey.N is not set in the request.
+   * 
+   * @example
+   * false
+   */
+  all?: boolean;
+  /**
+   * @remarks
+   * The IDs of resources.
+   * 
+   * Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource ID is the ID of the RAM user.
+   * 
+   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+   * 
+   * @example
+   * UntagResources
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The names of resources.
+   * 
+   * Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource name is the name of the RAM user.
+   * 
+   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+   */
+  resourcePrincipalName?: string[];
+  /**
+   * @remarks
+   * The type of the resource. Valid value:
+   * 
+   * *   user: a RAM user
+   * 
+   * @example
+   * user
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag keys of resources.
+   * 
+   * Valid values of N: 1 to 20. N must be consecutive.
+   */
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      resourceId: 'ResourceId',
+      resourcePrincipalName: 'ResourcePrincipalName',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourcePrincipalName: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.resourcePrincipalName)) {
+      $dara.Model.validateArray(this.resourcePrincipalName);
+    }
+    if(Array.isArray(this.tagKey)) {
+      $dara.Model.validateArray(this.tagKey);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6AC79B74-9A78-58E2-818B-1D38EDC64D67
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccessKeyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The status of the AccessKey pair. Valid values:
+   * 
+   * *   Active
+   * *   Inactive
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Active
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The AccessKey ID of the AccessKey pair for which you want to modify the status.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LTAI4GFTgcR8m8cZQDTH****
+   */
+  userAccessKeyId?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * If this parameter is empty, the status of the AccessKey pair for the current user is modified.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      userAccessKeyId: 'UserAccessKeyId',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      userAccessKeyId: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccessKeyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccessKeyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAccessKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAccessKeyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 472457090344041****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * The validity period of the access token.
+   * 
+   * Valid values: 900 to 10800. Unit: seconds.
+   * 
+   * @example
+   * 3600
+   */
+  newAccessTokenValidity?: number;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * NewApp
+   */
+  newDisplayName?: string;
+  /**
+   * @remarks
+   * Specifies whether the application can be installed by using other Alibaba Cloud accounts. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  newIsMultiTenant?: boolean;
+  /**
+   * @remarks
+   * The permission that is granted on the application.
+   * 
+   * For more information about the application permission scope, see [OAuth scopes](https://help.aliyun.com/document_detail/93693.html). You can also call the [ListPredefinedScopes](https://help.aliyun.com/document_detail/187206.html) operation to query the permissions that are supported by different types of applications.
+   * 
+   * If you enter multiple permissions, separate them with semicolons (;).
+   * 
+   * The new value of this parameter overwrites the original value, and the permission specified by the new value takes effect. For example, if the original value is `/acs/ccc`, and the new value is `/acs/alidns`, `/acs/alidns` takes effect. If you want to retain the original permission and the `/acs/alidns` permission, set the value to `/acs/ccc;/acs/alidns`.
+   * 
+   * @example
+   * openid
+   */
+  newPredefinedScopes?: string;
+  /**
+   * @remarks
+   * The callback URL.
+   * 
+   * If you enter multiple callback URLs, separate them with semicolons (;).
+   * 
+   * @example
+   * https://www.example.com
+   */
+  newRedirectUris?: string;
+  /**
+   * @remarks
+   * The validity period of the refresh token.
+   * 
+   * Valid values: 7200 to 31536000. Unit: seconds.
+   * 
+   * @example
+   * 7776000
+   */
+  newRefreshTokenValidity?: number;
+  /**
+   * @remarks
+   * The required permission.
+   * 
+   * You can specify one or more permissions for the `RequiredScopes` parameter. After you specify this parameter, the required permissions are automatically selected and cannot be revoked when a user grants permissions on the application.
+   * 
+   * If you also specify the `NewPredefinedScopes` parameter, the `NewPredefinedScopes` parameter specifies the permissions that can be granted on the application, and this parameter specifies the required permissions.
+   * 
+   * If you enter multiple permissions, separate them with semicolons (;).
+   * 
+   * The new value of this parameter overwrites the original value, and the required permission specified by the new value takes effect.
+   * 
+   * >  If the permission that you specify for the `RequiredScopes` parameter is not included in value of the `PredefinedScopes` parameter, the permission does not take effect.
+   * 
+   * @example
+   * profile;aliuid
+   */
+  newRequiredScopes?: string;
+  /**
+   * @remarks
+   * Specifies whether a secret is required. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * > 
+   * 
+   * *   For applications of the WebApp and ServerApp types, this parameter is automatically set to true and cannot be changed.
+   * *   For applications of the NativeApp type, this parameter can be set to true or false. If you do not set this parameter, false is used. Applications of the NativeApp type run in untrusted environments and the secrets of these applications are not protected. Therefore, we recommend that you do not set this parameter to true unless otherwise specified. For more information, see [Use an application of the NativeApp type to log on to Alibaba Cloud](https://help.aliyun.com/document_detail/93697.html).
+   * 
+   * @example
+   * true
+   */
+  newSecretRequired?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      newAccessTokenValidity: 'NewAccessTokenValidity',
+      newDisplayName: 'NewDisplayName',
+      newIsMultiTenant: 'NewIsMultiTenant',
+      newPredefinedScopes: 'NewPredefinedScopes',
+      newRedirectUris: 'NewRedirectUris',
+      newRefreshTokenValidity: 'NewRefreshTokenValidity',
+      newRequiredScopes: 'NewRequiredScopes',
+      newSecretRequired: 'NewSecretRequired',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      newAccessTokenValidity: 'number',
+      newDisplayName: 'string',
+      newIsMultiTenant: 'boolean',
+      newPredefinedScopes: 'string',
+      newRedirectUris: 'string',
+      newRefreshTokenValidity: 'number',
+      newRequiredScopes: 'string',
+      newSecretRequired: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the application.
+   */
+  application?: UpdateApplicationResponseBodyApplication;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6616F09B-2768-4C11-8866-A8EE4C4A583E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      application: 'Application',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      application: UpdateApplicationResponseBodyApplication,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.application && typeof (this.application as any).validate === 'function') {
+      (this.application as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateApplicationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * The new description.
+   * 
+   * The value can be up to 128 characters in length.
+   * 
+   * @example
+   * Test-Team
+   */
+  newComments?: string;
+  /**
+   * @remarks
+   * The new display name of the RAM user group.
+   * 
+   * The name can be up to 24 characters in length.
+   * 
+   * @example
+   * Test-Team
+   */
+  newDisplayName?: string;
+  /**
+   * @remarks
+   * The new name of the RAM user group.
+   * 
+   * The name can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * Test-Team
+   */
+  newGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      newComments: 'NewComments',
+      newDisplayName: 'NewDisplayName',
+      newGroupName: 'NewGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      newComments: 'string',
+      newDisplayName: 'string',
+      newGroupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of the RAM user group.
+   */
+  group?: UpdateGroupResponseBodyGroup;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CDA656E3-3CE9-4A03-A8A3-B42A0C3C3287
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      group: 'Group',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      group: UpdateGroupResponseBodyGroup,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.group && typeof (this.group as any).validate === 'function') {
+      (this.group as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLoginProfileRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether multi-factor authentication (MFA) must be enabled. Valid values:
+   * 
+   * *   true. The value true indicates that the RAM user must bind an MFA device at the next logon.
+   * *   false.
+   * 
+   * @example
+   * false
+   */
+  MFABindRequired?: boolean;
+  /**
+   * @remarks
+   * The new password that is used to log on to the console.
+   * 
+   * The password must meet the complexity requirements.
+   * 
+   * @example
+   * mypassword
+   */
+  password?: string;
+  /**
+   * @remarks
+   * Specifies whether the RAM user must reset the password at the next logon. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  passwordResetRequired?: boolean;
+  /**
+   * @remarks
+   * The status of password-based logon. Valid values:
+   * 
+   * *   Active
+   * *   Inactive
+   * 
+   * @example
+   * Active
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      MFABindRequired: 'MFABindRequired',
+      password: 'Password',
+      passwordResetRequired: 'PasswordResetRequired',
+      status: 'Status',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      MFABindRequired: 'boolean',
+      password: 'string',
+      passwordResetRequired: 'boolean',
+      status: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLoginProfileResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The logon information.
+   */
+  loginProfile?: UpdateLoginProfileResponseBodyLoginProfile;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BCDB6A7F-2199-41D9-B577-4FA536A5ADE1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loginProfile: 'LoginProfile',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loginProfile: UpdateLoginProfileResponseBodyLoginProfile,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.loginProfile && typeof (this.loginProfile as any).validate === 'function') {
+      (this.loginProfile as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLoginProfileResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLoginProfileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateLoginProfileResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOIDCProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the client. If you want to specify multiple client IDs, separate the client IDs with commas (,).
+   * 
+   * The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods, (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.``
+   * 
+   * The client ID can be up to 64 characters in length.
+   * 
+   * > If you specify this parameter, all the client IDs of the OIDC IdP are replaced. If you need to only add or remove a client ID, call the AddClientIdToOIDCProvider or RemoveClientIdFromOIDCProvider operation. For more information, see [AddClientIdToOIDCProvider](https://help.aliyun.com/document_detail/332057.html) or [RemoveClientIdFromOIDCProvider](https://help.aliyun.com/document_detail/332058.html).
+   * 
+   * @example
+   * 498469743454717****
+   */
+  clientIds?: string;
+  /**
+   * @remarks
+   * The earliest time when an external IdP can issue an ID token. If the value of the iat field in the ID token is later than the current time, the request is rejected. Unit: hours. Valid values: 1 to 168.
+   * 
+   * @example
+   * 6
+   */
+  issuanceLimitTime?: number;
+  /**
+   * @remarks
+   * The description of the OIDC IdP.
+   * 
+   * The description can be up to 256 characters in length.
+   * 
+   * @example
+   * This is a new OIDC Provider.
+   */
+  newDescription?: string;
+  /**
+   * @remarks
+   * The name of the OIDC IdP.
+   * 
+   * @example
+   * TestOIDCProvider
+   */
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientIds: 'ClientIds',
+      issuanceLimitTime: 'IssuanceLimitTime',
+      newDescription: 'NewDescription',
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientIds: 'string',
+      issuanceLimitTime: 'number',
+      newDescription: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOIDCProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the OIDC IdP.
+   */
+  OIDCProvider?: UpdateOIDCProviderResponseBodyOIDCProvider;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E4C4D1BD-2558-5BD1-8C26-A5D7FB174A55
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: UpdateOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.OIDCProvider && typeof (this.OIDCProvider as any).validate === 'function') {
+      (this.OIDCProvider as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOIDCProviderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateOIDCProviderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSAMLProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The new description.
+   * 
+   * >  You must specify at least one of the `NewDescription` and `NewEncodedSAMLMetadataDocument` parameters.
+   * 
+   * @example
+   * This is a new provider.
+   */
+  newDescription?: string;
+  /**
+   * @remarks
+   * The new metadata file.
+   * 
+   * >  You must specify at least one of the `NewDescription` and `NewEncodedSAMLMetadataDocument` parameters.
+   * 
+   * @example
+   * PD94bWwgdmVy****
+   */
+  newEncodedSAMLMetadataDocument?: string;
+  /**
+   * @remarks
+   * The name of the IdP whose information you want to modify.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-provider
+   */
+  SAMLProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newDescription: 'NewDescription',
+      newEncodedSAMLMetadataDocument: 'NewEncodedSAMLMetadataDocument',
+      SAMLProviderName: 'SAMLProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newDescription: 'string',
+      newEncodedSAMLMetadataDocument: 'string',
+      SAMLProviderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSAMLProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E5EDDFD2-3654-4F9F-9780-4AE7D81823EF
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the IdP.
+   */
+  SAMLProvider?: UpdateSAMLProviderResponseBodySAMLProvider;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      SAMLProvider: 'SAMLProvider',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      SAMLProvider: UpdateSAMLProviderResponseBodySAMLProvider,
+    };
+  }
+
+  validate() {
+    if(this.SAMLProvider && typeof (this.SAMLProvider as any).validate === 'function') {
+      (this.SAMLProvider as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSAMLProviderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSAMLProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSAMLProviderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The new description of the RAM user.
+   * 
+   * The description must be 1 to 128 characters in length.
+   * 
+   * @example
+   * This is a cloud computing engineer.
+   */
+  newComments?: string;
+  /**
+   * @remarks
+   * The new display name of the RAM user.
+   * 
+   * The name must be 1 to 24 characters in length.
+   * 
+   * @example
+   * new
+   */
+  newDisplayName?: string;
+  /**
+   * @remarks
+   * The new email address of the RAM user.
+   * 
+   * > This parameter is valid only on the China site (aliyun.com).
+   * 
+   * @example
+   * alice@example.com
+   */
+  newEmail?: string;
+  /**
+   * @remarks
+   * The new mobile phone number of the RAM user.
+   * 
+   * Format: \\<Country code>-\\<Mobile phone number>.
+   * 
+   * > This parameter is valid only on the China site (aliyun.com).
+   * 
+   * @example
+   * 86-1868888****
+   */
+  newMobilePhone?: string;
+  /**
+   * @remarks
+   * The new logon name of the RAM user.
+   * 
+   * The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name.
+   * 
+   * The value of `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be 1 to 64 characters in length.
+   * 
+   * @example
+   * new@example.onaliyun.com
+   */
+  newUserPrincipalName?: string;
+  /**
+   * @remarks
+   * The ID of the RAM user.
+   * 
+   * > You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
+   * 
+   * @example
+   * 20732900249392****
+   */
+  userId?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * > You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newComments: 'NewComments',
+      newDisplayName: 'NewDisplayName',
+      newEmail: 'NewEmail',
+      newMobilePhone: 'NewMobilePhone',
+      newUserPrincipalName: 'NewUserPrincipalName',
+      userId: 'UserId',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newComments: 'string',
+      newDisplayName: 'string',
+      newEmail: 'string',
+      newMobilePhone: 'string',
+      newUserPrincipalName: 'string',
+      userId: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1B56DD42-6962-4F89-A19C-079EED1F0FE3
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the RAM user.
+   */
+  user?: UpdateUserResponseBodyUser;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      user: UpdateUserResponseBodyUser,
+    };
+  }
+
+  validate() {
+    if(this.user && typeof (this.user as any).validate === 'function') {
+      (this.user as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -13839,7 +15903,7 @@ export class UpdateUserResponseBodyUser extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "central";
     this.checkConfig(config);
@@ -13848,15 +15912,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -13866,21 +15930,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddClientIdToOIDCProviderResponse
    */
-  async addClientIdToOIDCProviderWithOptions(request: AddClientIdToOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<AddClientIdToOIDCProviderResponse> {
-    Util.validateModel(request);
+  async addClientIdToOIDCProviderWithOptions(request: AddClientIdToOIDCProviderRequest, runtime: $dara.RuntimeOptions): Promise<AddClientIdToOIDCProviderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.OIDCProviderName)) {
+    if (!$dara.isNull(request.OIDCProviderName)) {
       query["OIDCProviderName"] = request.OIDCProviderName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddClientIdToOIDCProvider",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -13891,7 +15955,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddClientIdToOIDCProviderResponse>(await this.callApi(params, req, runtime), new AddClientIdToOIDCProviderResponse({}));
+    return $dara.cast<AddClientIdToOIDCProviderResponse>(await this.callApi(params, req, runtime), new AddClientIdToOIDCProviderResponse({}));
   }
 
   /**
@@ -13901,7 +15965,7 @@ export default class Client extends OpenApi {
    * @returns AddClientIdToOIDCProviderResponse
    */
   async addClientIdToOIDCProvider(request: AddClientIdToOIDCProviderRequest): Promise<AddClientIdToOIDCProviderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addClientIdToOIDCProviderWithOptions(request, runtime);
   }
 
@@ -13916,21 +15980,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddFingerprintToOIDCProviderResponse
    */
-  async addFingerprintToOIDCProviderWithOptions(request: AddFingerprintToOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<AddFingerprintToOIDCProviderResponse> {
-    Util.validateModel(request);
+  async addFingerprintToOIDCProviderWithOptions(request: AddFingerprintToOIDCProviderRequest, runtime: $dara.RuntimeOptions): Promise<AddFingerprintToOIDCProviderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.fingerprint)) {
+    if (!$dara.isNull(request.fingerprint)) {
       query["Fingerprint"] = request.fingerprint;
     }
 
-    if (!Util.isUnset(request.OIDCProviderName)) {
+    if (!$dara.isNull(request.OIDCProviderName)) {
       query["OIDCProviderName"] = request.OIDCProviderName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddFingerprintToOIDCProvider",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -13941,7 +16005,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddFingerprintToOIDCProviderResponse>(await this.callApi(params, req, runtime), new AddFingerprintToOIDCProviderResponse({}));
+    return $dara.cast<AddFingerprintToOIDCProviderResponse>(await this.callApi(params, req, runtime), new AddFingerprintToOIDCProviderResponse({}));
   }
 
   /**
@@ -13955,7 +16019,7 @@ export default class Client extends OpenApi {
    * @returns AddFingerprintToOIDCProviderResponse
    */
   async addFingerprintToOIDCProvider(request: AddFingerprintToOIDCProviderRequest): Promise<AddFingerprintToOIDCProviderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addFingerprintToOIDCProviderWithOptions(request, runtime);
   }
 
@@ -13966,21 +16030,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddUserToGroupResponse
    */
-  async addUserToGroupWithOptions(request: AddUserToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToGroupResponse> {
-    Util.validateModel(request);
+  async addUserToGroupWithOptions(request: AddUserToGroupRequest, runtime: $dara.RuntimeOptions): Promise<AddUserToGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddUserToGroup",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -13991,7 +16055,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddUserToGroupResponse>(await this.callApi(params, req, runtime), new AddUserToGroupResponse({}));
+    return $dara.cast<AddUserToGroupResponse>(await this.callApi(params, req, runtime), new AddUserToGroupResponse({}));
   }
 
   /**
@@ -14001,7 +16065,7 @@ export default class Client extends OpenApi {
    * @returns AddUserToGroupResponse
    */
   async addUserToGroup(request: AddUserToGroupRequest): Promise<AddUserToGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addUserToGroupWithOptions(request, runtime);
   }
 
@@ -14012,29 +16076,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindMFADeviceResponse
    */
-  async bindMFADeviceWithOptions(request: BindMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<BindMFADeviceResponse> {
-    Util.validateModel(request);
+  async bindMFADeviceWithOptions(request: BindMFADeviceRequest, runtime: $dara.RuntimeOptions): Promise<BindMFADeviceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.authenticationCode1)) {
+    if (!$dara.isNull(request.authenticationCode1)) {
       query["AuthenticationCode1"] = request.authenticationCode1;
     }
 
-    if (!Util.isUnset(request.authenticationCode2)) {
+    if (!$dara.isNull(request.authenticationCode2)) {
       query["AuthenticationCode2"] = request.authenticationCode2;
     }
 
-    if (!Util.isUnset(request.serialNumber)) {
+    if (!$dara.isNull(request.serialNumber)) {
       query["SerialNumber"] = request.serialNumber;
     }
 
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindMFADevice",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14045,7 +16109,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindMFADeviceResponse>(await this.callApi(params, req, runtime), new BindMFADeviceResponse({}));
+    return $dara.cast<BindMFADeviceResponse>(await this.callApi(params, req, runtime), new BindMFADeviceResponse({}));
   }
 
   /**
@@ -14055,7 +16119,7 @@ export default class Client extends OpenApi {
    * @returns BindMFADeviceResponse
    */
   async bindMFADevice(request: BindMFADeviceRequest): Promise<BindMFADeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindMFADeviceWithOptions(request, runtime);
   }
 
@@ -14069,21 +16133,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangePasswordResponse
    */
-  async changePasswordWithOptions(request: ChangePasswordRequest, runtime: $Util.RuntimeOptions): Promise<ChangePasswordResponse> {
-    Util.validateModel(request);
+  async changePasswordWithOptions(request: ChangePasswordRequest, runtime: $dara.RuntimeOptions): Promise<ChangePasswordResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.newPassword)) {
+    if (!$dara.isNull(request.newPassword)) {
       query["NewPassword"] = request.newPassword;
     }
 
-    if (!Util.isUnset(request.oldPassword)) {
+    if (!$dara.isNull(request.oldPassword)) {
       query["OldPassword"] = request.oldPassword;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChangePassword",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14094,7 +16158,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangePasswordResponse>(await this.callApi(params, req, runtime), new ChangePasswordResponse({}));
+    return $dara.cast<ChangePasswordResponse>(await this.callApi(params, req, runtime), new ChangePasswordResponse({}));
   }
 
   /**
@@ -14107,7 +16171,7 @@ export default class Client extends OpenApi {
    * @returns ChangePasswordResponse
    */
   async changePassword(request: ChangePasswordRequest): Promise<ChangePasswordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.changePasswordWithOptions(request, runtime);
   }
 
@@ -14118,17 +16182,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAccessKeyResponse
    */
-  async createAccessKeyWithOptions(request: CreateAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessKeyResponse> {
-    Util.validateModel(request);
+  async createAccessKeyWithOptions(request: CreateAccessKeyRequest, runtime: $dara.RuntimeOptions): Promise<CreateAccessKeyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAccessKey",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14139,7 +16203,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAccessKeyResponse>(await this.callApi(params, req, runtime), new CreateAccessKeyResponse({}));
+    return $dara.cast<CreateAccessKeyResponse>(await this.callApi(params, req, runtime), new CreateAccessKeyResponse({}));
   }
 
   /**
@@ -14149,7 +16213,7 @@ export default class Client extends OpenApi {
    * @returns CreateAccessKeyResponse
    */
   async createAccessKey(request: CreateAccessKeyRequest): Promise<CreateAccessKeyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAccessKeyWithOptions(request, runtime);
   }
 
@@ -14160,17 +16224,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAppSecretResponse
    */
-  async createAppSecretWithOptions(request: CreateAppSecretRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppSecretResponse> {
-    Util.validateModel(request);
+  async createAppSecretWithOptions(request: CreateAppSecretRequest, runtime: $dara.RuntimeOptions): Promise<CreateAppSecretResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAppSecret",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14181,7 +16245,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAppSecretResponse>(await this.callApi(params, req, runtime), new CreateAppSecretResponse({}));
+    return $dara.cast<CreateAppSecretResponse>(await this.callApi(params, req, runtime), new CreateAppSecretResponse({}));
   }
 
   /**
@@ -14191,7 +16255,7 @@ export default class Client extends OpenApi {
    * @returns CreateAppSecretResponse
    */
   async createAppSecret(request: CreateAppSecretRequest): Promise<CreateAppSecretResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAppSecretWithOptions(request, runtime);
   }
 
@@ -14202,53 +16266,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateApplicationResponse
    */
-  async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
-    Util.validateModel(request);
+  async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $dara.RuntimeOptions): Promise<CreateApplicationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessTokenValidity)) {
+    if (!$dara.isNull(request.accessTokenValidity)) {
       query["AccessTokenValidity"] = request.accessTokenValidity;
     }
 
-    if (!Util.isUnset(request.appName)) {
+    if (!$dara.isNull(request.appName)) {
       query["AppName"] = request.appName;
     }
 
-    if (!Util.isUnset(request.appType)) {
+    if (!$dara.isNull(request.appType)) {
       query["AppType"] = request.appType;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       query["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.isMultiTenant)) {
+    if (!$dara.isNull(request.isMultiTenant)) {
       query["IsMultiTenant"] = request.isMultiTenant;
     }
 
-    if (!Util.isUnset(request.predefinedScopes)) {
+    if (!$dara.isNull(request.predefinedScopes)) {
       query["PredefinedScopes"] = request.predefinedScopes;
     }
 
-    if (!Util.isUnset(request.redirectUris)) {
+    if (!$dara.isNull(request.redirectUris)) {
       query["RedirectUris"] = request.redirectUris;
     }
 
-    if (!Util.isUnset(request.refreshTokenValidity)) {
+    if (!$dara.isNull(request.refreshTokenValidity)) {
       query["RefreshTokenValidity"] = request.refreshTokenValidity;
     }
 
-    if (!Util.isUnset(request.requiredScopes)) {
+    if (!$dara.isNull(request.requiredScopes)) {
       query["RequiredScopes"] = request.requiredScopes;
     }
 
-    if (!Util.isUnset(request.secretRequired)) {
+    if (!$dara.isNull(request.secretRequired)) {
       query["SecretRequired"] = request.secretRequired;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateApplication",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14259,7 +16323,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
+    return $dara.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
   }
 
   /**
@@ -14269,7 +16333,7 @@ export default class Client extends OpenApi {
    * @returns CreateApplicationResponse
    */
   async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createApplicationWithOptions(request, runtime);
   }
 
@@ -14280,25 +16344,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateGroupResponse
    */
-  async createGroupWithOptions(request: CreateGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
-    Util.validateModel(request);
+  async createGroupWithOptions(request: CreateGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreateGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.comments)) {
+    if (!$dara.isNull(request.comments)) {
       query["Comments"] = request.comments;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       query["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateGroup",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14309,7 +16373,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateGroupResponse>(await this.callApi(params, req, runtime), new CreateGroupResponse({}));
+    return $dara.cast<CreateGroupResponse>(await this.callApi(params, req, runtime), new CreateGroupResponse({}));
   }
 
   /**
@@ -14319,7 +16383,7 @@ export default class Client extends OpenApi {
    * @returns CreateGroupResponse
    */
   async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createGroupWithOptions(request, runtime);
   }
 
@@ -14330,33 +16394,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateLoginProfileResponse
    */
-  async createLoginProfileWithOptions(request: CreateLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoginProfileResponse> {
-    Util.validateModel(request);
+  async createLoginProfileWithOptions(request: CreateLoginProfileRequest, runtime: $dara.RuntimeOptions): Promise<CreateLoginProfileResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.MFABindRequired)) {
+    if (!$dara.isNull(request.MFABindRequired)) {
       query["MFABindRequired"] = request.MFABindRequired;
     }
 
-    if (!Util.isUnset(request.password)) {
+    if (!$dara.isNull(request.password)) {
       query["Password"] = request.password;
     }
 
-    if (!Util.isUnset(request.passwordResetRequired)) {
+    if (!$dara.isNull(request.passwordResetRequired)) {
       query["PasswordResetRequired"] = request.passwordResetRequired;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateLoginProfile",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14367,7 +16431,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateLoginProfileResponse>(await this.callApi(params, req, runtime), new CreateLoginProfileResponse({}));
+    return $dara.cast<CreateLoginProfileResponse>(await this.callApi(params, req, runtime), new CreateLoginProfileResponse({}));
   }
 
   /**
@@ -14377,7 +16441,7 @@ export default class Client extends OpenApi {
    * @returns CreateLoginProfileResponse
    */
   async createLoginProfile(request: CreateLoginProfileRequest): Promise<CreateLoginProfileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createLoginProfileWithOptions(request, runtime);
   }
 
@@ -14398,37 +16462,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateOIDCProviderResponse
    */
-  async createOIDCProviderWithOptions(request: CreateOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<CreateOIDCProviderResponse> {
-    Util.validateModel(request);
+  async createOIDCProviderWithOptions(request: CreateOIDCProviderRequest, runtime: $dara.RuntimeOptions): Promise<CreateOIDCProviderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientIds)) {
+    if (!$dara.isNull(request.clientIds)) {
       query["ClientIds"] = request.clientIds;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.fingerprints)) {
+    if (!$dara.isNull(request.fingerprints)) {
       query["Fingerprints"] = request.fingerprints;
     }
 
-    if (!Util.isUnset(request.issuanceLimitTime)) {
+    if (!$dara.isNull(request.issuanceLimitTime)) {
       query["IssuanceLimitTime"] = request.issuanceLimitTime;
     }
 
-    if (!Util.isUnset(request.issuerUrl)) {
+    if (!$dara.isNull(request.issuerUrl)) {
       query["IssuerUrl"] = request.issuerUrl;
     }
 
-    if (!Util.isUnset(request.OIDCProviderName)) {
+    if (!$dara.isNull(request.OIDCProviderName)) {
       query["OIDCProviderName"] = request.OIDCProviderName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateOIDCProvider",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14439,7 +16503,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateOIDCProviderResponse>(await this.callApi(params, req, runtime), new CreateOIDCProviderResponse({}));
+    return $dara.cast<CreateOIDCProviderResponse>(await this.callApi(params, req, runtime), new CreateOIDCProviderResponse({}));
   }
 
   /**
@@ -14459,7 +16523,7 @@ export default class Client extends OpenApi {
    * @returns CreateOIDCProviderResponse
    */
   async createOIDCProvider(request: CreateOIDCProviderRequest): Promise<CreateOIDCProviderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createOIDCProviderWithOptions(request, runtime);
   }
 
@@ -14470,25 +16534,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSAMLProviderResponse
    */
-  async createSAMLProviderWithOptions(request: CreateSAMLProviderRequest, runtime: $Util.RuntimeOptions): Promise<CreateSAMLProviderResponse> {
-    Util.validateModel(request);
+  async createSAMLProviderWithOptions(request: CreateSAMLProviderRequest, runtime: $dara.RuntimeOptions): Promise<CreateSAMLProviderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.encodedSAMLMetadataDocument)) {
+    if (!$dara.isNull(request.encodedSAMLMetadataDocument)) {
       query["EncodedSAMLMetadataDocument"] = request.encodedSAMLMetadataDocument;
     }
 
-    if (!Util.isUnset(request.SAMLProviderName)) {
+    if (!$dara.isNull(request.SAMLProviderName)) {
       query["SAMLProviderName"] = request.SAMLProviderName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateSAMLProvider",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14499,7 +16563,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateSAMLProviderResponse>(await this.callApi(params, req, runtime), new CreateSAMLProviderResponse({}));
+    return $dara.cast<CreateSAMLProviderResponse>(await this.callApi(params, req, runtime), new CreateSAMLProviderResponse({}));
   }
 
   /**
@@ -14509,7 +16573,7 @@ export default class Client extends OpenApi {
    * @returns CreateSAMLProviderResponse
    */
   async createSAMLProvider(request: CreateSAMLProviderRequest): Promise<CreateSAMLProviderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createSAMLProviderWithOptions(request, runtime);
   }
 
@@ -14523,37 +16587,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateUserResponse
    */
-  async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
-    Util.validateModel(request);
+  async createUserWithOptions(request: CreateUserRequest, runtime: $dara.RuntimeOptions): Promise<CreateUserResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.comments)) {
+    if (!$dara.isNull(request.comments)) {
       query["Comments"] = request.comments;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       query["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.mobilePhone)) {
+    if (!$dara.isNull(request.mobilePhone)) {
       query["MobilePhone"] = request.mobilePhone;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateUser",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14564,7 +16628,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
+    return $dara.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
   }
 
   /**
@@ -14577,7 +16641,7 @@ export default class Client extends OpenApi {
    * @returns CreateUserResponse
    */
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createUserWithOptions(request, runtime);
   }
 
@@ -14588,17 +16652,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVirtualMFADeviceResponse
    */
-  async createVirtualMFADeviceWithOptions(request: CreateVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualMFADeviceResponse> {
-    Util.validateModel(request);
+  async createVirtualMFADeviceWithOptions(request: CreateVirtualMFADeviceRequest, runtime: $dara.RuntimeOptions): Promise<CreateVirtualMFADeviceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.virtualMFADeviceName)) {
+    if (!$dara.isNull(request.virtualMFADeviceName)) {
       query["VirtualMFADeviceName"] = request.virtualMFADeviceName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateVirtualMFADevice",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14609,7 +16673,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new CreateVirtualMFADeviceResponse({}));
+    return $dara.cast<CreateVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new CreateVirtualMFADeviceResponse({}));
   }
 
   /**
@@ -14619,7 +16683,7 @@ export default class Client extends OpenApi {
    * @returns CreateVirtualMFADeviceResponse
    */
   async createVirtualMFADevice(request: CreateVirtualMFADeviceRequest): Promise<CreateVirtualMFADeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createVirtualMFADeviceWithOptions(request, runtime);
   }
 
@@ -14630,21 +16694,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAccessKeyResponse
    */
-  async deleteAccessKeyWithOptions(request: DeleteAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessKeyResponse> {
-    Util.validateModel(request);
+  async deleteAccessKeyWithOptions(request: DeleteAccessKeyRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAccessKeyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userAccessKeyId)) {
+    if (!$dara.isNull(request.userAccessKeyId)) {
       query["UserAccessKeyId"] = request.userAccessKeyId;
     }
 
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAccessKey",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14655,7 +16719,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAccessKeyResponse>(await this.callApi(params, req, runtime), new DeleteAccessKeyResponse({}));
+    return $dara.cast<DeleteAccessKeyResponse>(await this.callApi(params, req, runtime), new DeleteAccessKeyResponse({}));
   }
 
   /**
@@ -14665,7 +16729,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAccessKeyResponse
    */
   async deleteAccessKey(request: DeleteAccessKeyRequest): Promise<DeleteAccessKeyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAccessKeyWithOptions(request, runtime);
   }
 
@@ -14676,21 +16740,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAppSecretResponse
    */
-  async deleteAppSecretWithOptions(request: DeleteAppSecretRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppSecretResponse> {
-    Util.validateModel(request);
+  async deleteAppSecretWithOptions(request: DeleteAppSecretRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAppSecretResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.appSecretId)) {
+    if (!$dara.isNull(request.appSecretId)) {
       query["AppSecretId"] = request.appSecretId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAppSecret",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14701,7 +16765,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAppSecretResponse>(await this.callApi(params, req, runtime), new DeleteAppSecretResponse({}));
+    return $dara.cast<DeleteAppSecretResponse>(await this.callApi(params, req, runtime), new DeleteAppSecretResponse({}));
   }
 
   /**
@@ -14711,7 +16775,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAppSecretResponse
    */
   async deleteAppSecret(request: DeleteAppSecretRequest): Promise<DeleteAppSecretResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppSecretWithOptions(request, runtime);
   }
 
@@ -14722,17 +16786,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteApplicationResponse
    */
-  async deleteApplicationWithOptions(request: DeleteApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
-    Util.validateModel(request);
+  async deleteApplicationWithOptions(request: DeleteApplicationRequest, runtime: $dara.RuntimeOptions): Promise<DeleteApplicationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteApplication",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14743,7 +16807,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
+    return $dara.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
   }
 
   /**
@@ -14753,7 +16817,7 @@ export default class Client extends OpenApi {
    * @returns DeleteApplicationResponse
    */
   async deleteApplication(request: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteApplicationWithOptions(request, runtime);
   }
 
@@ -14767,17 +16831,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGroupResponse
    */
-  async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
-    Util.validateModel(request);
+  async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $dara.RuntimeOptions): Promise<DeleteGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteGroup",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14788,7 +16852,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
+    return $dara.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
   }
 
   /**
@@ -14801,7 +16865,7 @@ export default class Client extends OpenApi {
    * @returns DeleteGroupResponse
    */
   async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteGroupWithOptions(request, runtime);
   }
 
@@ -14812,17 +16876,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteLoginProfileResponse
    */
-  async deleteLoginProfileWithOptions(request: DeleteLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoginProfileResponse> {
-    Util.validateModel(request);
+  async deleteLoginProfileWithOptions(request: DeleteLoginProfileRequest, runtime: $dara.RuntimeOptions): Promise<DeleteLoginProfileResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteLoginProfile",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14833,7 +16897,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteLoginProfileResponse>(await this.callApi(params, req, runtime), new DeleteLoginProfileResponse({}));
+    return $dara.cast<DeleteLoginProfileResponse>(await this.callApi(params, req, runtime), new DeleteLoginProfileResponse({}));
   }
 
   /**
@@ -14843,7 +16907,7 @@ export default class Client extends OpenApi {
    * @returns DeleteLoginProfileResponse
    */
   async deleteLoginProfile(request: DeleteLoginProfileRequest): Promise<DeleteLoginProfileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteLoginProfileWithOptions(request, runtime);
   }
 
@@ -14858,17 +16922,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteOIDCProviderResponse
    */
-  async deleteOIDCProviderWithOptions(request: DeleteOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOIDCProviderResponse> {
-    Util.validateModel(request);
+  async deleteOIDCProviderWithOptions(request: DeleteOIDCProviderRequest, runtime: $dara.RuntimeOptions): Promise<DeleteOIDCProviderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.OIDCProviderName)) {
+    if (!$dara.isNull(request.OIDCProviderName)) {
       query["OIDCProviderName"] = request.OIDCProviderName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteOIDCProvider",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14879,7 +16943,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteOIDCProviderResponse>(await this.callApi(params, req, runtime), new DeleteOIDCProviderResponse({}));
+    return $dara.cast<DeleteOIDCProviderResponse>(await this.callApi(params, req, runtime), new DeleteOIDCProviderResponse({}));
   }
 
   /**
@@ -14893,7 +16957,7 @@ export default class Client extends OpenApi {
    * @returns DeleteOIDCProviderResponse
    */
   async deleteOIDCProvider(request: DeleteOIDCProviderRequest): Promise<DeleteOIDCProviderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteOIDCProviderWithOptions(request, runtime);
   }
 
@@ -14904,17 +16968,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSAMLProviderResponse
    */
-  async deleteSAMLProviderWithOptions(request: DeleteSAMLProviderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSAMLProviderResponse> {
-    Util.validateModel(request);
+  async deleteSAMLProviderWithOptions(request: DeleteSAMLProviderRequest, runtime: $dara.RuntimeOptions): Promise<DeleteSAMLProviderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.SAMLProviderName)) {
+    if (!$dara.isNull(request.SAMLProviderName)) {
       query["SAMLProviderName"] = request.SAMLProviderName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteSAMLProvider",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14925,7 +16989,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteSAMLProviderResponse>(await this.callApi(params, req, runtime), new DeleteSAMLProviderResponse({}));
+    return $dara.cast<DeleteSAMLProviderResponse>(await this.callApi(params, req, runtime), new DeleteSAMLProviderResponse({}));
   }
 
   /**
@@ -14935,7 +16999,7 @@ export default class Client extends OpenApi {
    * @returns DeleteSAMLProviderResponse
    */
   async deleteSAMLProvider(request: DeleteSAMLProviderRequest): Promise<DeleteSAMLProviderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSAMLProviderWithOptions(request, runtime);
   }
 
@@ -14946,21 +17010,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteUserResponse
    */
-  async deleteUserWithOptions(request: DeleteUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
-    Util.validateModel(request);
+  async deleteUserWithOptions(request: DeleteUserRequest, runtime: $dara.RuntimeOptions): Promise<DeleteUserResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.userId)) {
       query["UserId"] = request.userId;
     }
 
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteUser",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -14971,7 +17035,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
+    return $dara.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
   }
 
   /**
@@ -14981,7 +17045,7 @@ export default class Client extends OpenApi {
    * @returns DeleteUserResponse
    */
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteUserWithOptions(request, runtime);
   }
 
@@ -14992,17 +17056,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVirtualMFADeviceResponse
    */
-  async deleteVirtualMFADeviceWithOptions(request: DeleteVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualMFADeviceResponse> {
-    Util.validateModel(request);
+  async deleteVirtualMFADeviceWithOptions(request: DeleteVirtualMFADeviceRequest, runtime: $dara.RuntimeOptions): Promise<DeleteVirtualMFADeviceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.serialNumber)) {
+    if (!$dara.isNull(request.serialNumber)) {
       query["SerialNumber"] = request.serialNumber;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteVirtualMFADevice",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15013,7 +17077,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new DeleteVirtualMFADeviceResponse({}));
+    return $dara.cast<DeleteVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new DeleteVirtualMFADeviceResponse({}));
   }
 
   /**
@@ -15023,7 +17087,7 @@ export default class Client extends OpenApi {
    * @returns DeleteVirtualMFADeviceResponse
    */
   async deleteVirtualMFADevice(request: DeleteVirtualMFADeviceRequest): Promise<DeleteVirtualMFADeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteVirtualMFADeviceWithOptions(request, runtime);
   }
 
@@ -15034,17 +17098,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableVirtualMFAResponse
    */
-  async disableVirtualMFAWithOptions(request: DisableVirtualMFARequest, runtime: $Util.RuntimeOptions): Promise<DisableVirtualMFAResponse> {
-    Util.validateModel(request);
+  async disableVirtualMFAWithOptions(request: DisableVirtualMFARequest, runtime: $dara.RuntimeOptions): Promise<DisableVirtualMFAResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DisableVirtualMFA",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15055,7 +17119,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DisableVirtualMFAResponse>(await this.callApi(params, req, runtime), new DisableVirtualMFAResponse({}));
+    return $dara.cast<DisableVirtualMFAResponse>(await this.callApi(params, req, runtime), new DisableVirtualMFAResponse({}));
   }
 
   /**
@@ -15065,7 +17129,7 @@ export default class Client extends OpenApi {
    * @returns DisableVirtualMFAResponse
    */
   async disableVirtualMFA(request: DisableVirtualMFARequest): Promise<DisableVirtualMFAResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.disableVirtualMFAWithOptions(request, runtime);
   }
 
@@ -15076,9 +17140,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateCredentialReportResponse
    */
-  async generateCredentialReportWithOptions(runtime: $Util.RuntimeOptions): Promise<GenerateCredentialReportResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async generateCredentialReportWithOptions(runtime: $dara.RuntimeOptions): Promise<GenerateCredentialReportResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GenerateCredentialReport",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15089,7 +17153,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateCredentialReportResponse>(await this.callApi(params, req, runtime), new GenerateCredentialReportResponse({}));
+    return $dara.cast<GenerateCredentialReportResponse>(await this.callApi(params, req, runtime), new GenerateCredentialReportResponse({}));
   }
 
   /**
@@ -15097,7 +17161,7 @@ export default class Client extends OpenApi {
    * @returns GenerateCredentialReportResponse
    */
   async generateCredentialReport(): Promise<GenerateCredentialReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.generateCredentialReportWithOptions(runtime);
   }
 
@@ -15108,21 +17172,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccessKeyLastUsedResponse
    */
-  async getAccessKeyLastUsedWithOptions(request: GetAccessKeyLastUsedRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedResponse> {
-    Util.validateModel(request);
+  async getAccessKeyLastUsedWithOptions(request: GetAccessKeyLastUsedRequest, runtime: $dara.RuntimeOptions): Promise<GetAccessKeyLastUsedResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userAccessKeyId)) {
+    if (!$dara.isNull(request.userAccessKeyId)) {
       query["UserAccessKeyId"] = request.userAccessKeyId;
     }
 
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccessKeyLastUsed",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15133,7 +17197,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccessKeyLastUsedResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedResponse({}));
+    return $dara.cast<GetAccessKeyLastUsedResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedResponse({}));
   }
 
   /**
@@ -15143,7 +17207,7 @@ export default class Client extends OpenApi {
    * @returns GetAccessKeyLastUsedResponse
    */
   async getAccessKeyLastUsed(request: GetAccessKeyLastUsedRequest): Promise<GetAccessKeyLastUsedResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccessKeyLastUsedWithOptions(request, runtime);
   }
 
@@ -15154,9 +17218,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountMFAInfoResponse
    */
-  async getAccountMFAInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAccountMFAInfoResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getAccountMFAInfoWithOptions(runtime: $dara.RuntimeOptions): Promise<GetAccountMFAInfoResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetAccountMFAInfo",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15167,7 +17231,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccountMFAInfoResponse>(await this.callApi(params, req, runtime), new GetAccountMFAInfoResponse({}));
+    return $dara.cast<GetAccountMFAInfoResponse>(await this.callApi(params, req, runtime), new GetAccountMFAInfoResponse({}));
   }
 
   /**
@@ -15175,7 +17239,7 @@ export default class Client extends OpenApi {
    * @returns GetAccountMFAInfoResponse
    */
   async getAccountMFAInfo(): Promise<GetAccountMFAInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccountMFAInfoWithOptions(runtime);
   }
 
@@ -15186,9 +17250,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountSecurityPracticeReportResponse
    */
-  async getAccountSecurityPracticeReportWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAccountSecurityPracticeReportResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getAccountSecurityPracticeReportWithOptions(runtime: $dara.RuntimeOptions): Promise<GetAccountSecurityPracticeReportResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetAccountSecurityPracticeReport",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15199,7 +17263,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccountSecurityPracticeReportResponse>(await this.callApi(params, req, runtime), new GetAccountSecurityPracticeReportResponse({}));
+    return $dara.cast<GetAccountSecurityPracticeReportResponse>(await this.callApi(params, req, runtime), new GetAccountSecurityPracticeReportResponse({}));
   }
 
   /**
@@ -15207,7 +17271,7 @@ export default class Client extends OpenApi {
    * @returns GetAccountSecurityPracticeReportResponse
    */
   async getAccountSecurityPracticeReport(): Promise<GetAccountSecurityPracticeReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccountSecurityPracticeReportWithOptions(runtime);
   }
 
@@ -15218,9 +17282,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountSummaryResponse
    */
-  async getAccountSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAccountSummaryResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getAccountSummaryWithOptions(runtime: $dara.RuntimeOptions): Promise<GetAccountSummaryResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetAccountSummary",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15231,7 +17295,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccountSummaryResponse>(await this.callApi(params, req, runtime), new GetAccountSummaryResponse({}));
+    return $dara.cast<GetAccountSummaryResponse>(await this.callApi(params, req, runtime), new GetAccountSummaryResponse({}));
   }
 
   /**
@@ -15239,7 +17303,7 @@ export default class Client extends OpenApi {
    * @returns GetAccountSummaryResponse
    */
   async getAccountSummary(): Promise<GetAccountSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccountSummaryWithOptions(runtime);
   }
 
@@ -15250,21 +17314,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAppSecretResponse
    */
-  async getAppSecretWithOptions(request: GetAppSecretRequest, runtime: $Util.RuntimeOptions): Promise<GetAppSecretResponse> {
-    Util.validateModel(request);
+  async getAppSecretWithOptions(request: GetAppSecretRequest, runtime: $dara.RuntimeOptions): Promise<GetAppSecretResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.appSecretId)) {
+    if (!$dara.isNull(request.appSecretId)) {
       query["AppSecretId"] = request.appSecretId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAppSecret",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15275,7 +17339,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAppSecretResponse>(await this.callApi(params, req, runtime), new GetAppSecretResponse({}));
+    return $dara.cast<GetAppSecretResponse>(await this.callApi(params, req, runtime), new GetAppSecretResponse({}));
   }
 
   /**
@@ -15285,7 +17349,7 @@ export default class Client extends OpenApi {
    * @returns GetAppSecretResponse
    */
   async getAppSecret(request: GetAppSecretRequest): Promise<GetAppSecretResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAppSecretWithOptions(request, runtime);
   }
 
@@ -15299,17 +17363,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetApplicationResponse
    */
-  async getApplicationWithOptions(request: GetApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
-    Util.validateModel(request);
+  async getApplicationWithOptions(request: GetApplicationRequest, runtime: $dara.RuntimeOptions): Promise<GetApplicationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetApplication",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15320,7 +17384,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
+    return $dara.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
   }
 
   /**
@@ -15333,7 +17397,7 @@ export default class Client extends OpenApi {
    * @returns GetApplicationResponse
    */
   async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getApplicationWithOptions(request, runtime);
   }
 
@@ -15344,21 +17408,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCredentialReportResponse
    */
-  async getCredentialReportWithOptions(request: GetCredentialReportRequest, runtime: $Util.RuntimeOptions): Promise<GetCredentialReportResponse> {
-    Util.validateModel(request);
+  async getCredentialReportWithOptions(request: GetCredentialReportRequest, runtime: $dara.RuntimeOptions): Promise<GetCredentialReportResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxItems)) {
+    if (!$dara.isNull(request.maxItems)) {
       query["MaxItems"] = request.maxItems;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetCredentialReport",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15369,7 +17433,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCredentialReportResponse>(await this.callApi(params, req, runtime), new GetCredentialReportResponse({}));
+    return $dara.cast<GetCredentialReportResponse>(await this.callApi(params, req, runtime), new GetCredentialReportResponse({}));
   }
 
   /**
@@ -15379,7 +17443,7 @@ export default class Client extends OpenApi {
    * @returns GetCredentialReportResponse
    */
   async getCredentialReport(request: GetCredentialReportRequest): Promise<GetCredentialReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getCredentialReportWithOptions(request, runtime);
   }
 
@@ -15390,9 +17454,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDefaultDomainResponse
    */
-  async getDefaultDomainWithOptions(runtime: $Util.RuntimeOptions): Promise<GetDefaultDomainResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getDefaultDomainWithOptions(runtime: $dara.RuntimeOptions): Promise<GetDefaultDomainResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetDefaultDomain",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15403,7 +17467,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDefaultDomainResponse>(await this.callApi(params, req, runtime), new GetDefaultDomainResponse({}));
+    return $dara.cast<GetDefaultDomainResponse>(await this.callApi(params, req, runtime), new GetDefaultDomainResponse({}));
   }
 
   /**
@@ -15411,7 +17475,7 @@ export default class Client extends OpenApi {
    * @returns GetDefaultDomainResponse
    */
   async getDefaultDomain(): Promise<GetDefaultDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDefaultDomainWithOptions(runtime);
   }
 
@@ -15422,17 +17486,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetGroupResponse
    */
-  async getGroupWithOptions(request: GetGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
-    Util.validateModel(request);
+  async getGroupWithOptions(request: GetGroupRequest, runtime: $dara.RuntimeOptions): Promise<GetGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetGroup",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15443,7 +17507,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetGroupResponse>(await this.callApi(params, req, runtime), new GetGroupResponse({}));
+    return $dara.cast<GetGroupResponse>(await this.callApi(params, req, runtime), new GetGroupResponse({}));
   }
 
   /**
@@ -15453,7 +17517,7 @@ export default class Client extends OpenApi {
    * @returns GetGroupResponse
    */
   async getGroup(request: GetGroupRequest): Promise<GetGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getGroupWithOptions(request, runtime);
   }
 
@@ -15464,17 +17528,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLoginProfileResponse
    */
-  async getLoginProfileWithOptions(request: GetLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginProfileResponse> {
-    Util.validateModel(request);
+  async getLoginProfileWithOptions(request: GetLoginProfileRequest, runtime: $dara.RuntimeOptions): Promise<GetLoginProfileResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetLoginProfile",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15485,7 +17549,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetLoginProfileResponse>(await this.callApi(params, req, runtime), new GetLoginProfileResponse({}));
+    return $dara.cast<GetLoginProfileResponse>(await this.callApi(params, req, runtime), new GetLoginProfileResponse({}));
   }
 
   /**
@@ -15495,7 +17559,7 @@ export default class Client extends OpenApi {
    * @returns GetLoginProfileResponse
    */
   async getLoginProfile(request: GetLoginProfileRequest): Promise<GetLoginProfileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getLoginProfileWithOptions(request, runtime);
   }
 
@@ -15510,17 +17574,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOIDCProviderResponse
    */
-  async getOIDCProviderWithOptions(request: GetOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<GetOIDCProviderResponse> {
-    Util.validateModel(request);
+  async getOIDCProviderWithOptions(request: GetOIDCProviderRequest, runtime: $dara.RuntimeOptions): Promise<GetOIDCProviderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.OIDCProviderName)) {
+    if (!$dara.isNull(request.OIDCProviderName)) {
       query["OIDCProviderName"] = request.OIDCProviderName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetOIDCProvider",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15531,7 +17595,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetOIDCProviderResponse>(await this.callApi(params, req, runtime), new GetOIDCProviderResponse({}));
+    return $dara.cast<GetOIDCProviderResponse>(await this.callApi(params, req, runtime), new GetOIDCProviderResponse({}));
   }
 
   /**
@@ -15545,7 +17609,7 @@ export default class Client extends OpenApi {
    * @returns GetOIDCProviderResponse
    */
   async getOIDCProvider(request: GetOIDCProviderRequest): Promise<GetOIDCProviderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getOIDCProviderWithOptions(request, runtime);
   }
 
@@ -15556,9 +17620,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPasswordPolicyResponse
    */
-  async getPasswordPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<GetPasswordPolicyResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getPasswordPolicyWithOptions(runtime: $dara.RuntimeOptions): Promise<GetPasswordPolicyResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetPasswordPolicy",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15569,7 +17633,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new GetPasswordPolicyResponse({}));
+    return $dara.cast<GetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new GetPasswordPolicyResponse({}));
   }
 
   /**
@@ -15577,7 +17641,7 @@ export default class Client extends OpenApi {
    * @returns GetPasswordPolicyResponse
    */
   async getPasswordPolicy(): Promise<GetPasswordPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getPasswordPolicyWithOptions(runtime);
   }
 
@@ -15588,17 +17652,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSAMLProviderResponse
    */
-  async getSAMLProviderWithOptions(request: GetSAMLProviderRequest, runtime: $Util.RuntimeOptions): Promise<GetSAMLProviderResponse> {
-    Util.validateModel(request);
+  async getSAMLProviderWithOptions(request: GetSAMLProviderRequest, runtime: $dara.RuntimeOptions): Promise<GetSAMLProviderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.SAMLProviderName)) {
+    if (!$dara.isNull(request.SAMLProviderName)) {
       query["SAMLProviderName"] = request.SAMLProviderName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSAMLProvider",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15609,7 +17673,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSAMLProviderResponse>(await this.callApi(params, req, runtime), new GetSAMLProviderResponse({}));
+    return $dara.cast<GetSAMLProviderResponse>(await this.callApi(params, req, runtime), new GetSAMLProviderResponse({}));
   }
 
   /**
@@ -15619,7 +17683,7 @@ export default class Client extends OpenApi {
    * @returns GetSAMLProviderResponse
    */
   async getSAMLProvider(request: GetSAMLProviderRequest): Promise<GetSAMLProviderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSAMLProviderWithOptions(request, runtime);
   }
 
@@ -15630,9 +17694,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSecurityPreferenceResponse
    */
-  async getSecurityPreferenceWithOptions(runtime: $Util.RuntimeOptions): Promise<GetSecurityPreferenceResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getSecurityPreferenceWithOptions(runtime: $dara.RuntimeOptions): Promise<GetSecurityPreferenceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetSecurityPreference",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15643,7 +17707,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new GetSecurityPreferenceResponse({}));
+    return $dara.cast<GetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new GetSecurityPreferenceResponse({}));
   }
 
   /**
@@ -15651,7 +17715,7 @@ export default class Client extends OpenApi {
    * @returns GetSecurityPreferenceResponse
    */
   async getSecurityPreference(): Promise<GetSecurityPreferenceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSecurityPreferenceWithOptions(runtime);
   }
 
@@ -15665,25 +17729,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserResponse
    */
-  async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
-    Util.validateModel(request);
+  async getUserWithOptions(request: GetUserRequest, runtime: $dara.RuntimeOptions): Promise<GetUserResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userAccessKeyId)) {
+    if (!$dara.isNull(request.userAccessKeyId)) {
       query["UserAccessKeyId"] = request.userAccessKeyId;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.userId)) {
       query["UserId"] = request.userId;
     }
 
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetUser",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15694,7 +17758,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
+    return $dara.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
   }
 
   /**
@@ -15707,7 +17771,7 @@ export default class Client extends OpenApi {
    * @returns GetUserResponse
    */
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserWithOptions(request, runtime);
   }
 
@@ -15718,17 +17782,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserMFAInfoResponse
    */
-  async getUserMFAInfoWithOptions(request: GetUserMFAInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetUserMFAInfoResponse> {
-    Util.validateModel(request);
+  async getUserMFAInfoWithOptions(request: GetUserMFAInfoRequest, runtime: $dara.RuntimeOptions): Promise<GetUserMFAInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetUserMFAInfo",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15739,7 +17803,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetUserMFAInfoResponse>(await this.callApi(params, req, runtime), new GetUserMFAInfoResponse({}));
+    return $dara.cast<GetUserMFAInfoResponse>(await this.callApi(params, req, runtime), new GetUserMFAInfoResponse({}));
   }
 
   /**
@@ -15749,7 +17813,7 @@ export default class Client extends OpenApi {
    * @returns GetUserMFAInfoResponse
    */
   async getUserMFAInfo(request: GetUserMFAInfoRequest): Promise<GetUserMFAInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserMFAInfoWithOptions(request, runtime);
   }
 
@@ -15760,9 +17824,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserSsoSettingsResponse
    */
-  async getUserSsoSettingsWithOptions(runtime: $Util.RuntimeOptions): Promise<GetUserSsoSettingsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getUserSsoSettingsWithOptions(runtime: $dara.RuntimeOptions): Promise<GetUserSsoSettingsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetUserSsoSettings",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15773,7 +17837,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetUserSsoSettingsResponse>(await this.callApi(params, req, runtime), new GetUserSsoSettingsResponse({}));
+    return $dara.cast<GetUserSsoSettingsResponse>(await this.callApi(params, req, runtime), new GetUserSsoSettingsResponse({}));
   }
 
   /**
@@ -15781,7 +17845,7 @@ export default class Client extends OpenApi {
    * @returns GetUserSsoSettingsResponse
    */
   async getUserSsoSettings(): Promise<GetUserSsoSettingsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserSsoSettingsWithOptions(runtime);
   }
 
@@ -15792,17 +17856,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVerificationInfoResponse
    */
-  async getVerificationInfoWithOptions(request: GetVerificationInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetVerificationInfoResponse> {
-    Util.validateModel(request);
+  async getVerificationInfoWithOptions(request: GetVerificationInfoRequest, runtime: $dara.RuntimeOptions): Promise<GetVerificationInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetVerificationInfo",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15813,7 +17877,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetVerificationInfoResponse>(await this.callApi(params, req, runtime), new GetVerificationInfoResponse({}));
+    return $dara.cast<GetVerificationInfoResponse>(await this.callApi(params, req, runtime), new GetVerificationInfoResponse({}));
   }
 
   /**
@@ -15823,7 +17887,7 @@ export default class Client extends OpenApi {
    * @returns GetVerificationInfoResponse
    */
   async getVerificationInfo(request: GetVerificationInfoRequest): Promise<GetVerificationInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getVerificationInfoWithOptions(request, runtime);
   }
 
@@ -15834,17 +17898,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAccessKeysResponse
    */
-  async listAccessKeysWithOptions(request: ListAccessKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessKeysResponse> {
-    Util.validateModel(request);
+  async listAccessKeysWithOptions(request: ListAccessKeysRequest, runtime: $dara.RuntimeOptions): Promise<ListAccessKeysResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAccessKeys",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15855,7 +17919,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAccessKeysResponse>(await this.callApi(params, req, runtime), new ListAccessKeysResponse({}));
+    return $dara.cast<ListAccessKeysResponse>(await this.callApi(params, req, runtime), new ListAccessKeysResponse({}));
   }
 
   /**
@@ -15865,7 +17929,7 @@ export default class Client extends OpenApi {
    * @returns ListAccessKeysResponse
    */
   async listAccessKeys(request: ListAccessKeysRequest): Promise<ListAccessKeysResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAccessKeysWithOptions(request, runtime);
   }
 
@@ -15876,17 +17940,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAppSecretIdsResponse
    */
-  async listAppSecretIdsWithOptions(request: ListAppSecretIdsRequest, runtime: $Util.RuntimeOptions): Promise<ListAppSecretIdsResponse> {
-    Util.validateModel(request);
+  async listAppSecretIdsWithOptions(request: ListAppSecretIdsRequest, runtime: $dara.RuntimeOptions): Promise<ListAppSecretIdsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAppSecretIds",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15897,7 +17961,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAppSecretIdsResponse>(await this.callApi(params, req, runtime), new ListAppSecretIdsResponse({}));
+    return $dara.cast<ListAppSecretIdsResponse>(await this.callApi(params, req, runtime), new ListAppSecretIdsResponse({}));
   }
 
   /**
@@ -15907,7 +17971,7 @@ export default class Client extends OpenApi {
    * @returns ListAppSecretIdsResponse
    */
   async listAppSecretIds(request: ListAppSecretIdsRequest): Promise<ListAppSecretIdsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAppSecretIdsWithOptions(request, runtime);
   }
 
@@ -15921,9 +17985,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListApplicationsResponse
    */
-  async listApplicationsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async listApplicationsWithOptions(runtime: $dara.RuntimeOptions): Promise<ListApplicationsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "ListApplications",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15934,7 +17998,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
+    return $dara.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
   }
 
   /**
@@ -15945,7 +18009,7 @@ export default class Client extends OpenApi {
    * @returns ListApplicationsResponse
    */
   async listApplications(): Promise<ListApplicationsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listApplicationsWithOptions(runtime);
   }
 
@@ -15956,21 +18020,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGroupsResponse
    */
-  async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
-    Util.validateModel(request);
+  async listGroupsWithOptions(request: ListGroupsRequest, runtime: $dara.RuntimeOptions): Promise<ListGroupsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.marker)) {
+    if (!$dara.isNull(request.marker)) {
       query["Marker"] = request.marker;
     }
 
-    if (!Util.isUnset(request.maxItems)) {
+    if (!$dara.isNull(request.maxItems)) {
       query["MaxItems"] = request.maxItems;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListGroups",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -15981,7 +18045,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
+    return $dara.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
   }
 
   /**
@@ -15991,7 +18055,7 @@ export default class Client extends OpenApi {
    * @returns ListGroupsResponse
    */
   async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listGroupsWithOptions(request, runtime);
   }
 
@@ -16002,17 +18066,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGroupsForUserResponse
    */
-  async listGroupsForUserWithOptions(request: ListGroupsForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsForUserResponse> {
-    Util.validateModel(request);
+  async listGroupsForUserWithOptions(request: ListGroupsForUserRequest, runtime: $dara.RuntimeOptions): Promise<ListGroupsForUserResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListGroupsForUser",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16023,7 +18087,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListGroupsForUserResponse>(await this.callApi(params, req, runtime), new ListGroupsForUserResponse({}));
+    return $dara.cast<ListGroupsForUserResponse>(await this.callApi(params, req, runtime), new ListGroupsForUserResponse({}));
   }
 
   /**
@@ -16033,7 +18097,7 @@ export default class Client extends OpenApi {
    * @returns ListGroupsForUserResponse
    */
   async listGroupsForUser(request: ListGroupsForUserRequest): Promise<ListGroupsForUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listGroupsForUserWithOptions(request, runtime);
   }
 
@@ -16048,21 +18112,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListOIDCProvidersResponse
    */
-  async listOIDCProvidersWithOptions(request: ListOIDCProvidersRequest, runtime: $Util.RuntimeOptions): Promise<ListOIDCProvidersResponse> {
-    Util.validateModel(request);
+  async listOIDCProvidersWithOptions(request: ListOIDCProvidersRequest, runtime: $dara.RuntimeOptions): Promise<ListOIDCProvidersResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.marker)) {
+    if (!$dara.isNull(request.marker)) {
       query["Marker"] = request.marker;
     }
 
-    if (!Util.isUnset(request.maxItems)) {
+    if (!$dara.isNull(request.maxItems)) {
       query["MaxItems"] = request.maxItems;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListOIDCProviders",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16073,7 +18137,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListOIDCProvidersResponse>(await this.callApi(params, req, runtime), new ListOIDCProvidersResponse({}));
+    return $dara.cast<ListOIDCProvidersResponse>(await this.callApi(params, req, runtime), new ListOIDCProvidersResponse({}));
   }
 
   /**
@@ -16087,7 +18151,7 @@ export default class Client extends OpenApi {
    * @returns ListOIDCProvidersResponse
    */
   async listOIDCProviders(request: ListOIDCProvidersRequest): Promise<ListOIDCProvidersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listOIDCProvidersWithOptions(request, runtime);
   }
 
@@ -16098,17 +18162,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPredefinedScopesResponse
    */
-  async listPredefinedScopesWithOptions(request: ListPredefinedScopesRequest, runtime: $Util.RuntimeOptions): Promise<ListPredefinedScopesResponse> {
-    Util.validateModel(request);
+  async listPredefinedScopesWithOptions(request: ListPredefinedScopesRequest, runtime: $dara.RuntimeOptions): Promise<ListPredefinedScopesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appType)) {
+    if (!$dara.isNull(request.appType)) {
       query["AppType"] = request.appType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPredefinedScopes",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16119,7 +18183,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPredefinedScopesResponse>(await this.callApi(params, req, runtime), new ListPredefinedScopesResponse({}));
+    return $dara.cast<ListPredefinedScopesResponse>(await this.callApi(params, req, runtime), new ListPredefinedScopesResponse({}));
   }
 
   /**
@@ -16129,7 +18193,7 @@ export default class Client extends OpenApi {
    * @returns ListPredefinedScopesResponse
    */
   async listPredefinedScopes(request: ListPredefinedScopesRequest): Promise<ListPredefinedScopesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPredefinedScopesWithOptions(request, runtime);
   }
 
@@ -16140,21 +18204,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSAMLProvidersResponse
    */
-  async listSAMLProvidersWithOptions(request: ListSAMLProvidersRequest, runtime: $Util.RuntimeOptions): Promise<ListSAMLProvidersResponse> {
-    Util.validateModel(request);
+  async listSAMLProvidersWithOptions(request: ListSAMLProvidersRequest, runtime: $dara.RuntimeOptions): Promise<ListSAMLProvidersResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.marker)) {
+    if (!$dara.isNull(request.marker)) {
       query["Marker"] = request.marker;
     }
 
-    if (!Util.isUnset(request.maxItems)) {
+    if (!$dara.isNull(request.maxItems)) {
       query["MaxItems"] = request.maxItems;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListSAMLProviders",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16165,7 +18229,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListSAMLProvidersResponse>(await this.callApi(params, req, runtime), new ListSAMLProvidersResponse({}));
+    return $dara.cast<ListSAMLProvidersResponse>(await this.callApi(params, req, runtime), new ListSAMLProvidersResponse({}));
   }
 
   /**
@@ -16175,7 +18239,7 @@ export default class Client extends OpenApi {
    * @returns ListSAMLProvidersResponse
    */
   async listSAMLProviders(request: ListSAMLProvidersRequest): Promise<ListSAMLProvidersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listSAMLProvidersWithOptions(request, runtime);
   }
 
@@ -16193,37 +18257,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourcePrincipalName)) {
+    if (!$dara.isNull(request.resourcePrincipalName)) {
       query["ResourcePrincipalName"] = request.resourcePrincipalName;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16234,7 +18298,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   /**
@@ -16251,7 +18315,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
@@ -16267,29 +18331,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUserBasicInfosResponse
    */
-  async listUserBasicInfosWithOptions(request: ListUserBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListUserBasicInfosResponse> {
-    Util.validateModel(request);
+  async listUserBasicInfosWithOptions(request: ListUserBasicInfosRequest, runtime: $dara.RuntimeOptions): Promise<ListUserBasicInfosResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.marker)) {
+    if (!$dara.isNull(request.marker)) {
       query["Marker"] = request.marker;
     }
 
-    if (!Util.isUnset(request.maxItems)) {
+    if (!$dara.isNull(request.maxItems)) {
       query["MaxItems"] = request.maxItems;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserBasicInfos",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16300,7 +18364,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserBasicInfosResponse>(await this.callApi(params, req, runtime), new ListUserBasicInfosResponse({}));
+    return $dara.cast<ListUserBasicInfosResponse>(await this.callApi(params, req, runtime), new ListUserBasicInfosResponse({}));
   }
 
   /**
@@ -16315,7 +18379,7 @@ export default class Client extends OpenApi {
    * @returns ListUserBasicInfosResponse
    */
   async listUserBasicInfos(request: ListUserBasicInfosRequest): Promise<ListUserBasicInfosResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserBasicInfosWithOptions(request, runtime);
   }
 
@@ -16332,29 +18396,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUsersResponse
    */
-  async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
-    Util.validateModel(request);
+  async listUsersWithOptions(request: ListUsersRequest, runtime: $dara.RuntimeOptions): Promise<ListUsersResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.marker)) {
+    if (!$dara.isNull(request.marker)) {
       query["Marker"] = request.marker;
     }
 
-    if (!Util.isUnset(request.maxItems)) {
+    if (!$dara.isNull(request.maxItems)) {
       query["MaxItems"] = request.maxItems;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUsers",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16365,7 +18429,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
+    return $dara.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
   /**
@@ -16381,7 +18445,7 @@ export default class Client extends OpenApi {
    * @returns ListUsersResponse
    */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
   }
 
@@ -16392,25 +18456,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUsersForGroupResponse
    */
-  async listUsersForGroupWithOptions(request: ListUsersForGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersForGroupResponse> {
-    Util.validateModel(request);
+  async listUsersForGroupWithOptions(request: ListUsersForGroupRequest, runtime: $dara.RuntimeOptions): Promise<ListUsersForGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.marker)) {
+    if (!$dara.isNull(request.marker)) {
       query["Marker"] = request.marker;
     }
 
-    if (!Util.isUnset(request.maxItems)) {
+    if (!$dara.isNull(request.maxItems)) {
       query["MaxItems"] = request.maxItems;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUsersForGroup",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16421,7 +18485,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUsersForGroupResponse>(await this.callApi(params, req, runtime), new ListUsersForGroupResponse({}));
+    return $dara.cast<ListUsersForGroupResponse>(await this.callApi(params, req, runtime), new ListUsersForGroupResponse({}));
   }
 
   /**
@@ -16431,7 +18495,7 @@ export default class Client extends OpenApi {
    * @returns ListUsersForGroupResponse
    */
   async listUsersForGroup(request: ListUsersForGroupRequest): Promise<ListUsersForGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUsersForGroupWithOptions(request, runtime);
   }
 
@@ -16442,21 +18506,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVirtualMFADevicesResponse
    */
-  async listVirtualMFADevicesWithOptions(request: ListVirtualMFADevicesRequest, runtime: $Util.RuntimeOptions): Promise<ListVirtualMFADevicesResponse> {
-    Util.validateModel(request);
+  async listVirtualMFADevicesWithOptions(request: ListVirtualMFADevicesRequest, runtime: $dara.RuntimeOptions): Promise<ListVirtualMFADevicesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.marker)) {
+    if (!$dara.isNull(request.marker)) {
       query["Marker"] = request.marker;
     }
 
-    if (!Util.isUnset(request.maxItems)) {
+    if (!$dara.isNull(request.maxItems)) {
       query["MaxItems"] = request.maxItems;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListVirtualMFADevices",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16467,7 +18531,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListVirtualMFADevicesResponse>(await this.callApi(params, req, runtime), new ListVirtualMFADevicesResponse({}));
+    return $dara.cast<ListVirtualMFADevicesResponse>(await this.callApi(params, req, runtime), new ListVirtualMFADevicesResponse({}));
   }
 
   /**
@@ -16477,7 +18541,7 @@ export default class Client extends OpenApi {
    * @returns ListVirtualMFADevicesResponse
    */
   async listVirtualMFADevices(request: ListVirtualMFADevicesRequest): Promise<ListVirtualMFADevicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listVirtualMFADevicesWithOptions(request, runtime);
   }
 
@@ -16492,21 +18556,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveClientIdFromOIDCProviderResponse
    */
-  async removeClientIdFromOIDCProviderWithOptions(request: RemoveClientIdFromOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<RemoveClientIdFromOIDCProviderResponse> {
-    Util.validateModel(request);
+  async removeClientIdFromOIDCProviderWithOptions(request: RemoveClientIdFromOIDCProviderRequest, runtime: $dara.RuntimeOptions): Promise<RemoveClientIdFromOIDCProviderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.OIDCProviderName)) {
+    if (!$dara.isNull(request.OIDCProviderName)) {
       query["OIDCProviderName"] = request.OIDCProviderName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RemoveClientIdFromOIDCProvider",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16517,7 +18581,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RemoveClientIdFromOIDCProviderResponse>(await this.callApi(params, req, runtime), new RemoveClientIdFromOIDCProviderResponse({}));
+    return $dara.cast<RemoveClientIdFromOIDCProviderResponse>(await this.callApi(params, req, runtime), new RemoveClientIdFromOIDCProviderResponse({}));
   }
 
   /**
@@ -16531,7 +18595,7 @@ export default class Client extends OpenApi {
    * @returns RemoveClientIdFromOIDCProviderResponse
    */
   async removeClientIdFromOIDCProvider(request: RemoveClientIdFromOIDCProviderRequest): Promise<RemoveClientIdFromOIDCProviderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.removeClientIdFromOIDCProviderWithOptions(request, runtime);
   }
 
@@ -16546,21 +18610,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveFingerprintFromOIDCProviderResponse
    */
-  async removeFingerprintFromOIDCProviderWithOptions(request: RemoveFingerprintFromOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<RemoveFingerprintFromOIDCProviderResponse> {
-    Util.validateModel(request);
+  async removeFingerprintFromOIDCProviderWithOptions(request: RemoveFingerprintFromOIDCProviderRequest, runtime: $dara.RuntimeOptions): Promise<RemoveFingerprintFromOIDCProviderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.fingerprint)) {
+    if (!$dara.isNull(request.fingerprint)) {
       query["Fingerprint"] = request.fingerprint;
     }
 
-    if (!Util.isUnset(request.OIDCProviderName)) {
+    if (!$dara.isNull(request.OIDCProviderName)) {
       query["OIDCProviderName"] = request.OIDCProviderName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RemoveFingerprintFromOIDCProvider",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16571,7 +18635,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RemoveFingerprintFromOIDCProviderResponse>(await this.callApi(params, req, runtime), new RemoveFingerprintFromOIDCProviderResponse({}));
+    return $dara.cast<RemoveFingerprintFromOIDCProviderResponse>(await this.callApi(params, req, runtime), new RemoveFingerprintFromOIDCProviderResponse({}));
   }
 
   /**
@@ -16585,7 +18649,7 @@ export default class Client extends OpenApi {
    * @returns RemoveFingerprintFromOIDCProviderResponse
    */
   async removeFingerprintFromOIDCProvider(request: RemoveFingerprintFromOIDCProviderRequest): Promise<RemoveFingerprintFromOIDCProviderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.removeFingerprintFromOIDCProviderWithOptions(request, runtime);
   }
 
@@ -16596,21 +18660,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveUserFromGroupResponse
    */
-  async removeUserFromGroupWithOptions(request: RemoveUserFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromGroupResponse> {
-    Util.validateModel(request);
+  async removeUserFromGroupWithOptions(request: RemoveUserFromGroupRequest, runtime: $dara.RuntimeOptions): Promise<RemoveUserFromGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RemoveUserFromGroup",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16621,7 +18685,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RemoveUserFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveUserFromGroupResponse({}));
+    return $dara.cast<RemoveUserFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveUserFromGroupResponse({}));
   }
 
   /**
@@ -16631,7 +18695,7 @@ export default class Client extends OpenApi {
    * @returns RemoveUserFromGroupResponse
    */
   async removeUserFromGroup(request: RemoveUserFromGroupRequest): Promise<RemoveUserFromGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.removeUserFromGroupWithOptions(request, runtime);
   }
 
@@ -16642,17 +18706,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetDefaultDomainResponse
    */
-  async setDefaultDomainWithOptions(request: SetDefaultDomainRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultDomainResponse> {
-    Util.validateModel(request);
+  async setDefaultDomainWithOptions(request: SetDefaultDomainRequest, runtime: $dara.RuntimeOptions): Promise<SetDefaultDomainResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.defaultDomainName)) {
+    if (!$dara.isNull(request.defaultDomainName)) {
       query["DefaultDomainName"] = request.defaultDomainName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetDefaultDomain",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16663,7 +18727,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetDefaultDomainResponse>(await this.callApi(params, req, runtime), new SetDefaultDomainResponse({}));
+    return $dara.cast<SetDefaultDomainResponse>(await this.callApi(params, req, runtime), new SetDefaultDomainResponse({}));
   }
 
   /**
@@ -16673,7 +18737,7 @@ export default class Client extends OpenApi {
    * @returns SetDefaultDomainResponse
    */
   async setDefaultDomain(request: SetDefaultDomainRequest): Promise<SetDefaultDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setDefaultDomainWithOptions(request, runtime);
   }
 
@@ -16684,57 +18748,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetPasswordPolicyResponse
    */
-  async setPasswordPolicyWithOptions(request: SetPasswordPolicyRequest, runtime: $Util.RuntimeOptions): Promise<SetPasswordPolicyResponse> {
-    Util.validateModel(request);
+  async setPasswordPolicyWithOptions(request: SetPasswordPolicyRequest, runtime: $dara.RuntimeOptions): Promise<SetPasswordPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.hardExpire)) {
+    if (!$dara.isNull(request.hardExpire)) {
       query["HardExpire"] = request.hardExpire;
     }
 
-    if (!Util.isUnset(request.maxLoginAttemps)) {
+    if (!$dara.isNull(request.maxLoginAttemps)) {
       query["MaxLoginAttemps"] = request.maxLoginAttemps;
     }
 
-    if (!Util.isUnset(request.maxPasswordAge)) {
+    if (!$dara.isNull(request.maxPasswordAge)) {
       query["MaxPasswordAge"] = request.maxPasswordAge;
     }
 
-    if (!Util.isUnset(request.minimumPasswordDifferentCharacter)) {
+    if (!$dara.isNull(request.minimumPasswordDifferentCharacter)) {
       query["MinimumPasswordDifferentCharacter"] = request.minimumPasswordDifferentCharacter;
     }
 
-    if (!Util.isUnset(request.minimumPasswordLength)) {
+    if (!$dara.isNull(request.minimumPasswordLength)) {
       query["MinimumPasswordLength"] = request.minimumPasswordLength;
     }
 
-    if (!Util.isUnset(request.passwordNotContainUserName)) {
+    if (!$dara.isNull(request.passwordNotContainUserName)) {
       query["PasswordNotContainUserName"] = request.passwordNotContainUserName;
     }
 
-    if (!Util.isUnset(request.passwordReusePrevention)) {
+    if (!$dara.isNull(request.passwordReusePrevention)) {
       query["PasswordReusePrevention"] = request.passwordReusePrevention;
     }
 
-    if (!Util.isUnset(request.requireLowercaseCharacters)) {
+    if (!$dara.isNull(request.requireLowercaseCharacters)) {
       query["RequireLowercaseCharacters"] = request.requireLowercaseCharacters;
     }
 
-    if (!Util.isUnset(request.requireNumbers)) {
+    if (!$dara.isNull(request.requireNumbers)) {
       query["RequireNumbers"] = request.requireNumbers;
     }
 
-    if (!Util.isUnset(request.requireSymbols)) {
+    if (!$dara.isNull(request.requireSymbols)) {
       query["RequireSymbols"] = request.requireSymbols;
     }
 
-    if (!Util.isUnset(request.requireUppercaseCharacters)) {
+    if (!$dara.isNull(request.requireUppercaseCharacters)) {
       query["RequireUppercaseCharacters"] = request.requireUppercaseCharacters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetPasswordPolicy",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16745,7 +18809,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new SetPasswordPolicyResponse({}));
+    return $dara.cast<SetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new SetPasswordPolicyResponse({}));
   }
 
   /**
@@ -16755,7 +18819,7 @@ export default class Client extends OpenApi {
    * @returns SetPasswordPolicyResponse
    */
   async setPasswordPolicy(request: SetPasswordPolicyRequest): Promise<SetPasswordPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setPasswordPolicyWithOptions(request, runtime);
   }
 
@@ -16770,63 +18834,63 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetSecurityPreferenceResponse
    */
-  async setSecurityPreferenceWithOptions(tmpReq: SetSecurityPreferenceRequest, runtime: $Util.RuntimeOptions): Promise<SetSecurityPreferenceResponse> {
-    Util.validateModel(tmpReq);
+  async setSecurityPreferenceWithOptions(tmpReq: SetSecurityPreferenceRequest, runtime: $dara.RuntimeOptions): Promise<SetSecurityPreferenceResponse> {
+    tmpReq.validate();
     let request = new SetSecurityPreferenceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.verificationTypes)) {
+    if (!$dara.isNull(tmpReq.verificationTypes)) {
       request.verificationTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.verificationTypes, "VerificationTypes", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.allowUserToChangePassword)) {
+    if (!$dara.isNull(request.allowUserToChangePassword)) {
       query["AllowUserToChangePassword"] = request.allowUserToChangePassword;
     }
 
-    if (!Util.isUnset(request.allowUserToLoginWithPasskey)) {
+    if (!$dara.isNull(request.allowUserToLoginWithPasskey)) {
       query["AllowUserToLoginWithPasskey"] = request.allowUserToLoginWithPasskey;
     }
 
-    if (!Util.isUnset(request.allowUserToManageAccessKeys)) {
+    if (!$dara.isNull(request.allowUserToManageAccessKeys)) {
       query["AllowUserToManageAccessKeys"] = request.allowUserToManageAccessKeys;
     }
 
-    if (!Util.isUnset(request.allowUserToManageMFADevices)) {
+    if (!$dara.isNull(request.allowUserToManageMFADevices)) {
       query["AllowUserToManageMFADevices"] = request.allowUserToManageMFADevices;
     }
 
-    if (!Util.isUnset(request.allowUserToManagePersonalDingTalk)) {
+    if (!$dara.isNull(request.allowUserToManagePersonalDingTalk)) {
       query["AllowUserToManagePersonalDingTalk"] = request.allowUserToManagePersonalDingTalk;
     }
 
-    if (!Util.isUnset(request.enableSaveMFATicket)) {
+    if (!$dara.isNull(request.enableSaveMFATicket)) {
       query["EnableSaveMFATicket"] = request.enableSaveMFATicket;
     }
 
-    if (!Util.isUnset(request.loginNetworkMasks)) {
+    if (!$dara.isNull(request.loginNetworkMasks)) {
       query["LoginNetworkMasks"] = request.loginNetworkMasks;
     }
 
-    if (!Util.isUnset(request.loginSessionDuration)) {
+    if (!$dara.isNull(request.loginSessionDuration)) {
       query["LoginSessionDuration"] = request.loginSessionDuration;
     }
 
-    if (!Util.isUnset(request.MFAOperationForLogin)) {
+    if (!$dara.isNull(request.MFAOperationForLogin)) {
       query["MFAOperationForLogin"] = request.MFAOperationForLogin;
     }
 
-    if (!Util.isUnset(request.operationForRiskLogin)) {
+    if (!$dara.isNull(request.operationForRiskLogin)) {
       query["OperationForRiskLogin"] = request.operationForRiskLogin;
     }
 
-    if (!Util.isUnset(request.verificationTypesShrink)) {
+    if (!$dara.isNull(request.verificationTypesShrink)) {
       query["VerificationTypes"] = request.verificationTypesShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetSecurityPreference",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16837,7 +18901,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new SetSecurityPreferenceResponse({}));
+    return $dara.cast<SetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new SetSecurityPreferenceResponse({}));
   }
 
   /**
@@ -16851,7 +18915,7 @@ export default class Client extends OpenApi {
    * @returns SetSecurityPreferenceResponse
    */
   async setSecurityPreference(request: SetSecurityPreferenceRequest): Promise<SetSecurityPreferenceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setSecurityPreferenceWithOptions(request, runtime);
   }
 
@@ -16862,29 +18926,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetUserSsoSettingsResponse
    */
-  async setUserSsoSettingsWithOptions(request: SetUserSsoSettingsRequest, runtime: $Util.RuntimeOptions): Promise<SetUserSsoSettingsResponse> {
-    Util.validateModel(request);
+  async setUserSsoSettingsWithOptions(request: SetUserSsoSettingsRequest, runtime: $dara.RuntimeOptions): Promise<SetUserSsoSettingsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.auxiliaryDomain)) {
+    if (!$dara.isNull(request.auxiliaryDomain)) {
       query["AuxiliaryDomain"] = request.auxiliaryDomain;
     }
 
-    if (!Util.isUnset(request.metadataDocument)) {
+    if (!$dara.isNull(request.metadataDocument)) {
       query["MetadataDocument"] = request.metadataDocument;
     }
 
-    if (!Util.isUnset(request.ssoEnabled)) {
+    if (!$dara.isNull(request.ssoEnabled)) {
       query["SsoEnabled"] = request.ssoEnabled;
     }
 
-    if (!Util.isUnset(request.ssoLoginWithDomain)) {
+    if (!$dara.isNull(request.ssoLoginWithDomain)) {
       query["SsoLoginWithDomain"] = request.ssoLoginWithDomain;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetUserSsoSettings",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16895,7 +18959,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetUserSsoSettingsResponse>(await this.callApi(params, req, runtime), new SetUserSsoSettingsResponse({}));
+    return $dara.cast<SetUserSsoSettingsResponse>(await this.callApi(params, req, runtime), new SetUserSsoSettingsResponse({}));
   }
 
   /**
@@ -16905,7 +18969,7 @@ export default class Client extends OpenApi {
    * @returns SetUserSsoSettingsResponse
    */
   async setUserSsoSettings(request: SetUserSsoSettingsRequest): Promise<SetUserSsoSettingsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setUserSsoSettingsWithOptions(request, runtime);
   }
 
@@ -16916,29 +18980,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourcePrincipalName)) {
+    if (!$dara.isNull(request.resourcePrincipalName)) {
       query["ResourcePrincipalName"] = request.resourcePrincipalName;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16949,7 +19013,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   /**
@@ -16959,7 +19023,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
@@ -16970,17 +19034,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindMFADeviceResponse
    */
-  async unbindMFADeviceWithOptions(request: UnbindMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnbindMFADeviceResponse> {
-    Util.validateModel(request);
+  async unbindMFADeviceWithOptions(request: UnbindMFADeviceRequest, runtime: $dara.RuntimeOptions): Promise<UnbindMFADeviceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnbindMFADevice",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -16991,7 +19055,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnbindMFADeviceResponse>(await this.callApi(params, req, runtime), new UnbindMFADeviceResponse({}));
+    return $dara.cast<UnbindMFADeviceResponse>(await this.callApi(params, req, runtime), new UnbindMFADeviceResponse({}));
   }
 
   /**
@@ -17001,7 +19065,7 @@ export default class Client extends OpenApi {
    * @returns UnbindMFADeviceResponse
    */
   async unbindMFADevice(request: UnbindMFADeviceRequest): Promise<UnbindMFADeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindMFADeviceWithOptions(request, runtime);
   }
 
@@ -17012,33 +19076,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourcePrincipalName)) {
+    if (!$dara.isNull(request.resourcePrincipalName)) {
       query["ResourcePrincipalName"] = request.resourcePrincipalName;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -17049,7 +19113,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   /**
@@ -17059,7 +19123,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
@@ -17070,25 +19134,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAccessKeyResponse
    */
-  async updateAccessKeyWithOptions(request: UpdateAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccessKeyResponse> {
-    Util.validateModel(request);
+  async updateAccessKeyWithOptions(request: UpdateAccessKeyRequest, runtime: $dara.RuntimeOptions): Promise<UpdateAccessKeyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.userAccessKeyId)) {
+    if (!$dara.isNull(request.userAccessKeyId)) {
       query["UserAccessKeyId"] = request.userAccessKeyId;
     }
 
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateAccessKey",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -17099,7 +19163,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAccessKeyResponse>(await this.callApi(params, req, runtime), new UpdateAccessKeyResponse({}));
+    return $dara.cast<UpdateAccessKeyResponse>(await this.callApi(params, req, runtime), new UpdateAccessKeyResponse({}));
   }
 
   /**
@@ -17109,7 +19173,7 @@ export default class Client extends OpenApi {
    * @returns UpdateAccessKeyResponse
    */
   async updateAccessKey(request: UpdateAccessKeyRequest): Promise<UpdateAccessKeyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAccessKeyWithOptions(request, runtime);
   }
 
@@ -17120,49 +19184,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateApplicationResponse
    */
-  async updateApplicationWithOptions(request: UpdateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationResponse> {
-    Util.validateModel(request);
+  async updateApplicationWithOptions(request: UpdateApplicationRequest, runtime: $dara.RuntimeOptions): Promise<UpdateApplicationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.newAccessTokenValidity)) {
+    if (!$dara.isNull(request.newAccessTokenValidity)) {
       query["NewAccessTokenValidity"] = request.newAccessTokenValidity;
     }
 
-    if (!Util.isUnset(request.newDisplayName)) {
+    if (!$dara.isNull(request.newDisplayName)) {
       query["NewDisplayName"] = request.newDisplayName;
     }
 
-    if (!Util.isUnset(request.newIsMultiTenant)) {
+    if (!$dara.isNull(request.newIsMultiTenant)) {
       query["NewIsMultiTenant"] = request.newIsMultiTenant;
     }
 
-    if (!Util.isUnset(request.newPredefinedScopes)) {
+    if (!$dara.isNull(request.newPredefinedScopes)) {
       query["NewPredefinedScopes"] = request.newPredefinedScopes;
     }
 
-    if (!Util.isUnset(request.newRedirectUris)) {
+    if (!$dara.isNull(request.newRedirectUris)) {
       query["NewRedirectUris"] = request.newRedirectUris;
     }
 
-    if (!Util.isUnset(request.newRefreshTokenValidity)) {
+    if (!$dara.isNull(request.newRefreshTokenValidity)) {
       query["NewRefreshTokenValidity"] = request.newRefreshTokenValidity;
     }
 
-    if (!Util.isUnset(request.newRequiredScopes)) {
+    if (!$dara.isNull(request.newRequiredScopes)) {
       query["NewRequiredScopes"] = request.newRequiredScopes;
     }
 
-    if (!Util.isUnset(request.newSecretRequired)) {
+    if (!$dara.isNull(request.newSecretRequired)) {
       query["NewSecretRequired"] = request.newSecretRequired;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateApplication",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -17173,7 +19237,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateApplicationResponse>(await this.callApi(params, req, runtime), new UpdateApplicationResponse({}));
+    return $dara.cast<UpdateApplicationResponse>(await this.callApi(params, req, runtime), new UpdateApplicationResponse({}));
   }
 
   /**
@@ -17183,7 +19247,7 @@ export default class Client extends OpenApi {
    * @returns UpdateApplicationResponse
    */
   async updateApplication(request: UpdateApplicationRequest): Promise<UpdateApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateApplicationWithOptions(request, runtime);
   }
 
@@ -17194,29 +19258,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateGroupResponse
    */
-  async updateGroupWithOptions(request: UpdateGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupResponse> {
-    Util.validateModel(request);
+  async updateGroupWithOptions(request: UpdateGroupRequest, runtime: $dara.RuntimeOptions): Promise<UpdateGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.newComments)) {
+    if (!$dara.isNull(request.newComments)) {
       query["NewComments"] = request.newComments;
     }
 
-    if (!Util.isUnset(request.newDisplayName)) {
+    if (!$dara.isNull(request.newDisplayName)) {
       query["NewDisplayName"] = request.newDisplayName;
     }
 
-    if (!Util.isUnset(request.newGroupName)) {
+    if (!$dara.isNull(request.newGroupName)) {
       query["NewGroupName"] = request.newGroupName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateGroup",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -17227,7 +19291,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateGroupResponse>(await this.callApi(params, req, runtime), new UpdateGroupResponse({}));
+    return $dara.cast<UpdateGroupResponse>(await this.callApi(params, req, runtime), new UpdateGroupResponse({}));
   }
 
   /**
@@ -17237,7 +19301,7 @@ export default class Client extends OpenApi {
    * @returns UpdateGroupResponse
    */
   async updateGroup(request: UpdateGroupRequest): Promise<UpdateGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateGroupWithOptions(request, runtime);
   }
 
@@ -17248,33 +19312,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateLoginProfileResponse
    */
-  async updateLoginProfileWithOptions(request: UpdateLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoginProfileResponse> {
-    Util.validateModel(request);
+  async updateLoginProfileWithOptions(request: UpdateLoginProfileRequest, runtime: $dara.RuntimeOptions): Promise<UpdateLoginProfileResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.MFABindRequired)) {
+    if (!$dara.isNull(request.MFABindRequired)) {
       query["MFABindRequired"] = request.MFABindRequired;
     }
 
-    if (!Util.isUnset(request.password)) {
+    if (!$dara.isNull(request.password)) {
       query["Password"] = request.password;
     }
 
-    if (!Util.isUnset(request.passwordResetRequired)) {
+    if (!$dara.isNull(request.passwordResetRequired)) {
       query["PasswordResetRequired"] = request.passwordResetRequired;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateLoginProfile",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -17285,7 +19349,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateLoginProfileResponse>(await this.callApi(params, req, runtime), new UpdateLoginProfileResponse({}));
+    return $dara.cast<UpdateLoginProfileResponse>(await this.callApi(params, req, runtime), new UpdateLoginProfileResponse({}));
   }
 
   /**
@@ -17295,7 +19359,7 @@ export default class Client extends OpenApi {
    * @returns UpdateLoginProfileResponse
    */
   async updateLoginProfile(request: UpdateLoginProfileRequest): Promise<UpdateLoginProfileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateLoginProfileWithOptions(request, runtime);
   }
 
@@ -17310,29 +19374,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateOIDCProviderResponse
    */
-  async updateOIDCProviderWithOptions(request: UpdateOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOIDCProviderResponse> {
-    Util.validateModel(request);
+  async updateOIDCProviderWithOptions(request: UpdateOIDCProviderRequest, runtime: $dara.RuntimeOptions): Promise<UpdateOIDCProviderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientIds)) {
+    if (!$dara.isNull(request.clientIds)) {
       query["ClientIds"] = request.clientIds;
     }
 
-    if (!Util.isUnset(request.issuanceLimitTime)) {
+    if (!$dara.isNull(request.issuanceLimitTime)) {
       query["IssuanceLimitTime"] = request.issuanceLimitTime;
     }
 
-    if (!Util.isUnset(request.newDescription)) {
+    if (!$dara.isNull(request.newDescription)) {
       query["NewDescription"] = request.newDescription;
     }
 
-    if (!Util.isUnset(request.OIDCProviderName)) {
+    if (!$dara.isNull(request.OIDCProviderName)) {
       query["OIDCProviderName"] = request.OIDCProviderName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateOIDCProvider",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -17343,7 +19407,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateOIDCProviderResponse>(await this.callApi(params, req, runtime), new UpdateOIDCProviderResponse({}));
+    return $dara.cast<UpdateOIDCProviderResponse>(await this.callApi(params, req, runtime), new UpdateOIDCProviderResponse({}));
   }
 
   /**
@@ -17357,7 +19421,7 @@ export default class Client extends OpenApi {
    * @returns UpdateOIDCProviderResponse
    */
   async updateOIDCProvider(request: UpdateOIDCProviderRequest): Promise<UpdateOIDCProviderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateOIDCProviderWithOptions(request, runtime);
   }
 
@@ -17371,25 +19435,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSAMLProviderResponse
    */
-  async updateSAMLProviderWithOptions(request: UpdateSAMLProviderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSAMLProviderResponse> {
-    Util.validateModel(request);
+  async updateSAMLProviderWithOptions(request: UpdateSAMLProviderRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSAMLProviderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.newDescription)) {
+    if (!$dara.isNull(request.newDescription)) {
       query["NewDescription"] = request.newDescription;
     }
 
-    if (!Util.isUnset(request.newEncodedSAMLMetadataDocument)) {
+    if (!$dara.isNull(request.newEncodedSAMLMetadataDocument)) {
       query["NewEncodedSAMLMetadataDocument"] = request.newEncodedSAMLMetadataDocument;
     }
 
-    if (!Util.isUnset(request.SAMLProviderName)) {
+    if (!$dara.isNull(request.SAMLProviderName)) {
       query["SAMLProviderName"] = request.SAMLProviderName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateSAMLProvider",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -17400,7 +19464,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateSAMLProviderResponse>(await this.callApi(params, req, runtime), new UpdateSAMLProviderResponse({}));
+    return $dara.cast<UpdateSAMLProviderResponse>(await this.callApi(params, req, runtime), new UpdateSAMLProviderResponse({}));
   }
 
   /**
@@ -17413,7 +19477,7 @@ export default class Client extends OpenApi {
    * @returns UpdateSAMLProviderResponse
    */
   async updateSAMLProvider(request: UpdateSAMLProviderRequest): Promise<UpdateSAMLProviderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSAMLProviderWithOptions(request, runtime);
   }
 
@@ -17427,41 +19491,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateUserResponse
    */
-  async updateUserWithOptions(request: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
-    Util.validateModel(request);
+  async updateUserWithOptions(request: UpdateUserRequest, runtime: $dara.RuntimeOptions): Promise<UpdateUserResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.newComments)) {
+    if (!$dara.isNull(request.newComments)) {
       query["NewComments"] = request.newComments;
     }
 
-    if (!Util.isUnset(request.newDisplayName)) {
+    if (!$dara.isNull(request.newDisplayName)) {
       query["NewDisplayName"] = request.newDisplayName;
     }
 
-    if (!Util.isUnset(request.newEmail)) {
+    if (!$dara.isNull(request.newEmail)) {
       query["NewEmail"] = request.newEmail;
     }
 
-    if (!Util.isUnset(request.newMobilePhone)) {
+    if (!$dara.isNull(request.newMobilePhone)) {
       query["NewMobilePhone"] = request.newMobilePhone;
     }
 
-    if (!Util.isUnset(request.newUserPrincipalName)) {
+    if (!$dara.isNull(request.newUserPrincipalName)) {
       query["NewUserPrincipalName"] = request.newUserPrincipalName;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.userId)) {
       query["UserId"] = request.userId;
     }
 
-    if (!Util.isUnset(request.userPrincipalName)) {
+    if (!$dara.isNull(request.userPrincipalName)) {
       query["UserPrincipalName"] = request.userPrincipalName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateUser",
       version: "2019-08-15",
       protocol: "HTTPS",
@@ -17472,7 +19536,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
+    return $dara.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
   }
 
   /**
@@ -17485,7 +19549,7 @@ export default class Client extends OpenApi {
    * @returns UpdateUserResponse
    */
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateUserWithOptions(request, runtime);
   }
 
