@@ -2365,6 +2365,202 @@ export class RunMarketingInformationWritingResponseBodyPayload extends $dara.Mod
   }
 }
 
+export class RunNetworkContentAuditRequestTags extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'tagDefinePrompt',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunNetworkContentAuditResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * AccessForbidden
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-finished
+   */
+  event?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  taskId?: string;
+  /**
+   * @example
+   * xxxxx
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunNetworkContentAuditResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunNetworkContentAuditResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunNetworkContentAuditResponseBodyPayload extends $dara.Model {
+  output?: RunNetworkContentAuditResponseBodyPayloadOutput;
+  usage?: RunNetworkContentAuditResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunNetworkContentAuditResponseBodyPayloadOutput,
+      usage: RunNetworkContentAuditResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunScriptChatResponseBodyHeader extends $dara.Model {
   /**
    * @example
@@ -5872,6 +6068,222 @@ export class RunMarketingInformationWritingResponse extends $dara.Model {
   }
 }
 
+export class RunNetworkContentAuditRequest extends $dara.Model {
+  /**
+   * @example
+   * clueMining
+   */
+  businessType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 待分析文本
+   */
+  content?: string;
+  /**
+   * @example
+   * 额外信息
+   */
+  extraInfo?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  /**
+   * @example
+   * 请返回如下JSON格式，{"key1":"","key2":""}
+   */
+  outputFormat?: string;
+  tags?: RunNetworkContentAuditRequestTags[];
+  /**
+   * @example
+   * 给你一条待分析文本数据，请你按照标签体系来对数据进行打标。
+   */
+  taskDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'businessType',
+      content: 'content',
+      extraInfo: 'extraInfo',
+      modelId: 'modelId',
+      outputFormat: 'outputFormat',
+      tags: 'tags',
+      taskDescription: 'taskDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      content: 'string',
+      extraInfo: 'string',
+      modelId: 'string',
+      outputFormat: 'string',
+      tags: { 'type': 'array', 'itemType': RunNetworkContentAuditRequestTags },
+      taskDescription: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunNetworkContentAuditShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * clueMining
+   */
+  businessType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 待分析文本
+   */
+  content?: string;
+  /**
+   * @example
+   * 额外信息
+   */
+  extraInfo?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  /**
+   * @example
+   * 请返回如下JSON格式，{"key1":"","key2":""}
+   */
+  outputFormat?: string;
+  tagsShrink?: string;
+  /**
+   * @example
+   * 给你一条待分析文本数据，请你按照标签体系来对数据进行打标。
+   */
+  taskDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'businessType',
+      content: 'content',
+      extraInfo: 'extraInfo',
+      modelId: 'modelId',
+      outputFormat: 'outputFormat',
+      tagsShrink: 'tags',
+      taskDescription: 'taskDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      content: 'string',
+      extraInfo: 'string',
+      modelId: 'string',
+      outputFormat: 'string',
+      tagsShrink: 'string',
+      taskDescription: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunNetworkContentAuditResponseBody extends $dara.Model {
+  header?: RunNetworkContentAuditResponseBodyHeader;
+  payload?: RunNetworkContentAuditResponseBodyPayload;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 5D0E915E-655D-59A8-894F-93873F73AAE5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'header',
+      payload: 'payload',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunNetworkContentAuditResponseBodyHeader,
+      payload: RunNetworkContentAuditResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunNetworkContentAuditResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunNetworkContentAuditResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunNetworkContentAuditResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunScriptChatRequest extends $dara.Model {
   /**
    * @remarks
@@ -7946,6 +8358,81 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runMarketingInformationWritingWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 轻应用-网络内容审核
+   * 
+   * @param tmpReq - RunNetworkContentAuditRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunNetworkContentAuditResponse
+   */
+  async runNetworkContentAuditWithOptions(workspaceId: string, tmpReq: RunNetworkContentAuditRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunNetworkContentAuditResponse> {
+    tmpReq.validate();
+    let request = new RunNetworkContentAuditShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessType)) {
+      body["businessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.extraInfo)) {
+      body["extraInfo"] = request.extraInfo;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.outputFormat)) {
+      body["outputFormat"] = request.outputFormat;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.taskDescription)) {
+      body["taskDescription"] = request.taskDescription;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunNetworkContentAudit",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runNetworkContentAudit`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<RunNetworkContentAuditResponse>(await this.callApi(params, req, runtime), new RunNetworkContentAuditResponse({}));
+  }
+
+  /**
+   * 轻应用-网络内容审核
+   * 
+   * @param request - RunNetworkContentAuditRequest
+   * @returns RunNetworkContentAuditResponse
+   */
+  async runNetworkContentAudit(workspaceId: string, request: RunNetworkContentAuditRequest): Promise<RunNetworkContentAuditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runNetworkContentAuditWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
