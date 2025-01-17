@@ -7183,6 +7183,106 @@ export class GetLiveTranscodeTemplateResponseBodyTemplateContent extends $dara.M
   }
 }
 
+export class GetMediaConvertJobResponseBodyJobConfig extends $dara.Model {
+  inputs?: MediaConvertInput[];
+  outputGroups?: MediaConvertOutputGroup[];
+  outputs?: MediaConvertOutput[];
+  static names(): { [key: string]: string } {
+    return {
+      inputs: 'Inputs',
+      outputGroups: 'OutputGroups',
+      outputs: 'Outputs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputs: { 'type': 'array', 'itemType': MediaConvertInput },
+      outputGroups: { 'type': 'array', 'itemType': MediaConvertOutputGroup },
+      outputs: { 'type': 'array', 'itemType': MediaConvertOutput },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inputs)) {
+      $dara.Model.validateArray(this.inputs);
+    }
+    if(Array.isArray(this.outputGroups)) {
+      $dara.Model.validateArray(this.outputGroups);
+    }
+    if(Array.isArray(this.outputs)) {
+      $dara.Model.validateArray(this.outputs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaConvertJobResponseBodyJob extends $dara.Model {
+  clientToken?: string;
+  code?: string;
+  config?: GetMediaConvertJobResponseBodyJobConfig;
+  jobId?: string;
+  message?: string;
+  outputDetails?: MediaConvertOutputDetail[];
+  outputGroupDetails?: MediaConvertOutputGroupDetail[];
+  pipelineId?: string;
+  requestId?: string;
+  state?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      code: 'Code',
+      config: 'Config',
+      jobId: 'JobId',
+      message: 'Message',
+      outputDetails: 'OutputDetails',
+      outputGroupDetails: 'OutputGroupDetails',
+      pipelineId: 'PipelineId',
+      requestId: 'RequestId',
+      state: 'State',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      code: 'string',
+      config: GetMediaConvertJobResponseBodyJobConfig,
+      jobId: 'string',
+      message: 'string',
+      outputDetails: { 'type': 'array', 'itemType': MediaConvertOutputDetail },
+      outputGroupDetails: { 'type': 'array', 'itemType': MediaConvertOutputGroupDetail },
+      pipelineId: 'string',
+      requestId: 'string',
+      state: 'string',
+      userData: 'string',
+    };
+  }
+
+  validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
+    if(Array.isArray(this.outputDetails)) {
+      $dara.Model.validateArray(this.outputDetails);
+    }
+    if(Array.isArray(this.outputGroupDetails)) {
+      $dara.Model.validateArray(this.outputGroupDetails);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJobResults extends $dara.Model {
   /**
    * @remarks
@@ -32464,6 +32564,130 @@ export class SubmitMediaCensorJobRequestScheduleConfig extends $dara.Model {
   }
 }
 
+export class SubmitMediaConvertJobResponseBodyJobConfig extends $dara.Model {
+  inputs?: MediaConvertInput[];
+  outputGroups?: MediaConvertOutputGroup[];
+  outputs?: MediaConvertOutput[];
+  static names(): { [key: string]: string } {
+    return {
+      inputs: 'Inputs',
+      outputGroups: 'OutputGroups',
+      outputs: 'Outputs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputs: { 'type': 'array', 'itemType': MediaConvertInput },
+      outputGroups: { 'type': 'array', 'itemType': MediaConvertOutputGroup },
+      outputs: { 'type': 'array', 'itemType': MediaConvertOutput },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inputs)) {
+      $dara.Model.validateArray(this.inputs);
+    }
+    if(Array.isArray(this.outputGroups)) {
+      $dara.Model.validateArray(this.outputGroups);
+    }
+    if(Array.isArray(this.outputs)) {
+      $dara.Model.validateArray(this.outputs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMediaConvertJobResponseBodyJob extends $dara.Model {
+  clientToken?: string;
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  config?: SubmitMediaConvertJobResponseBodyJobConfig;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
+  jobId?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  outputDetails?: MediaConvertOutputDetail[];
+  outputGroupDetails?: MediaConvertOutputGroupDetail[];
+  /**
+   * @example
+   * 3780049
+   */
+  pipelineId?: string;
+  /**
+   * @example
+   * A2129C9F-CE95-58B5-B8C1-07758FF6C86F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * Created
+   */
+  state?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      code: 'Code',
+      config: 'Config',
+      jobId: 'JobId',
+      message: 'Message',
+      outputDetails: 'OutputDetails',
+      outputGroupDetails: 'OutputGroupDetails',
+      pipelineId: 'PipelineId',
+      requestId: 'RequestId',
+      state: 'State',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      code: 'string',
+      config: SubmitMediaConvertJobResponseBodyJobConfig,
+      jobId: 'string',
+      message: 'string',
+      outputDetails: { 'type': 'array', 'itemType': MediaConvertOutputDetail },
+      outputGroupDetails: { 'type': 'array', 'itemType': MediaConvertOutputGroupDetail },
+      pipelineId: 'string',
+      requestId: 'string',
+      state: 'string',
+      userData: 'string',
+    };
+  }
+
+  validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
+    if(Array.isArray(this.outputDetails)) {
+      $dara.Model.validateArray(this.outputDetails);
+    }
+    if(Array.isArray(this.outputGroupDetails)) {
+      $dara.Model.validateArray(this.outputGroupDetails);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitMediaInfoJobRequestInput extends $dara.Model {
   /**
    * @remarks
@@ -42216,6 +42440,526 @@ export class LicenseInstanceAppDTO extends $dara.Model {
     if(Array.isArray(this.licenseConfigs)) {
       $dara.Model.validateArray(this.licenseConfigs);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaConvertAudio extends $dara.Model {
+  bitrate?: number;
+  channels?: number;
+  codec?: string;
+  profile?: string;
+  remove?: boolean;
+  samplerate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      channels: 'Channels',
+      codec: 'Codec',
+      profile: 'Profile',
+      remove: 'Remove',
+      samplerate: 'Samplerate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'number',
+      channels: 'number',
+      codec: 'string',
+      profile: 'string',
+      remove: 'boolean',
+      samplerate: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaConvertInput extends $dara.Model {
+  inputFile?: MediaObject;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputFile: 'InputFile',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputFile: MediaObject,
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(this.inputFile && typeof (this.inputFile as any).validate === 'function') {
+      (this.inputFile as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaConvertMuxConfig extends $dara.Model {
+  segment?: MediaConvertSegment;
+  static names(): { [key: string]: string } {
+    return {
+      segment: 'Segment',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      segment: MediaConvertSegment,
+    };
+  }
+
+  validate() {
+    if(this.segment && typeof (this.segment as any).validate === 'function') {
+      (this.segment as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaConvertOutput extends $dara.Model {
+  features?: string;
+  name?: string;
+  outputFile?: MediaObject;
+  overrideParams?: string;
+  priority?: number;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      features: 'Features',
+      name: 'Name',
+      outputFile: 'OutputFile',
+      overrideParams: 'OverrideParams',
+      priority: 'Priority',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      features: 'string',
+      name: 'string',
+      outputFile: MediaObject,
+      overrideParams: 'string',
+      priority: 'number',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.outputFile && typeof (this.outputFile as any).validate === 'function') {
+      (this.outputFile as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaConvertOutputDetail extends $dara.Model {
+  code?: string;
+  message?: string;
+  name?: string;
+  status?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      name: 'Name',
+      status: 'Status',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      name: 'string',
+      status: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaConvertOutputGroup extends $dara.Model {
+  groupConfig?: MediaConvertOutputGroupConfig;
+  name?: string;
+  outputs?: MediaConvertOutputGroupOutput[];
+  static names(): { [key: string]: string } {
+    return {
+      groupConfig: 'GroupConfig',
+      name: 'Name',
+      outputs: 'Outputs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupConfig: MediaConvertOutputGroupConfig,
+      name: 'string',
+      outputs: { 'type': 'array', 'itemType': MediaConvertOutputGroupOutput },
+    };
+  }
+
+  validate() {
+    if(this.groupConfig && typeof (this.groupConfig as any).validate === 'function') {
+      (this.groupConfig as any).validate();
+    }
+    if(Array.isArray(this.outputs)) {
+      $dara.Model.validateArray(this.outputs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaConvertOutputGroupConfig extends $dara.Model {
+  manifestName?: string;
+  outputFileBase?: MediaObject;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      manifestName: 'ManifestName',
+      outputFileBase: 'OutputFileBase',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      manifestName: 'string',
+      outputFileBase: MediaObject,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.outputFileBase && typeof (this.outputFileBase as any).validate === 'function') {
+      (this.outputFileBase as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaConvertOutputGroupDetail extends $dara.Model {
+  code?: string;
+  message?: string;
+  name?: string;
+  outputs?: MediaConvertOutputDetail[];
+  status?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      name: 'Name',
+      outputs: 'Outputs',
+      status: 'Status',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      name: 'string',
+      outputs: { 'type': 'array', 'itemType': MediaConvertOutputDetail },
+      status: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.outputs)) {
+      $dara.Model.validateArray(this.outputs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaConvertOutputGroupOutput extends $dara.Model {
+  features?: string;
+  name?: string;
+  outputFileName?: string;
+  overrideParams?: string;
+  priority?: number;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      features: 'Features',
+      name: 'Name',
+      outputFileName: 'OutputFileName',
+      overrideParams: 'OverrideParams',
+      priority: 'Priority',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      features: 'string',
+      name: 'string',
+      outputFileName: 'string',
+      overrideParams: 'string',
+      priority: 'number',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaConvertSegment extends $dara.Model {
+  duration?: number;
+  forceSegTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      forceSegTime: 'ForceSegTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      forceSegTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaConvertTransConfig extends $dara.Model {
+  adjDarMethod?: string;
+  isCheckAudioBitrate?: boolean;
+  isCheckAudioBitrateFail?: boolean;
+  isCheckReso?: boolean;
+  isCheckResoFail?: boolean;
+  isCheckVideoBitrate?: boolean;
+  isCheckVideoBitrateFail?: boolean;
+  transMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adjDarMethod: 'AdjDarMethod',
+      isCheckAudioBitrate: 'IsCheckAudioBitrate',
+      isCheckAudioBitrateFail: 'IsCheckAudioBitrateFail',
+      isCheckReso: 'IsCheckReso',
+      isCheckResoFail: 'IsCheckResoFail',
+      isCheckVideoBitrate: 'IsCheckVideoBitrate',
+      isCheckVideoBitrateFail: 'IsCheckVideoBitrateFail',
+      transMode: 'TransMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adjDarMethod: 'string',
+      isCheckAudioBitrate: 'boolean',
+      isCheckAudioBitrateFail: 'boolean',
+      isCheckReso: 'boolean',
+      isCheckResoFail: 'boolean',
+      isCheckVideoBitrate: 'boolean',
+      isCheckVideoBitrateFail: 'boolean',
+      transMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaConvertVideo extends $dara.Model {
+  bitrate?: number;
+  bufsize?: number;
+  codec?: string;
+  crf?: any;
+  crop?: string;
+  fps?: any;
+  gop?: any;
+  height?: number;
+  longShortMode?: boolean;
+  maxFps?: any;
+  maxrate?: number;
+  pad?: string;
+  profile?: string;
+  qscale?: number;
+  remove?: boolean;
+  scanMode?: string;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      bufsize: 'Bufsize',
+      codec: 'Codec',
+      crf: 'Crf',
+      crop: 'Crop',
+      fps: 'Fps',
+      gop: 'Gop',
+      height: 'Height',
+      longShortMode: 'LongShortMode',
+      maxFps: 'MaxFps',
+      maxrate: 'Maxrate',
+      pad: 'Pad',
+      profile: 'Profile',
+      qscale: 'Qscale',
+      remove: 'Remove',
+      scanMode: 'ScanMode',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'number',
+      bufsize: 'number',
+      codec: 'string',
+      crf: 'any',
+      crop: 'string',
+      fps: 'any',
+      gop: 'any',
+      height: 'number',
+      longShortMode: 'boolean',
+      maxFps: 'any',
+      maxrate: 'number',
+      pad: 'string',
+      profile: 'string',
+      qscale: 'number',
+      remove: 'boolean',
+      scanMode: 'string',
+      width: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaConvertVolume extends $dara.Model {
+  integratedLoudnessTarget?: number;
+  level?: number;
+  loudnessRangeTarget?: number;
+  method?: string;
+  truePeak?: number;
+  static names(): { [key: string]: string } {
+    return {
+      integratedLoudnessTarget: 'IntegratedLoudnessTarget',
+      level: 'Level',
+      loudnessRangeTarget: 'LoudnessRangeTarget',
+      method: 'Method',
+      truePeak: 'TruePeak',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      integratedLoudnessTarget: 'number',
+      level: 'number',
+      loudnessRangeTarget: 'number',
+      method: 'string',
+      truePeak: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MediaObject extends $dara.Model {
+  media?: string;
+  type?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -53115,6 +53859,101 @@ export class GetLiveTranscodeTemplateResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetLiveTranscodeTemplateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaConvertJobRequest extends $dara.Model {
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaConvertJobResponseBody extends $dara.Model {
+  job?: GetMediaConvertJobResponseBodyJob;
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      job: 'Job',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      job: GetMediaConvertJobResponseBodyJob,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.job && typeof (this.job as any).validate === 'function') {
+      (this.job as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaConvertJobResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMediaConvertJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMediaConvertJobResponseBody,
     };
   }
 
@@ -71846,6 +72685,113 @@ export class SubmitMediaCensorJobResponse extends $dara.Model {
   }
 }
 
+export class SubmitMediaConvertJobRequest extends $dara.Model {
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  config?: string;
+  pipelineId?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      config: 'Config',
+      pipelineId: 'PipelineId',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      config: 'string',
+      pipelineId: 'string',
+      userData: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMediaConvertJobResponseBody extends $dara.Model {
+  job?: SubmitMediaConvertJobResponseBodyJob;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      job: 'Job',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      job: SubmitMediaConvertJobResponseBodyJob,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.job && typeof (this.job as any).validate === 'function') {
+      (this.job as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMediaConvertJobResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitMediaConvertJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitMediaConvertJobResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitMediaInfoJobRequest extends $dara.Model {
   /**
    * @remarks
@@ -82132,6 +83078,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取 MediaConvert 任务详情
+   * 
+   * @param request - GetMediaConvertJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaConvertJobResponse
+   */
+  async getMediaConvertJobWithOptions(request: GetMediaConvertJobRequest, runtime: $dara.RuntimeOptions): Promise<GetMediaConvertJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMediaConvertJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<GetMediaConvertJobResponse>(await this.callApi(params, req, runtime), new GetMediaConvertJobResponse({}));
+  }
+
+  /**
+   * 获取 MediaConvert 任务详情
+   * 
+   * @param request - GetMediaConvertJobRequest
+   * @returns GetMediaConvertJobResponse
+   */
+  async getMediaConvertJob(request: GetMediaConvertJobRequest): Promise<GetMediaConvertJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMediaConvertJobWithOptions(request, runtime);
+  }
+
+  /**
    * Queries information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
    * 
    * @remarks
@@ -88739,6 +89727,60 @@ export default class Client extends OpenApi {
   async submitMediaCensorJob(request: SubmitMediaCensorJobRequest): Promise<SubmitMediaCensorJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitMediaCensorJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交媒体处理任务
+   * 
+   * @param request - SubmitMediaConvertJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitMediaConvertJobResponse
+   */
+  async submitMediaConvertJobWithOptions(request: SubmitMediaConvertJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitMediaConvertJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.pipelineId)) {
+      query["PipelineId"] = request.pipelineId;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitMediaConvertJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<SubmitMediaConvertJobResponse>(await this.callApi(params, req, runtime), new SubmitMediaConvertJobResponse({}));
+  }
+
+  /**
+   * 提交媒体处理任务
+   * 
+   * @param request - SubmitMediaConvertJobRequest
+   * @returns SubmitMediaConvertJobResponse
+   */
+  async submitMediaConvertJob(request: SubmitMediaConvertJobRequest): Promise<SubmitMediaConvertJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitMediaConvertJobWithOptions(request, runtime);
   }
 
   /**
