@@ -1,12041 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class AssignLeniPrivateIpAddressRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The idempotent identifier.
-   * 
-   * @example
-   * 3fd79d62-ab1d-11ec-9a53-0242ac110004
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The description of the response code.
-   * 
-   * @example
-   * wuhuaiyu
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * leni-1234****
-   */
-  elasticNetworkInterfaceId?: string;
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface secondary private network IP (automatically assigned by default).
-   * 
-   * @example
-   * 10.0.****
-   */
-  privateIpAddress?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      description: 'Description',
-      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
-      privateIpAddress: 'PrivateIpAddress',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      description: 'string',
-      elasticNetworkInterfaceId: 'string',
-      privateIpAddress: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssignLeniPrivateIpAddressResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: AssignLeniPrivateIpAddressResponseBodyContent;
-  /**
-   * @remarks
-   * The response message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: AssignLeniPrivateIpAddressResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssignLeniPrivateIpAddressResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AssignLeniPrivateIpAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AssignLeniPrivateIpAddressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssignPrivateIpAddressRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to assign a mac address.
-   * 
-   * @example
-   * true
-   */
-  assignMac?: boolean;
-  /**
-   * @remarks
-   * By default, popApi is not ignored and idempotent
-   * 
-   * @example
-   * 3fd79d62-ab1d-11ec-9a53-0242ac110004
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The description of the variable.
-   * 
-   * @example
-   * test
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The ID of the network interface controller.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * lni-bp18exxqa2rvfn45e5pz
-   */
-  networkInterfaceId?: string;
-  /**
-   * @remarks
-   * The secondary private IP address.
-   * 
-   * @example
-   * 10.0.6.194
-   */
-  privateIpAddress?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The default value is false. If you set the value to true, the secondary private IP address application process can be accelerated.
-   * 
-   * >  For more information, submit a ticket.
-   * 
-   * @example
-   * false
-   */
-  skipConfig?: boolean;
-  /**
-   * @remarks
-   * It belongs to the Lingjun subnet.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * subnet-f3zfzmnc
-   */
-  subnetId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      assignMac: 'AssignMac',
-      clientToken: 'ClientToken',
-      description: 'Description',
-      networkInterfaceId: 'NetworkInterfaceId',
-      privateIpAddress: 'PrivateIpAddress',
-      regionId: 'RegionId',
-      skipConfig: 'SkipConfig',
-      subnetId: 'SubnetId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      assignMac: 'boolean',
-      clientToken: 'string',
-      description: 'string',
-      networkInterfaceId: 'string',
-      privateIpAddress: 'string',
-      regionId: 'string',
-      skipConfig: 'boolean',
-      subnetId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssignPrivateIpAddressResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: AssignPrivateIpAddressResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: AssignPrivateIpAddressResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssignPrivateIpAddressResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AssignPrivateIpAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AssignPrivateIpAddressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssociateVpdCidrBlockRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The additional CIDR block.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 172.16.0.0/12
-   */
-  secondaryCidrBlock?: string;
-  /**
-   * @remarks
-   * The ID of the Lingjun CIDR block.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-omqutbff
-   */
-  vpdId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      secondaryCidrBlock: 'SecondaryCidrBlock',
-      vpdId: 'VpdId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      secondaryCidrBlock: 'string',
-      vpdId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssociateVpdCidrBlockResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: AssociateVpdCidrBlockResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: AssociateVpdCidrBlockResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssociateVpdCidrBlockResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AssociateVpdCidrBlockResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AssociateVpdCidrBlockResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachElasticNetworkInterfaceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the ENI.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * leni-1234****
-   */
-  elasticNetworkInterfaceId?: string;
-  /**
-   * @remarks
-   * The ID of the node.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * e01-cn-lbj3aej****
-   */
-  nodeId?: string;
-  /**
-   * @remarks
-   * The region ID of the disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
-      nodeId: 'NodeId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elasticNetworkInterfaceId: 'string',
-      nodeId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachElasticNetworkInterfaceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * Response body
-   * 
-   * @example
-   * []
-   */
-  content?: any;
-  /**
-   * @remarks
-   * The message returned.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: 'any',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachElasticNetworkInterfaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AttachElasticNetworkInterfaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AttachElasticNetworkInterfaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateElasticNetworkInterfaceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The POP API is not ignored by default and is used for idempotence.
-   * 
-   * @example
-   * 3fd79d62-ab1d-11ec-9a53-0242ac110004
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The description of the response code.
-   * 
-   * @example
-   * Description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Whether to enable the jumbo frame capability
-   * 
-   * @example
-   * True
-   */
-  enableJumboFrame?: boolean;
-  /**
-   * @remarks
-   * The ID of the Lingjun node.
-   * 
-   * @example
-   * e01-cn-lbj3aej****
-   */
-  nodeId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the security group.
-   * 
-   * @example
-   * sg-wz9fj2s3o21nw2****
-   */
-  securityGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the vSwitch.
-   * 
-   * @example
-   * vsw-t4nahb0pxck****
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * The ID of the VPC.
-   * 
-   * >  If the NodeId parameter is empty, the VpcId parameter is required. If the NodeId parameter is not empty, the VpcId parameter is optional.
-   * 
-   * @example
-   * vpc-uf6aa4ddo97fr****
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu-a
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      description: 'Description',
-      enableJumboFrame: 'EnableJumboFrame',
-      nodeId: 'NodeId',
-      regionId: 'RegionId',
-      securityGroupId: 'SecurityGroupId',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      description: 'string',
-      enableJumboFrame: 'boolean',
-      nodeId: 'string',
-      regionId: 'string',
-      securityGroupId: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateElasticNetworkInterfaceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: CreateElasticNetworkInterfaceResponseBodyContent;
-  /**
-   * @remarks
-   * The response message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: CreateElasticNetworkInterfaceResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateElasticNetworkInterfaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateElasticNetworkInterfaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateElasticNetworkInterfaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateErRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the document.
-   * 
-   * @example
-   * test
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Lingjun HUB Name
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-wulanchabu-main
-   */
-  erName?: string;
-  /**
-   * @remarks
-   * Primary Zone
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu-b
-   */
-  masterZoneId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Resource group instance ID
-   * 
-   * @example
-   * rg-acfmyuzlx2iihcy
-   */
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      erName: 'ErName',
-      masterZoneId: 'MasterZoneId',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      erName: 'string',
-      masterZoneId: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateErResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: CreateErResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: CreateErResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateErResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateErResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateErResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateErAttachmentRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether to automatically receive all routes from all instances under the Lingjun HUB. Valid values:
-   * 
-   * *   **true**: received automatically.
-   * *   **false**: Not received.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * true
-   */
-  autoReceiveAllRoute?: boolean;
-  /**
-   * @remarks
-   * The name of the network instance connection.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-attachemnt-vpd-xksd2obl
-   */
-  erAttachmentName?: string;
-  /**
-   * @remarks
-   * Lingjun HUB ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * The ID of the network instance. Valid values: **VPD** and **VCC**.
-   * 
-   * For more information, see [What is Lingjun?](https://help.aliyun.com/document_detail/444430.html)
-   * 
-   * You can query **Lingjun CIDR Block** and **Lingjun Connection** by [ListVpds](https://help.aliyun.com/document_detail/2331077.html) and [ListVccs](https://help.aliyun.com/document_detail/2399526.html?) respectively.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-xksd2obl
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The category of the instance. Valid values:
-   * 
-   * *   **VPD**: indicates the Lingjun CIDR block.
-   * *   **VCC**: indicates a Lingjun connection.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * VPD
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the tenant to which the resource belongs. This parameter is required for cross-account resources.
-   * 
-   * @example
-   * 1620939556166277
-   */
-  resourceTenantId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoReceiveAllRoute: 'AutoReceiveAllRoute',
-      erAttachmentName: 'ErAttachmentName',
-      erId: 'ErId',
-      instanceId: 'InstanceId',
-      instanceType: 'InstanceType',
-      regionId: 'RegionId',
-      resourceTenantId: 'ResourceTenantId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoReceiveAllRoute: 'boolean',
-      erAttachmentName: 'string',
-      erId: 'string',
-      instanceId: 'string',
-      instanceType: 'string',
-      regionId: 'string',
-      resourceTenantId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateErAttachmentResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: CreateErAttachmentResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is displayed.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * DBAD15D6-3F47-5B36-8A92-57C2919D13D0
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: CreateErAttachmentResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateErAttachmentResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateErAttachmentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateErAttachmentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateErRouteMapRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Policy description
-   * 
-   * @example
-   * terraform-example
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Destination CIDR Block
-   * 
-   * @example
-   * 0.0.0.0/0
-   */
-  destinationCidrBlock?: string;
-  /**
-   * @remarks
-   * Lingjun HUB ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-aueyxxsy
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * The ID of the destination instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-xlhsvdvt
-   */
-  receptionInstanceId?: string;
-  /**
-   * @remarks
-   * The tenant to which the route receiving instance belongs.
-   * 
-   * @example
-   * 1620939556166277
-   */
-  receptionInstanceOwner?: string;
-  /**
-   * @remarks
-   * The type of the destination instance. Valid values:
-   * 
-   * *   **VPD**: Lingjun network segment.
-   * *   **VCC**: Lingjun Connection.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * VPD
-   */
-  receptionInstanceType?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Policy behavior; optional values:
-   * 
-   * *   **permit**: Allow
-   * *   **deny**: Rejected
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * permit
-   */
-  routeMapAction?: string;
-  /**
-   * @remarks
-   * The ID of the policy.
-   * 
-   * A smaller sequence number indicates a lower priority. When a route is matched, a policy with a higher priority is preferentially matched.
-   * 
-   * **Valid values: 1001 to 2000**
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1001
-   */
-  routeMapNum?: number;
-  /**
-   * @remarks
-   * The ID of the source instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-xlsjsdvt
-   */
-  transmissionInstanceId?: string;
-  /**
-   * @remarks
-   * The tenant to which the route publish instance belongs
-   * 
-   * @example
-   * 1620939556166277
-   */
-  transmissionInstanceOwner?: string;
-  /**
-   * @remarks
-   * The type of the source instance. Valid values:
-   * 
-   * *   **VPD**: Lingjun network segment.
-   * *   **VCC**: Lingjun Connection.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * VPD
-   */
-  transmissionInstanceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      destinationCidrBlock: 'DestinationCidrBlock',
-      erId: 'ErId',
-      receptionInstanceId: 'ReceptionInstanceId',
-      receptionInstanceOwner: 'ReceptionInstanceOwner',
-      receptionInstanceType: 'ReceptionInstanceType',
-      regionId: 'RegionId',
-      routeMapAction: 'RouteMapAction',
-      routeMapNum: 'RouteMapNum',
-      transmissionInstanceId: 'TransmissionInstanceId',
-      transmissionInstanceOwner: 'TransmissionInstanceOwner',
-      transmissionInstanceType: 'TransmissionInstanceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      destinationCidrBlock: 'string',
-      erId: 'string',
-      receptionInstanceId: 'string',
-      receptionInstanceOwner: 'string',
-      receptionInstanceType: 'string',
-      regionId: 'string',
-      routeMapAction: 'string',
-      routeMapNum: 'number',
-      transmissionInstanceId: 'string',
-      transmissionInstanceOwner: 'string',
-      transmissionInstanceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateErRouteMapResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: CreateErRouteMapResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: CreateErRouteMapResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateErRouteMapResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateErRouteMapResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateErRouteMapResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSubnetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The CIDR block of the Subnet.
-   * 
-   * *   The network segment of the subnet must be a proper subset of the network segment of Lingjun to which it belongs, and the mask must be between 16 bits and 29 bits, which can provide 8 to 65536 addresses. For example, the CIDR block of the Lingjun CIDR block is 192.168.0.0/16, and the CIDR blocks of the subnets under the Lingjun CIDR block are 192.168.0.0/17 to 192.168.0.0/29.
-   * *   The first and last three IP addresses of each subnet segment are reserved by the system. For example, the CIDR blocks of the subnet are 192.168.1.0/24,192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10.0.0.0/16
-   */
-  cidr?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Lingjun subnet instance name
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * subnet-1
-   */
-  subnetName?: string;
-  /**
-   * @remarks
-   * The tag information.
-   * 
-   * You can specify up to 20 tags.
-   */
-  tag?: CreateSubnetRequestTag[];
-  /**
-   * @remarks
-   * Lingjun Subnet Usage Type; optional; optional. Valid values:
-   * 
-   * *   **If you do not set this field for a common type**
-   * *   **OOB** :OOB type
-   * *   **LB**: LB type
-   * 
-   * @example
-   * OOB
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The ID of the Lingjun CIDR block.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-xcuhjyrj
-   */
-  vpdId?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu-b
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cidr: 'Cidr',
-      regionId: 'RegionId',
-      subnetName: 'SubnetName',
-      tag: 'Tag',
-      type: 'Type',
-      vpdId: 'VpdId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cidr: 'string',
-      regionId: 'string',
-      subnetName: 'string',
-      tag: { 'type': 'array', 'itemType': CreateSubnetRequestTag },
-      type: 'string',
-      vpdId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSubnetResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: CreateSubnetResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: CreateSubnetResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSubnetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateSubnetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateSubnetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVccRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Enabled access to cloud services. Optional values:
-   * 
-   * *   **true**: Enable access to cloud services
-   * *   **false**: Do not enable access to cloud services
-   * 
-   * @example
-   * true
-   */
-  accessCouldService?: boolean;
-  /**
-   * @remarks
-   * The bandwidth. Unit: Mbit /s. The minimum value is 1000, representing 1Gbps bandwidth; the maximum value is 400000, representing 400Gbps bandwidth.
-   * 
-   * >  1Gbps = 1000Mbps
-   * 
-   * @example
-   * 1000
-   */
-  bandwidth?: number;
-  /**
-   * @remarks
-   * bgp as number
-   * 
-   * @example
-   * bgpAsn
-   */
-  bgpAsn?: number;
-  /**
-   * @remarks
-   * Internet segment, on-premises input, off-premises default
-   * 
-   * @example
-   * 10.0.0.0/24
-   */
-  bgpCidr?: string;
-  /**
-   * @remarks
-   * CEN Instance ID
-   * 
-   * @example
-   * cen-bkiw0x1347roekr7f2
-   */
-  cenId?: string;
-  /**
-   * @remarks
-   * Account to which cen belongs
-   * 
-   * @example
-   * 1511928242963727
-   */
-  cenOwnerId?: string;
-  /**
-   * @remarks
-   * The connection mode. Valid values:
-   * 
-   * *   **VPC**
-   * *   **CEN (CENTR)**
-   * 
-   * @example
-   * CENTR
-   */
-  connectionType?: string;
-  /**
-   * @remarks
-   * The description of the document.
-   * 
-   * @example
-   * Description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
-   * 
-   * @example
-   * rg-aeky5f3qx6ceapq
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The tag information.
-   * 
-   * You can specify up to 20 tags.
-   */
-  tag?: CreateVccRequestTag[];
-  /**
-   * @remarks
-   * The ID of the vSwitch. [Virtual Private Cloud VSwitch](https://help.aliyun.com/document_detail/100380.html).
-   * 
-   * You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query created vSwitches.
-   * 
-   * @example
-   * vsw-t4nahb0pxckgktx1kot8q
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * The ID of the Lingjun connection instance.
-   * 
-   * @example
-   * vcc-cn-zvp2w222001
-   */
-  vccId?: string;
-  /**
-   * @remarks
-   * Lingjun Connection Name
-   * 
-   * @example
-   * test
-   */
-  vccName?: string;
-  /**
-   * @remarks
-   * Virtual Private Cloud IDs; [What is Virtual Private Cloud](https://help.aliyun.com/document_detail/34217.html)
-   * 
-   * You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html#demo-0) operation to query the specified VPC.
-   * 
-   * @example
-   * vpc-uf6aa4ddo97frj22tgp52
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * Lingjun CIDR block instance ID
-   * 
-   * @example
-   * vpd-t2jseldp
-   */
-  vpdId?: string;
-  /**
-   * @remarks
-   * The zone ID of the disk.
-   * 
-   * @example
-   * cn-wulanchabu-a
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessCouldService: 'AccessCouldService',
-      bandwidth: 'Bandwidth',
-      bgpAsn: 'BgpAsn',
-      bgpCidr: 'BgpCidr',
-      cenId: 'CenId',
-      cenOwnerId: 'CenOwnerId',
-      connectionType: 'ConnectionType',
-      description: 'Description',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
-      vSwitchId: 'VSwitchId',
-      vccId: 'VccId',
-      vccName: 'VccName',
-      vpcId: 'VpcId',
-      vpdId: 'VpdId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessCouldService: 'boolean',
-      bandwidth: 'number',
-      bgpAsn: 'number',
-      bgpCidr: 'string',
-      cenId: 'string',
-      cenOwnerId: 'string',
-      connectionType: 'string',
-      description: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateVccRequestTag },
-      vSwitchId: 'string',
-      vccId: 'string',
-      vccName: 'string',
-      vpcId: 'string',
-      vpdId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVccResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  content?: CreateVccResponseBodyContent;
-  /**
-   * @remarks
-   * response message, if the success request is
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: CreateVccResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVccResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateVccResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateVccResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVccGrantRuleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun HUB ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * Authorized Tenant ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1620939556166277
-   */
-  grantTenantId?: string;
-  /**
-   * @remarks
-   * Network Instance ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vcc-8rgvqazb
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erId: 'ErId',
-      grantTenantId: 'GrantTenantId',
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erId: 'string',
-      grantTenantId: 'string',
-      instanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVccGrantRuleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   * 
-   * @example
-   * {}
-   */
-  content?: CreateVccGrantRuleResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: CreateVccGrantRuleResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVccGrantRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateVccGrantRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateVccGrantRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVccRouteEntryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Destination CIDR block
-   * 
-   * @example
-   * 192.168.98.112/28
-   */
-  destinationCidrBlock?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the Lingjun connection instance.
-   * 
-   * @example
-   * vcc-cn-zvp2w222001
-   */
-  vccId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destinationCidrBlock: 'DestinationCidrBlock',
-      regionId: 'RegionId',
-      vccId: 'VccId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destinationCidrBlock: 'string',
-      regionId: 'string',
-      vccId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVccRouteEntryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  content?: CreateVccRouteEntryResponseBodyContent;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: CreateVccRouteEntryResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVccRouteEntryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateVccRouteEntryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateVccRouteEntryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVpdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The CIDR block of the VPD.
-   * 
-   * *   We recommend that you use an RFC private endpoint as the Lingjun CIDR block, such as 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16. In scenarios where the Doringjun CIDR block is connected to each other or where the Lingjun CIDR block is connected to a VPC, make sure that the addresses do not conflict with each other.
-   * *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 and their subnets as the primary IPv4 CIDR block of the VPD.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10.0.0.0/8
-   */
-  cidr?: string;
-  /**
-   * @remarks
-   * The region ID of the disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
-   * 
-   * @example
-   * rg-aek2l4sq6l7unhi
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * Lingjun subnet information list
-   */
-  subnets?: CreateVpdRequestSubnets[];
-  /**
-   * @remarks
-   * A tag.
-   */
-  tag?: CreateVpdRequestTag[];
-  /**
-   * @remarks
-   * Lingjun CIDR block instance name
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-1
-   */
-  vpdName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cidr: 'Cidr',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      subnets: 'Subnets',
-      tag: 'Tag',
-      vpdName: 'VpdName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cidr: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      subnets: { 'type': 'array', 'itemType': CreateVpdRequestSubnets },
-      tag: { 'type': 'array', 'itemType': CreateVpdRequestTag },
-      vpdName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVpdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: CreateVpdResponseBodyContent;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * SUCCESS
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * DBAD15D6-3F47-5B36-8A92-57C2919D13D0
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: CreateVpdResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVpdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateVpdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateVpdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVpdGrantRuleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun HUB ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * Authorized Tenant ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1013666993027780
-   */
-  grantTenantId?: string;
-  /**
-   * @remarks
-   * Network Instance ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-8rgvqazb
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erId: 'ErId',
-      grantTenantId: 'GrantTenantId',
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erId: 'string',
-      grantTenantId: 'string',
-      instanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVpdGrantRuleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   * 
-   * @example
-   * {}
-   */
-  content?: CreateVpdGrantRuleResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * DBAD15D6-3F47-5B36-8A92-57C2919D13D0
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: CreateVpdGrantRuleResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVpdGrantRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateVpdGrantRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateVpdGrantRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteElasticNetworkInterfaceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * By default, popApi is not ignored and idempotent
-   * 
-   * @example
-   * 141cccd6-dfbd-11ec-b8e8-0242ac110003
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * leni-1234****
-   */
-  elasticNetworkInterfaceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      elasticNetworkInterfaceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteElasticNetworkInterfaceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: DeleteElasticNetworkInterfaceResponseBodyContent;
-  /**
-   * @remarks
-   * The return message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * BDBCC783-84CA-5733-8EEA-645C88B9009C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: DeleteElasticNetworkInterfaceResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteElasticNetworkInterfaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteElasticNetworkInterfaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteElasticNetworkInterfaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteErRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun HUB Instance ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erId: 'ErId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteErResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * Response body
-   * 
-   * @example
-   * {}
-   */
-  content?: any;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: 'any',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteErResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteErResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteErResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteErAttachmentRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the network connection instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-attachment-5n3nsmvl
-   */
-  erAttachmentId?: string;
-  /**
-   * @remarks
-   * Lingjun HUB Id
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-opy1wrfv
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erAttachmentId: 'ErAttachmentId',
-      erId: 'ErId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erAttachmentId: 'string',
-      erId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteErAttachmentResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response content. If a resource has dependent resources, the existing dependent resources are returned.
-   * 
-   * @example
-   * {
-   *     "ER_RMAP": [
-   *         {
-   *             "erId": "er-opy1wrfv",
-   *             "destinationCidrBlock": "0.0.0.0/0",
-   *             "regionId": "cn-wulanchabu",
-   *             "routeMapNum": 3000,
-   *             "erRouteMapId": "er-rmap-v5lfhmvm",
-   *             "action": "permit",
-   *             "status": "Available"
-   *         },
-   *         {
-   *             "erId": "er-opy1wrfv",
-   *             "destinationCidrBlock": "0.0.0.0/0",
-   *             "regionId": "cn-wulanchabu",
-   *             "routeMapNum": 3000,
-   *             "erRouteMapId": "er-rmap-of3r0ndh",
-   *             "action": "permit",
-   *             "status": "Available"
-   *         }
-   *     ]
-   * }
-   */
-  content?: any;
-  /**
-   * @remarks
-   * response message, if the success request is
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: 'any',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteErAttachmentResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteErAttachmentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteErAttachmentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteErRouteMapRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun HUB ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * routing policy Instance ID List
-   * 
-   * This parameter is required.
-   */
-  erRouteMapIds?: string[];
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erId: 'ErId',
-      erRouteMapIds: 'ErRouteMapIds',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erId: 'string',
-      erRouteMapIds: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteErRouteMapResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * Response body
-   * 
-   * @example
-   * {}
-   */
-  content?: any;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: 'any',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteErRouteMapResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteErRouteMapResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteErRouteMapResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSubnetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID of the disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Lingjun subnet ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * subnet-f3zfzmnc
-   */
-  subnetId?: string;
-  /**
-   * @remarks
-   * Lingjun CIDR block ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-iv2zm1qf
-   */
-  vpdId?: string;
-  /**
-   * @remarks
-   * Zone
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu-b
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      subnetId: 'SubnetId',
-      vpdId: 'VpdId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      subnetId: 'string',
-      vpdId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSubnetResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * Response content (if the resource has dependent resources, the existing dependent resources will be returned)
-   * 
-   * @example
-   * {
-   *       "nc": [
-   *             {}
-   *       ]
-   * }
-   */
-  content?: any;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * A56F7D3C-8850-5AF4-A342-2D71C9A9D1CC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: 'any',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSubnetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteSubnetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteSubnetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVccGrantRuleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun HUB ID
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * Authorization Entry ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * grant-rule-jaj34d75h01
-   */
-  grantRuleId?: string;
-  /**
-   * @remarks
-   * Network Instance ID
-   * 
-   * @example
-   * vcc-cn-jaj34d75h01
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erId: 'ErId',
-      grantRuleId: 'GrantRuleId',
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erId: 'string',
-      grantRuleId: 'string',
-      instanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVccGrantRuleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * Response body
-   * 
-   * @example
-   * {}
-   */
-  content?: any;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * BDBCC783-84CA-5733-8EEA-645C88B9009C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: 'any',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVccGrantRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteVccGrantRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteVccGrantRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVccRouteEntryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Destination CIDR block
-   * 
-   * @example
-   * 172.16.199.128/25
-   */
-  destinationCidrBlock?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the Lingjun connection instance.
-   * 
-   * @example
-   * vcc-cn-zvp2w222001
-   */
-  vccId?: string;
-  /**
-   * @remarks
-   * The ID of the route entry.
-   * 
-   * @example
-   * vcc-rte-5cey1sap
-   */
-  vccRouteEntryId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destinationCidrBlock: 'DestinationCidrBlock',
-      regionId: 'RegionId',
-      vccId: 'VccId',
-      vccRouteEntryId: 'VccRouteEntryId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destinationCidrBlock: 'string',
-      regionId: 'string',
-      vccId: 'string',
-      vccRouteEntryId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVccRouteEntryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * Response body
-   * 
-   * @example
-   * {}
-   */
-  content?: any;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: 'any',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVccRouteEntryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteVccRouteEntryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteVccRouteEntryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVpdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the region in which the instance resides.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the Lingjun CIDR block.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-zr0farea
-   */
-  vpdId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      vpdId: 'VpdId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      vpdId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVpdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters. (If a dependent resource exists, the existing dependent resource is returned.)
-   * 
-   * @example
-   * {
-   *       "subnet": [
-   *             {
-   *                   "tenantId": "1620939556166277",
-   *                   "regionId": "cn-wulanchabu",
-   *                   "zoneId": "cn",
-   *                   "type": null,
-   *                   "subnetId": "subnet-zqebaxa0",
-   *                   "name": "lql_testVPD"
-   *             }
-   *       ],
-   *       "nc": [
-   *             {}
-   *       ]
-   * }
-   */
-  content?: any;
-  /**
-   * @remarks
-   * The response message.
-   * 
-   * @example
-   * SUCCESS
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * BDBCC783-84CA-5733-8EEA-645C88B9009C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: 'any',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVpdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteVpdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteVpdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVpdGrantRuleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun HUB ID
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * Authorization Entry ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * grant-rule-9rgxqazb
-   */
-  grantRuleId?: string;
-  /**
-   * @remarks
-   * Authorized Tenant ID
-   * 
-   * @example
-   * 1013666993027780
-   */
-  grantTenantId?: string;
-  /**
-   * @remarks
-   * Network Instance ID
-   * 
-   * @example
-   * vpd-8rgvqazb
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erId: 'ErId',
-      grantRuleId: 'GrantRuleId',
-      grantTenantId: 'GrantTenantId',
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erId: 'string',
-      grantRuleId: 'string',
-      grantTenantId: 'string',
-      instanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVpdGrantRuleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * Response body
-   * 
-   * @example
-   * {}
-   */
-  content?: any;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: 'any',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVpdGrantRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteVpdGrantRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteVpdGrantRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlrRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the resource group to which the RAM instance belongs.
-   * 
-   * @example
-   * rg-aeky5f3qx6ceapq
-   */
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlrResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  content?: DescribeSlrResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: DescribeSlrResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlrResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSlrResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSlrResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachElasticNetworkInterfaceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the ENI.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * leni-1234****
-   */
-  elasticNetworkInterfaceId?: string;
-  /**
-   * @remarks
-   * The ID of the node.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * e01-cn-zxu2zp3****
-   */
-  nodeId?: string;
-  /**
-   * @remarks
-   * The region ID of the disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
-      nodeId: 'NodeId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elasticNetworkInterfaceId: 'string',
-      nodeId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachElasticNetworkInterfaceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * Response
-   * 
-   * @example
-   * You don\\"t have the permission to do this operation.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF8****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachElasticNetworkInterfaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetachElasticNetworkInterfaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetachElasticNetworkInterfaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDestinationCidrBlockRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Instance ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-xxxxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * Region ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDestinationCidrBlockResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * Response content
-   */
-  content?: GetDestinationCidrBlockResponseBodyContent;
-  /**
-   * @remarks
-   * Error message. (Indicates the reason for the anomaly when the instance status is abnormal.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * ID of this request
-   * 
-   * @example
-   * D349EE86-AF3F-5F6C-87E2-2A08D3618350
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetDestinationCidrBlockResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDestinationCidrBlockResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDestinationCidrBlockResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDestinationCidrBlockResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetElasticNetworkInterfaceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * leni-1234****
-   */
-  elasticNetworkInterfaceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elasticNetworkInterfaceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetElasticNetworkInterfaceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: GetElasticNetworkInterfaceResponseBodyContent;
-  /**
-   * @remarks
-   * The return message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetElasticNetworkInterfaceResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetElasticNetworkInterfaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetElasticNetworkInterfaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetElasticNetworkInterfaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun HUB ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erId: 'ErId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: GetErResponseBodyContent;
-  /**
-   * @remarks
-   * Information returned when the call fails
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 308DE9D2-03A6-5B44-A369-67B75D1EE091
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetErResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetErResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetErResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErAttachmentRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the Lingjun HUB network connection instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-attachment-i1ioibyf
-   */
-  erAttachmentId?: string;
-  /**
-   * @remarks
-   * Lingjun HUB ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erAttachmentId: 'ErAttachmentId',
-      erId: 'ErId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erAttachmentId: 'string',
-      erId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErAttachmentResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: GetErAttachmentResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is displayed.)
-   * 
-   * @example
-   * You don\\"t have the permission to do this operation.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 7F0D9440-1F97-5613-87CD-D3047172A93C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetErAttachmentResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErAttachmentResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetErAttachmentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetErAttachmentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErRouteEntryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun HUB ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * The ID of the route entry.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-rte-4q0jbylz
-   */
-  erRouteEntryId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erId: 'ErId',
-      erRouteEntryId: 'ErRouteEntryId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erId: 'string',
-      erRouteEntryId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErRouteEntryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  content?: GetErRouteEntryResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * code: 400, Request was denied due to request throttling. request id: 7D177459-C1CF-5690-BB23-321D208B37D5
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 1F38A2E6-CB47-5369-95D2-96D0C287B4A5
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetErRouteEntryResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErRouteEntryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetErRouteEntryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetErRouteEntryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErRouteMapRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun HUB ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * routing policy ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-rmap-uwglhzom
-   */
-  erRouteMapId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erId: 'ErId',
-      erRouteMapId: 'ErRouteMapId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erId: 'string',
-      erRouteMapId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErRouteMapResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  content?: GetErRouteMapResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetErRouteMapResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErRouteMapResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetErRouteMapResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetErRouteMapResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFabricTopologyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * i-169263721924****
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * Lingjun network interface controller ID List
-   */
-  lniIds?: string[];
-  /**
-   * @remarks
-   * Node ID list
-   */
-  nodeIds?: string[];
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the virtual private cloud (VPC).
-   * 
-   * @example
-   * vpc-k8i0g9fk68t7u0u2w****
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * Lingjun CIDR block ID
-   * 
-   * @example
-   * vpd-aof7****
-   */
-  vpdId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      lniIds: 'LniIds',
-      nodeIds: 'NodeIds',
-      regionId: 'RegionId',
-      vpcId: 'VpcId',
-      vpdId: 'VpdId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      lniIds: { 'type': 'array', 'itemType': 'string' },
-      nodeIds: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
-      vpcId: 'string',
-      vpdId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFabricTopologyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: GetFabricTopologyResponseBodyContent;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetFabricTopologyResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFabricTopologyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFabricTopologyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFabricTopologyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLeniPrivateIpAddressRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * leni-1234****
-   */
-  elasticNetworkInterfaceId?: string;
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface secondary private IP unique identifier.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * sip-8ylg****
-   */
-  ipName?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
-      ipName: 'IpName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elasticNetworkInterfaceId: 'string',
-      ipName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLeniPrivateIpAddressResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: GetLeniPrivateIpAddressResponseBodyContent;
-  /**
-   * @remarks
-   * The message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetLeniPrivateIpAddressResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLeniPrivateIpAddressResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetLeniPrivateIpAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetLeniPrivateIpAddressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLniPrivateIpAddressRequest extends $tea.Model {
-  /**
-   * @remarks
-   * IP unique identifier
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * sip-xxxxx
-   */
-  ipName?: string;
-  /**
-   * @remarks
-   * Lingjun network interface controller ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * lni-bp18exxqa2rvfn45e5pz
-   */
-  networkInterfaceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ipName: 'IpName',
-      networkInterfaceId: 'NetworkInterfaceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipName: 'string',
-      networkInterfaceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLniPrivateIpAddressResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: GetLniPrivateIpAddressResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * You don\\"t have the permission of this operation, action=eflo:GetLniPrivateIpAddress, arn=acs:eflo:cn-wulanchabu:1382782317087063:networkinterface/00
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * DBAD15D6-3F47-5B36-8A92-57C2919D13D0
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetLniPrivateIpAddressResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLniPrivateIpAddressResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetLniPrivateIpAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetLniPrivateIpAddressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNetworkInterfaceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun network interface controller ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * lni-bp18exxqa2rvfn45e5pz
-   */
-  networkInterfaceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Subnet of Lingjun
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * subnet-f3zfzmnc
-   */
-  subnetId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      networkInterfaceId: 'NetworkInterfaceId',
-      regionId: 'RegionId',
-      subnetId: 'SubnetId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      networkInterfaceId: 'string',
-      regionId: 'string',
-      subnetId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNetworkInterfaceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data. (If a resource has dependent resources, the existing dependent resources are returned.)
-   */
-  content?: GetNetworkInterfaceResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetNetworkInterfaceResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNetworkInterfaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetNetworkInterfaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetNetworkInterfaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNodeInfoForPodRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the node for this operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * node-be70****
-   */
-  nodeId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nodeId: 'NodeId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodeId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNodeInfoForPodResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: GetNodeInfoForPodResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * You don\\"t have the permission of this operation, action=eflo:GetNodeInfoForPod, arn=acs:eflo:cn-wulanchabu:1111156667137893:networkinterface/*, resourceGroup=null
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetNodeInfoForPodResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNodeInfoForPodResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetNodeInfoForPodResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetNodeInfoForPodResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSubnetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID of the data center.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the Lingjun subnet instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * subnet-2avf0itf
-   */
-  subnetId?: string;
-  /**
-   * @remarks
-   * The ID of the CIDR block to which Lingjun belongs.
-   * 
-   * @example
-   * vpd-cxcmdk1m
-   */
-  vpdId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      subnetId: 'SubnetId',
-      vpdId: 'VpdId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      subnetId: 'string',
-      vpdId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSubnetResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: GetSubnetResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetSubnetResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSubnetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSubnetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSubnetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVccRequest extends $tea.Model {
-  /**
-   * @remarks
-   * By default, popApi is not ignored and idempotent
-   * 
-   * @example
-   * c5e3130a-d02f-11ec-a7d3-0242ac110005
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * Paging Parameters: The current parameters are obsolete.
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * Paging Parameters: The current parameters are obsolete.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * Paging Parameters: The current parameters are obsolete.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the Lingjun connection instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vcc-cn-zvp2w222001
-   */
-  vccId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      enablePage: 'EnablePage',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      vccId: 'VccId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      enablePage: 'boolean',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      vccId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVccResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: GetVccResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * CAD09E47-B651-5206-B2DC-3AB78C8EB446
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetVccResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVccResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetVccResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetVccResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVccGrantRuleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun HUB Instance ID
-   * 
-   * @example
-   * er-aueyxxsy
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * Authorized Resource Instance ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * grant-rule-jaj34d75h01
-   */
-  grantRuleId?: string;
-  /**
-   * @remarks
-   * Authorized Tenant ID
-   * 
-   * @example
-   * 1620939556166277
-   */
-  grantTenantId?: string;
-  /**
-   * @remarks
-   * Authorized Instance ID
-   * 
-   * @example
-   * vcc-cn-jaj34d75h01
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the region. This parameter is required.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erId: 'ErId',
-      grantRuleId: 'GrantRuleId',
-      grantTenantId: 'GrantTenantId',
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erId: 'string',
-      grantRuleId: 'string',
-      grantTenantId: 'string',
-      instanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVccGrantRuleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  content?: GetVccGrantRuleResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetVccGrantRuleResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVccGrantRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetVccGrantRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetVccGrantRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVccRouteEntryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Lingjun Connection ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vcc-cn-zvp2w222001
-   */
-  vccId?: string;
-  /**
-   * @remarks
-   * The ID of the route entry.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vcc-rte-31ocvdhq
-   */
-  vccRouteEntryId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      vccId: 'VccId',
-      vccRouteEntryId: 'VccRouteEntryId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      vccId: 'string',
-      vccRouteEntryId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVccRouteEntryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: GetVccRouteEntryResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * BDBCC783-84CA-5733-8EEA-645C88B9009C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetVccRouteEntryResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVccRouteEntryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetVccRouteEntryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetVccRouteEntryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVpdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the VPD instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-ze3na0wf
-   */
-  vpdId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      vpdId: 'VpdId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      vpdId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVpdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  content?: GetVpdResponseBodyContent;
-  /**
-   * @remarks
-   * The additional information that is returned.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetVpdResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVpdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetVpdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetVpdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVpdGrantRuleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun HUB Instance Id
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * Authorized Resource Instance ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * grant-rule-xrgvqazb
-   */
-  grantRuleId?: string;
-  /**
-   * @remarks
-   * Authorized Tenant ID
-   * 
-   * @example
-   * 1620939556166277
-   */
-  grantTenantId?: string;
-  /**
-   * @remarks
-   * Authorized Instance ID
-   * 
-   * @example
-   * vpd-xxxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the region. This parameter is required.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erId: 'ErId',
-      grantRuleId: 'GrantRuleId',
-      grantTenantId: 'GrantTenantId',
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erId: 'string',
-      grantRuleId: 'string',
-      grantTenantId: 'string',
-      instanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVpdGrantRuleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: GetVpdGrantRuleResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetVpdGrantRuleResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVpdGrantRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetVpdGrantRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetVpdGrantRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVpdRouteEntryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Lingjun CIDR block instance ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-iv2zm1qf
-   */
-  vpdId?: string;
-  /**
-   * @remarks
-   * The ID of the route entry instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-rte-toekyqel
-   */
-  vpdRouteEntryId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      vpdId: 'VpdId',
-      vpdRouteEntryId: 'VpdRouteEntryId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      vpdId: 'string',
-      vpdRouteEntryId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVpdRouteEntryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: GetVpdRouteEntryResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: GetVpdRouteEntryResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVpdRouteEntryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetVpdRouteEntryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetVpdRouteEntryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InitializeVccRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
-   * 
-   * @example
-   * rg-acfmxhucx5ewuwy
-   */
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InitializeVccResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: InitializeVccResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * E30DA7CB-03D0-51EB-8F18-856B99987E18
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: InitializeVccResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InitializeVccResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: InitializeVccResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: InitializeVccResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListElasticNetworkInterfacesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface ID
-   * 
-   * @example
-   * leni-1234****
-   */
-  elasticNetworkInterfaceId?: string;
-  /**
-   * @remarks
-   * The IP address of the BE cluster.
-   * 
-   * @example
-   * 10.0.0.1
-   */
-  ip?: string;
-  /**
-   * @remarks
-   * The network type.
-   * 
-   * Valid value:
-   * 
-   * *   Tenant: Tenant.
-   * *   VPC
-   * 
-   * @example
-   * tenant
-   */
-  networkType?: string;
-  /**
-   * @remarks
-   * The ID of the node.
-   * 
-   * @example
-   * e01-cn-lbj3aej****
-   */
-  nodeId?: string;
-  /**
-   * @remarks
-   * The page number of the page to return. Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Default value: 20.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The status of the enterprise-level snapshot policy.
-   * 
-   * Valid value:
-   * 
-   * *   Create Failed: the creation failure.
-   * *   Delete Failed: the that failed to be deleted.
-   * *   Executing
-   * *   Available: The template is available.
-   * *   Deleting
-   * 
-   * @example
-   * Available
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The type of the variable.
-   * 
-   * Valid value:
-   * 
-   * *   CUSTOM: custom type.
-   * *   DEFAULT: system type.
-   * 
-   * @example
-   * DEFAULT
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-uf6u8473r84e9****
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * The ID of the virtual private cloud (VPC).
-   * 
-   * @example
-   * vpc-uf6aa4ddo97fr****
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-wulanchabu-b
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
-      ip: 'Ip',
-      networkType: 'NetworkType',
-      nodeId: 'NodeId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      status: 'Status',
-      type: 'Type',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elasticNetworkInterfaceId: 'string',
-      ip: 'string',
-      networkType: 'string',
-      nodeId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      status: 'string',
-      type: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListElasticNetworkInterfacesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: ListElasticNetworkInterfacesResponseBodyContent;
-  /**
-   * @remarks
-   * The return message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListElasticNetworkInterfacesResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListElasticNetworkInterfacesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListElasticNetworkInterfacesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListElasticNetworkInterfacesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListErAttachmentsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Whether to automatically receive all routes from all instances under this Lingjun HUB. Valid values:
-   * 
-   * *   **true**: received automatically.
-   * *   **false**: Not received.
-   * 
-   * @example
-   * true
-   */
-  autoReceiveAllRoute?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable paged query. Valid values:
-   * 
-   * *   **true**: enables paged query.
-   * *   **false**: Paged query is not enabled.
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * The ID of the network instance connection
-   * 
-   * @example
-   * er-attachment-i1ioibyf
-   */
-  erAttachmentId?: string;
-  /**
-   * @remarks
-   * The name of the network instance connection.
-   * 
-   * @example
-   * vcc-cn-209300qha01
-   */
-  erAttachmentName?: string;
-  /**
-   * @remarks
-   * The ID of the Lingjun HUB instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * The ID of the network instance. Valid values: **VPD** and **VCC**.
-   * 
-   * For more information, see [What is Lingjun?](https://help.aliyun.com/document_detail/444430.html)
-   * 
-   * You can query **Lingjun CIDR blocks** and **Lingjun connections** by [ListVpds](https://help.aliyun.com/document_detail/2331077.html) and [ListVccs](https://help.aliyun.com/document_detail/2399526.html?) respectively.
-   * 
-   * @example
-   * vcc-cn-209300qha01
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The mitigation plan of the instance. Valid values:
-   * 
-   * *   **VPD**: indicates the Lingjun CIDR block.
-   * *   **VCC**: indicates a Lingjun connection.
-   * 
-   * @example
-   * VCC
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The page number to return. Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Default value: 20.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Resource group instance ID
-   * 
-   * @example
-   * rg-aekzb3n5lgk2ieq
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the tenant to which the instance belongs.
-   * 
-   * @example
-   * 1111156667137893
-   */
-  resourceTenantId?: string;
-  /**
-   * @remarks
-   * The status of the CLB instance. Valid values:
-   * 
-   * *   **Available**: Normal.
-   * *   **Not Available**: Not available.
-   * *   **Executing**: The task is being executed.
-   * *   **Deleting**: The account is being deleted
-   * 
-   * @example
-   * Available
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoReceiveAllRoute: 'AutoReceiveAllRoute',
-      enablePage: 'EnablePage',
-      erAttachmentId: 'ErAttachmentId',
-      erAttachmentName: 'ErAttachmentName',
-      erId: 'ErId',
-      instanceId: 'InstanceId',
-      instanceType: 'InstanceType',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      resourceTenantId: 'ResourceTenantId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoReceiveAllRoute: 'boolean',
-      enablePage: 'boolean',
-      erAttachmentId: 'string',
-      erAttachmentName: 'string',
-      erId: 'string',
-      instanceId: 'string',
-      instanceType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      resourceTenantId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListErAttachmentsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  content?: ListErAttachmentsResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is displayed.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 3D9D6E7B-365B-5200-BFA6-9B79E269058C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListErAttachmentsResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListErAttachmentsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListErAttachmentsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListErAttachmentsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListErRouteEntriesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Destination CIDR Block
-   * 
-   * @example
-   * 0.0.0.0/0
-   */
-  destinationCidrBlock?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable pagination query.
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * Lingjun HUB ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * Filter 32 detailed CIDR blocks. Default value: true
-   * 
-   * @example
-   * true
-   */
-  ignoreDetailedRouteEntry?: boolean;
-  /**
-   * @remarks
-   * Network Instance ID
-   * 
-   * @example
-   * vcc-cn-209300qha01
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * Next Hop Instance
-   * 
-   * @example
-   * vcc-cn-209300qha01
-   */
-  nextHopId?: string;
-  /**
-   * @remarks
-   * Next Hop Instance Type
-   * 
-   * @example
-   * VCC
-   */
-  nextHopType?: string;
-  /**
-   * @remarks
-   * The page number of the page to return. Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Default value: 20.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Resource group instance ID
-   * 
-   * @example
-   * rg-acfmyuzlx2iihcy
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * Route type
-   * 
-   * @example
-   * VCC
-   */
-  routeType?: string;
-  /**
-   * @remarks
-   * The status of the enterprise-level snapshot policy.
-   * 
-   * @example
-   * Available
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destinationCidrBlock: 'DestinationCidrBlock',
-      enablePage: 'EnablePage',
-      erId: 'ErId',
-      ignoreDetailedRouteEntry: 'IgnoreDetailedRouteEntry',
-      instanceId: 'InstanceId',
-      nextHopId: 'NextHopId',
-      nextHopType: 'NextHopType',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      routeType: 'RouteType',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destinationCidrBlock: 'string',
-      enablePage: 'boolean',
-      erId: 'string',
-      ignoreDetailedRouteEntry: 'boolean',
-      instanceId: 'string',
-      nextHopId: 'string',
-      nextHopType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      routeType: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListErRouteEntriesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: ListErRouteEntriesResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListErRouteEntriesResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListErRouteEntriesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListErRouteEntriesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListErRouteEntriesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListErRouteMapsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Destination CIDR Block
-   * 
-   * @example
-   * 0.0.0.0/0
-   */
-  destinationCidrBlock?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable paged query.
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * Elastic Router ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * routing policy ID
-   * 
-   * @example
-   * er-rmap-uwglhzom
-   */
-  erRouteMapId?: string;
-  /**
-   * @remarks
-   * Policy number (default for automatic creation is 3000; The value range of the policy number manually created by the user is 1001-2000)
-   * 
-   * @example
-   * 1001
-   */
-  erRouteMapNum?: number;
-  /**
-   * @remarks
-   * The page number of the page to return. Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Receive Instance ID
-   * 
-   * @example
-   * vpd-x2lohgpv
-   */
-  receptionInstanceId?: string;
-  /**
-   * @remarks
-   * Receive Instance Name
-   * 
-   * @example
-   * vpd2
-   */
-  receptionInstanceName?: string;
-  /**
-   * @remarks
-   * The type of the received instance. Optional values:
-   * 
-   * *   **VPD**: Lingjun network segment.
-   * *   **VCC**: Lingjun Connection.
-   * 
-   * @example
-   * VPD
-   */
-  receptionInstanceType?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Resource group instance ID
-   * 
-   * @example
-   * rg-acfmzaq3ypaqkdy
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * Policy behavior; optional values:
-   * 
-   * *   **permit**: Allow
-   * *   **deny**: Rejected
-   * 
-   * @example
-   * deny
-   */
-  routeMapAction?: string;
-  /**
-   * @remarks
-   * Release Instance ID
-   * 
-   * @example
-   * vpd-xsdlg2xb
-   */
-  transmissionInstanceId?: string;
-  /**
-   * @remarks
-   * Release Instance Name
-   * 
-   * @example
-   * vpd1
-   */
-  transmissionInstanceName?: string;
-  /**
-   * @remarks
-   * The type of the published instance. Optional values:
-   * 
-   * *   **VPD**: Lingjun network segment.
-   * *   **VCC**: Lingjun Connection.
-   * 
-   * @example
-   * VPD
-   */
-  transmissionInstanceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destinationCidrBlock: 'DestinationCidrBlock',
-      enablePage: 'EnablePage',
-      erId: 'ErId',
-      erRouteMapId: 'ErRouteMapId',
-      erRouteMapNum: 'ErRouteMapNum',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      receptionInstanceId: 'ReceptionInstanceId',
-      receptionInstanceName: 'ReceptionInstanceName',
-      receptionInstanceType: 'ReceptionInstanceType',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      routeMapAction: 'RouteMapAction',
-      transmissionInstanceId: 'TransmissionInstanceId',
-      transmissionInstanceName: 'TransmissionInstanceName',
-      transmissionInstanceType: 'TransmissionInstanceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destinationCidrBlock: 'string',
-      enablePage: 'boolean',
-      erId: 'string',
-      erRouteMapId: 'string',
-      erRouteMapNum: 'number',
-      pageNumber: 'number',
-      pageSize: 'number',
-      receptionInstanceId: 'string',
-      receptionInstanceName: 'string',
-      receptionInstanceType: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      routeMapAction: 'string',
-      transmissionInstanceId: 'string',
-      transmissionInstanceName: 'string',
-      transmissionInstanceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListErRouteMapsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: ListErRouteMapsResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListErRouteMapsResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListErRouteMapsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListErRouteMapsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListErRouteMapsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListErsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable paged query. Valid values:
-   * 
-   * *   true: enables paged query.
-   * *   false: Paged query is disabled.
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * The ID of the Lingjun HUB instance.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * Lingjun HUB name.
-   * 
-   * @example
-   * er-heyuan-main
-   */
-  erName?: string;
-  /**
-   * @remarks
-   * The ID of the network instance.
-   * 
-   * @example
-   * vcc-cn-209300qha01
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The type of the attached network instance. Valid values:
-   * 
-   * *   **VPD**
-   * *   **VCC**
-   * 
-   * @example
-   * VCC
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The primary zone.
-   * 
-   * @example
-   * cn-wulanchabu-b
-   */
-  masterZoneId?: string;
-  /**
-   * @remarks
-   * The page number to return. Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Resource group instance ID
-   * 
-   * @example
-   * rg-acfmwfm33rlt6zi
-   */
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enablePage: 'EnablePage',
-      erId: 'ErId',
-      erName: 'ErName',
-      instanceId: 'InstanceId',
-      instanceType: 'InstanceType',
-      masterZoneId: 'MasterZoneId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enablePage: 'boolean',
-      erId: 'string',
-      erName: 'string',
-      instanceId: 'string',
-      instanceType: 'string',
-      masterZoneId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListErsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: ListErsResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is displayed.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListErsResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListErsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListErsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListErsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesByNcdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * lni-1234****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The parameter that specifies the instance type.
-   * 
-   * Valid value:
-   * 
-   * *   node: Lingjun node.
-   * *   lni: lingjun network interface controller.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * lni
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * Maximum network communication distance
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2
-   */
-  maxNcd?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      instanceType: 'InstanceType',
-      maxNcd: 'MaxNcd',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      instanceType: 'string',
-      maxNcd: 'number',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesByNcdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: ListInstancesByNcdResponseBodyContent;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * You don\\"t have the permission of this operation, action=eflo:ListInstancesByNcd, arn=acs:eflo:cn-heyuan:1263399219805497:networkinterface/*, resourceGroup=null
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListInstancesByNcdResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesByNcdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListInstancesByNcdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListInstancesByNcdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLeniPrivateIpAddressesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface ID.
-   * 
-   * @example
-   * leni-1234****
-   */
-  elasticNetworkInterfaceId?: string;
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface secondary private IP unique identifier.
-   * 
-   * @example
-   * sip-8ylg****
-   */
-  ipName?: string;
-  /**
-   * @remarks
-   * The page number returned.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface secondary private IP.
-   * 
-   * @example
-   * 10.0.****
-   */
-  privateIpAddress?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The status of the image build command risk.
-   * 
-   * @example
-   * Available
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
-      ipName: 'IpName',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      privateIpAddress: 'PrivateIpAddress',
-      regionId: 'RegionId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elasticNetworkInterfaceId: 'string',
-      ipName: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      privateIpAddress: 'string',
-      regionId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLeniPrivateIpAddressesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: ListLeniPrivateIpAddressesResponseBodyContent;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListLeniPrivateIpAddressesResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLeniPrivateIpAddressesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListLeniPrivateIpAddressesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListLeniPrivateIpAddressesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLniPrivateIpAddressRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the variable.
-   * 
-   * @example
-   * test
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Whether pagination is required
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * network interface controller IP address
-   * 
-   * @example
-   * 10.0.98.10
-   */
-  ip?: string;
-  /**
-   * @remarks
-   * IP unique identifier
-   * 
-   * @example
-   * sip-tynhdh2s
-   */
-  ipName?: string;
-  /**
-   * @remarks
-   * Lingjun network interface controller ID
-   * 
-   * @example
-   * lni-2ze4uww7n6hsfzrwq77y
-   */
-  networkInterfaceId?: string;
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * Obtain the index number of the current mouse click for an animation
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      enablePage: 'EnablePage',
-      ip: 'Ip',
-      ipName: 'IpName',
-      networkInterfaceId: 'NetworkInterfaceId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      enablePage: 'boolean',
-      ip: 'string',
-      ipName: 'string',
-      networkInterfaceId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLniPrivateIpAddressResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: ListLniPrivateIpAddressResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * You don\\"t have the permission to do this operation.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListLniPrivateIpAddressResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLniPrivateIpAddressResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListLniPrivateIpAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListLniPrivateIpAddressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNetworkInterfacesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether pagination is required.
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * network interface controller the IP address.
-   * 
-   * @example
-   * 203.107.46.227
-   */
-  ip?: string;
-  /**
-   * @remarks
-   * Lingjun network interface controller ID.
-   * 
-   * @example
-   * lni-bp18exxqa2rvfn45e5pz
-   */
-  networkInterfaceId?: string;
-  /**
-   * @remarks
-   * The ID of the machine to which the instance belongs.
-   * 
-   * @example
-   * r-2ze121o4uhr4np3r5t-db-5
-   */
-  nodeId?: string;
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The current number of pages.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the Lingjun subnet belongs.
-   * 
-   * @example
-   * subnet-anhtskts
-   */
-  subnetId?: string;
-  /**
-   * @remarks
-   * The ID of the VPD.
-   * 
-   * @example
-   * vpd-iv2zm1qf
-   */
-  vpdId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enablePage: 'EnablePage',
-      ip: 'Ip',
-      networkInterfaceId: 'NetworkInterfaceId',
-      nodeId: 'NodeId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      subnetId: 'SubnetId',
-      vpdId: 'VpdId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enablePage: 'boolean',
-      ip: 'string',
-      networkInterfaceId: 'string',
-      nodeId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      subnetId: 'string',
-      vpdId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNetworkInterfacesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: ListNetworkInterfacesResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListNetworkInterfacesResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNetworkInterfacesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListNetworkInterfacesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListNetworkInterfacesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodeInfosForPodRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cluster-***
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * The ID of the node for this operation.
-   * 
-   * @example
-   * node-be70****
-   */
-  nodeId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-wulanchabu-b
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      nodeId: 'NodeId',
-      regionId: 'RegionId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      nodeId: 'string',
-      regionId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodeInfosForPodResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * Response body
-   */
-  content?: ListNodeInfosForPodResponseBodyContent[];
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * You don\\"t have the permission of this operation.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: { 'type': 'array', 'itemType': ListNodeInfosForPodResponseBodyContent },
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodeInfosForPodResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListNodeInfosForPodResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListNodeInfosForPodResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSubnetsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to query by page. Optional values:
-   * 
-   * *   **true**: Enable pagination query
-   * *   **false**: Pagination query is disabled
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * The number of the page to return. The value must be greater than 0. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID of the disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
-   * 
-   * @example
-   * rg-aeky5f3qx6ceapq
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The status of the CLB instance. Valid values:
-   * 
-   * *   **Available**: Normal
-   * *   **Not Available**: Unavailable
-   * *   **Executing**: Executing
-   * *   **Deleting**: The node is being deleted.
-   * 
-   * @example
-   * Available
-   */
-  status?: string;
-  /**
-   * @remarks
-   * Lingjun subnet instance ID
-   * 
-   * @example
-   * subnet-anhtskts
-   */
-  subnetId?: string;
-  /**
-   * @remarks
-   * Lingjun subnet instance name
-   * 
-   * @example
-   * subnet-1
-   */
-  subnetName?: string;
-  /**
-   * @remarks
-   * The tag information.
-   * 
-   * You can specify up to 20 tags.
-   */
-  tag?: ListSubnetsRequestTag[];
-  /**
-   * @remarks
-   * Lingjun Subnet Usage Type; optional; optional. Valid values:
-   * 
-   * *   **If you do not set this field for a common type**
-   * *   **OOB** :OOB type
-   * *   **LB**: LB type
-   * 
-   * @example
-   * Null
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The ID of the Lingjun CIDR block.
-   * 
-   * @example
-   * vpd-fuliephf
-   */
-  vpdId?: string;
-  /**
-   * @remarks
-   * The zone ID of the disk.
-   * 
-   * @example
-   * cn-wulanchabu-a
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enablePage: 'EnablePage',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      status: 'Status',
-      subnetId: 'SubnetId',
-      subnetName: 'SubnetName',
-      tag: 'Tag',
-      type: 'Type',
-      vpdId: 'VpdId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enablePage: 'boolean',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      status: 'string',
-      subnetId: 'string',
-      subnetName: 'string',
-      tag: { 'type': 'array', 'itemType': ListSubnetsRequestTag },
-      type: 'string',
-      vpdId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSubnetsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: ListSubnetsResponseBodyContent;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * SUCCESS
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 7F9082CC-3D94-560F-A575-8E8EF6CE2CB8
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListSubnetsResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSubnetsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListSubnetsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListSubnetsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVccFlowInfosRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Direction
-   * 
-   * Valid value:
-   * 
-   * *   IN: inbound.
-   * *   OUT: the outbound.
-   * 
-   * @example
-   * OUT
-   */
-  direction?: string;
-  /**
-   * @remarks
-   * The start time. The default value is 5 minutes ago.
-   * 
-   * @example
-   * 1667727514000
-   */
-  from?: number;
-  /**
-   * @remarks
-   * Metric
-   * 
-   * Valid value:
-   * 
-   * *   totalPacketsRate: Total Packet Rate.
-   * *   dropBytesRate: the of the stream drop rate.
-   * *   dropPacketsRate: Dropped Packet Rate.
-   * *   totalBytesRate: the total streaming rate.
-   * *   passBytesRate: by stream rate.
-   * *   passPacketsRate: by packet rate.
-   * 
-   * @example
-   * passBytesRate
-   */
-  metricName?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The end time. The default time is the current time.
-   * 
-   * @example
-   * 1689749749000
-   */
-  to?: number;
-  /**
-   * @remarks
-   * Lingjun Connection ID
-   * 
-   * @example
-   * vcc-cn-zvp2******
-   */
-  vccId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      direction: 'Direction',
-      from: 'From',
-      metricName: 'MetricName',
-      regionId: 'RegionId',
-      to: 'To',
-      vccId: 'VccId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      direction: 'string',
-      from: 'number',
-      metricName: 'string',
-      regionId: 'string',
-      to: 'number',
-      vccId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVccFlowInfosResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  content?: ListVccFlowInfosResponseBodyContent;
-  /**
-   * @remarks
-   * Response
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * BDBCC783-84CA-5733-8EEA-************
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListVccFlowInfosResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVccFlowInfosResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListVccFlowInfosResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListVccFlowInfosResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVccGrantRulesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable paged query. Optional values:
-   * 
-   * *   **true**: Enable pagination query
-   * *   **false**: Pagination query is disabled
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * Lingjun HUB ID
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * Use the drop-down box
-   * 
-   * @example
-   * true
-   */
-  forSelect?: boolean;
-  /**
-   * @remarks
-   * Authorization Entry ID
-   * 
-   * @example
-   * grant-rule-jaj33d1b804
-   */
-  grantRuleId?: string;
-  /**
-   * @remarks
-   * Authorized Tenant ID
-   * 
-   * @example
-   * 1620939556166277
-   */
-  grantTenantId?: string;
-  /**
-   * @remarks
-   * Network Instance ID
-   * 
-   * @example
-   * vcc-cn-jaj33d1b804
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * Instance name
-   * 
-   * @example
-   * vcc-1
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * The page number of the page to return. Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Default value: 20.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Resource group instance ID
-   * 
-   * @example
-   * rg-aekzb3n5lgk2ieq
-   */
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enablePage: 'EnablePage',
-      erId: 'ErId',
-      forSelect: 'ForSelect',
-      grantRuleId: 'GrantRuleId',
-      grantTenantId: 'GrantTenantId',
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enablePage: 'boolean',
-      erId: 'string',
-      forSelect: 'boolean',
-      grantRuleId: 'string',
-      grantTenantId: 'string',
-      instanceId: 'string',
-      instanceName: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVccGrantRulesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: ListVccGrantRulesResponseBodyContent;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * A56F7D3C-8850-5AF4-A342-2D71C9A9D1CC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListVccGrantRulesResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVccGrantRulesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListVccGrantRulesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListVccGrantRulesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVccRouteEntriesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Destination CIDR block
-   * 
-   * @example
-   * 0.0.0.0/0
-   */
-  destinationCidrBlock?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable pagination query.
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * Filter 32 detailed CIDR blocks. Default value: true
-   * 
-   * @example
-   * true
-   */
-  ignoreDetailedRouteEntry?: boolean;
-  /**
-   * @remarks
-   * Next Hop Instance
-   * 
-   * @example
-   * vcc-cn-jaj34d75h01
-   */
-  nextHopId?: string;
-  /**
-   * @remarks
-   * Next Hop Instance Type
-   * 
-   * @example
-   * VCC
-   */
-  nextHopType?: string;
-  /**
-   * @remarks
-   * The page number of the page to return. Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Default value: 20.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Resource group instance ID
-   * 
-   * @example
-   * rg-aek2l4sq6l7unhi
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * Route type
-   * 
-   * @example
-   * BGP
-   */
-  routeType?: string;
-  /**
-   * @remarks
-   * The status of the enterprise-level snapshot policy.
-   * 
-   * @example
-   * Available
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The ID of the Lingjun connection instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vcc-cn-zvp2w222001
-   */
-  vccId?: string;
-  /**
-   * @remarks
-   * Lingjun CIDR block route entry instance ID
-   * 
-   * @example
-   * vpd-rte-toekyqel
-   */
-  vpdRouteEntryId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destinationCidrBlock: 'DestinationCidrBlock',
-      enablePage: 'EnablePage',
-      ignoreDetailedRouteEntry: 'IgnoreDetailedRouteEntry',
-      nextHopId: 'NextHopId',
-      nextHopType: 'NextHopType',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      routeType: 'RouteType',
-      status: 'Status',
-      vccId: 'VccId',
-      vpdRouteEntryId: 'VpdRouteEntryId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destinationCidrBlock: 'string',
-      enablePage: 'boolean',
-      ignoreDetailedRouteEntry: 'boolean',
-      nextHopId: 'string',
-      nextHopType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      routeType: 'string',
-      status: 'string',
-      vccId: 'string',
-      vpdRouteEntryId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVccRouteEntriesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: ListVccRouteEntriesResponseBodyContent;
-  /**
-   * @remarks
-   * response message, if the success request is
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListVccRouteEntriesResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVccRouteEntriesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListVccRouteEntriesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListVccRouteEntriesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVccsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The peak bandwidth of the Lingjun connection instance. Unit: Mbit/s. Valid values: 1000 to 400000
-   * 
-   * @example
-   * 5000
-   */
-  bandwidth?: number;
-  /**
-   * @remarks
-   * The ID of the CEN instance; [What is the CEN?](https://help.aliyun.com/document_detail/181681.html)
-   * 
-   * You can call the [DescribeCens](https://help.aliyun.com/document_detail/468215.htm) to query the information of CEN instances under the current Alibaba Cloud account.
-   * 
-   * @example
-   * cen-95iwtpyvj3kk1v0ao0
-   */
-  cenId?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable paged query. Optional values:
-   * 
-   * *   **true**: Enable pagination query
-   * *   **false**: Pagination query is disabled
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * Excludes all data in the specified status. If the status parameter exists, ExStatus does not take effect.
-   * 
-   * @example
-   * Prepaid
-   */
-  exStatus?: string;
-  /**
-   * @remarks
-   * Filter queries by Lingjun HUB instance ID
-   * 
-   * @example
-   * er-a7rqv1rq
-   */
-  filterErId?: string;
-  /**
-   * @remarks
-   * The page number of the page to return. Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Default value: 20.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
-   * 
-   * @example
-   * rg-aeky5f3qx6ceapq
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The instance status.
-   * 
-   * @example
-   * Available
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The tag information.
-   * 
-   * You can specify up to 20 tags.
-   */
-  tag?: ListVccsRequestTag[];
-  /**
-   * @remarks
-   * The ID of the Lingjun connection instance.
-   * 
-   * @example
-   * vcc-cn-zvp2w222001
-   */
-  vccId?: string;
-  /**
-   * @remarks
-   * Virtual Private Cloud IDs; [What is Virtual Private Cloud](https://help.aliyun.com/document_detail/34217.html)
-   * 
-   * You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html#demo-0) operation to query the specified VPC.
-   * 
-   * @example
-   * vpc-bp1nrtkmamy329u6a1z0i
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * Lingjun CIDR block instance ID
-   * 
-   * @example
-   * vpd-omqutbff
-   */
-  vpdId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bandwidth: 'Bandwidth',
-      cenId: 'CenId',
-      enablePage: 'EnablePage',
-      exStatus: 'ExStatus',
-      filterErId: 'FilterErId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      status: 'Status',
-      tag: 'Tag',
-      vccId: 'VccId',
-      vpcId: 'VpcId',
-      vpdId: 'VpdId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bandwidth: 'number',
-      cenId: 'string',
-      enablePage: 'boolean',
-      exStatus: 'string',
-      filterErId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      status: 'string',
-      tag: { 'type': 'array', 'itemType': ListVccsRequestTag },
-      vccId: 'string',
-      vpcId: 'string',
-      vpdId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVccsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: ListVccsResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 28451248-7038-5184-B5D3-80F104654BE8
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListVccsResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVccsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListVccsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListVccsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVpdGrantRulesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable pagination query.
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * Lingjun HUB Instance ID
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * Use the drop-down box
-   * 
-   * @example
-   * true
-   */
-  forSelect?: boolean;
-  /**
-   * @remarks
-   * Authorization Entry ID
-   * 
-   * @example
-   * grant-rule-8rgvqazb
-   */
-  grantRuleId?: string;
-  /**
-   * @remarks
-   * Authorized Tenant ID
-   * 
-   * @example
-   * 1620939556166279
-   */
-  grantTenantId?: string;
-  /**
-   * @remarks
-   * The ID of the network instance that you want to query.
-   * 
-   * @example
-   * vpd-8rgvqazb
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * Instance name
-   * 
-   * @example
-   * vpd-1
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * The page number of the page to return. Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Resource group instance ID
-   * 
-   * @example
-   * rg-aek2l4sq6l7unhi
-   */
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enablePage: 'EnablePage',
-      erId: 'ErId',
-      forSelect: 'ForSelect',
-      grantRuleId: 'GrantRuleId',
-      grantTenantId: 'GrantTenantId',
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enablePage: 'boolean',
-      erId: 'string',
-      forSelect: 'boolean',
-      grantRuleId: 'string',
-      grantTenantId: 'string',
-      instanceId: 'string',
-      instanceName: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVpdGrantRulesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: ListVpdGrantRulesResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * A56F7D3C-8850-5AF4-A342-2D71C9A9D1CC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListVpdGrantRulesResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVpdGrantRulesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListVpdGrantRulesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListVpdGrantRulesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVpdRouteEntriesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Destination CIDR block
-   * 
-   * @example
-   * 0.0.0.0/0
-   */
-  destinationCidrBlock?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable paged query. Optional values:
-   * 
-   * *   **true**: Enable pagination query
-   * *   **false**: Pagination query is disabled
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * Filter 32 detailed CIDR blocks. Default value: true
-   * 
-   * @example
-   * true
-   */
-  ignoreDetailedRouteEntry?: boolean;
-  /**
-   * @remarks
-   * Next Hop Instance
-   * 
-   * @example
-   * vcc-cn-209300qha01
-   */
-  nextHopId?: string;
-  /**
-   * @remarks
-   * Next Hop Instance Type
-   * 
-   * @example
-   * VCC
-   */
-  nextHopType?: string;
-  /**
-   * @remarks
-   * The page number of the page to return. Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Default value: 20.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Resource group instance ID
-   * 
-   * @example
-   * rg-acfm4mlwqjalz7a
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * Route type
-   * 
-   * @example
-   * BGP
-   */
-  routeType?: string;
-  /**
-   * @remarks
-   * The status of the enterprise-level snapshot policy.
-   * 
-   * @example
-   * Available
-   */
-  status?: string;
-  /**
-   * @remarks
-   * Lingjun CIDR block instance ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-fuliephf
-   */
-  vpdId?: string;
-  /**
-   * @remarks
-   * Lingjun CIDR block route entry instance ID
-   * 
-   * @example
-   * vpd-rte-4r1zbhoh
-   */
-  vpdRouteEntryId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destinationCidrBlock: 'DestinationCidrBlock',
-      enablePage: 'EnablePage',
-      ignoreDetailedRouteEntry: 'IgnoreDetailedRouteEntry',
-      nextHopId: 'NextHopId',
-      nextHopType: 'NextHopType',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      routeType: 'RouteType',
-      status: 'Status',
-      vpdId: 'VpdId',
-      vpdRouteEntryId: 'VpdRouteEntryId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destinationCidrBlock: 'string',
-      enablePage: 'boolean',
-      ignoreDetailedRouteEntry: 'boolean',
-      nextHopId: 'string',
-      nextHopType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      routeType: 'string',
-      status: 'string',
-      vpdId: 'string',
-      vpdRouteEntryId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVpdRouteEntriesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: ListVpdRouteEntriesResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListVpdRouteEntriesResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVpdRouteEntriesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListVpdRouteEntriesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListVpdRouteEntriesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVpdsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable paged query.
-   * 
-   * @example
-   * false
-   */
-  enablePage?: boolean;
-  /**
-   * @remarks
-   * Queries the network segments of Lingjun that are not bound to a specified Lingjun HUB.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  filterErId?: string;
-  /**
-   * @remarks
-   * If you select a drop-down list, only the basic information (including the instance ID and instance name) is returned. Possible values:
-   * 
-   * *   **true**: Select Query Use from the drop-down list.
-   * *   **false**: Normal queries are used.
-   * 
-   * @example
-   * true
-   */
-  forSelect?: boolean;
-  /**
-   * @remarks
-   * The page number of the page to return. Start value: 1 Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
-   * 
-   * @example
-   * rg-aeky5f3qx6ceapq
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The status of the CLB instance. Valid values:
-   * 
-   * *   **Available**: Normal.
-   * *   **Not Available**: Not available.
-   * *   **Executing**: The task is being executed.
-   * *   **Deleting**: The account is being deleted
-   * 
-   * @example
-   * Available
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The tag information.
-   * 
-   * You can specify up to 20 tags.
-   */
-  tag?: ListVpdsRequestTag[];
-  /**
-   * @remarks
-   * The ID of the VPD instance.
-   * 
-   * @example
-   * vpd-fuliephf
-   */
-  vpdId?: string;
-  /**
-   * @remarks
-   * The name of the VPD instance.
-   * 
-   * @example
-   * vpd-1
-   */
-  vpdName?: string;
-  /**
-   * @remarks
-   * Specifies whether to include the dependent resource information. We recommend that you do not query the dependent resource information when you query by page. You can query the dependent resource information separately when you delete it. Possible values:
-   * 
-   * *   **true**: with dependency information.
-   * *   **false**: does not include dependency information.
-   * 
-   * @example
-   * false
-   */
-  withDependence?: boolean;
-  /**
-   * @remarks
-   * Queries the information about a Lingjun CIDR block that is not bound to a Lingjun connection. Possible values:
-   * 
-   * *   **true**: filters out VPDs that have been bound to VCC
-   * *   **false**: does not filter VPD that has been bound to VCC
-   * 
-   * @example
-   * true
-   */
-  withoutVcc?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enablePage: 'EnablePage',
-      filterErId: 'FilterErId',
-      forSelect: 'ForSelect',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      status: 'Status',
-      tag: 'Tag',
-      vpdId: 'VpdId',
-      vpdName: 'VpdName',
-      withDependence: 'WithDependence',
-      withoutVcc: 'WithoutVcc',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enablePage: 'boolean',
-      filterErId: 'string',
-      forSelect: 'boolean',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      status: 'string',
-      tag: { 'type': 'array', 'itemType': ListVpdsRequestTag },
-      vpdId: 'string',
-      vpdName: 'string',
-      withDependence: 'boolean',
-      withoutVcc: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVpdsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: ListVpdsResponseBodyContent;
-  /**
-   * @remarks
-   * The additional information that is returned.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: ListVpdsResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVpdsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListVpdsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListVpdsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryInstanceNcdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Instance 1ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * lni-1235****
-   */
-  instanceId1?: string;
-  /**
-   * @remarks
-   * Instance 2ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * lni-1234****
-   */
-  instanceId2?: string;
-  /**
-   * @remarks
-   * The parameter that specifies the instance type.
-   * 
-   * Valid value:
-   * 
-   * *   node: Lingjun node.
-   * *   lni: lingjun network interface controller.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * lni
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId1: 'InstanceId1',
-      instanceId2: 'InstanceId2',
-      instanceType: 'InstanceType',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId1: 'string',
-      instanceId2: 'string',
-      instanceType: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryInstanceNcdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: QueryInstanceNcdResponseBodyContent;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * You don\\"t have the permission of this operation, action=eflo:QueryInstanceNcd, arn=acs:eflo:cn-shenzhen:1263399219805497:networkinterface/*, resourceGroup=null
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * BDBCC783-84CA-5733-8EEA-645C88B9009C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: QueryInstanceNcdResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryInstanceNcdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryInstanceNcdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryInstanceNcdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefundVccRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Region
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Lingjun Connection ID
-   * 
-   * @example
-   * vcc-cn-zvp2w222001
-   */
-  vccId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      vccId: 'VccId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      vccId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefundVccResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * Response content
-   * 
-   * @example
-   * {}
-   */
-  content?: any;
-  /**
-   * @remarks
-   * Response message, which is \\"success\\" if the request succeeds
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: 'any',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefundVccResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RefundVccResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RefundVccResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetryVccRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Lingjun Connection ID
-   * 
-   * @example
-   * vcc-cn-zvp2w222001
-   */
-  vccId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      vccId: 'VccId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      vccId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetryVccResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * {}
-   */
-  content?: any;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 7F9082CC-3D94-560F-A575-8E8EF6CE2CB8
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: 'any',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetryVccResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RetryVccResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RetryVccResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnAssignPrivateIpAddressRequest extends $tea.Model {
-  /**
-   * @remarks
-   * By default, popApi is not ignored and idempotent
-   * 
-   * @example
-   * 141cccd6-dfbd-11ec-b8e8-0242ac110003
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * IP unique identifier
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * sip-xxxx
-   */
-  ipName?: string;
-  /**
-   * @remarks
-   * Lingjun network interface controller ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * lni-bp18exxqa2rvfn45e5pz
-   */
-  networkInterfaceId?: string;
-  /**
-   * @remarks
-   * The private IP address of the instance.
-   * 
-   * @example
-   * 10.209.75.242
-   */
-  privateIpAddress?: string;
-  /**
-   * @remarks
-   * Region
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Subnet
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * subnet-f3zfzmnc
-   */
-  subnetId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      ipName: 'IpName',
-      networkInterfaceId: 'NetworkInterfaceId',
-      privateIpAddress: 'PrivateIpAddress',
-      regionId: 'RegionId',
-      subnetId: 'SubnetId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      ipName: 'string',
-      networkInterfaceId: 'string',
-      privateIpAddress: 'string',
-      regionId: 'string',
-      subnetId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnAssignPrivateIpAddressResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: UnAssignPrivateIpAddressResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * You don\\"t have the permission to do this operation.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: UnAssignPrivateIpAddressResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnAssignPrivateIpAddressResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnAssignPrivateIpAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnAssignPrivateIpAddressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnAssociateVpdCidrBlockRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The additional CIDR block.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 192.168.0.0/16
-   */
-  secondaryCidrBlock?: string;
-  /**
-   * @remarks
-   * The ID of the Lingjun CIDR block.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-aof7dat1
-   */
-  vpdId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      secondaryCidrBlock: 'SecondaryCidrBlock',
-      vpdId: 'VpdId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      secondaryCidrBlock: 'string',
-      vpdId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnAssociateVpdCidrBlockResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: UnAssociateVpdCidrBlockResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: UnAssociateVpdCidrBlockResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnAssociateVpdCidrBlockResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnAssociateVpdCidrBlockResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnAssociateVpdCidrBlockResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnassignLeniPrivateIpAddressRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The idempotent identifier.
-   * 
-   * @example
-   * 967e77a2-b61d-11ec-a147-0242c0a80504
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * leni-1234****
-   */
-  elasticNetworkInterfaceId?: string;
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface secondary private IP unique identifier.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * sip-8ylg****
-   */
-  ipName?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
-      ipName: 'IpName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      elasticNetworkInterfaceId: 'string',
-      ipName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnassignLeniPrivateIpAddressResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   * 
-   * @example
-   * {}
-   */
-  content?: UnassignLeniPrivateIpAddressResponseBodyContent;
-  /**
-   * @remarks
-   * The response message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: UnassignLeniPrivateIpAddressResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnassignLeniPrivateIpAddressResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnassignLeniPrivateIpAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnassignLeniPrivateIpAddressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateElasticNetworkInterfaceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request.
-   * 
-   * @example
-   * 3fd79d62-ab1d-11ec-9a53-0242ac110004
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The description of the variable.
-   * 
-   * @example
-   * LHICDOSEExternaluserinquiryP
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * leni-1234****
-   */
-  elasticNetworkInterfaceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the security group.
-   * 
-   * @example
-   * sg-wz9fj2s3o21nw2****
-   */
-  securityGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      description: 'Description',
-      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
-      regionId: 'RegionId',
-      securityGroupId: 'SecurityGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      description: 'string',
-      elasticNetworkInterfaceId: 'string',
-      regionId: 'string',
-      securityGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateElasticNetworkInterfaceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: UpdateElasticNetworkInterfaceResponseBodyContent;
-  /**
-   * @remarks
-   * The return message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: UpdateElasticNetworkInterfaceResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateElasticNetworkInterfaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateElasticNetworkInterfaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateElasticNetworkInterfaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateErRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the document.
-   * 
-   * @example
-   * description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Lingjun HUB Instance ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * Parameter
-   * 
-   * @example
-   * er-wulanchabu-main
-   */
-  erName?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      erId: 'ErId',
-      erName: 'ErName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      erId: 'string',
-      erName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateErResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * {}
-   */
-  content?: { [key: string]: any };
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 3D9D6E7B-365B-5200-BFA6-9B79E269058C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateErResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateErResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateErResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateErAttachmentRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The connection ID of the Lingjun HUB network instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-attachment-i1ioibyf
-   */
-  erAttachmentId?: string;
-  /**
-   * @remarks
-   * Lingjun HUB Network Instance Connection Name
-   * 
-   * @example
-   * er-attachment-wulanchabu-main
-   */
-  erAttachmentName?: string;
-  /**
-   * @remarks
-   * Lingjun HUB ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      erAttachmentId: 'ErAttachmentId',
-      erAttachmentName: 'ErAttachmentName',
-      erId: 'ErId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      erAttachmentId: 'string',
-      erAttachmentName: 'string',
-      erId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateErAttachmentResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   * 
-   * @example
-   * {}
-   */
-  content?: { [key: string]: any };
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID of the current request
-   * 
-   * @example
-   * 7F9082CC-3D94-560F-A575-8E8EF6CE2CB8
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateErAttachmentResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateErAttachmentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateErAttachmentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateErRouteMapRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the document.
-   * 
-   * @example
-   * test-example
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Lingjun HUB ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-kkopgtne
-   */
-  erId?: string;
-  /**
-   * @remarks
-   * routing policy ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * er-rmap-uwglhzom
-   */
-  erRouteMapId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      erId: 'ErId',
-      erRouteMapId: 'ErRouteMapId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      erId: 'string',
-      erRouteMapId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateErRouteMapResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   * 
-   * @example
-   * {}
-   */
-  content?: { [key: string]: any };
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * BDBCC783-84CA-5733-8EEA-645C88B9009C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateErRouteMapResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateErRouteMapResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateErRouteMapResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLeniPrivateIpAddressRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the ECS instances.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * leni-1234****
-   */
-  elasticNetworkInterfaceId?: string;
-  /**
-   * @remarks
-   * Lingjun Elastic Network Interface secondary private IP unique identifier.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * sip-8ylg****
-   */
-  ipName?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
-      ipName: 'IpName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      elasticNetworkInterfaceId: 'string',
-      ipName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLeniPrivateIpAddressResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: UpdateLeniPrivateIpAddressResponseBodyContent;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: UpdateLeniPrivateIpAddressResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLeniPrivateIpAddressResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateLeniPrivateIpAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateLeniPrivateIpAddressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSubnetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The subnet instance ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * subnet-f3zfzmnc
-   */
-  subnetId?: string;
-  /**
-   * @remarks
-   * The new name for the subnet instance.
-   * 
-   * @example
-   * subnet-1
-   */
-  subnetName?: string;
-  /**
-   * @remarks
-   * The ID of the VPD to which the subnet belongs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-aof7dat1
-   */
-  vpdId?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu-a
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      subnetId: 'SubnetId',
-      subnetName: 'SubnetName',
-      vpdId: 'VpdId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      subnetId: 'string',
-      subnetName: 'string',
-      vpdId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSubnetResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response content.
-   */
-  content?: UpdateSubnetResponseBodyContent;
-  /**
-   * @remarks
-   * The message that is returned.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 3D9D6E7B-365B-5200-BFA6-9B79E269058C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: UpdateSubnetResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSubnetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateSubnetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateSubnetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateVccRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The peak bandwidth of the Lingjun connection instance. Unit: Mbit/s. Valid values: 1000 to 400000
-   * 
-   * @example
-   * 1000
-   */
-  bandwidth?: number;
-  /**
-   * @remarks
-   * The ID of the order placed on the instance.
-   * 
-   * @example
-   * 20006627643
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the Lingjun connection instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vcc-cn-zvp2w222001
-   */
-  vccId?: string;
-  /**
-   * @remarks
-   * The name of the Lingjun connection instance.
-   * 
-   * @example
-   * vcc-heyuan-backup
-   */
-  vccName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bandwidth: 'Bandwidth',
-      orderId: 'OrderId',
-      regionId: 'RegionId',
-      vccId: 'VccId',
-      vccName: 'VccName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bandwidth: 'number',
-      orderId: 'string',
-      regionId: 'string',
-      vccId: 'string',
-      vccName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateVccResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  content?: UpdateVccResponseBodyContent;
-  /**
-   * @remarks
-   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * F906C4D3-7444-58E2-9819-E3D8563571A3
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: UpdateVccResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateVccResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateVccResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateVccResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateVpdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wulanchabu
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the VPD instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpd-omqutbff
-   */
-  vpdId?: string;
-  /**
-   * @remarks
-   * The name of the VPD instance.
-   * 
-   * @example
-   * vpd-lingjun
-   */
-  vpdName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      vpdId: 'VpdId',
-      vpdName: 'VpdName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      vpdId: 'string',
-      vpdName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateVpdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 0
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The response data.
-   */
-  content?: UpdateVpdResponseBodyContent;
-  /**
-   * @remarks
-   * The additional information that is returned.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AC8C713A-A9F4-5984-A5E1-76496DF35153
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: UpdateVpdResponseBodyContent,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateVpdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateVpdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateVpdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssignLeniPrivateIpAddressResponseBodyContent extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class AssignLeniPrivateIpAddressResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun Elastic Network Interface ID.
@@ -12066,12 +36,16 @@ export class AssignLeniPrivateIpAddressResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AssignPrivateIpAddressResponseBodyContent extends $tea.Model {
+export class AssignPrivateIpAddressResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The unique IP identifier.
@@ -12102,12 +76,16 @@ export class AssignPrivateIpAddressResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AssociateVpdCidrBlockResponseBodyContent extends $tea.Model {
+export class AssociateVpdCidrBlockResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The ID of the Lingjun CIDR block.
@@ -12128,12 +106,16 @@ export class AssociateVpdCidrBlockResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateElasticNetworkInterfaceResponseBodyContent extends $tea.Model {
+export class CreateElasticNetworkInterfaceResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun Elastic Network Interface ID.
@@ -12164,12 +146,16 @@ export class CreateElasticNetworkInterfaceResponseBodyContent extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateErResponseBodyContent extends $tea.Model {
+export class CreateErResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun HUB ID
@@ -12190,12 +176,16 @@ export class CreateErResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateErAttachmentResponseBodyContent extends $tea.Model {
+export class CreateErAttachmentResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The ID of the network connection instance.
@@ -12216,12 +206,16 @@ export class CreateErAttachmentResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateErRouteMapResponseBodyContent extends $tea.Model {
+export class CreateErRouteMapResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * routing policy ID
@@ -12242,12 +236,16 @@ export class CreateErRouteMapResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSubnetRequestTag extends $tea.Model {
+export class CreateSubnetRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key of the VPN attachment.
@@ -12286,12 +284,16 @@ export class CreateSubnetRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSubnetResponseBodyContent extends $tea.Model {
+export class CreateSubnetResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun subnet instance ID
@@ -12312,12 +314,16 @@ export class CreateSubnetResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVccRequestTag extends $tea.Model {
+export class CreateVccRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key of the VPN attachment.
@@ -12356,12 +362,16 @@ export class CreateVccRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVccResponseBodyContent extends $tea.Model {
+export class CreateVccResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The ID of the Lingjun connection instance.
@@ -12382,12 +392,16 @@ export class CreateVccResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVccGrantRuleResponseBodyContent extends $tea.Model {
+export class CreateVccGrantRuleResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Authorized resource primary key ID
@@ -12408,12 +422,16 @@ export class CreateVccGrantRuleResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVccRouteEntryResponseBodyContent extends $tea.Model {
+export class CreateVccRouteEntryResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The ID of the route entry.
@@ -12434,12 +452,16 @@ export class CreateVccRouteEntryResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVpdRequestSubnets extends $tea.Model {
+export class CreateVpdRequestSubnets extends $dara.Model {
   /**
    * @remarks
    * The CIDR block of the Subnet.
@@ -12507,12 +529,16 @@ export class CreateVpdRequestSubnets extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVpdRequestTag extends $tea.Model {
+export class CreateVpdRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key of the VPN attachment.
@@ -12551,12 +577,16 @@ export class CreateVpdRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVpdResponseBodyContent extends $tea.Model {
+export class CreateVpdResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun subnet ID list
@@ -12584,12 +614,19 @@ export class CreateVpdResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.subnetIds)) {
+      $dara.Model.validateArray(this.subnetIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVpdGrantRuleResponseBodyContent extends $tea.Model {
+export class CreateVpdGrantRuleResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Authorized resource primary key ID
@@ -12610,12 +647,16 @@ export class CreateVpdGrantRuleResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteElasticNetworkInterfaceResponseBodyContent extends $tea.Model {
+export class DeleteElasticNetworkInterfaceResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun Elastic Network Interface ID
@@ -12646,12 +687,16 @@ export class DeleteElasticNetworkInterfaceResponseBodyContent extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeSlrResponseBodyContent extends $tea.Model {
+export class DescribeSlrResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Whether the role exists
@@ -12672,12 +717,16 @@ export class DescribeSlrResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDestinationCidrBlockResponseBodyContent extends $tea.Model {
+export class GetDestinationCidrBlockResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * List of destination CIDR block information for the current network instance
@@ -12695,12 +744,19 @@ export class GetDestinationCidrBlockResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.destinationCidrBlock)) {
+      $dara.Model.validateArray(this.destinationCidrBlock);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetElasticNetworkInterfaceResponseBodyContentIpv6Addresses extends $tea.Model {
+export class GetElasticNetworkInterfaceResponseBodyContentIpv6Addresses extends $dara.Model {
   /**
    * @remarks
    * The instance description.
@@ -12801,12 +857,16 @@ export class GetElasticNetworkInterfaceResponseBodyContentIpv6Addresses extends 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetElasticNetworkInterfaceResponseBodyContentPrivateIpAddresses extends $tea.Model {
+export class GetElasticNetworkInterfaceResponseBodyContentPrivateIpAddresses extends $dara.Model {
   /**
    * @remarks
    * The instance description.
@@ -12907,12 +967,16 @@ export class GetElasticNetworkInterfaceResponseBodyContentPrivateIpAddresses ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetElasticNetworkInterfaceResponseBodyContent extends $tea.Model {
+export class GetElasticNetworkInterfaceResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The time when the data address was created.
@@ -13130,12 +1194,22 @@ export class GetElasticNetworkInterfaceResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ipv6Addresses)) {
+      $dara.Model.validateArray(this.ipv6Addresses);
+    }
+    if(Array.isArray(this.privateIpAddresses)) {
+      $dara.Model.validateArray(this.privateIpAddresses);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetErResponseBodyContentErAttachments extends $tea.Model {
+export class GetErResponseBodyContentErAttachments extends $dara.Model {
   /**
    * @remarks
    * Cross-account
@@ -13311,12 +1385,16 @@ export class GetErResponseBodyContentErAttachments extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetErResponseBodyContentErRouteEntrys extends $tea.Model {
+export class GetErResponseBodyContentErRouteEntrys extends $dara.Model {
   /**
    * @remarks
    * Destination CIDR Block
@@ -13447,12 +1525,16 @@ export class GetErResponseBodyContentErRouteEntrys extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetErResponseBodyContentErRouteMaps extends $tea.Model {
+export class GetErResponseBodyContentErRouteMaps extends $dara.Model {
   /**
    * @remarks
    * Policy behavior
@@ -13688,12 +1770,16 @@ export class GetErResponseBodyContentErRouteMaps extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetErResponseBodyContent extends $tea.Model {
+export class GetErResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The time when the data address was created.
@@ -13835,12 +1921,25 @@ export class GetErResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.erAttachments)) {
+      $dara.Model.validateArray(this.erAttachments);
+    }
+    if(Array.isArray(this.erRouteEntrys)) {
+      $dara.Model.validateArray(this.erRouteEntrys);
+    }
+    if(Array.isArray(this.erRouteMaps)) {
+      $dara.Model.validateArray(this.erRouteMaps);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetErAttachmentResponseBodyContent extends $tea.Model {
+export class GetErAttachmentResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Whether cross-account. Valid values:
@@ -14029,12 +2128,16 @@ export class GetErAttachmentResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetErRouteEntryResponseBodyContent extends $tea.Model {
+export class GetErRouteEntryResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Destination CIDR Block
@@ -14155,12 +2258,16 @@ export class GetErRouteEntryResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetErRouteMapResponseBodyContent extends $tea.Model {
+export class GetErRouteMapResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Policy behavior; optional values:
@@ -14409,12 +2516,16 @@ export class GetErRouteMapResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFabricTopologyResponseBodyContentTopoInfo extends $tea.Model {
+export class GetFabricTopologyResponseBodyContentTopoInfo extends $dara.Model {
   /**
    * @remarks
    * The resource name.
@@ -14460,12 +2571,19 @@ export class GetFabricTopologyResponseBodyContentTopoInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.nextLayer)) {
+      $dara.Model.validateArray(this.nextLayer);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFabricTopologyResponseBodyContent extends $tea.Model {
+export class GetFabricTopologyResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -14523,12 +2641,19 @@ export class GetFabricTopologyResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.topoInfo)) {
+      $dara.Model.validateArray(this.topoInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetLeniPrivateIpAddressResponseBodyContent extends $tea.Model {
+export class GetLeniPrivateIpAddressResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -14629,12 +2754,16 @@ export class GetLeniPrivateIpAddressResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetLniPrivateIpAddressResponseBodyContent extends $tea.Model {
+export class GetLniPrivateIpAddressResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The instance description.
@@ -14735,12 +2864,16 @@ export class GetLniPrivateIpAddressResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNetworkInterfaceResponseBodyContentPrivateIpAddressMacGroup extends $tea.Model {
+export class GetNetworkInterfaceResponseBodyContentPrivateIpAddressMacGroup extends $dara.Model {
   /**
    * @remarks
    * The instance description.
@@ -14811,12 +2944,16 @@ export class GetNetworkInterfaceResponseBodyContentPrivateIpAddressMacGroup exte
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNetworkInterfaceResponseBodyContentSubnetBaseInfo extends $tea.Model {
+export class GetNetworkInterfaceResponseBodyContentSubnetBaseInfo extends $dara.Model {
   /**
    * @remarks
    * Network address segment
@@ -14867,12 +3004,16 @@ export class GetNetworkInterfaceResponseBodyContentSubnetBaseInfo extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNetworkInterfaceResponseBodyContentVpdBaseInfo extends $tea.Model {
+export class GetNetworkInterfaceResponseBodyContentVpdBaseInfo extends $dara.Model {
   /**
    * @remarks
    * The network segment of the Lingjun subnet.
@@ -14930,12 +3071,16 @@ export class GetNetworkInterfaceResponseBodyContentVpdBaseInfo extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNetworkInterfaceResponseBodyContent extends $tea.Model {
+export class GetNetworkInterfaceResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The time when the data address was created.
@@ -15113,12 +3258,28 @@ export class GetNetworkInterfaceResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ethernet)) {
+      $dara.Model.validateArray(this.ethernet);
+    }
+    if(Array.isArray(this.privateIpAddressMacGroup)) {
+      $dara.Model.validateArray(this.privateIpAddressMacGroup);
+    }
+    if(this.subnetBaseInfo && typeof (this.subnetBaseInfo as any).validate === 'function') {
+      (this.subnetBaseInfo as any).validate();
+    }
+    if(this.vpdBaseInfo && typeof (this.vpdBaseInfo as any).validate === 'function') {
+      (this.vpdBaseInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNodeInfoForPodResponseBodyContent extends $tea.Model {
+export class GetNodeInfoForPodResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -15226,12 +3387,19 @@ export class GetNodeInfoForPodResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.vSwitches)) {
+      $dara.Model.validateArray(this.vSwitches);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSubnetResponseBodyContentTags extends $tea.Model {
+export class GetSubnetResponseBodyContentTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -15270,12 +3438,16 @@ export class GetSubnetResponseBodyContentTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSubnetResponseBodyContentVpdBaseInfo extends $tea.Model {
+export class GetSubnetResponseBodyContentVpdBaseInfo extends $dara.Model {
   /**
    * @remarks
    * The CIDR block of the VPD.
@@ -15329,12 +3501,16 @@ export class GetSubnetResponseBodyContentVpdBaseInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSubnetResponseBodyContent extends $tea.Model {
+export class GetSubnetResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The number of available IP addresses.
@@ -15548,12 +3724,22 @@ export class GetSubnetResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(this.vpdBaseInfo && typeof (this.vpdBaseInfo as any).validate === 'function') {
+      (this.vpdBaseInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVccResponseBodyContentAliyunRouterInfo extends $tea.Model {
+export class GetVccResponseBodyContentAliyunRouterInfo extends $dara.Model {
   /**
    * @remarks
    * IPv4 address of Alibaba Cloud-side interconnection
@@ -15624,12 +3810,16 @@ export class GetVccResponseBodyContentAliyunRouterInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVccResponseBodyContentCisRouterInfoCcInfos extends $tea.Model {
+export class GetVccResponseBodyContentCisRouterInfoCcInfos extends $dara.Model {
   /**
    * @remarks
    * Leased Line ID
@@ -15700,12 +3890,16 @@ export class GetVccResponseBodyContentCisRouterInfoCcInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVccResponseBodyContentCisRouterInfo extends $tea.Model {
+export class GetVccResponseBodyContentCisRouterInfo extends $dara.Model {
   /**
    * @remarks
    * Leased Line Information List
@@ -15733,12 +3927,19 @@ export class GetVccResponseBodyContentCisRouterInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ccInfos)) {
+      $dara.Model.validateArray(this.ccInfos);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVccResponseBodyContentErInfos extends $tea.Model {
+export class GetVccResponseBodyContentErInfos extends $dara.Model {
   /**
    * @remarks
    * Connections
@@ -15869,12 +4070,16 @@ export class GetVccResponseBodyContentErInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVccResponseBodyContentTags extends $tea.Model {
+export class GetVccResponseBodyContentTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -15913,12 +4118,16 @@ export class GetVccResponseBodyContentTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVccResponseBodyContentVbrInfosVbrBgpPeers extends $tea.Model {
+export class GetVccResponseBodyContentVbrInfosVbrBgpPeers extends $dara.Model {
   /**
    * @remarks
    * BGP Group ID
@@ -15986,12 +4195,16 @@ export class GetVccResponseBodyContentVbrInfosVbrBgpPeers extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVccResponseBodyContentVbrInfos extends $tea.Model {
+export class GetVccResponseBodyContentVbrInfos extends $dara.Model {
   /**
    * @remarks
    * CEN ID
@@ -16067,12 +4280,19 @@ export class GetVccResponseBodyContentVbrInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.vbrBgpPeers)) {
+      $dara.Model.validateArray(this.vbrBgpPeers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVccResponseBodyContentVpdBaseInfo extends $tea.Model {
+export class GetVccResponseBodyContentVpdBaseInfo extends $dara.Model {
   /**
    * @remarks
    * Network address segment
@@ -16123,12 +4343,16 @@ export class GetVccResponseBodyContentVpdBaseInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVccResponseBodyContent extends $tea.Model {
+export class GetVccResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Express Connect circuit access point ID:
@@ -16530,12 +4754,34 @@ export class GetVccResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.aliyunRouterInfo)) {
+      $dara.Model.validateArray(this.aliyunRouterInfo);
+    }
+    if(Array.isArray(this.cisRouterInfo)) {
+      $dara.Model.validateArray(this.cisRouterInfo);
+    }
+    if(Array.isArray(this.erInfos)) {
+      $dara.Model.validateArray(this.erInfos);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.vbrInfos)) {
+      $dara.Model.validateArray(this.vbrInfos);
+    }
+    if(this.vpdBaseInfo && typeof (this.vpdBaseInfo as any).validate === 'function') {
+      (this.vpdBaseInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVccGrantRuleResponseBodyContent extends $tea.Model {
+export class GetVccGrantRuleResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The time when the data address was created.
@@ -16662,12 +4908,16 @@ export class GetVccGrantRuleResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVccRouteEntryResponseBodyContent extends $tea.Model {
+export class GetVccRouteEntryResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Destination CIDR Block
@@ -16798,12 +5048,16 @@ export class GetVccRouteEntryResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVpdResponseBodyContentErInfos extends $tea.Model {
+export class GetVpdResponseBodyContentErInfos extends $dara.Model {
   /**
    * @remarks
    * The number of connections.
@@ -16934,12 +5188,16 @@ export class GetVpdResponseBodyContentErInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVpdResponseBodyContentTags extends $tea.Model {
+export class GetVpdResponseBodyContentTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -16978,12 +5236,16 @@ export class GetVpdResponseBodyContentTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVpdResponseBodyContent extends $tea.Model {
+export class GetVpdResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Whether the Lingjun HUB(ER) has been bound.
@@ -17199,12 +5461,25 @@ export class GetVpdResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.erInfos)) {
+      $dara.Model.validateArray(this.erInfos);
+    }
+    if(Array.isArray(this.secondaryCidrBlocks)) {
+      $dara.Model.validateArray(this.secondaryCidrBlocks);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVpdGrantRuleResponseBodyContent extends $tea.Model {
+export class GetVpdGrantRuleResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The time when the data address was created.
@@ -17328,12 +5603,16 @@ export class GetVpdGrantRuleResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVpdRouteEntryResponseBodyContent extends $tea.Model {
+export class GetVpdRouteEntryResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Destination CIDR block
@@ -17454,12 +5733,16 @@ export class GetVpdRouteEntryResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InitializeVccResponseBodyContent extends $tea.Model {
+export class InitializeVccResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -17490,12 +5773,16 @@ export class InitializeVccResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListElasticNetworkInterfacesResponseBodyContentData extends $tea.Model {
+export class ListElasticNetworkInterfacesResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * The time when the data address was created.
@@ -17681,12 +5968,16 @@ export class ListElasticNetworkInterfacesResponseBodyContentData extends $tea.Mo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListElasticNetworkInterfacesResponseBodyContent extends $tea.Model {
+export class ListElasticNetworkInterfacesResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * lingjun Elastic Network Interface information list
@@ -17714,12 +6005,19 @@ export class ListElasticNetworkInterfacesResponseBodyContent extends $tea.Model 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListErAttachmentsResponseBodyContentData extends $tea.Model {
+export class ListErAttachmentsResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * Whether to cross accounts. Valid values:
@@ -17908,12 +6206,16 @@ export class ListErAttachmentsResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListErAttachmentsResponseBodyContent extends $tea.Model {
+export class ListErAttachmentsResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The list of Lingjun HUB network instances.
@@ -17941,12 +6243,19 @@ export class ListErAttachmentsResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListErRouteEntriesResponseBodyContentData extends $tea.Model {
+export class ListErRouteEntriesResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * Destination CIDR Block
@@ -18080,12 +6389,16 @@ export class ListErRouteEntriesResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListErRouteEntriesResponseBodyContent extends $tea.Model {
+export class ListErRouteEntriesResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun HUB Route Entry Information List
@@ -18113,12 +6426,19 @@ export class ListErRouteEntriesResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListErRouteMapsResponseBodyContentData extends $tea.Model {
+export class ListErRouteMapsResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * Policy behavior; optional values:
@@ -18357,12 +6677,16 @@ export class ListErRouteMapsResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListErRouteMapsResponseBodyContent extends $tea.Model {
+export class ListErRouteMapsResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * routing policy information list
@@ -18390,12 +6714,19 @@ export class ListErRouteMapsResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListErsResponseBodyContentData extends $tea.Model {
+export class ListErsResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * The number of connections to the Lingjun HUB network instance.
@@ -18536,12 +6867,16 @@ export class ListErsResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListErsResponseBodyContent extends $tea.Model {
+export class ListErsResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * lingjun hub information list.
@@ -18569,12 +6904,19 @@ export class ListErsResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesByNcdResponseBodyContentInstanceInfos extends $tea.Model {
+export class ListInstancesByNcdResponseBodyContentInstanceInfos extends $dara.Model {
   /**
    * @remarks
    * The instance ID.
@@ -18605,12 +6947,16 @@ export class ListInstancesByNcdResponseBodyContentInstanceInfos extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesByNcdResponseBodyContent extends $tea.Model {
+export class ListInstancesByNcdResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * A collection of instances whose network communication distance from the source instance ID does not exceed maxNcd
@@ -18663,12 +7009,19 @@ export class ListInstancesByNcdResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceInfos)) {
+      $dara.Model.validateArray(this.instanceInfos);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListLeniPrivateIpAddressesResponseBodyContentData extends $tea.Model {
+export class ListLeniPrivateIpAddressesResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -18769,12 +7122,16 @@ export class ListLeniPrivateIpAddressesResponseBodyContentData extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListLeniPrivateIpAddressesResponseBodyContent extends $tea.Model {
+export class ListLeniPrivateIpAddressesResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The response parameters.
@@ -18802,12 +7159,19 @@ export class ListLeniPrivateIpAddressesResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListLniPrivateIpAddressResponseBodyContentData extends $tea.Model {
+export class ListLniPrivateIpAddressResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * The instance description.
@@ -18908,12 +7272,16 @@ export class ListLniPrivateIpAddressResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListLniPrivateIpAddressResponseBodyContent extends $tea.Model {
+export class ListLniPrivateIpAddressResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The returned result.
@@ -18941,12 +7309,19 @@ export class ListLniPrivateIpAddressResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNetworkInterfacesResponseBodyContentDataPrivateIpAddressMacGroup extends $tea.Model {
+export class ListNetworkInterfacesResponseBodyContentDataPrivateIpAddressMacGroup extends $dara.Model {
   /**
    * @remarks
    * The instance description.
@@ -19017,12 +7392,16 @@ export class ListNetworkInterfacesResponseBodyContentDataPrivateIpAddressMacGrou
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNetworkInterfacesResponseBodyContentDataSubnetBaseInfo extends $tea.Model {
+export class ListNetworkInterfacesResponseBodyContentDataSubnetBaseInfo extends $dara.Model {
   /**
    * @remarks
    * The network segment of the Subnet.
@@ -19080,12 +7459,16 @@ export class ListNetworkInterfacesResponseBodyContentDataSubnetBaseInfo extends 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNetworkInterfacesResponseBodyContentDataVpdBaseInfo extends $tea.Model {
+export class ListNetworkInterfacesResponseBodyContentDataVpdBaseInfo extends $dara.Model {
   /**
    * @remarks
    * The network segment of Lingjun network segment (VPD).
@@ -19139,12 +7522,16 @@ export class ListNetworkInterfacesResponseBodyContentDataVpdBaseInfo extends $te
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNetworkInterfacesResponseBodyContentData extends $tea.Model {
+export class ListNetworkInterfacesResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * The time when the activation code was created.
@@ -19322,12 +7709,28 @@ export class ListNetworkInterfacesResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ethernet)) {
+      $dara.Model.validateArray(this.ethernet);
+    }
+    if(Array.isArray(this.privateIpAddressMacGroup)) {
+      $dara.Model.validateArray(this.privateIpAddressMacGroup);
+    }
+    if(this.subnetBaseInfo && typeof (this.subnetBaseInfo as any).validate === 'function') {
+      (this.subnetBaseInfo as any).validate();
+    }
+    if(this.vpdBaseInfo && typeof (this.vpdBaseInfo as any).validate === 'function') {
+      (this.vpdBaseInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNetworkInterfacesResponseBodyContent extends $tea.Model {
+export class ListNetworkInterfacesResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The response parameters.
@@ -19355,12 +7758,19 @@ export class ListNetworkInterfacesResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNodeInfosForPodResponseBodyContent extends $tea.Model {
+export class ListNodeInfosForPodResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -19468,12 +7878,19 @@ export class ListNodeInfosForPodResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.vSwitches)) {
+      $dara.Model.validateArray(this.vSwitches);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSubnetsRequestTag extends $tea.Model {
+export class ListSubnetsRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key of the VPN attachment.
@@ -19512,12 +7929,16 @@ export class ListSubnetsRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSubnetsResponseBodyContentDataTags extends $tea.Model {
+export class ListSubnetsResponseBodyContentDataTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -19556,12 +7977,16 @@ export class ListSubnetsResponseBodyContentDataTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSubnetsResponseBodyContentDataVpdBaseInfo extends $tea.Model {
+export class ListSubnetsResponseBodyContentDataVpdBaseInfo extends $dara.Model {
   /**
    * @remarks
    * The CIDR block of the VPD.
@@ -19615,12 +8040,16 @@ export class ListSubnetsResponseBodyContentDataVpdBaseInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSubnetsResponseBodyContentData extends $tea.Model {
+export class ListSubnetsResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * The CIDR block of the Subnet.
@@ -19811,12 +8240,22 @@ export class ListSubnetsResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(this.vpdBaseInfo && typeof (this.vpdBaseInfo as any).validate === 'function') {
+      (this.vpdBaseInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSubnetsResponseBodyContent extends $tea.Model {
+export class ListSubnetsResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun subnet information list
@@ -19844,12 +8283,19 @@ export class ListSubnetsResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVccFlowInfosResponseBodyContentData extends $tea.Model {
+export class ListVccFlowInfosResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * The direction.
@@ -19920,12 +8366,16 @@ export class ListVccFlowInfosResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVccFlowInfosResponseBodyContent extends $tea.Model {
+export class ListVccFlowInfosResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun Connection Traffic Information
@@ -19953,12 +8403,19 @@ export class ListVccFlowInfosResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVccGrantRulesResponseBodyContentData extends $tea.Model {
+export class ListVccGrantRulesResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * The time when the data address was created.
@@ -20085,12 +8542,16 @@ export class ListVccGrantRulesResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVccGrantRulesResponseBodyContent extends $tea.Model {
+export class ListVccGrantRulesResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * List of cross-account authorization information of Lingjun connection
@@ -20118,12 +8579,19 @@ export class ListVccGrantRulesResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVccRouteEntriesResponseBodyContentData extends $tea.Model {
+export class ListVccRouteEntriesResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * Destination CIDR block
@@ -20264,12 +8732,16 @@ export class ListVccRouteEntriesResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVccRouteEntriesResponseBodyContent extends $tea.Model {
+export class ListVccRouteEntriesResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * List of Lingjun Connection Route Entries
@@ -20297,12 +8769,19 @@ export class ListVccRouteEntriesResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVccsRequestTag extends $tea.Model {
+export class ListVccsRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key of the VPN attachment.
@@ -20341,12 +8820,16 @@ export class ListVccsRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVccsResponseBodyContentDataErInfos extends $tea.Model {
+export class ListVccsResponseBodyContentDataErInfos extends $dara.Model {
   /**
    * @remarks
    * Connections
@@ -20477,12 +8960,16 @@ export class ListVccsResponseBodyContentDataErInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVccsResponseBodyContentDataTags extends $tea.Model {
+export class ListVccsResponseBodyContentDataTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -20521,12 +9008,16 @@ export class ListVccsResponseBodyContentDataTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVccsResponseBodyContentDataVpdBaseInfo extends $tea.Model {
+export class ListVccsResponseBodyContentDataVpdBaseInfo extends $dara.Model {
   /**
    * @remarks
    * The CIDR block of the VPD.
@@ -20580,12 +9071,16 @@ export class ListVccsResponseBodyContentDataVpdBaseInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVccsResponseBodyContentData extends $tea.Model {
+export class ListVccsResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * Express Connect circuit access point ID:
@@ -20905,12 +9400,25 @@ export class ListVccsResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.erInfos)) {
+      $dara.Model.validateArray(this.erInfos);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(this.vpdBaseInfo && typeof (this.vpdBaseInfo as any).validate === 'function') {
+      (this.vpdBaseInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVccsResponseBodyContent extends $tea.Model {
+export class ListVccsResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun Connection Information List
@@ -20938,12 +9446,19 @@ export class ListVccsResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVpdGrantRulesResponseBodyContentData extends $tea.Model {
+export class ListVpdGrantRulesResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * The time when the data address was created.
@@ -21069,12 +9584,16 @@ export class ListVpdGrantRulesResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVpdGrantRulesResponseBodyContent extends $tea.Model {
+export class ListVpdGrantRulesResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun CIDR block authorization information list
@@ -21102,12 +9621,19 @@ export class ListVpdGrantRulesResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVpdRouteEntriesResponseBodyContentData extends $tea.Model {
+export class ListVpdRouteEntriesResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * Destination CIDR block
@@ -21238,12 +9764,16 @@ export class ListVpdRouteEntriesResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVpdRouteEntriesResponseBodyContent extends $tea.Model {
+export class ListVpdRouteEntriesResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun CIDR block route entry list
@@ -21271,12 +9801,19 @@ export class ListVpdRouteEntriesResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVpdsRequestTag extends $tea.Model {
+export class ListVpdsRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key of the VPN attachment.
@@ -21315,12 +9852,16 @@ export class ListVpdsRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVpdsResponseBodyContentDataErInfos extends $tea.Model {
+export class ListVpdsResponseBodyContentDataErInfos extends $dara.Model {
   /**
    * @remarks
    * The number of connections.
@@ -21451,12 +9992,16 @@ export class ListVpdsResponseBodyContentDataErInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVpdsResponseBodyContentDataTags extends $tea.Model {
+export class ListVpdsResponseBodyContentDataTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -21495,12 +10040,16 @@ export class ListVpdsResponseBodyContentDataTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVpdsResponseBodyContentData extends $tea.Model {
+export class ListVpdsResponseBodyContentData extends $dara.Model {
   /**
    * @remarks
    * The CIDR block of the VPD.
@@ -21686,12 +10235,28 @@ export class ListVpdsResponseBodyContentData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.dependence) {
+      $dara.Model.validateMap(this.dependence);
+    }
+    if(Array.isArray(this.erInfos)) {
+      $dara.Model.validateArray(this.erInfos);
+    }
+    if(Array.isArray(this.secondaryCidrBlocks)) {
+      $dara.Model.validateArray(this.secondaryCidrBlocks);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVpdsResponseBodyContent extends $tea.Model {
+export class ListVpdsResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The returned data.
@@ -21719,12 +10284,19 @@ export class ListVpdsResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryInstanceNcdResponseBodyContent extends $tea.Model {
+export class QueryInstanceNcdResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Instance 1ID
@@ -21780,12 +10352,16 @@ export class QueryInstanceNcdResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnAssignPrivateIpAddressResponseBodyContent extends $tea.Model {
+export class UnAssignPrivateIpAddressResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * IP unique identifier
@@ -21816,12 +10392,16 @@ export class UnAssignPrivateIpAddressResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnAssociateVpdCidrBlockResponseBodyContent extends $tea.Model {
+export class UnAssociateVpdCidrBlockResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The ID of the Lingjun CIDR block.
@@ -21842,12 +10422,16 @@ export class UnAssociateVpdCidrBlockResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnassignLeniPrivateIpAddressResponseBodyContent extends $tea.Model {
+export class UnassignLeniPrivateIpAddressResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun Elastic Network Interface ID.
@@ -21878,12 +10462,16 @@ export class UnassignLeniPrivateIpAddressResponseBodyContent extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateElasticNetworkInterfaceResponseBodyContent extends $tea.Model {
+export class UpdateElasticNetworkInterfaceResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun Elastic Network Interface ID
@@ -21914,12 +10502,16 @@ export class UpdateElasticNetworkInterfaceResponseBodyContent extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateLeniPrivateIpAddressResponseBodyContent extends $tea.Model {
+export class UpdateLeniPrivateIpAddressResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * Lingjun Elastic Network Interface ID.
@@ -21950,12 +10542,16 @@ export class UpdateLeniPrivateIpAddressResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSubnetResponseBodyContent extends $tea.Model {
+export class UpdateSubnetResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The subnet instance ID.
@@ -21976,12 +10572,16 @@ export class UpdateSubnetResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateVccResponseBodyContent extends $tea.Model {
+export class UpdateVccResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The ID of the Lingjun connection instance.
@@ -22002,12 +10602,16 @@ export class UpdateVccResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateVpdResponseBodyContent extends $tea.Model {
+export class UpdateVpdResponseBodyContent extends $dara.Model {
   /**
    * @remarks
    * The ID of the VPD instance.
@@ -22028,6 +10632,13628 @@ export class UpdateVpdResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignLeniPrivateIpAddressRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The idempotent identifier.
+   * 
+   * @example
+   * 3fd79d62-ab1d-11ec-9a53-0242ac110004
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the response code.
+   * 
+   * @example
+   * wuhuaiyu
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private network IP (automatically assigned by default).
+   * 
+   * @example
+   * 10.0.****
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      privateIpAddress: 'PrivateIpAddress',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      elasticNetworkInterfaceId: 'string',
+      privateIpAddress: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignLeniPrivateIpAddressResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: AssignLeniPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: AssignLeniPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignLeniPrivateIpAddressResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssignLeniPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssignLeniPrivateIpAddressResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignPrivateIpAddressRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to assign a mac address.
+   * 
+   * @example
+   * true
+   */
+  assignMac?: boolean;
+  /**
+   * @remarks
+   * By default, popApi is not ignored and idempotent
+   * 
+   * @example
+   * 3fd79d62-ab1d-11ec-9a53-0242ac110004
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the variable.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The ID of the network interface controller.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-bp18exxqa2rvfn45e5pz
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The secondary private IP address.
+   * 
+   * @example
+   * 10.0.6.194
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The default value is false. If you set the value to true, the secondary private IP address application process can be accelerated.
+   * 
+   * >  For more information, submit a ticket.
+   * 
+   * @example
+   * false
+   */
+  skipConfig?: boolean;
+  /**
+   * @remarks
+   * It belongs to the Lingjun subnet.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-f3zfzmnc
+   */
+  subnetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignMac: 'AssignMac',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      networkInterfaceId: 'NetworkInterfaceId',
+      privateIpAddress: 'PrivateIpAddress',
+      regionId: 'RegionId',
+      skipConfig: 'SkipConfig',
+      subnetId: 'SubnetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignMac: 'boolean',
+      clientToken: 'string',
+      description: 'string',
+      networkInterfaceId: 'string',
+      privateIpAddress: 'string',
+      regionId: 'string',
+      skipConfig: 'boolean',
+      subnetId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignPrivateIpAddressResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: AssignPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: AssignPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignPrivateIpAddressResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssignPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssignPrivateIpAddressResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateVpdCidrBlockRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The additional CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 172.16.0.0/12
+   */
+  secondaryCidrBlock?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-omqutbff
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      secondaryCidrBlock: 'SecondaryCidrBlock',
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      secondaryCidrBlock: 'string',
+      vpdId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateVpdCidrBlockResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: AssociateVpdCidrBlockResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: AssociateVpdCidrBlockResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateVpdCidrBlockResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateVpdCidrBlockResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssociateVpdCidrBlockResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachElasticNetworkInterfaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the ENI.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * e01-cn-lbj3aej****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The region ID of the disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      nodeId: 'NodeId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      nodeId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachElasticNetworkInterfaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * []
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The message returned.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachElasticNetworkInterfaceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachElasticNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachElasticNetworkInterfaceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateElasticNetworkInterfaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The POP API is not ignored by default and is used for idempotence.
+   * 
+   * @example
+   * 3fd79d62-ab1d-11ec-9a53-0242ac110004
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the response code.
+   * 
+   * @example
+   * Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Whether to enable the jumbo frame capability
+   * 
+   * @example
+   * True
+   */
+  enableJumboFrame?: boolean;
+  /**
+   * @remarks
+   * The ID of the Lingjun node.
+   * 
+   * @example
+   * e01-cn-lbj3aej****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-wz9fj2s3o21nw2****
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-t4nahb0pxck****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC.
+   * 
+   * >  If the NodeId parameter is empty, the VpcId parameter is required. If the NodeId parameter is not empty, the VpcId parameter is optional.
+   * 
+   * @example
+   * vpc-uf6aa4ddo97fr****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      enableJumboFrame: 'EnableJumboFrame',
+      nodeId: 'NodeId',
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      enableJumboFrame: 'boolean',
+      nodeId: 'string',
+      regionId: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateElasticNetworkInterfaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: CreateElasticNetworkInterfaceResponseBodyContent;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateElasticNetworkInterfaceResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateElasticNetworkInterfaceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateElasticNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateElasticNetworkInterfaceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the document.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-wulanchabu-main
+   */
+  erName?: string;
+  /**
+   * @remarks
+   * Primary Zone
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  masterZoneId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmyuzlx2iihcy
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      erName: 'ErName',
+      masterZoneId: 'MasterZoneId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      erName: 'string',
+      masterZoneId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: CreateErResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateErResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateErResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateErResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErAttachmentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether to automatically receive all routes from all instances under the Lingjun HUB. Valid values:
+   * 
+   * *   **true**: received automatically.
+   * *   **false**: Not received.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  autoReceiveAllRoute?: boolean;
+  /**
+   * @remarks
+   * The name of the network instance connection.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-attachemnt-vpd-xksd2obl
+   */
+  erAttachmentName?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The ID of the network instance. Valid values: **VPD** and **VCC**.
+   * 
+   * For more information, see [What is Lingjun?](https://help.aliyun.com/document_detail/444430.html)
+   * 
+   * You can query **Lingjun CIDR Block** and **Lingjun Connection** by [ListVpds](https://help.aliyun.com/document_detail/2331077.html) and [ListVccs](https://help.aliyun.com/document_detail/2399526.html?) respectively.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-xksd2obl
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The category of the instance. Valid values:
+   * 
+   * *   **VPD**: indicates the Lingjun CIDR block.
+   * *   **VCC**: indicates a Lingjun connection.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * VPD
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant to which the resource belongs. This parameter is required for cross-account resources.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  resourceTenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoReceiveAllRoute: 'AutoReceiveAllRoute',
+      erAttachmentName: 'ErAttachmentName',
+      erId: 'ErId',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      regionId: 'RegionId',
+      resourceTenantId: 'ResourceTenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoReceiveAllRoute: 'boolean',
+      erAttachmentName: 'string',
+      erId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      regionId: 'string',
+      resourceTenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErAttachmentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: CreateErAttachmentResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is displayed.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DBAD15D6-3F47-5B36-8A92-57C2919D13D0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateErAttachmentResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErAttachmentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateErAttachmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateErAttachmentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErRouteMapRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Policy description
+   * 
+   * @example
+   * terraform-example
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Destination CIDR Block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-aueyxxsy
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The ID of the destination instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-xlhsvdvt
+   */
+  receptionInstanceId?: string;
+  /**
+   * @remarks
+   * The tenant to which the route receiving instance belongs.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  receptionInstanceOwner?: string;
+  /**
+   * @remarks
+   * The type of the destination instance. Valid values:
+   * 
+   * *   **VPD**: Lingjun network segment.
+   * *   **VCC**: Lingjun Connection.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * VPD
+   */
+  receptionInstanceType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Policy behavior; optional values:
+   * 
+   * *   **permit**: Allow
+   * *   **deny**: Rejected
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * permit
+   */
+  routeMapAction?: string;
+  /**
+   * @remarks
+   * The ID of the policy.
+   * 
+   * A smaller sequence number indicates a lower priority. When a route is matched, a policy with a higher priority is preferentially matched.
+   * 
+   * **Valid values: 1001 to 2000**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1001
+   */
+  routeMapNum?: number;
+  /**
+   * @remarks
+   * The ID of the source instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-xlsjsdvt
+   */
+  transmissionInstanceId?: string;
+  /**
+   * @remarks
+   * The tenant to which the route publish instance belongs
+   * 
+   * @example
+   * 1620939556166277
+   */
+  transmissionInstanceOwner?: string;
+  /**
+   * @remarks
+   * The type of the source instance. Valid values:
+   * 
+   * *   **VPD**: Lingjun network segment.
+   * *   **VCC**: Lingjun Connection.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * VPD
+   */
+  transmissionInstanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destinationCidrBlock: 'DestinationCidrBlock',
+      erId: 'ErId',
+      receptionInstanceId: 'ReceptionInstanceId',
+      receptionInstanceOwner: 'ReceptionInstanceOwner',
+      receptionInstanceType: 'ReceptionInstanceType',
+      regionId: 'RegionId',
+      routeMapAction: 'RouteMapAction',
+      routeMapNum: 'RouteMapNum',
+      transmissionInstanceId: 'TransmissionInstanceId',
+      transmissionInstanceOwner: 'TransmissionInstanceOwner',
+      transmissionInstanceType: 'TransmissionInstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destinationCidrBlock: 'string',
+      erId: 'string',
+      receptionInstanceId: 'string',
+      receptionInstanceOwner: 'string',
+      receptionInstanceType: 'string',
+      regionId: 'string',
+      routeMapAction: 'string',
+      routeMapNum: 'number',
+      transmissionInstanceId: 'string',
+      transmissionInstanceOwner: 'string',
+      transmissionInstanceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErRouteMapResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: CreateErRouteMapResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateErRouteMapResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateErRouteMapResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateErRouteMapResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateErRouteMapResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSubnetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The CIDR block of the Subnet.
+   * 
+   * *   The network segment of the subnet must be a proper subset of the network segment of Lingjun to which it belongs, and the mask must be between 16 bits and 29 bits, which can provide 8 to 65536 addresses. For example, the CIDR block of the Lingjun CIDR block is 192.168.0.0/16, and the CIDR blocks of the subnets under the Lingjun CIDR block are 192.168.0.0/17 to 192.168.0.0/29.
+   * *   The first and last three IP addresses of each subnet segment are reserved by the system. For example, the CIDR blocks of the subnet are 192.168.1.0/24,192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10.0.0.0/16
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Lingjun subnet instance name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-1
+   */
+  subnetName?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tag?: CreateSubnetRequestTag[];
+  /**
+   * @remarks
+   * Lingjun Subnet Usage Type; optional; optional. Valid values:
+   * 
+   * *   **If you do not set this field for a common type**
+   * *   **OOB** :OOB type
+   * *   **LB**: LB type
+   * 
+   * @example
+   * OOB
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-xcuhjyrj
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      regionId: 'RegionId',
+      subnetName: 'SubnetName',
+      tag: 'Tag',
+      type: 'Type',
+      vpdId: 'VpdId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      regionId: 'string',
+      subnetName: 'string',
+      tag: { 'type': 'array', 'itemType': CreateSubnetRequestTag },
+      type: 'string',
+      vpdId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSubnetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: CreateSubnetResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateSubnetResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSubnetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSubnetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSubnetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Enabled access to cloud services. Optional values:
+   * 
+   * *   **true**: Enable access to cloud services
+   * *   **false**: Do not enable access to cloud services
+   * 
+   * @example
+   * true
+   */
+  accessCouldService?: boolean;
+  /**
+   * @remarks
+   * The bandwidth. Unit: Mbit /s. The minimum value is 1000, representing 1Gbps bandwidth; the maximum value is 400000, representing 400Gbps bandwidth.
+   * 
+   * >  1Gbps = 1000Mbps
+   * 
+   * @example
+   * 1000
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
+   * bgp as number
+   * 
+   * @example
+   * bgpAsn
+   */
+  bgpAsn?: number;
+  /**
+   * @remarks
+   * Internet segment, on-premises input, off-premises default
+   * 
+   * @example
+   * 10.0.0.0/24
+   */
+  bgpCidr?: string;
+  /**
+   * @remarks
+   * CEN Instance ID
+   * 
+   * @example
+   * cen-bkiw0x1347roekr7f2
+   */
+  cenId?: string;
+  /**
+   * @remarks
+   * Account to which cen belongs
+   * 
+   * @example
+   * 1511928242963727
+   */
+  cenOwnerId?: string;
+  /**
+   * @remarks
+   * The connection mode. Valid values:
+   * 
+   * *   **VPC**
+   * *   **CEN (CENTR)**
+   * 
+   * @example
+   * CENTR
+   */
+  connectionType?: string;
+  /**
+   * @remarks
+   * The description of the document.
+   * 
+   * @example
+   * Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aeky5f3qx6ceapq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tag?: CreateVccRequestTag[];
+  /**
+   * @remarks
+   * The ID of the vSwitch. [Virtual Private Cloud VSwitch](https://help.aliyun.com/document_detail/100380.html).
+   * 
+   * You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query created vSwitches.
+   * 
+   * @example
+   * vsw-t4nahb0pxckgktx1kot8q
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  /**
+   * @remarks
+   * Lingjun Connection Name
+   * 
+   * @example
+   * test
+   */
+  vccName?: string;
+  /**
+   * @remarks
+   * Virtual Private Cloud IDs; [What is Virtual Private Cloud](https://help.aliyun.com/document_detail/34217.html)
+   * 
+   * You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html#demo-0) operation to query the specified VPC.
+   * 
+   * @example
+   * vpc-uf6aa4ddo97frj22tgp52
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * @example
+   * vpd-t2jseldp
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The zone ID of the disk.
+   * 
+   * @example
+   * cn-wulanchabu-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessCouldService: 'AccessCouldService',
+      bandwidth: 'Bandwidth',
+      bgpAsn: 'BgpAsn',
+      bgpCidr: 'BgpCidr',
+      cenId: 'CenId',
+      cenOwnerId: 'CenOwnerId',
+      connectionType: 'ConnectionType',
+      description: 'Description',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      vccId: 'VccId',
+      vccName: 'VccName',
+      vpcId: 'VpcId',
+      vpdId: 'VpdId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessCouldService: 'boolean',
+      bandwidth: 'number',
+      bgpAsn: 'number',
+      bgpCidr: 'string',
+      cenId: 'string',
+      cenOwnerId: 'string',
+      connectionType: 'string',
+      description: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateVccRequestTag },
+      vSwitchId: 'string',
+      vccId: 'string',
+      vccName: 'string',
+      vpcId: 'string',
+      vpdId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  content?: CreateVccResponseBodyContent;
+  /**
+   * @remarks
+   * response message, if the success request is
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateVccResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVccResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVccResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccGrantRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1620939556166277
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vcc-8rgvqazb
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccGrantRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   * 
+   * @example
+   * {}
+   */
+  content?: CreateVccGrantRuleResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateVccGrantRuleResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccGrantRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVccGrantRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVccGrantRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccRouteEntryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Destination CIDR block
+   * 
+   * @example
+   * 192.168.98.112/28
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      regionId: 'RegionId',
+      vccId: 'VccId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      regionId: 'string',
+      vccId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccRouteEntryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  content?: CreateVccRouteEntryResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateVccRouteEntryResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVccRouteEntryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVccRouteEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVccRouteEntryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The CIDR block of the VPD.
+   * 
+   * *   We recommend that you use an RFC private endpoint as the Lingjun CIDR block, such as 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16. In scenarios where the Doringjun CIDR block is connected to each other or where the Lingjun CIDR block is connected to a VPC, make sure that the addresses do not conflict with each other.
+   * *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 and their subnets as the primary IPv4 CIDR block of the VPD.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10.0.0.0/8
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The region ID of the disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Lingjun subnet information list
+   */
+  subnets?: CreateVpdRequestSubnets[];
+  /**
+   * @remarks
+   * A tag.
+   */
+  tag?: CreateVpdRequestTag[];
+  /**
+   * @remarks
+   * Lingjun CIDR block instance name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-1
+   */
+  vpdName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      subnets: 'Subnets',
+      tag: 'Tag',
+      vpdName: 'VpdName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      subnets: { 'type': 'array', 'itemType': CreateVpdRequestSubnets },
+      tag: { 'type': 'array', 'itemType': CreateVpdRequestTag },
+      vpdName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.subnets)) {
+      $dara.Model.validateArray(this.subnets);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: CreateVpdResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DBAD15D6-3F47-5B36-8A92-57C2919D13D0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateVpdResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVpdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVpdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpdGrantRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1013666993027780
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-8rgvqazb
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpdGrantRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   * 
+   * @example
+   * {}
+   */
+  content?: CreateVpdGrantRuleResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * DBAD15D6-3F47-5B36-8A92-57C2919D13D0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: CreateVpdGrantRuleResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpdGrantRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVpdGrantRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVpdGrantRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteElasticNetworkInterfaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * By default, popApi is not ignored and idempotent
+   * 
+   * @example
+   * 141cccd6-dfbd-11ec-b8e8-0242ac110003
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      elasticNetworkInterfaceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteElasticNetworkInterfaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: DeleteElasticNetworkInterfaceResponseBodyContent;
+  /**
+   * @remarks
+   * The return message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-645C88B9009C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: DeleteElasticNetworkInterfaceResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteElasticNetworkInterfaceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteElasticNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteElasticNetworkInterfaceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteErResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteErResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErAttachmentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the network connection instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-attachment-5n3nsmvl
+   */
+  erAttachmentId?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-opy1wrfv
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erAttachmentId: 'ErAttachmentId',
+      erId: 'ErId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erAttachmentId: 'string',
+      erId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErAttachmentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response content. If a resource has dependent resources, the existing dependent resources are returned.
+   * 
+   * @example
+   * {
+   *     "ER_RMAP": [
+   *         {
+   *             "erId": "er-opy1wrfv",
+   *             "destinationCidrBlock": "0.0.0.0/0",
+   *             "regionId": "cn-wulanchabu",
+   *             "routeMapNum": 3000,
+   *             "erRouteMapId": "er-rmap-v5lfhmvm",
+   *             "action": "permit",
+   *             "status": "Available"
+   *         },
+   *         {
+   *             "erId": "er-opy1wrfv",
+   *             "destinationCidrBlock": "0.0.0.0/0",
+   *             "regionId": "cn-wulanchabu",
+   *             "routeMapNum": 3000,
+   *             "erRouteMapId": "er-rmap-of3r0ndh",
+   *             "action": "permit",
+   *             "status": "Available"
+   *         }
+   *     ]
+   * }
+   */
+  content?: any;
+  /**
+   * @remarks
+   * response message, if the success request is
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErAttachmentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteErAttachmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteErAttachmentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErRouteMapRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * routing policy Instance ID List
+   * 
+   * This parameter is required.
+   */
+  erRouteMapIds?: string[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      erRouteMapIds: 'ErRouteMapIds',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      erRouteMapIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.erRouteMapIds)) {
+      $dara.Model.validateArray(this.erRouteMapIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErRouteMapResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteErRouteMapResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteErRouteMapResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteErRouteMapResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSubnetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID of the disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Lingjun subnet ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-f3zfzmnc
+   */
+  subnetId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-iv2zm1qf
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * Zone
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      subnetId: 'SubnetId',
+      vpdId: 'VpdId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      subnetId: 'string',
+      vpdId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSubnetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response content (if the resource has dependent resources, the existing dependent resources will be returned)
+   * 
+   * @example
+   * {
+   *       "nc": [
+   *             {}
+   *       ]
+   * }
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * A56F7D3C-8850-5AF4-A342-2D71C9A9D1CC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSubnetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSubnetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSubnetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVccGrantRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorization Entry ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * grant-rule-jaj34d75h01
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * @example
+   * vcc-cn-jaj34d75h01
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      grantRuleId: 'GrantRuleId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      grantRuleId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVccGrantRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-645C88B9009C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVccGrantRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVccGrantRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVccGrantRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVccRouteEntryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Destination CIDR block
+   * 
+   * @example
+   * 172.16.199.128/25
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry.
+   * 
+   * @example
+   * vcc-rte-5cey1sap
+   */
+  vccRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      regionId: 'RegionId',
+      vccId: 'VccId',
+      vccRouteEntryId: 'VccRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      regionId: 'string',
+      vccId: 'string',
+      vccRouteEntryId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVccRouteEntryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVccRouteEntryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVccRouteEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVccRouteEntryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVpdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the region in which the instance resides.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-zr0farea
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vpdId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVpdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters. (If a dependent resource exists, the existing dependent resource is returned.)
+   * 
+   * @example
+   * {
+   *       "subnet": [
+   *             {
+   *                   "tenantId": "1620939556166277",
+   *                   "regionId": "cn-wulanchabu",
+   *                   "zoneId": "cn",
+   *                   "type": null,
+   *                   "subnetId": "subnet-zqebaxa0",
+   *                   "name": "lql_testVPD"
+   *             }
+   *       ],
+   *       "nc": [
+   *             {}
+   *       ]
+   * }
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-645C88B9009C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVpdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVpdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVpdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVpdGrantRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorization Entry ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * grant-rule-9rgxqazb
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * @example
+   * 1013666993027780
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * @example
+   * vpd-8rgvqazb
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVpdGrantRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVpdGrantRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVpdGrantRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVpdGrantRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlrRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the RAM instance belongs.
+   * 
+   * @example
+   * rg-aeky5f3qx6ceapq
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlrResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  content?: DescribeSlrResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: DescribeSlrResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlrResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSlrResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSlrResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachElasticNetworkInterfaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the ENI.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * e01-cn-zxu2zp3****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The region ID of the disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      nodeId: 'NodeId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      nodeId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachElasticNetworkInterfaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response
+   * 
+   * @example
+   * You don\\"t have the permission to do this operation.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF8****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachElasticNetworkInterfaceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachElasticNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachElasticNetworkInterfaceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDestinationCidrBlockRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-xxxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Region ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDestinationCidrBlockResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response content
+   */
+  content?: GetDestinationCidrBlockResponseBodyContent;
+  /**
+   * @remarks
+   * Error message. (Indicates the reason for the anomaly when the instance status is abnormal.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * ID of this request
+   * 
+   * @example
+   * D349EE86-AF3F-5F6C-87E2-2A08D3618350
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetDestinationCidrBlockResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDestinationCidrBlockResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDestinationCidrBlockResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDestinationCidrBlockResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetElasticNetworkInterfaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetElasticNetworkInterfaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetElasticNetworkInterfaceResponseBodyContent;
+  /**
+   * @remarks
+   * The return message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetElasticNetworkInterfaceResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetElasticNetworkInterfaceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetElasticNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetElasticNetworkInterfaceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetErResponseBodyContent;
+  /**
+   * @remarks
+   * Information returned when the call fails
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 308DE9D2-03A6-5B44-A369-67B75D1EE091
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetErResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetErResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetErResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErAttachmentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Lingjun HUB network connection instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-attachment-i1ioibyf
+   */
+  erAttachmentId?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erAttachmentId: 'ErAttachmentId',
+      erId: 'ErId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erAttachmentId: 'string',
+      erId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErAttachmentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: GetErAttachmentResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is displayed.)
+   * 
+   * @example
+   * You don\\"t have the permission to do this operation.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7F0D9440-1F97-5613-87CD-D3047172A93C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetErAttachmentResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErAttachmentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetErAttachmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetErAttachmentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteEntryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-rte-4q0jbylz
+   */
+  erRouteEntryId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      erRouteEntryId: 'ErRouteEntryId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      erRouteEntryId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteEntryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  content?: GetErRouteEntryResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * code: 400, Request was denied due to request throttling. request id: 7D177459-C1CF-5690-BB23-321D208B37D5
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 1F38A2E6-CB47-5369-95D2-96D0C287B4A5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetErRouteEntryResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteEntryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetErRouteEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetErRouteEntryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteMapRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * routing policy ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-rmap-uwglhzom
+   */
+  erRouteMapId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      erRouteMapId: 'ErRouteMapId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      erRouteMapId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteMapResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  content?: GetErRouteMapResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetErRouteMapResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErRouteMapResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetErRouteMapResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetErRouteMapResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFabricTopologyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * i-169263721924****
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID List
+   */
+  lniIds?: string[];
+  /**
+   * @remarks
+   * Node ID list
+   */
+  nodeIds?: string[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-k8i0g9fk68t7u0u2w****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block ID
+   * 
+   * @example
+   * vpd-aof7****
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      lniIds: 'LniIds',
+      nodeIds: 'NodeIds',
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      lniIds: { 'type': 'array', 'itemType': 'string' },
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      vpcId: 'string',
+      vpdId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.lniIds)) {
+      $dara.Model.validateArray(this.lniIds);
+    }
+    if(Array.isArray(this.nodeIds)) {
+      $dara.Model.validateArray(this.nodeIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFabricTopologyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetFabricTopologyResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetFabricTopologyResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFabricTopologyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFabricTopologyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFabricTopologyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLeniPrivateIpAddressRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP unique identifier.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sip-8ylg****
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      ipName: 'IpName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      ipName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLeniPrivateIpAddressResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: GetLeniPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetLeniPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLeniPrivateIpAddressResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLeniPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLeniPrivateIpAddressResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLniPrivateIpAddressRequest extends $dara.Model {
+  /**
+   * @remarks
+   * IP unique identifier
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sip-xxxxx
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-bp18exxqa2rvfn45e5pz
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipName: 'IpName',
+      networkInterfaceId: 'NetworkInterfaceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipName: 'string',
+      networkInterfaceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLniPrivateIpAddressResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetLniPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * You don\\"t have the permission of this operation, action=eflo:GetLniPrivateIpAddress, arn=acs:eflo:cn-wulanchabu:1382782317087063:networkinterface/00
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * DBAD15D6-3F47-5B36-8A92-57C2919D13D0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetLniPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLniPrivateIpAddressResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLniPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLniPrivateIpAddressResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkInterfaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun network interface controller ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-bp18exxqa2rvfn45e5pz
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Subnet of Lingjun
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-f3zfzmnc
+   */
+  subnetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      networkInterfaceId: 'NetworkInterfaceId',
+      regionId: 'RegionId',
+      subnetId: 'SubnetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkInterfaceId: 'string',
+      regionId: 'string',
+      subnetId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkInterfaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data. (If a resource has dependent resources, the existing dependent resources are returned.)
+   */
+  content?: GetNetworkInterfaceResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetNetworkInterfaceResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkInterfaceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetNetworkInterfaceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeInfoForPodRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the node for this operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * node-be70****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeInfoForPodResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetNodeInfoForPodResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * You don\\"t have the permission of this operation, action=eflo:GetNodeInfoForPod, arn=acs:eflo:cn-wulanchabu:1111156667137893:networkinterface/*, resourceGroup=null
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetNodeInfoForPodResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeInfoForPodResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNodeInfoForPodResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetNodeInfoForPodResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubnetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID of the data center.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun subnet instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-2avf0itf
+   */
+  subnetId?: string;
+  /**
+   * @remarks
+   * The ID of the CIDR block to which Lingjun belongs.
+   * 
+   * @example
+   * vpd-cxcmdk1m
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      subnetId: 'SubnetId',
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      subnetId: 'string',
+      vpdId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubnetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: GetSubnetResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetSubnetResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubnetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSubnetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSubnetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccRequest extends $dara.Model {
+  /**
+   * @remarks
+   * By default, popApi is not ignored and idempotent
+   * 
+   * @example
+   * c5e3130a-d02f-11ec-a7d3-0242ac110005
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Paging Parameters: The current parameters are obsolete.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Paging Parameters: The current parameters are obsolete.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Paging Parameters: The current parameters are obsolete.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      enablePage: 'EnablePage',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      vccId: 'VccId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      enablePage: 'boolean',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      vccId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetVccResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * CAD09E47-B651-5206-B2DC-3AB78C8EB446
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetVccResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVccResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVccResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccGrantRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * @example
+   * er-aueyxxsy
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorized Resource Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * grant-rule-jaj34d75h01
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * @example
+   * 1620939556166277
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Authorized Instance ID
+   * 
+   * @example
+   * vcc-cn-jaj34d75h01
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the region. This parameter is required.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccGrantRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  content?: GetVccGrantRuleResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetVccGrantRuleResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccGrantRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVccGrantRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVccGrantRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccRouteEntryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Lingjun Connection ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vcc-rte-31ocvdhq
+   */
+  vccRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vccId: 'VccId',
+      vccRouteEntryId: 'VccRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vccId: 'string',
+      vccRouteEntryId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccRouteEntryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetVccRouteEntryResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-645C88B9009C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetVccRouteEntryResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVccRouteEntryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVccRouteEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVccRouteEntryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the VPD instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-ze3na0wf
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vpdId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  content?: GetVpdResponseBodyContent;
+  /**
+   * @remarks
+   * The additional information that is returned.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetVpdResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVpdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVpdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdGrantRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun HUB Instance Id
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Authorized Resource Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * grant-rule-xrgvqazb
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * @example
+   * 1620939556166277
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Authorized Instance ID
+   * 
+   * @example
+   * vpd-xxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the region. This parameter is required.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erId: 'ErId',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erId: 'string',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdGrantRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetVpdGrantRuleResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetVpdGrantRuleResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdGrantRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVpdGrantRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVpdGrantRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdRouteEntryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-iv2zm1qf
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The ID of the route entry instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-rte-toekyqel
+   */
+  vpdRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vpdId: 'VpdId',
+      vpdRouteEntryId: 'VpdRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vpdId: 'string',
+      vpdRouteEntryId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdRouteEntryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: GetVpdRouteEntryResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: GetVpdRouteEntryResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpdRouteEntryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVpdRouteEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVpdRouteEntryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitializeVccRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-acfmxhucx5ewuwy
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitializeVccResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: InitializeVccResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E30DA7CB-03D0-51EB-8F18-856B99987E18
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: InitializeVccResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitializeVccResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InitializeVccResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InitializeVccResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListElasticNetworkInterfacesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The IP address of the BE cluster.
+   * 
+   * @example
+   * 10.0.0.1
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The network type.
+   * 
+   * Valid value:
+   * 
+   * *   Tenant: Tenant.
+   * *   VPC
+   * 
+   * @example
+   * tenant
+   */
+  networkType?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * @example
+   * e01-cn-lbj3aej****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 20.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The status of the enterprise-level snapshot policy.
+   * 
+   * Valid value:
+   * 
+   * *   Create Failed: the creation failure.
+   * *   Delete Failed: the that failed to be deleted.
+   * *   Executing
+   * *   Available: The template is available.
+   * *   Deleting
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The type of the variable.
+   * 
+   * Valid value:
+   * 
+   * *   CUSTOM: custom type.
+   * *   DEFAULT: system type.
+   * 
+   * @example
+   * DEFAULT
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-uf6u8473r84e9****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-uf6aa4ddo97fr****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      ip: 'Ip',
+      networkType: 'NetworkType',
+      nodeId: 'NodeId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      status: 'Status',
+      type: 'Type',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      ip: 'string',
+      networkType: 'string',
+      nodeId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      status: 'string',
+      type: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListElasticNetworkInterfacesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListElasticNetworkInterfacesResponseBodyContent;
+  /**
+   * @remarks
+   * The return message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListElasticNetworkInterfacesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListElasticNetworkInterfacesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListElasticNetworkInterfacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListElasticNetworkInterfacesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErAttachmentsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to automatically receive all routes from all instances under this Lingjun HUB. Valid values:
+   * 
+   * *   **true**: received automatically.
+   * *   **false**: Not received.
+   * 
+   * @example
+   * true
+   */
+  autoReceiveAllRoute?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable paged query. Valid values:
+   * 
+   * *   **true**: enables paged query.
+   * *   **false**: Paged query is not enabled.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * The ID of the network instance connection
+   * 
+   * @example
+   * er-attachment-i1ioibyf
+   */
+  erAttachmentId?: string;
+  /**
+   * @remarks
+   * The name of the network instance connection.
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  erAttachmentName?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun HUB instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The ID of the network instance. Valid values: **VPD** and **VCC**.
+   * 
+   * For more information, see [What is Lingjun?](https://help.aliyun.com/document_detail/444430.html)
+   * 
+   * You can query **Lingjun CIDR blocks** and **Lingjun connections** by [ListVpds](https://help.aliyun.com/document_detail/2331077.html) and [ListVccs](https://help.aliyun.com/document_detail/2399526.html?) respectively.
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The mitigation plan of the instance. Valid values:
+   * 
+   * *   **VPD**: indicates the Lingjun CIDR block.
+   * *   **VCC**: indicates a Lingjun connection.
+   * 
+   * @example
+   * VCC
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The page number to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aekzb3n5lgk2ieq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant to which the instance belongs.
+   * 
+   * @example
+   * 1111156667137893
+   */
+  resourceTenantId?: string;
+  /**
+   * @remarks
+   * The status of the CLB instance. Valid values:
+   * 
+   * *   **Available**: Normal.
+   * *   **Not Available**: Not available.
+   * *   **Executing**: The task is being executed.
+   * *   **Deleting**: The account is being deleted
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoReceiveAllRoute: 'AutoReceiveAllRoute',
+      enablePage: 'EnablePage',
+      erAttachmentId: 'ErAttachmentId',
+      erAttachmentName: 'ErAttachmentName',
+      erId: 'ErId',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceTenantId: 'ResourceTenantId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoReceiveAllRoute: 'boolean',
+      enablePage: 'boolean',
+      erAttachmentId: 'string',
+      erAttachmentName: 'string',
+      erId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceTenantId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErAttachmentsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  content?: ListErAttachmentsResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is displayed.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3D9D6E7B-365B-5200-BFA6-9B79E269058C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListErAttachmentsResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErAttachmentsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListErAttachmentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListErAttachmentsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteEntriesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Destination CIDR Block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable pagination query.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Filter 32 detailed CIDR blocks. Default value: true
+   * 
+   * @example
+   * true
+   */
+  ignoreDetailedRouteEntry?: boolean;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Next Hop Instance
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * Next Hop Instance Type
+   * 
+   * @example
+   * VCC
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmyuzlx2iihcy
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Route type
+   * 
+   * @example
+   * VCC
+   */
+  routeType?: string;
+  /**
+   * @remarks
+   * The status of the enterprise-level snapshot policy.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      enablePage: 'EnablePage',
+      erId: 'ErId',
+      ignoreDetailedRouteEntry: 'IgnoreDetailedRouteEntry',
+      instanceId: 'InstanceId',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeType: 'RouteType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      enablePage: 'boolean',
+      erId: 'string',
+      ignoreDetailedRouteEntry: 'boolean',
+      instanceId: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeType: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteEntriesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListErRouteEntriesResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListErRouteEntriesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteEntriesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListErRouteEntriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListErRouteEntriesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteMapsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Destination CIDR Block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable paged query.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Elastic Router ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * routing policy ID
+   * 
+   * @example
+   * er-rmap-uwglhzom
+   */
+  erRouteMapId?: string;
+  /**
+   * @remarks
+   * Policy number (default for automatic creation is 3000; The value range of the policy number manually created by the user is 1001-2000)
+   * 
+   * @example
+   * 1001
+   */
+  erRouteMapNum?: number;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Receive Instance ID
+   * 
+   * @example
+   * vpd-x2lohgpv
+   */
+  receptionInstanceId?: string;
+  /**
+   * @remarks
+   * Receive Instance Name
+   * 
+   * @example
+   * vpd2
+   */
+  receptionInstanceName?: string;
+  /**
+   * @remarks
+   * The type of the received instance. Optional values:
+   * 
+   * *   **VPD**: Lingjun network segment.
+   * *   **VCC**: Lingjun Connection.
+   * 
+   * @example
+   * VPD
+   */
+  receptionInstanceType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmzaq3ypaqkdy
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Policy behavior; optional values:
+   * 
+   * *   **permit**: Allow
+   * *   **deny**: Rejected
+   * 
+   * @example
+   * deny
+   */
+  routeMapAction?: string;
+  /**
+   * @remarks
+   * Release Instance ID
+   * 
+   * @example
+   * vpd-xsdlg2xb
+   */
+  transmissionInstanceId?: string;
+  /**
+   * @remarks
+   * Release Instance Name
+   * 
+   * @example
+   * vpd1
+   */
+  transmissionInstanceName?: string;
+  /**
+   * @remarks
+   * The type of the published instance. Optional values:
+   * 
+   * *   **VPD**: Lingjun network segment.
+   * *   **VCC**: Lingjun Connection.
+   * 
+   * @example
+   * VPD
+   */
+  transmissionInstanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      enablePage: 'EnablePage',
+      erId: 'ErId',
+      erRouteMapId: 'ErRouteMapId',
+      erRouteMapNum: 'ErRouteMapNum',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      receptionInstanceId: 'ReceptionInstanceId',
+      receptionInstanceName: 'ReceptionInstanceName',
+      receptionInstanceType: 'ReceptionInstanceType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeMapAction: 'RouteMapAction',
+      transmissionInstanceId: 'TransmissionInstanceId',
+      transmissionInstanceName: 'TransmissionInstanceName',
+      transmissionInstanceType: 'TransmissionInstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      enablePage: 'boolean',
+      erId: 'string',
+      erRouteMapId: 'string',
+      erRouteMapNum: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      receptionInstanceId: 'string',
+      receptionInstanceName: 'string',
+      receptionInstanceType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeMapAction: 'string',
+      transmissionInstanceId: 'string',
+      transmissionInstanceName: 'string',
+      transmissionInstanceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteMapsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListErRouteMapsResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListErRouteMapsResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErRouteMapsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListErRouteMapsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListErRouteMapsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable paged query. Valid values:
+   * 
+   * *   true: enables paged query.
+   * *   false: Paged query is disabled.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * The ID of the Lingjun HUB instance.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Lingjun HUB name.
+   * 
+   * @example
+   * er-heyuan-main
+   */
+  erName?: string;
+  /**
+   * @remarks
+   * The ID of the network instance.
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The type of the attached network instance. Valid values:
+   * 
+   * *   **VPD**
+   * *   **VCC**
+   * 
+   * @example
+   * VCC
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The primary zone.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  masterZoneId?: string;
+  /**
+   * @remarks
+   * The page number to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmwfm33rlt6zi
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablePage: 'EnablePage',
+      erId: 'ErId',
+      erName: 'ErName',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      masterZoneId: 'MasterZoneId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablePage: 'boolean',
+      erId: 'string',
+      erName: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      masterZoneId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: ListErsResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is displayed.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListErsResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListErsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListErsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListErsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesByNcdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-1234****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The parameter that specifies the instance type.
+   * 
+   * Valid value:
+   * 
+   * *   node: Lingjun node.
+   * *   lni: lingjun network interface controller.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * Maximum network communication distance
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  maxNcd?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      maxNcd: 'MaxNcd',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceType: 'string',
+      maxNcd: 'number',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesByNcdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListInstancesByNcdResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * You don\\"t have the permission of this operation, action=eflo:ListInstancesByNcd, arn=acs:eflo:cn-heyuan:1263399219805497:networkinterface/*, resourceGroup=null
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListInstancesByNcdResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesByNcdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesByNcdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstancesByNcdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLeniPrivateIpAddressesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP unique identifier.
+   * 
+   * @example
+   * sip-8ylg****
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The page number returned.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP.
+   * 
+   * @example
+   * 10.0.****
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The status of the image build command risk.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      ipName: 'IpName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      privateIpAddress: 'PrivateIpAddress',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticNetworkInterfaceId: 'string',
+      ipName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      privateIpAddress: 'string',
+      regionId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLeniPrivateIpAddressesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: ListLeniPrivateIpAddressesResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListLeniPrivateIpAddressesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLeniPrivateIpAddressesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLeniPrivateIpAddressesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLeniPrivateIpAddressesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLniPrivateIpAddressRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the variable.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Whether pagination is required
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * network interface controller IP address
+   * 
+   * @example
+   * 10.0.98.10
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * IP unique identifier
+   * 
+   * @example
+   * sip-tynhdh2s
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID
+   * 
+   * @example
+   * lni-2ze4uww7n6hsfzrwq77y
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Obtain the index number of the current mouse click for an animation
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      enablePage: 'EnablePage',
+      ip: 'Ip',
+      ipName: 'IpName',
+      networkInterfaceId: 'NetworkInterfaceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      enablePage: 'boolean',
+      ip: 'string',
+      ipName: 'string',
+      networkInterfaceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLniPrivateIpAddressResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListLniPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * You don\\"t have the permission to do this operation.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListLniPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLniPrivateIpAddressResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLniPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLniPrivateIpAddressResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkInterfacesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether pagination is required.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * network interface controller the IP address.
+   * 
+   * @example
+   * 203.107.46.227
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID.
+   * 
+   * @example
+   * lni-bp18exxqa2rvfn45e5pz
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The ID of the machine to which the instance belongs.
+   * 
+   * @example
+   * r-2ze121o4uhr4np3r5t-db-5
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The current number of pages.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the Lingjun subnet belongs.
+   * 
+   * @example
+   * subnet-anhtskts
+   */
+  subnetId?: string;
+  /**
+   * @remarks
+   * The ID of the VPD.
+   * 
+   * @example
+   * vpd-iv2zm1qf
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablePage: 'EnablePage',
+      ip: 'Ip',
+      networkInterfaceId: 'NetworkInterfaceId',
+      nodeId: 'NodeId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      subnetId: 'SubnetId',
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablePage: 'boolean',
+      ip: 'string',
+      networkInterfaceId: 'string',
+      nodeId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      subnetId: 'string',
+      vpdId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkInterfacesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: ListNetworkInterfacesResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListNetworkInterfacesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkInterfacesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNetworkInterfacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNetworkInterfacesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeInfosForPodRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * cluster-***
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the node for this operation.
+   * 
+   * @example
+   * node-be70****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      nodeId: 'NodeId',
+      regionId: 'RegionId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      nodeId: 'string',
+      regionId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeInfosForPodResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response body
+   */
+  content?: ListNodeInfosForPodResponseBodyContent[];
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * You don\\"t have the permission of this operation.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 0901F411-28FA-5B9C-BAEE-7776463FF0DC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: { 'type': 'array', 'itemType': ListNodeInfosForPodResponseBodyContent },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.content)) {
+      $dara.Model.validateArray(this.content);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeInfosForPodResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNodeInfosForPodResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNodeInfosForPodResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubnetsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to query by page. Optional values:
+   * 
+   * *   **true**: Enable pagination query
+   * *   **false**: Pagination query is disabled
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * The number of the page to return. The value must be greater than 0. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aeky5f3qx6ceapq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The status of the CLB instance. Valid values:
+   * 
+   * *   **Available**: Normal
+   * *   **Not Available**: Unavailable
+   * *   **Executing**: Executing
+   * *   **Deleting**: The node is being deleted.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Lingjun subnet instance ID
+   * 
+   * @example
+   * subnet-anhtskts
+   */
+  subnetId?: string;
+  /**
+   * @remarks
+   * Lingjun subnet instance name
+   * 
+   * @example
+   * subnet-1
+   */
+  subnetName?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tag?: ListSubnetsRequestTag[];
+  /**
+   * @remarks
+   * Lingjun Subnet Usage Type; optional; optional. Valid values:
+   * 
+   * *   **If you do not set this field for a common type**
+   * *   **OOB** :OOB type
+   * *   **LB**: LB type
+   * 
+   * @example
+   * Null
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * @example
+   * vpd-fuliephf
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The zone ID of the disk.
+   * 
+   * @example
+   * cn-wulanchabu-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablePage: 'EnablePage',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      subnetId: 'SubnetId',
+      subnetName: 'SubnetName',
+      tag: 'Tag',
+      type: 'Type',
+      vpdId: 'VpdId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablePage: 'boolean',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+      subnetId: 'string',
+      subnetName: 'string',
+      tag: { 'type': 'array', 'itemType': ListSubnetsRequestTag },
+      type: 'string',
+      vpdId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubnetsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListSubnetsResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 7F9082CC-3D94-560F-A575-8E8EF6CE2CB8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListSubnetsResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubnetsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSubnetsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSubnetsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccFlowInfosRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Direction
+   * 
+   * Valid value:
+   * 
+   * *   IN: inbound.
+   * *   OUT: the outbound.
+   * 
+   * @example
+   * OUT
+   */
+  direction?: string;
+  /**
+   * @remarks
+   * The start time. The default value is 5 minutes ago.
+   * 
+   * @example
+   * 1667727514000
+   */
+  from?: number;
+  /**
+   * @remarks
+   * Metric
+   * 
+   * Valid value:
+   * 
+   * *   totalPacketsRate: Total Packet Rate.
+   * *   dropBytesRate: the of the stream drop rate.
+   * *   dropPacketsRate: Dropped Packet Rate.
+   * *   totalBytesRate: the total streaming rate.
+   * *   passBytesRate: by stream rate.
+   * *   passPacketsRate: by packet rate.
+   * 
+   * @example
+   * passBytesRate
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The end time. The default time is the current time.
+   * 
+   * @example
+   * 1689749749000
+   */
+  to?: number;
+  /**
+   * @remarks
+   * Lingjun Connection ID
+   * 
+   * @example
+   * vcc-cn-zvp2******
+   */
+  vccId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'Direction',
+      from: 'From',
+      metricName: 'MetricName',
+      regionId: 'RegionId',
+      to: 'To',
+      vccId: 'VccId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'string',
+      from: 'number',
+      metricName: 'string',
+      regionId: 'string',
+      to: 'number',
+      vccId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccFlowInfosResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  content?: ListVccFlowInfosResponseBodyContent;
+  /**
+   * @remarks
+   * Response
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-************
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListVccFlowInfosResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccFlowInfosResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVccFlowInfosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVccFlowInfosResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccGrantRulesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable paged query. Optional values:
+   * 
+   * *   **true**: Enable pagination query
+   * *   **false**: Pagination query is disabled
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Use the drop-down box
+   * 
+   * @example
+   * true
+   */
+  forSelect?: boolean;
+  /**
+   * @remarks
+   * Authorization Entry ID
+   * 
+   * @example
+   * grant-rule-jaj33d1b804
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * @example
+   * 1620939556166277
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * Network Instance ID
+   * 
+   * @example
+   * vcc-cn-jaj33d1b804
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Instance name
+   * 
+   * @example
+   * vcc-1
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aekzb3n5lgk2ieq
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablePage: 'EnablePage',
+      erId: 'ErId',
+      forSelect: 'ForSelect',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablePage: 'boolean',
+      erId: 'string',
+      forSelect: 'boolean',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccGrantRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListVccGrantRulesResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A56F7D3C-8850-5AF4-A342-2D71C9A9D1CC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListVccGrantRulesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccGrantRulesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVccGrantRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVccGrantRulesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccRouteEntriesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Destination CIDR block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable pagination query.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Filter 32 detailed CIDR blocks. Default value: true
+   * 
+   * @example
+   * true
+   */
+  ignoreDetailedRouteEntry?: boolean;
+  /**
+   * @remarks
+   * Next Hop Instance
+   * 
+   * @example
+   * vcc-cn-jaj34d75h01
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * Next Hop Instance Type
+   * 
+   * @example
+   * VCC
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Route type
+   * 
+   * @example
+   * BGP
+   */
+  routeType?: string;
+  /**
+   * @remarks
+   * The status of the enterprise-level snapshot policy.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block route entry instance ID
+   * 
+   * @example
+   * vpd-rte-toekyqel
+   */
+  vpdRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      enablePage: 'EnablePage',
+      ignoreDetailedRouteEntry: 'IgnoreDetailedRouteEntry',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeType: 'RouteType',
+      status: 'Status',
+      vccId: 'VccId',
+      vpdRouteEntryId: 'VpdRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      enablePage: 'boolean',
+      ignoreDetailedRouteEntry: 'boolean',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeType: 'string',
+      status: 'string',
+      vccId: 'string',
+      vpdRouteEntryId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccRouteEntriesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListVccRouteEntriesResponseBodyContent;
+  /**
+   * @remarks
+   * response message, if the success request is
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListVccRouteEntriesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccRouteEntriesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVccRouteEntriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVccRouteEntriesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The peak bandwidth of the Lingjun connection instance. Unit: Mbit/s. Valid values: 1000 to 400000
+   * 
+   * @example
+   * 5000
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
+   * The ID of the CEN instance; [What is the CEN?](https://help.aliyun.com/document_detail/181681.html)
+   * 
+   * You can call the [DescribeCens](https://help.aliyun.com/document_detail/468215.htm) to query the information of CEN instances under the current Alibaba Cloud account.
+   * 
+   * @example
+   * cen-95iwtpyvj3kk1v0ao0
+   */
+  cenId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable paged query. Optional values:
+   * 
+   * *   **true**: Enable pagination query
+   * *   **false**: Pagination query is disabled
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Excludes all data in the specified status. If the status parameter exists, ExStatus does not take effect.
+   * 
+   * @example
+   * Prepaid
+   */
+  exStatus?: string;
+  /**
+   * @remarks
+   * Filter queries by Lingjun HUB instance ID
+   * 
+   * @example
+   * er-a7rqv1rq
+   */
+  filterErId?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aeky5f3qx6ceapq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The instance status.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tag?: ListVccsRequestTag[];
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  /**
+   * @remarks
+   * Virtual Private Cloud IDs; [What is Virtual Private Cloud](https://help.aliyun.com/document_detail/34217.html)
+   * 
+   * You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html#demo-0) operation to query the specified VPC.
+   * 
+   * @example
+   * vpc-bp1nrtkmamy329u6a1z0i
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * @example
+   * vpd-omqutbff
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      cenId: 'CenId',
+      enablePage: 'EnablePage',
+      exStatus: 'ExStatus',
+      filterErId: 'FilterErId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      tag: 'Tag',
+      vccId: 'VccId',
+      vpcId: 'VpcId',
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      cenId: 'string',
+      enablePage: 'boolean',
+      exStatus: 'string',
+      filterErId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+      tag: { 'type': 'array', 'itemType': ListVccsRequestTag },
+      vccId: 'string',
+      vpcId: 'string',
+      vpdId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListVccsResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 28451248-7038-5184-B5D3-80F104654BE8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListVccsResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVccsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVccsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVccsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdGrantRulesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable pagination query.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Use the drop-down box
+   * 
+   * @example
+   * true
+   */
+  forSelect?: boolean;
+  /**
+   * @remarks
+   * Authorization Entry ID
+   * 
+   * @example
+   * grant-rule-8rgvqazb
+   */
+  grantRuleId?: string;
+  /**
+   * @remarks
+   * Authorized Tenant ID
+   * 
+   * @example
+   * 1620939556166279
+   */
+  grantTenantId?: string;
+  /**
+   * @remarks
+   * The ID of the network instance that you want to query.
+   * 
+   * @example
+   * vpd-8rgvqazb
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Instance name
+   * 
+   * @example
+   * vpd-1
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablePage: 'EnablePage',
+      erId: 'ErId',
+      forSelect: 'ForSelect',
+      grantRuleId: 'GrantRuleId',
+      grantTenantId: 'GrantTenantId',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablePage: 'boolean',
+      erId: 'string',
+      forSelect: 'boolean',
+      grantRuleId: 'string',
+      grantTenantId: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdGrantRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListVpdGrantRulesResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A56F7D3C-8850-5AF4-A342-2D71C9A9D1CC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListVpdGrantRulesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdGrantRulesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpdGrantRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVpdGrantRulesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdRouteEntriesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Destination CIDR block
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable paged query. Optional values:
+   * 
+   * *   **true**: Enable pagination query
+   * *   **false**: Pagination query is disabled
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Filter 32 detailed CIDR blocks. Default value: true
+   * 
+   * @example
+   * true
+   */
+  ignoreDetailedRouteEntry?: boolean;
+  /**
+   * @remarks
+   * Next Hop Instance
+   * 
+   * @example
+   * vcc-cn-209300qha01
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * Next Hop Instance Type
+   * 
+   * @example
+   * VCC
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfm4mlwqjalz7a
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Route type
+   * 
+   * @example
+   * BGP
+   */
+  routeType?: string;
+  /**
+   * @remarks
+   * The status of the enterprise-level snapshot policy.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-fuliephf
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * Lingjun CIDR block route entry instance ID
+   * 
+   * @example
+   * vpd-rte-4r1zbhoh
+   */
+  vpdRouteEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      enablePage: 'EnablePage',
+      ignoreDetailedRouteEntry: 'IgnoreDetailedRouteEntry',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routeType: 'RouteType',
+      status: 'Status',
+      vpdId: 'VpdId',
+      vpdRouteEntryId: 'VpdRouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      enablePage: 'boolean',
+      ignoreDetailedRouteEntry: 'boolean',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routeType: 'string',
+      status: 'string',
+      vpdId: 'string',
+      vpdRouteEntryId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdRouteEntriesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: ListVpdRouteEntriesResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 039C3C3A-3C37-5672-80D5-D8CD48C676D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListVpdRouteEntriesResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdRouteEntriesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpdRouteEntriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVpdRouteEntriesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable paged query.
+   * 
+   * @example
+   * false
+   */
+  enablePage?: boolean;
+  /**
+   * @remarks
+   * Queries the network segments of Lingjun that are not bound to a specified Lingjun HUB.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  filterErId?: string;
+  /**
+   * @remarks
+   * If you select a drop-down list, only the basic information (including the instance ID and instance name) is returned. Possible values:
+   * 
+   * *   **true**: Select Query Use from the drop-down list.
+   * *   **false**: Normal queries are used.
+   * 
+   * @example
+   * true
+   */
+  forSelect?: boolean;
+  /**
+   * @remarks
+   * The page number of the page to return. Start value: 1 Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+   * 
+   * @example
+   * rg-aeky5f3qx6ceapq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The status of the CLB instance. Valid values:
+   * 
+   * *   **Available**: Normal.
+   * *   **Not Available**: Not available.
+   * *   **Executing**: The task is being executed.
+   * *   **Deleting**: The account is being deleted
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tag?: ListVpdsRequestTag[];
+  /**
+   * @remarks
+   * The ID of the VPD instance.
+   * 
+   * @example
+   * vpd-fuliephf
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The name of the VPD instance.
+   * 
+   * @example
+   * vpd-1
+   */
+  vpdName?: string;
+  /**
+   * @remarks
+   * Specifies whether to include the dependent resource information. We recommend that you do not query the dependent resource information when you query by page. You can query the dependent resource information separately when you delete it. Possible values:
+   * 
+   * *   **true**: with dependency information.
+   * *   **false**: does not include dependency information.
+   * 
+   * @example
+   * false
+   */
+  withDependence?: boolean;
+  /**
+   * @remarks
+   * Queries the information about a Lingjun CIDR block that is not bound to a Lingjun connection. Possible values:
+   * 
+   * *   **true**: filters out VPDs that have been bound to VCC
+   * *   **false**: does not filter VPD that has been bound to VCC
+   * 
+   * @example
+   * true
+   */
+  withoutVcc?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enablePage: 'EnablePage',
+      filterErId: 'FilterErId',
+      forSelect: 'ForSelect',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      tag: 'Tag',
+      vpdId: 'VpdId',
+      vpdName: 'VpdName',
+      withDependence: 'WithDependence',
+      withoutVcc: 'WithoutVcc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablePage: 'boolean',
+      filterErId: 'string',
+      forSelect: 'boolean',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+      tag: { 'type': 'array', 'itemType': ListVpdsRequestTag },
+      vpdId: 'string',
+      vpdName: 'string',
+      withDependence: 'boolean',
+      withoutVcc: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: ListVpdsResponseBodyContent;
+  /**
+   * @remarks
+   * The additional information that is returned.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: ListVpdsResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpdsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpdsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVpdsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceNcdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Instance 1ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-1235****
+   */
+  instanceId1?: string;
+  /**
+   * @remarks
+   * Instance 2ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-1234****
+   */
+  instanceId2?: string;
+  /**
+   * @remarks
+   * The parameter that specifies the instance type.
+   * 
+   * Valid value:
+   * 
+   * *   node: Lingjun node.
+   * *   lni: lingjun network interface controller.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId1: 'InstanceId1',
+      instanceId2: 'InstanceId2',
+      instanceType: 'InstanceType',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId1: 'string',
+      instanceId2: 'string',
+      instanceType: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceNcdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: QueryInstanceNcdResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * You don\\"t have the permission of this operation, action=eflo:QueryInstanceNcd, arn=acs:eflo:cn-shenzhen:1263399219805497:networkinterface/*, resourceGroup=null
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-645C88B9009C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: QueryInstanceNcdResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceNcdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryInstanceNcdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryInstanceNcdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefundVccRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Region
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Lingjun Connection ID
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vccId: 'VccId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vccId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefundVccResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Response content
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * Response message, which is \\"success\\" if the request succeeds
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefundVccResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefundVccResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RefundVccResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryVccRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Lingjun Connection ID
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vccId: 'VccId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vccId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryVccResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
+  content?: any;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 7F9082CC-3D94-560F-A575-8E8EF6CE2CB8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'any',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryVccResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RetryVccResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RetryVccResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssignPrivateIpAddressRequest extends $dara.Model {
+  /**
+   * @remarks
+   * By default, popApi is not ignored and idempotent
+   * 
+   * @example
+   * 141cccd6-dfbd-11ec-b8e8-0242ac110003
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * IP unique identifier
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sip-xxxx
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * Lingjun network interface controller ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lni-bp18exxqa2rvfn45e5pz
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The private IP address of the instance.
+   * 
+   * @example
+   * 10.209.75.242
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * Region
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Subnet
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-f3zfzmnc
+   */
+  subnetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ipName: 'IpName',
+      networkInterfaceId: 'NetworkInterfaceId',
+      privateIpAddress: 'PrivateIpAddress',
+      regionId: 'RegionId',
+      subnetId: 'SubnetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ipName: 'string',
+      networkInterfaceId: 'string',
+      privateIpAddress: 'string',
+      regionId: 'string',
+      subnetId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssignPrivateIpAddressResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: UnAssignPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * You don\\"t have the permission to do this operation.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: UnAssignPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssignPrivateIpAddressResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnAssignPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnAssignPrivateIpAddressResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssociateVpdCidrBlockRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The additional CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 192.168.0.0/16
+   */
+  secondaryCidrBlock?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-aof7dat1
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      secondaryCidrBlock: 'SecondaryCidrBlock',
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      secondaryCidrBlock: 'string',
+      vpdId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssociateVpdCidrBlockResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: UnAssociateVpdCidrBlockResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 9C50C9CD-E799-54DA-BA7A-1FAF3DF80857
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: UnAssociateVpdCidrBlockResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnAssociateVpdCidrBlockResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnAssociateVpdCidrBlockResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnAssociateVpdCidrBlockResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassignLeniPrivateIpAddressRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The idempotent identifier.
+   * 
+   * @example
+   * 967e77a2-b61d-11ec-a147-0242c0a80504
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP unique identifier.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sip-8ylg****
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      ipName: 'IpName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      elasticNetworkInterfaceId: 'string',
+      ipName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassignLeniPrivateIpAddressResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   * 
+   * @example
+   * {}
+   */
+  content?: UnassignLeniPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: UnassignLeniPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassignLeniPrivateIpAddressResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnassignLeniPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnassignLeniPrivateIpAddressResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateElasticNetworkInterfaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * 3fd79d62-ab1d-11ec-9a53-0242ac110004
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the variable.
+   * 
+   * @example
+   * LHICDOSEExternaluserinquiryP
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-wz9fj2s3o21nw2****
+   */
+  securityGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      elasticNetworkInterfaceId: 'string',
+      regionId: 'string',
+      securityGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateElasticNetworkInterfaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: UpdateElasticNetworkInterfaceResponseBodyContent;
+  /**
+   * @remarks
+   * The return message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: UpdateElasticNetworkInterfaceResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateElasticNetworkInterfaceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateElasticNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateElasticNetworkInterfaceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the document.
+   * 
+   * @example
+   * description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * Parameter
+   * 
+   * @example
+   * er-wulanchabu-main
+   */
+  erName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      erId: 'ErId',
+      erName: 'ErName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      erId: 'string',
+      erName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
+  content?: { [key: string]: any };
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 3D9D6E7B-365B-5200-BFA6-9B79E269058C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content) {
+      $dara.Model.validateMap(this.content);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateErResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateErResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErAttachmentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The connection ID of the Lingjun HUB network instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-attachment-i1ioibyf
+   */
+  erAttachmentId?: string;
+  /**
+   * @remarks
+   * Lingjun HUB Network Instance Connection Name
+   * 
+   * @example
+   * er-attachment-wulanchabu-main
+   */
+  erAttachmentName?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      erAttachmentId: 'ErAttachmentId',
+      erAttachmentName: 'ErAttachmentName',
+      erId: 'ErId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      erAttachmentId: 'string',
+      erAttachmentName: 'string',
+      erId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErAttachmentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   * 
+   * @example
+   * {}
+   */
+  content?: { [key: string]: any };
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID of the current request
+   * 
+   * @example
+   * 7F9082CC-3D94-560F-A575-8E8EF6CE2CB8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content) {
+      $dara.Model.validateMap(this.content);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErAttachmentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateErAttachmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateErAttachmentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErRouteMapRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the document.
+   * 
+   * @example
+   * test-example
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun HUB ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-kkopgtne
+   */
+  erId?: string;
+  /**
+   * @remarks
+   * routing policy ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * er-rmap-uwglhzom
+   */
+  erRouteMapId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      erId: 'ErId',
+      erRouteMapId: 'ErRouteMapId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      erId: 'string',
+      erRouteMapId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErRouteMapResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   * 
+   * @example
+   * {}
+   */
+  content?: { [key: string]: any };
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BDBCC783-84CA-5733-8EEA-645C88B9009C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content) {
+      $dara.Model.validateMap(this.content);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateErRouteMapResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateErRouteMapResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateErRouteMapResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLeniPrivateIpAddressRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the ECS instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * leni-1234****
+   */
+  elasticNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface secondary private IP unique identifier.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sip-8ylg****
+   */
+  ipName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      elasticNetworkInterfaceId: 'ElasticNetworkInterfaceId',
+      ipName: 'IpName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      elasticNetworkInterfaceId: 'string',
+      ipName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLeniPrivateIpAddressResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: UpdateLeniPrivateIpAddressResponseBodyContent;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A88DFED5-24B7-5A3E-87DE-380BF06F3C90
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: UpdateLeniPrivateIpAddressResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLeniPrivateIpAddressResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLeniPrivateIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateLeniPrivateIpAddressResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSubnetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The subnet instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * subnet-f3zfzmnc
+   */
+  subnetId?: string;
+  /**
+   * @remarks
+   * The new name for the subnet instance.
+   * 
+   * @example
+   * subnet-1
+   */
+  subnetName?: string;
+  /**
+   * @remarks
+   * The ID of the VPD to which the subnet belongs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-aof7dat1
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      subnetId: 'SubnetId',
+      subnetName: 'SubnetName',
+      vpdId: 'VpdId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      subnetId: 'string',
+      subnetName: 'string',
+      vpdId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSubnetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response content.
+   */
+  content?: UpdateSubnetResponseBodyContent;
+  /**
+   * @remarks
+   * The message that is returned.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3D9D6E7B-365B-5200-BFA6-9B79E269058C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: UpdateSubnetResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSubnetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSubnetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSubnetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVccRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The peak bandwidth of the Lingjun connection instance. Unit: Mbit/s. Valid values: 1000 to 400000
+   * 
+   * @example
+   * 1000
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
+   * The ID of the order placed on the instance.
+   * 
+   * @example
+   * 20006627643
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun connection instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vcc-cn-zvp2w222001
+   */
+  vccId?: string;
+  /**
+   * @remarks
+   * The name of the Lingjun connection instance.
+   * 
+   * @example
+   * vcc-heyuan-backup
+   */
+  vccName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      orderId: 'OrderId',
+      regionId: 'RegionId',
+      vccId: 'VccId',
+      vccName: 'VccName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      orderId: 'string',
+      regionId: 'string',
+      vccId: 'string',
+      vccName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVccResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  content?: UpdateVccResponseBodyContent;
+  /**
+   * @remarks
+   * The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F906C4D3-7444-58E2-9819-E3D8563571A3
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: UpdateVccResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVccResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVccResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateVccResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVpdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the VPD instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpd-omqutbff
+   */
+  vpdId?: string;
+  /**
+   * @remarks
+   * The name of the VPD instance.
+   * 
+   * @example
+   * vpd-lingjun
+   */
+  vpdName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vpdId: 'VpdId',
+      vpdName: 'VpdName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vpdId: 'string',
+      vpdName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVpdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 0
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
+  content?: UpdateVpdResponseBodyContent;
+  /**
+   * @remarks
+   * The additional information that is returned.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC8C713A-A9F4-5984-A5E1-76496DF35153
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: UpdateVpdResponseBodyContent,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVpdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVpdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateVpdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -22036,7 +24262,7 @@ export class UpdateVpdResponseBodyContent extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -22045,15 +24271,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -22068,33 +24294,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AssignLeniPrivateIpAddressResponse
    */
-  async assignLeniPrivateIpAddressWithOptions(request: AssignLeniPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<AssignLeniPrivateIpAddressResponse> {
-    Util.validateModel(request);
+  async assignLeniPrivateIpAddressWithOptions(request: AssignLeniPrivateIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<AssignLeniPrivateIpAddressResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+    if (!$dara.isNull(request.elasticNetworkInterfaceId)) {
       body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
     }
 
-    if (!Util.isUnset(request.privateIpAddress)) {
+    if (!$dara.isNull(request.privateIpAddress)) {
       body["PrivateIpAddress"] = request.privateIpAddress;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AssignLeniPrivateIpAddress",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -22105,7 +24331,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AssignLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new AssignLeniPrivateIpAddressResponse({}));
+    return $dara.cast<AssignLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new AssignLeniPrivateIpAddressResponse({}));
   }
 
   /**
@@ -22120,7 +24346,7 @@ export default class Client extends OpenApi {
    * @returns AssignLeniPrivateIpAddressResponse
    */
   async assignLeniPrivateIpAddress(request: AssignLeniPrivateIpAddressRequest): Promise<AssignLeniPrivateIpAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.assignLeniPrivateIpAddressWithOptions(request, runtime);
   }
 
@@ -22136,45 +24362,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AssignPrivateIpAddressResponse
    */
-  async assignPrivateIpAddressWithOptions(request: AssignPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<AssignPrivateIpAddressResponse> {
-    Util.validateModel(request);
+  async assignPrivateIpAddressWithOptions(request: AssignPrivateIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<AssignPrivateIpAddressResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.assignMac)) {
+    if (!$dara.isNull(request.assignMac)) {
       body["AssignMac"] = request.assignMac;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.networkInterfaceId)) {
+    if (!$dara.isNull(request.networkInterfaceId)) {
       body["NetworkInterfaceId"] = request.networkInterfaceId;
     }
 
-    if (!Util.isUnset(request.privateIpAddress)) {
+    if (!$dara.isNull(request.privateIpAddress)) {
       body["PrivateIpAddress"] = request.privateIpAddress;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.skipConfig)) {
+    if (!$dara.isNull(request.skipConfig)) {
       body["SkipConfig"] = request.skipConfig;
     }
 
-    if (!Util.isUnset(request.subnetId)) {
+    if (!$dara.isNull(request.subnetId)) {
       body["SubnetId"] = request.subnetId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AssignPrivateIpAddress",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -22185,7 +24411,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AssignPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new AssignPrivateIpAddressResponse({}));
+    return $dara.cast<AssignPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new AssignPrivateIpAddressResponse({}));
   }
 
   /**
@@ -22200,7 +24426,7 @@ export default class Client extends OpenApi {
    * @returns AssignPrivateIpAddressResponse
    */
   async assignPrivateIpAddress(request: AssignPrivateIpAddressRequest): Promise<AssignPrivateIpAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.assignPrivateIpAddressWithOptions(request, runtime);
   }
 
@@ -22218,25 +24444,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AssociateVpdCidrBlockResponse
    */
-  async associateVpdCidrBlockWithOptions(request: AssociateVpdCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<AssociateVpdCidrBlockResponse> {
-    Util.validateModel(request);
+  async associateVpdCidrBlockWithOptions(request: AssociateVpdCidrBlockRequest, runtime: $dara.RuntimeOptions): Promise<AssociateVpdCidrBlockResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.secondaryCidrBlock)) {
+    if (!$dara.isNull(request.secondaryCidrBlock)) {
       body["SecondaryCidrBlock"] = request.secondaryCidrBlock;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AssociateVpdCidrBlock",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -22247,7 +24473,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AssociateVpdCidrBlockResponse>(await this.callApi(params, req, runtime), new AssociateVpdCidrBlockResponse({}));
+    return $dara.cast<AssociateVpdCidrBlockResponse>(await this.callApi(params, req, runtime), new AssociateVpdCidrBlockResponse({}));
   }
 
   /**
@@ -22264,7 +24490,7 @@ export default class Client extends OpenApi {
    * @returns AssociateVpdCidrBlockResponse
    */
   async associateVpdCidrBlock(request: AssociateVpdCidrBlockRequest): Promise<AssociateVpdCidrBlockResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.associateVpdCidrBlockWithOptions(request, runtime);
   }
 
@@ -22278,25 +24504,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachElasticNetworkInterfaceResponse
    */
-  async attachElasticNetworkInterfaceWithOptions(request: AttachElasticNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<AttachElasticNetworkInterfaceResponse> {
-    Util.validateModel(request);
+  async attachElasticNetworkInterfaceWithOptions(request: AttachElasticNetworkInterfaceRequest, runtime: $dara.RuntimeOptions): Promise<AttachElasticNetworkInterfaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+    if (!$dara.isNull(request.elasticNetworkInterfaceId)) {
       body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
     }
 
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       body["NodeId"] = request.nodeId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AttachElasticNetworkInterface",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -22307,7 +24533,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new AttachElasticNetworkInterfaceResponse({}));
+    return $dara.cast<AttachElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new AttachElasticNetworkInterfaceResponse({}));
   }
 
   /**
@@ -22320,7 +24546,7 @@ export default class Client extends OpenApi {
    * @returns AttachElasticNetworkInterfaceResponse
    */
   async attachElasticNetworkInterface(request: AttachElasticNetworkInterfaceRequest): Promise<AttachElasticNetworkInterfaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.attachElasticNetworkInterfaceWithOptions(request, runtime);
   }
 
@@ -22331,49 +24557,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateElasticNetworkInterfaceResponse
    */
-  async createElasticNetworkInterfaceWithOptions(request: CreateElasticNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateElasticNetworkInterfaceResponse> {
-    Util.validateModel(request);
+  async createElasticNetworkInterfaceWithOptions(request: CreateElasticNetworkInterfaceRequest, runtime: $dara.RuntimeOptions): Promise<CreateElasticNetworkInterfaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.enableJumboFrame)) {
+    if (!$dara.isNull(request.enableJumboFrame)) {
       body["EnableJumboFrame"] = request.enableJumboFrame;
     }
 
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       body["NodeId"] = request.nodeId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.securityGroupId)) {
+    if (!$dara.isNull(request.securityGroupId)) {
       body["SecurityGroupId"] = request.securityGroupId;
     }
 
-    if (!Util.isUnset(request.vSwitchId)) {
+    if (!$dara.isNull(request.vSwitchId)) {
       body["VSwitchId"] = request.vSwitchId;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       body["VpcId"] = request.vpcId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       body["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateElasticNetworkInterface",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -22384,7 +24610,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new CreateElasticNetworkInterfaceResponse({}));
+    return $dara.cast<CreateElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new CreateElasticNetworkInterfaceResponse({}));
   }
 
   /**
@@ -22394,7 +24620,7 @@ export default class Client extends OpenApi {
    * @returns CreateElasticNetworkInterfaceResponse
    */
   async createElasticNetworkInterface(request: CreateElasticNetworkInterfaceRequest): Promise<CreateElasticNetworkInterfaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createElasticNetworkInterfaceWithOptions(request, runtime);
   }
 
@@ -22412,33 +24638,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateErResponse
    */
-  async createErWithOptions(request: CreateErRequest, runtime: $Util.RuntimeOptions): Promise<CreateErResponse> {
-    Util.validateModel(request);
+  async createErWithOptions(request: CreateErRequest, runtime: $dara.RuntimeOptions): Promise<CreateErResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.erName)) {
+    if (!$dara.isNull(request.erName)) {
       body["ErName"] = request.erName;
     }
 
-    if (!Util.isUnset(request.masterZoneId)) {
+    if (!$dara.isNull(request.masterZoneId)) {
       body["MasterZoneId"] = request.masterZoneId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateEr",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -22449,7 +24675,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateErResponse>(await this.callApi(params, req, runtime), new CreateErResponse({}));
+    return $dara.cast<CreateErResponse>(await this.callApi(params, req, runtime), new CreateErResponse({}));
   }
 
   /**
@@ -22466,7 +24692,7 @@ export default class Client extends OpenApi {
    * @returns CreateErResponse
    */
   async createEr(request: CreateErRequest): Promise<CreateErResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createErWithOptions(request, runtime);
   }
 
@@ -22485,41 +24711,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateErAttachmentResponse
    */
-  async createErAttachmentWithOptions(request: CreateErAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateErAttachmentResponse> {
-    Util.validateModel(request);
+  async createErAttachmentWithOptions(request: CreateErAttachmentRequest, runtime: $dara.RuntimeOptions): Promise<CreateErAttachmentResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.autoReceiveAllRoute)) {
+    if (!$dara.isNull(request.autoReceiveAllRoute)) {
       body["AutoReceiveAllRoute"] = request.autoReceiveAllRoute;
     }
 
-    if (!Util.isUnset(request.erAttachmentName)) {
+    if (!$dara.isNull(request.erAttachmentName)) {
       body["ErAttachmentName"] = request.erAttachmentName;
     }
 
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.instanceType)) {
+    if (!$dara.isNull(request.instanceType)) {
       body["InstanceType"] = request.instanceType;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceTenantId)) {
+    if (!$dara.isNull(request.resourceTenantId)) {
       body["ResourceTenantId"] = request.resourceTenantId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateErAttachment",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -22530,7 +24756,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateErAttachmentResponse>(await this.callApi(params, req, runtime), new CreateErAttachmentResponse({}));
+    return $dara.cast<CreateErAttachmentResponse>(await this.callApi(params, req, runtime), new CreateErAttachmentResponse({}));
   }
 
   /**
@@ -22548,7 +24774,7 @@ export default class Client extends OpenApi {
    * @returns CreateErAttachmentResponse
    */
   async createErAttachment(request: CreateErAttachmentRequest): Promise<CreateErAttachmentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createErAttachmentWithOptions(request, runtime);
   }
 
@@ -22567,61 +24793,61 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateErRouteMapResponse
    */
-  async createErRouteMapWithOptions(request: CreateErRouteMapRequest, runtime: $Util.RuntimeOptions): Promise<CreateErRouteMapResponse> {
-    Util.validateModel(request);
+  async createErRouteMapWithOptions(request: CreateErRouteMapRequest, runtime: $dara.RuntimeOptions): Promise<CreateErRouteMapResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.destinationCidrBlock)) {
+    if (!$dara.isNull(request.destinationCidrBlock)) {
       body["DestinationCidrBlock"] = request.destinationCidrBlock;
     }
 
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.receptionInstanceId)) {
+    if (!$dara.isNull(request.receptionInstanceId)) {
       body["ReceptionInstanceId"] = request.receptionInstanceId;
     }
 
-    if (!Util.isUnset(request.receptionInstanceOwner)) {
+    if (!$dara.isNull(request.receptionInstanceOwner)) {
       body["ReceptionInstanceOwner"] = request.receptionInstanceOwner;
     }
 
-    if (!Util.isUnset(request.receptionInstanceType)) {
+    if (!$dara.isNull(request.receptionInstanceType)) {
       body["ReceptionInstanceType"] = request.receptionInstanceType;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.routeMapAction)) {
+    if (!$dara.isNull(request.routeMapAction)) {
       body["RouteMapAction"] = request.routeMapAction;
     }
 
-    if (!Util.isUnset(request.routeMapNum)) {
+    if (!$dara.isNull(request.routeMapNum)) {
       body["RouteMapNum"] = request.routeMapNum;
     }
 
-    if (!Util.isUnset(request.transmissionInstanceId)) {
+    if (!$dara.isNull(request.transmissionInstanceId)) {
       body["TransmissionInstanceId"] = request.transmissionInstanceId;
     }
 
-    if (!Util.isUnset(request.transmissionInstanceOwner)) {
+    if (!$dara.isNull(request.transmissionInstanceOwner)) {
       body["TransmissionInstanceOwner"] = request.transmissionInstanceOwner;
     }
 
-    if (!Util.isUnset(request.transmissionInstanceType)) {
+    if (!$dara.isNull(request.transmissionInstanceType)) {
       body["TransmissionInstanceType"] = request.transmissionInstanceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateErRouteMap",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -22632,7 +24858,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateErRouteMapResponse>(await this.callApi(params, req, runtime), new CreateErRouteMapResponse({}));
+    return $dara.cast<CreateErRouteMapResponse>(await this.callApi(params, req, runtime), new CreateErRouteMapResponse({}));
   }
 
   /**
@@ -22650,7 +24876,7 @@ export default class Client extends OpenApi {
    * @returns CreateErRouteMapResponse
    */
   async createErRouteMap(request: CreateErRouteMapRequest): Promise<CreateErRouteMapResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createErRouteMapWithOptions(request, runtime);
   }
 
@@ -22671,41 +24897,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSubnetResponse
    */
-  async createSubnetWithOptions(request: CreateSubnetRequest, runtime: $Util.RuntimeOptions): Promise<CreateSubnetResponse> {
-    Util.validateModel(request);
+  async createSubnetWithOptions(request: CreateSubnetRequest, runtime: $dara.RuntimeOptions): Promise<CreateSubnetResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.cidr)) {
+    if (!$dara.isNull(request.cidr)) {
       body["Cidr"] = request.cidr;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.subnetName)) {
+    if (!$dara.isNull(request.subnetName)) {
       body["SubnetName"] = request.subnetName;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       body["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       body["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateSubnet",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -22716,7 +24942,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateSubnetResponse>(await this.callApi(params, req, runtime), new CreateSubnetResponse({}));
+    return $dara.cast<CreateSubnetResponse>(await this.callApi(params, req, runtime), new CreateSubnetResponse({}));
   }
 
   /**
@@ -22736,7 +24962,7 @@ export default class Client extends OpenApi {
    * @returns CreateSubnetResponse
    */
   async createSubnet(request: CreateSubnetRequest): Promise<CreateSubnetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createSubnetWithOptions(request, runtime);
   }
 
@@ -22755,81 +24981,81 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVccResponse
    */
-  async createVccWithOptions(request: CreateVccRequest, runtime: $Util.RuntimeOptions): Promise<CreateVccResponse> {
-    Util.validateModel(request);
+  async createVccWithOptions(request: CreateVccRequest, runtime: $dara.RuntimeOptions): Promise<CreateVccResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accessCouldService)) {
+    if (!$dara.isNull(request.accessCouldService)) {
       body["AccessCouldService"] = request.accessCouldService;
     }
 
-    if (!Util.isUnset(request.bandwidth)) {
+    if (!$dara.isNull(request.bandwidth)) {
       body["Bandwidth"] = request.bandwidth;
     }
 
-    if (!Util.isUnset(request.bgpAsn)) {
+    if (!$dara.isNull(request.bgpAsn)) {
       body["BgpAsn"] = request.bgpAsn;
     }
 
-    if (!Util.isUnset(request.bgpCidr)) {
+    if (!$dara.isNull(request.bgpCidr)) {
       body["BgpCidr"] = request.bgpCidr;
     }
 
-    if (!Util.isUnset(request.cenId)) {
+    if (!$dara.isNull(request.cenId)) {
       body["CenId"] = request.cenId;
     }
 
-    if (!Util.isUnset(request.cenOwnerId)) {
+    if (!$dara.isNull(request.cenOwnerId)) {
       body["CenOwnerId"] = request.cenOwnerId;
     }
 
-    if (!Util.isUnset(request.connectionType)) {
+    if (!$dara.isNull(request.connectionType)) {
       body["ConnectionType"] = request.connectionType;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       body["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.vSwitchId)) {
+    if (!$dara.isNull(request.vSwitchId)) {
       body["VSwitchId"] = request.vSwitchId;
     }
 
-    if (!Util.isUnset(request.vccId)) {
+    if (!$dara.isNull(request.vccId)) {
       body["VccId"] = request.vccId;
     }
 
-    if (!Util.isUnset(request.vccName)) {
+    if (!$dara.isNull(request.vccName)) {
       body["VccName"] = request.vccName;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       body["VpcId"] = request.vpcId;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       body["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateVcc",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -22840,7 +25066,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateVccResponse>(await this.callApi(params, req, runtime), new CreateVccResponse({}));
+    return $dara.cast<CreateVccResponse>(await this.callApi(params, req, runtime), new CreateVccResponse({}));
   }
 
   /**
@@ -22858,7 +25084,7 @@ export default class Client extends OpenApi {
    * @returns CreateVccResponse
    */
   async createVcc(request: CreateVccRequest): Promise<CreateVccResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createVccWithOptions(request, runtime);
   }
 
@@ -22874,29 +25100,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVccGrantRuleResponse
    */
-  async createVccGrantRuleWithOptions(request: CreateVccGrantRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateVccGrantRuleResponse> {
-    Util.validateModel(request);
+  async createVccGrantRuleWithOptions(request: CreateVccGrantRuleRequest, runtime: $dara.RuntimeOptions): Promise<CreateVccGrantRuleResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.grantTenantId)) {
+    if (!$dara.isNull(request.grantTenantId)) {
       body["GrantTenantId"] = request.grantTenantId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateVccGrantRule",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -22907,7 +25133,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateVccGrantRuleResponse>(await this.callApi(params, req, runtime), new CreateVccGrantRuleResponse({}));
+    return $dara.cast<CreateVccGrantRuleResponse>(await this.callApi(params, req, runtime), new CreateVccGrantRuleResponse({}));
   }
 
   /**
@@ -22922,7 +25148,7 @@ export default class Client extends OpenApi {
    * @returns CreateVccGrantRuleResponse
    */
   async createVccGrantRule(request: CreateVccGrantRuleRequest): Promise<CreateVccGrantRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createVccGrantRuleWithOptions(request, runtime);
   }
 
@@ -22940,25 +25166,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVccRouteEntryResponse
    */
-  async createVccRouteEntryWithOptions(request: CreateVccRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateVccRouteEntryResponse> {
-    Util.validateModel(request);
+  async createVccRouteEntryWithOptions(request: CreateVccRouteEntryRequest, runtime: $dara.RuntimeOptions): Promise<CreateVccRouteEntryResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.destinationCidrBlock)) {
+    if (!$dara.isNull(request.destinationCidrBlock)) {
       body["DestinationCidrBlock"] = request.destinationCidrBlock;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.vccId)) {
+    if (!$dara.isNull(request.vccId)) {
       body["VccId"] = request.vccId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateVccRouteEntry",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -22969,7 +25195,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateVccRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateVccRouteEntryResponse({}));
+    return $dara.cast<CreateVccRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateVccRouteEntryResponse({}));
   }
 
   /**
@@ -22986,7 +25212,7 @@ export default class Client extends OpenApi {
    * @returns CreateVccRouteEntryResponse
    */
   async createVccRouteEntry(request: CreateVccRouteEntryRequest): Promise<CreateVccRouteEntryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createVccRouteEntryWithOptions(request, runtime);
   }
 
@@ -23006,37 +25232,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVpdResponse
    */
-  async createVpdWithOptions(request: CreateVpdRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpdResponse> {
-    Util.validateModel(request);
+  async createVpdWithOptions(request: CreateVpdRequest, runtime: $dara.RuntimeOptions): Promise<CreateVpdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.cidr)) {
+    if (!$dara.isNull(request.cidr)) {
       body["Cidr"] = request.cidr;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.subnets)) {
+    if (!$dara.isNull(request.subnets)) {
       body["Subnets"] = request.subnets;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       body["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.vpdName)) {
+    if (!$dara.isNull(request.vpdName)) {
       body["VpdName"] = request.vpdName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateVpd",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23047,7 +25273,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateVpdResponse>(await this.callApi(params, req, runtime), new CreateVpdResponse({}));
+    return $dara.cast<CreateVpdResponse>(await this.callApi(params, req, runtime), new CreateVpdResponse({}));
   }
 
   /**
@@ -23066,7 +25292,7 @@ export default class Client extends OpenApi {
    * @returns CreateVpdResponse
    */
   async createVpd(request: CreateVpdRequest): Promise<CreateVpdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createVpdWithOptions(request, runtime);
   }
 
@@ -23082,29 +25308,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVpdGrantRuleResponse
    */
-  async createVpdGrantRuleWithOptions(request: CreateVpdGrantRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpdGrantRuleResponse> {
-    Util.validateModel(request);
+  async createVpdGrantRuleWithOptions(request: CreateVpdGrantRuleRequest, runtime: $dara.RuntimeOptions): Promise<CreateVpdGrantRuleResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.grantTenantId)) {
+    if (!$dara.isNull(request.grantTenantId)) {
       body["GrantTenantId"] = request.grantTenantId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateVpdGrantRule",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23115,7 +25341,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new CreateVpdGrantRuleResponse({}));
+    return $dara.cast<CreateVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new CreateVpdGrantRuleResponse({}));
   }
 
   /**
@@ -23130,7 +25356,7 @@ export default class Client extends OpenApi {
    * @returns CreateVpdGrantRuleResponse
    */
   async createVpdGrantRule(request: CreateVpdGrantRuleRequest): Promise<CreateVpdGrantRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createVpdGrantRuleWithOptions(request, runtime);
   }
 
@@ -23141,25 +25367,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteElasticNetworkInterfaceResponse
    */
-  async deleteElasticNetworkInterfaceWithOptions(request: DeleteElasticNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteElasticNetworkInterfaceResponse> {
-    Util.validateModel(request);
+  async deleteElasticNetworkInterfaceWithOptions(request: DeleteElasticNetworkInterfaceRequest, runtime: $dara.RuntimeOptions): Promise<DeleteElasticNetworkInterfaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+    if (!$dara.isNull(request.elasticNetworkInterfaceId)) {
       body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteElasticNetworkInterface",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23170,7 +25396,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new DeleteElasticNetworkInterfaceResponse({}));
+    return $dara.cast<DeleteElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new DeleteElasticNetworkInterfaceResponse({}));
   }
 
   /**
@@ -23180,7 +25406,7 @@ export default class Client extends OpenApi {
    * @returns DeleteElasticNetworkInterfaceResponse
    */
   async deleteElasticNetworkInterface(request: DeleteElasticNetworkInterfaceRequest): Promise<DeleteElasticNetworkInterfaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteElasticNetworkInterfaceWithOptions(request, runtime);
   }
 
@@ -23199,21 +25425,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteErResponse
    */
-  async deleteErWithOptions(request: DeleteErRequest, runtime: $Util.RuntimeOptions): Promise<DeleteErResponse> {
-    Util.validateModel(request);
+  async deleteErWithOptions(request: DeleteErRequest, runtime: $dara.RuntimeOptions): Promise<DeleteErResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteEr",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23224,7 +25450,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteErResponse>(await this.callApi(params, req, runtime), new DeleteErResponse({}));
+    return $dara.cast<DeleteErResponse>(await this.callApi(params, req, runtime), new DeleteErResponse({}));
   }
 
   /**
@@ -23242,7 +25468,7 @@ export default class Client extends OpenApi {
    * @returns DeleteErResponse
    */
   async deleteEr(request: DeleteErRequest): Promise<DeleteErResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteErWithOptions(request, runtime);
   }
 
@@ -23261,25 +25487,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteErAttachmentResponse
    */
-  async deleteErAttachmentWithOptions(request: DeleteErAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteErAttachmentResponse> {
-    Util.validateModel(request);
+  async deleteErAttachmentWithOptions(request: DeleteErAttachmentRequest, runtime: $dara.RuntimeOptions): Promise<DeleteErAttachmentResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erAttachmentId)) {
+    if (!$dara.isNull(request.erAttachmentId)) {
       body["ErAttachmentId"] = request.erAttachmentId;
     }
 
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteErAttachment",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23290,7 +25516,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteErAttachmentResponse>(await this.callApi(params, req, runtime), new DeleteErAttachmentResponse({}));
+    return $dara.cast<DeleteErAttachmentResponse>(await this.callApi(params, req, runtime), new DeleteErAttachmentResponse({}));
   }
 
   /**
@@ -23308,7 +25534,7 @@ export default class Client extends OpenApi {
    * @returns DeleteErAttachmentResponse
    */
   async deleteErAttachment(request: DeleteErAttachmentRequest): Promise<DeleteErAttachmentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteErAttachmentWithOptions(request, runtime);
   }
 
@@ -23326,25 +25552,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteErRouteMapResponse
    */
-  async deleteErRouteMapWithOptions(request: DeleteErRouteMapRequest, runtime: $Util.RuntimeOptions): Promise<DeleteErRouteMapResponse> {
-    Util.validateModel(request);
+  async deleteErRouteMapWithOptions(request: DeleteErRouteMapRequest, runtime: $dara.RuntimeOptions): Promise<DeleteErRouteMapResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.erRouteMapIds)) {
+    if (!$dara.isNull(request.erRouteMapIds)) {
       body["ErRouteMapIds"] = request.erRouteMapIds;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteErRouteMap",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23355,7 +25581,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteErRouteMapResponse>(await this.callApi(params, req, runtime), new DeleteErRouteMapResponse({}));
+    return $dara.cast<DeleteErRouteMapResponse>(await this.callApi(params, req, runtime), new DeleteErRouteMapResponse({}));
   }
 
   /**
@@ -23372,7 +25598,7 @@ export default class Client extends OpenApi {
    * @returns DeleteErRouteMapResponse
    */
   async deleteErRouteMap(request: DeleteErRouteMapRequest): Promise<DeleteErRouteMapResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteErRouteMapWithOptions(request, runtime);
   }
 
@@ -23390,29 +25616,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSubnetResponse
    */
-  async deleteSubnetWithOptions(request: DeleteSubnetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSubnetResponse> {
-    Util.validateModel(request);
+  async deleteSubnetWithOptions(request: DeleteSubnetRequest, runtime: $dara.RuntimeOptions): Promise<DeleteSubnetResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.subnetId)) {
+    if (!$dara.isNull(request.subnetId)) {
       body["SubnetId"] = request.subnetId;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       body["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteSubnet",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23423,7 +25649,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteSubnetResponse>(await this.callApi(params, req, runtime), new DeleteSubnetResponse({}));
+    return $dara.cast<DeleteSubnetResponse>(await this.callApi(params, req, runtime), new DeleteSubnetResponse({}));
   }
 
   /**
@@ -23440,7 +25666,7 @@ export default class Client extends OpenApi {
    * @returns DeleteSubnetResponse
    */
   async deleteSubnet(request: DeleteSubnetRequest): Promise<DeleteSubnetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSubnetWithOptions(request, runtime);
   }
 
@@ -23451,29 +25677,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVccGrantRuleResponse
    */
-  async deleteVccGrantRuleWithOptions(request: DeleteVccGrantRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVccGrantRuleResponse> {
-    Util.validateModel(request);
+  async deleteVccGrantRuleWithOptions(request: DeleteVccGrantRuleRequest, runtime: $dara.RuntimeOptions): Promise<DeleteVccGrantRuleResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.grantRuleId)) {
+    if (!$dara.isNull(request.grantRuleId)) {
       body["GrantRuleId"] = request.grantRuleId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteVccGrantRule",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23484,7 +25710,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteVccGrantRuleResponse>(await this.callApi(params, req, runtime), new DeleteVccGrantRuleResponse({}));
+    return $dara.cast<DeleteVccGrantRuleResponse>(await this.callApi(params, req, runtime), new DeleteVccGrantRuleResponse({}));
   }
 
   /**
@@ -23494,7 +25720,7 @@ export default class Client extends OpenApi {
    * @returns DeleteVccGrantRuleResponse
    */
   async deleteVccGrantRule(request: DeleteVccGrantRuleRequest): Promise<DeleteVccGrantRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteVccGrantRuleWithOptions(request, runtime);
   }
 
@@ -23512,29 +25738,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVccRouteEntryResponse
    */
-  async deleteVccRouteEntryWithOptions(request: DeleteVccRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVccRouteEntryResponse> {
-    Util.validateModel(request);
+  async deleteVccRouteEntryWithOptions(request: DeleteVccRouteEntryRequest, runtime: $dara.RuntimeOptions): Promise<DeleteVccRouteEntryResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.destinationCidrBlock)) {
+    if (!$dara.isNull(request.destinationCidrBlock)) {
       body["DestinationCidrBlock"] = request.destinationCidrBlock;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.vccId)) {
+    if (!$dara.isNull(request.vccId)) {
       body["VccId"] = request.vccId;
     }
 
-    if (!Util.isUnset(request.vccRouteEntryId)) {
+    if (!$dara.isNull(request.vccRouteEntryId)) {
       body["VccRouteEntryId"] = request.vccRouteEntryId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteVccRouteEntry",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23545,7 +25771,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteVccRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteVccRouteEntryResponse({}));
+    return $dara.cast<DeleteVccRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteVccRouteEntryResponse({}));
   }
 
   /**
@@ -23562,7 +25788,7 @@ export default class Client extends OpenApi {
    * @returns DeleteVccRouteEntryResponse
    */
   async deleteVccRouteEntry(request: DeleteVccRouteEntryRequest): Promise<DeleteVccRouteEntryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteVccRouteEntryWithOptions(request, runtime);
   }
 
@@ -23581,21 +25807,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVpdResponse
    */
-  async deleteVpdWithOptions(request: DeleteVpdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpdResponse> {
-    Util.validateModel(request);
+  async deleteVpdWithOptions(request: DeleteVpdRequest, runtime: $dara.RuntimeOptions): Promise<DeleteVpdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteVpd",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23606,7 +25832,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteVpdResponse>(await this.callApi(params, req, runtime), new DeleteVpdResponse({}));
+    return $dara.cast<DeleteVpdResponse>(await this.callApi(params, req, runtime), new DeleteVpdResponse({}));
   }
 
   /**
@@ -23624,7 +25850,7 @@ export default class Client extends OpenApi {
    * @returns DeleteVpdResponse
    */
   async deleteVpd(request: DeleteVpdRequest): Promise<DeleteVpdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteVpdWithOptions(request, runtime);
   }
 
@@ -23635,33 +25861,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVpdGrantRuleResponse
    */
-  async deleteVpdGrantRuleWithOptions(request: DeleteVpdGrantRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpdGrantRuleResponse> {
-    Util.validateModel(request);
+  async deleteVpdGrantRuleWithOptions(request: DeleteVpdGrantRuleRequest, runtime: $dara.RuntimeOptions): Promise<DeleteVpdGrantRuleResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.grantRuleId)) {
+    if (!$dara.isNull(request.grantRuleId)) {
       body["GrantRuleId"] = request.grantRuleId;
     }
 
-    if (!Util.isUnset(request.grantTenantId)) {
+    if (!$dara.isNull(request.grantTenantId)) {
       body["GrantTenantId"] = request.grantTenantId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteVpdGrantRule",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23672,7 +25898,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new DeleteVpdGrantRuleResponse({}));
+    return $dara.cast<DeleteVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new DeleteVpdGrantRuleResponse({}));
   }
 
   /**
@@ -23682,7 +25908,7 @@ export default class Client extends OpenApi {
    * @returns DeleteVpdGrantRuleResponse
    */
   async deleteVpdGrantRule(request: DeleteVpdGrantRuleRequest): Promise<DeleteVpdGrantRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteVpdGrantRuleWithOptions(request, runtime);
   }
 
@@ -23697,17 +25923,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSlrResponse
    */
-  async describeSlrWithOptions(request: DescribeSlrRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlrResponse> {
-    Util.validateModel(request);
+  async describeSlrWithOptions(request: DescribeSlrRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSlrResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeSlr",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23718,7 +25944,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSlrResponse>(await this.callApi(params, req, runtime), new DescribeSlrResponse({}));
+    return $dara.cast<DescribeSlrResponse>(await this.callApi(params, req, runtime), new DescribeSlrResponse({}));
   }
 
   /**
@@ -23732,7 +25958,7 @@ export default class Client extends OpenApi {
    * @returns DescribeSlrResponse
    */
   async describeSlr(request: DescribeSlrRequest): Promise<DescribeSlrResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSlrWithOptions(request, runtime);
   }
 
@@ -23746,25 +25972,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachElasticNetworkInterfaceResponse
    */
-  async detachElasticNetworkInterfaceWithOptions(request: DetachElasticNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DetachElasticNetworkInterfaceResponse> {
-    Util.validateModel(request);
+  async detachElasticNetworkInterfaceWithOptions(request: DetachElasticNetworkInterfaceRequest, runtime: $dara.RuntimeOptions): Promise<DetachElasticNetworkInterfaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+    if (!$dara.isNull(request.elasticNetworkInterfaceId)) {
       body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
     }
 
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       body["NodeId"] = request.nodeId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetachElasticNetworkInterface",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23775,7 +26001,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new DetachElasticNetworkInterfaceResponse({}));
+    return $dara.cast<DetachElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new DetachElasticNetworkInterfaceResponse({}));
   }
 
   /**
@@ -23788,7 +26014,7 @@ export default class Client extends OpenApi {
    * @returns DetachElasticNetworkInterfaceResponse
    */
   async detachElasticNetworkInterface(request: DetachElasticNetworkInterfaceRequest): Promise<DetachElasticNetworkInterfaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detachElasticNetworkInterfaceWithOptions(request, runtime);
   }
 
@@ -23799,21 +26025,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDestinationCidrBlockResponse
    */
-  async getDestinationCidrBlockWithOptions(request: GetDestinationCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<GetDestinationCidrBlockResponse> {
-    Util.validateModel(request);
+  async getDestinationCidrBlockWithOptions(request: GetDestinationCidrBlockRequest, runtime: $dara.RuntimeOptions): Promise<GetDestinationCidrBlockResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDestinationCidrBlock",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23824,7 +26050,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDestinationCidrBlockResponse>(await this.callApi(params, req, runtime), new GetDestinationCidrBlockResponse({}));
+    return $dara.cast<GetDestinationCidrBlockResponse>(await this.callApi(params, req, runtime), new GetDestinationCidrBlockResponse({}));
   }
 
   /**
@@ -23834,7 +26060,7 @@ export default class Client extends OpenApi {
    * @returns GetDestinationCidrBlockResponse
    */
   async getDestinationCidrBlock(request: GetDestinationCidrBlockRequest): Promise<GetDestinationCidrBlockResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDestinationCidrBlockWithOptions(request, runtime);
   }
 
@@ -23845,21 +26071,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetElasticNetworkInterfaceResponse
    */
-  async getElasticNetworkInterfaceWithOptions(request: GetElasticNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<GetElasticNetworkInterfaceResponse> {
-    Util.validateModel(request);
+  async getElasticNetworkInterfaceWithOptions(request: GetElasticNetworkInterfaceRequest, runtime: $dara.RuntimeOptions): Promise<GetElasticNetworkInterfaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+    if (!$dara.isNull(request.elasticNetworkInterfaceId)) {
       body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetElasticNetworkInterface",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23870,7 +26096,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new GetElasticNetworkInterfaceResponse({}));
+    return $dara.cast<GetElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new GetElasticNetworkInterfaceResponse({}));
   }
 
   /**
@@ -23880,7 +26106,7 @@ export default class Client extends OpenApi {
    * @returns GetElasticNetworkInterfaceResponse
    */
   async getElasticNetworkInterface(request: GetElasticNetworkInterfaceRequest): Promise<GetElasticNetworkInterfaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getElasticNetworkInterfaceWithOptions(request, runtime);
   }
 
@@ -23891,21 +26117,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetErResponse
    */
-  async getErWithOptions(request: GetErRequest, runtime: $Util.RuntimeOptions): Promise<GetErResponse> {
-    Util.validateModel(request);
+  async getErWithOptions(request: GetErRequest, runtime: $dara.RuntimeOptions): Promise<GetErResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetEr",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23916,7 +26142,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetErResponse>(await this.callApi(params, req, runtime), new GetErResponse({}));
+    return $dara.cast<GetErResponse>(await this.callApi(params, req, runtime), new GetErResponse({}));
   }
 
   /**
@@ -23926,7 +26152,7 @@ export default class Client extends OpenApi {
    * @returns GetErResponse
    */
   async getEr(request: GetErRequest): Promise<GetErResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getErWithOptions(request, runtime);
   }
 
@@ -23937,25 +26163,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetErAttachmentResponse
    */
-  async getErAttachmentWithOptions(request: GetErAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<GetErAttachmentResponse> {
-    Util.validateModel(request);
+  async getErAttachmentWithOptions(request: GetErAttachmentRequest, runtime: $dara.RuntimeOptions): Promise<GetErAttachmentResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erAttachmentId)) {
+    if (!$dara.isNull(request.erAttachmentId)) {
       body["ErAttachmentId"] = request.erAttachmentId;
     }
 
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetErAttachment",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -23966,7 +26192,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetErAttachmentResponse>(await this.callApi(params, req, runtime), new GetErAttachmentResponse({}));
+    return $dara.cast<GetErAttachmentResponse>(await this.callApi(params, req, runtime), new GetErAttachmentResponse({}));
   }
 
   /**
@@ -23976,7 +26202,7 @@ export default class Client extends OpenApi {
    * @returns GetErAttachmentResponse
    */
   async getErAttachment(request: GetErAttachmentRequest): Promise<GetErAttachmentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getErAttachmentWithOptions(request, runtime);
   }
 
@@ -23987,25 +26213,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetErRouteEntryResponse
    */
-  async getErRouteEntryWithOptions(request: GetErRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<GetErRouteEntryResponse> {
-    Util.validateModel(request);
+  async getErRouteEntryWithOptions(request: GetErRouteEntryRequest, runtime: $dara.RuntimeOptions): Promise<GetErRouteEntryResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.erRouteEntryId)) {
+    if (!$dara.isNull(request.erRouteEntryId)) {
       body["ErRouteEntryId"] = request.erRouteEntryId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetErRouteEntry",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24016,7 +26242,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetErRouteEntryResponse>(await this.callApi(params, req, runtime), new GetErRouteEntryResponse({}));
+    return $dara.cast<GetErRouteEntryResponse>(await this.callApi(params, req, runtime), new GetErRouteEntryResponse({}));
   }
 
   /**
@@ -24026,7 +26252,7 @@ export default class Client extends OpenApi {
    * @returns GetErRouteEntryResponse
    */
   async getErRouteEntry(request: GetErRouteEntryRequest): Promise<GetErRouteEntryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getErRouteEntryWithOptions(request, runtime);
   }
 
@@ -24037,25 +26263,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetErRouteMapResponse
    */
-  async getErRouteMapWithOptions(request: GetErRouteMapRequest, runtime: $Util.RuntimeOptions): Promise<GetErRouteMapResponse> {
-    Util.validateModel(request);
+  async getErRouteMapWithOptions(request: GetErRouteMapRequest, runtime: $dara.RuntimeOptions): Promise<GetErRouteMapResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.erRouteMapId)) {
+    if (!$dara.isNull(request.erRouteMapId)) {
       body["ErRouteMapId"] = request.erRouteMapId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetErRouteMap",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24066,7 +26292,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetErRouteMapResponse>(await this.callApi(params, req, runtime), new GetErRouteMapResponse({}));
+    return $dara.cast<GetErRouteMapResponse>(await this.callApi(params, req, runtime), new GetErRouteMapResponse({}));
   }
 
   /**
@@ -24076,7 +26302,7 @@ export default class Client extends OpenApi {
    * @returns GetErRouteMapResponse
    */
   async getErRouteMap(request: GetErRouteMapRequest): Promise<GetErRouteMapResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getErRouteMapWithOptions(request, runtime);
   }
 
@@ -24087,37 +26313,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFabricTopologyResponse
    */
-  async getFabricTopologyWithOptions(request: GetFabricTopologyRequest, runtime: $Util.RuntimeOptions): Promise<GetFabricTopologyResponse> {
-    Util.validateModel(request);
+  async getFabricTopologyWithOptions(request: GetFabricTopologyRequest, runtime: $dara.RuntimeOptions): Promise<GetFabricTopologyResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.lniIds)) {
+    if (!$dara.isNull(request.lniIds)) {
       body["LniIds"] = request.lniIds;
     }
 
-    if (!Util.isUnset(request.nodeIds)) {
+    if (!$dara.isNull(request.nodeIds)) {
       body["NodeIds"] = request.nodeIds;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       body["VpcId"] = request.vpcId;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetFabricTopology",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24128,7 +26354,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetFabricTopologyResponse>(await this.callApi(params, req, runtime), new GetFabricTopologyResponse({}));
+    return $dara.cast<GetFabricTopologyResponse>(await this.callApi(params, req, runtime), new GetFabricTopologyResponse({}));
   }
 
   /**
@@ -24138,7 +26364,7 @@ export default class Client extends OpenApi {
    * @returns GetFabricTopologyResponse
    */
   async getFabricTopology(request: GetFabricTopologyRequest): Promise<GetFabricTopologyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getFabricTopologyWithOptions(request, runtime);
   }
 
@@ -24149,25 +26375,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLeniPrivateIpAddressResponse
    */
-  async getLeniPrivateIpAddressWithOptions(request: GetLeniPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<GetLeniPrivateIpAddressResponse> {
-    Util.validateModel(request);
+  async getLeniPrivateIpAddressWithOptions(request: GetLeniPrivateIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<GetLeniPrivateIpAddressResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+    if (!$dara.isNull(request.elasticNetworkInterfaceId)) {
       body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
     }
 
-    if (!Util.isUnset(request.ipName)) {
+    if (!$dara.isNull(request.ipName)) {
       body["IpName"] = request.ipName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetLeniPrivateIpAddress",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24178,7 +26404,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new GetLeniPrivateIpAddressResponse({}));
+    return $dara.cast<GetLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new GetLeniPrivateIpAddressResponse({}));
   }
 
   /**
@@ -24188,7 +26414,7 @@ export default class Client extends OpenApi {
    * @returns GetLeniPrivateIpAddressResponse
    */
   async getLeniPrivateIpAddress(request: GetLeniPrivateIpAddressRequest): Promise<GetLeniPrivateIpAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getLeniPrivateIpAddressWithOptions(request, runtime);
   }
 
@@ -24199,25 +26425,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLniPrivateIpAddressResponse
    */
-  async getLniPrivateIpAddressWithOptions(request: GetLniPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<GetLniPrivateIpAddressResponse> {
-    Util.validateModel(request);
+  async getLniPrivateIpAddressWithOptions(request: GetLniPrivateIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<GetLniPrivateIpAddressResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ipName)) {
+    if (!$dara.isNull(request.ipName)) {
       body["IpName"] = request.ipName;
     }
 
-    if (!Util.isUnset(request.networkInterfaceId)) {
+    if (!$dara.isNull(request.networkInterfaceId)) {
       body["NetworkInterfaceId"] = request.networkInterfaceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetLniPrivateIpAddress",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24228,7 +26454,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetLniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new GetLniPrivateIpAddressResponse({}));
+    return $dara.cast<GetLniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new GetLniPrivateIpAddressResponse({}));
   }
 
   /**
@@ -24238,7 +26464,7 @@ export default class Client extends OpenApi {
    * @returns GetLniPrivateIpAddressResponse
    */
   async getLniPrivateIpAddress(request: GetLniPrivateIpAddressRequest): Promise<GetLniPrivateIpAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getLniPrivateIpAddressWithOptions(request, runtime);
   }
 
@@ -24249,25 +26475,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNetworkInterfaceResponse
    */
-  async getNetworkInterfaceWithOptions(request: GetNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<GetNetworkInterfaceResponse> {
-    Util.validateModel(request);
+  async getNetworkInterfaceWithOptions(request: GetNetworkInterfaceRequest, runtime: $dara.RuntimeOptions): Promise<GetNetworkInterfaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.networkInterfaceId)) {
+    if (!$dara.isNull(request.networkInterfaceId)) {
       body["NetworkInterfaceId"] = request.networkInterfaceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.subnetId)) {
+    if (!$dara.isNull(request.subnetId)) {
       body["SubnetId"] = request.subnetId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetNetworkInterface",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24278,7 +26504,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new GetNetworkInterfaceResponse({}));
+    return $dara.cast<GetNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new GetNetworkInterfaceResponse({}));
   }
 
   /**
@@ -24288,7 +26514,7 @@ export default class Client extends OpenApi {
    * @returns GetNetworkInterfaceResponse
    */
   async getNetworkInterface(request: GetNetworkInterfaceRequest): Promise<GetNetworkInterfaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getNetworkInterfaceWithOptions(request, runtime);
   }
 
@@ -24299,21 +26525,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNodeInfoForPodResponse
    */
-  async getNodeInfoForPodWithOptions(request: GetNodeInfoForPodRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeInfoForPodResponse> {
-    Util.validateModel(request);
+  async getNodeInfoForPodWithOptions(request: GetNodeInfoForPodRequest, runtime: $dara.RuntimeOptions): Promise<GetNodeInfoForPodResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       body["NodeId"] = request.nodeId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetNodeInfoForPod",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24324,7 +26550,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetNodeInfoForPodResponse>(await this.callApi(params, req, runtime), new GetNodeInfoForPodResponse({}));
+    return $dara.cast<GetNodeInfoForPodResponse>(await this.callApi(params, req, runtime), new GetNodeInfoForPodResponse({}));
   }
 
   /**
@@ -24334,7 +26560,7 @@ export default class Client extends OpenApi {
    * @returns GetNodeInfoForPodResponse
    */
   async getNodeInfoForPod(request: GetNodeInfoForPodRequest): Promise<GetNodeInfoForPodResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getNodeInfoForPodWithOptions(request, runtime);
   }
 
@@ -24345,25 +26571,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSubnetResponse
    */
-  async getSubnetWithOptions(request: GetSubnetRequest, runtime: $Util.RuntimeOptions): Promise<GetSubnetResponse> {
-    Util.validateModel(request);
+  async getSubnetWithOptions(request: GetSubnetRequest, runtime: $dara.RuntimeOptions): Promise<GetSubnetResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.subnetId)) {
+    if (!$dara.isNull(request.subnetId)) {
       body["SubnetId"] = request.subnetId;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSubnet",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24374,7 +26600,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSubnetResponse>(await this.callApi(params, req, runtime), new GetSubnetResponse({}));
+    return $dara.cast<GetSubnetResponse>(await this.callApi(params, req, runtime), new GetSubnetResponse({}));
   }
 
   /**
@@ -24384,7 +26610,7 @@ export default class Client extends OpenApi {
    * @returns GetSubnetResponse
    */
   async getSubnet(request: GetSubnetRequest): Promise<GetSubnetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSubnetWithOptions(request, runtime);
   }
 
@@ -24395,37 +26621,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVccResponse
    */
-  async getVccWithOptions(request: GetVccRequest, runtime: $Util.RuntimeOptions): Promise<GetVccResponse> {
-    Util.validateModel(request);
+  async getVccWithOptions(request: GetVccRequest, runtime: $dara.RuntimeOptions): Promise<GetVccResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.vccId)) {
+    if (!$dara.isNull(request.vccId)) {
       body["VccId"] = request.vccId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetVcc",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24436,7 +26662,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetVccResponse>(await this.callApi(params, req, runtime), new GetVccResponse({}));
+    return $dara.cast<GetVccResponse>(await this.callApi(params, req, runtime), new GetVccResponse({}));
   }
 
   /**
@@ -24446,7 +26672,7 @@ export default class Client extends OpenApi {
    * @returns GetVccResponse
    */
   async getVcc(request: GetVccRequest): Promise<GetVccResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getVccWithOptions(request, runtime);
   }
 
@@ -24457,33 +26683,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVccGrantRuleResponse
    */
-  async getVccGrantRuleWithOptions(request: GetVccGrantRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetVccGrantRuleResponse> {
-    Util.validateModel(request);
+  async getVccGrantRuleWithOptions(request: GetVccGrantRuleRequest, runtime: $dara.RuntimeOptions): Promise<GetVccGrantRuleResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.grantRuleId)) {
+    if (!$dara.isNull(request.grantRuleId)) {
       body["GrantRuleId"] = request.grantRuleId;
     }
 
-    if (!Util.isUnset(request.grantTenantId)) {
+    if (!$dara.isNull(request.grantTenantId)) {
       body["GrantTenantId"] = request.grantTenantId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetVccGrantRule",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24494,7 +26720,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetVccGrantRuleResponse>(await this.callApi(params, req, runtime), new GetVccGrantRuleResponse({}));
+    return $dara.cast<GetVccGrantRuleResponse>(await this.callApi(params, req, runtime), new GetVccGrantRuleResponse({}));
   }
 
   /**
@@ -24504,7 +26730,7 @@ export default class Client extends OpenApi {
    * @returns GetVccGrantRuleResponse
    */
   async getVccGrantRule(request: GetVccGrantRuleRequest): Promise<GetVccGrantRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getVccGrantRuleWithOptions(request, runtime);
   }
 
@@ -24515,25 +26741,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVccRouteEntryResponse
    */
-  async getVccRouteEntryWithOptions(request: GetVccRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<GetVccRouteEntryResponse> {
-    Util.validateModel(request);
+  async getVccRouteEntryWithOptions(request: GetVccRouteEntryRequest, runtime: $dara.RuntimeOptions): Promise<GetVccRouteEntryResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.vccId)) {
+    if (!$dara.isNull(request.vccId)) {
       body["VccId"] = request.vccId;
     }
 
-    if (!Util.isUnset(request.vccRouteEntryId)) {
+    if (!$dara.isNull(request.vccRouteEntryId)) {
       body["VccRouteEntryId"] = request.vccRouteEntryId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetVccRouteEntry",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24544,7 +26770,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetVccRouteEntryResponse>(await this.callApi(params, req, runtime), new GetVccRouteEntryResponse({}));
+    return $dara.cast<GetVccRouteEntryResponse>(await this.callApi(params, req, runtime), new GetVccRouteEntryResponse({}));
   }
 
   /**
@@ -24554,7 +26780,7 @@ export default class Client extends OpenApi {
    * @returns GetVccRouteEntryResponse
    */
   async getVccRouteEntry(request: GetVccRouteEntryRequest): Promise<GetVccRouteEntryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getVccRouteEntryWithOptions(request, runtime);
   }
 
@@ -24565,21 +26791,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVpdResponse
    */
-  async getVpdWithOptions(request: GetVpdRequest, runtime: $Util.RuntimeOptions): Promise<GetVpdResponse> {
-    Util.validateModel(request);
+  async getVpdWithOptions(request: GetVpdRequest, runtime: $dara.RuntimeOptions): Promise<GetVpdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetVpd",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24590,7 +26816,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetVpdResponse>(await this.callApi(params, req, runtime), new GetVpdResponse({}));
+    return $dara.cast<GetVpdResponse>(await this.callApi(params, req, runtime), new GetVpdResponse({}));
   }
 
   /**
@@ -24600,7 +26826,7 @@ export default class Client extends OpenApi {
    * @returns GetVpdResponse
    */
   async getVpd(request: GetVpdRequest): Promise<GetVpdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getVpdWithOptions(request, runtime);
   }
 
@@ -24611,33 +26837,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVpdGrantRuleResponse
    */
-  async getVpdGrantRuleWithOptions(request: GetVpdGrantRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetVpdGrantRuleResponse> {
-    Util.validateModel(request);
+  async getVpdGrantRuleWithOptions(request: GetVpdGrantRuleRequest, runtime: $dara.RuntimeOptions): Promise<GetVpdGrantRuleResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.grantRuleId)) {
+    if (!$dara.isNull(request.grantRuleId)) {
       body["GrantRuleId"] = request.grantRuleId;
     }
 
-    if (!Util.isUnset(request.grantTenantId)) {
+    if (!$dara.isNull(request.grantTenantId)) {
       body["GrantTenantId"] = request.grantTenantId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetVpdGrantRule",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24648,7 +26874,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new GetVpdGrantRuleResponse({}));
+    return $dara.cast<GetVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new GetVpdGrantRuleResponse({}));
   }
 
   /**
@@ -24658,7 +26884,7 @@ export default class Client extends OpenApi {
    * @returns GetVpdGrantRuleResponse
    */
   async getVpdGrantRule(request: GetVpdGrantRuleRequest): Promise<GetVpdGrantRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getVpdGrantRuleWithOptions(request, runtime);
   }
 
@@ -24669,25 +26895,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVpdRouteEntryResponse
    */
-  async getVpdRouteEntryWithOptions(request: GetVpdRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<GetVpdRouteEntryResponse> {
-    Util.validateModel(request);
+  async getVpdRouteEntryWithOptions(request: GetVpdRouteEntryRequest, runtime: $dara.RuntimeOptions): Promise<GetVpdRouteEntryResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    if (!Util.isUnset(request.vpdRouteEntryId)) {
+    if (!$dara.isNull(request.vpdRouteEntryId)) {
       body["VpdRouteEntryId"] = request.vpdRouteEntryId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetVpdRouteEntry",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24698,7 +26924,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetVpdRouteEntryResponse>(await this.callApi(params, req, runtime), new GetVpdRouteEntryResponse({}));
+    return $dara.cast<GetVpdRouteEntryResponse>(await this.callApi(params, req, runtime), new GetVpdRouteEntryResponse({}));
   }
 
   /**
@@ -24708,7 +26934,7 @@ export default class Client extends OpenApi {
    * @returns GetVpdRouteEntryResponse
    */
   async getVpdRouteEntry(request: GetVpdRouteEntryRequest): Promise<GetVpdRouteEntryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getVpdRouteEntryWithOptions(request, runtime);
   }
 
@@ -24719,17 +26945,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InitializeVccResponse
    */
-  async initializeVccWithOptions(request: InitializeVccRequest, runtime: $Util.RuntimeOptions): Promise<InitializeVccResponse> {
-    Util.validateModel(request);
+  async initializeVccWithOptions(request: InitializeVccRequest, runtime: $dara.RuntimeOptions): Promise<InitializeVccResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "InitializeVcc",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24740,7 +26966,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<InitializeVccResponse>(await this.callApi(params, req, runtime), new InitializeVccResponse({}));
+    return $dara.cast<InitializeVccResponse>(await this.callApi(params, req, runtime), new InitializeVccResponse({}));
   }
 
   /**
@@ -24750,7 +26976,7 @@ export default class Client extends OpenApi {
    * @returns InitializeVccResponse
    */
   async initializeVcc(request: InitializeVccRequest): Promise<InitializeVccResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.initializeVccWithOptions(request, runtime);
   }
 
@@ -24761,61 +26987,61 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListElasticNetworkInterfacesResponse
    */
-  async listElasticNetworkInterfacesWithOptions(request: ListElasticNetworkInterfacesRequest, runtime: $Util.RuntimeOptions): Promise<ListElasticNetworkInterfacesResponse> {
-    Util.validateModel(request);
+  async listElasticNetworkInterfacesWithOptions(request: ListElasticNetworkInterfacesRequest, runtime: $dara.RuntimeOptions): Promise<ListElasticNetworkInterfacesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+    if (!$dara.isNull(request.elasticNetworkInterfaceId)) {
       body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       body["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.networkType)) {
+    if (!$dara.isNull(request.networkType)) {
       body["NetworkType"] = request.networkType;
     }
 
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       body["NodeId"] = request.nodeId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.vSwitchId)) {
+    if (!$dara.isNull(request.vSwitchId)) {
       body["VSwitchId"] = request.vSwitchId;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       body["VpcId"] = request.vpcId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       body["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListElasticNetworkInterfaces",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24826,7 +27052,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListElasticNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new ListElasticNetworkInterfacesResponse({}));
+    return $dara.cast<ListElasticNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new ListElasticNetworkInterfacesResponse({}));
   }
 
   /**
@@ -24836,7 +27062,7 @@ export default class Client extends OpenApi {
    * @returns ListElasticNetworkInterfacesResponse
    */
   async listElasticNetworkInterfaces(request: ListElasticNetworkInterfacesRequest): Promise<ListElasticNetworkInterfacesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listElasticNetworkInterfacesWithOptions(request, runtime);
   }
 
@@ -24847,65 +27073,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListErAttachmentsResponse
    */
-  async listErAttachmentsWithOptions(request: ListErAttachmentsRequest, runtime: $Util.RuntimeOptions): Promise<ListErAttachmentsResponse> {
-    Util.validateModel(request);
+  async listErAttachmentsWithOptions(request: ListErAttachmentsRequest, runtime: $dara.RuntimeOptions): Promise<ListErAttachmentsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.autoReceiveAllRoute)) {
+    if (!$dara.isNull(request.autoReceiveAllRoute)) {
       body["AutoReceiveAllRoute"] = request.autoReceiveAllRoute;
     }
 
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.erAttachmentId)) {
+    if (!$dara.isNull(request.erAttachmentId)) {
       body["ErAttachmentId"] = request.erAttachmentId;
     }
 
-    if (!Util.isUnset(request.erAttachmentName)) {
+    if (!$dara.isNull(request.erAttachmentName)) {
       body["ErAttachmentName"] = request.erAttachmentName;
     }
 
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.instanceType)) {
+    if (!$dara.isNull(request.instanceType)) {
       body["InstanceType"] = request.instanceType;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceTenantId)) {
+    if (!$dara.isNull(request.resourceTenantId)) {
       body["ResourceTenantId"] = request.resourceTenantId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListErAttachments",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -24916,7 +27142,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListErAttachmentsResponse>(await this.callApi(params, req, runtime), new ListErAttachmentsResponse({}));
+    return $dara.cast<ListErAttachmentsResponse>(await this.callApi(params, req, runtime), new ListErAttachmentsResponse({}));
   }
 
   /**
@@ -24926,7 +27152,7 @@ export default class Client extends OpenApi {
    * @returns ListErAttachmentsResponse
    */
   async listErAttachments(request: ListErAttachmentsRequest): Promise<ListErAttachmentsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listErAttachmentsWithOptions(request, runtime);
   }
 
@@ -24937,65 +27163,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListErRouteEntriesResponse
    */
-  async listErRouteEntriesWithOptions(request: ListErRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListErRouteEntriesResponse> {
-    Util.validateModel(request);
+  async listErRouteEntriesWithOptions(request: ListErRouteEntriesRequest, runtime: $dara.RuntimeOptions): Promise<ListErRouteEntriesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.destinationCidrBlock)) {
+    if (!$dara.isNull(request.destinationCidrBlock)) {
       body["DestinationCidrBlock"] = request.destinationCidrBlock;
     }
 
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.ignoreDetailedRouteEntry)) {
+    if (!$dara.isNull(request.ignoreDetailedRouteEntry)) {
       body["IgnoreDetailedRouteEntry"] = request.ignoreDetailedRouteEntry;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.nextHopId)) {
+    if (!$dara.isNull(request.nextHopId)) {
       body["NextHopId"] = request.nextHopId;
     }
 
-    if (!Util.isUnset(request.nextHopType)) {
+    if (!$dara.isNull(request.nextHopType)) {
       body["NextHopType"] = request.nextHopType;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.routeType)) {
+    if (!$dara.isNull(request.routeType)) {
       body["RouteType"] = request.routeType;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListErRouteEntries",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -25006,7 +27232,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListErRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListErRouteEntriesResponse({}));
+    return $dara.cast<ListErRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListErRouteEntriesResponse({}));
   }
 
   /**
@@ -25016,7 +27242,7 @@ export default class Client extends OpenApi {
    * @returns ListErRouteEntriesResponse
    */
   async listErRouteEntries(request: ListErRouteEntriesRequest): Promise<ListErRouteEntriesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listErRouteEntriesWithOptions(request, runtime);
   }
 
@@ -25027,77 +27253,77 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListErRouteMapsResponse
    */
-  async listErRouteMapsWithOptions(request: ListErRouteMapsRequest, runtime: $Util.RuntimeOptions): Promise<ListErRouteMapsResponse> {
-    Util.validateModel(request);
+  async listErRouteMapsWithOptions(request: ListErRouteMapsRequest, runtime: $dara.RuntimeOptions): Promise<ListErRouteMapsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.destinationCidrBlock)) {
+    if (!$dara.isNull(request.destinationCidrBlock)) {
       body["DestinationCidrBlock"] = request.destinationCidrBlock;
     }
 
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.erRouteMapId)) {
+    if (!$dara.isNull(request.erRouteMapId)) {
       body["ErRouteMapId"] = request.erRouteMapId;
     }
 
-    if (!Util.isUnset(request.erRouteMapNum)) {
+    if (!$dara.isNull(request.erRouteMapNum)) {
       body["ErRouteMapNum"] = request.erRouteMapNum;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.receptionInstanceId)) {
+    if (!$dara.isNull(request.receptionInstanceId)) {
       body["ReceptionInstanceId"] = request.receptionInstanceId;
     }
 
-    if (!Util.isUnset(request.receptionInstanceName)) {
+    if (!$dara.isNull(request.receptionInstanceName)) {
       body["ReceptionInstanceName"] = request.receptionInstanceName;
     }
 
-    if (!Util.isUnset(request.receptionInstanceType)) {
+    if (!$dara.isNull(request.receptionInstanceType)) {
       body["ReceptionInstanceType"] = request.receptionInstanceType;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.routeMapAction)) {
+    if (!$dara.isNull(request.routeMapAction)) {
       body["RouteMapAction"] = request.routeMapAction;
     }
 
-    if (!Util.isUnset(request.transmissionInstanceId)) {
+    if (!$dara.isNull(request.transmissionInstanceId)) {
       body["TransmissionInstanceId"] = request.transmissionInstanceId;
     }
 
-    if (!Util.isUnset(request.transmissionInstanceName)) {
+    if (!$dara.isNull(request.transmissionInstanceName)) {
       body["TransmissionInstanceName"] = request.transmissionInstanceName;
     }
 
-    if (!Util.isUnset(request.transmissionInstanceType)) {
+    if (!$dara.isNull(request.transmissionInstanceType)) {
       body["TransmissionInstanceType"] = request.transmissionInstanceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListErRouteMaps",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -25108,7 +27334,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListErRouteMapsResponse>(await this.callApi(params, req, runtime), new ListErRouteMapsResponse({}));
+    return $dara.cast<ListErRouteMapsResponse>(await this.callApi(params, req, runtime), new ListErRouteMapsResponse({}));
   }
 
   /**
@@ -25118,7 +27344,7 @@ export default class Client extends OpenApi {
    * @returns ListErRouteMapsResponse
    */
   async listErRouteMaps(request: ListErRouteMapsRequest): Promise<ListErRouteMapsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listErRouteMapsWithOptions(request, runtime);
   }
 
@@ -25129,53 +27355,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListErsResponse
    */
-  async listErsWithOptions(request: ListErsRequest, runtime: $Util.RuntimeOptions): Promise<ListErsResponse> {
-    Util.validateModel(request);
+  async listErsWithOptions(request: ListErsRequest, runtime: $dara.RuntimeOptions): Promise<ListErsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.erName)) {
+    if (!$dara.isNull(request.erName)) {
       body["ErName"] = request.erName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.instanceType)) {
+    if (!$dara.isNull(request.instanceType)) {
       body["InstanceType"] = request.instanceType;
     }
 
-    if (!Util.isUnset(request.masterZoneId)) {
+    if (!$dara.isNull(request.masterZoneId)) {
       body["MasterZoneId"] = request.masterZoneId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListErs",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -25186,7 +27412,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListErsResponse>(await this.callApi(params, req, runtime), new ListErsResponse({}));
+    return $dara.cast<ListErsResponse>(await this.callApi(params, req, runtime), new ListErsResponse({}));
   }
 
   /**
@@ -25196,7 +27422,7 @@ export default class Client extends OpenApi {
    * @returns ListErsResponse
    */
   async listErs(request: ListErsRequest): Promise<ListErsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listErsWithOptions(request, runtime);
   }
 
@@ -25207,29 +27433,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstancesByNcdResponse
    */
-  async listInstancesByNcdWithOptions(request: ListInstancesByNcdRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesByNcdResponse> {
-    Util.validateModel(request);
+  async listInstancesByNcdWithOptions(request: ListInstancesByNcdRequest, runtime: $dara.RuntimeOptions): Promise<ListInstancesByNcdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.instanceType)) {
+    if (!$dara.isNull(request.instanceType)) {
       body["InstanceType"] = request.instanceType;
     }
 
-    if (!Util.isUnset(request.maxNcd)) {
+    if (!$dara.isNull(request.maxNcd)) {
       body["MaxNcd"] = request.maxNcd;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListInstancesByNcd",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -25240,7 +27466,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListInstancesByNcdResponse>(await this.callApi(params, req, runtime), new ListInstancesByNcdResponse({}));
+    return $dara.cast<ListInstancesByNcdResponse>(await this.callApi(params, req, runtime), new ListInstancesByNcdResponse({}));
   }
 
   /**
@@ -25250,7 +27476,7 @@ export default class Client extends OpenApi {
    * @returns ListInstancesByNcdResponse
    */
   async listInstancesByNcd(request: ListInstancesByNcdRequest): Promise<ListInstancesByNcdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listInstancesByNcdWithOptions(request, runtime);
   }
 
@@ -25261,41 +27487,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListLeniPrivateIpAddressesResponse
    */
-  async listLeniPrivateIpAddressesWithOptions(request: ListLeniPrivateIpAddressesRequest, runtime: $Util.RuntimeOptions): Promise<ListLeniPrivateIpAddressesResponse> {
-    Util.validateModel(request);
+  async listLeniPrivateIpAddressesWithOptions(request: ListLeniPrivateIpAddressesRequest, runtime: $dara.RuntimeOptions): Promise<ListLeniPrivateIpAddressesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+    if (!$dara.isNull(request.elasticNetworkInterfaceId)) {
       body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
     }
 
-    if (!Util.isUnset(request.ipName)) {
+    if (!$dara.isNull(request.ipName)) {
       body["IpName"] = request.ipName;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.privateIpAddress)) {
+    if (!$dara.isNull(request.privateIpAddress)) {
       body["PrivateIpAddress"] = request.privateIpAddress;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListLeniPrivateIpAddresses",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -25306,7 +27532,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListLeniPrivateIpAddressesResponse>(await this.callApi(params, req, runtime), new ListLeniPrivateIpAddressesResponse({}));
+    return $dara.cast<ListLeniPrivateIpAddressesResponse>(await this.callApi(params, req, runtime), new ListLeniPrivateIpAddressesResponse({}));
   }
 
   /**
@@ -25316,7 +27542,7 @@ export default class Client extends OpenApi {
    * @returns ListLeniPrivateIpAddressesResponse
    */
   async listLeniPrivateIpAddresses(request: ListLeniPrivateIpAddressesRequest): Promise<ListLeniPrivateIpAddressesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listLeniPrivateIpAddressesWithOptions(request, runtime);
   }
 
@@ -25327,45 +27553,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListLniPrivateIpAddressResponse
    */
-  async listLniPrivateIpAddressWithOptions(request: ListLniPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<ListLniPrivateIpAddressResponse> {
-    Util.validateModel(request);
+  async listLniPrivateIpAddressWithOptions(request: ListLniPrivateIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<ListLniPrivateIpAddressResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       body["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.ipName)) {
+    if (!$dara.isNull(request.ipName)) {
       body["IpName"] = request.ipName;
     }
 
-    if (!Util.isUnset(request.networkInterfaceId)) {
+    if (!$dara.isNull(request.networkInterfaceId)) {
       body["NetworkInterfaceId"] = request.networkInterfaceId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListLniPrivateIpAddress",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -25376,7 +27602,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListLniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new ListLniPrivateIpAddressResponse({}));
+    return $dara.cast<ListLniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new ListLniPrivateIpAddressResponse({}));
   }
 
   /**
@@ -25386,7 +27612,7 @@ export default class Client extends OpenApi {
    * @returns ListLniPrivateIpAddressResponse
    */
   async listLniPrivateIpAddress(request: ListLniPrivateIpAddressRequest): Promise<ListLniPrivateIpAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listLniPrivateIpAddressWithOptions(request, runtime);
   }
 
@@ -25397,49 +27623,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNetworkInterfacesResponse
    */
-  async listNetworkInterfacesWithOptions(request: ListNetworkInterfacesRequest, runtime: $Util.RuntimeOptions): Promise<ListNetworkInterfacesResponse> {
-    Util.validateModel(request);
+  async listNetworkInterfacesWithOptions(request: ListNetworkInterfacesRequest, runtime: $dara.RuntimeOptions): Promise<ListNetworkInterfacesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       body["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.networkInterfaceId)) {
+    if (!$dara.isNull(request.networkInterfaceId)) {
       body["NetworkInterfaceId"] = request.networkInterfaceId;
     }
 
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       body["NodeId"] = request.nodeId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.subnetId)) {
+    if (!$dara.isNull(request.subnetId)) {
       body["SubnetId"] = request.subnetId;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListNetworkInterfaces",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -25450,7 +27676,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new ListNetworkInterfacesResponse({}));
+    return $dara.cast<ListNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new ListNetworkInterfacesResponse({}));
   }
 
   /**
@@ -25460,7 +27686,7 @@ export default class Client extends OpenApi {
    * @returns ListNetworkInterfacesResponse
    */
   async listNetworkInterfaces(request: ListNetworkInterfacesRequest): Promise<ListNetworkInterfacesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listNetworkInterfacesWithOptions(request, runtime);
   }
 
@@ -25471,29 +27697,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNodeInfosForPodResponse
    */
-  async listNodeInfosForPodWithOptions(request: ListNodeInfosForPodRequest, runtime: $Util.RuntimeOptions): Promise<ListNodeInfosForPodResponse> {
-    Util.validateModel(request);
+  async listNodeInfosForPodWithOptions(request: ListNodeInfosForPodRequest, runtime: $dara.RuntimeOptions): Promise<ListNodeInfosForPodResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       body["NodeId"] = request.nodeId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       body["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListNodeInfosForPod",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -25504,7 +27730,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListNodeInfosForPodResponse>(await this.callApi(params, req, runtime), new ListNodeInfosForPodResponse({}));
+    return $dara.cast<ListNodeInfosForPodResponse>(await this.callApi(params, req, runtime), new ListNodeInfosForPodResponse({}));
   }
 
   /**
@@ -25514,7 +27740,7 @@ export default class Client extends OpenApi {
    * @returns ListNodeInfosForPodResponse
    */
   async listNodeInfosForPod(request: ListNodeInfosForPodRequest): Promise<ListNodeInfosForPodResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listNodeInfosForPodWithOptions(request, runtime);
   }
 
@@ -25525,61 +27751,61 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSubnetsResponse
    */
-  async listSubnetsWithOptions(request: ListSubnetsRequest, runtime: $Util.RuntimeOptions): Promise<ListSubnetsResponse> {
-    Util.validateModel(request);
+  async listSubnetsWithOptions(request: ListSubnetsRequest, runtime: $dara.RuntimeOptions): Promise<ListSubnetsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.subnetId)) {
+    if (!$dara.isNull(request.subnetId)) {
       body["SubnetId"] = request.subnetId;
     }
 
-    if (!Util.isUnset(request.subnetName)) {
+    if (!$dara.isNull(request.subnetName)) {
       body["SubnetName"] = request.subnetName;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       body["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       body["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListSubnets",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -25590,7 +27816,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListSubnetsResponse>(await this.callApi(params, req, runtime), new ListSubnetsResponse({}));
+    return $dara.cast<ListSubnetsResponse>(await this.callApi(params, req, runtime), new ListSubnetsResponse({}));
   }
 
   /**
@@ -25600,7 +27826,7 @@ export default class Client extends OpenApi {
    * @returns ListSubnetsResponse
    */
   async listSubnets(request: ListSubnetsRequest): Promise<ListSubnetsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listSubnetsWithOptions(request, runtime);
   }
 
@@ -25611,37 +27837,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVccFlowInfosResponse
    */
-  async listVccFlowInfosWithOptions(request: ListVccFlowInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListVccFlowInfosResponse> {
-    Util.validateModel(request);
+  async listVccFlowInfosWithOptions(request: ListVccFlowInfosRequest, runtime: $dara.RuntimeOptions): Promise<ListVccFlowInfosResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.direction)) {
+    if (!$dara.isNull(request.direction)) {
       body["Direction"] = request.direction;
     }
 
-    if (!Util.isUnset(request.from)) {
+    if (!$dara.isNull(request.from)) {
       body["From"] = request.from;
     }
 
-    if (!Util.isUnset(request.metricName)) {
+    if (!$dara.isNull(request.metricName)) {
       body["MetricName"] = request.metricName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.to)) {
+    if (!$dara.isNull(request.to)) {
       body["To"] = request.to;
     }
 
-    if (!Util.isUnset(request.vccId)) {
+    if (!$dara.isNull(request.vccId)) {
       body["VccId"] = request.vccId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListVccFlowInfos",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -25652,7 +27878,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListVccFlowInfosResponse>(await this.callApi(params, req, runtime), new ListVccFlowInfosResponse({}));
+    return $dara.cast<ListVccFlowInfosResponse>(await this.callApi(params, req, runtime), new ListVccFlowInfosResponse({}));
   }
 
   /**
@@ -25662,7 +27888,7 @@ export default class Client extends OpenApi {
    * @returns ListVccFlowInfosResponse
    */
   async listVccFlowInfos(request: ListVccFlowInfosRequest): Promise<ListVccFlowInfosResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listVccFlowInfosWithOptions(request, runtime);
   }
 
@@ -25673,57 +27899,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVccGrantRulesResponse
    */
-  async listVccGrantRulesWithOptions(request: ListVccGrantRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListVccGrantRulesResponse> {
-    Util.validateModel(request);
+  async listVccGrantRulesWithOptions(request: ListVccGrantRulesRequest, runtime: $dara.RuntimeOptions): Promise<ListVccGrantRulesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.forSelect)) {
+    if (!$dara.isNull(request.forSelect)) {
       body["ForSelect"] = request.forSelect;
     }
 
-    if (!Util.isUnset(request.grantRuleId)) {
+    if (!$dara.isNull(request.grantRuleId)) {
       body["GrantRuleId"] = request.grantRuleId;
     }
 
-    if (!Util.isUnset(request.grantTenantId)) {
+    if (!$dara.isNull(request.grantTenantId)) {
       body["GrantTenantId"] = request.grantTenantId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListVccGrantRules",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -25734,7 +27960,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListVccGrantRulesResponse>(await this.callApi(params, req, runtime), new ListVccGrantRulesResponse({}));
+    return $dara.cast<ListVccGrantRulesResponse>(await this.callApi(params, req, runtime), new ListVccGrantRulesResponse({}));
   }
 
   /**
@@ -25744,7 +27970,7 @@ export default class Client extends OpenApi {
    * @returns ListVccGrantRulesResponse
    */
   async listVccGrantRules(request: ListVccGrantRulesRequest): Promise<ListVccGrantRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listVccGrantRulesWithOptions(request, runtime);
   }
 
@@ -25755,65 +27981,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVccRouteEntriesResponse
    */
-  async listVccRouteEntriesWithOptions(request: ListVccRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListVccRouteEntriesResponse> {
-    Util.validateModel(request);
+  async listVccRouteEntriesWithOptions(request: ListVccRouteEntriesRequest, runtime: $dara.RuntimeOptions): Promise<ListVccRouteEntriesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.destinationCidrBlock)) {
+    if (!$dara.isNull(request.destinationCidrBlock)) {
       body["DestinationCidrBlock"] = request.destinationCidrBlock;
     }
 
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.ignoreDetailedRouteEntry)) {
+    if (!$dara.isNull(request.ignoreDetailedRouteEntry)) {
       body["IgnoreDetailedRouteEntry"] = request.ignoreDetailedRouteEntry;
     }
 
-    if (!Util.isUnset(request.nextHopId)) {
+    if (!$dara.isNull(request.nextHopId)) {
       body["NextHopId"] = request.nextHopId;
     }
 
-    if (!Util.isUnset(request.nextHopType)) {
+    if (!$dara.isNull(request.nextHopType)) {
       body["NextHopType"] = request.nextHopType;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.routeType)) {
+    if (!$dara.isNull(request.routeType)) {
       body["RouteType"] = request.routeType;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.vccId)) {
+    if (!$dara.isNull(request.vccId)) {
       body["VccId"] = request.vccId;
     }
 
-    if (!Util.isUnset(request.vpdRouteEntryId)) {
+    if (!$dara.isNull(request.vpdRouteEntryId)) {
       body["VpdRouteEntryId"] = request.vpdRouteEntryId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListVccRouteEntries",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -25824,7 +28050,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListVccRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListVccRouteEntriesResponse({}));
+    return $dara.cast<ListVccRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListVccRouteEntriesResponse({}));
   }
 
   /**
@@ -25834,7 +28060,7 @@ export default class Client extends OpenApi {
    * @returns ListVccRouteEntriesResponse
    */
   async listVccRouteEntries(request: ListVccRouteEntriesRequest): Promise<ListVccRouteEntriesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listVccRouteEntriesWithOptions(request, runtime);
   }
 
@@ -25845,69 +28071,69 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVccsResponse
    */
-  async listVccsWithOptions(request: ListVccsRequest, runtime: $Util.RuntimeOptions): Promise<ListVccsResponse> {
-    Util.validateModel(request);
+  async listVccsWithOptions(request: ListVccsRequest, runtime: $dara.RuntimeOptions): Promise<ListVccsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.bandwidth)) {
+    if (!$dara.isNull(request.bandwidth)) {
       body["Bandwidth"] = request.bandwidth;
     }
 
-    if (!Util.isUnset(request.cenId)) {
+    if (!$dara.isNull(request.cenId)) {
       body["CenId"] = request.cenId;
     }
 
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.exStatus)) {
+    if (!$dara.isNull(request.exStatus)) {
       body["ExStatus"] = request.exStatus;
     }
 
-    if (!Util.isUnset(request.filterErId)) {
+    if (!$dara.isNull(request.filterErId)) {
       body["FilterErId"] = request.filterErId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       body["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.vccId)) {
+    if (!$dara.isNull(request.vccId)) {
       body["VccId"] = request.vccId;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       body["VpcId"] = request.vpcId;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListVccs",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -25918,7 +28144,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListVccsResponse>(await this.callApi(params, req, runtime), new ListVccsResponse({}));
+    return $dara.cast<ListVccsResponse>(await this.callApi(params, req, runtime), new ListVccsResponse({}));
   }
 
   /**
@@ -25928,7 +28154,7 @@ export default class Client extends OpenApi {
    * @returns ListVccsResponse
    */
   async listVccs(request: ListVccsRequest): Promise<ListVccsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listVccsWithOptions(request, runtime);
   }
 
@@ -25939,57 +28165,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVpdGrantRulesResponse
    */
-  async listVpdGrantRulesWithOptions(request: ListVpdGrantRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpdGrantRulesResponse> {
-    Util.validateModel(request);
+  async listVpdGrantRulesWithOptions(request: ListVpdGrantRulesRequest, runtime: $dara.RuntimeOptions): Promise<ListVpdGrantRulesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.forSelect)) {
+    if (!$dara.isNull(request.forSelect)) {
       body["ForSelect"] = request.forSelect;
     }
 
-    if (!Util.isUnset(request.grantRuleId)) {
+    if (!$dara.isNull(request.grantRuleId)) {
       body["GrantRuleId"] = request.grantRuleId;
     }
 
-    if (!Util.isUnset(request.grantTenantId)) {
+    if (!$dara.isNull(request.grantTenantId)) {
       body["GrantTenantId"] = request.grantTenantId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListVpdGrantRules",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26000,7 +28226,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListVpdGrantRulesResponse>(await this.callApi(params, req, runtime), new ListVpdGrantRulesResponse({}));
+    return $dara.cast<ListVpdGrantRulesResponse>(await this.callApi(params, req, runtime), new ListVpdGrantRulesResponse({}));
   }
 
   /**
@@ -26010,7 +28236,7 @@ export default class Client extends OpenApi {
    * @returns ListVpdGrantRulesResponse
    */
   async listVpdGrantRules(request: ListVpdGrantRulesRequest): Promise<ListVpdGrantRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listVpdGrantRulesWithOptions(request, runtime);
   }
 
@@ -26021,65 +28247,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVpdRouteEntriesResponse
    */
-  async listVpdRouteEntriesWithOptions(request: ListVpdRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpdRouteEntriesResponse> {
-    Util.validateModel(request);
+  async listVpdRouteEntriesWithOptions(request: ListVpdRouteEntriesRequest, runtime: $dara.RuntimeOptions): Promise<ListVpdRouteEntriesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.destinationCidrBlock)) {
+    if (!$dara.isNull(request.destinationCidrBlock)) {
       body["DestinationCidrBlock"] = request.destinationCidrBlock;
     }
 
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.ignoreDetailedRouteEntry)) {
+    if (!$dara.isNull(request.ignoreDetailedRouteEntry)) {
       body["IgnoreDetailedRouteEntry"] = request.ignoreDetailedRouteEntry;
     }
 
-    if (!Util.isUnset(request.nextHopId)) {
+    if (!$dara.isNull(request.nextHopId)) {
       body["NextHopId"] = request.nextHopId;
     }
 
-    if (!Util.isUnset(request.nextHopType)) {
+    if (!$dara.isNull(request.nextHopType)) {
       body["NextHopType"] = request.nextHopType;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.routeType)) {
+    if (!$dara.isNull(request.routeType)) {
       body["RouteType"] = request.routeType;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    if (!Util.isUnset(request.vpdRouteEntryId)) {
+    if (!$dara.isNull(request.vpdRouteEntryId)) {
       body["VpdRouteEntryId"] = request.vpdRouteEntryId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListVpdRouteEntries",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26090,7 +28316,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListVpdRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListVpdRouteEntriesResponse({}));
+    return $dara.cast<ListVpdRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListVpdRouteEntriesResponse({}));
   }
 
   /**
@@ -26100,7 +28326,7 @@ export default class Client extends OpenApi {
    * @returns ListVpdRouteEntriesResponse
    */
   async listVpdRouteEntries(request: ListVpdRouteEntriesRequest): Promise<ListVpdRouteEntriesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listVpdRouteEntriesWithOptions(request, runtime);
   }
 
@@ -26111,65 +28337,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVpdsResponse
    */
-  async listVpdsWithOptions(request: ListVpdsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpdsResponse> {
-    Util.validateModel(request);
+  async listVpdsWithOptions(request: ListVpdsRequest, runtime: $dara.RuntimeOptions): Promise<ListVpdsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.enablePage)) {
+    if (!$dara.isNull(request.enablePage)) {
       body["EnablePage"] = request.enablePage;
     }
 
-    if (!Util.isUnset(request.filterErId)) {
+    if (!$dara.isNull(request.filterErId)) {
       body["FilterErId"] = request.filterErId;
     }
 
-    if (!Util.isUnset(request.forSelect)) {
+    if (!$dara.isNull(request.forSelect)) {
       body["ForSelect"] = request.forSelect;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       body["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    if (!Util.isUnset(request.vpdName)) {
+    if (!$dara.isNull(request.vpdName)) {
       body["VpdName"] = request.vpdName;
     }
 
-    if (!Util.isUnset(request.withDependence)) {
+    if (!$dara.isNull(request.withDependence)) {
       body["WithDependence"] = request.withDependence;
     }
 
-    if (!Util.isUnset(request.withoutVcc)) {
+    if (!$dara.isNull(request.withoutVcc)) {
       body["WithoutVcc"] = request.withoutVcc;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListVpds",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26180,7 +28406,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListVpdsResponse>(await this.callApi(params, req, runtime), new ListVpdsResponse({}));
+    return $dara.cast<ListVpdsResponse>(await this.callApi(params, req, runtime), new ListVpdsResponse({}));
   }
 
   /**
@@ -26190,7 +28416,7 @@ export default class Client extends OpenApi {
    * @returns ListVpdsResponse
    */
   async listVpds(request: ListVpdsRequest): Promise<ListVpdsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listVpdsWithOptions(request, runtime);
   }
 
@@ -26201,29 +28427,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryInstanceNcdResponse
    */
-  async queryInstanceNcdWithOptions(request: QueryInstanceNcdRequest, runtime: $Util.RuntimeOptions): Promise<QueryInstanceNcdResponse> {
-    Util.validateModel(request);
+  async queryInstanceNcdWithOptions(request: QueryInstanceNcdRequest, runtime: $dara.RuntimeOptions): Promise<QueryInstanceNcdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceId1)) {
+    if (!$dara.isNull(request.instanceId1)) {
       body["InstanceId1"] = request.instanceId1;
     }
 
-    if (!Util.isUnset(request.instanceId2)) {
+    if (!$dara.isNull(request.instanceId2)) {
       body["InstanceId2"] = request.instanceId2;
     }
 
-    if (!Util.isUnset(request.instanceType)) {
+    if (!$dara.isNull(request.instanceType)) {
       body["InstanceType"] = request.instanceType;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryInstanceNcd",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26234,7 +28460,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryInstanceNcdResponse>(await this.callApi(params, req, runtime), new QueryInstanceNcdResponse({}));
+    return $dara.cast<QueryInstanceNcdResponse>(await this.callApi(params, req, runtime), new QueryInstanceNcdResponse({}));
   }
 
   /**
@@ -26244,7 +28470,7 @@ export default class Client extends OpenApi {
    * @returns QueryInstanceNcdResponse
    */
   async queryInstanceNcd(request: QueryInstanceNcdRequest): Promise<QueryInstanceNcdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryInstanceNcdWithOptions(request, runtime);
   }
 
@@ -26258,21 +28484,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RefundVccResponse
    */
-  async refundVccWithOptions(request: RefundVccRequest, runtime: $Util.RuntimeOptions): Promise<RefundVccResponse> {
-    Util.validateModel(request);
+  async refundVccWithOptions(request: RefundVccRequest, runtime: $dara.RuntimeOptions): Promise<RefundVccResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.vccId)) {
+    if (!$dara.isNull(request.vccId)) {
       body["VccId"] = request.vccId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RefundVcc",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26283,7 +28509,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RefundVccResponse>(await this.callApi(params, req, runtime), new RefundVccResponse({}));
+    return $dara.cast<RefundVccResponse>(await this.callApi(params, req, runtime), new RefundVccResponse({}));
   }
 
   /**
@@ -26296,7 +28522,7 @@ export default class Client extends OpenApi {
    * @returns RefundVccResponse
    */
   async refundVcc(request: RefundVccRequest): Promise<RefundVccResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.refundVccWithOptions(request, runtime);
   }
 
@@ -26310,21 +28536,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RetryVccResponse
    */
-  async retryVccWithOptions(request: RetryVccRequest, runtime: $Util.RuntimeOptions): Promise<RetryVccResponse> {
-    Util.validateModel(request);
+  async retryVccWithOptions(request: RetryVccRequest, runtime: $dara.RuntimeOptions): Promise<RetryVccResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.vccId)) {
+    if (!$dara.isNull(request.vccId)) {
       body["VccId"] = request.vccId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RetryVcc",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26335,7 +28561,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RetryVccResponse>(await this.callApi(params, req, runtime), new RetryVccResponse({}));
+    return $dara.cast<RetryVccResponse>(await this.callApi(params, req, runtime), new RetryVccResponse({}));
   }
 
   /**
@@ -26348,7 +28574,7 @@ export default class Client extends OpenApi {
    * @returns RetryVccResponse
    */
   async retryVcc(request: RetryVccRequest): Promise<RetryVccResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.retryVccWithOptions(request, runtime);
   }
 
@@ -26359,37 +28585,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnAssignPrivateIpAddressResponse
    */
-  async unAssignPrivateIpAddressWithOptions(request: UnAssignPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnAssignPrivateIpAddressResponse> {
-    Util.validateModel(request);
+  async unAssignPrivateIpAddressWithOptions(request: UnAssignPrivateIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<UnAssignPrivateIpAddressResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.ipName)) {
+    if (!$dara.isNull(request.ipName)) {
       body["IpName"] = request.ipName;
     }
 
-    if (!Util.isUnset(request.networkInterfaceId)) {
+    if (!$dara.isNull(request.networkInterfaceId)) {
       body["NetworkInterfaceId"] = request.networkInterfaceId;
     }
 
-    if (!Util.isUnset(request.privateIpAddress)) {
+    if (!$dara.isNull(request.privateIpAddress)) {
       body["PrivateIpAddress"] = request.privateIpAddress;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.subnetId)) {
+    if (!$dara.isNull(request.subnetId)) {
       body["SubnetId"] = request.subnetId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnAssignPrivateIpAddress",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26400,7 +28626,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnAssignPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UnAssignPrivateIpAddressResponse({}));
+    return $dara.cast<UnAssignPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UnAssignPrivateIpAddressResponse({}));
   }
 
   /**
@@ -26410,7 +28636,7 @@ export default class Client extends OpenApi {
    * @returns UnAssignPrivateIpAddressResponse
    */
   async unAssignPrivateIpAddress(request: UnAssignPrivateIpAddressRequest): Promise<UnAssignPrivateIpAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unAssignPrivateIpAddressWithOptions(request, runtime);
   }
 
@@ -26425,25 +28651,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnAssociateVpdCidrBlockResponse
    */
-  async unAssociateVpdCidrBlockWithOptions(request: UnAssociateVpdCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<UnAssociateVpdCidrBlockResponse> {
-    Util.validateModel(request);
+  async unAssociateVpdCidrBlockWithOptions(request: UnAssociateVpdCidrBlockRequest, runtime: $dara.RuntimeOptions): Promise<UnAssociateVpdCidrBlockResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.secondaryCidrBlock)) {
+    if (!$dara.isNull(request.secondaryCidrBlock)) {
       body["SecondaryCidrBlock"] = request.secondaryCidrBlock;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnAssociateVpdCidrBlock",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26454,7 +28680,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnAssociateVpdCidrBlockResponse>(await this.callApi(params, req, runtime), new UnAssociateVpdCidrBlockResponse({}));
+    return $dara.cast<UnAssociateVpdCidrBlockResponse>(await this.callApi(params, req, runtime), new UnAssociateVpdCidrBlockResponse({}));
   }
 
   /**
@@ -26468,7 +28694,7 @@ export default class Client extends OpenApi {
    * @returns UnAssociateVpdCidrBlockResponse
    */
   async unAssociateVpdCidrBlock(request: UnAssociateVpdCidrBlockRequest): Promise<UnAssociateVpdCidrBlockResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unAssociateVpdCidrBlockWithOptions(request, runtime);
   }
 
@@ -26479,29 +28705,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnassignLeniPrivateIpAddressResponse
    */
-  async unassignLeniPrivateIpAddressWithOptions(request: UnassignLeniPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnassignLeniPrivateIpAddressResponse> {
-    Util.validateModel(request);
+  async unassignLeniPrivateIpAddressWithOptions(request: UnassignLeniPrivateIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<UnassignLeniPrivateIpAddressResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+    if (!$dara.isNull(request.elasticNetworkInterfaceId)) {
       body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
     }
 
-    if (!Util.isUnset(request.ipName)) {
+    if (!$dara.isNull(request.ipName)) {
       body["IpName"] = request.ipName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnassignLeniPrivateIpAddress",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26512,7 +28738,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnassignLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UnassignLeniPrivateIpAddressResponse({}));
+    return $dara.cast<UnassignLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UnassignLeniPrivateIpAddressResponse({}));
   }
 
   /**
@@ -26522,7 +28748,7 @@ export default class Client extends OpenApi {
    * @returns UnassignLeniPrivateIpAddressResponse
    */
   async unassignLeniPrivateIpAddress(request: UnassignLeniPrivateIpAddressRequest): Promise<UnassignLeniPrivateIpAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unassignLeniPrivateIpAddressWithOptions(request, runtime);
   }
 
@@ -26533,33 +28759,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateElasticNetworkInterfaceResponse
    */
-  async updateElasticNetworkInterfaceWithOptions(request: UpdateElasticNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateElasticNetworkInterfaceResponse> {
-    Util.validateModel(request);
+  async updateElasticNetworkInterfaceWithOptions(request: UpdateElasticNetworkInterfaceRequest, runtime: $dara.RuntimeOptions): Promise<UpdateElasticNetworkInterfaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+    if (!$dara.isNull(request.elasticNetworkInterfaceId)) {
       body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.securityGroupId)) {
+    if (!$dara.isNull(request.securityGroupId)) {
       body["SecurityGroupId"] = request.securityGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateElasticNetworkInterface",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26570,7 +28796,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new UpdateElasticNetworkInterfaceResponse({}));
+    return $dara.cast<UpdateElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new UpdateElasticNetworkInterfaceResponse({}));
   }
 
   /**
@@ -26580,7 +28806,7 @@ export default class Client extends OpenApi {
    * @returns UpdateElasticNetworkInterfaceResponse
    */
   async updateElasticNetworkInterface(request: UpdateElasticNetworkInterfaceRequest): Promise<UpdateElasticNetworkInterfaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateElasticNetworkInterfaceWithOptions(request, runtime);
   }
 
@@ -26591,29 +28817,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateErResponse
    */
-  async updateErWithOptions(request: UpdateErRequest, runtime: $Util.RuntimeOptions): Promise<UpdateErResponse> {
-    Util.validateModel(request);
+  async updateErWithOptions(request: UpdateErRequest, runtime: $dara.RuntimeOptions): Promise<UpdateErResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.erName)) {
+    if (!$dara.isNull(request.erName)) {
       body["ErName"] = request.erName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateEr",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26624,7 +28850,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateErResponse>(await this.callApi(params, req, runtime), new UpdateErResponse({}));
+    return $dara.cast<UpdateErResponse>(await this.callApi(params, req, runtime), new UpdateErResponse({}));
   }
 
   /**
@@ -26634,7 +28860,7 @@ export default class Client extends OpenApi {
    * @returns UpdateErResponse
    */
   async updateEr(request: UpdateErRequest): Promise<UpdateErResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateErWithOptions(request, runtime);
   }
 
@@ -26645,29 +28871,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateErAttachmentResponse
    */
-  async updateErAttachmentWithOptions(request: UpdateErAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateErAttachmentResponse> {
-    Util.validateModel(request);
+  async updateErAttachmentWithOptions(request: UpdateErAttachmentRequest, runtime: $dara.RuntimeOptions): Promise<UpdateErAttachmentResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.erAttachmentId)) {
+    if (!$dara.isNull(request.erAttachmentId)) {
       body["ErAttachmentId"] = request.erAttachmentId;
     }
 
-    if (!Util.isUnset(request.erAttachmentName)) {
+    if (!$dara.isNull(request.erAttachmentName)) {
       body["ErAttachmentName"] = request.erAttachmentName;
     }
 
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateErAttachment",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26678,7 +28904,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateErAttachmentResponse>(await this.callApi(params, req, runtime), new UpdateErAttachmentResponse({}));
+    return $dara.cast<UpdateErAttachmentResponse>(await this.callApi(params, req, runtime), new UpdateErAttachmentResponse({}));
   }
 
   /**
@@ -26688,7 +28914,7 @@ export default class Client extends OpenApi {
    * @returns UpdateErAttachmentResponse
    */
   async updateErAttachment(request: UpdateErAttachmentRequest): Promise<UpdateErAttachmentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateErAttachmentWithOptions(request, runtime);
   }
 
@@ -26699,29 +28925,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateErRouteMapResponse
    */
-  async updateErRouteMapWithOptions(request: UpdateErRouteMapRequest, runtime: $Util.RuntimeOptions): Promise<UpdateErRouteMapResponse> {
-    Util.validateModel(request);
+  async updateErRouteMapWithOptions(request: UpdateErRouteMapRequest, runtime: $dara.RuntimeOptions): Promise<UpdateErRouteMapResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.erId)) {
+    if (!$dara.isNull(request.erId)) {
       body["ErId"] = request.erId;
     }
 
-    if (!Util.isUnset(request.erRouteMapId)) {
+    if (!$dara.isNull(request.erRouteMapId)) {
       body["ErRouteMapId"] = request.erRouteMapId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateErRouteMap",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26732,7 +28958,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateErRouteMapResponse>(await this.callApi(params, req, runtime), new UpdateErRouteMapResponse({}));
+    return $dara.cast<UpdateErRouteMapResponse>(await this.callApi(params, req, runtime), new UpdateErRouteMapResponse({}));
   }
 
   /**
@@ -26742,7 +28968,7 @@ export default class Client extends OpenApi {
    * @returns UpdateErRouteMapResponse
    */
   async updateErRouteMap(request: UpdateErRouteMapRequest): Promise<UpdateErRouteMapResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateErRouteMapWithOptions(request, runtime);
   }
 
@@ -26753,29 +28979,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateLeniPrivateIpAddressResponse
    */
-  async updateLeniPrivateIpAddressWithOptions(request: UpdateLeniPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLeniPrivateIpAddressResponse> {
-    Util.validateModel(request);
+  async updateLeniPrivateIpAddressWithOptions(request: UpdateLeniPrivateIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<UpdateLeniPrivateIpAddressResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.elasticNetworkInterfaceId)) {
+    if (!$dara.isNull(request.elasticNetworkInterfaceId)) {
       body["ElasticNetworkInterfaceId"] = request.elasticNetworkInterfaceId;
     }
 
-    if (!Util.isUnset(request.ipName)) {
+    if (!$dara.isNull(request.ipName)) {
       body["IpName"] = request.ipName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateLeniPrivateIpAddress",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26786,7 +29012,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UpdateLeniPrivateIpAddressResponse({}));
+    return $dara.cast<UpdateLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UpdateLeniPrivateIpAddressResponse({}));
   }
 
   /**
@@ -26796,7 +29022,7 @@ export default class Client extends OpenApi {
    * @returns UpdateLeniPrivateIpAddressResponse
    */
   async updateLeniPrivateIpAddress(request: UpdateLeniPrivateIpAddressRequest): Promise<UpdateLeniPrivateIpAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateLeniPrivateIpAddressWithOptions(request, runtime);
   }
 
@@ -26807,33 +29033,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSubnetResponse
    */
-  async updateSubnetWithOptions(request: UpdateSubnetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSubnetResponse> {
-    Util.validateModel(request);
+  async updateSubnetWithOptions(request: UpdateSubnetRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSubnetResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.subnetId)) {
+    if (!$dara.isNull(request.subnetId)) {
       body["SubnetId"] = request.subnetId;
     }
 
-    if (!Util.isUnset(request.subnetName)) {
+    if (!$dara.isNull(request.subnetName)) {
       body["SubnetName"] = request.subnetName;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       body["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateSubnet",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26844,7 +29070,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateSubnetResponse>(await this.callApi(params, req, runtime), new UpdateSubnetResponse({}));
+    return $dara.cast<UpdateSubnetResponse>(await this.callApi(params, req, runtime), new UpdateSubnetResponse({}));
   }
 
   /**
@@ -26854,7 +29080,7 @@ export default class Client extends OpenApi {
    * @returns UpdateSubnetResponse
    */
   async updateSubnet(request: UpdateSubnetRequest): Promise<UpdateSubnetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSubnetWithOptions(request, runtime);
   }
 
@@ -26865,33 +29091,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateVccResponse
    */
-  async updateVccWithOptions(request: UpdateVccRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVccResponse> {
-    Util.validateModel(request);
+  async updateVccWithOptions(request: UpdateVccRequest, runtime: $dara.RuntimeOptions): Promise<UpdateVccResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.bandwidth)) {
+    if (!$dara.isNull(request.bandwidth)) {
       body["Bandwidth"] = request.bandwidth;
     }
 
-    if (!Util.isUnset(request.orderId)) {
+    if (!$dara.isNull(request.orderId)) {
       body["OrderId"] = request.orderId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.vccId)) {
+    if (!$dara.isNull(request.vccId)) {
       body["VccId"] = request.vccId;
     }
 
-    if (!Util.isUnset(request.vccName)) {
+    if (!$dara.isNull(request.vccName)) {
       body["VccName"] = request.vccName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateVcc",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26902,7 +29128,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateVccResponse>(await this.callApi(params, req, runtime), new UpdateVccResponse({}));
+    return $dara.cast<UpdateVccResponse>(await this.callApi(params, req, runtime), new UpdateVccResponse({}));
   }
 
   /**
@@ -26912,7 +29138,7 @@ export default class Client extends OpenApi {
    * @returns UpdateVccResponse
    */
   async updateVcc(request: UpdateVccRequest): Promise<UpdateVccResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateVccWithOptions(request, runtime);
   }
 
@@ -26923,25 +29149,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateVpdResponse
    */
-  async updateVpdWithOptions(request: UpdateVpdRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpdResponse> {
-    Util.validateModel(request);
+  async updateVpdWithOptions(request: UpdateVpdRequest, runtime: $dara.RuntimeOptions): Promise<UpdateVpdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.vpdId)) {
+    if (!$dara.isNull(request.vpdId)) {
       body["VpdId"] = request.vpdId;
     }
 
-    if (!Util.isUnset(request.vpdName)) {
+    if (!$dara.isNull(request.vpdName)) {
       body["VpdName"] = request.vpdName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateVpd",
       version: "2022-05-30",
       protocol: "HTTPS",
@@ -26952,7 +29178,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateVpdResponse>(await this.callApi(params, req, runtime), new UpdateVpdResponse({}));
+    return $dara.cast<UpdateVpdResponse>(await this.callApi(params, req, runtime), new UpdateVpdResponse({}));
   }
 
   /**
@@ -26962,7 +29188,7 @@ export default class Client extends OpenApi {
    * @returns UpdateVpdResponse
    */
   async updateVpd(request: UpdateVpdRequest): Promise<UpdateVpdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateVpdWithOptions(request, runtime);
   }
 
