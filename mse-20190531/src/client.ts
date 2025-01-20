@@ -35446,6 +35446,7 @@ export class CloneSentinelRuleFromAhasRequest extends $dara.Model {
    * false
    */
   isAHASPublicRegion?: boolean;
+  mseAppName?: string;
   /**
    * @remarks
    * The namespace.
@@ -35462,6 +35463,7 @@ export class CloneSentinelRuleFromAhasRequest extends $dara.Model {
       ahasNamespace: 'AhasNamespace',
       appName: 'AppName',
       isAHASPublicRegion: 'IsAHASPublicRegion',
+      mseAppName: 'MseAppName',
       namespace: 'Namespace',
     };
   }
@@ -35472,6 +35474,7 @@ export class CloneSentinelRuleFromAhasRequest extends $dara.Model {
       ahasNamespace: 'string',
       appName: 'string',
       isAHASPublicRegion: 'boolean',
+      mseAppName: 'string',
       namespace: 'string',
     };
   }
@@ -81892,7 +81895,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddAuthPolicyResponse>(await this.callApi(params, req, runtime), new AddAuthPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddAuthPolicyResponse>(await this.callApi(params, req, runtime), new AddAuthPolicyResponse({}));
+    } else {
+      return $dara.cast<AddAuthPolicyResponse>(await this.execute(params, req, runtime), new AddAuthPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -81968,7 +81976,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddAuthResourceResponse>(await this.callApi(params, req, runtime), new AddAuthResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddAuthResourceResponse>(await this.callApi(params, req, runtime), new AddAuthResourceResponse({}));
+    } else {
+      return $dara.cast<AddAuthResourceResponse>(await this.execute(params, req, runtime), new AddAuthResourceResponse({}));
+    }
+
   }
 
   /**
@@ -82046,7 +82059,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddBlackWhiteListResponse>(await this.callApi(params, req, runtime), new AddBlackWhiteListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddBlackWhiteListResponse>(await this.callApi(params, req, runtime), new AddBlackWhiteListResponse({}));
+    } else {
+      return $dara.cast<AddBlackWhiteListResponse>(await this.execute(params, req, runtime), new AddBlackWhiteListResponse({}));
+    }
+
   }
 
   /**
@@ -82182,7 +82200,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddGatewayResponse>(await this.callApi(params, req, runtime), new AddGatewayResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddGatewayResponse>(await this.callApi(params, req, runtime), new AddGatewayResponse({}));
+    } else {
+      return $dara.cast<AddGatewayResponse>(await this.execute(params, req, runtime), new AddGatewayResponse({}));
+    }
+
   }
 
   /**
@@ -82326,7 +82349,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddGatewayAuthResponse>(await this.callApi(params, req, runtime), new AddGatewayAuthResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddGatewayAuthResponse>(await this.callApi(params, req, runtime), new AddGatewayAuthResponse({}));
+    } else {
+      return $dara.cast<AddGatewayAuthResponse>(await this.execute(params, req, runtime), new AddGatewayAuthResponse({}));
+    }
+
   }
 
   /**
@@ -82416,7 +82444,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddGatewayAuthConsumerResponse>(await this.callApi(params, req, runtime), new AddGatewayAuthConsumerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddGatewayAuthConsumerResponse>(await this.callApi(params, req, runtime), new AddGatewayAuthConsumerResponse({}));
+    } else {
+      return $dara.cast<AddGatewayAuthConsumerResponse>(await this.execute(params, req, runtime), new AddGatewayAuthConsumerResponse({}));
+    }
+
   }
 
   /**
@@ -82490,7 +82523,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddGatewayDomainResponse>(await this.callApi(params, req, runtime), new AddGatewayDomainResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddGatewayDomainResponse>(await this.callApi(params, req, runtime), new AddGatewayDomainResponse({}));
+    } else {
+      return $dara.cast<AddGatewayDomainResponse>(await this.execute(params, req, runtime), new AddGatewayDomainResponse({}));
+    }
+
   }
 
   /**
@@ -82622,7 +82660,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddGatewayRouteResponse>(await this.callApi(params, req, runtime), new AddGatewayRouteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddGatewayRouteResponse>(await this.callApi(params, req, runtime), new AddGatewayRouteResponse({}));
+    } else {
+      return $dara.cast<AddGatewayRouteResponse>(await this.execute(params, req, runtime), new AddGatewayRouteResponse({}));
+    }
+
   }
 
   /**
@@ -82676,7 +82719,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddGatewayServiceVersionResponse>(await this.callApi(params, req, runtime), new AddGatewayServiceVersionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddGatewayServiceVersionResponse>(await this.callApi(params, req, runtime), new AddGatewayServiceVersionResponse({}));
+    } else {
+      return $dara.cast<AddGatewayServiceVersionResponse>(await this.execute(params, req, runtime), new AddGatewayServiceVersionResponse({}));
+    }
+
   }
 
   /**
@@ -82760,7 +82808,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddGatewaySlbResponse>(await this.callApi(params, req, runtime), new AddGatewaySlbResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddGatewaySlbResponse>(await this.callApi(params, req, runtime), new AddGatewaySlbResponse({}));
+    } else {
+      return $dara.cast<AddGatewaySlbResponse>(await this.execute(params, req, runtime), new AddGatewaySlbResponse({}));
+    }
+
   }
 
   /**
@@ -82842,7 +82895,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddMigrationTaskResponse>(await this.callApi(params, req, runtime), new AddMigrationTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddMigrationTaskResponse>(await this.callApi(params, req, runtime), new AddMigrationTaskResponse({}));
+    } else {
+      return $dara.cast<AddMigrationTaskResponse>(await this.execute(params, req, runtime), new AddMigrationTaskResponse({}));
+    }
+
   }
 
   /**
@@ -82928,7 +82986,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddMockRuleResponse>(await this.callApi(params, req, runtime), new AddMockRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddMockRuleResponse>(await this.callApi(params, req, runtime), new AddMockRuleResponse({}));
+    } else {
+      return $dara.cast<AddMockRuleResponse>(await this.execute(params, req, runtime), new AddMockRuleResponse({}));
+    }
+
   }
 
   /**
@@ -82982,7 +83045,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddSSLCertResponse>(await this.callApi(params, req, runtime), new AddSSLCertResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddSSLCertResponse>(await this.callApi(params, req, runtime), new AddSSLCertResponse({}));
+    } else {
+      return $dara.cast<AddSSLCertResponse>(await this.execute(params, req, runtime), new AddSSLCertResponse({}));
+    }
+
   }
 
   /**
@@ -83040,7 +83108,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddSecurityGroupRuleResponse>(await this.callApi(params, req, runtime), new AddSecurityGroupRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddSecurityGroupRuleResponse>(await this.callApi(params, req, runtime), new AddSecurityGroupRuleResponse({}));
+    } else {
+      return $dara.cast<AddSecurityGroupRuleResponse>(await this.execute(params, req, runtime), new AddSecurityGroupRuleResponse({}));
+    }
+
   }
 
   /**
@@ -83136,7 +83209,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddServiceSourceResponse>(await this.callApi(params, req, runtime), new AddServiceSourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddServiceSourceResponse>(await this.callApi(params, req, runtime), new AddServiceSourceResponse({}));
+    } else {
+      return $dara.cast<AddServiceSourceResponse>(await this.execute(params, req, runtime), new AddServiceSourceResponse({}));
+    }
+
   }
 
   /**
@@ -83186,7 +83264,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ApplyGatewayRouteResponse>(await this.callApi(params, req, runtime), new ApplyGatewayRouteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ApplyGatewayRouteResponse>(await this.callApi(params, req, runtime), new ApplyGatewayRouteResponse({}));
+    } else {
+      return $dara.cast<ApplyGatewayRouteResponse>(await this.execute(params, req, runtime), new ApplyGatewayRouteResponse({}));
+    }
+
   }
 
   /**
@@ -83262,7 +83345,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ApplyTagPoliciesResponse>(await this.callApi(params, req, runtime), new ApplyTagPoliciesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ApplyTagPoliciesResponse>(await this.callApi(params, req, runtime), new ApplyTagPoliciesResponse({}));
+    } else {
+      return $dara.cast<ApplyTagPoliciesResponse>(await this.execute(params, req, runtime), new ApplyTagPoliciesResponse({}));
+    }
+
   }
 
   /**
@@ -83324,7 +83412,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<BindSentinelBlockFallbackDefinitionResponse>(await this.callApi(params, req, runtime), new BindSentinelBlockFallbackDefinitionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BindSentinelBlockFallbackDefinitionResponse>(await this.callApi(params, req, runtime), new BindSentinelBlockFallbackDefinitionResponse({}));
+    } else {
+      return $dara.cast<BindSentinelBlockFallbackDefinitionResponse>(await this.execute(params, req, runtime), new BindSentinelBlockFallbackDefinitionResponse({}));
+    }
+
   }
 
   /**
@@ -83382,7 +83475,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    } else {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.execute(params, req, runtime), new ChangeResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -83451,7 +83549,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CloneNacosConfigResponse>(await this.callApi(params, req, runtime), new CloneNacosConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CloneNacosConfigResponse>(await this.callApi(params, req, runtime), new CloneNacosConfigResponse({}));
+    } else {
+      return $dara.cast<CloneNacosConfigResponse>(await this.execute(params, req, runtime), new CloneNacosConfigResponse({}));
+    }
+
   }
 
   /**
@@ -83494,6 +83597,10 @@ export default class Client extends OpenApi {
       query["IsAHASPublicRegion"] = request.isAHASPublicRegion;
     }
 
+    if (!$dara.isNull(request.mseAppName)) {
+      query["MseAppName"] = request.mseAppName;
+    }
+
     if (!$dara.isNull(request.namespace)) {
       query["Namespace"] = request.namespace;
     }
@@ -83512,7 +83619,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CloneSentinelRuleFromAhasResponse>(await this.callApi(params, req, runtime), new CloneSentinelRuleFromAhasResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CloneSentinelRuleFromAhasResponse>(await this.callApi(params, req, runtime), new CloneSentinelRuleFromAhasResponse({}));
+    } else {
+      return $dara.cast<CloneSentinelRuleFromAhasResponse>(await this.execute(params, req, runtime), new CloneSentinelRuleFromAhasResponse({}));
+    }
+
   }
 
   /**
@@ -83582,7 +83694,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
+    } else {
+      return $dara.cast<CreateApplicationResponse>(await this.execute(params, req, runtime), new CreateApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -83684,7 +83801,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new CreateCircuitBreakerRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new CreateCircuitBreakerRuleResponse({}));
+    } else {
+      return $dara.cast<CreateCircuitBreakerRuleResponse>(await this.execute(params, req, runtime), new CreateCircuitBreakerRuleResponse({}));
+    }
+
   }
 
   /**
@@ -83813,7 +83935,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
+    } else {
+      return $dara.cast<CreateClusterResponse>(await this.execute(params, req, runtime), new CreateClusterResponse({}));
+    }
+
   }
 
   /**
@@ -83882,7 +84009,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateEngineNamespaceResponse>(await this.callApi(params, req, runtime), new CreateEngineNamespaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateEngineNamespaceResponse>(await this.callApi(params, req, runtime), new CreateEngineNamespaceResponse({}));
+    } else {
+      return $dara.cast<CreateEngineNamespaceResponse>(await this.execute(params, req, runtime), new CreateEngineNamespaceResponse({}));
+    }
+
   }
 
   /**
@@ -83968,7 +84100,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateFlowRuleResponse>(await this.callApi(params, req, runtime), new CreateFlowRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateFlowRuleResponse>(await this.callApi(params, req, runtime), new CreateFlowRuleResponse({}));
+    } else {
+      return $dara.cast<CreateFlowRuleResponse>(await this.execute(params, req, runtime), new CreateFlowRuleResponse({}));
+    }
+
   }
 
   /**
@@ -84074,7 +84211,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new CreateGatewayCircuitBreakerRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new CreateGatewayCircuitBreakerRuleResponse({}));
+    } else {
+      return $dara.cast<CreateGatewayCircuitBreakerRuleResponse>(await this.execute(params, req, runtime), new CreateGatewayCircuitBreakerRuleResponse({}));
+    }
+
   }
 
   /**
@@ -84160,7 +84302,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new CreateGatewayFlowRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new CreateGatewayFlowRuleResponse({}));
+    } else {
+      return $dara.cast<CreateGatewayFlowRuleResponse>(await this.execute(params, req, runtime), new CreateGatewayFlowRuleResponse({}));
+    }
+
   }
 
   /**
@@ -84246,7 +84393,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new CreateGatewayIsolationRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new CreateGatewayIsolationRuleResponse({}));
+    } else {
+      return $dara.cast<CreateGatewayIsolationRuleResponse>(await this.execute(params, req, runtime), new CreateGatewayIsolationRuleResponse({}));
+    }
+
   }
 
   /**
@@ -84320,7 +84472,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateIsolationRuleResponse>(await this.callApi(params, req, runtime), new CreateIsolationRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateIsolationRuleResponse>(await this.callApi(params, req, runtime), new CreateIsolationRuleResponse({}));
+    } else {
+      return $dara.cast<CreateIsolationRuleResponse>(await this.execute(params, req, runtime), new CreateIsolationRuleResponse({}));
+    }
+
   }
 
   /**
@@ -84397,7 +84554,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateMseServiceApplicationResponse>(await this.callApi(params, req, runtime), new CreateMseServiceApplicationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateMseServiceApplicationResponse>(await this.callApi(params, req, runtime), new CreateMseServiceApplicationResponse({}));
+    } else {
+      return $dara.cast<CreateMseServiceApplicationResponse>(await this.execute(params, req, runtime), new CreateMseServiceApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -84487,7 +84649,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateNacosConfigResponse>(await this.callApi(params, req, runtime), new CreateNacosConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateNacosConfigResponse>(await this.callApi(params, req, runtime), new CreateNacosConfigResponse({}));
+    } else {
+      return $dara.cast<CreateNacosConfigResponse>(await this.execute(params, req, runtime), new CreateNacosConfigResponse({}));
+    }
+
   }
 
   /**
@@ -84581,7 +84748,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateNacosInstanceResponse>(await this.callApi(params, req, runtime), new CreateNacosInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateNacosInstanceResponse>(await this.callApi(params, req, runtime), new CreateNacosInstanceResponse({}));
+    } else {
+      return $dara.cast<CreateNacosInstanceResponse>(await this.execute(params, req, runtime), new CreateNacosInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -84657,7 +84829,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateNacosServiceResponse>(await this.callApi(params, req, runtime), new CreateNacosServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateNacosServiceResponse>(await this.callApi(params, req, runtime), new CreateNacosServiceResponse({}));
+    } else {
+      return $dara.cast<CreateNacosServiceResponse>(await this.execute(params, req, runtime), new CreateNacosServiceResponse({}));
+    }
+
   }
 
   /**
@@ -84710,7 +84887,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
+    } else {
+      return $dara.cast<CreateNamespaceResponse>(await this.execute(params, req, runtime), new CreateNamespaceResponse({}));
+    }
+
   }
 
   /**
@@ -84808,7 +84990,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateOrUpdateSwimmingLaneResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateSwimmingLaneResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateOrUpdateSwimmingLaneResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateSwimmingLaneResponse({}));
+    } else {
+      return $dara.cast<CreateOrUpdateSwimmingLaneResponse>(await this.execute(params, req, runtime), new CreateOrUpdateSwimmingLaneResponse({}));
+    }
+
   }
 
   /**
@@ -84920,7 +85107,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateOrUpdateSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateSwimmingLaneGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateOrUpdateSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateSwimmingLaneGroupResponse({}));
+    } else {
+      return $dara.cast<CreateOrUpdateSwimmingLaneGroupResponse>(await this.execute(params, req, runtime), new CreateOrUpdateSwimmingLaneGroupResponse({}));
+    }
+
   }
 
   /**
@@ -84992,7 +85184,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreatePluginConfigResponse>(await this.callApi(params, req, runtime), new CreatePluginConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreatePluginConfigResponse>(await this.callApi(params, req, runtime), new CreatePluginConfigResponse({}));
+    } else {
+      return $dara.cast<CreatePluginConfigResponse>(await this.execute(params, req, runtime), new CreatePluginConfigResponse({}));
+    }
+
   }
 
   /**
@@ -85046,7 +85243,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateZnodeResponse>(await this.callApi(params, req, runtime), new CreateZnodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateZnodeResponse>(await this.callApi(params, req, runtime), new CreateZnodeResponse({}));
+    } else {
+      return $dara.cast<CreateZnodeResponse>(await this.execute(params, req, runtime), new CreateZnodeResponse({}));
+    }
+
   }
 
   /**
@@ -85096,7 +85298,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteAuthResourceResponse>(await this.callApi(params, req, runtime), new DeleteAuthResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAuthResourceResponse>(await this.callApi(params, req, runtime), new DeleteAuthResourceResponse({}));
+    } else {
+      return $dara.cast<DeleteAuthResourceResponse>(await this.execute(params, req, runtime), new DeleteAuthResourceResponse({}));
+    }
+
   }
 
   /**
@@ -85156,7 +85363,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteCircuitBreakerRulesResponse>(await this.callApi(params, req, runtime), new DeleteCircuitBreakerRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteCircuitBreakerRulesResponse>(await this.callApi(params, req, runtime), new DeleteCircuitBreakerRulesResponse({}));
+    } else {
+      return $dara.cast<DeleteCircuitBreakerRulesResponse>(await this.execute(params, req, runtime), new DeleteCircuitBreakerRulesResponse({}));
+    }
+
   }
 
   /**
@@ -85202,7 +85414,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
+    } else {
+      return $dara.cast<DeleteClusterResponse>(await this.execute(params, req, runtime), new DeleteClusterResponse({}));
+    }
+
   }
 
   /**
@@ -85256,7 +85473,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteEngineNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteEngineNamespaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteEngineNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteEngineNamespaceResponse({}));
+    } else {
+      return $dara.cast<DeleteEngineNamespaceResponse>(await this.execute(params, req, runtime), new DeleteEngineNamespaceResponse({}));
+    }
+
   }
 
   /**
@@ -85316,7 +85538,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteFlowRulesResponse>(await this.callApi(params, req, runtime), new DeleteFlowRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteFlowRulesResponse>(await this.callApi(params, req, runtime), new DeleteFlowRulesResponse({}));
+    } else {
+      return $dara.cast<DeleteFlowRulesResponse>(await this.execute(params, req, runtime), new DeleteFlowRulesResponse({}));
+    }
+
   }
 
   /**
@@ -85366,7 +85593,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteGatewayResponse>(await this.callApi(params, req, runtime), new DeleteGatewayResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewayResponse>(await this.callApi(params, req, runtime), new DeleteGatewayResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewayResponse>(await this.execute(params, req, runtime), new DeleteGatewayResponse({}));
+    }
+
   }
 
   /**
@@ -85416,7 +85648,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteGatewayAuthConsumerResponse>(await this.callApi(params, req, runtime), new DeleteGatewayAuthConsumerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewayAuthConsumerResponse>(await this.callApi(params, req, runtime), new DeleteGatewayAuthConsumerResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewayAuthConsumerResponse>(await this.execute(params, req, runtime), new DeleteGatewayAuthConsumerResponse({}));
+    }
+
   }
 
   /**
@@ -85470,7 +85707,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteGatewayAuthConsumerResourceResponse>(await this.callApi(params, req, runtime), new DeleteGatewayAuthConsumerResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewayAuthConsumerResourceResponse>(await this.callApi(params, req, runtime), new DeleteGatewayAuthConsumerResourceResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewayAuthConsumerResourceResponse>(await this.execute(params, req, runtime), new DeleteGatewayAuthConsumerResourceResponse({}));
+    }
+
   }
 
   /**
@@ -85524,7 +85766,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new DeleteGatewayCircuitBreakerRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new DeleteGatewayCircuitBreakerRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewayCircuitBreakerRuleResponse>(await this.execute(params, req, runtime), new DeleteGatewayCircuitBreakerRuleResponse({}));
+    }
+
   }
 
   /**
@@ -85574,7 +85821,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteGatewayDomainResponse>(await this.callApi(params, req, runtime), new DeleteGatewayDomainResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewayDomainResponse>(await this.callApi(params, req, runtime), new DeleteGatewayDomainResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewayDomainResponse>(await this.execute(params, req, runtime), new DeleteGatewayDomainResponse({}));
+    }
+
   }
 
   /**
@@ -85628,7 +85880,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new DeleteGatewayFlowRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new DeleteGatewayFlowRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewayFlowRuleResponse>(await this.execute(params, req, runtime), new DeleteGatewayFlowRuleResponse({}));
+    }
+
   }
 
   /**
@@ -85682,7 +85939,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new DeleteGatewayIsolationRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new DeleteGatewayIsolationRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewayIsolationRuleResponse>(await this.execute(params, req, runtime), new DeleteGatewayIsolationRuleResponse({}));
+    }
+
   }
 
   /**
@@ -85732,7 +85994,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteGatewayRouteResponse>(await this.callApi(params, req, runtime), new DeleteGatewayRouteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewayRouteResponse>(await this.callApi(params, req, runtime), new DeleteGatewayRouteResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewayRouteResponse>(await this.execute(params, req, runtime), new DeleteGatewayRouteResponse({}));
+    }
+
   }
 
   /**
@@ -85786,7 +86053,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteGatewayServiceResponse>(await this.callApi(params, req, runtime), new DeleteGatewayServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewayServiceResponse>(await this.callApi(params, req, runtime), new DeleteGatewayServiceResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewayServiceResponse>(await this.execute(params, req, runtime), new DeleteGatewayServiceResponse({}));
+    }
+
   }
 
   /**
@@ -85840,7 +86112,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteGatewayServiceVersionResponse>(await this.callApi(params, req, runtime), new DeleteGatewayServiceVersionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewayServiceVersionResponse>(await this.callApi(params, req, runtime), new DeleteGatewayServiceVersionResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewayServiceVersionResponse>(await this.execute(params, req, runtime), new DeleteGatewayServiceVersionResponse({}));
+    }
+
   }
 
   /**
@@ -85898,7 +86175,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteGatewaySlbResponse>(await this.callApi(params, req, runtime), new DeleteGatewaySlbResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewaySlbResponse>(await this.callApi(params, req, runtime), new DeleteGatewaySlbResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewaySlbResponse>(await this.execute(params, req, runtime), new DeleteGatewaySlbResponse({}));
+    }
+
   }
 
   /**
@@ -85958,7 +86240,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteIsolationRulesResponse>(await this.callApi(params, req, runtime), new DeleteIsolationRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteIsolationRulesResponse>(await this.callApi(params, req, runtime), new DeleteIsolationRulesResponse({}));
+    } else {
+      return $dara.cast<DeleteIsolationRulesResponse>(await this.execute(params, req, runtime), new DeleteIsolationRulesResponse({}));
+    }
+
   }
 
   /**
@@ -86008,7 +86295,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteMigrationTaskResponse>(await this.callApi(params, req, runtime), new DeleteMigrationTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteMigrationTaskResponse>(await this.callApi(params, req, runtime), new DeleteMigrationTaskResponse({}));
+    } else {
+      return $dara.cast<DeleteMigrationTaskResponse>(await this.execute(params, req, runtime), new DeleteMigrationTaskResponse({}));
+    }
+
   }
 
   /**
@@ -86070,7 +86362,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteNacosConfigResponse>(await this.callApi(params, req, runtime), new DeleteNacosConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteNacosConfigResponse>(await this.callApi(params, req, runtime), new DeleteNacosConfigResponse({}));
+    } else {
+      return $dara.cast<DeleteNacosConfigResponse>(await this.execute(params, req, runtime), new DeleteNacosConfigResponse({}));
+    }
+
   }
 
   /**
@@ -86127,7 +86424,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteNacosConfigsResponse>(await this.callApi(params, req, runtime), new DeleteNacosConfigsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteNacosConfigsResponse>(await this.callApi(params, req, runtime), new DeleteNacosConfigsResponse({}));
+    } else {
+      return $dara.cast<DeleteNacosConfigsResponse>(await this.execute(params, req, runtime), new DeleteNacosConfigsResponse({}));
+    }
+
   }
 
   /**
@@ -86207,7 +86509,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteNacosInstanceResponse>(await this.callApi(params, req, runtime), new DeleteNacosInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteNacosInstanceResponse>(await this.callApi(params, req, runtime), new DeleteNacosInstanceResponse({}));
+    } else {
+      return $dara.cast<DeleteNacosInstanceResponse>(await this.execute(params, req, runtime), new DeleteNacosInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -86271,7 +86578,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteNacosServiceResponse>(await this.callApi(params, req, runtime), new DeleteNacosServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteNacosServiceResponse>(await this.callApi(params, req, runtime), new DeleteNacosServiceResponse({}));
+    } else {
+      return $dara.cast<DeleteNacosServiceResponse>(await this.execute(params, req, runtime), new DeleteNacosServiceResponse({}));
+    }
+
   }
 
   /**
@@ -86324,7 +86636,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
+    } else {
+      return $dara.cast<DeleteNamespaceResponse>(await this.execute(params, req, runtime), new DeleteNamespaceResponse({}));
+    }
+
   }
 
   /**
@@ -86374,7 +86691,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeletePluginConfigResponse>(await this.callApi(params, req, runtime), new DeletePluginConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeletePluginConfigResponse>(await this.callApi(params, req, runtime), new DeletePluginConfigResponse({}));
+    } else {
+      return $dara.cast<DeletePluginConfigResponse>(await this.execute(params, req, runtime), new DeletePluginConfigResponse({}));
+    }
+
   }
 
   /**
@@ -86428,7 +86750,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteSecurityGroupRuleResponse>(await this.callApi(params, req, runtime), new DeleteSecurityGroupRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteSecurityGroupRuleResponse>(await this.callApi(params, req, runtime), new DeleteSecurityGroupRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteSecurityGroupRuleResponse>(await this.execute(params, req, runtime), new DeleteSecurityGroupRuleResponse({}));
+    }
+
   }
 
   /**
@@ -86478,7 +86805,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteServiceSourceResponse>(await this.callApi(params, req, runtime), new DeleteServiceSourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteServiceSourceResponse>(await this.callApi(params, req, runtime), new DeleteServiceSourceResponse({}));
+    } else {
+      return $dara.cast<DeleteServiceSourceResponse>(await this.execute(params, req, runtime), new DeleteServiceSourceResponse({}));
+    }
+
   }
 
   /**
@@ -86528,7 +86860,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteSwimmingLaneResponse>(await this.callApi(params, req, runtime), new DeleteSwimmingLaneResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteSwimmingLaneResponse>(await this.callApi(params, req, runtime), new DeleteSwimmingLaneResponse({}));
+    } else {
+      return $dara.cast<DeleteSwimmingLaneResponse>(await this.execute(params, req, runtime), new DeleteSwimmingLaneResponse({}));
+    }
+
   }
 
   /**
@@ -86582,7 +86919,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new DeleteSwimmingLaneGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new DeleteSwimmingLaneGroupResponse({}));
+    } else {
+      return $dara.cast<DeleteSwimmingLaneGroupResponse>(await this.execute(params, req, runtime), new DeleteSwimmingLaneGroupResponse({}));
+    }
+
   }
 
   /**
@@ -86636,7 +86978,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteZnodeResponse>(await this.callApi(params, req, runtime), new DeleteZnodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteZnodeResponse>(await this.callApi(params, req, runtime), new DeleteZnodeResponse({}));
+    } else {
+      return $dara.cast<DeleteZnodeResponse>(await this.execute(params, req, runtime), new DeleteZnodeResponse({}));
+    }
+
   }
 
   /**
@@ -86686,7 +87033,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<EnableHttp2Response>(await this.callApi(params, req, runtime), new EnableHttp2Response({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EnableHttp2Response>(await this.callApi(params, req, runtime), new EnableHttp2Response({}));
+    } else {
+      return $dara.cast<EnableHttp2Response>(await this.execute(params, req, runtime), new EnableHttp2Response({}));
+    }
+
   }
 
   /**
@@ -86736,7 +87088,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<EnableProxyProtocolResponse>(await this.callApi(params, req, runtime), new EnableProxyProtocolResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EnableProxyProtocolResponse>(await this.callApi(params, req, runtime), new EnableProxyProtocolResponse({}));
+    } else {
+      return $dara.cast<EnableProxyProtocolResponse>(await this.execute(params, req, runtime), new EnableProxyProtocolResponse({}));
+    }
+
   }
 
   /**
@@ -86809,7 +87166,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ExportNacosConfigResponse>(await this.callApi(params, req, runtime), new ExportNacosConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ExportNacosConfigResponse>(await this.callApi(params, req, runtime), new ExportNacosConfigResponse({}));
+    } else {
+      return $dara.cast<ExportNacosConfigResponse>(await this.execute(params, req, runtime), new ExportNacosConfigResponse({}));
+    }
+
   }
 
   /**
@@ -86873,7 +87235,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ExportZookeeperDataResponse>(await this.callApi(params, req, runtime), new ExportZookeeperDataResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ExportZookeeperDataResponse>(await this.callApi(params, req, runtime), new ExportZookeeperDataResponse({}));
+    } else {
+      return $dara.cast<ExportZookeeperDataResponse>(await this.execute(params, req, runtime), new ExportZookeeperDataResponse({}));
+    }
+
   }
 
   /**
@@ -86945,7 +87312,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<FetchLosslessRuleListResponse>(await this.callApi(params, req, runtime), new FetchLosslessRuleListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<FetchLosslessRuleListResponse>(await this.callApi(params, req, runtime), new FetchLosslessRuleListResponse({}));
+    } else {
+      return $dara.cast<FetchLosslessRuleListResponse>(await this.execute(params, req, runtime), new FetchLosslessRuleListResponse({}));
+    }
+
   }
 
   /**
@@ -87016,7 +87388,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GatewayBlackWhiteListResponse>(await this.callApi(params, req, runtime), new GatewayBlackWhiteListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GatewayBlackWhiteListResponse>(await this.callApi(params, req, runtime), new GatewayBlackWhiteListResponse({}));
+    } else {
+      return $dara.cast<GatewayBlackWhiteListResponse>(await this.execute(params, req, runtime), new GatewayBlackWhiteListResponse({}));
+    }
+
   }
 
   /**
@@ -87074,7 +87451,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetAppMessageQueueRouteResponse>(await this.callApi(params, req, runtime), new GetAppMessageQueueRouteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAppMessageQueueRouteResponse>(await this.callApi(params, req, runtime), new GetAppMessageQueueRouteResponse({}));
+    } else {
+      return $dara.cast<GetAppMessageQueueRouteResponse>(await this.execute(params, req, runtime), new GetAppMessageQueueRouteResponse({}));
+    }
+
   }
 
   /**
@@ -87144,7 +87526,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetApplicationInstanceListResponse>(await this.callApi(params, req, runtime), new GetApplicationInstanceListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetApplicationInstanceListResponse>(await this.callApi(params, req, runtime), new GetApplicationInstanceListResponse({}));
+    } else {
+      return $dara.cast<GetApplicationInstanceListResponse>(await this.execute(params, req, runtime), new GetApplicationInstanceListResponse({}));
+    }
+
   }
 
   /**
@@ -87226,7 +87613,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetApplicationListResponse>(await this.callApi(params, req, runtime), new GetApplicationListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetApplicationListResponse>(await this.callApi(params, req, runtime), new GetApplicationListResponse({}));
+    } else {
+      return $dara.cast<GetApplicationListResponse>(await this.execute(params, req, runtime), new GetApplicationListResponse({}));
+    }
+
   }
 
   /**
@@ -87287,7 +87679,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetBlackWhiteListResponse>(await this.callApi(params, req, runtime), new GetBlackWhiteListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetBlackWhiteListResponse>(await this.callApi(params, req, runtime), new GetBlackWhiteListResponse({}));
+    } else {
+      return $dara.cast<GetBlackWhiteListResponse>(await this.execute(params, req, runtime), new GetBlackWhiteListResponse({}));
+    }
+
   }
 
   /**
@@ -87344,7 +87741,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetEngineNamepaceResponse>(await this.callApi(params, req, runtime), new GetEngineNamepaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetEngineNamepaceResponse>(await this.callApi(params, req, runtime), new GetEngineNamepaceResponse({}));
+    } else {
+      return $dara.cast<GetEngineNamepaceResponse>(await this.execute(params, req, runtime), new GetEngineNamepaceResponse({}));
+    }
+
   }
 
   /**
@@ -87390,7 +87792,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetGatewayResponse>(await this.callApi(params, req, runtime), new GetGatewayResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetGatewayResponse>(await this.callApi(params, req, runtime), new GetGatewayResponse({}));
+    } else {
+      return $dara.cast<GetGatewayResponse>(await this.execute(params, req, runtime), new GetGatewayResponse({}));
+    }
+
   }
 
   /**
@@ -87440,7 +87847,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetGatewayAuthConsumerDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayAuthConsumerDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetGatewayAuthConsumerDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayAuthConsumerDetailResponse({}));
+    } else {
+      return $dara.cast<GetGatewayAuthConsumerDetailResponse>(await this.execute(params, req, runtime), new GetGatewayAuthConsumerDetailResponse({}));
+    }
+
   }
 
   /**
@@ -87494,7 +87906,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetGatewayAuthDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayAuthDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetGatewayAuthDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayAuthDetailResponse({}));
+    } else {
+      return $dara.cast<GetGatewayAuthDetailResponse>(await this.execute(params, req, runtime), new GetGatewayAuthDetailResponse({}));
+    }
+
   }
 
   /**
@@ -87540,7 +87957,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetGatewayConfigResponse>(await this.callApi(params, req, runtime), new GetGatewayConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetGatewayConfigResponse>(await this.callApi(params, req, runtime), new GetGatewayConfigResponse({}));
+    } else {
+      return $dara.cast<GetGatewayConfigResponse>(await this.execute(params, req, runtime), new GetGatewayConfigResponse({}));
+    }
+
   }
 
   /**
@@ -87590,7 +88012,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetGatewayDomainDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayDomainDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetGatewayDomainDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayDomainDetailResponse({}));
+    } else {
+      return $dara.cast<GetGatewayDomainDetailResponse>(await this.execute(params, req, runtime), new GetGatewayDomainDetailResponse({}));
+    }
+
   }
 
   /**
@@ -87640,7 +88067,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetGatewayOptionResponse>(await this.callApi(params, req, runtime), new GetGatewayOptionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetGatewayOptionResponse>(await this.callApi(params, req, runtime), new GetGatewayOptionResponse({}));
+    } else {
+      return $dara.cast<GetGatewayOptionResponse>(await this.execute(params, req, runtime), new GetGatewayOptionResponse({}));
+    }
+
   }
 
   /**
@@ -87690,7 +88122,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetGatewayRouteDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayRouteDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetGatewayRouteDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayRouteDetailResponse({}));
+    } else {
+      return $dara.cast<GetGatewayRouteDetailResponse>(await this.execute(params, req, runtime), new GetGatewayRouteDetailResponse({}));
+    }
+
   }
 
   /**
@@ -87740,7 +88177,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetGatewayServiceDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayServiceDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetGatewayServiceDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayServiceDetailResponse({}));
+    } else {
+      return $dara.cast<GetGatewayServiceDetailResponse>(await this.execute(params, req, runtime), new GetGatewayServiceDetailResponse({}));
+    }
+
   }
 
   /**
@@ -87790,7 +88232,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetGovernanceKubernetesClusterResponse>(await this.callApi(params, req, runtime), new GetGovernanceKubernetesClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetGovernanceKubernetesClusterResponse>(await this.callApi(params, req, runtime), new GetGovernanceKubernetesClusterResponse({}));
+    } else {
+      return $dara.cast<GetGovernanceKubernetesClusterResponse>(await this.execute(params, req, runtime), new GetGovernanceKubernetesClusterResponse({}));
+    }
+
   }
 
   /**
@@ -87836,7 +88283,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetImageResponse>(await this.callApi(params, req, runtime), new GetImageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetImageResponse>(await this.callApi(params, req, runtime), new GetImageResponse({}));
+    } else {
+      return $dara.cast<GetImageResponse>(await this.execute(params, req, runtime), new GetImageResponse({}));
+    }
+
   }
 
   /**
@@ -87893,7 +88345,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetImportFileUrlResponse>(await this.callApi(params, req, runtime), new GetImportFileUrlResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetImportFileUrlResponse>(await this.callApi(params, req, runtime), new GetImportFileUrlResponse({}));
+    } else {
+      return $dara.cast<GetImportFileUrlResponse>(await this.execute(params, req, runtime), new GetImportFileUrlResponse({}));
+    }
+
   }
 
   /**
@@ -87950,7 +88407,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetKubernetesSourceResponse>(await this.callApi(params, req, runtime), new GetKubernetesSourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetKubernetesSourceResponse>(await this.callApi(params, req, runtime), new GetKubernetesSourceResponse({}));
+    } else {
+      return $dara.cast<GetKubernetesSourceResponse>(await this.execute(params, req, runtime), new GetKubernetesSourceResponse({}));
+    }
+
   }
 
   /**
@@ -88012,7 +88474,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetLocalityRuleResponse>(await this.callApi(params, req, runtime), new GetLocalityRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetLocalityRuleResponse>(await this.callApi(params, req, runtime), new GetLocalityRuleResponse({}));
+    } else {
+      return $dara.cast<GetLocalityRuleResponse>(await this.execute(params, req, runtime), new GetLocalityRuleResponse({}));
+    }
+
   }
 
   /**
@@ -88075,7 +88542,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetLosslessRuleByAppResponse>(await this.callApi(params, req, runtime), new GetLosslessRuleByAppResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetLosslessRuleByAppResponse>(await this.callApi(params, req, runtime), new GetLosslessRuleByAppResponse({}));
+    } else {
+      return $dara.cast<GetLosslessRuleByAppResponse>(await this.execute(params, req, runtime), new GetLosslessRuleByAppResponse({}));
+    }
+
   }
 
   /**
@@ -88122,7 +88594,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetMseFeatureSwitchResponse>(await this.callApi(params, req, runtime), new GetMseFeatureSwitchResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMseFeatureSwitchResponse>(await this.callApi(params, req, runtime), new GetMseFeatureSwitchResponse({}));
+    } else {
+      return $dara.cast<GetMseFeatureSwitchResponse>(await this.execute(params, req, runtime), new GetMseFeatureSwitchResponse({}));
+    }
+
   }
 
   /**
@@ -88176,7 +88653,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetMseSourceResponse>(await this.callApi(params, req, runtime), new GetMseSourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMseSourceResponse>(await this.callApi(params, req, runtime), new GetMseSourceResponse({}));
+    } else {
+      return $dara.cast<GetMseSourceResponse>(await this.execute(params, req, runtime), new GetMseSourceResponse({}));
+    }
+
   }
 
   /**
@@ -88241,7 +88723,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetNacosConfigResponse>(await this.callApi(params, req, runtime), new GetNacosConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetNacosConfigResponse>(await this.callApi(params, req, runtime), new GetNacosConfigResponse({}));
+    } else {
+      return $dara.cast<GetNacosConfigResponse>(await this.execute(params, req, runtime), new GetNacosConfigResponse({}));
+    }
+
   }
 
   /**
@@ -88309,7 +88796,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetNacosHistoryConfigResponse>(await this.callApi(params, req, runtime), new GetNacosHistoryConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetNacosHistoryConfigResponse>(await this.callApi(params, req, runtime), new GetNacosHistoryConfigResponse({}));
+    } else {
+      return $dara.cast<GetNacosHistoryConfigResponse>(await this.execute(params, req, runtime), new GetNacosHistoryConfigResponse({}));
+    }
+
   }
 
   /**
@@ -88365,7 +88857,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetOverviewResponse>(await this.callApi(params, req, runtime), new GetOverviewResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetOverviewResponse>(await this.callApi(params, req, runtime), new GetOverviewResponse({}));
+    } else {
+      return $dara.cast<GetOverviewResponse>(await this.execute(params, req, runtime), new GetOverviewResponse({}));
+    }
+
   }
 
   /**
@@ -88418,7 +88915,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetPluginConfigResponse>(await this.callApi(params, req, runtime), new GetPluginConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetPluginConfigResponse>(await this.callApi(params, req, runtime), new GetPluginConfigResponse({}));
+    } else {
+      return $dara.cast<GetPluginConfigResponse>(await this.execute(params, req, runtime), new GetPluginConfigResponse({}));
+    }
+
   }
 
   /**
@@ -88476,7 +88978,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetPluginsResponse>(await this.callApi(params, req, runtime), new GetPluginsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetPluginsResponse>(await this.callApi(params, req, runtime), new GetPluginsResponse({}));
+    } else {
+      return $dara.cast<GetPluginsResponse>(await this.execute(params, req, runtime), new GetPluginsResponse({}));
+    }
+
   }
 
   /**
@@ -88538,7 +89045,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetServiceListResponse>(await this.callApi(params, req, runtime), new GetServiceListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceListResponse>(await this.callApi(params, req, runtime), new GetServiceListResponse({}));
+    } else {
+      return $dara.cast<GetServiceListResponse>(await this.execute(params, req, runtime), new GetServiceListResponse({}));
+    }
+
   }
 
   /**
@@ -88616,7 +89128,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetServiceListPageResponse>(await this.callApi(params, req, runtime), new GetServiceListPageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceListPageResponse>(await this.callApi(params, req, runtime), new GetServiceListPageResponse({}));
+    } else {
+      return $dara.cast<GetServiceListPageResponse>(await this.execute(params, req, runtime), new GetServiceListPageResponse({}));
+    }
+
   }
 
   /**
@@ -88702,7 +89219,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetServiceListenersResponse>(await this.callApi(params, req, runtime), new GetServiceListenersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceListenersResponse>(await this.callApi(params, req, runtime), new GetServiceListenersResponse({}));
+    } else {
+      return $dara.cast<GetServiceListenersResponse>(await this.execute(params, req, runtime), new GetServiceListenersResponse({}));
+    }
+
   }
 
   /**
@@ -88800,7 +89322,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetServiceMethodPageResponse>(await this.callApi(params, req, runtime), new GetServiceMethodPageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceMethodPageResponse>(await this.callApi(params, req, runtime), new GetServiceMethodPageResponse({}));
+    } else {
+      return $dara.cast<GetServiceMethodPageResponse>(await this.execute(params, req, runtime), new GetServiceMethodPageResponse({}));
+    }
+
   }
 
   /**
@@ -88850,7 +89377,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetTagsBySwimmingLaneGroupIdResponse>(await this.callApi(params, req, runtime), new GetTagsBySwimmingLaneGroupIdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTagsBySwimmingLaneGroupIdResponse>(await this.callApi(params, req, runtime), new GetTagsBySwimmingLaneGroupIdResponse({}));
+    } else {
+      return $dara.cast<GetTagsBySwimmingLaneGroupIdResponse>(await this.execute(params, req, runtime), new GetTagsBySwimmingLaneGroupIdResponse({}));
+    }
+
   }
 
   /**
@@ -88900,7 +89432,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetZookeeperDataImportUrlResponse>(await this.callApi(params, req, runtime), new GetZookeeperDataImportUrlResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetZookeeperDataImportUrlResponse>(await this.callApi(params, req, runtime), new GetZookeeperDataImportUrlResponse({}));
+    } else {
+      return $dara.cast<GetZookeeperDataImportUrlResponse>(await this.execute(params, req, runtime), new GetZookeeperDataImportUrlResponse({}));
+    }
+
   }
 
   /**
@@ -88961,7 +89498,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ImportNacosConfigResponse>(await this.callApi(params, req, runtime), new ImportNacosConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ImportNacosConfigResponse>(await this.callApi(params, req, runtime), new ImportNacosConfigResponse({}));
+    } else {
+      return $dara.cast<ImportNacosConfigResponse>(await this.execute(params, req, runtime), new ImportNacosConfigResponse({}));
+    }
+
   }
 
   /**
@@ -89044,7 +89586,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ImportServicesResponse>(await this.callApi(params, req, runtime), new ImportServicesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ImportServicesResponse>(await this.callApi(params, req, runtime), new ImportServicesResponse({}));
+    } else {
+      return $dara.cast<ImportServicesResponse>(await this.execute(params, req, runtime), new ImportServicesResponse({}));
+    }
+
   }
 
   /**
@@ -89109,7 +89656,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ImportZookeeperDataResponse>(await this.callApi(params, req, runtime), new ImportZookeeperDataResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ImportZookeeperDataResponse>(await this.callApi(params, req, runtime), new ImportZookeeperDataResponse({}));
+    } else {
+      return $dara.cast<ImportZookeeperDataResponse>(await this.execute(params, req, runtime), new ImportZookeeperDataResponse({}));
+    }
+
   }
 
   /**
@@ -89162,7 +89714,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<InitializeServiceLinkRoleResponse>(await this.callApi(params, req, runtime), new InitializeServiceLinkRoleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<InitializeServiceLinkRoleResponse>(await this.callApi(params, req, runtime), new InitializeServiceLinkRoleResponse({}));
+    } else {
+      return $dara.cast<InitializeServiceLinkRoleResponse>(await this.execute(params, req, runtime), new InitializeServiceLinkRoleResponse({}));
+    }
+
   }
 
   /**
@@ -89243,7 +89800,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListAnsInstancesResponse>(await this.callApi(params, req, runtime), new ListAnsInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAnsInstancesResponse>(await this.callApi(params, req, runtime), new ListAnsInstancesResponse({}));
+    } else {
+      return $dara.cast<ListAnsInstancesResponse>(await this.execute(params, req, runtime), new ListAnsInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -89323,7 +89885,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListAnsServiceClustersResponse>(await this.callApi(params, req, runtime), new ListAnsServiceClustersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAnsServiceClustersResponse>(await this.callApi(params, req, runtime), new ListAnsServiceClustersResponse({}));
+    } else {
+      return $dara.cast<ListAnsServiceClustersResponse>(await this.execute(params, req, runtime), new ListAnsServiceClustersResponse({}));
+    }
+
   }
 
   /**
@@ -89415,7 +89982,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListAnsServicesResponse>(await this.callApi(params, req, runtime), new ListAnsServicesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAnsServicesResponse>(await this.callApi(params, req, runtime), new ListAnsServicesResponse({}));
+    } else {
+      return $dara.cast<ListAnsServicesResponse>(await this.execute(params, req, runtime), new ListAnsServicesResponse({}));
+    }
+
   }
 
   /**
@@ -89475,7 +90047,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListAppBySwimmingLaneGroupTagResponse>(await this.callApi(params, req, runtime), new ListAppBySwimmingLaneGroupTagResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAppBySwimmingLaneGroupTagResponse>(await this.callApi(params, req, runtime), new ListAppBySwimmingLaneGroupTagResponse({}));
+    } else {
+      return $dara.cast<ListAppBySwimmingLaneGroupTagResponse>(await this.execute(params, req, runtime), new ListAppBySwimmingLaneGroupTagResponse({}));
+    }
+
   }
 
   /**
@@ -89538,7 +90115,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListAppBySwimmingLaneGroupTagsResponse>(await this.callApi(params, req, runtime), new ListAppBySwimmingLaneGroupTagsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAppBySwimmingLaneGroupTagsResponse>(await this.callApi(params, req, runtime), new ListAppBySwimmingLaneGroupTagsResponse({}));
+    } else {
+      return $dara.cast<ListAppBySwimmingLaneGroupTagsResponse>(await this.execute(params, req, runtime), new ListAppBySwimmingLaneGroupTagsResponse({}));
+    }
+
   }
 
   /**
@@ -89576,7 +90158,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListApplicationsWithTagRulesResponse>(await this.callApi(params, req, runtime), new ListApplicationsWithTagRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListApplicationsWithTagRulesResponse>(await this.callApi(params, req, runtime), new ListApplicationsWithTagRulesResponse({}));
+    } else {
+      return $dara.cast<ListApplicationsWithTagRulesResponse>(await this.execute(params, req, runtime), new ListApplicationsWithTagRulesResponse({}));
+    }
+
   }
 
   /**
@@ -89650,7 +90237,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListAuthPolicyResponse>(await this.callApi(params, req, runtime), new ListAuthPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAuthPolicyResponse>(await this.callApi(params, req, runtime), new ListAuthPolicyResponse({}));
+    } else {
+      return $dara.cast<ListAuthPolicyResponse>(await this.execute(params, req, runtime), new ListAuthPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -89720,7 +90312,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListCircuitBreakerRulesResponse>(await this.callApi(params, req, runtime), new ListCircuitBreakerRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListCircuitBreakerRulesResponse>(await this.callApi(params, req, runtime), new ListCircuitBreakerRulesResponse({}));
+    } else {
+      return $dara.cast<ListCircuitBreakerRulesResponse>(await this.execute(params, req, runtime), new ListCircuitBreakerRulesResponse({}));
+    }
+
   }
 
   /**
@@ -89762,7 +90359,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListClusterConnectionTypesResponse>(await this.callApi(params, req, runtime), new ListClusterConnectionTypesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListClusterConnectionTypesResponse>(await this.callApi(params, req, runtime), new ListClusterConnectionTypesResponse({}));
+    } else {
+      return $dara.cast<ListClusterConnectionTypesResponse>(await this.execute(params, req, runtime), new ListClusterConnectionTypesResponse({}));
+    }
+
   }
 
   /**
@@ -89824,7 +90426,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListClusterHealthCheckTaskResponse>(await this.callApi(params, req, runtime), new ListClusterHealthCheckTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListClusterHealthCheckTaskResponse>(await this.callApi(params, req, runtime), new ListClusterHealthCheckTaskResponse({}));
+    } else {
+      return $dara.cast<ListClusterHealthCheckTaskResponse>(await this.execute(params, req, runtime), new ListClusterHealthCheckTaskResponse({}));
+    }
+
   }
 
   /**
@@ -89878,7 +90485,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListClusterTypesResponse>(await this.callApi(params, req, runtime), new ListClusterTypesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListClusterTypesResponse>(await this.callApi(params, req, runtime), new ListClusterTypesResponse({}));
+    } else {
+      return $dara.cast<ListClusterTypesResponse>(await this.execute(params, req, runtime), new ListClusterTypesResponse({}));
+    }
+
   }
 
   /**
@@ -89928,7 +90540,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListClusterVersionsResponse>(await this.callApi(params, req, runtime), new ListClusterVersionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListClusterVersionsResponse>(await this.callApi(params, req, runtime), new ListClusterVersionsResponse({}));
+    } else {
+      return $dara.cast<ListClusterVersionsResponse>(await this.execute(params, req, runtime), new ListClusterVersionsResponse({}));
+    }
+
   }
 
   /**
@@ -90002,7 +90619,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
+    } else {
+      return $dara.cast<ListClustersResponse>(await this.execute(params, req, runtime), new ListClustersResponse({}));
+    }
+
   }
 
   /**
@@ -90088,7 +90710,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListConfigTrackResponse>(await this.callApi(params, req, runtime), new ListConfigTrackResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListConfigTrackResponse>(await this.callApi(params, req, runtime), new ListConfigTrackResponse({}));
+    } else {
+      return $dara.cast<ListConfigTrackResponse>(await this.execute(params, req, runtime), new ListConfigTrackResponse({}));
+    }
+
   }
 
   /**
@@ -90134,7 +90761,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListEngineNamespacesResponse>(await this.callApi(params, req, runtime), new ListEngineNamespacesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListEngineNamespacesResponse>(await this.callApi(params, req, runtime), new ListEngineNamespacesResponse({}));
+    } else {
+      return $dara.cast<ListEngineNamespacesResponse>(await this.execute(params, req, runtime), new ListEngineNamespacesResponse({}));
+    }
+
   }
 
   /**
@@ -90172,7 +90804,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListEurekaInstancesResponse>(await this.callApi(params, req, runtime), new ListEurekaInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListEurekaInstancesResponse>(await this.callApi(params, req, runtime), new ListEurekaInstancesResponse({}));
+    } else {
+      return $dara.cast<ListEurekaInstancesResponse>(await this.execute(params, req, runtime), new ListEurekaInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -90210,7 +90847,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListEurekaServicesResponse>(await this.callApi(params, req, runtime), new ListEurekaServicesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListEurekaServicesResponse>(await this.callApi(params, req, runtime), new ListEurekaServicesResponse({}));
+    } else {
+      return $dara.cast<ListEurekaServicesResponse>(await this.execute(params, req, runtime), new ListEurekaServicesResponse({}));
+    }
+
   }
 
   /**
@@ -90264,7 +90906,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListExportZookeeperDataResponse>(await this.callApi(params, req, runtime), new ListExportZookeeperDataResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListExportZookeeperDataResponse>(await this.callApi(params, req, runtime), new ListExportZookeeperDataResponse({}));
+    } else {
+      return $dara.cast<ListExportZookeeperDataResponse>(await this.execute(params, req, runtime), new ListExportZookeeperDataResponse({}));
+    }
+
   }
 
   /**
@@ -90334,7 +90981,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListFlowRulesResponse>(await this.callApi(params, req, runtime), new ListFlowRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListFlowRulesResponse>(await this.callApi(params, req, runtime), new ListFlowRulesResponse({}));
+    } else {
+      return $dara.cast<ListFlowRulesResponse>(await this.execute(params, req, runtime), new ListFlowRulesResponse({}));
+    }
+
   }
 
   /**
@@ -90402,7 +91054,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGatewayResponse>(await this.callApi(params, req, runtime), new ListGatewayResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayResponse>(await this.callApi(params, req, runtime), new ListGatewayResponse({}));
+    } else {
+      return $dara.cast<ListGatewayResponse>(await this.execute(params, req, runtime), new ListGatewayResponse({}));
+    }
+
   }
 
   /**
@@ -90468,7 +91125,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGatewayAuthConsumerResponse>(await this.callApi(params, req, runtime), new ListGatewayAuthConsumerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayAuthConsumerResponse>(await this.callApi(params, req, runtime), new ListGatewayAuthConsumerResponse({}));
+    } else {
+      return $dara.cast<ListGatewayAuthConsumerResponse>(await this.execute(params, req, runtime), new ListGatewayAuthConsumerResponse({}));
+    }
+
   }
 
   /**
@@ -90534,7 +91196,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGatewayAuthConsumerResourceResponse>(await this.callApi(params, req, runtime), new ListGatewayAuthConsumerResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayAuthConsumerResourceResponse>(await this.callApi(params, req, runtime), new ListGatewayAuthConsumerResourceResponse({}));
+    } else {
+      return $dara.cast<ListGatewayAuthConsumerResourceResponse>(await this.execute(params, req, runtime), new ListGatewayAuthConsumerResourceResponse({}));
+    }
+
   }
 
   /**
@@ -90580,7 +91247,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new ListGatewayCircuitBreakerRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new ListGatewayCircuitBreakerRuleResponse({}));
+    } else {
+      return $dara.cast<ListGatewayCircuitBreakerRuleResponse>(await this.execute(params, req, runtime), new ListGatewayCircuitBreakerRuleResponse({}));
+    }
+
   }
 
   /**
@@ -90634,7 +91306,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGatewayDomainResponse>(await this.callApi(params, req, runtime), new ListGatewayDomainResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayDomainResponse>(await this.callApi(params, req, runtime), new ListGatewayDomainResponse({}));
+    } else {
+      return $dara.cast<ListGatewayDomainResponse>(await this.execute(params, req, runtime), new ListGatewayDomainResponse({}));
+    }
+
   }
 
   /**
@@ -90680,7 +91357,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new ListGatewayFlowRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new ListGatewayFlowRuleResponse({}));
+    } else {
+      return $dara.cast<ListGatewayFlowRuleResponse>(await this.execute(params, req, runtime), new ListGatewayFlowRuleResponse({}));
+    }
+
   }
 
   /**
@@ -90726,7 +91408,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new ListGatewayIsolationRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new ListGatewayIsolationRuleResponse({}));
+    } else {
+      return $dara.cast<ListGatewayIsolationRuleResponse>(await this.execute(params, req, runtime), new ListGatewayIsolationRuleResponse({}));
+    }
+
   }
 
   /**
@@ -90794,7 +91481,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGatewayRouteResponse>(await this.callApi(params, req, runtime), new ListGatewayRouteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayRouteResponse>(await this.callApi(params, req, runtime), new ListGatewayRouteResponse({}));
+    } else {
+      return $dara.cast<ListGatewayRouteResponse>(await this.execute(params, req, runtime), new ListGatewayRouteResponse({}));
+    }
+
   }
 
   /**
@@ -90844,7 +91536,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGatewayRouteOnAuthResponse>(await this.callApi(params, req, runtime), new ListGatewayRouteOnAuthResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayRouteOnAuthResponse>(await this.callApi(params, req, runtime), new ListGatewayRouteOnAuthResponse({}));
+    } else {
+      return $dara.cast<ListGatewayRouteOnAuthResponse>(await this.execute(params, req, runtime), new ListGatewayRouteOnAuthResponse({}));
+    }
+
   }
 
   /**
@@ -90912,7 +91609,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGatewayServiceResponse>(await this.callApi(params, req, runtime), new ListGatewayServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayServiceResponse>(await this.callApi(params, req, runtime), new ListGatewayServiceResponse({}));
+    } else {
+      return $dara.cast<ListGatewayServiceResponse>(await this.execute(params, req, runtime), new ListGatewayServiceResponse({}));
+    }
+
   }
 
   /**
@@ -90958,7 +91660,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGatewaySlbResponse>(await this.callApi(params, req, runtime), new ListGatewaySlbResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewaySlbResponse>(await this.callApi(params, req, runtime), new ListGatewaySlbResponse({}));
+    } else {
+      return $dara.cast<ListGatewaySlbResponse>(await this.execute(params, req, runtime), new ListGatewaySlbResponse({}));
+    }
+
   }
 
   /**
@@ -91000,7 +91707,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGatewayZoneResponse>(await this.callApi(params, req, runtime), new ListGatewayZoneResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayZoneResponse>(await this.callApi(params, req, runtime), new ListGatewayZoneResponse({}));
+    } else {
+      return $dara.cast<ListGatewayZoneResponse>(await this.execute(params, req, runtime), new ListGatewayZoneResponse({}));
+    }
+
   }
 
   /**
@@ -91058,7 +91770,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListInstanceCountResponse>(await this.callApi(params, req, runtime), new ListInstanceCountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstanceCountResponse>(await this.callApi(params, req, runtime), new ListInstanceCountResponse({}));
+    } else {
+      return $dara.cast<ListInstanceCountResponse>(await this.execute(params, req, runtime), new ListInstanceCountResponse({}));
+    }
+
   }
 
   /**
@@ -91128,7 +91845,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListIsolationRulesResponse>(await this.callApi(params, req, runtime), new ListIsolationRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListIsolationRulesResponse>(await this.callApi(params, req, runtime), new ListIsolationRulesResponse({}));
+    } else {
+      return $dara.cast<ListIsolationRulesResponse>(await this.execute(params, req, runtime), new ListIsolationRulesResponse({}));
+    }
+
   }
 
   /**
@@ -91203,7 +91925,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListListenersByConfigResponse>(await this.callApi(params, req, runtime), new ListListenersByConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListListenersByConfigResponse>(await this.callApi(params, req, runtime), new ListListenersByConfigResponse({}));
+    } else {
+      return $dara.cast<ListListenersByConfigResponse>(await this.execute(params, req, runtime), new ListListenersByConfigResponse({}));
+    }
+
   }
 
   /**
@@ -91267,7 +91994,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListListenersByIpResponse>(await this.callApi(params, req, runtime), new ListListenersByIpResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListListenersByIpResponse>(await this.callApi(params, req, runtime), new ListListenersByIpResponse({}));
+    } else {
+      return $dara.cast<ListListenersByIpResponse>(await this.execute(params, req, runtime), new ListListenersByIpResponse({}));
+    }
+
   }
 
   /**
@@ -91328,7 +92060,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListMigrationTaskResponse>(await this.callApi(params, req, runtime), new ListMigrationTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListMigrationTaskResponse>(await this.callApi(params, req, runtime), new ListMigrationTaskResponse({}));
+    } else {
+      return $dara.cast<ListMigrationTaskResponse>(await this.execute(params, req, runtime), new ListMigrationTaskResponse({}));
+    }
+
   }
 
   /**
@@ -91413,7 +92150,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListNacosConfigsResponse>(await this.callApi(params, req, runtime), new ListNacosConfigsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNacosConfigsResponse>(await this.callApi(params, req, runtime), new ListNacosConfigsResponse({}));
+    } else {
+      return $dara.cast<ListNacosConfigsResponse>(await this.execute(params, req, runtime), new ListNacosConfigsResponse({}));
+    }
+
   }
 
   /**
@@ -91493,7 +92235,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListNacosHistoryConfigsResponse>(await this.callApi(params, req, runtime), new ListNacosHistoryConfigsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNacosHistoryConfigsResponse>(await this.callApi(params, req, runtime), new ListNacosHistoryConfigsResponse({}));
+    } else {
+      return $dara.cast<ListNacosHistoryConfigsResponse>(await this.execute(params, req, runtime), new ListNacosHistoryConfigsResponse({}));
+    }
+
   }
 
   /**
@@ -91554,7 +92301,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListNamespacesResponse>(await this.callApi(params, req, runtime), new ListNamespacesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNamespacesResponse>(await this.callApi(params, req, runtime), new ListNamespacesResponse({}));
+    } else {
+      return $dara.cast<ListNamespacesResponse>(await this.execute(params, req, runtime), new ListNamespacesResponse({}));
+    }
+
   }
 
   /**
@@ -91592,7 +92344,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListNamingTrackResponse>(await this.callApi(params, req, runtime), new ListNamingTrackResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNamingTrackResponse>(await this.callApi(params, req, runtime), new ListNamingTrackResponse({}));
+    } else {
+      return $dara.cast<ListNamingTrackResponse>(await this.execute(params, req, runtime), new ListNamingTrackResponse({}));
+    }
+
   }
 
   /**
@@ -91642,7 +92399,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListSSLCertResponse>(await this.callApi(params, req, runtime), new ListSSLCertResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSSLCertResponse>(await this.callApi(params, req, runtime), new ListSSLCertResponse({}));
+    } else {
+      return $dara.cast<ListSSLCertResponse>(await this.execute(params, req, runtime), new ListSSLCertResponse({}));
+    }
+
   }
 
   /**
@@ -91688,7 +92450,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListSecurityGroupResponse>(await this.callApi(params, req, runtime), new ListSecurityGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSecurityGroupResponse>(await this.callApi(params, req, runtime), new ListSecurityGroupResponse({}));
+    } else {
+      return $dara.cast<ListSecurityGroupResponse>(await this.execute(params, req, runtime), new ListSecurityGroupResponse({}));
+    }
+
   }
 
   /**
@@ -91734,7 +92501,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListSecurityGroupRuleResponse>(await this.callApi(params, req, runtime), new ListSecurityGroupRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSecurityGroupRuleResponse>(await this.callApi(params, req, runtime), new ListSecurityGroupRuleResponse({}));
+    } else {
+      return $dara.cast<ListSecurityGroupRuleResponse>(await this.execute(params, req, runtime), new ListSecurityGroupRuleResponse({}));
+    }
+
   }
 
   /**
@@ -91794,7 +92566,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListSentinelBlockFallbackDefinitionsResponse>(await this.callApi(params, req, runtime), new ListSentinelBlockFallbackDefinitionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSentinelBlockFallbackDefinitionsResponse>(await this.callApi(params, req, runtime), new ListSentinelBlockFallbackDefinitionsResponse({}));
+    } else {
+      return $dara.cast<ListSentinelBlockFallbackDefinitionsResponse>(await this.execute(params, req, runtime), new ListSentinelBlockFallbackDefinitionsResponse({}));
+    }
+
   }
 
   /**
@@ -91844,7 +92621,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListServiceSourceResponse>(await this.callApi(params, req, runtime), new ListServiceSourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceSourceResponse>(await this.callApi(params, req, runtime), new ListServiceSourceResponse({}));
+    } else {
+      return $dara.cast<ListServiceSourceResponse>(await this.execute(params, req, runtime), new ListServiceSourceResponse({}));
+    }
+
   }
 
   /**
@@ -91906,7 +92688,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -91984,7 +92771,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListZkTrackResponse>(await this.callApi(params, req, runtime), new ListZkTrackResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListZkTrackResponse>(await this.callApi(params, req, runtime), new ListZkTrackResponse({}));
+    } else {
+      return $dara.cast<ListZkTrackResponse>(await this.execute(params, req, runtime), new ListZkTrackResponse({}));
+    }
+
   }
 
   /**
@@ -92034,7 +92826,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListZnodeChildrenResponse>(await this.callApi(params, req, runtime), new ListZnodeChildrenResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListZnodeChildrenResponse>(await this.callApi(params, req, runtime), new ListZnodeChildrenResponse({}));
+    } else {
+      return $dara.cast<ListZnodeChildrenResponse>(await this.execute(params, req, runtime), new ListZnodeChildrenResponse({}));
+    }
+
   }
 
   /**
@@ -92096,7 +92893,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyGovernanceKubernetesClusterResponse>(await this.callApi(params, req, runtime), new ModifyGovernanceKubernetesClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyGovernanceKubernetesClusterResponse>(await this.callApi(params, req, runtime), new ModifyGovernanceKubernetesClusterResponse({}));
+    } else {
+      return $dara.cast<ModifyGovernanceKubernetesClusterResponse>(await this.execute(params, req, runtime), new ModifyGovernanceKubernetesClusterResponse({}));
+    }
+
   }
 
   /**
@@ -92186,7 +92988,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyLosslessRuleResponse>(await this.callApi(params, req, runtime), new ModifyLosslessRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyLosslessRuleResponse>(await this.callApi(params, req, runtime), new ModifyLosslessRuleResponse({}));
+    } else {
+      return $dara.cast<ModifyLosslessRuleResponse>(await this.execute(params, req, runtime), new ModifyLosslessRuleResponse({}));
+    }
+
   }
 
   /**
@@ -92236,7 +93043,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<OfflineGatewayRouteResponse>(await this.callApi(params, req, runtime), new OfflineGatewayRouteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OfflineGatewayRouteResponse>(await this.callApi(params, req, runtime), new OfflineGatewayRouteResponse({}));
+    } else {
+      return $dara.cast<OfflineGatewayRouteResponse>(await this.execute(params, req, runtime), new OfflineGatewayRouteResponse({}));
+    }
+
   }
 
   /**
@@ -92302,7 +93114,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<OrderClusterHealthCheckRiskNoticeResponse>(await this.callApi(params, req, runtime), new OrderClusterHealthCheckRiskNoticeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OrderClusterHealthCheckRiskNoticeResponse>(await this.callApi(params, req, runtime), new OrderClusterHealthCheckRiskNoticeResponse({}));
+    } else {
+      return $dara.cast<OrderClusterHealthCheckRiskNoticeResponse>(await this.execute(params, req, runtime), new OrderClusterHealthCheckRiskNoticeResponse({}));
+    }
+
   }
 
   /**
@@ -92352,7 +93169,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<PreserveHeaderFormatResponse>(await this.callApi(params, req, runtime), new PreserveHeaderFormatResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PreserveHeaderFormatResponse>(await this.callApi(params, req, runtime), new PreserveHeaderFormatResponse({}));
+    } else {
+      return $dara.cast<PreserveHeaderFormatResponse>(await this.execute(params, req, runtime), new PreserveHeaderFormatResponse({}));
+    }
+
   }
 
   /**
@@ -92410,7 +93232,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<PullServicesResponse>(await this.callApi(params, req, runtime), new PullServicesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PullServicesResponse>(await this.callApi(params, req, runtime), new PullServicesResponse({}));
+    } else {
+      return $dara.cast<PullServicesResponse>(await this.execute(params, req, runtime), new PullServicesResponse({}));
+    }
+
   }
 
   /**
@@ -92456,7 +93283,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<PutClusterHealthCheckTaskResponse>(await this.callApi(params, req, runtime), new PutClusterHealthCheckTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PutClusterHealthCheckTaskResponse>(await this.callApi(params, req, runtime), new PutClusterHealthCheckTaskResponse({}));
+    } else {
+      return $dara.cast<PutClusterHealthCheckTaskResponse>(await this.execute(params, req, runtime), new PutClusterHealthCheckTaskResponse({}));
+    }
+
   }
 
   /**
@@ -92506,7 +93338,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryAllSwimmingLaneResponse>(await this.callApi(params, req, runtime), new QueryAllSwimmingLaneResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryAllSwimmingLaneResponse>(await this.callApi(params, req, runtime), new QueryAllSwimmingLaneResponse({}));
+    } else {
+      return $dara.cast<QueryAllSwimmingLaneResponse>(await this.execute(params, req, runtime), new QueryAllSwimmingLaneResponse({}));
+    }
+
   }
 
   /**
@@ -92552,7 +93389,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryAllSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new QueryAllSwimmingLaneGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryAllSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new QueryAllSwimmingLaneGroupResponse({}));
+    } else {
+      return $dara.cast<QueryAllSwimmingLaneGroupResponse>(await this.execute(params, req, runtime), new QueryAllSwimmingLaneGroupResponse({}));
+    }
+
   }
 
   /**
@@ -92590,7 +93432,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryBusinessLocationsResponse>(await this.callApi(params, req, runtime), new QueryBusinessLocationsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryBusinessLocationsResponse>(await this.callApi(params, req, runtime), new QueryBusinessLocationsResponse({}));
+    } else {
+      return $dara.cast<QueryBusinessLocationsResponse>(await this.execute(params, req, runtime), new QueryBusinessLocationsResponse({}));
+    }
+
   }
 
   /**
@@ -92644,7 +93491,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryClusterDetailResponse>(await this.callApi(params, req, runtime), new QueryClusterDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryClusterDetailResponse>(await this.callApi(params, req, runtime), new QueryClusterDetailResponse({}));
+    } else {
+      return $dara.cast<QueryClusterDetailResponse>(await this.execute(params, req, runtime), new QueryClusterDetailResponse({}));
+    }
+
   }
 
   /**
@@ -92690,7 +93542,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryClusterDiskSpecificationResponse>(await this.callApi(params, req, runtime), new QueryClusterDiskSpecificationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryClusterDiskSpecificationResponse>(await this.callApi(params, req, runtime), new QueryClusterDiskSpecificationResponse({}));
+    } else {
+      return $dara.cast<QueryClusterDiskSpecificationResponse>(await this.execute(params, req, runtime), new QueryClusterDiskSpecificationResponse({}));
+    }
+
   }
 
   /**
@@ -92756,7 +93613,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryClusterInfoResponse>(await this.callApi(params, req, runtime), new QueryClusterInfoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryClusterInfoResponse>(await this.callApi(params, req, runtime), new QueryClusterInfoResponse({}));
+    } else {
+      return $dara.cast<QueryClusterInfoResponse>(await this.execute(params, req, runtime), new QueryClusterInfoResponse({}));
+    }
+
   }
 
   /**
@@ -92806,7 +93668,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryClusterSpecificationResponse>(await this.callApi(params, req, runtime), new QueryClusterSpecificationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryClusterSpecificationResponse>(await this.callApi(params, req, runtime), new QueryClusterSpecificationResponse({}));
+    } else {
+      return $dara.cast<QueryClusterSpecificationResponse>(await this.execute(params, req, runtime), new QueryClusterSpecificationResponse({}));
+    }
+
   }
 
   /**
@@ -92868,7 +93735,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryConfigResponse>(await this.callApi(params, req, runtime), new QueryConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryConfigResponse>(await this.callApi(params, req, runtime), new QueryConfigResponse({}));
+    } else {
+      return $dara.cast<QueryConfigResponse>(await this.execute(params, req, runtime), new QueryConfigResponse({}));
+    }
+
   }
 
   /**
@@ -92910,7 +93782,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryGatewayRegionResponse>(await this.callApi(params, req, runtime), new QueryGatewayRegionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryGatewayRegionResponse>(await this.callApi(params, req, runtime), new QueryGatewayRegionResponse({}));
+    } else {
+      return $dara.cast<QueryGatewayRegionResponse>(await this.execute(params, req, runtime), new QueryGatewayRegionResponse({}));
+    }
+
   }
 
   /**
@@ -92952,7 +93829,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryGatewayTypeResponse>(await this.callApi(params, req, runtime), new QueryGatewayTypeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryGatewayTypeResponse>(await this.callApi(params, req, runtime), new QueryGatewayTypeResponse({}));
+    } else {
+      return $dara.cast<QueryGatewayTypeResponse>(await this.execute(params, req, runtime), new QueryGatewayTypeResponse({}));
+    }
+
   }
 
   /**
@@ -92990,7 +93872,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryGovernanceKubernetesClusterResponse>(await this.callApi(params, req, runtime), new QueryGovernanceKubernetesClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryGovernanceKubernetesClusterResponse>(await this.callApi(params, req, runtime), new QueryGovernanceKubernetesClusterResponse({}));
+    } else {
+      return $dara.cast<QueryGovernanceKubernetesClusterResponse>(await this.execute(params, req, runtime), new QueryGovernanceKubernetesClusterResponse({}));
+    }
+
   }
 
   /**
@@ -93052,7 +93939,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryInstancesInfoResponse>(await this.callApi(params, req, runtime), new QueryInstancesInfoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryInstancesInfoResponse>(await this.callApi(params, req, runtime), new QueryInstancesInfoResponse({}));
+    } else {
+      return $dara.cast<QueryInstancesInfoResponse>(await this.execute(params, req, runtime), new QueryInstancesInfoResponse({}));
+    }
+
   }
 
   /**
@@ -93118,7 +94010,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryMonitorResponse>(await this.callApi(params, req, runtime), new QueryMonitorResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryMonitorResponse>(await this.callApi(params, req, runtime), new QueryMonitorResponse({}));
+    } else {
+      return $dara.cast<QueryMonitorResponse>(await this.execute(params, req, runtime), new QueryMonitorResponse({}));
+    }
+
   }
 
   /**
@@ -93168,7 +94065,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryNamespaceResponse>(await this.callApi(params, req, runtime), new QueryNamespaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryNamespaceResponse>(await this.callApi(params, req, runtime), new QueryNamespaceResponse({}));
+    } else {
+      return $dara.cast<QueryNamespaceResponse>(await this.execute(params, req, runtime), new QueryNamespaceResponse({}));
+    }
+
   }
 
   /**
@@ -93206,7 +94108,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QuerySlbSpecResponse>(await this.callApi(params, req, runtime), new QuerySlbSpecResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySlbSpecResponse>(await this.callApi(params, req, runtime), new QuerySlbSpecResponse({}));
+    } else {
+      return $dara.cast<QuerySlbSpecResponse>(await this.execute(params, req, runtime), new QuerySlbSpecResponse({}));
+    }
+
   }
 
   /**
@@ -93256,7 +94163,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QuerySwimmingLaneByIdResponse>(await this.callApi(params, req, runtime), new QuerySwimmingLaneByIdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySwimmingLaneByIdResponse>(await this.callApi(params, req, runtime), new QuerySwimmingLaneByIdResponse({}));
+    } else {
+      return $dara.cast<QuerySwimmingLaneByIdResponse>(await this.execute(params, req, runtime), new QuerySwimmingLaneByIdResponse({}));
+    }
+
   }
 
   /**
@@ -93294,7 +94206,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryZnodeDetailResponse>(await this.callApi(params, req, runtime), new QueryZnodeDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryZnodeDetailResponse>(await this.callApi(params, req, runtime), new QueryZnodeDetailResponse({}));
+    } else {
+      return $dara.cast<QueryZnodeDetailResponse>(await this.execute(params, req, runtime), new QueryZnodeDetailResponse({}));
+    }
+
   }
 
   /**
@@ -93352,7 +94269,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RemoveApplicationResponse>(await this.callApi(params, req, runtime), new RemoveApplicationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RemoveApplicationResponse>(await this.callApi(params, req, runtime), new RemoveApplicationResponse({}));
+    } else {
+      return $dara.cast<RemoveApplicationResponse>(await this.execute(params, req, runtime), new RemoveApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -93396,7 +94318,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RemoveAuthPolicyResponse>(await this.callApi(params, req, runtime), new RemoveAuthPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RemoveAuthPolicyResponse>(await this.callApi(params, req, runtime), new RemoveAuthPolicyResponse({}));
+    } else {
+      return $dara.cast<RemoveAuthPolicyResponse>(await this.execute(params, req, runtime), new RemoveAuthPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -93452,7 +94379,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RestartClusterResponse>(await this.callApi(params, req, runtime), new RestartClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RestartClusterResponse>(await this.callApi(params, req, runtime), new RestartClusterResponse({}));
+    } else {
+      return $dara.cast<RestartClusterResponse>(await this.execute(params, req, runtime), new RestartClusterResponse({}));
+    }
+
   }
 
   /**
@@ -93502,7 +94434,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RetryClusterResponse>(await this.callApi(params, req, runtime), new RetryClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RetryClusterResponse>(await this.callApi(params, req, runtime), new RetryClusterResponse({}));
+    } else {
+      return $dara.cast<RetryClusterResponse>(await this.execute(params, req, runtime), new RetryClusterResponse({}));
+    }
+
   }
 
   /**
@@ -93556,7 +94493,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SelectGatewaySlbResponse>(await this.callApi(params, req, runtime), new SelectGatewaySlbResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SelectGatewaySlbResponse>(await this.callApi(params, req, runtime), new SelectGatewaySlbResponse({}));
+    } else {
+      return $dara.cast<SelectGatewaySlbResponse>(await this.execute(params, req, runtime), new SelectGatewaySlbResponse({}));
+    }
+
   }
 
   /**
@@ -93614,7 +94556,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -93676,7 +94623,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -93726,7 +94678,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateAclResponse>(await this.callApi(params, req, runtime), new UpdateAclResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateAclResponse>(await this.callApi(params, req, runtime), new UpdateAclResponse({}));
+    } else {
+      return $dara.cast<UpdateAclResponse>(await this.execute(params, req, runtime), new UpdateAclResponse({}));
+    }
+
   }
 
   /**
@@ -93804,7 +94761,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateAuthPolicyResponse>(await this.callApi(params, req, runtime), new UpdateAuthPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateAuthPolicyResponse>(await this.callApi(params, req, runtime), new UpdateAuthPolicyResponse({}));
+    } else {
+      return $dara.cast<UpdateAuthPolicyResponse>(await this.execute(params, req, runtime), new UpdateAuthPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -93886,7 +94848,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateBlackWhiteListResponse>(await this.callApi(params, req, runtime), new UpdateBlackWhiteListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateBlackWhiteListResponse>(await this.callApi(params, req, runtime), new UpdateBlackWhiteListResponse({}));
+    } else {
+      return $dara.cast<UpdateBlackWhiteListResponse>(await this.execute(params, req, runtime), new UpdateBlackWhiteListResponse({}));
+    }
+
   }
 
   /**
@@ -93980,7 +94947,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new UpdateCircuitBreakerRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new UpdateCircuitBreakerRuleResponse({}));
+    } else {
+      return $dara.cast<UpdateCircuitBreakerRuleResponse>(await this.execute(params, req, runtime), new UpdateCircuitBreakerRuleResponse({}));
+    }
+
   }
 
   /**
@@ -94042,7 +95014,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateClusterResponse>(await this.callApi(params, req, runtime), new UpdateClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateClusterResponse>(await this.callApi(params, req, runtime), new UpdateClusterResponse({}));
+    } else {
+      return $dara.cast<UpdateClusterResponse>(await this.execute(params, req, runtime), new UpdateClusterResponse({}));
+    }
+
   }
 
   /**
@@ -94115,7 +95092,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateClusterSpecResponse>(await this.callApi(params, req, runtime), new UpdateClusterSpecResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateClusterSpecResponse>(await this.callApi(params, req, runtime), new UpdateClusterSpecResponse({}));
+    } else {
+      return $dara.cast<UpdateClusterSpecResponse>(await this.execute(params, req, runtime), new UpdateClusterSpecResponse({}));
+    }
+
   }
 
   /**
@@ -94270,7 +95252,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateConfigResponse>(await this.callApi(params, req, runtime), new UpdateConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateConfigResponse>(await this.callApi(params, req, runtime), new UpdateConfigResponse({}));
+    } else {
+      return $dara.cast<UpdateConfigResponse>(await this.execute(params, req, runtime), new UpdateConfigResponse({}));
+    }
+
   }
 
   /**
@@ -94336,7 +95323,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateEngineNamespaceResponse>(await this.callApi(params, req, runtime), new UpdateEngineNamespaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateEngineNamespaceResponse>(await this.callApi(params, req, runtime), new UpdateEngineNamespaceResponse({}));
+    } else {
+      return $dara.cast<UpdateEngineNamespaceResponse>(await this.execute(params, req, runtime), new UpdateEngineNamespaceResponse({}));
+    }
+
   }
 
   /**
@@ -94414,7 +95406,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateFlowRuleResponse>(await this.callApi(params, req, runtime), new UpdateFlowRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateFlowRuleResponse>(await this.callApi(params, req, runtime), new UpdateFlowRuleResponse({}));
+    } else {
+      return $dara.cast<UpdateFlowRuleResponse>(await this.execute(params, req, runtime), new UpdateFlowRuleResponse({}));
+    }
+
   }
 
   /**
@@ -94500,7 +95497,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayAuthConsumerResponse>(await this.callApi(params, req, runtime), new UpdateGatewayAuthConsumerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayAuthConsumerResponse>(await this.callApi(params, req, runtime), new UpdateGatewayAuthConsumerResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayAuthConsumerResponse>(await this.execute(params, req, runtime), new UpdateGatewayAuthConsumerResponse({}));
+    }
+
   }
 
   /**
@@ -94560,7 +95562,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayAuthConsumerResourceResponse>(await this.callApi(params, req, runtime), new UpdateGatewayAuthConsumerResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayAuthConsumerResourceResponse>(await this.callApi(params, req, runtime), new UpdateGatewayAuthConsumerResourceResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayAuthConsumerResourceResponse>(await this.execute(params, req, runtime), new UpdateGatewayAuthConsumerResourceResponse({}));
+    }
+
   }
 
   /**
@@ -94618,7 +95625,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayAuthConsumerResourceStatusResponse>(await this.callApi(params, req, runtime), new UpdateGatewayAuthConsumerResourceStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayAuthConsumerResourceStatusResponse>(await this.callApi(params, req, runtime), new UpdateGatewayAuthConsumerResourceStatusResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayAuthConsumerResourceStatusResponse>(await this.execute(params, req, runtime), new UpdateGatewayAuthConsumerResourceStatusResponse({}));
+    }
+
   }
 
   /**
@@ -94672,7 +95684,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayAuthConsumerStatusResponse>(await this.callApi(params, req, runtime), new UpdateGatewayAuthConsumerStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayAuthConsumerStatusResponse>(await this.callApi(params, req, runtime), new UpdateGatewayAuthConsumerStatusResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayAuthConsumerStatusResponse>(await this.execute(params, req, runtime), new UpdateGatewayAuthConsumerStatusResponse({}));
+    }
+
   }
 
   /**
@@ -94782,7 +95799,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new UpdateGatewayCircuitBreakerRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new UpdateGatewayCircuitBreakerRuleResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayCircuitBreakerRuleResponse>(await this.execute(params, req, runtime), new UpdateGatewayCircuitBreakerRuleResponse({}));
+    }
+
   }
 
   /**
@@ -94856,7 +95878,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayDomainResponse>(await this.callApi(params, req, runtime), new UpdateGatewayDomainResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayDomainResponse>(await this.callApi(params, req, runtime), new UpdateGatewayDomainResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayDomainResponse>(await this.execute(params, req, runtime), new UpdateGatewayDomainResponse({}));
+    }
+
   }
 
   /**
@@ -94946,7 +95973,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new UpdateGatewayFlowRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new UpdateGatewayFlowRuleResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayFlowRuleResponse>(await this.execute(params, req, runtime), new UpdateGatewayFlowRuleResponse({}));
+    }
+
   }
 
   /**
@@ -95036,7 +96068,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new UpdateGatewayIsolationRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new UpdateGatewayIsolationRuleResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayIsolationRuleResponse>(await this.execute(params, req, runtime), new UpdateGatewayIsolationRuleResponse({}));
+    }
+
   }
 
   /**
@@ -95086,7 +96123,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayNameResponse>(await this.callApi(params, req, runtime), new UpdateGatewayNameResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayNameResponse>(await this.callApi(params, req, runtime), new UpdateGatewayNameResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayNameResponse>(await this.execute(params, req, runtime), new UpdateGatewayNameResponse({}));
+    }
+
   }
 
   /**
@@ -95146,7 +96188,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayOptionResponse>(await this.callApi(params, req, runtime), new UpdateGatewayOptionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayOptionResponse>(await this.callApi(params, req, runtime), new UpdateGatewayOptionResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayOptionResponse>(await this.execute(params, req, runtime), new UpdateGatewayOptionResponse({}));
+    }
+
   }
 
   /**
@@ -95270,7 +96317,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayRouteResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayRouteResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayRouteResponse>(await this.execute(params, req, runtime), new UpdateGatewayRouteResponse({}));
+    }
+
   }
 
   /**
@@ -95334,7 +96386,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayRouteAuthResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteAuthResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayRouteAuthResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteAuthResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayRouteAuthResponse>(await this.execute(params, req, runtime), new UpdateGatewayRouteAuthResponse({}));
+    }
+
   }
 
   /**
@@ -95398,7 +96455,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayRouteCORSResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteCORSResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayRouteCORSResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteCORSResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayRouteCORSResponse>(await this.execute(params, req, runtime), new UpdateGatewayRouteCORSResponse({}));
+    }
+
   }
 
   /**
@@ -95456,7 +96518,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayRouteHTTPRewriteResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteHTTPRewriteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayRouteHTTPRewriteResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteHTTPRewriteResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayRouteHTTPRewriteResponse>(await this.execute(params, req, runtime), new UpdateGatewayRouteHTTPRewriteResponse({}));
+    }
+
   }
 
   /**
@@ -95514,7 +96581,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayRouteHeaderOpResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteHeaderOpResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayRouteHeaderOpResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteHeaderOpResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayRouteHeaderOpResponse>(await this.execute(params, req, runtime), new UpdateGatewayRouteHeaderOpResponse({}));
+    }
+
   }
 
   /**
@@ -95578,7 +96650,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayRouteRetryResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteRetryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayRouteRetryResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteRetryResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayRouteRetryResponse>(await this.execute(params, req, runtime), new UpdateGatewayRouteRetryResponse({}));
+    }
+
   }
 
   /**
@@ -95642,7 +96719,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayRouteTimeoutResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteTimeoutResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayRouteTimeoutResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteTimeoutResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayRouteTimeoutResponse>(await this.execute(params, req, runtime), new UpdateGatewayRouteTimeoutResponse({}));
+    }
+
   }
 
   /**
@@ -95696,7 +96778,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayRouteWafStatusResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteWafStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayRouteWafStatusResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteWafStatusResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayRouteWafStatusResponse>(await this.execute(params, req, runtime), new UpdateGatewayRouteWafStatusResponse({}));
+    }
+
   }
 
   /**
@@ -95784,7 +96871,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayServiceResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayServiceResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayServiceResponse>(await this.execute(params, req, runtime), new UpdateGatewayServiceResponse({}));
+    }
+
   }
 
   /**
@@ -95876,7 +96968,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayServiceCheckResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceCheckResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayServiceCheckResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceCheckResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayServiceCheckResponse>(await this.execute(params, req, runtime), new UpdateGatewayServiceCheckResponse({}));
+    }
+
   }
 
   /**
@@ -95940,7 +97037,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayServiceTrafficPolicyResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceTrafficPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayServiceTrafficPolicyResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceTrafficPolicyResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayServiceTrafficPolicyResponse>(await this.execute(params, req, runtime), new UpdateGatewayServiceTrafficPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -95994,7 +97096,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewayServiceVersionResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceVersionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayServiceVersionResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceVersionResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayServiceVersionResponse>(await this.execute(params, req, runtime), new UpdateGatewayServiceVersionResponse({}));
+    }
+
   }
 
   /**
@@ -96051,7 +97158,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGatewaySpecResponse>(await this.callApi(params, req, runtime), new UpdateGatewaySpecResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewaySpecResponse>(await this.callApi(params, req, runtime), new UpdateGatewaySpecResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewaySpecResponse>(await this.execute(params, req, runtime), new UpdateGatewaySpecResponse({}));
+    }
+
   }
 
   /**
@@ -96104,7 +97216,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateImageResponse>(await this.callApi(params, req, runtime), new UpdateImageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateImageResponse>(await this.callApi(params, req, runtime), new UpdateImageResponse({}));
+    } else {
+      return $dara.cast<UpdateImageResponse>(await this.execute(params, req, runtime), new UpdateImageResponse({}));
+    }
+
   }
 
   /**
@@ -96174,7 +97291,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateIsolationRuleResponse>(await this.callApi(params, req, runtime), new UpdateIsolationRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateIsolationRuleResponse>(await this.callApi(params, req, runtime), new UpdateIsolationRuleResponse({}));
+    } else {
+      return $dara.cast<UpdateIsolationRuleResponse>(await this.execute(params, req, runtime), new UpdateIsolationRuleResponse({}));
+    }
+
   }
 
   /**
@@ -96248,7 +97370,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateLocalityRuleResponse>(await this.callApi(params, req, runtime), new UpdateLocalityRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateLocalityRuleResponse>(await this.callApi(params, req, runtime), new UpdateLocalityRuleResponse({}));
+    } else {
+      return $dara.cast<UpdateLocalityRuleResponse>(await this.execute(params, req, runtime), new UpdateLocalityRuleResponse({}));
+    }
+
   }
 
   /**
@@ -96324,7 +97451,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateMessageQueueRouteResponse>(await this.callApi(params, req, runtime), new UpdateMessageQueueRouteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateMessageQueueRouteResponse>(await this.callApi(params, req, runtime), new UpdateMessageQueueRouteResponse({}));
+    } else {
+      return $dara.cast<UpdateMessageQueueRouteResponse>(await this.execute(params, req, runtime), new UpdateMessageQueueRouteResponse({}));
+    }
+
   }
 
   /**
@@ -96410,7 +97542,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateMigrationTaskResponse>(await this.callApi(params, req, runtime), new UpdateMigrationTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateMigrationTaskResponse>(await this.callApi(params, req, runtime), new UpdateMigrationTaskResponse({}));
+    } else {
+      return $dara.cast<UpdateMigrationTaskResponse>(await this.execute(params, req, runtime), new UpdateMigrationTaskResponse({}));
+    }
+
   }
 
   /**
@@ -96484,7 +97621,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateNacosClusterResponse>(await this.callApi(params, req, runtime), new UpdateNacosClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateNacosClusterResponse>(await this.callApi(params, req, runtime), new UpdateNacosClusterResponse({}));
+    } else {
+      return $dara.cast<UpdateNacosClusterResponse>(await this.execute(params, req, runtime), new UpdateNacosClusterResponse({}));
+    }
+
   }
 
   /**
@@ -96579,7 +97721,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateNacosConfigResponse>(await this.callApi(params, req, runtime), new UpdateNacosConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateNacosConfigResponse>(await this.callApi(params, req, runtime), new UpdateNacosConfigResponse({}));
+    } else {
+      return $dara.cast<UpdateNacosConfigResponse>(await this.execute(params, req, runtime), new UpdateNacosConfigResponse({}));
+    }
+
   }
 
   /**
@@ -96680,7 +97827,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateNacosGrayConfigResponse>(await this.callApi(params, req, runtime), new UpdateNacosGrayConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateNacosGrayConfigResponse>(await this.callApi(params, req, runtime), new UpdateNacosGrayConfigResponse({}));
+    } else {
+      return $dara.cast<UpdateNacosGrayConfigResponse>(await this.execute(params, req, runtime), new UpdateNacosGrayConfigResponse({}));
+    }
+
   }
 
   /**
@@ -96771,7 +97923,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateNacosInstanceResponse>(await this.callApi(params, req, runtime), new UpdateNacosInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateNacosInstanceResponse>(await this.callApi(params, req, runtime), new UpdateNacosInstanceResponse({}));
+    } else {
+      return $dara.cast<UpdateNacosInstanceResponse>(await this.execute(params, req, runtime), new UpdateNacosInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -96843,7 +98000,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateNacosServiceResponse>(await this.callApi(params, req, runtime), new UpdateNacosServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateNacosServiceResponse>(await this.callApi(params, req, runtime), new UpdateNacosServiceResponse({}));
+    } else {
+      return $dara.cast<UpdateNacosServiceResponse>(await this.execute(params, req, runtime), new UpdateNacosServiceResponse({}));
+    }
+
   }
 
   /**
@@ -96934,7 +98096,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdatePluginConfigResponse>(await this.callApi(params, req, runtime), new UpdatePluginConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdatePluginConfigResponse>(await this.callApi(params, req, runtime), new UpdatePluginConfigResponse({}));
+    } else {
+      return $dara.cast<UpdatePluginConfigResponse>(await this.execute(params, req, runtime), new UpdatePluginConfigResponse({}));
+    }
+
   }
 
   /**
@@ -96988,7 +98155,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateSSLCertResponse>(await this.callApi(params, req, runtime), new UpdateSSLCertResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateSSLCertResponse>(await this.callApi(params, req, runtime), new UpdateSSLCertResponse({}));
+    } else {
+      return $dara.cast<UpdateSSLCertResponse>(await this.execute(params, req, runtime), new UpdateSSLCertResponse({}));
+    }
+
   }
 
   /**
@@ -97076,7 +98248,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateServiceSourceResponse>(await this.callApi(params, req, runtime), new UpdateServiceSourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateServiceSourceResponse>(await this.callApi(params, req, runtime), new UpdateServiceSourceResponse({}));
+    } else {
+      return $dara.cast<UpdateServiceSourceResponse>(await this.execute(params, req, runtime), new UpdateServiceSourceResponse({}));
+    }
+
   }
 
   /**
@@ -97134,7 +98311,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateZnodeResponse>(await this.callApi(params, req, runtime), new UpdateZnodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateZnodeResponse>(await this.callApi(params, req, runtime), new UpdateZnodeResponse({}));
+    } else {
+      return $dara.cast<UpdateZnodeResponse>(await this.execute(params, req, runtime), new UpdateZnodeResponse({}));
+    }
+
   }
 
   /**
@@ -97188,7 +98370,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpgradeClusterResponse>(await this.callApi(params, req, runtime), new UpgradeClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpgradeClusterResponse>(await this.callApi(params, req, runtime), new UpgradeClusterResponse({}));
+    } else {
+      return $dara.cast<UpgradeClusterResponse>(await this.execute(params, req, runtime), new UpgradeClusterResponse({}));
+    }
+
   }
 
   /**
