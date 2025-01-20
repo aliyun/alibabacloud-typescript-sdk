@@ -6588,6 +6588,233 @@ export class GetSkillGroupResponseBodyData extends $dara.Model {
   }
 }
 
+export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  array?: boolean;
+  /**
+   * @example
+   * {}
+   */
+  attributes?: string;
+  /**
+   * @example
+   * 1717664210000
+   */
+  createdTime?: number;
+  /**
+   * @example
+   * cretor-xxx@ccc-test
+   */
+  creator?: string;
+  /**
+   * @example
+   * string
+   */
+  dataType?: string;
+  /**
+   * @example
+   * Description-xxxx
+   */
+  description?: string;
+  /**
+   * @example
+   * false
+   */
+  disabled?: boolean;
+  /**
+   * @example
+   * DisplayName-A
+   */
+  displayName?: string;
+  /**
+   * @example
+   * 1
+   */
+  displayOrder?: number;
+  /**
+   * @example
+   * textbox
+   */
+  editorType?: string;
+  /**
+   * @example
+   * 30
+   */
+  maxLength?: number;
+  /**
+   * @example
+   * 10
+   */
+  maximum?: number;
+  /**
+   * @example
+   * 1
+   */
+  minLength?: number;
+  /**
+   * @example
+   * 1
+   */
+  minimum?: number;
+  /**
+   * @example
+   * Name-A
+   */
+  name?: string;
+  /**
+   * @example
+   * ^
+   */
+  pattern?: string;
+  patternErrorMessage?: string;
+  /**
+   * @example
+   * false
+   */
+  readOnly?: boolean;
+  /**
+   * @example
+   * false
+   */
+  required?: boolean;
+  /**
+   * @example
+   * false
+   */
+  system?: boolean;
+  /**
+   * @example
+   * 1717664210000
+   */
+  updatedTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      array: 'Array',
+      attributes: 'Attributes',
+      createdTime: 'CreatedTime',
+      creator: 'Creator',
+      dataType: 'DataType',
+      description: 'Description',
+      disabled: 'Disabled',
+      displayName: 'DisplayName',
+      displayOrder: 'DisplayOrder',
+      editorType: 'EditorType',
+      maxLength: 'MaxLength',
+      maximum: 'Maximum',
+      minLength: 'MinLength',
+      minimum: 'Minimum',
+      name: 'Name',
+      pattern: 'Pattern',
+      patternErrorMessage: 'PatternErrorMessage',
+      readOnly: 'ReadOnly',
+      required: 'Required',
+      system: 'System',
+      updatedTime: 'UpdatedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      array: 'boolean',
+      attributes: 'string',
+      createdTime: 'number',
+      creator: 'string',
+      dataType: 'string',
+      description: 'string',
+      disabled: 'boolean',
+      displayName: 'string',
+      displayOrder: 'number',
+      editorType: 'string',
+      maxLength: 'number',
+      maximum: 'number',
+      minLength: 'number',
+      minimum: 'number',
+      name: 'string',
+      pattern: 'string',
+      patternErrorMessage: 'string',
+      readOnly: 'boolean',
+      required: 'boolean',
+      system: 'boolean',
+      updatedTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSummaryTemplateResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 8939-4223-86d0-6bd187905cc8
+   */
+  categoryId?: string;
+  /**
+   * @example
+   * editor-xxx@ccc-test
+   */
+  editor?: string;
+  /**
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  name?: string;
+  propertyList?: GetSummaryTemplateResponseBodyDataPropertyList[];
+  /**
+   * @example
+   * Enabled
+   */
+  state?: string;
+  /**
+   * @example
+   * 43c2671b-8939-4223-86d0-6bd187905cc8_1717664210492
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      editor: 'Editor',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      propertyList: 'PropertyList',
+      state: 'State',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      editor: 'string',
+      instanceId: 'string',
+      name: 'string',
+      propertyList: { 'type': 'array', 'itemType': GetSummaryTemplateResponseBodyDataPropertyList },
+      state: 'string',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.propertyList)) {
+      $dara.Model.validateArray(this.propertyList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTicketResponseBodyData extends $dara.Model {
   /**
    * @example
@@ -33532,6 +33759,145 @@ export class CreateAudioFileResponse extends $dara.Model {
   }
 }
 
+export class CreateCallSummaryRequest extends $dara.Model {
+  /**
+   * @example
+   * job-522327189435260928
+   */
+  contactId?: string;
+  context?: string;
+  /**
+   * @example
+   * 51e155ce-3747-*****-b402-13c69597b920
+   */
+  customerId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      context: 'Context',
+      customerId: 'CustomerId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      context: 'string',
+      customerId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCallSummaryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * c58b9719-3bc3-441d-a4d3-fc0309ef7066
+   */
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * 8707EB29-BAED-4302-B999-40BA61877437
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.params)) {
+      $dara.Model.validateArray(this.params);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCallSummaryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCallSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCallSummaryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCallTagsRequest extends $dara.Model {
   /**
    * @remarks
@@ -41739,6 +42105,137 @@ export class GetSkillGroupResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetSkillGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSummaryTemplateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 43c2671b-8939-4223-86d0-6bd187905cc8_1717664210492
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSummaryTemplateResponseBody extends $dara.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: GetSummaryTemplateResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * 30C7D235-DDCF-4C7F-A462-5E2598252C2B
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSummaryTemplateResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    if(Array.isArray(this.params)) {
+      $dara.Model.validateArray(this.params);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSummaryTemplateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSummaryTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSummaryTemplateResponseBody,
     };
   }
 
@@ -63132,6 +63629,137 @@ export class UnregisterDeviceResponse extends $dara.Model {
   }
 }
 
+export class UpdateCallSummaryRequest extends $dara.Model {
+  context?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f2c6722b-cd13-442d-bf10-22a07c70d6d5
+   */
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'Context',
+      instanceId: 'InstanceId',
+      ticketId: 'TicketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: 'string',
+      instanceId: 'string',
+      ticketId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCallSummaryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: any;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * 9FBA26B0-462B-4D77-B78F-AF35560DBC71
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.params)) {
+      $dara.Model.validateArray(this.params);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCallSummaryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCallSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCallSummaryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateCampaignRequest extends $dara.Model {
   /**
    * @example
@@ -65744,6 +66372,61 @@ export default class Client extends OpenApi {
   async createAudioFile(request: CreateAudioFileRequest): Promise<CreateAudioFileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAudioFileWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - CreateCallSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCallSummaryResponse
+   */
+  async createCallSummaryWithOptions(request: CreateCallSummaryRequest, runtime: $dara.RuntimeOptions): Promise<CreateCallSummaryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.context)) {
+      query["Context"] = request.context;
+    }
+
+    if (!$dara.isNull(request.customerId)) {
+      query["CustomerId"] = request.customerId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCallSummary",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateCallSummaryResponse>(await this.callApi(params, req, runtime), new CreateCallSummaryResponse({}));
+    } else {
+      return $dara.cast<CreateCallSummaryResponse>(await this.execute(params, req, runtime), new CreateCallSummaryResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - CreateCallSummaryRequest
+   * @returns CreateCallSummaryResponse
+   */
+  async createCallSummary(request: CreateCallSummaryRequest): Promise<CreateCallSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCallSummaryWithOptions(request, runtime);
   }
 
   /**
@@ -68902,6 +69585,53 @@ export default class Client extends OpenApi {
   async getSkillGroup(request: GetSkillGroupRequest): Promise<GetSkillGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSkillGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetSummaryTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSummaryTemplateResponse
+   */
+  async getSummaryTemplateWithOptions(request: GetSummaryTemplateRequest, runtime: $dara.RuntimeOptions): Promise<GetSummaryTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSummaryTemplate",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSummaryTemplateResponse>(await this.callApi(params, req, runtime), new GetSummaryTemplateResponse({}));
+    } else {
+      return $dara.cast<GetSummaryTemplateResponse>(await this.execute(params, req, runtime), new GetSummaryTemplateResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - GetSummaryTemplateRequest
+   * @returns GetSummaryTemplateResponse
+   */
+  async getSummaryTemplate(request: GetSummaryTemplateRequest): Promise<GetSummaryTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSummaryTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -77463,6 +78193,57 @@ export default class Client extends OpenApi {
   async unregisterDevice(request: UnregisterDeviceRequest): Promise<UnregisterDeviceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.unregisterDeviceWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - UpdateCallSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCallSummaryResponse
+   */
+  async updateCallSummaryWithOptions(request: UpdateCallSummaryRequest, runtime: $dara.RuntimeOptions): Promise<UpdateCallSummaryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.context)) {
+      query["Context"] = request.context;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ticketId)) {
+      query["TicketId"] = request.ticketId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCallSummary",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateCallSummaryResponse>(await this.callApi(params, req, runtime), new UpdateCallSummaryResponse({}));
+    } else {
+      return $dara.cast<UpdateCallSummaryResponse>(await this.execute(params, req, runtime), new UpdateCallSummaryResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - UpdateCallSummaryRequest
+   * @returns UpdateCallSummaryResponse
+   */
+  async updateCallSummary(request: UpdateCallSummaryRequest): Promise<UpdateCallSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCallSummaryWithOptions(request, runtime);
   }
 
   /**
