@@ -32,6 +32,7 @@ export class QueryResultDataImages extends $dara.Model {
 }
 
 export class QueryResultDataMetadata extends $dara.Model {
+  averageSpend?: string;
   businessArea?: string;
   dailyOpeningHours?: string;
   mainTag?: string;
@@ -40,6 +41,7 @@ export class QueryResultDataMetadata extends $dara.Model {
   weeklyOpeningDays?: string;
   static names(): { [key: string]: string } {
     return {
+      averageSpend: 'averageSpend',
       businessArea: 'businessArea',
       dailyOpeningHours: 'dailyOpeningHours',
       mainTag: 'mainTag',
@@ -51,6 +53,7 @@ export class QueryResultDataMetadata extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      averageSpend: 'string',
       businessArea: 'string',
       dailyOpeningHours: 'string',
       mainTag: 'string',
@@ -73,6 +76,7 @@ export class QueryResultData extends $dara.Model {
   address?: string;
   cityCode?: string;
   cityName?: string;
+  distanceMeter?: string;
   districtCode?: string;
   districtName?: string;
   id?: string;
@@ -90,6 +94,7 @@ export class QueryResultData extends $dara.Model {
       address: 'address',
       cityCode: 'cityCode',
       cityName: 'cityName',
+      distanceMeter: 'distanceMeter',
       districtCode: 'districtCode',
       districtName: 'districtName',
       id: 'id',
@@ -110,6 +115,7 @@ export class QueryResultData extends $dara.Model {
       address: 'string',
       cityCode: 'string',
       cityName: 'string',
+      distanceMeter: 'string',
       districtCode: 'string',
       districtName: 'string',
       id: 'string',
@@ -3143,15 +3149,18 @@ export class CommonAgentQuery extends $dara.Model {
 
 export class QueryResult extends $dara.Model {
   data?: QueryResultData[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
+      requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       data: { 'type': 'array', 'itemType': QueryResultData },
+      requestId: 'string',
     };
   }
 
@@ -4071,6 +4080,480 @@ export class PlaceSearchNovaResponse extends $dara.Model {
   }
 }
 
+export class QueryAttractionsRequest extends $dara.Model {
+  body?: AgentBaseQuery;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: AgentBaseQuery,
+    };
+  }
+
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAttractionsResponseBody extends $dara.Model {
+  queryResult?: QueryResult;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ECB2144C-E277-5434-80E6-12D26678D364
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryResult: 'queryResult',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryResult: QueryResult,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.queryResult && typeof (this.queryResult as any).validate === 'function') {
+      (this.queryResult as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAttractionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAttractionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryAttractionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAttractionsNlRequest extends $dara.Model {
+  body?: AgentBaseQuery;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: AgentBaseQuery,
+    };
+  }
+
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAttractionsNlResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryResult,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotelsRequest extends $dara.Model {
+  body?: AgentBaseQuery;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: AgentBaseQuery,
+    };
+  }
+
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotelsResponseBody extends $dara.Model {
+  queryResult?: QueryResult;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 78032F8B-0157-53F9-B1A8-3BD86ADE38D0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryResult: 'queryResult',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryResult: QueryResult,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.queryResult && typeof (this.queryResult as any).validate === 'function') {
+      (this.queryResult as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotelsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryHotelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryHotelsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotelsNlRequest extends $dara.Model {
+  body?: AgentBaseQuery;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: AgentBaseQuery,
+    };
+  }
+
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotelsNlResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryResult,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRestaurantsRequest extends $dara.Model {
+  body?: AgentBaseQuery;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: AgentBaseQuery,
+    };
+  }
+
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRestaurantsResponseBody extends $dara.Model {
+  queryResult?: QueryResult;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * D78E16C0-4D44-5065-BFF7-127F7859F687
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryResult: 'queryResult',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryResult: QueryResult,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.queryResult && typeof (this.queryResult as any).validate === 'function') {
+      (this.queryResult as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRestaurantsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRestaurantsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryRestaurantsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRestaurantsNlRequest extends $dara.Model {
+  body?: AgentBaseQuery;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: AgentBaseQuery,
+    };
+  }
+
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRestaurantsNlResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryResult,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RgeoCodeRequest extends $dara.Model {
   /**
    * @example
@@ -4541,7 +5024,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<BicyclingDirectionNovaResponse>(await this.callApi(params, req, runtime), new BicyclingDirectionNovaResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BicyclingDirectionNovaResponse>(await this.callApi(params, req, runtime), new BicyclingDirectionNovaResponse({}));
+    } else {
+      return $dara.cast<BicyclingDirectionNovaResponse>(await this.execute(params, req, runtime), new BicyclingDirectionNovaResponse({}));
+    }
+
   }
 
   /**
@@ -4581,7 +5069,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<CommonQueryBySceneResponse>(await this.callApi(params, req, runtime), new CommonQueryBySceneResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CommonQueryBySceneResponse>(await this.callApi(params, req, runtime), new CommonQueryBySceneResponse({}));
+    } else {
+      return $dara.cast<CommonQueryBySceneResponse>(await this.execute(params, req, runtime), new CommonQueryBySceneResponse({}));
+    }
+
   }
 
   /**
@@ -4646,7 +5139,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<DrivingDirectionNovaResponse>(await this.callApi(params, req, runtime), new DrivingDirectionNovaResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DrivingDirectionNovaResponse>(await this.callApi(params, req, runtime), new DrivingDirectionNovaResponse({}));
+    } else {
+      return $dara.cast<DrivingDirectionNovaResponse>(await this.execute(params, req, runtime), new DrivingDirectionNovaResponse({}));
+    }
+
   }
 
   /**
@@ -4703,7 +5201,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<ElectrobikeDirectionNovaResponse>(await this.callApi(params, req, runtime), new ElectrobikeDirectionNovaResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ElectrobikeDirectionNovaResponse>(await this.callApi(params, req, runtime), new ElectrobikeDirectionNovaResponse({}));
+    } else {
+      return $dara.cast<ElectrobikeDirectionNovaResponse>(await this.execute(params, req, runtime), new ElectrobikeDirectionNovaResponse({}));
+    }
+
   }
 
   /**
@@ -4752,7 +5255,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<GeoCodeResponse>(await this.callApi(params, req, runtime), new GeoCodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GeoCodeResponse>(await this.callApi(params, req, runtime), new GeoCodeResponse({}));
+    } else {
+      return $dara.cast<GeoCodeResponse>(await this.execute(params, req, runtime), new GeoCodeResponse({}));
+    }
+
   }
 
   /**
@@ -4829,7 +5337,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<NearbySearchNovaResponse>(await this.callApi(params, req, runtime), new NearbySearchNovaResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<NearbySearchNovaResponse>(await this.callApi(params, req, runtime), new NearbySearchNovaResponse({}));
+    } else {
+      return $dara.cast<NearbySearchNovaResponse>(await this.execute(params, req, runtime), new NearbySearchNovaResponse({}));
+    }
+
   }
 
   /**
@@ -4894,7 +5407,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<PlaceSearchNovaResponse>(await this.callApi(params, req, runtime), new PlaceSearchNovaResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PlaceSearchNovaResponse>(await this.callApi(params, req, runtime), new PlaceSearchNovaResponse({}));
+    } else {
+      return $dara.cast<PlaceSearchNovaResponse>(await this.execute(params, req, runtime), new PlaceSearchNovaResponse({}));
+    }
+
   }
 
   /**
@@ -4907,6 +5425,276 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.placeSearchNovaWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 景点查询
+   * 
+   * @param request - QueryAttractionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAttractionsResponse
+   */
+  async queryAttractionsWithOptions(request: QueryAttractionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<QueryAttractionsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAttractions",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/amap-function-call-agent/iqs-agent-service/v1/nl/attractions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryAttractionsResponse>(await this.callApi(params, req, runtime), new QueryAttractionsResponse({}));
+    } else {
+      return $dara.cast<QueryAttractionsResponse>(await this.execute(params, req, runtime), new QueryAttractionsResponse({}));
+    }
+
+  }
+
+  /**
+   * 景点查询
+   * 
+   * @param request - QueryAttractionsRequest
+   * @returns QueryAttractionsResponse
+   */
+  async queryAttractions(request: QueryAttractionsRequest): Promise<QueryAttractionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryAttractionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 景点查询
+   * 
+   * @param request - QueryAttractionsNlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAttractionsNlResponse
+   */
+  async queryAttractionsNlWithOptions(request: QueryAttractionsNlRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<QueryAttractionsNlResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAttractionsNl",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/amap-function-call-agent/iqs-agent-service/v2/nl/attractions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryAttractionsNlResponse>(await this.callApi(params, req, runtime), new QueryAttractionsNlResponse({}));
+    } else {
+      return $dara.cast<QueryAttractionsNlResponse>(await this.execute(params, req, runtime), new QueryAttractionsNlResponse({}));
+    }
+
+  }
+
+  /**
+   * 景点查询
+   * 
+   * @param request - QueryAttractionsNlRequest
+   * @returns QueryAttractionsNlResponse
+   */
+  async queryAttractionsNl(request: QueryAttractionsNlRequest): Promise<QueryAttractionsNlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryAttractionsNlWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 酒店查询
+   * 
+   * @param request - QueryHotelsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryHotelsResponse
+   */
+  async queryHotelsWithOptions(request: QueryHotelsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<QueryHotelsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryHotels",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/amap-function-call-agent/iqs-agent-service/v1/nl/hotels`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryHotelsResponse>(await this.callApi(params, req, runtime), new QueryHotelsResponse({}));
+    } else {
+      return $dara.cast<QueryHotelsResponse>(await this.execute(params, req, runtime), new QueryHotelsResponse({}));
+    }
+
+  }
+
+  /**
+   * 酒店查询
+   * 
+   * @param request - QueryHotelsRequest
+   * @returns QueryHotelsResponse
+   */
+  async queryHotels(request: QueryHotelsRequest): Promise<QueryHotelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryHotelsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 酒店查询
+   * 
+   * @param request - QueryHotelsNlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryHotelsNlResponse
+   */
+  async queryHotelsNlWithOptions(request: QueryHotelsNlRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<QueryHotelsNlResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryHotelsNl",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/amap-function-call-agent/iqs-agent-service/v2/nl/hotels`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryHotelsNlResponse>(await this.callApi(params, req, runtime), new QueryHotelsNlResponse({}));
+    } else {
+      return $dara.cast<QueryHotelsNlResponse>(await this.execute(params, req, runtime), new QueryHotelsNlResponse({}));
+    }
+
+  }
+
+  /**
+   * 酒店查询
+   * 
+   * @param request - QueryHotelsNlRequest
+   * @returns QueryHotelsNlResponse
+   */
+  async queryHotelsNl(request: QueryHotelsNlRequest): Promise<QueryHotelsNlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryHotelsNlWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 餐厅查询
+   * 
+   * @param request - QueryRestaurantsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryRestaurantsResponse
+   */
+  async queryRestaurantsWithOptions(request: QueryRestaurantsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<QueryRestaurantsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryRestaurants",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/amap-function-call-agent/iqs-agent-service/v1/nl/restaurants`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryRestaurantsResponse>(await this.callApi(params, req, runtime), new QueryRestaurantsResponse({}));
+    } else {
+      return $dara.cast<QueryRestaurantsResponse>(await this.execute(params, req, runtime), new QueryRestaurantsResponse({}));
+    }
+
+  }
+
+  /**
+   * 餐厅查询
+   * 
+   * @param request - QueryRestaurantsRequest
+   * @returns QueryRestaurantsResponse
+   */
+  async queryRestaurants(request: QueryRestaurantsRequest): Promise<QueryRestaurantsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryRestaurantsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 餐厅查询
+   * 
+   * @param request - QueryRestaurantsNlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryRestaurantsNlResponse
+   */
+  async queryRestaurantsNlWithOptions(request: QueryRestaurantsNlRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<QueryRestaurantsNlResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryRestaurantsNl",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/amap-function-call-agent/iqs-agent-service/v2/nl/restaurants`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryRestaurantsNlResponse>(await this.callApi(params, req, runtime), new QueryRestaurantsNlResponse({}));
+    } else {
+      return $dara.cast<QueryRestaurantsNlResponse>(await this.execute(params, req, runtime), new QueryRestaurantsNlResponse({}));
+    }
+
+  }
+
+  /**
+   * 餐厅查询
+   * 
+   * @param request - QueryRestaurantsNlRequest
+   * @returns QueryRestaurantsNlResponse
+   */
+  async queryRestaurantsNl(request: QueryRestaurantsNlRequest): Promise<QueryRestaurantsNlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryRestaurantsNlWithOptions(request, headers, runtime);
   }
 
   /**
@@ -4943,7 +5731,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<RgeoCodeResponse>(await this.callApi(params, req, runtime), new RgeoCodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RgeoCodeResponse>(await this.callApi(params, req, runtime), new RgeoCodeResponse({}));
+    } else {
+      return $dara.cast<RgeoCodeResponse>(await this.execute(params, req, runtime), new RgeoCodeResponse({}));
+    }
+
   }
 
   /**
@@ -5008,7 +5801,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<TransitIntegratedDirectionResponse>(await this.callApi(params, req, runtime), new TransitIntegratedDirectionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TransitIntegratedDirectionResponse>(await this.callApi(params, req, runtime), new TransitIntegratedDirectionResponse({}));
+    } else {
+      return $dara.cast<TransitIntegratedDirectionResponse>(await this.execute(params, req, runtime), new TransitIntegratedDirectionResponse({}));
+    }
+
   }
 
   /**
@@ -5065,7 +5863,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<WalkingDirectionNovaResponse>(await this.callApi(params, req, runtime), new WalkingDirectionNovaResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<WalkingDirectionNovaResponse>(await this.callApi(params, req, runtime), new WalkingDirectionNovaResponse({}));
+    } else {
+      return $dara.cast<WalkingDirectionNovaResponse>(await this.execute(params, req, runtime), new WalkingDirectionNovaResponse({}));
+    }
+
   }
 
   /**
