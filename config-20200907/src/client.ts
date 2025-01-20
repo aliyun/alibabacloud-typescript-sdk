@@ -1181,7 +1181,27 @@ export class CreateConfigRuleRequestExcludeTagsScope extends $dara.Model {
 }
 
 export class CreateConfigRuleRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag keys.
+   * 
+   * The tag keys cannot be an empty string. The tag keys can be up to 64 characters in length. The tag keys cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag. You can specify up to 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag value cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3774,7 +3794,27 @@ export class GetAggregateConfigDeliveryChannelResponseBodyDeliveryChannel extend
 }
 
 export class GetAggregateConfigRuleRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource. You can specify up to 20 tag keys.
+   * 
+   * The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4352,7 +4392,21 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleSource extends $dara.Mo
 }
 
 export class GetAggregateConfigRuleResponseBodyConfigRuleTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4695,6 +4749,10 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
    * MFA
    */
   tagValueScope?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: GetAggregateConfigRuleResponseBodyConfigRuleTags[];
   /**
    * @remarks
@@ -7312,7 +7370,25 @@ export class GetConfigDeliveryChannelResponseBodyDeliveryChannel extends $dara.M
 }
 
 export class GetConfigRuleRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 256 characters in length and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7894,7 +7970,21 @@ export class GetConfigRuleResponseBodyConfigRuleSource extends $dara.Model {
 }
 
 export class GetConfigRuleResponseBodyConfigRuleTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8205,6 +8295,10 @@ export class GetConfigRuleResponseBodyConfigRule extends $dara.Model {
    * MFA
    */
   tagValueScope?: string;
+  /**
+   * @remarks
+   * The tag list.
+   */
   tags?: GetConfigRuleResponseBodyConfigRuleTags[];
   /**
    * @remarks
@@ -13690,7 +13784,27 @@ export class ListConfigRuleEvaluationStatisticsResponseBodyEvaluationResults ext
 }
 
 export class ListConfigRulesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The tag value must start with a letter but cannot start with `aliyun` or `acs:`. The tag value cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16905,7 +17019,21 @@ export class UpdateConfigRuleRequestExcludeTagsScope extends $dara.Model {
 }
 
 export class UpdateConfigRuleRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the key pair. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag N. Valid values of N: **1 to 20**. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` and `acs:`.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21184,6 +21312,10 @@ export class CreateConfigRuleRequest extends $dara.Model {
    * ALIYUN
    */
   sourceOwner?: string;
+  /**
+   * @remarks
+   * rule attached tags
+   */
   tag?: CreateConfigRuleRequestTag[];
   /**
    * @remarks
@@ -21486,6 +21618,10 @@ export class CreateConfigRuleShrinkRequest extends $dara.Model {
    * ALIYUN
    */
   sourceOwner?: string;
+  /**
+   * @remarks
+   * rule attached tags
+   */
   tagShrink?: string;
   /**
    * @remarks
@@ -23857,10 +23993,12 @@ export class EvaluatePreConfigRulesRequest extends $dara.Model {
    * This parameter is required.
    */
   resourceEvaluateItems?: EvaluatePreConfigRulesRequestResourceEvaluateItems[];
+  resourceTypeFormat?: string;
   static names(): { [key: string]: string } {
     return {
       enableManagedRules: 'EnableManagedRules',
       resourceEvaluateItems: 'ResourceEvaluateItems',
+      resourceTypeFormat: 'ResourceTypeFormat',
     };
   }
 
@@ -23868,6 +24006,7 @@ export class EvaluatePreConfigRulesRequest extends $dara.Model {
     return {
       enableManagedRules: 'boolean',
       resourceEvaluateItems: { 'type': 'array', 'itemType': EvaluatePreConfigRulesRequestResourceEvaluateItems },
+      resourceTypeFormat: 'string',
     };
   }
 
@@ -23904,10 +24043,12 @@ export class EvaluatePreConfigRulesShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   resourceEvaluateItemsShrink?: string;
+  resourceTypeFormat?: string;
   static names(): { [key: string]: string } {
     return {
       enableManagedRules: 'EnableManagedRules',
       resourceEvaluateItemsShrink: 'ResourceEvaluateItems',
+      resourceTypeFormat: 'ResourceTypeFormat',
     };
   }
 
@@ -23915,6 +24056,7 @@ export class EvaluatePreConfigRulesShrinkRequest extends $dara.Model {
     return {
       enableManagedRules: 'boolean',
       resourceEvaluateItemsShrink: 'string',
+      resourceTypeFormat: 'string',
     };
   }
 
@@ -25581,6 +25723,12 @@ export class GetAggregateConfigRuleRequest extends $dara.Model {
    * cr-7f7d626622af0041****
    */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: GetAggregateConfigRuleRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -25635,6 +25783,12 @@ export class GetAggregateConfigRuleShrinkRequest extends $dara.Model {
    * cr-7f7d626622af0041****
    */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28125,6 +28279,12 @@ export class GetConfigRuleRequest extends $dara.Model {
    * cr-7f7d626622af0041****
    */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: GetConfigRuleRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -28165,6 +28325,12 @@ export class GetConfigRuleShrinkRequest extends $dara.Model {
    * cr-7f7d626622af0041****
    */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33407,6 +33573,12 @@ export class ListConfigRulesRequest extends $dara.Model {
    * 1
    */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: ListConfigRulesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -33547,6 +33719,12 @@ export class ListConfigRulesShrinkRequest extends $dara.Model {
    * 1
    */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39980,6 +40158,12 @@ export class UpdateConfigRuleRequest extends $dara.Model {
    * 3
    */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: UpdateConfigRuleRequestTag[];
   /**
    * @remarks
@@ -40261,6 +40445,12 @@ export class UpdateConfigRuleShrinkRequest extends $dara.Model {
    * 3
    */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   /**
    * @remarks
@@ -43463,6 +43653,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceEvaluateItemsShrink)) {
       body["ResourceEvaluateItems"] = request.resourceEvaluateItemsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceTypeFormat)) {
+      body["ResourceTypeFormat"] = request.resourceTypeFormat;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
