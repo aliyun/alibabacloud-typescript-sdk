@@ -1,18 +1,98 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class RegisterDeviceRequest extends $tea.Model {
+export class RegisterDeviceResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * rSDUqJEawcrhaHVDXgQQ2vV3eOQDzuos5TAJgx9uolqVaAKkgcBHfWd/jYknsiVeYxsLWyscP0U6ia0XL/u6t7ira9XnI3Jv9qHzosrAW09YrT68VigxqwrutxtexXGgrXFzYmcMMe05rYhEmyyoeNu0CB40HxggXIIw10vH0pvhMLd0ssz6FbaOGhZ/7WDzFAqeXlz7+whZFNlXwaCfIwHTDIj9nBHHsBzWWocOHO==
+   */
+  license?: string;
+  /**
+   * @example
+   * SSTfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCwdTbYqDHxAlmdSFowPthsG3wKyXdembceyc5j31FZIYGESE4x6ND0al5ejdx26d2ZMRDzlkjnLqUN3snezRA1x0qs92taGXMrIvYDi0dEsz3X/a/VXHPxNu0+/PBT9RYzakLDV9F/6QdYn4PQUvHSTfz2ghaS5SCj++VVDe4CBBIDAAPB
+   */
+  publicKey?: string;
+  /**
+   * @example
+   * 1082f5e57a004a0799198d4a370c3efa
+   */
+  rid?: string;
+  /**
+   * @example
+   * VnxhWhjL2D3kkGcv8Q/wHzyD6dTEYIDfnIgzDWLS7iQRiCWLu1K+EA+Q6iiH1lpaDNGeQ65zVpbB1wtGMmJymQMJeJ5RHzEo74wwXP48Yfn6tdAoZwtLkxXqZo5N99W/JyEyHyeisC44ZIpLcs1YPv3Wr+uRirUgjHhZXorxJ1E=
+   */
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      license: 'License',
+      publicKey: 'PublicKey',
+      rid: 'Rid',
+      signature: 'Signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      license: 'string',
+      publicKey: 'string',
+      rid: 'string',
+      signature: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDeviceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * NWTtS623eqo6s070
+   */
   appKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 99daf4a623f2b623ae08e79d6d4bf686
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {}
+   */
   extend?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SDKCodeTest01
+   */
   sdkCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * D001
+   */
   userDeviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,16 +114,58 @@ export class RegisterDeviceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.extend) {
+      $dara.Model.validateMap(this.extend);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterDeviceShrinkRequest extends $tea.Model {
+export class RegisterDeviceShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * NWTtS623eqo6s070
+   */
   appKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 99daf4a623f2b623ae08e79d6d4bf686
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {}
+   */
   extendShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SDKCodeTest01
+   */
   sdkCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * D001
+   */
   userDeviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -65,16 +187,32 @@ export class RegisterDeviceShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterDeviceResponseBody extends $tea.Model {
+export class RegisterDeviceResponseBody extends $dara.Model {
   data?: RegisterDeviceResponseBodyData;
+  /**
+   * @example
+   * 0
+   */
   errorCode?: number;
   errorMessage?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * A68E0F1E-9CEE-4BB9-8880-943730FFD9A9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -96,15 +234,22 @@ export class RegisterDeviceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RegisterDeviceResponseBody;
+export class RegisterDeviceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RegisterDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -121,32 +266,14 @@ export class RegisterDeviceResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterDeviceResponseBodyData extends $tea.Model {
-  license?: string;
-  publicKey?: string;
-  rid?: string;
-  signature?: string;
-  static names(): { [key: string]: string } {
-    return {
-      license: 'License',
-      publicKey: 'PublicKey',
-      rid: 'Rid',
-      signature: 'Signature',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      license: 'string',
-      publicKey: 'string',
-      rid: 'string',
-      signature: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -157,7 +284,7 @@ export class RegisterDeviceResponseBodyData extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "central";
     this.checkConfig(config);
@@ -166,50 +293,57 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async registerDeviceWithOptions(tmpReq: RegisterDeviceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDeviceResponse> {
-    Util.validateModel(tmpReq);
+  /**
+   * 注册设备
+   * 
+   * @param tmpReq - RegisterDeviceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterDeviceResponse
+   */
+  async registerDeviceWithOptions(tmpReq: RegisterDeviceRequest, runtime: $dara.RuntimeOptions): Promise<RegisterDeviceResponse> {
+    tmpReq.validate();
     let request = new RegisterDeviceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.extend)) {
+    if (!$dara.isNull(tmpReq.extend)) {
       request.extendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extend, "Extend", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appKey)) {
+    if (!$dara.isNull(request.appKey)) {
       body["AppKey"] = request.appKey;
     }
 
-    if (!Util.isUnset(request.deviceId)) {
+    if (!$dara.isNull(request.deviceId)) {
       body["DeviceId"] = request.deviceId;
     }
 
-    if (!Util.isUnset(request.extendShrink)) {
+    if (!$dara.isNull(request.extendShrink)) {
       body["Extend"] = request.extendShrink;
     }
 
-    if (!Util.isUnset(request.sdkCode)) {
+    if (!$dara.isNull(request.sdkCode)) {
       body["SdkCode"] = request.sdkCode;
     }
 
-    if (!Util.isUnset(request.userDeviceId)) {
+    if (!$dara.isNull(request.userDeviceId)) {
       body["UserDeviceId"] = request.userDeviceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RegisterDevice",
       version: "2021-04-15",
       protocol: "HTTPS",
@@ -220,11 +354,22 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RegisterDeviceResponse>(await this.callApi(params, req, runtime), new RegisterDeviceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RegisterDeviceResponse>(await this.callApi(params, req, runtime), new RegisterDeviceResponse({}));
+    } else {
+      return $dara.cast<RegisterDeviceResponse>(await this.execute(params, req, runtime), new RegisterDeviceResponse({}));
+    }
+
   }
 
+  /**
+   * 注册设备
+   * 
+   * @param request - RegisterDeviceRequest
+   * @returns RegisterDeviceResponse
+   */
   async registerDevice(request: RegisterDeviceRequest): Promise<RegisterDeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.registerDeviceWithOptions(request, runtime);
   }
 
